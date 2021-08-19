@@ -134,7 +134,7 @@ func (o ServerEndpointHealthResponseOutput) ToServerEndpointHealthResponsePtrOut
 }
 
 func (o ServerEndpointHealthResponseOutput) ToServerEndpointHealthResponsePtrOutputWithContext(ctx context.Context) ServerEndpointHealthResponsePtrOutput {
-	return o.ApplyT(func(v ServerEndpointHealthResponse) *ServerEndpointHealthResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointHealthResponse) *ServerEndpointHealthResponse {
 		return &v
 	}).(ServerEndpointHealthResponsePtrOutput)
 }
@@ -194,7 +194,13 @@ func (o ServerEndpointHealthResponsePtrOutput) ToServerEndpointHealthResponsePtr
 }
 
 func (o ServerEndpointHealthResponsePtrOutput) Elem() ServerEndpointHealthResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointHealthResponse) ServerEndpointHealthResponse { return *v }).(ServerEndpointHealthResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointHealthResponse) ServerEndpointHealthResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointHealthResponse
+		return ret
+	}).(ServerEndpointHealthResponseOutput)
 }
 
 // Combined Health Status.
@@ -397,7 +403,7 @@ func (o SyncProgressStatusResponseOutput) ToSyncProgressStatusResponsePtrOutput(
 }
 
 func (o SyncProgressStatusResponseOutput) ToSyncProgressStatusResponsePtrOutputWithContext(ctx context.Context) SyncProgressStatusResponsePtrOutput {
-	return o.ApplyT(func(v SyncProgressStatusResponse) *SyncProgressStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncProgressStatusResponse) *SyncProgressStatusResponse {
 		return &v
 	}).(SyncProgressStatusResponsePtrOutput)
 }
@@ -452,7 +458,13 @@ func (o SyncProgressStatusResponsePtrOutput) ToSyncProgressStatusResponsePtrOutp
 }
 
 func (o SyncProgressStatusResponsePtrOutput) Elem() SyncProgressStatusResponseOutput {
-	return o.ApplyT(func(v *SyncProgressStatusResponse) SyncProgressStatusResponse { return *v }).(SyncProgressStatusResponseOutput)
+	return o.ApplyT(func(v *SyncProgressStatusResponse) SyncProgressStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SyncProgressStatusResponse
+		return ret
+	}).(SyncProgressStatusResponseOutput)
 }
 
 // Applied bytes
@@ -633,7 +645,7 @@ func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutput() 
 }
 
 func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutputWithContext(ctx context.Context) SyncSessionStatusResponsePtrOutput {
-	return o.ApplyT(func(v SyncSessionStatusResponse) *SyncSessionStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncSessionStatusResponse) *SyncSessionStatusResponse {
 		return &v
 	}).(SyncSessionStatusResponsePtrOutput)
 }
@@ -673,7 +685,13 @@ func (o SyncSessionStatusResponsePtrOutput) ToSyncSessionStatusResponsePtrOutput
 }
 
 func (o SyncSessionStatusResponsePtrOutput) Elem() SyncSessionStatusResponseOutput {
-	return o.ApplyT(func(v *SyncSessionStatusResponse) SyncSessionStatusResponse { return *v }).(SyncSessionStatusResponseOutput)
+	return o.ApplyT(func(v *SyncSessionStatusResponse) SyncSessionStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SyncSessionStatusResponse
+		return ret
+	}).(SyncSessionStatusResponseOutput)
 }
 
 // Last sync per item error count.

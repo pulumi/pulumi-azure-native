@@ -143,7 +143,7 @@ func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutput() CloudE
 }
 
 func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
-	return o.ApplyT(func(v CloudErrorBodyResponse) *CloudErrorBodyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudErrorBodyResponse) *CloudErrorBodyResponse {
 		return &v
 	}).(CloudErrorBodyResponsePtrOutput)
 }
@@ -183,7 +183,13 @@ func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutputWithCo
 }
 
 func (o CloudErrorBodyResponsePtrOutput) Elem() CloudErrorBodyResponseOutput {
-	return o.ApplyT(func(v *CloudErrorBodyResponse) CloudErrorBodyResponse { return *v }).(CloudErrorBodyResponseOutput)
+	return o.ApplyT(func(v *CloudErrorBodyResponse) CloudErrorBodyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudErrorBodyResponse
+		return ret
+	}).(CloudErrorBodyResponseOutput)
 }
 
 // Error code string.
@@ -346,7 +352,7 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
@@ -376,7 +382,13 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The list of identities.
@@ -499,7 +511,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -529,7 +541,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The list of identities.
@@ -1344,7 +1362,7 @@ func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutput() SasAuthenticatio
 }
 
 func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
-	return o.ApplyT(func(v SasAuthentication) *SasAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SasAuthentication) *SasAuthentication {
 		return &v
 	}).(SasAuthenticationPtrOutput)
 }
@@ -1375,7 +1393,13 @@ func (o SasAuthenticationPtrOutput) ToSasAuthenticationPtrOutputWithContext(ctx 
 }
 
 func (o SasAuthenticationPtrOutput) Elem() SasAuthenticationOutput {
-	return o.ApplyT(func(v *SasAuthentication) SasAuthentication { return *v }).(SasAuthenticationOutput)
+	return o.ApplyT(func(v *SasAuthentication) SasAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret SasAuthentication
+		return ret
+	}).(SasAuthenticationOutput)
 }
 
 // The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
@@ -1501,7 +1525,7 @@ func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutput() 
 }
 
 func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v SasAuthenticationResponse) *SasAuthenticationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SasAuthenticationResponse) *SasAuthenticationResponse {
 		return &v
 	}).(SasAuthenticationResponsePtrOutput)
 }
@@ -1532,7 +1556,13 @@ func (o SasAuthenticationResponsePtrOutput) ToSasAuthenticationResponsePtrOutput
 }
 
 func (o SasAuthenticationResponsePtrOutput) Elem() SasAuthenticationResponseOutput {
-	return o.ApplyT(func(v *SasAuthenticationResponse) SasAuthenticationResponse { return *v }).(SasAuthenticationResponseOutput)
+	return o.ApplyT(func(v *SasAuthenticationResponse) SasAuthenticationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SasAuthenticationResponse
+		return ret
+	}).(SasAuthenticationResponseOutput)
 }
 
 // The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
@@ -1791,7 +1821,7 @@ func (o ServiceUnitArtifactsOutput) ToServiceUnitArtifactsPtrOutput() ServiceUni
 }
 
 func (o ServiceUnitArtifactsOutput) ToServiceUnitArtifactsPtrOutputWithContext(ctx context.Context) ServiceUnitArtifactsPtrOutput {
-	return o.ApplyT(func(v ServiceUnitArtifacts) *ServiceUnitArtifacts {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceUnitArtifacts) *ServiceUnitArtifacts {
 		return &v
 	}).(ServiceUnitArtifactsPtrOutput)
 }
@@ -1831,7 +1861,13 @@ func (o ServiceUnitArtifactsPtrOutput) ToServiceUnitArtifactsPtrOutputWithContex
 }
 
 func (o ServiceUnitArtifactsPtrOutput) Elem() ServiceUnitArtifactsOutput {
-	return o.ApplyT(func(v *ServiceUnitArtifacts) ServiceUnitArtifacts { return *v }).(ServiceUnitArtifactsOutput)
+	return o.ApplyT(func(v *ServiceUnitArtifacts) ServiceUnitArtifacts {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceUnitArtifacts
+		return ret
+	}).(ServiceUnitArtifactsOutput)
 }
 
 // The path to the ARM parameters file relative to the artifact source.
@@ -1982,7 +2018,7 @@ func (o ServiceUnitArtifactsResponseOutput) ToServiceUnitArtifactsResponsePtrOut
 }
 
 func (o ServiceUnitArtifactsResponseOutput) ToServiceUnitArtifactsResponsePtrOutputWithContext(ctx context.Context) ServiceUnitArtifactsResponsePtrOutput {
-	return o.ApplyT(func(v ServiceUnitArtifactsResponse) *ServiceUnitArtifactsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceUnitArtifactsResponse) *ServiceUnitArtifactsResponse {
 		return &v
 	}).(ServiceUnitArtifactsResponsePtrOutput)
 }
@@ -2022,7 +2058,13 @@ func (o ServiceUnitArtifactsResponsePtrOutput) ToServiceUnitArtifactsResponsePtr
 }
 
 func (o ServiceUnitArtifactsResponsePtrOutput) Elem() ServiceUnitArtifactsResponseOutput {
-	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) ServiceUnitArtifactsResponse { return *v }).(ServiceUnitArtifactsResponseOutput)
+	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) ServiceUnitArtifactsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceUnitArtifactsResponse
+		return ret
+	}).(ServiceUnitArtifactsResponseOutput)
 }
 
 // The path to the ARM parameters file relative to the artifact source.
@@ -2669,7 +2711,7 @@ func (o WaitStepAttributesOutput) ToWaitStepAttributesPtrOutput() WaitStepAttrib
 }
 
 func (o WaitStepAttributesOutput) ToWaitStepAttributesPtrOutputWithContext(ctx context.Context) WaitStepAttributesPtrOutput {
-	return o.ApplyT(func(v WaitStepAttributes) *WaitStepAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WaitStepAttributes) *WaitStepAttributes {
 		return &v
 	}).(WaitStepAttributesPtrOutput)
 }
@@ -2694,7 +2736,13 @@ func (o WaitStepAttributesPtrOutput) ToWaitStepAttributesPtrOutputWithContext(ct
 }
 
 func (o WaitStepAttributesPtrOutput) Elem() WaitStepAttributesOutput {
-	return o.ApplyT(func(v *WaitStepAttributes) WaitStepAttributes { return *v }).(WaitStepAttributesOutput)
+	return o.ApplyT(func(v *WaitStepAttributes) WaitStepAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret WaitStepAttributes
+		return ret
+	}).(WaitStepAttributesOutput)
 }
 
 // The duration in ISO 8601 format of how long the wait should be.
@@ -2803,7 +2851,7 @@ func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponsePtrOutput(
 }
 
 func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponsePtrOutputWithContext(ctx context.Context) WaitStepAttributesResponsePtrOutput {
-	return o.ApplyT(func(v WaitStepAttributesResponse) *WaitStepAttributesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WaitStepAttributesResponse) *WaitStepAttributesResponse {
 		return &v
 	}).(WaitStepAttributesResponsePtrOutput)
 }
@@ -2828,7 +2876,13 @@ func (o WaitStepAttributesResponsePtrOutput) ToWaitStepAttributesResponsePtrOutp
 }
 
 func (o WaitStepAttributesResponsePtrOutput) Elem() WaitStepAttributesResponseOutput {
-	return o.ApplyT(func(v *WaitStepAttributesResponse) WaitStepAttributesResponse { return *v }).(WaitStepAttributesResponseOutput)
+	return o.ApplyT(func(v *WaitStepAttributesResponse) WaitStepAttributesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WaitStepAttributesResponse
+		return ret
+	}).(WaitStepAttributesResponseOutput)
 }
 
 // The duration in ISO 8601 format of how long the wait should be.
@@ -2943,7 +2997,7 @@ func (o WaitStepPropertiesOutput) ToWaitStepPropertiesPtrOutput() WaitStepProper
 }
 
 func (o WaitStepPropertiesOutput) ToWaitStepPropertiesPtrOutputWithContext(ctx context.Context) WaitStepPropertiesPtrOutput {
-	return o.ApplyT(func(v WaitStepProperties) *WaitStepProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WaitStepProperties) *WaitStepProperties {
 		return &v
 	}).(WaitStepPropertiesPtrOutput)
 }
@@ -2974,7 +3028,13 @@ func (o WaitStepPropertiesPtrOutput) ToWaitStepPropertiesPtrOutputWithContext(ct
 }
 
 func (o WaitStepPropertiesPtrOutput) Elem() WaitStepPropertiesOutput {
-	return o.ApplyT(func(v *WaitStepProperties) WaitStepProperties { return *v }).(WaitStepPropertiesOutput)
+	return o.ApplyT(func(v *WaitStepProperties) WaitStepProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WaitStepProperties
+		return ret
+	}).(WaitStepPropertiesOutput)
 }
 
 // The Wait attributes
@@ -3100,7 +3160,7 @@ func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponsePtrOutput(
 }
 
 func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponsePtrOutputWithContext(ctx context.Context) WaitStepPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WaitStepPropertiesResponse) *WaitStepPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WaitStepPropertiesResponse) *WaitStepPropertiesResponse {
 		return &v
 	}).(WaitStepPropertiesResponsePtrOutput)
 }
@@ -3131,7 +3191,13 @@ func (o WaitStepPropertiesResponsePtrOutput) ToWaitStepPropertiesResponsePtrOutp
 }
 
 func (o WaitStepPropertiesResponsePtrOutput) Elem() WaitStepPropertiesResponseOutput {
-	return o.ApplyT(func(v *WaitStepPropertiesResponse) WaitStepPropertiesResponse { return *v }).(WaitStepPropertiesResponseOutput)
+	return o.ApplyT(func(v *WaitStepPropertiesResponse) WaitStepPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WaitStepPropertiesResponse
+		return ret
+	}).(WaitStepPropertiesResponseOutput)
 }
 
 // The Wait attributes

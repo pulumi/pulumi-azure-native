@@ -131,65 +131,9 @@ func GetIoMAMPolicyByName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IoMAMPolicyByName resources.
 type ioMAMPolicyByNameState struct {
-	AccessRecheckOfflineTimeout *string `pulumi:"accessRecheckOfflineTimeout"`
-	AccessRecheckOnlineTimeout  *string `pulumi:"accessRecheckOnlineTimeout"`
-	AppSharingFromLevel         *string `pulumi:"appSharingFromLevel"`
-	AppSharingToLevel           *string `pulumi:"appSharingToLevel"`
-	Authentication              *string `pulumi:"authentication"`
-	ClipboardSharingLevel       *string `pulumi:"clipboardSharingLevel"`
-	DataBackup                  *string `pulumi:"dataBackup"`
-	Description                 *string `pulumi:"description"`
-	DeviceCompliance            *string `pulumi:"deviceCompliance"`
-	FileEncryptionLevel         *string `pulumi:"fileEncryptionLevel"`
-	FileSharingSaveAs           *string `pulumi:"fileSharingSaveAs"`
-	FriendlyName                *string `pulumi:"friendlyName"`
-	GroupStatus                 *string `pulumi:"groupStatus"`
-	LastModifiedTime            *string `pulumi:"lastModifiedTime"`
-	// Resource Location
-	Location       *string `pulumi:"location"`
-	ManagedBrowser *string `pulumi:"managedBrowser"`
-	// Resource name
-	Name               *string `pulumi:"name"`
-	NumOfApps          *int    `pulumi:"numOfApps"`
-	OfflineWipeTimeout *string `pulumi:"offlineWipeTimeout"`
-	Pin                *string `pulumi:"pin"`
-	PinNumRetry        *int    `pulumi:"pinNumRetry"`
-	// Resource Tags
-	Tags    map[string]string `pulumi:"tags"`
-	TouchId *string           `pulumi:"touchId"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type IoMAMPolicyByNameState struct {
-	AccessRecheckOfflineTimeout pulumi.StringPtrInput
-	AccessRecheckOnlineTimeout  pulumi.StringPtrInput
-	AppSharingFromLevel         pulumi.StringPtrInput
-	AppSharingToLevel           pulumi.StringPtrInput
-	Authentication              pulumi.StringPtrInput
-	ClipboardSharingLevel       pulumi.StringPtrInput
-	DataBackup                  pulumi.StringPtrInput
-	Description                 pulumi.StringPtrInput
-	DeviceCompliance            pulumi.StringPtrInput
-	FileEncryptionLevel         pulumi.StringPtrInput
-	FileSharingSaveAs           pulumi.StringPtrInput
-	FriendlyName                pulumi.StringPtrInput
-	GroupStatus                 pulumi.StringPtrInput
-	LastModifiedTime            pulumi.StringPtrInput
-	// Resource Location
-	Location       pulumi.StringPtrInput
-	ManagedBrowser pulumi.StringPtrInput
-	// Resource name
-	Name               pulumi.StringPtrInput
-	NumOfApps          pulumi.IntPtrInput
-	OfflineWipeTimeout pulumi.StringPtrInput
-	Pin                pulumi.StringPtrInput
-	PinNumRetry        pulumi.IntPtrInput
-	// Resource Tags
-	Tags    pulumi.StringMapInput
-	TouchId pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (IoMAMPolicyByNameState) ElementType() reflect.Type {
@@ -276,9 +220,7 @@ func (i *IoMAMPolicyByName) ToIoMAMPolicyByNameOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IoMAMPolicyByNameOutput)
 }
 
-type IoMAMPolicyByNameOutput struct {
-	*pulumi.OutputState
-}
+type IoMAMPolicyByNameOutput struct{ *pulumi.OutputState }
 
 func (IoMAMPolicyByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoMAMPolicyByName)(nil))

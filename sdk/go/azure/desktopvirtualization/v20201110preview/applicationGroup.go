@@ -157,45 +157,9 @@ func GetApplicationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationGroup resources.
 type applicationGroupState struct {
-	// Resource Type of ApplicationGroup.
-	ApplicationGroupType *string `pulumi:"applicationGroupType"`
-	// Description of ApplicationGroup.
-	Description *string `pulumi:"description"`
-	// Friendly name of ApplicationGroup.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Workspace arm path of ApplicationGroup.
-	WorkspaceArmPath *string `pulumi:"workspaceArmPath"`
 }
 
 type ApplicationGroupState struct {
-	// Resource Type of ApplicationGroup.
-	ApplicationGroupType pulumi.StringPtrInput
-	// Description of ApplicationGroup.
-	Description pulumi.StringPtrInput
-	// Friendly name of ApplicationGroup.
-	FriendlyName pulumi.StringPtrInput
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Workspace arm path of ApplicationGroup.
-	WorkspaceArmPath pulumi.StringPtrInput
 }
 
 func (ApplicationGroupState) ElementType() reflect.Type {
@@ -264,9 +228,7 @@ func (i *ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupOutput)
 }
 
-type ApplicationGroupOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGroup)(nil))

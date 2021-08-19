@@ -91,57 +91,9 @@ func GetConnectivityConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectivityConfiguration resources.
 type connectivityConfigurationState struct {
-	// Groups for configuration
-	AppliesToGroups []ConnectivityGroupItemResponse `pulumi:"appliesToGroups"`
-	// Connectivity topology type.
-	ConnectivityTopology *string `pulumi:"connectivityTopology"`
-	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering *string `pulumi:"deleteExistingPeering"`
-	// A description of the connectivity configuration.
-	Description *string `pulumi:"description"`
-	// A friendly name for the resource.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The hub vnet Id.
-	HubId *string `pulumi:"hubId"`
-	// Flag if global mesh is supported.
-	IsGlobal *string `pulumi:"isGlobal"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the connectivity configuration resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ConnectivityConfigurationState struct {
-	// Groups for configuration
-	AppliesToGroups ConnectivityGroupItemResponseArrayInput
-	// Connectivity topology type.
-	ConnectivityTopology pulumi.StringPtrInput
-	// Flag if need to remove current existing peerings.
-	DeleteExistingPeering pulumi.StringPtrInput
-	// A description of the connectivity configuration.
-	Description pulumi.StringPtrInput
-	// A friendly name for the resource.
-	DisplayName pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The hub vnet Id.
-	HubId pulumi.StringPtrInput
-	// Flag if global mesh is supported.
-	IsGlobal pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the connectivity configuration resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The system metadata related to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ConnectivityConfigurationState) ElementType() reflect.Type {
@@ -218,9 +170,7 @@ func (i *ConnectivityConfiguration) ToConnectivityConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityConfigurationOutput)
 }
 
-type ConnectivityConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type ConnectivityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectivityConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectivityConfiguration)(nil))

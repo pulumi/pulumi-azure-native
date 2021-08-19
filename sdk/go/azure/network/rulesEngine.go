@@ -85,25 +85,9 @@ func GetRulesEngine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RulesEngine resources.
 type rulesEngineState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules []RulesEngineRuleResponse `pulumi:"rules"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type RulesEngineState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource status.
-	ResourceState pulumi.StringPtrInput
-	// A list of rules that define a particular Rules Engine Configuration.
-	Rules RulesEngineRuleResponseArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (RulesEngineState) ElementType() reflect.Type {
@@ -156,9 +140,7 @@ func (i *RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesE
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineOutput)
 }
 
-type RulesEngineOutput struct {
-	*pulumi.OutputState
-}
+type RulesEngineOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RulesEngine)(nil))

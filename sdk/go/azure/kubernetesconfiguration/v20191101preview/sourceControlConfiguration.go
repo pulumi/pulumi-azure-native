@@ -126,61 +126,9 @@ func GetSourceControlConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceControlConfiguration resources.
 type sourceControlConfigurationState struct {
-	// Compliance Status of the Configuration
-	ComplianceStatus *ComplianceStatusResponse `pulumi:"complianceStatus"`
-	// Option to enable Helm Operator for this git configuration.
-	EnableHelmOperator *string `pulumi:"enableHelmOperator"`
-	// Properties for Helm operator.
-	HelmOperatorProperties *HelmOperatorPropertiesResponse `pulumi:"helmOperatorProperties"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Instance name of the operator - identifying the specific configuration.
-	OperatorInstanceName *string `pulumi:"operatorInstanceName"`
-	// The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
-	OperatorNamespace *string `pulumi:"operatorNamespace"`
-	// Any Parameters for the Operator instance in string format.
-	OperatorParams *string `pulumi:"operatorParams"`
-	// Scope at which the operator will be installed.
-	OperatorScope *string `pulumi:"operatorScope"`
-	// Type of the operator
-	OperatorType *string `pulumi:"operatorType"`
-	// The provisioning state of the resource provider.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
-	RepositoryPublicKey *string `pulumi:"repositoryPublicKey"`
-	// Url of the SourceControl Repository.
-	RepositoryUrl *string `pulumi:"repositoryUrl"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SourceControlConfigurationState struct {
-	// Compliance Status of the Configuration
-	ComplianceStatus ComplianceStatusResponsePtrInput
-	// Option to enable Helm Operator for this git configuration.
-	EnableHelmOperator pulumi.StringPtrInput
-	// Properties for Helm operator.
-	HelmOperatorProperties HelmOperatorPropertiesResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Instance name of the operator - identifying the specific configuration.
-	OperatorInstanceName pulumi.StringPtrInput
-	// The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
-	OperatorNamespace pulumi.StringPtrInput
-	// Any Parameters for the Operator instance in string format.
-	OperatorParams pulumi.StringPtrInput
-	// Scope at which the operator will be installed.
-	OperatorScope pulumi.StringPtrInput
-	// Type of the operator
-	OperatorType pulumi.StringPtrInput
-	// The provisioning state of the resource provider.
-	ProvisioningState pulumi.StringPtrInput
-	// Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
-	RepositoryPublicKey pulumi.StringPtrInput
-	// Url of the SourceControl Repository.
-	RepositoryUrl pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SourceControlConfigurationState) ElementType() reflect.Type {
@@ -269,9 +217,7 @@ func (i *SourceControlConfiguration) ToSourceControlConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlConfigurationOutput)
 }
 
-type SourceControlConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type SourceControlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SourceControlConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceControlConfiguration)(nil))

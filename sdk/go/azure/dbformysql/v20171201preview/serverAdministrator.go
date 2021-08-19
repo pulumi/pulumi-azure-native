@@ -94,33 +94,9 @@ func GetServerAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerAdministrator resources.
 type serverAdministratorState struct {
-	// The type of administrator.
-	AdministratorType *string `pulumi:"administratorType"`
-	// The server administrator login account name.
-	Login *string `pulumi:"login"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The server administrator Sid (Secure ID).
-	Sid *string `pulumi:"sid"`
-	// The server Active Directory Administrator tenant id.
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ServerAdministratorState struct {
-	// The type of administrator.
-	AdministratorType pulumi.StringPtrInput
-	// The server administrator login account name.
-	Login pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The server administrator Sid (Secure ID).
-	Sid pulumi.StringPtrInput
-	// The server Active Directory Administrator tenant id.
-	TenantId pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ServerAdministratorState) ElementType() reflect.Type {
@@ -181,9 +157,7 @@ func (i *ServerAdministrator) ToServerAdministratorOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorOutput)
 }
 
-type ServerAdministratorOutput struct {
-	*pulumi.OutputState
-}
+type ServerAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerAdministrator)(nil))

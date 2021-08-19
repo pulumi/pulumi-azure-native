@@ -239,93 +239,9 @@ func GetVpnConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnConnection resources.
 type vpnConnectionState struct {
-	// Expected bandwidth in MBPS.
-	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
-	// The connection status.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// DPD timeout in seconds for vpn connection.
-	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
-	// Egress bytes transferred.
-	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
-	// EnableBgp flag.
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// Enable internet security.
-	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
-	// EnableBgp flag.
-	EnableRateLimiting *bool `pulumi:"enableRateLimiting"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Ingress bytes transferred.
-	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
-	// The IPSec Policies to be considered by this connection.
-	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the VPN connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Id of the connected vpn site.
-	RemoteVpnSite *SubResourceResponse `pulumi:"remoteVpnSite"`
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration *RoutingConfigurationResponse `pulumi:"routingConfiguration"`
-	// Routing weight for vpn connection.
-	RoutingWeight *int `pulumi:"routingWeight"`
-	// SharedKey for the vpn connection.
-	SharedKey *string `pulumi:"sharedKey"`
-	// The Traffic Selector Policies to be considered by this connection.
-	TrafficSelectorPolicies []TrafficSelectorPolicyResponse `pulumi:"trafficSelectorPolicies"`
-	// Use local azure ip to initiate connection.
-	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
-	// Enable policy-based traffic selectors.
-	UsePolicyBasedTrafficSelectors *bool `pulumi:"usePolicyBasedTrafficSelectors"`
-	// Connection protocol used for this connection.
-	VpnConnectionProtocolType *string `pulumi:"vpnConnectionProtocolType"`
-	// List of all vpn site link connections to the gateway.
-	VpnLinkConnections []VpnSiteLinkConnectionResponse `pulumi:"vpnLinkConnections"`
 }
 
 type VpnConnectionState struct {
-	// Expected bandwidth in MBPS.
-	ConnectionBandwidth pulumi.IntPtrInput
-	// The connection status.
-	ConnectionStatus pulumi.StringPtrInput
-	// DPD timeout in seconds for vpn connection.
-	DpdTimeoutSeconds pulumi.IntPtrInput
-	// Egress bytes transferred.
-	EgressBytesTransferred pulumi.Float64PtrInput
-	// EnableBgp flag.
-	EnableBgp pulumi.BoolPtrInput
-	// Enable internet security.
-	EnableInternetSecurity pulumi.BoolPtrInput
-	// EnableBgp flag.
-	EnableRateLimiting pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Ingress bytes transferred.
-	IngressBytesTransferred pulumi.Float64PtrInput
-	// The IPSec Policies to be considered by this connection.
-	IpsecPolicies IpsecPolicyResponseArrayInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the VPN connection resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Id of the connected vpn site.
-	RemoteVpnSite SubResourceResponsePtrInput
-	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration RoutingConfigurationResponsePtrInput
-	// Routing weight for vpn connection.
-	RoutingWeight pulumi.IntPtrInput
-	// SharedKey for the vpn connection.
-	SharedKey pulumi.StringPtrInput
-	// The Traffic Selector Policies to be considered by this connection.
-	TrafficSelectorPolicies TrafficSelectorPolicyResponseArrayInput
-	// Use local azure ip to initiate connection.
-	UseLocalAzureIpAddress pulumi.BoolPtrInput
-	// Enable policy-based traffic selectors.
-	UsePolicyBasedTrafficSelectors pulumi.BoolPtrInput
-	// Connection protocol used for this connection.
-	VpnConnectionProtocolType pulumi.StringPtrInput
-	// List of all vpn site link connections to the gateway.
-	VpnLinkConnections VpnSiteLinkConnectionResponseArrayInput
 }
 
 func (VpnConnectionState) ElementType() reflect.Type {
@@ -442,9 +358,7 @@ func (i *VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) Vp
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionOutput)
 }
 
-type VpnConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VpnConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnConnection)(nil))

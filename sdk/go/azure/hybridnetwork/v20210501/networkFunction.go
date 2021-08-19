@@ -101,77 +101,9 @@ func GetNetworkFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkFunction resources.
 type networkFunctionState struct {
-	// The reference to the device resource. Once set, it cannot be updated.
-	Device *SubResourceResponse `pulumi:"device"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The resource URI of the managed application.
-	ManagedApplication *SubResourceResponse `pulumi:"managedApplication"`
-	// The parameters for the managed application.
-	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations interface{} `pulumi:"networkFunctionContainerConfigurations"`
-	// The network function configurations from the user.
-	NetworkFunctionUserConfigurations []NetworkFunctionUserConfigurationResponse `pulumi:"networkFunctionUserConfigurations"`
-	// The provisioning state of the network function resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The service key for the network function resource.
-	ServiceKey *string `pulumi:"serviceKey"`
-	// The sku name for the network function. Once set, it cannot be updated.
-	SkuName *string `pulumi:"skuName"`
-	// The sku type for the network function.
-	SkuType *string `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The vendor name for the network function. Once set, it cannot be updated.
-	VendorName *string `pulumi:"vendorName"`
-	// The vendor provisioning state for the network function resource.
-	VendorProvisioningState *string `pulumi:"vendorProvisioningState"`
 }
 
 type NetworkFunctionState struct {
-	// The reference to the device resource. Once set, it cannot be updated.
-	Device SubResourceResponsePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The resource URI of the managed application.
-	ManagedApplication SubResourceResponsePtrInput
-	// The parameters for the managed application.
-	ManagedApplicationParameters pulumi.Input
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations pulumi.Input
-	// The network function configurations from the user.
-	NetworkFunctionUserConfigurations NetworkFunctionUserConfigurationResponseArrayInput
-	// The provisioning state of the network function resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The service key for the network function resource.
-	ServiceKey pulumi.StringPtrInput
-	// The sku name for the network function. Once set, it cannot be updated.
-	SkuName pulumi.StringPtrInput
-	// The sku type for the network function.
-	SkuType pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The vendor name for the network function. Once set, it cannot be updated.
-	VendorName pulumi.StringPtrInput
-	// The vendor provisioning state for the network function resource.
-	VendorProvisioningState pulumi.StringPtrInput
 }
 
 func (NetworkFunctionState) ElementType() reflect.Type {
@@ -252,9 +184,7 @@ func (i *NetworkFunction) ToNetworkFunctionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionOutput)
 }
 
-type NetworkFunctionOutput struct {
-	*pulumi.OutputState
-}
+type NetworkFunctionOutput struct{ *pulumi.OutputState }
 
 func (NetworkFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkFunction)(nil))

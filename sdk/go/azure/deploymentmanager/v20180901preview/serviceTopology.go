@@ -77,29 +77,9 @@ func GetServiceTopology(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceTopology resources.
 type serviceTopologyState struct {
-	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-	ArtifactSourceId *string `pulumi:"artifactSourceId"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ServiceTopologyState struct {
-	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
-	ArtifactSourceId pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceTopologyState) ElementType() reflect.Type {
@@ -156,9 +136,7 @@ func (i *ServiceTopology) ToServiceTopologyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTopologyOutput)
 }
 
-type ServiceTopologyOutput struct {
-	*pulumi.OutputState
-}
+type ServiceTopologyOutput struct{ *pulumi.OutputState }
 
 func (ServiceTopologyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceTopology)(nil))

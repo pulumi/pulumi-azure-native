@@ -526,7 +526,7 @@ func (o MediaGraphPemCertificateListOutput) ToMediaGraphPemCertificateListPtrOut
 }
 
 func (o MediaGraphPemCertificateListOutput) ToMediaGraphPemCertificateListPtrOutputWithContext(ctx context.Context) MediaGraphPemCertificateListPtrOutput {
-	return o.ApplyT(func(v MediaGraphPemCertificateList) *MediaGraphPemCertificateList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphPemCertificateList) *MediaGraphPemCertificateList {
 		return &v
 	}).(MediaGraphPemCertificateListPtrOutput)
 }
@@ -557,7 +557,13 @@ func (o MediaGraphPemCertificateListPtrOutput) ToMediaGraphPemCertificateListPtr
 }
 
 func (o MediaGraphPemCertificateListPtrOutput) Elem() MediaGraphPemCertificateListOutput {
-	return o.ApplyT(func(v *MediaGraphPemCertificateList) MediaGraphPemCertificateList { return *v }).(MediaGraphPemCertificateListOutput)
+	return o.ApplyT(func(v *MediaGraphPemCertificateList) MediaGraphPemCertificateList {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphPemCertificateList
+		return ret
+	}).(MediaGraphPemCertificateListOutput)
 }
 
 // PEM formatted public certificates, one per entry.
@@ -683,7 +689,7 @@ func (o MediaGraphPemCertificateListResponseOutput) ToMediaGraphPemCertificateLi
 }
 
 func (o MediaGraphPemCertificateListResponseOutput) ToMediaGraphPemCertificateListResponsePtrOutputWithContext(ctx context.Context) MediaGraphPemCertificateListResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphPemCertificateListResponse) *MediaGraphPemCertificateListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphPemCertificateListResponse) *MediaGraphPemCertificateListResponse {
 		return &v
 	}).(MediaGraphPemCertificateListResponsePtrOutput)
 }
@@ -714,7 +720,13 @@ func (o MediaGraphPemCertificateListResponsePtrOutput) ToMediaGraphPemCertificat
 }
 
 func (o MediaGraphPemCertificateListResponsePtrOutput) Elem() MediaGraphPemCertificateListResponseOutput {
-	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) MediaGraphPemCertificateListResponse { return *v }).(MediaGraphPemCertificateListResponseOutput)
+	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) MediaGraphPemCertificateListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphPemCertificateListResponse
+		return ret
+	}).(MediaGraphPemCertificateListResponseOutput)
 }
 
 // PEM formatted public certificates, one per entry.
@@ -1292,7 +1304,7 @@ func (o MediaGraphTlsValidationOptionsOutput) ToMediaGraphTlsValidationOptionsPt
 }
 
 func (o MediaGraphTlsValidationOptionsOutput) ToMediaGraphTlsValidationOptionsPtrOutputWithContext(ctx context.Context) MediaGraphTlsValidationOptionsPtrOutput {
-	return o.ApplyT(func(v MediaGraphTlsValidationOptions) *MediaGraphTlsValidationOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphTlsValidationOptions) *MediaGraphTlsValidationOptions {
 		return &v
 	}).(MediaGraphTlsValidationOptionsPtrOutput)
 }
@@ -1322,7 +1334,13 @@ func (o MediaGraphTlsValidationOptionsPtrOutput) ToMediaGraphTlsValidationOption
 }
 
 func (o MediaGraphTlsValidationOptionsPtrOutput) Elem() MediaGraphTlsValidationOptionsOutput {
-	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) MediaGraphTlsValidationOptions { return *v }).(MediaGraphTlsValidationOptionsOutput)
+	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) MediaGraphTlsValidationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphTlsValidationOptions
+		return ret
+	}).(MediaGraphTlsValidationOptionsOutput)
 }
 
 // Ignore the host name (common name) during validation.
@@ -1445,7 +1463,7 @@ func (o MediaGraphTlsValidationOptionsResponseOutput) ToMediaGraphTlsValidationO
 }
 
 func (o MediaGraphTlsValidationOptionsResponseOutput) ToMediaGraphTlsValidationOptionsResponsePtrOutputWithContext(ctx context.Context) MediaGraphTlsValidationOptionsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphTlsValidationOptionsResponse) *MediaGraphTlsValidationOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphTlsValidationOptionsResponse) *MediaGraphTlsValidationOptionsResponse {
 		return &v
 	}).(MediaGraphTlsValidationOptionsResponsePtrOutput)
 }
@@ -1475,7 +1493,13 @@ func (o MediaGraphTlsValidationOptionsResponsePtrOutput) ToMediaGraphTlsValidati
 }
 
 func (o MediaGraphTlsValidationOptionsResponsePtrOutput) Elem() MediaGraphTlsValidationOptionsResponseOutput {
-	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) MediaGraphTlsValidationOptionsResponse { return *v }).(MediaGraphTlsValidationOptionsResponseOutput)
+	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) MediaGraphTlsValidationOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphTlsValidationOptionsResponse
+		return ret
+	}).(MediaGraphTlsValidationOptionsResponseOutput)
 }
 
 // Ignore the host name (common name) during validation.
@@ -1604,7 +1628,7 @@ func (o MediaGraphUsernamePasswordCredentialsOutput) ToMediaGraphUsernamePasswor
 }
 
 func (o MediaGraphUsernamePasswordCredentialsOutput) ToMediaGraphUsernamePasswordCredentialsPtrOutputWithContext(ctx context.Context) MediaGraphUsernamePasswordCredentialsPtrOutput {
-	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentials) *MediaGraphUsernamePasswordCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUsernamePasswordCredentials) *MediaGraphUsernamePasswordCredentials {
 		return &v
 	}).(MediaGraphUsernamePasswordCredentialsPtrOutput)
 }
@@ -1640,7 +1664,13 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) ToMediaGraphUsernamePass
 }
 
 func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Elem() MediaGraphUsernamePasswordCredentialsOutput {
-	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) MediaGraphUsernamePasswordCredentials { return *v }).(MediaGraphUsernamePasswordCredentialsOutput)
+	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) MediaGraphUsernamePasswordCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUsernamePasswordCredentials
+		return ret
+	}).(MediaGraphUsernamePasswordCredentialsOutput)
 }
 
 // The discriminator for derived types.
@@ -1780,7 +1810,7 @@ func (o MediaGraphUsernamePasswordCredentialsResponseOutput) ToMediaGraphUsernam
 }
 
 func (o MediaGraphUsernamePasswordCredentialsResponseOutput) ToMediaGraphUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx context.Context) MediaGraphUsernamePasswordCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentialsResponse) *MediaGraphUsernamePasswordCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUsernamePasswordCredentialsResponse) *MediaGraphUsernamePasswordCredentialsResponse {
 		return &v
 	}).(MediaGraphUsernamePasswordCredentialsResponsePtrOutput)
 }
@@ -1817,7 +1847,11 @@ func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) ToMediaGraphUser
 
 func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) Elem() MediaGraphUsernamePasswordCredentialsResponseOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentialsResponse) MediaGraphUsernamePasswordCredentialsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUsernamePasswordCredentialsResponse
+		return ret
 	}).(MediaGraphUsernamePasswordCredentialsResponseOutput)
 }
 

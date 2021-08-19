@@ -156,51 +156,9 @@ func GetKubernetesRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesRole resources.
 type kubernetesRoleState struct {
-	// Host OS supported by the Kubernetes role.
-	HostPlatform *string `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType *string `pulumi:"hostPlatformType"`
-	// Role type.
-	// Expected value is 'Kubernetes'.
-	Kind *string `pulumi:"kind"`
-	// Kubernetes cluster configuration
-	KubernetesClusterInfo *KubernetesClusterInfoResponse `pulumi:"kubernetesClusterInfo"`
-	// Kubernetes role resources
-	KubernetesRoleResources *KubernetesRoleResourcesResponse `pulumi:"kubernetesRoleResources"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// State of Kubernetes deployment
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Role status.
-	RoleStatus *string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type KubernetesRoleState struct {
-	// Host OS supported by the Kubernetes role.
-	HostPlatform pulumi.StringPtrInput
-	// Platform where the runtime is hosted.
-	HostPlatformType pulumi.StringPtrInput
-	// Role type.
-	// Expected value is 'Kubernetes'.
-	Kind pulumi.StringPtrInput
-	// Kubernetes cluster configuration
-	KubernetesClusterInfo KubernetesClusterInfoResponsePtrInput
-	// Kubernetes role resources
-	KubernetesRoleResources KubernetesRoleResourcesResponsePtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// State of Kubernetes deployment
-	ProvisioningState pulumi.StringPtrInput
-	// Role status.
-	RoleStatus pulumi.StringPtrInput
-	// Role configured on ASE resource
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (KubernetesRoleState) ElementType() reflect.Type {
@@ -271,9 +229,7 @@ func (i *KubernetesRole) ToKubernetesRoleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesRoleOutput)
 }
 
-type KubernetesRoleOutput struct {
-	*pulumi.OutputState
-}
+type KubernetesRoleOutput struct{ *pulumi.OutputState }
 
 func (KubernetesRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesRole)(nil))

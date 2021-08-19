@@ -94,45 +94,9 @@ func GetWorkloadNetworkSegment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkSegment resources.
 type workloadNetworkSegmentState struct {
-	// Gateway which to connect segment to.
-	ConnectedGateway *string `pulumi:"connectedGateway"`
-	// Display name of the segment.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Port Vif which segment is associated with.
-	PortVif []WorkloadNetworkSegmentPortVifResponse `pulumi:"portVif"`
-	// The provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// Segment status.
-	Status *string `pulumi:"status"`
-	// Subnet which to connect segment to.
-	Subnet *WorkloadNetworkSegmentSubnetResponse `pulumi:"subnet"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkSegmentState struct {
-	// Gateway which to connect segment to.
-	ConnectedGateway pulumi.StringPtrInput
-	// Display name of the segment.
-	DisplayName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Port Vif which segment is associated with.
-	PortVif WorkloadNetworkSegmentPortVifResponseArrayInput
-	// The provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// Segment status.
-	Status pulumi.StringPtrInput
-	// Subnet which to connect segment to.
-	Subnet WorkloadNetworkSegmentSubnetResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkSegmentState) ElementType() reflect.Type {
@@ -197,9 +161,7 @@ func (i *WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentOutput)
 }
 
-type WorkloadNetworkSegmentOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkSegmentOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkSegmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkSegment)(nil))

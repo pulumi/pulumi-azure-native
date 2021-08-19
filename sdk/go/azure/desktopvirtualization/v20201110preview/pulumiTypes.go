@@ -658,7 +658,7 @@ func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutput() RegistrationInfoPt
 }
 
 func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutputWithContext(ctx context.Context) RegistrationInfoPtrOutput {
-	return o.ApplyT(func(v RegistrationInfo) *RegistrationInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfo) *RegistrationInfo {
 		return &v
 	}).(RegistrationInfoPtrOutput)
 }
@@ -693,7 +693,13 @@ func (o RegistrationInfoPtrOutput) ToRegistrationInfoPtrOutputWithContext(ctx co
 }
 
 func (o RegistrationInfoPtrOutput) Elem() RegistrationInfoOutput {
-	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo { return *v }).(RegistrationInfoOutput)
+	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfo
+		return ret
+	}).(RegistrationInfoOutput)
 }
 
 // Expiration time of registration token.
@@ -830,7 +836,7 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutput() Re
 }
 
 func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationInfoResponse) *RegistrationInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfoResponse) *RegistrationInfoResponse {
 		return &v
 	}).(RegistrationInfoResponsePtrOutput)
 }
@@ -865,7 +871,13 @@ func (o RegistrationInfoResponsePtrOutput) ToRegistrationInfoResponsePtrOutputWi
 }
 
 func (o RegistrationInfoResponsePtrOutput) Elem() RegistrationInfoResponseOutput {
-	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse { return *v }).(RegistrationInfoResponseOutput)
+	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfoResponse
+		return ret
+	}).(RegistrationInfoResponseOutput)
 }
 
 // Expiration time of registration token.

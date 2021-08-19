@@ -150,61 +150,9 @@ func GetBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicy resources.
 type backupPolicyState struct {
-	// Backup Policy Resource ID
-	BackupPolicyId *string `pulumi:"backupPolicyId"`
-	// Daily backups count to keep
-	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
-	// The property to decide policy is enabled or not
-	Enabled *bool `pulumi:"enabled"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Monthly backups count to keep
-	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
-	// Name of backup policy
-	Name *string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// A list of volumes assigned to this policy
-	VolumeBackups []VolumeBackupsResponse `pulumi:"volumeBackups"`
-	// Volumes using current backup policy
-	VolumesAssigned *int `pulumi:"volumesAssigned"`
-	// Weekly backups count to keep
-	WeeklyBackupsToKeep *int `pulumi:"weeklyBackupsToKeep"`
 }
 
 type BackupPolicyState struct {
-	// Backup Policy Resource ID
-	BackupPolicyId pulumi.StringPtrInput
-	// Daily backups count to keep
-	DailyBackupsToKeep pulumi.IntPtrInput
-	// The property to decide policy is enabled or not
-	Enabled pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Monthly backups count to keep
-	MonthlyBackupsToKeep pulumi.IntPtrInput
-	// Name of backup policy
-	Name pulumi.StringPtrInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// A list of volumes assigned to this policy
-	VolumeBackups VolumeBackupsResponseArrayInput
-	// Volumes using current backup policy
-	VolumesAssigned pulumi.IntPtrInput
-	// Weekly backups count to keep
-	WeeklyBackupsToKeep pulumi.IntPtrInput
 }
 
 func (BackupPolicyState) ElementType() reflect.Type {
@@ -277,9 +225,7 @@ func (i *BackupPolicy) ToBackupPolicyOutputWithContext(ctx context.Context) Back
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyOutput)
 }
 
-type BackupPolicyOutput struct {
-	*pulumi.OutputState
-}
+type BackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupPolicy)(nil))

@@ -109,25 +109,9 @@ func GetReplicationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationPolicy resources.
 type replicationPolicyState struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// The custom data.
-	Properties *PolicyPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type ReplicationPolicyState struct {
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// The custom data.
-	Properties PolicyPropertiesResponsePtrInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (ReplicationPolicyState) ElementType() reflect.Type {
@@ -180,9 +164,7 @@ func (i *ReplicationPolicy) ToReplicationPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPolicyOutput)
 }
 
-type ReplicationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ReplicationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationPolicy)(nil))

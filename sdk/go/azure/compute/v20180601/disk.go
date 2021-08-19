@@ -160,69 +160,9 @@ func GetDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Disk resources.
 type diskState struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData *CreationDataResponse `pulumi:"creationData"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
-	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
-	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// The disk provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku *DiskSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The time when the disk was created.
-	TimeCreated *string `pulumi:"timeCreated"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The Logical zone list for Disk.
-	Zones []string `pulumi:"zones"`
 }
 
 type DiskState struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponsePtrInput
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
-	DiskIOPSReadWrite pulumi.Float64PtrInput
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
-	DiskMBpsReadWrite pulumi.IntPtrInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption settings for disk or snapshot
-	EncryptionSettings EncryptionSettingsResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The Operating System type.
-	OsType pulumi.StringPtrInput
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku DiskSkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The time when the disk was created.
-	TimeCreated pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The Logical zone list for Disk.
-	Zones pulumi.StringArrayInput
 }
 
 func (DiskState) ElementType() reflect.Type {
@@ -245,7 +185,7 @@ type diskArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The Operating System type.
-	OsType *string `pulumi:"osType"`
+	OsType *OperatingSystemTypes `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -273,7 +213,7 @@ type DiskArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The Operating System type.
-	OsType *OperatingSystemTypes
+	OsType OperatingSystemTypesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -307,9 +247,7 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct {
-	*pulumi.OutputState
-}
+type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

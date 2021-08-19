@@ -104,29 +104,9 @@ func GetFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type firewallRuleState struct {
-	// The end IP address of the server firewall rule. Must be IPv4 format.
-	EndIpAddress *string `pulumi:"endIpAddress"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The start IP address of the server firewall rule. Must be IPv4 format.
-	StartIpAddress *string `pulumi:"startIpAddress"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type FirewallRuleState struct {
-	// The end IP address of the server firewall rule. Must be IPv4 format.
-	EndIpAddress pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The start IP address of the server firewall rule. Must be IPv4 format.
-	StartIpAddress pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (FirewallRuleState) ElementType() reflect.Type {
@@ -183,9 +163,7 @@ func (i *FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) Fire
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleOutput)
 }
 
-type FirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallRule)(nil))

@@ -143,53 +143,9 @@ func GetServerEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerEndpoint resources.
 type serverEndpointState struct {
-	// Cloud Tiering.
-	CloudTiering *string `pulumi:"cloudTiering"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Resource Last Operation Name
-	LastOperationName *string `pulumi:"lastOperationName"`
-	// ServerEndpoint lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// ServerEndpoint Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Server Local path.
-	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId *string `pulumi:"serverResourceId"`
-	// Sync Health Status
-	SyncStatus interface{} `pulumi:"syncStatus"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
 }
 
 type ServerEndpointState struct {
-	// Cloud Tiering.
-	CloudTiering pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringPtrInput
-	// ServerEndpoint lastWorkflowId
-	LastWorkflowId pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// ServerEndpoint Provisioning State
-	ProvisioningState pulumi.StringPtrInput
-	// Server Local path.
-	ServerLocalPath pulumi.StringPtrInput
-	// Server Resource Id.
-	ServerResourceId pulumi.StringPtrInput
-	// Sync Health Status
-	SyncStatus pulumi.Input
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent pulumi.IntPtrInput
 }
 
 func (ServerEndpointState) ElementType() reflect.Type {
@@ -270,9 +226,7 @@ func (i *ServerEndpoint) ToServerEndpointOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointOutput)
 }
 
-type ServerEndpointOutput struct {
-	*pulumi.OutputState
-}
+type ServerEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerEndpoint)(nil))

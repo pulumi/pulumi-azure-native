@@ -13,7 +13,7 @@ import (
 // The pair of customer secret.
 type CustomerSecret struct {
 	// The encryption algorithm used to encrypt data.
-	Algorithm string `pulumi:"algorithm"`
+	Algorithm SupportedAlgorithm `pulumi:"algorithm"`
 	// The identifier to the data service input object which this secret corresponds to.
 	KeyIdentifier string `pulumi:"keyIdentifier"`
 	// It contains the encrypted customer secret.
@@ -34,7 +34,7 @@ type CustomerSecretInput interface {
 // The pair of customer secret.
 type CustomerSecretArgs struct {
 	// The encryption algorithm used to encrypt data.
-	Algorithm SupportedAlgorithm `pulumi:"algorithm"`
+	Algorithm SupportedAlgorithmInput `pulumi:"algorithm"`
 	// The identifier to the data service input object which this secret corresponds to.
 	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
 	// It contains the encrypted customer secret.
@@ -94,8 +94,8 @@ func (o CustomerSecretOutput) ToCustomerSecretOutputWithContext(ctx context.Cont
 }
 
 // The encryption algorithm used to encrypt data.
-func (o CustomerSecretOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomerSecret) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o CustomerSecretOutput) Algorithm() SupportedAlgorithmOutput {
+	return o.ApplyT(func(v CustomerSecret) SupportedAlgorithm { return v.Algorithm }).(SupportedAlgorithmOutput)
 }
 
 // The identifier to the data service input object which this secret corresponds to.
@@ -564,7 +564,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -594,7 +594,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The sku name. Required for data manager creation, optional for update.
@@ -717,7 +723,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -747,7 +753,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The sku name. Required for data manager creation, optional for update.

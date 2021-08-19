@@ -78,31 +78,9 @@ func GetHyperVSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HyperVSite resources.
 type hyperVSiteState struct {
-	// eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location *string `pulumi:"location"`
-	// Name of the Hyper-V site.
-	Name *string `pulumi:"name"`
-	// Nested properties of Hyper-V site.
-	Properties *SitePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string       `pulumi:"tags"`
-	// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
-	Type *string `pulumi:"type"`
 }
 
 type HyperVSiteState struct {
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrInput
-	// Name of the Hyper-V site.
-	Name pulumi.StringPtrInput
-	// Nested properties of Hyper-V site.
-	Properties SitePropertiesResponsePtrInput
-	Tags       pulumi.StringMapInput
-	// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
-	Type pulumi.StringPtrInput
 }
 
 func (HyperVSiteState) ElementType() reflect.Type {
@@ -165,9 +143,7 @@ func (i *HyperVSite) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSi
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteOutput)
 }
 
-type HyperVSiteOutput struct {
-	*pulumi.OutputState
-}
+type HyperVSiteOutput struct{ *pulumi.OutputState }
 
 func (HyperVSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HyperVSite)(nil))

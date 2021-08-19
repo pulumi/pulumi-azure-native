@@ -447,7 +447,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptio
 }
 
 func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
-	return o.ApplyT(func(v AccountEncryption) *AccountEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
 		return &v
 	}).(AccountEncryptionPtrOutput)
 }
@@ -477,7 +477,13 @@ func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx 
 }
 
 func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
-	return o.ApplyT(func(v *AccountEncryption) AccountEncryption { return *v }).(AccountEncryptionOutput)
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
 }
 
 // The properties of the key used to encrypt the account.
@@ -597,7 +603,7 @@ func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutput() 
 }
 
 func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v AccountEncryptionResponse) *AccountEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionResponse) *AccountEncryptionResponse {
 		return &v
 	}).(AccountEncryptionResponsePtrOutput)
 }
@@ -627,7 +633,13 @@ func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput
 }
 
 func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
-	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse { return *v }).(AccountEncryptionResponseOutput)
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionResponse
+		return ret
+	}).(AccountEncryptionResponseOutput)
 }
 
 // The properties of the key used to encrypt the account.
@@ -746,7 +758,7 @@ func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutput() AkamaiAccess
 }
 
 func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutputWithContext(ctx context.Context) AkamaiAccessControlPtrOutput {
-	return o.ApplyT(func(v AkamaiAccessControl) *AkamaiAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControl) *AkamaiAccessControl {
 		return &v
 	}).(AkamaiAccessControlPtrOutput)
 }
@@ -773,7 +785,13 @@ func (o AkamaiAccessControlPtrOutput) ToAkamaiAccessControlPtrOutputWithContext(
 }
 
 func (o AkamaiAccessControlPtrOutput) Elem() AkamaiAccessControlOutput {
-	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl { return *v }).(AkamaiAccessControlOutput)
+	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AkamaiAccessControl
+		return ret
+	}).(AkamaiAccessControlOutput)
 }
 
 // authentication key list
@@ -882,7 +900,7 @@ func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutpu
 }
 
 func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
 		return &v
 	}).(AkamaiAccessControlResponsePtrOutput)
 }
@@ -909,7 +927,13 @@ func (o AkamaiAccessControlResponsePtrOutput) ToAkamaiAccessControlResponsePtrOu
 }
 
 func (o AkamaiAccessControlResponsePtrOutput) Elem() AkamaiAccessControlResponseOutput {
-	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse { return *v }).(AkamaiAccessControlResponseOutput)
+	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AkamaiAccessControlResponse
+		return ret
+	}).(AkamaiAccessControlResponseOutput)
 }
 
 // authentication key list
@@ -2393,7 +2417,7 @@ func (o CbcsDrmConfigurationOutput) ToCbcsDrmConfigurationPtrOutput() CbcsDrmCon
 }
 
 func (o CbcsDrmConfigurationOutput) ToCbcsDrmConfigurationPtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationPtrOutput {
-	return o.ApplyT(func(v CbcsDrmConfiguration) *CbcsDrmConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CbcsDrmConfiguration) *CbcsDrmConfiguration {
 		return &v
 	}).(CbcsDrmConfigurationPtrOutput)
 }
@@ -2428,7 +2452,13 @@ func (o CbcsDrmConfigurationPtrOutput) ToCbcsDrmConfigurationPtrOutputWithContex
 }
 
 func (o CbcsDrmConfigurationPtrOutput) Elem() CbcsDrmConfigurationOutput {
-	return o.ApplyT(func(v *CbcsDrmConfiguration) CbcsDrmConfiguration { return *v }).(CbcsDrmConfigurationOutput)
+	return o.ApplyT(func(v *CbcsDrmConfiguration) CbcsDrmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CbcsDrmConfiguration
+		return ret
+	}).(CbcsDrmConfigurationOutput)
 }
 
 // FairPlay configurations
@@ -2565,7 +2595,7 @@ func (o CbcsDrmConfigurationResponseOutput) ToCbcsDrmConfigurationResponsePtrOut
 }
 
 func (o CbcsDrmConfigurationResponseOutput) ToCbcsDrmConfigurationResponsePtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v CbcsDrmConfigurationResponse) *CbcsDrmConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CbcsDrmConfigurationResponse) *CbcsDrmConfigurationResponse {
 		return &v
 	}).(CbcsDrmConfigurationResponsePtrOutput)
 }
@@ -2602,7 +2632,13 @@ func (o CbcsDrmConfigurationResponsePtrOutput) ToCbcsDrmConfigurationResponsePtr
 }
 
 func (o CbcsDrmConfigurationResponsePtrOutput) Elem() CbcsDrmConfigurationResponseOutput {
-	return o.ApplyT(func(v *CbcsDrmConfigurationResponse) CbcsDrmConfigurationResponse { return *v }).(CbcsDrmConfigurationResponseOutput)
+	return o.ApplyT(func(v *CbcsDrmConfigurationResponse) CbcsDrmConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CbcsDrmConfigurationResponse
+		return ret
+	}).(CbcsDrmConfigurationResponseOutput)
 }
 
 // FairPlay configurations
@@ -2735,7 +2771,7 @@ func (o CencDrmConfigurationOutput) ToCencDrmConfigurationPtrOutput() CencDrmCon
 }
 
 func (o CencDrmConfigurationOutput) ToCencDrmConfigurationPtrOutputWithContext(ctx context.Context) CencDrmConfigurationPtrOutput {
-	return o.ApplyT(func(v CencDrmConfiguration) *CencDrmConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CencDrmConfiguration) *CencDrmConfiguration {
 		return &v
 	}).(CencDrmConfigurationPtrOutput)
 }
@@ -2765,7 +2801,13 @@ func (o CencDrmConfigurationPtrOutput) ToCencDrmConfigurationPtrOutputWithContex
 }
 
 func (o CencDrmConfigurationPtrOutput) Elem() CencDrmConfigurationOutput {
-	return o.ApplyT(func(v *CencDrmConfiguration) CencDrmConfiguration { return *v }).(CencDrmConfigurationOutput)
+	return o.ApplyT(func(v *CencDrmConfiguration) CencDrmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CencDrmConfiguration
+		return ret
+	}).(CencDrmConfigurationOutput)
 }
 
 // PlayReady configurations
@@ -2888,7 +2930,7 @@ func (o CencDrmConfigurationResponseOutput) ToCencDrmConfigurationResponsePtrOut
 }
 
 func (o CencDrmConfigurationResponseOutput) ToCencDrmConfigurationResponsePtrOutputWithContext(ctx context.Context) CencDrmConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v CencDrmConfigurationResponse) *CencDrmConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CencDrmConfigurationResponse) *CencDrmConfigurationResponse {
 		return &v
 	}).(CencDrmConfigurationResponsePtrOutput)
 }
@@ -2920,7 +2962,13 @@ func (o CencDrmConfigurationResponsePtrOutput) ToCencDrmConfigurationResponsePtr
 }
 
 func (o CencDrmConfigurationResponsePtrOutput) Elem() CencDrmConfigurationResponseOutput {
-	return o.ApplyT(func(v *CencDrmConfigurationResponse) CencDrmConfigurationResponse { return *v }).(CencDrmConfigurationResponseOutput)
+	return o.ApplyT(func(v *CencDrmConfigurationResponse) CencDrmConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CencDrmConfigurationResponse
+		return ret
+	}).(CencDrmConfigurationResponseOutput)
 }
 
 // PlayReady configurations
@@ -3051,7 +3099,7 @@ func (o CommonEncryptionCbcsOutput) ToCommonEncryptionCbcsPtrOutput() CommonEncr
 }
 
 func (o CommonEncryptionCbcsOutput) ToCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) CommonEncryptionCbcsPtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCbcs) *CommonEncryptionCbcs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCbcs) *CommonEncryptionCbcs {
 		return &v
 	}).(CommonEncryptionCbcsPtrOutput)
 }
@@ -3091,7 +3139,13 @@ func (o CommonEncryptionCbcsPtrOutput) ToCommonEncryptionCbcsPtrOutputWithContex
 }
 
 func (o CommonEncryptionCbcsPtrOutput) Elem() CommonEncryptionCbcsOutput {
-	return o.ApplyT(func(v *CommonEncryptionCbcs) CommonEncryptionCbcs { return *v }).(CommonEncryptionCbcsOutput)
+	return o.ApplyT(func(v *CommonEncryptionCbcs) CommonEncryptionCbcs {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCbcs
+		return ret
+	}).(CommonEncryptionCbcsOutput)
 }
 
 // Representing which tracks should not be encrypted
@@ -3242,7 +3296,7 @@ func (o CommonEncryptionCbcsResponseOutput) ToCommonEncryptionCbcsResponsePtrOut
 }
 
 func (o CommonEncryptionCbcsResponseOutput) ToCommonEncryptionCbcsResponsePtrOutputWithContext(ctx context.Context) CommonEncryptionCbcsResponsePtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCbcsResponse) *CommonEncryptionCbcsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCbcsResponse) *CommonEncryptionCbcsResponse {
 		return &v
 	}).(CommonEncryptionCbcsResponsePtrOutput)
 }
@@ -3282,7 +3336,13 @@ func (o CommonEncryptionCbcsResponsePtrOutput) ToCommonEncryptionCbcsResponsePtr
 }
 
 func (o CommonEncryptionCbcsResponsePtrOutput) Elem() CommonEncryptionCbcsResponseOutput {
-	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) CommonEncryptionCbcsResponse { return *v }).(CommonEncryptionCbcsResponseOutput)
+	return o.ApplyT(func(v *CommonEncryptionCbcsResponse) CommonEncryptionCbcsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCbcsResponse
+		return ret
+	}).(CommonEncryptionCbcsResponseOutput)
 }
 
 // Representing which tracks should not be encrypted
@@ -3433,7 +3493,7 @@ func (o CommonEncryptionCencOutput) ToCommonEncryptionCencPtrOutput() CommonEncr
 }
 
 func (o CommonEncryptionCencOutput) ToCommonEncryptionCencPtrOutputWithContext(ctx context.Context) CommonEncryptionCencPtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCenc) *CommonEncryptionCenc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCenc) *CommonEncryptionCenc {
 		return &v
 	}).(CommonEncryptionCencPtrOutput)
 }
@@ -3473,7 +3533,13 @@ func (o CommonEncryptionCencPtrOutput) ToCommonEncryptionCencPtrOutputWithContex
 }
 
 func (o CommonEncryptionCencPtrOutput) Elem() CommonEncryptionCencOutput {
-	return o.ApplyT(func(v *CommonEncryptionCenc) CommonEncryptionCenc { return *v }).(CommonEncryptionCencOutput)
+	return o.ApplyT(func(v *CommonEncryptionCenc) CommonEncryptionCenc {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCenc
+		return ret
+	}).(CommonEncryptionCencOutput)
 }
 
 // Representing which tracks should not be encrypted
@@ -3624,7 +3690,7 @@ func (o CommonEncryptionCencResponseOutput) ToCommonEncryptionCencResponsePtrOut
 }
 
 func (o CommonEncryptionCencResponseOutput) ToCommonEncryptionCencResponsePtrOutputWithContext(ctx context.Context) CommonEncryptionCencResponsePtrOutput {
-	return o.ApplyT(func(v CommonEncryptionCencResponse) *CommonEncryptionCencResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonEncryptionCencResponse) *CommonEncryptionCencResponse {
 		return &v
 	}).(CommonEncryptionCencResponsePtrOutput)
 }
@@ -3664,7 +3730,13 @@ func (o CommonEncryptionCencResponsePtrOutput) ToCommonEncryptionCencResponsePtr
 }
 
 func (o CommonEncryptionCencResponsePtrOutput) Elem() CommonEncryptionCencResponseOutput {
-	return o.ApplyT(func(v *CommonEncryptionCencResponse) CommonEncryptionCencResponse { return *v }).(CommonEncryptionCencResponseOutput)
+	return o.ApplyT(func(v *CommonEncryptionCencResponse) CommonEncryptionCencResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommonEncryptionCencResponse
+		return ret
+	}).(CommonEncryptionCencResponseOutput)
 }
 
 // Representing which tracks should not be encrypted
@@ -4148,7 +4220,7 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput) ToContentKeyPo
 }
 
 func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfiguration) *ContentKeyPolicyFairPlayOfflineRentalConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyFairPlayOfflineRentalConfiguration) *ContentKeyPolicyFairPlayOfflineRentalConfiguration {
 		return &v
 	}).(ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput)
 }
@@ -4179,7 +4251,11 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) ToContentKe
 
 func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) Elem() ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfiguration) ContentKeyPolicyFairPlayOfflineRentalConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyFairPlayOfflineRentalConfiguration
+		return ret
 	}).(ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput)
 }
 
@@ -4300,7 +4376,7 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput) ToCont
 }
 
 func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) *ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) *ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse {
 		return &v
 	}).(ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput)
 }
@@ -4335,7 +4411,11 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput) ToC
 
 func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput) Elem() ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse) ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse
+		return ret
 	}).(ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput)
 }
 
@@ -5226,7 +5306,7 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput) ToCo
 }
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
 		return &v
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput)
 }
@@ -5257,7 +5337,11 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) T
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) Elem() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction
+		return ret
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput)
 }
 
@@ -5381,7 +5465,7 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutp
 }
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
 		return &v
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput)
 }
@@ -5414,7 +5498,11 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrO
 
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput) Elem() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse
+		return ret
 	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput)
 }
 
@@ -5946,7 +6034,7 @@ func (o ContentKeyPolicyPlayReadyPlayRightOutput) ToContentKeyPolicyPlayReadyPla
 }
 
 func (o ContentKeyPolicyPlayReadyPlayRightOutput) ToContentKeyPolicyPlayReadyPlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightPtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRight) *ContentKeyPolicyPlayReadyPlayRight {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyPlayRight) *ContentKeyPolicyPlayReadyPlayRight {
 		return &v
 	}).(ContentKeyPolicyPlayReadyPlayRightPtrOutput)
 }
@@ -6037,7 +6125,13 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) ToContentKeyPolicyPlayReady
 }
 
 func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) Elem() ContentKeyPolicyPlayReadyPlayRightOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) ContentKeyPolicyPlayReadyPlayRight { return *v }).(ContentKeyPolicyPlayReadyPlayRightOutput)
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRight) ContentKeyPolicyPlayReadyPlayRight {
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyPlayRight
+		return ret
+	}).(ContentKeyPolicyPlayReadyPlayRightOutput)
 }
 
 // Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
@@ -6314,7 +6408,7 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ToContentKeyPolicyPlay
 }
 
 func (o ContentKeyPolicyPlayReadyPlayRightResponseOutput) ToContentKeyPolicyPlayReadyPlayRightResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput {
-	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightResponse) *ContentKeyPolicyPlayReadyPlayRightResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyPlayRightResponse) *ContentKeyPolicyPlayReadyPlayRightResponse {
 		return &v
 	}).(ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput)
 }
@@ -6408,7 +6502,11 @@ func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) ToContentKeyPolicyP
 
 func (o ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput) Elem() ContentKeyPolicyPlayReadyPlayRightResponseOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightResponse) ContentKeyPolicyPlayReadyPlayRightResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContentKeyPolicyPlayReadyPlayRightResponse
+		return ret
 	}).(ContentKeyPolicyPlayReadyPlayRightResponseOutput)
 }
 
@@ -8158,7 +8256,7 @@ func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutput() Cros
 }
 
 func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesPtrOutput {
-	return o.ApplyT(func(v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
 		return &v
 	}).(CrossSiteAccessPoliciesPtrOutput)
 }
@@ -8188,7 +8286,13 @@ func (o CrossSiteAccessPoliciesPtrOutput) ToCrossSiteAccessPoliciesPtrOutputWith
 }
 
 func (o CrossSiteAccessPoliciesPtrOutput) Elem() CrossSiteAccessPoliciesOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies { return *v }).(CrossSiteAccessPoliciesOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret CrossSiteAccessPolicies
+		return ret
+	}).(CrossSiteAccessPoliciesOutput)
 }
 
 // The content of clientaccesspolicy.xml used by Silverlight.
@@ -8311,7 +8415,7 @@ func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponse
 }
 
 func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponsePtrOutput {
-	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
 		return &v
 	}).(CrossSiteAccessPoliciesResponsePtrOutput)
 }
@@ -8341,7 +8445,13 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) ToCrossSiteAccessPoliciesRespo
 }
 
 func (o CrossSiteAccessPoliciesResponsePtrOutput) Elem() CrossSiteAccessPoliciesResponseOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse { return *v }).(CrossSiteAccessPoliciesResponseOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CrossSiteAccessPoliciesResponse
+		return ret
+	}).(CrossSiteAccessPoliciesResponseOutput)
 }
 
 // The content of clientaccesspolicy.xml used by Silverlight.
@@ -8464,7 +8574,7 @@ func (o DefaultKeyOutput) ToDefaultKeyPtrOutput() DefaultKeyPtrOutput {
 }
 
 func (o DefaultKeyOutput) ToDefaultKeyPtrOutputWithContext(ctx context.Context) DefaultKeyPtrOutput {
-	return o.ApplyT(func(v DefaultKey) *DefaultKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultKey) *DefaultKey {
 		return &v
 	}).(DefaultKeyPtrOutput)
 }
@@ -8494,7 +8604,13 @@ func (o DefaultKeyPtrOutput) ToDefaultKeyPtrOutputWithContext(ctx context.Contex
 }
 
 func (o DefaultKeyPtrOutput) Elem() DefaultKeyOutput {
-	return o.ApplyT(func(v *DefaultKey) DefaultKey { return *v }).(DefaultKeyOutput)
+	return o.ApplyT(func(v *DefaultKey) DefaultKey {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultKey
+		return ret
+	}).(DefaultKeyOutput)
 }
 
 // Label can be used to specify Content Key when creating a Streaming Locator
@@ -8617,7 +8733,7 @@ func (o DefaultKeyResponseOutput) ToDefaultKeyResponsePtrOutput() DefaultKeyResp
 }
 
 func (o DefaultKeyResponseOutput) ToDefaultKeyResponsePtrOutputWithContext(ctx context.Context) DefaultKeyResponsePtrOutput {
-	return o.ApplyT(func(v DefaultKeyResponse) *DefaultKeyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultKeyResponse) *DefaultKeyResponse {
 		return &v
 	}).(DefaultKeyResponsePtrOutput)
 }
@@ -8647,7 +8763,13 @@ func (o DefaultKeyResponsePtrOutput) ToDefaultKeyResponsePtrOutputWithContext(ct
 }
 
 func (o DefaultKeyResponsePtrOutput) Elem() DefaultKeyResponseOutput {
-	return o.ApplyT(func(v *DefaultKeyResponse) DefaultKeyResponse { return *v }).(DefaultKeyResponseOutput)
+	return o.ApplyT(func(v *DefaultKeyResponse) DefaultKeyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultKeyResponse
+		return ret
+	}).(DefaultKeyResponseOutput)
 }
 
 // Label can be used to specify Content Key when creating a Streaming Locator
@@ -8770,7 +8892,7 @@ func (o DeinterlaceOutput) ToDeinterlacePtrOutput() DeinterlacePtrOutput {
 }
 
 func (o DeinterlaceOutput) ToDeinterlacePtrOutputWithContext(ctx context.Context) DeinterlacePtrOutput {
-	return o.ApplyT(func(v Deinterlace) *Deinterlace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Deinterlace) *Deinterlace {
 		return &v
 	}).(DeinterlacePtrOutput)
 }
@@ -8800,7 +8922,13 @@ func (o DeinterlacePtrOutput) ToDeinterlacePtrOutputWithContext(ctx context.Cont
 }
 
 func (o DeinterlacePtrOutput) Elem() DeinterlaceOutput {
-	return o.ApplyT(func(v *Deinterlace) Deinterlace { return *v }).(DeinterlaceOutput)
+	return o.ApplyT(func(v *Deinterlace) Deinterlace {
+		if v != nil {
+			return *v
+		}
+		var ret Deinterlace
+		return ret
+	}).(DeinterlaceOutput)
 }
 
 // The deinterlacing mode. Defaults to AutoPixelAdaptive.
@@ -8923,7 +9051,7 @@ func (o DeinterlaceResponseOutput) ToDeinterlaceResponsePtrOutput() DeinterlaceR
 }
 
 func (o DeinterlaceResponseOutput) ToDeinterlaceResponsePtrOutputWithContext(ctx context.Context) DeinterlaceResponsePtrOutput {
-	return o.ApplyT(func(v DeinterlaceResponse) *DeinterlaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeinterlaceResponse) *DeinterlaceResponse {
 		return &v
 	}).(DeinterlaceResponsePtrOutput)
 }
@@ -8953,7 +9081,13 @@ func (o DeinterlaceResponsePtrOutput) ToDeinterlaceResponsePtrOutputWithContext(
 }
 
 func (o DeinterlaceResponsePtrOutput) Elem() DeinterlaceResponseOutput {
-	return o.ApplyT(func(v *DeinterlaceResponse) DeinterlaceResponse { return *v }).(DeinterlaceResponseOutput)
+	return o.ApplyT(func(v *DeinterlaceResponse) DeinterlaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeinterlaceResponse
+		return ret
+	}).(DeinterlaceResponseOutput)
 }
 
 // The deinterlacing mode. Defaults to AutoPixelAdaptive.
@@ -9156,7 +9290,7 @@ func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrO
 }
 
 func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
 		return &v
 	}).(EdgeUsageDataEventHubResponsePtrOutput)
 }
@@ -9191,7 +9325,13 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponseP
 }
 
 func (o EdgeUsageDataEventHubResponsePtrOutput) Elem() EdgeUsageDataEventHubResponseOutput {
-	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse { return *v }).(EdgeUsageDataEventHubResponseOutput)
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataEventHubResponse
+		return ret
+	}).(EdgeUsageDataEventHubResponseOutput)
 }
 
 // Name of the Event Hub where usage will be reported.
@@ -9332,7 +9472,7 @@ func (o EnabledProtocolsOutput) ToEnabledProtocolsPtrOutput() EnabledProtocolsPt
 }
 
 func (o EnabledProtocolsOutput) ToEnabledProtocolsPtrOutputWithContext(ctx context.Context) EnabledProtocolsPtrOutput {
-	return o.ApplyT(func(v EnabledProtocols) *EnabledProtocols {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledProtocols) *EnabledProtocols {
 		return &v
 	}).(EnabledProtocolsPtrOutput)
 }
@@ -9372,7 +9512,13 @@ func (o EnabledProtocolsPtrOutput) ToEnabledProtocolsPtrOutputWithContext(ctx co
 }
 
 func (o EnabledProtocolsPtrOutput) Elem() EnabledProtocolsOutput {
-	return o.ApplyT(func(v *EnabledProtocols) EnabledProtocols { return *v }).(EnabledProtocolsOutput)
+	return o.ApplyT(func(v *EnabledProtocols) EnabledProtocols {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledProtocols
+		return ret
+	}).(EnabledProtocolsOutput)
 }
 
 // Enable DASH protocol or not
@@ -9523,7 +9669,7 @@ func (o EnabledProtocolsResponseOutput) ToEnabledProtocolsResponsePtrOutput() En
 }
 
 func (o EnabledProtocolsResponseOutput) ToEnabledProtocolsResponsePtrOutputWithContext(ctx context.Context) EnabledProtocolsResponsePtrOutput {
-	return o.ApplyT(func(v EnabledProtocolsResponse) *EnabledProtocolsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledProtocolsResponse) *EnabledProtocolsResponse {
 		return &v
 	}).(EnabledProtocolsResponsePtrOutput)
 }
@@ -9563,7 +9709,13 @@ func (o EnabledProtocolsResponsePtrOutput) ToEnabledProtocolsResponsePtrOutputWi
 }
 
 func (o EnabledProtocolsResponsePtrOutput) Elem() EnabledProtocolsResponseOutput {
-	return o.ApplyT(func(v *EnabledProtocolsResponse) EnabledProtocolsResponse { return *v }).(EnabledProtocolsResponseOutput)
+	return o.ApplyT(func(v *EnabledProtocolsResponse) EnabledProtocolsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledProtocolsResponse
+		return ret
+	}).(EnabledProtocolsResponseOutput)
 }
 
 // Enable DASH protocol or not
@@ -9714,7 +9866,7 @@ func (o EnvelopeEncryptionOutput) ToEnvelopeEncryptionPtrOutput() EnvelopeEncryp
 }
 
 func (o EnvelopeEncryptionOutput) ToEnvelopeEncryptionPtrOutputWithContext(ctx context.Context) EnvelopeEncryptionPtrOutput {
-	return o.ApplyT(func(v EnvelopeEncryption) *EnvelopeEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvelopeEncryption) *EnvelopeEncryption {
 		return &v
 	}).(EnvelopeEncryptionPtrOutput)
 }
@@ -9754,7 +9906,13 @@ func (o EnvelopeEncryptionPtrOutput) ToEnvelopeEncryptionPtrOutputWithContext(ct
 }
 
 func (o EnvelopeEncryptionPtrOutput) Elem() EnvelopeEncryptionOutput {
-	return o.ApplyT(func(v *EnvelopeEncryption) EnvelopeEncryption { return *v }).(EnvelopeEncryptionOutput)
+	return o.ApplyT(func(v *EnvelopeEncryption) EnvelopeEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret EnvelopeEncryption
+		return ret
+	}).(EnvelopeEncryptionOutput)
 }
 
 // Representing which tracks should not be encrypted
@@ -9905,7 +10063,7 @@ func (o EnvelopeEncryptionResponseOutput) ToEnvelopeEncryptionResponsePtrOutput(
 }
 
 func (o EnvelopeEncryptionResponseOutput) ToEnvelopeEncryptionResponsePtrOutputWithContext(ctx context.Context) EnvelopeEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EnvelopeEncryptionResponse) *EnvelopeEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvelopeEncryptionResponse) *EnvelopeEncryptionResponse {
 		return &v
 	}).(EnvelopeEncryptionResponsePtrOutput)
 }
@@ -9945,7 +10103,13 @@ func (o EnvelopeEncryptionResponsePtrOutput) ToEnvelopeEncryptionResponsePtrOutp
 }
 
 func (o EnvelopeEncryptionResponsePtrOutput) Elem() EnvelopeEncryptionResponseOutput {
-	return o.ApplyT(func(v *EnvelopeEncryptionResponse) EnvelopeEncryptionResponse { return *v }).(EnvelopeEncryptionResponseOutput)
+	return o.ApplyT(func(v *EnvelopeEncryptionResponse) EnvelopeEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnvelopeEncryptionResponse
+		return ret
+	}).(EnvelopeEncryptionResponseOutput)
 }
 
 // Representing which tracks should not be encrypted
@@ -10720,7 +10884,7 @@ func (o FiltersOutput) ToFiltersPtrOutput() FiltersPtrOutput {
 }
 
 func (o FiltersOutput) ToFiltersPtrOutputWithContext(ctx context.Context) FiltersPtrOutput {
-	return o.ApplyT(func(v Filters) *Filters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Filters) *Filters {
 		return &v
 	}).(FiltersPtrOutput)
 }
@@ -10760,7 +10924,13 @@ func (o FiltersPtrOutput) ToFiltersPtrOutputWithContext(ctx context.Context) Fil
 }
 
 func (o FiltersPtrOutput) Elem() FiltersOutput {
-	return o.ApplyT(func(v *Filters) Filters { return *v }).(FiltersOutput)
+	return o.ApplyT(func(v *Filters) Filters {
+		if v != nil {
+			return *v
+		}
+		var ret Filters
+		return ret
+	}).(FiltersOutput)
 }
 
 // The parameters for the rectangular window with which to crop the input video.
@@ -10911,7 +11081,7 @@ func (o FiltersResponseOutput) ToFiltersResponsePtrOutput() FiltersResponsePtrOu
 }
 
 func (o FiltersResponseOutput) ToFiltersResponsePtrOutputWithContext(ctx context.Context) FiltersResponsePtrOutput {
-	return o.ApplyT(func(v FiltersResponse) *FiltersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FiltersResponse) *FiltersResponse {
 		return &v
 	}).(FiltersResponsePtrOutput)
 }
@@ -10951,7 +11121,13 @@ func (o FiltersResponsePtrOutput) ToFiltersResponsePtrOutputWithContext(ctx cont
 }
 
 func (o FiltersResponsePtrOutput) Elem() FiltersResponseOutput {
-	return o.ApplyT(func(v *FiltersResponse) FiltersResponse { return *v }).(FiltersResponseOutput)
+	return o.ApplyT(func(v *FiltersResponse) FiltersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FiltersResponse
+		return ret
+	}).(FiltersResponseOutput)
 }
 
 // The parameters for the rectangular window with which to crop the input video.
@@ -11090,7 +11266,7 @@ func (o FirstQualityOutput) ToFirstQualityPtrOutput() FirstQualityPtrOutput {
 }
 
 func (o FirstQualityOutput) ToFirstQualityPtrOutputWithContext(ctx context.Context) FirstQualityPtrOutput {
-	return o.ApplyT(func(v FirstQuality) *FirstQuality {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirstQuality) *FirstQuality {
 		return &v
 	}).(FirstQualityPtrOutput)
 }
@@ -11115,7 +11291,13 @@ func (o FirstQualityPtrOutput) ToFirstQualityPtrOutputWithContext(ctx context.Co
 }
 
 func (o FirstQualityPtrOutput) Elem() FirstQualityOutput {
-	return o.ApplyT(func(v *FirstQuality) FirstQuality { return *v }).(FirstQualityOutput)
+	return o.ApplyT(func(v *FirstQuality) FirstQuality {
+		if v != nil {
+			return *v
+		}
+		var ret FirstQuality
+		return ret
+	}).(FirstQualityOutput)
 }
 
 // The first quality bitrate.
@@ -11224,7 +11406,7 @@ func (o FirstQualityResponseOutput) ToFirstQualityResponsePtrOutput() FirstQuali
 }
 
 func (o FirstQualityResponseOutput) ToFirstQualityResponsePtrOutputWithContext(ctx context.Context) FirstQualityResponsePtrOutput {
-	return o.ApplyT(func(v FirstQualityResponse) *FirstQualityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirstQualityResponse) *FirstQualityResponse {
 		return &v
 	}).(FirstQualityResponsePtrOutput)
 }
@@ -11249,7 +11431,13 @@ func (o FirstQualityResponsePtrOutput) ToFirstQualityResponsePtrOutputWithContex
 }
 
 func (o FirstQualityResponsePtrOutput) Elem() FirstQualityResponseOutput {
-	return o.ApplyT(func(v *FirstQualityResponse) FirstQualityResponse { return *v }).(FirstQualityResponseOutput)
+	return o.ApplyT(func(v *FirstQualityResponse) FirstQualityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FirstQualityResponse
+		return ret
+	}).(FirstQualityResponseOutput)
 }
 
 // The first quality bitrate.
@@ -13008,7 +13196,7 @@ func (o HlsOutput) ToHlsPtrOutput() HlsPtrOutput {
 }
 
 func (o HlsOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput {
-	return o.ApplyT(func(v Hls) *Hls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hls) *Hls {
 		return &v
 	}).(HlsPtrOutput)
 }
@@ -13033,7 +13221,13 @@ func (o HlsPtrOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutpu
 }
 
 func (o HlsPtrOutput) Elem() HlsOutput {
-	return o.ApplyT(func(v *Hls) Hls { return *v }).(HlsOutput)
+	return o.ApplyT(func(v *Hls) Hls {
+		if v != nil {
+			return *v
+		}
+		var ret Hls
+		return ret
+	}).(HlsOutput)
 }
 
 // The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
@@ -13142,7 +13336,7 @@ func (o HlsResponseOutput) ToHlsResponsePtrOutput() HlsResponsePtrOutput {
 }
 
 func (o HlsResponseOutput) ToHlsResponsePtrOutputWithContext(ctx context.Context) HlsResponsePtrOutput {
-	return o.ApplyT(func(v HlsResponse) *HlsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HlsResponse) *HlsResponse {
 		return &v
 	}).(HlsResponsePtrOutput)
 }
@@ -13167,7 +13361,13 @@ func (o HlsResponsePtrOutput) ToHlsResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o HlsResponsePtrOutput) Elem() HlsResponseOutput {
-	return o.ApplyT(func(v *HlsResponse) HlsResponse { return *v }).(HlsResponseOutput)
+	return o.ApplyT(func(v *HlsResponse) HlsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HlsResponse
+		return ret
+	}).(HlsResponseOutput)
 }
 
 // The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
@@ -13276,7 +13476,7 @@ func (o IPAccessControlOutput) ToIPAccessControlPtrOutput() IPAccessControlPtrOu
 }
 
 func (o IPAccessControlOutput) ToIPAccessControlPtrOutputWithContext(ctx context.Context) IPAccessControlPtrOutput {
-	return o.ApplyT(func(v IPAccessControl) *IPAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControl) *IPAccessControl {
 		return &v
 	}).(IPAccessControlPtrOutput)
 }
@@ -13301,7 +13501,13 @@ func (o IPAccessControlPtrOutput) ToIPAccessControlPtrOutputWithContext(ctx cont
 }
 
 func (o IPAccessControlPtrOutput) Elem() IPAccessControlOutput {
-	return o.ApplyT(func(v *IPAccessControl) IPAccessControl { return *v }).(IPAccessControlOutput)
+	return o.ApplyT(func(v *IPAccessControl) IPAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret IPAccessControl
+		return ret
+	}).(IPAccessControlOutput)
 }
 
 // The IP allow list.
@@ -13410,7 +13616,7 @@ func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutput() IPAc
 }
 
 func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutputWithContext(ctx context.Context) IPAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v IPAccessControlResponse) *IPAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControlResponse) *IPAccessControlResponse {
 		return &v
 	}).(IPAccessControlResponsePtrOutput)
 }
@@ -13435,7 +13641,13 @@ func (o IPAccessControlResponsePtrOutput) ToIPAccessControlResponsePtrOutputWith
 }
 
 func (o IPAccessControlResponsePtrOutput) Elem() IPAccessControlResponseOutput {
-	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse { return *v }).(IPAccessControlResponseOutput)
+	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IPAccessControlResponse
+		return ret
+	}).(IPAccessControlResponseOutput)
 }
 
 // The IP allow list.
@@ -16494,7 +16706,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -16519,7 +16731,13 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
 // The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
@@ -16629,7 +16847,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -16659,7 +16877,13 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
 // The current key used to encrypt the Media Services account, including the key version.
@@ -16790,7 +17014,7 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutput() LiveEventEncodin
 }
 
 func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
-	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncoding {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncoding) *LiveEventEncoding {
 		return &v
 	}).(LiveEventEncodingPtrOutput)
 }
@@ -16830,7 +17054,13 @@ func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutputWithContext(ctx 
 }
 
 func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
-	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
+	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventEncoding
+		return ret
+	}).(LiveEventEncodingOutput)
 }
 
 // Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
@@ -16981,7 +17211,7 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutput() 
 }
 
 func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutputWithContext(ctx context.Context) LiveEventEncodingResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventEncodingResponse) *LiveEventEncodingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncodingResponse) *LiveEventEncodingResponse {
 		return &v
 	}).(LiveEventEncodingResponsePtrOutput)
 }
@@ -17021,7 +17251,13 @@ func (o LiveEventEncodingResponsePtrOutput) ToLiveEventEncodingResponsePtrOutput
 }
 
 func (o LiveEventEncodingResponsePtrOutput) Elem() LiveEventEncodingResponseOutput {
-	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse { return *v }).(LiveEventEncodingResponseOutput)
+	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventEncodingResponse
+		return ret
+	}).(LiveEventEncodingResponseOutput)
 }
 
 // Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
@@ -17394,7 +17630,7 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInput
 }
 
 func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
 		return &v
 	}).(LiveEventInputTypePtrOutput)
 }
@@ -17439,7 +17675,13 @@ func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ct
 }
 
 func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
-	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType { return *v }).(LiveEventInputTypeOutput)
+	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputType
+		return ret
+	}).(LiveEventInputTypeOutput)
 }
 
 // Access control for live event input.
@@ -17588,7 +17830,7 @@ func (o LiveEventInputAccessControlOutput) ToLiveEventInputAccessControlPtrOutpu
 }
 
 func (o LiveEventInputAccessControlOutput) ToLiveEventInputAccessControlPtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlPtrOutput {
-	return o.ApplyT(func(v LiveEventInputAccessControl) *LiveEventInputAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputAccessControl) *LiveEventInputAccessControl {
 		return &v
 	}).(LiveEventInputAccessControlPtrOutput)
 }
@@ -17613,7 +17855,13 @@ func (o LiveEventInputAccessControlPtrOutput) ToLiveEventInputAccessControlPtrOu
 }
 
 func (o LiveEventInputAccessControlPtrOutput) Elem() LiveEventInputAccessControlOutput {
-	return o.ApplyT(func(v *LiveEventInputAccessControl) LiveEventInputAccessControl { return *v }).(LiveEventInputAccessControlOutput)
+	return o.ApplyT(func(v *LiveEventInputAccessControl) LiveEventInputAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputAccessControl
+		return ret
+	}).(LiveEventInputAccessControlOutput)
 }
 
 // The IP access control properties.
@@ -17722,7 +17970,7 @@ func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControl
 }
 
 func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventInputAccessControlResponse) *LiveEventInputAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputAccessControlResponse) *LiveEventInputAccessControlResponse {
 		return &v
 	}).(LiveEventInputAccessControlResponsePtrOutput)
 }
@@ -17747,7 +17995,13 @@ func (o LiveEventInputAccessControlResponsePtrOutput) ToLiveEventInputAccessCont
 }
 
 func (o LiveEventInputAccessControlResponsePtrOutput) Elem() LiveEventInputAccessControlResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputAccessControlResponse) LiveEventInputAccessControlResponse { return *v }).(LiveEventInputAccessControlResponseOutput)
+	return o.ApplyT(func(v *LiveEventInputAccessControlResponse) LiveEventInputAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputAccessControlResponse
+		return ret
+	}).(LiveEventInputAccessControlResponseOutput)
 }
 
 // The IP access control properties.
@@ -17872,7 +18126,7 @@ func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutput() LiveEv
 }
 
 func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventInputResponse) *LiveEventInputResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputResponse) *LiveEventInputResponse {
 		return &v
 	}).(LiveEventInputResponsePtrOutput)
 }
@@ -17917,7 +18171,13 @@ func (o LiveEventInputResponsePtrOutput) ToLiveEventInputResponsePtrOutputWithCo
 }
 
 func (o LiveEventInputResponsePtrOutput) Elem() LiveEventInputResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse { return *v }).(LiveEventInputResponseOutput)
+	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventInputResponse
+		return ret
+	}).(LiveEventInputResponseOutput)
 }
 
 // Access control for live event input.
@@ -18302,7 +18562,7 @@ func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionT
 }
 
 func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackPtrOutput {
-	return o.ApplyT(func(v LiveEventOutputTranscriptionTrack) *LiveEventOutputTranscriptionTrack {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputTranscriptionTrack) *LiveEventOutputTranscriptionTrack {
 		return &v
 	}).(LiveEventOutputTranscriptionTrackPtrOutput)
 }
@@ -18327,7 +18587,13 @@ func (o LiveEventOutputTranscriptionTrackPtrOutput) ToLiveEventOutputTranscripti
 }
 
 func (o LiveEventOutputTranscriptionTrackPtrOutput) Elem() LiveEventOutputTranscriptionTrackOutput {
-	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) LiveEventOutputTranscriptionTrack { return *v }).(LiveEventOutputTranscriptionTrackOutput)
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) LiveEventOutputTranscriptionTrack {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventOutputTranscriptionTrack
+		return ret
+	}).(LiveEventOutputTranscriptionTrackOutput)
 }
 
 // The output track name. This property is reserved for future use, any value set on this property will be ignored.
@@ -18436,7 +18702,7 @@ func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTransc
 }
 
 func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
 		return &v
 	}).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
 }
@@ -18462,7 +18728,11 @@ func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) ToLiveEventOutputTra
 
 func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) Elem() LiveEventOutputTranscriptionTrackResponseOutput {
 	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackResponse) LiveEventOutputTranscriptionTrackResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventOutputTranscriptionTrackResponse
+		return ret
 	}).(LiveEventOutputTranscriptionTrackResponseOutput)
 }
 
@@ -18588,7 +18858,7 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutput() LiveEventPreviewPt
 }
 
 func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
-	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreview {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreview) *LiveEventPreview {
 		return &v
 	}).(LiveEventPreviewPtrOutput)
 }
@@ -18633,7 +18903,13 @@ func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutputWithContext(ctx co
 }
 
 func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
-	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview { return *v }).(LiveEventPreviewOutput)
+	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreview
+		return ret
+	}).(LiveEventPreviewOutput)
 }
 
 // The access control for live event preview.
@@ -18782,7 +19058,7 @@ func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrO
 }
 
 func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlPtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
 		return &v
 	}).(LiveEventPreviewAccessControlPtrOutput)
 }
@@ -18807,7 +19083,13 @@ func (o LiveEventPreviewAccessControlPtrOutput) ToLiveEventPreviewAccessControlP
 }
 
 func (o LiveEventPreviewAccessControlPtrOutput) Elem() LiveEventPreviewAccessControlOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl { return *v }).(LiveEventPreviewAccessControlOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewAccessControl
+		return ret
+	}).(LiveEventPreviewAccessControlOutput)
 }
 
 // The IP access control properties.
@@ -18916,7 +19198,7 @@ func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessCon
 }
 
 func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
 		return &v
 	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
@@ -18941,7 +19223,13 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) ToLiveEventPreviewAccess
 }
 
 func (o LiveEventPreviewAccessControlResponsePtrOutput) Elem() LiveEventPreviewAccessControlResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse { return *v }).(LiveEventPreviewAccessControlResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewAccessControlResponse
+		return ret
+	}).(LiveEventPreviewAccessControlResponseOutput)
 }
 
 // The IP access control properties.
@@ -19066,7 +19354,7 @@ func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutput() Li
 }
 
 func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewResponsePtrOutput {
-	return o.ApplyT(func(v LiveEventPreviewResponse) *LiveEventPreviewResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewResponse) *LiveEventPreviewResponse {
 		return &v
 	}).(LiveEventPreviewResponsePtrOutput)
 }
@@ -19111,7 +19399,13 @@ func (o LiveEventPreviewResponsePtrOutput) ToLiveEventPreviewResponsePtrOutputWi
 }
 
 func (o LiveEventPreviewResponsePtrOutput) Elem() LiveEventPreviewResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse { return *v }).(LiveEventPreviewResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LiveEventPreviewResponse
+		return ret
+	}).(LiveEventPreviewResponseOutput)
 }
 
 // The access control for live event preview.
@@ -19920,7 +20214,7 @@ func (o MediaGraphPemCertificateListOutput) ToMediaGraphPemCertificateListPtrOut
 }
 
 func (o MediaGraphPemCertificateListOutput) ToMediaGraphPemCertificateListPtrOutputWithContext(ctx context.Context) MediaGraphPemCertificateListPtrOutput {
-	return o.ApplyT(func(v MediaGraphPemCertificateList) *MediaGraphPemCertificateList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphPemCertificateList) *MediaGraphPemCertificateList {
 		return &v
 	}).(MediaGraphPemCertificateListPtrOutput)
 }
@@ -19951,7 +20245,13 @@ func (o MediaGraphPemCertificateListPtrOutput) ToMediaGraphPemCertificateListPtr
 }
 
 func (o MediaGraphPemCertificateListPtrOutput) Elem() MediaGraphPemCertificateListOutput {
-	return o.ApplyT(func(v *MediaGraphPemCertificateList) MediaGraphPemCertificateList { return *v }).(MediaGraphPemCertificateListOutput)
+	return o.ApplyT(func(v *MediaGraphPemCertificateList) MediaGraphPemCertificateList {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphPemCertificateList
+		return ret
+	}).(MediaGraphPemCertificateListOutput)
 }
 
 // PEM formatted public certificates, one per entry.
@@ -20077,7 +20377,7 @@ func (o MediaGraphPemCertificateListResponseOutput) ToMediaGraphPemCertificateLi
 }
 
 func (o MediaGraphPemCertificateListResponseOutput) ToMediaGraphPemCertificateListResponsePtrOutputWithContext(ctx context.Context) MediaGraphPemCertificateListResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphPemCertificateListResponse) *MediaGraphPemCertificateListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphPemCertificateListResponse) *MediaGraphPemCertificateListResponse {
 		return &v
 	}).(MediaGraphPemCertificateListResponsePtrOutput)
 }
@@ -20108,7 +20408,13 @@ func (o MediaGraphPemCertificateListResponsePtrOutput) ToMediaGraphPemCertificat
 }
 
 func (o MediaGraphPemCertificateListResponsePtrOutput) Elem() MediaGraphPemCertificateListResponseOutput {
-	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) MediaGraphPemCertificateListResponse { return *v }).(MediaGraphPemCertificateListResponseOutput)
+	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) MediaGraphPemCertificateListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphPemCertificateListResponse
+		return ret
+	}).(MediaGraphPemCertificateListResponseOutput)
 }
 
 // PEM formatted public certificates, one per entry.
@@ -20686,7 +20992,7 @@ func (o MediaGraphTlsValidationOptionsOutput) ToMediaGraphTlsValidationOptionsPt
 }
 
 func (o MediaGraphTlsValidationOptionsOutput) ToMediaGraphTlsValidationOptionsPtrOutputWithContext(ctx context.Context) MediaGraphTlsValidationOptionsPtrOutput {
-	return o.ApplyT(func(v MediaGraphTlsValidationOptions) *MediaGraphTlsValidationOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphTlsValidationOptions) *MediaGraphTlsValidationOptions {
 		return &v
 	}).(MediaGraphTlsValidationOptionsPtrOutput)
 }
@@ -20716,7 +21022,13 @@ func (o MediaGraphTlsValidationOptionsPtrOutput) ToMediaGraphTlsValidationOption
 }
 
 func (o MediaGraphTlsValidationOptionsPtrOutput) Elem() MediaGraphTlsValidationOptionsOutput {
-	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) MediaGraphTlsValidationOptions { return *v }).(MediaGraphTlsValidationOptionsOutput)
+	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) MediaGraphTlsValidationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphTlsValidationOptions
+		return ret
+	}).(MediaGraphTlsValidationOptionsOutput)
 }
 
 // Ignore the host name (common name) during validation.
@@ -20839,7 +21151,7 @@ func (o MediaGraphTlsValidationOptionsResponseOutput) ToMediaGraphTlsValidationO
 }
 
 func (o MediaGraphTlsValidationOptionsResponseOutput) ToMediaGraphTlsValidationOptionsResponsePtrOutputWithContext(ctx context.Context) MediaGraphTlsValidationOptionsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphTlsValidationOptionsResponse) *MediaGraphTlsValidationOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphTlsValidationOptionsResponse) *MediaGraphTlsValidationOptionsResponse {
 		return &v
 	}).(MediaGraphTlsValidationOptionsResponsePtrOutput)
 }
@@ -20869,7 +21181,13 @@ func (o MediaGraphTlsValidationOptionsResponsePtrOutput) ToMediaGraphTlsValidati
 }
 
 func (o MediaGraphTlsValidationOptionsResponsePtrOutput) Elem() MediaGraphTlsValidationOptionsResponseOutput {
-	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) MediaGraphTlsValidationOptionsResponse { return *v }).(MediaGraphTlsValidationOptionsResponseOutput)
+	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) MediaGraphTlsValidationOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphTlsValidationOptionsResponse
+		return ret
+	}).(MediaGraphTlsValidationOptionsResponseOutput)
 }
 
 // Ignore the host name (common name) during validation.
@@ -20998,7 +21316,7 @@ func (o MediaGraphUsernamePasswordCredentialsOutput) ToMediaGraphUsernamePasswor
 }
 
 func (o MediaGraphUsernamePasswordCredentialsOutput) ToMediaGraphUsernamePasswordCredentialsPtrOutputWithContext(ctx context.Context) MediaGraphUsernamePasswordCredentialsPtrOutput {
-	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentials) *MediaGraphUsernamePasswordCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUsernamePasswordCredentials) *MediaGraphUsernamePasswordCredentials {
 		return &v
 	}).(MediaGraphUsernamePasswordCredentialsPtrOutput)
 }
@@ -21034,7 +21352,13 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) ToMediaGraphUsernamePass
 }
 
 func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Elem() MediaGraphUsernamePasswordCredentialsOutput {
-	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) MediaGraphUsernamePasswordCredentials { return *v }).(MediaGraphUsernamePasswordCredentialsOutput)
+	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) MediaGraphUsernamePasswordCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUsernamePasswordCredentials
+		return ret
+	}).(MediaGraphUsernamePasswordCredentialsOutput)
 }
 
 // The discriminator for derived types.
@@ -21174,7 +21498,7 @@ func (o MediaGraphUsernamePasswordCredentialsResponseOutput) ToMediaGraphUsernam
 }
 
 func (o MediaGraphUsernamePasswordCredentialsResponseOutput) ToMediaGraphUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx context.Context) MediaGraphUsernamePasswordCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentialsResponse) *MediaGraphUsernamePasswordCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUsernamePasswordCredentialsResponse) *MediaGraphUsernamePasswordCredentialsResponse {
 		return &v
 	}).(MediaGraphUsernamePasswordCredentialsResponsePtrOutput)
 }
@@ -21211,7 +21535,11 @@ func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) ToMediaGraphUser
 
 func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) Elem() MediaGraphUsernamePasswordCredentialsResponseOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentialsResponse) MediaGraphUsernamePasswordCredentialsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUsernamePasswordCredentialsResponse
+		return ret
 	}).(MediaGraphUsernamePasswordCredentialsResponseOutput)
 }
 
@@ -21339,7 +21667,7 @@ func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutput() MediaServi
 }
 
 func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutputWithContext(ctx context.Context) MediaServiceIdentityPtrOutput {
-	return o.ApplyT(func(v MediaServiceIdentity) *MediaServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaServiceIdentity) *MediaServiceIdentity {
 		return &v
 	}).(MediaServiceIdentityPtrOutput)
 }
@@ -21364,7 +21692,13 @@ func (o MediaServiceIdentityPtrOutput) ToMediaServiceIdentityPtrOutputWithContex
 }
 
 func (o MediaServiceIdentityPtrOutput) Elem() MediaServiceIdentityOutput {
-	return o.ApplyT(func(v *MediaServiceIdentity) MediaServiceIdentity { return *v }).(MediaServiceIdentityOutput)
+	return o.ApplyT(func(v *MediaServiceIdentity) MediaServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentity
+		return ret
+	}).(MediaServiceIdentityOutput)
 }
 
 // The identity type.
@@ -21478,7 +21812,7 @@ func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponsePtrOut
 }
 
 func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponsePtrOutputWithContext(ctx context.Context) MediaServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v MediaServiceIdentityResponse) *MediaServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaServiceIdentityResponse) *MediaServiceIdentityResponse {
 		return &v
 	}).(MediaServiceIdentityResponsePtrOutput)
 }
@@ -21513,7 +21847,13 @@ func (o MediaServiceIdentityResponsePtrOutput) ToMediaServiceIdentityResponsePtr
 }
 
 func (o MediaServiceIdentityResponsePtrOutput) Elem() MediaServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *MediaServiceIdentityResponse) MediaServiceIdentityResponse { return *v }).(MediaServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) MediaServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentityResponse
+		return ret
+	}).(MediaServiceIdentityResponseOutput)
 }
 
 // The Principal ID of the identity.
@@ -21946,7 +22286,7 @@ func (o NoEncryptionOutput) ToNoEncryptionPtrOutput() NoEncryptionPtrOutput {
 }
 
 func (o NoEncryptionOutput) ToNoEncryptionPtrOutputWithContext(ctx context.Context) NoEncryptionPtrOutput {
-	return o.ApplyT(func(v NoEncryption) *NoEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NoEncryption) *NoEncryption {
 		return &v
 	}).(NoEncryptionPtrOutput)
 }
@@ -21971,7 +22311,13 @@ func (o NoEncryptionPtrOutput) ToNoEncryptionPtrOutputWithContext(ctx context.Co
 }
 
 func (o NoEncryptionPtrOutput) Elem() NoEncryptionOutput {
-	return o.ApplyT(func(v *NoEncryption) NoEncryption { return *v }).(NoEncryptionOutput)
+	return o.ApplyT(func(v *NoEncryption) NoEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret NoEncryption
+		return ret
+	}).(NoEncryptionOutput)
 }
 
 // Representing supported protocols
@@ -22080,7 +22426,7 @@ func (o NoEncryptionResponseOutput) ToNoEncryptionResponsePtrOutput() NoEncrypti
 }
 
 func (o NoEncryptionResponseOutput) ToNoEncryptionResponsePtrOutputWithContext(ctx context.Context) NoEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v NoEncryptionResponse) *NoEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NoEncryptionResponse) *NoEncryptionResponse {
 		return &v
 	}).(NoEncryptionResponsePtrOutput)
 }
@@ -22105,7 +22451,13 @@ func (o NoEncryptionResponsePtrOutput) ToNoEncryptionResponsePtrOutputWithContex
 }
 
 func (o NoEncryptionResponsePtrOutput) Elem() NoEncryptionResponseOutput {
-	return o.ApplyT(func(v *NoEncryptionResponse) NoEncryptionResponse { return *v }).(NoEncryptionResponseOutput)
+	return o.ApplyT(func(v *NoEncryptionResponse) NoEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NoEncryptionResponse
+		return ret
+	}).(NoEncryptionResponseOutput)
 }
 
 // Representing supported protocols
@@ -23088,7 +23440,7 @@ func (o PresentationTimeRangeOutput) ToPresentationTimeRangePtrOutput() Presenta
 }
 
 func (o PresentationTimeRangeOutput) ToPresentationTimeRangePtrOutputWithContext(ctx context.Context) PresentationTimeRangePtrOutput {
-	return o.ApplyT(func(v PresentationTimeRange) *PresentationTimeRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresentationTimeRange) *PresentationTimeRange {
 		return &v
 	}).(PresentationTimeRangePtrOutput)
 }
@@ -23138,7 +23490,13 @@ func (o PresentationTimeRangePtrOutput) ToPresentationTimeRangePtrOutputWithCont
 }
 
 func (o PresentationTimeRangePtrOutput) Elem() PresentationTimeRangeOutput {
-	return o.ApplyT(func(v *PresentationTimeRange) PresentationTimeRange { return *v }).(PresentationTimeRangeOutput)
+	return o.ApplyT(func(v *PresentationTimeRange) PresentationTimeRange {
+		if v != nil {
+			return *v
+		}
+		var ret PresentationTimeRange
+		return ret
+	}).(PresentationTimeRangeOutput)
 }
 
 // The absolute end time boundary.
@@ -23317,7 +23675,7 @@ func (o PresentationTimeRangeResponseOutput) ToPresentationTimeRangeResponsePtrO
 }
 
 func (o PresentationTimeRangeResponseOutput) ToPresentationTimeRangeResponsePtrOutputWithContext(ctx context.Context) PresentationTimeRangeResponsePtrOutput {
-	return o.ApplyT(func(v PresentationTimeRangeResponse) *PresentationTimeRangeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresentationTimeRangeResponse) *PresentationTimeRangeResponse {
 		return &v
 	}).(PresentationTimeRangeResponsePtrOutput)
 }
@@ -23367,7 +23725,13 @@ func (o PresentationTimeRangeResponsePtrOutput) ToPresentationTimeRangeResponseP
 }
 
 func (o PresentationTimeRangeResponsePtrOutput) Elem() PresentationTimeRangeResponseOutput {
-	return o.ApplyT(func(v *PresentationTimeRangeResponse) PresentationTimeRangeResponse { return *v }).(PresentationTimeRangeResponseOutput)
+	return o.ApplyT(func(v *PresentationTimeRangeResponse) PresentationTimeRangeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PresentationTimeRangeResponse
+		return ret
+	}).(PresentationTimeRangeResponseOutput)
 }
 
 // The absolute end time boundary.
@@ -23526,7 +23890,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -23551,7 +23915,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -23668,7 +24038,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -23703,7 +24073,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -23840,7 +24216,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -23876,7 +24252,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -24018,7 +24398,7 @@ func (o RectangleOutput) ToRectanglePtrOutput() RectanglePtrOutput {
 }
 
 func (o RectangleOutput) ToRectanglePtrOutputWithContext(ctx context.Context) RectanglePtrOutput {
-	return o.ApplyT(func(v Rectangle) *Rectangle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Rectangle) *Rectangle {
 		return &v
 	}).(RectanglePtrOutput)
 }
@@ -24058,7 +24438,13 @@ func (o RectanglePtrOutput) ToRectanglePtrOutputWithContext(ctx context.Context)
 }
 
 func (o RectanglePtrOutput) Elem() RectangleOutput {
-	return o.ApplyT(func(v *Rectangle) Rectangle { return *v }).(RectangleOutput)
+	return o.ApplyT(func(v *Rectangle) Rectangle {
+		if v != nil {
+			return *v
+		}
+		var ret Rectangle
+		return ret
+	}).(RectangleOutput)
 }
 
 // The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
@@ -24209,7 +24595,7 @@ func (o RectangleResponseOutput) ToRectangleResponsePtrOutput() RectangleRespons
 }
 
 func (o RectangleResponseOutput) ToRectangleResponsePtrOutputWithContext(ctx context.Context) RectangleResponsePtrOutput {
-	return o.ApplyT(func(v RectangleResponse) *RectangleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RectangleResponse) *RectangleResponse {
 		return &v
 	}).(RectangleResponsePtrOutput)
 }
@@ -24249,7 +24635,13 @@ func (o RectangleResponsePtrOutput) ToRectangleResponsePtrOutputWithContext(ctx 
 }
 
 func (o RectangleResponsePtrOutput) Elem() RectangleResponseOutput {
-	return o.ApplyT(func(v *RectangleResponse) RectangleResponse { return *v }).(RectangleResponseOutput)
+	return o.ApplyT(func(v *RectangleResponse) RectangleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RectangleResponse
+		return ret
+	}).(RectangleResponseOutput)
 }
 
 // The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
@@ -25424,7 +25816,7 @@ func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPt
 }
 
 func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
-	return o.ApplyT(func(v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
 		return &v
 	}).(StreamingEndpointAccessControlPtrOutput)
 }
@@ -25454,7 +25846,13 @@ func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessContro
 }
 
 func (o StreamingEndpointAccessControlPtrOutput) Elem() StreamingEndpointAccessControlOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl { return *v }).(StreamingEndpointAccessControlOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointAccessControl
+		return ret
+	}).(StreamingEndpointAccessControlOutput)
 }
 
 // The access control of Akamai
@@ -25577,7 +25975,7 @@ func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessC
 }
 
 func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
 		return &v
 	}).(StreamingEndpointAccessControlResponsePtrOutput)
 }
@@ -25607,7 +26005,13 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) ToStreamingEndpointAcce
 }
 
 func (o StreamingEndpointAccessControlResponsePtrOutput) Elem() StreamingEndpointAccessControlResponseOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse { return *v }).(StreamingEndpointAccessControlResponseOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingEndpointAccessControlResponse
+		return ret
+	}).(StreamingEndpointAccessControlResponseOutput)
 }
 
 // The access control of Akamai
@@ -26347,7 +26751,7 @@ func (o StreamingPolicyContentKeysOutput) ToStreamingPolicyContentKeysPtrOutput(
 }
 
 func (o StreamingPolicyContentKeysOutput) ToStreamingPolicyContentKeysPtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyContentKeys) *StreamingPolicyContentKeys {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyContentKeys) *StreamingPolicyContentKeys {
 		return &v
 	}).(StreamingPolicyContentKeysPtrOutput)
 }
@@ -26377,7 +26781,13 @@ func (o StreamingPolicyContentKeysPtrOutput) ToStreamingPolicyContentKeysPtrOutp
 }
 
 func (o StreamingPolicyContentKeysPtrOutput) Elem() StreamingPolicyContentKeysOutput {
-	return o.ApplyT(func(v *StreamingPolicyContentKeys) StreamingPolicyContentKeys { return *v }).(StreamingPolicyContentKeysOutput)
+	return o.ApplyT(func(v *StreamingPolicyContentKeys) StreamingPolicyContentKeys {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyContentKeys
+		return ret
+	}).(StreamingPolicyContentKeysOutput)
 }
 
 // Default content key for an encryption scheme
@@ -26500,7 +26910,7 @@ func (o StreamingPolicyContentKeysResponseOutput) ToStreamingPolicyContentKeysRe
 }
 
 func (o StreamingPolicyContentKeysResponseOutput) ToStreamingPolicyContentKeysResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyContentKeysResponse) *StreamingPolicyContentKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyContentKeysResponse) *StreamingPolicyContentKeysResponse {
 		return &v
 	}).(StreamingPolicyContentKeysResponsePtrOutput)
 }
@@ -26532,7 +26942,13 @@ func (o StreamingPolicyContentKeysResponsePtrOutput) ToStreamingPolicyContentKey
 }
 
 func (o StreamingPolicyContentKeysResponsePtrOutput) Elem() StreamingPolicyContentKeysResponseOutput {
-	return o.ApplyT(func(v *StreamingPolicyContentKeysResponse) StreamingPolicyContentKeysResponse { return *v }).(StreamingPolicyContentKeysResponseOutput)
+	return o.ApplyT(func(v *StreamingPolicyContentKeysResponse) StreamingPolicyContentKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyContentKeysResponse
+		return ret
+	}).(StreamingPolicyContentKeysResponseOutput)
 }
 
 // Default content key for an encryption scheme
@@ -26655,7 +27071,7 @@ func (o StreamingPolicyFairPlayConfigurationOutput) ToStreamingPolicyFairPlayCon
 }
 
 func (o StreamingPolicyFairPlayConfigurationOutput) ToStreamingPolicyFairPlayConfigurationPtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyFairPlayConfiguration) *StreamingPolicyFairPlayConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyFairPlayConfiguration) *StreamingPolicyFairPlayConfiguration {
 		return &v
 	}).(StreamingPolicyFairPlayConfigurationPtrOutput)
 }
@@ -26685,7 +27101,13 @@ func (o StreamingPolicyFairPlayConfigurationPtrOutput) ToStreamingPolicyFairPlay
 }
 
 func (o StreamingPolicyFairPlayConfigurationPtrOutput) Elem() StreamingPolicyFairPlayConfigurationOutput {
-	return o.ApplyT(func(v *StreamingPolicyFairPlayConfiguration) StreamingPolicyFairPlayConfiguration { return *v }).(StreamingPolicyFairPlayConfigurationOutput)
+	return o.ApplyT(func(v *StreamingPolicyFairPlayConfiguration) StreamingPolicyFairPlayConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyFairPlayConfiguration
+		return ret
+	}).(StreamingPolicyFairPlayConfigurationOutput)
 }
 
 // All license to be persistent or not
@@ -26808,7 +27230,7 @@ func (o StreamingPolicyFairPlayConfigurationResponseOutput) ToStreamingPolicyFai
 }
 
 func (o StreamingPolicyFairPlayConfigurationResponseOutput) ToStreamingPolicyFairPlayConfigurationResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyFairPlayConfigurationResponse) *StreamingPolicyFairPlayConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyFairPlayConfigurationResponse) *StreamingPolicyFairPlayConfigurationResponse {
 		return &v
 	}).(StreamingPolicyFairPlayConfigurationResponsePtrOutput)
 }
@@ -26841,7 +27263,11 @@ func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) ToStreamingPolicy
 
 func (o StreamingPolicyFairPlayConfigurationResponsePtrOutput) Elem() StreamingPolicyFairPlayConfigurationResponseOutput {
 	return o.ApplyT(func(v *StreamingPolicyFairPlayConfigurationResponse) StreamingPolicyFairPlayConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyFairPlayConfigurationResponse
+		return ret
 	}).(StreamingPolicyFairPlayConfigurationResponseOutput)
 }
 
@@ -26965,7 +27391,7 @@ func (o StreamingPolicyPlayReadyConfigurationOutput) ToStreamingPolicyPlayReadyC
 }
 
 func (o StreamingPolicyPlayReadyConfigurationOutput) ToStreamingPolicyPlayReadyConfigurationPtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyPlayReadyConfiguration) *StreamingPolicyPlayReadyConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyPlayReadyConfiguration) *StreamingPolicyPlayReadyConfiguration {
 		return &v
 	}).(StreamingPolicyPlayReadyConfigurationPtrOutput)
 }
@@ -26995,7 +27421,13 @@ func (o StreamingPolicyPlayReadyConfigurationPtrOutput) ToStreamingPolicyPlayRea
 }
 
 func (o StreamingPolicyPlayReadyConfigurationPtrOutput) Elem() StreamingPolicyPlayReadyConfigurationOutput {
-	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfiguration) StreamingPolicyPlayReadyConfiguration { return *v }).(StreamingPolicyPlayReadyConfigurationOutput)
+	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfiguration) StreamingPolicyPlayReadyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyPlayReadyConfiguration
+		return ret
+	}).(StreamingPolicyPlayReadyConfigurationOutput)
 }
 
 // Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
@@ -27118,7 +27550,7 @@ func (o StreamingPolicyPlayReadyConfigurationResponseOutput) ToStreamingPolicyPl
 }
 
 func (o StreamingPolicyPlayReadyConfigurationResponseOutput) ToStreamingPolicyPlayReadyConfigurationResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyPlayReadyConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyPlayReadyConfigurationResponse) *StreamingPolicyPlayReadyConfigurationResponse {
 		return &v
 	}).(StreamingPolicyPlayReadyConfigurationResponsePtrOutput)
 }
@@ -27151,7 +27583,11 @@ func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) ToStreamingPolic
 
 func (o StreamingPolicyPlayReadyConfigurationResponsePtrOutput) Elem() StreamingPolicyPlayReadyConfigurationResponseOutput {
 	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfigurationResponse) StreamingPolicyPlayReadyConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyPlayReadyConfigurationResponse
+		return ret
 	}).(StreamingPolicyPlayReadyConfigurationResponseOutput)
 }
 
@@ -27271,7 +27707,7 @@ func (o StreamingPolicyWidevineConfigurationOutput) ToStreamingPolicyWidevineCon
 }
 
 func (o StreamingPolicyWidevineConfigurationOutput) ToStreamingPolicyWidevineConfigurationPtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationPtrOutput {
-	return o.ApplyT(func(v StreamingPolicyWidevineConfiguration) *StreamingPolicyWidevineConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyWidevineConfiguration) *StreamingPolicyWidevineConfiguration {
 		return &v
 	}).(StreamingPolicyWidevineConfigurationPtrOutput)
 }
@@ -27296,7 +27732,13 @@ func (o StreamingPolicyWidevineConfigurationPtrOutput) ToStreamingPolicyWidevine
 }
 
 func (o StreamingPolicyWidevineConfigurationPtrOutput) Elem() StreamingPolicyWidevineConfigurationOutput {
-	return o.ApplyT(func(v *StreamingPolicyWidevineConfiguration) StreamingPolicyWidevineConfiguration { return *v }).(StreamingPolicyWidevineConfigurationOutput)
+	return o.ApplyT(func(v *StreamingPolicyWidevineConfiguration) StreamingPolicyWidevineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyWidevineConfiguration
+		return ret
+	}).(StreamingPolicyWidevineConfigurationOutput)
 }
 
 // Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
@@ -27405,7 +27847,7 @@ func (o StreamingPolicyWidevineConfigurationResponseOutput) ToStreamingPolicyWid
 }
 
 func (o StreamingPolicyWidevineConfigurationResponseOutput) ToStreamingPolicyWidevineConfigurationResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StreamingPolicyWidevineConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyWidevineConfigurationResponse) *StreamingPolicyWidevineConfigurationResponse {
 		return &v
 	}).(StreamingPolicyWidevineConfigurationResponsePtrOutput)
 }
@@ -27433,7 +27875,11 @@ func (o StreamingPolicyWidevineConfigurationResponsePtrOutput) ToStreamingPolicy
 
 func (o StreamingPolicyWidevineConfigurationResponsePtrOutput) Elem() StreamingPolicyWidevineConfigurationResponseOutput {
 	return o.ApplyT(func(v *StreamingPolicyWidevineConfigurationResponse) StreamingPolicyWidevineConfigurationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StreamingPolicyWidevineConfigurationResponse
+		return ret
 	}).(StreamingPolicyWidevineConfigurationResponseOutput)
 }
 
@@ -27563,7 +28009,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -27613,7 +28059,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

@@ -112,25 +112,9 @@ func GetReplicationvCenter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationvCenter resources.
 type replicationvCenterState struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// VCenter related data.
-	Properties *VCenterPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type ReplicationvCenterState struct {
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// VCenter related data.
-	Properties VCenterPropertiesResponsePtrInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (ReplicationvCenterState) ElementType() reflect.Type {
@@ -187,9 +171,7 @@ func (i *ReplicationvCenter) ToReplicationvCenterOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationvCenterOutput)
 }
 
-type ReplicationvCenterOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationvCenterOutput struct{ *pulumi.OutputState }
 
 func (ReplicationvCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationvCenter)(nil))

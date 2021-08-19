@@ -96,21 +96,9 @@ func GetSynchronizationSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SynchronizationSetting resources.
 type synchronizationSettingState struct {
-	// Kind of synchronization setting.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type SynchronizationSettingState struct {
-	// Kind of synchronization setting.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (SynchronizationSettingState) ElementType() reflect.Type {
@@ -167,9 +155,7 @@ func (i *SynchronizationSetting) ToSynchronizationSettingOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationSettingOutput)
 }
 
-type SynchronizationSettingOutput struct {
-	*pulumi.OutputState
-}
+type SynchronizationSettingOutput struct{ *pulumi.OutputState }
 
 func (SynchronizationSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynchronizationSetting)(nil))

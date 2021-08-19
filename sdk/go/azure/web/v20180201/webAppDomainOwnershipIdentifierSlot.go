@@ -133,21 +133,9 @@ func GetWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppDomainOwnershipIdentifierSlot resources.
 type webAppDomainOwnershipIdentifierSlotState struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppDomainOwnershipIdentifierSlotState struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppDomainOwnershipIdentifierSlotState) ElementType() reflect.Type {
@@ -208,9 +196,7 @@ func (i *WebAppDomainOwnershipIdentifierSlot) ToWebAppDomainOwnershipIdentifierS
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierSlotOutput)
 }
 
-type WebAppDomainOwnershipIdentifierSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppDomainOwnershipIdentifierSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppDomainOwnershipIdentifierSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierSlot)(nil))

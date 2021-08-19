@@ -101,33 +101,9 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the Maps Account, which is unique within a Resource Group.
-	Name *string `pulumi:"name"`
-	// The map account properties.
-	Properties *MapsAccountPropertiesResponse `pulumi:"properties"`
-	// The SKU of this account.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the Maps Account, which is unique within a Resource Group.
-	Name pulumi.StringPtrInput
-	// The map account properties.
-	Properties MapsAccountPropertiesResponsePtrInput
-	// The SKU of this account.
-	Sku SkuResponsePtrInput
-	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapInput
-	// Azure resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -184,9 +160,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

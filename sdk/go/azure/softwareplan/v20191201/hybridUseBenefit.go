@@ -84,37 +84,9 @@ func GetHybridUseBenefit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HybridUseBenefit resources.
 type hybridUseBenefitState struct {
-	// Created date
-	CreatedDate *string `pulumi:"createdDate"`
-	// Indicates the revision of the hybrid use benefit
-	Etag *int `pulumi:"etag"`
-	// Last updated date
-	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Hybrid use benefit SKU
-	Sku *SkuResponse `pulumi:"sku"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type HybridUseBenefitState struct {
-	// Created date
-	CreatedDate pulumi.StringPtrInput
-	// Indicates the revision of the hybrid use benefit
-	Etag pulumi.IntPtrInput
-	// Last updated date
-	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// Hybrid use benefit SKU
-	Sku SkuResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (HybridUseBenefitState) ElementType() reflect.Type {
@@ -163,9 +135,7 @@ func (i *HybridUseBenefit) ToHybridUseBenefitOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitOutput)
 }
 
-type HybridUseBenefitOutput struct {
-	*pulumi.OutputState
-}
+type HybridUseBenefitOutput struct{ *pulumi.OutputState }
 
 func (HybridUseBenefitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridUseBenefit)(nil))

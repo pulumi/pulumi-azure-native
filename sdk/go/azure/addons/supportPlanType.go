@@ -74,21 +74,9 @@ func GetSupportPlanType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SupportPlanType resources.
 type supportPlanTypeState struct {
-	// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Microsoft.Addons/supportProvider
-	Type *string `pulumi:"type"`
 }
 
 type SupportPlanTypeState struct {
-	// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Microsoft.Addons/supportProvider
-	Type pulumi.StringPtrInput
 }
 
 func (SupportPlanTypeState) ElementType() reflect.Type {
@@ -133,9 +121,7 @@ func (i *SupportPlanType) ToSupportPlanTypeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SupportPlanTypeOutput)
 }
 
-type SupportPlanTypeOutput struct {
-	*pulumi.OutputState
-}
+type SupportPlanTypeOutput struct{ *pulumi.OutputState }
 
 func (SupportPlanTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SupportPlanType)(nil))

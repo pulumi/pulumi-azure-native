@@ -130,7 +130,7 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
@@ -185,7 +185,13 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificatePropertiesResponse
+		return ret
+	}).(CertificatePropertiesResponseOutput)
 }
 
 // base-64 representation of X509 certificate .cer file or just .pem file content.
@@ -374,7 +380,7 @@ func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutpu
 }
 
 func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionPtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
 		return &v
 	}).(IotDpsPropertiesDescriptionPtrOutput)
 }
@@ -426,7 +432,13 @@ func (o IotDpsPropertiesDescriptionPtrOutput) ToIotDpsPropertiesDescriptionPtrOu
 }
 
 func (o IotDpsPropertiesDescriptionPtrOutput) Elem() IotDpsPropertiesDescriptionOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription { return *v }).(IotDpsPropertiesDescriptionOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescription
+		return ret
+	}).(IotDpsPropertiesDescriptionOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -617,7 +629,7 @@ func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescription
 }
 
 func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
 		return &v
 	}).(IotDpsPropertiesDescriptionResponsePtrOutput)
 }
@@ -684,7 +696,13 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ToIotDpsPropertiesDescript
 }
 
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) Elem() IotDpsPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse { return *v }).(IotDpsPropertiesDescriptionResponseOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescriptionResponse
+		return ret
+	}).(IotDpsPropertiesDescriptionResponseOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -877,7 +895,7 @@ func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutput() IotDpsSkuInfoPtrOutput {
 }
 
 func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.Context) IotDpsSkuInfoPtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfo) *IotDpsSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfo) *IotDpsSkuInfo {
 		return &v
 	}).(IotDpsSkuInfoPtrOutput)
 }
@@ -907,7 +925,13 @@ func (o IotDpsSkuInfoPtrOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotDpsSkuInfoPtrOutput) Elem() IotDpsSkuInfoOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo { return *v }).(IotDpsSkuInfoOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfo
+		return ret
+	}).(IotDpsSkuInfoOutput)
 }
 
 // The number of units to provision
@@ -1034,7 +1058,7 @@ func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutput() IotDpsSk
 }
 
 func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotDpsSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
 		return &v
 	}).(IotDpsSkuInfoResponsePtrOutput)
 }
@@ -1069,7 +1093,13 @@ func (o IotDpsSkuInfoResponsePtrOutput) ToIotDpsSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotDpsSkuInfoResponsePtrOutput) Elem() IotDpsSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse { return *v }).(IotDpsSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfoResponse
+		return ret
+	}).(IotDpsSkuInfoResponseOutput)
 }
 
 // The number of units to provision
@@ -1626,13 +1656,13 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 // The IP filter rules for the IoT dps.
 type TargetIpFilterRule struct {
 	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName string `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask string `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target *string `pulumi:"target"`
+	Target *IpFilterTargetType `pulumi:"target"`
 }
 
 // TargetIpFilterRuleInput is an input type that accepts TargetIpFilterRuleArgs and TargetIpFilterRuleOutput values.
@@ -1649,13 +1679,13 @@ type TargetIpFilterRuleInput interface {
 // The IP filter rules for the IoT dps.
 type TargetIpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
+	Action IpFilterActionTypeInput `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target *IpFilterTargetType `pulumi:"target"`
+	Target IpFilterTargetTypePtrInput `pulumi:"target"`
 }
 
 func (TargetIpFilterRuleArgs) ElementType() reflect.Type {
@@ -1711,8 +1741,8 @@ func (o TargetIpFilterRuleOutput) ToTargetIpFilterRuleOutputWithContext(ctx cont
 }
 
 // The desired action for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o TargetIpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
 // The name of the IP filter rule.
@@ -1726,8 +1756,8 @@ func (o TargetIpFilterRuleOutput) IpMask() pulumi.StringOutput {
 }
 
 // Target for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
+func (o TargetIpFilterRuleOutput) Target() IpFilterTargetTypePtrOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) *IpFilterTargetType { return v.Target }).(IpFilterTargetTypePtrOutput)
 }
 
 type TargetIpFilterRuleArrayOutput struct{ *pulumi.OutputState }

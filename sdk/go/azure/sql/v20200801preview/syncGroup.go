@@ -125,65 +125,9 @@ func GetSyncGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyncGroup resources.
 type syncGroupState struct {
-	// Conflict logging retention period.
-	ConflictLoggingRetentionInDays *int `pulumi:"conflictLoggingRetentionInDays"`
-	// Conflict resolution policy of the sync group.
-	ConflictResolutionPolicy *string `pulumi:"conflictResolutionPolicy"`
-	// If conflict logging is enabled.
-	EnableConflictLogging *bool `pulumi:"enableConflictLogging"`
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
-	// Sync interval of the sync group.
-	Interval *int `pulumi:"interval"`
-	// Last sync time of the sync group.
-	LastSyncTime *string `pulumi:"lastSyncTime"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Private endpoint name of the sync group if use private link connection is enabled.
-	PrivateEndpointName *string `pulumi:"privateEndpointName"`
-	// Sync schema of the sync group.
-	Schema *SyncGroupSchemaResponse `pulumi:"schema"`
-	// The name and capacity of the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
-	// Sync state of the sync group.
-	SyncState *string `pulumi:"syncState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// If use private link connection is enabled.
-	UsePrivateLinkConnection *bool `pulumi:"usePrivateLinkConnection"`
 }
 
 type SyncGroupState struct {
-	// Conflict logging retention period.
-	ConflictLoggingRetentionInDays pulumi.IntPtrInput
-	// Conflict resolution policy of the sync group.
-	ConflictResolutionPolicy pulumi.StringPtrInput
-	// If conflict logging is enabled.
-	EnableConflictLogging pulumi.BoolPtrInput
-	// User name for the sync group hub database credential.
-	HubDatabaseUserName pulumi.StringPtrInput
-	// Sync interval of the sync group.
-	Interval pulumi.IntPtrInput
-	// Last sync time of the sync group.
-	LastSyncTime pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Private endpoint name of the sync group if use private link connection is enabled.
-	PrivateEndpointName pulumi.StringPtrInput
-	// Sync schema of the sync group.
-	Schema SyncGroupSchemaResponsePtrInput
-	// The name and capacity of the SKU.
-	Sku SkuResponsePtrInput
-	// ARM resource id of the sync database in the sync group.
-	SyncDatabaseId pulumi.StringPtrInput
-	// Sync state of the sync group.
-	SyncState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// If use private link connection is enabled.
-	UsePrivateLinkConnection pulumi.BoolPtrInput
 }
 
 func (SyncGroupState) ElementType() reflect.Type {
@@ -276,9 +220,7 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
-type SyncGroupOutput struct {
-	*pulumi.OutputState
-}
+type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncGroup)(nil))

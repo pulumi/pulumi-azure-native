@@ -157,49 +157,9 @@ func GetApiOperation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiOperation resources.
 type apiOperationState struct {
-	// Description of the operation. May include HTML formatting tags.
-	Description *string `pulumi:"description"`
-	// Operation Name.
-	DisplayName *string `pulumi:"displayName"`
-	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-	Method *string `pulumi:"method"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Operation Policies
-	Policies *string `pulumi:"policies"`
-	// An entity containing request details.
-	Request *RequestContractResponse `pulumi:"request"`
-	// Array of Operation responses.
-	Responses []ResponseContractResponse `pulumi:"responses"`
-	// Collection of URL template parameters.
-	TemplateParameters []ParameterContractResponse `pulumi:"templateParameters"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
-	UrlTemplate *string `pulumi:"urlTemplate"`
 }
 
 type ApiOperationState struct {
-	// Description of the operation. May include HTML formatting tags.
-	Description pulumi.StringPtrInput
-	// Operation Name.
-	DisplayName pulumi.StringPtrInput
-	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-	Method pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Operation Policies
-	Policies pulumi.StringPtrInput
-	// An entity containing request details.
-	Request RequestContractResponsePtrInput
-	// Array of Operation responses.
-	Responses ResponseContractResponseArrayInput
-	// Collection of URL template parameters.
-	TemplateParameters ParameterContractResponseArrayInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
-	UrlTemplate pulumi.StringPtrInput
 }
 
 func (ApiOperationState) ElementType() reflect.Type {
@@ -284,9 +244,7 @@ func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationOutput)
 }
 
-type ApiOperationOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperation)(nil))

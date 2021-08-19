@@ -128,41 +128,9 @@ func GetEmailTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailTemplate resources.
 type emailTemplateState struct {
-	// Email Template Body. This should be a valid XDocument
-	Body *string `pulumi:"body"`
-	// Description of the Email Template.
-	Description *string `pulumi:"description"`
-	// Whether the template is the default template provided by API Management or has been edited.
-	IsDefault *bool `pulumi:"isDefault"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Email Template Parameter values.
-	Parameters []EmailTemplateParametersContractPropertiesResponse `pulumi:"parameters"`
-	// Subject of the Template.
-	Subject *string `pulumi:"subject"`
-	// Title of the Template.
-	Title *string `pulumi:"title"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type EmailTemplateState struct {
-	// Email Template Body. This should be a valid XDocument
-	Body pulumi.StringPtrInput
-	// Description of the Email Template.
-	Description pulumi.StringPtrInput
-	// Whether the template is the default template provided by API Management or has been edited.
-	IsDefault pulumi.BoolPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Email Template Parameter values.
-	Parameters EmailTemplateParametersContractPropertiesResponseArrayInput
-	// Subject of the Template.
-	Subject pulumi.StringPtrInput
-	// Title of the Template.
-	Title pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (EmailTemplateState) ElementType() reflect.Type {
@@ -231,9 +199,7 @@ func (i *EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateOutput)
 }
 
-type EmailTemplateOutput struct {
-	*pulumi.OutputState
-}
+type EmailTemplateOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailTemplate)(nil))

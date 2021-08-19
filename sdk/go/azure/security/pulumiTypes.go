@@ -720,7 +720,7 @@ func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutput() Asse
 }
 
 func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
-	return o.ApplyT(func(v AssessmentLinksResponse) *AssessmentLinksResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentLinksResponse) *AssessmentLinksResponse {
 		return &v
 	}).(AssessmentLinksResponsePtrOutput)
 }
@@ -745,7 +745,13 @@ func (o AssessmentLinksResponsePtrOutput) ToAssessmentLinksResponsePtrOutputWith
 }
 
 func (o AssessmentLinksResponsePtrOutput) Elem() AssessmentLinksResponseOutput {
-	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse { return *v }).(AssessmentLinksResponseOutput)
+	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentLinksResponse
+		return ret
+	}).(AssessmentLinksResponseOutput)
 }
 
 // Link to assessment in Azure Portal
@@ -862,7 +868,7 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPt
 }
 
 func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o.ApplyT(func(v AssessmentStatus) *AssessmentStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
 		return &v
 	}).(AssessmentStatusPtrOutput)
 }
@@ -897,7 +903,13 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx co
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus { return *v }).(AssessmentStatusOutput)
+	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatus
+		return ret
+	}).(AssessmentStatusOutput)
 }
 
 // Programmatic code for the cause of the assessment status
@@ -1034,7 +1046,7 @@ func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutput() As
 }
 
 func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v AssessmentStatusResponse) *AssessmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatusResponse) *AssessmentStatusResponse {
 		return &v
 	}).(AssessmentStatusResponsePtrOutput)
 }
@@ -1069,7 +1081,13 @@ func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutputWi
 }
 
 func (o AssessmentStatusResponsePtrOutput) Elem() AssessmentStatusResponseOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse { return *v }).(AssessmentStatusResponseOutput)
+	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatusResponse
+		return ret
+	}).(AssessmentStatusResponseOutput)
 }
 
 // Programmatic code for the cause of the assessment status
@@ -3633,7 +3651,7 @@ func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsProperties
 }
 
 func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsPropertiesPtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v HybridComputeSettingsProperties) *HybridComputeSettingsProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridComputeSettingsProperties) *HybridComputeSettingsProperties {
 		return &v
 	}).(HybridComputeSettingsPropertiesPtrOutput)
 }
@@ -3678,7 +3696,13 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ToHybridComputeSettingsPropert
 }
 
 func (o HybridComputeSettingsPropertiesPtrOutput) Elem() HybridComputeSettingsPropertiesOutput {
-	return o.ApplyT(func(v *HybridComputeSettingsProperties) HybridComputeSettingsProperties { return *v }).(HybridComputeSettingsPropertiesOutput)
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) HybridComputeSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HybridComputeSettingsProperties
+		return ret
+	}).(HybridComputeSettingsPropertiesOutput)
 }
 
 // Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
@@ -3847,7 +3871,7 @@ func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPr
 }
 
 func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *HybridComputeSettingsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridComputeSettingsPropertiesResponse) *HybridComputeSettingsPropertiesResponse {
 		return &v
 	}).(HybridComputeSettingsPropertiesResponsePtrOutput)
 }
@@ -3899,7 +3923,13 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ToHybridComputeSetting
 }
 
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) Elem() HybridComputeSettingsPropertiesResponseOutput {
-	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) HybridComputeSettingsPropertiesResponse { return *v }).(HybridComputeSettingsPropertiesResponseOutput)
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) HybridComputeSettingsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HybridComputeSettingsPropertiesResponse
+		return ret
+	}).(HybridComputeSettingsPropertiesResponseOutput)
 }
 
 // Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
@@ -6163,7 +6193,7 @@ func (o ProtectionModeOutput) ToProtectionModePtrOutput() ProtectionModePtrOutpu
 }
 
 func (o ProtectionModeOutput) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
-	return o.ApplyT(func(v ProtectionMode) *ProtectionMode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionMode) *ProtectionMode {
 		return &v
 	}).(ProtectionModePtrOutput)
 }
@@ -6203,7 +6233,13 @@ func (o ProtectionModePtrOutput) ToProtectionModePtrOutputWithContext(ctx contex
 }
 
 func (o ProtectionModePtrOutput) Elem() ProtectionModeOutput {
-	return o.ApplyT(func(v *ProtectionMode) ProtectionMode { return *v }).(ProtectionModeOutput)
+	return o.ApplyT(func(v *ProtectionMode) ProtectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionMode
+		return ret
+	}).(ProtectionModeOutput)
 }
 
 // The application control policy enforcement/protection mode of the machine group
@@ -6354,7 +6390,7 @@ func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutput() Protec
 }
 
 func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
-	return o.ApplyT(func(v ProtectionModeResponse) *ProtectionModeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionModeResponse) *ProtectionModeResponse {
 		return &v
 	}).(ProtectionModeResponsePtrOutput)
 }
@@ -6394,7 +6430,13 @@ func (o ProtectionModeResponsePtrOutput) ToProtectionModeResponsePtrOutputWithCo
 }
 
 func (o ProtectionModeResponsePtrOutput) Elem() ProtectionModeResponseOutput {
-	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse { return *v }).(ProtectionModeResponseOutput)
+	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionModeResponse
+		return ret
+	}).(ProtectionModeResponseOutput)
 }
 
 // The application control policy enforcement/protection mode of the machine group
@@ -6537,7 +6579,7 @@ func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesPtrOutput() ProxySer
 }
 
 func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesPtrOutputWithContext(ctx context.Context) ProxyServerPropertiesPtrOutput {
-	return o.ApplyT(func(v ProxyServerProperties) *ProxyServerProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyServerProperties) *ProxyServerProperties {
 		return &v
 	}).(ProxyServerPropertiesPtrOutput)
 }
@@ -6567,7 +6609,13 @@ func (o ProxyServerPropertiesPtrOutput) ToProxyServerPropertiesPtrOutputWithCont
 }
 
 func (o ProxyServerPropertiesPtrOutput) Elem() ProxyServerPropertiesOutput {
-	return o.ApplyT(func(v *ProxyServerProperties) ProxyServerProperties { return *v }).(ProxyServerPropertiesOutput)
+	return o.ApplyT(func(v *ProxyServerProperties) ProxyServerProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ProxyServerProperties
+		return ret
+	}).(ProxyServerPropertiesOutput)
 }
 
 // Proxy server IP
@@ -6690,7 +6738,7 @@ func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponsePtrO
 }
 
 func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProxyServerPropertiesResponse) *ProxyServerPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyServerPropertiesResponse) *ProxyServerPropertiesResponse {
 		return &v
 	}).(ProxyServerPropertiesResponsePtrOutput)
 }
@@ -6720,7 +6768,13 @@ func (o ProxyServerPropertiesResponsePtrOutput) ToProxyServerPropertiesResponseP
 }
 
 func (o ProxyServerPropertiesResponsePtrOutput) Elem() ProxyServerPropertiesResponseOutput {
-	return o.ApplyT(func(v *ProxyServerPropertiesResponse) ProxyServerPropertiesResponse { return *v }).(ProxyServerPropertiesResponseOutput)
+	return o.ApplyT(func(v *ProxyServerPropertiesResponse) ProxyServerPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProxyServerPropertiesResponse
+		return ret
+	}).(ProxyServerPropertiesResponseOutput)
 }
 
 // Proxy server IP
@@ -6851,7 +6905,7 @@ func (o PublisherInfoOutput) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
 }
 
 func (o PublisherInfoOutput) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
-	return o.ApplyT(func(v PublisherInfo) *PublisherInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfo) *PublisherInfo {
 		return &v
 	}).(PublisherInfoPtrOutput)
 }
@@ -6891,7 +6945,13 @@ func (o PublisherInfoPtrOutput) ToPublisherInfoPtrOutputWithContext(ctx context.
 }
 
 func (o PublisherInfoPtrOutput) Elem() PublisherInfoOutput {
-	return o.ApplyT(func(v *PublisherInfo) PublisherInfo { return *v }).(PublisherInfoOutput)
+	return o.ApplyT(func(v *PublisherInfo) PublisherInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfo
+		return ret
+	}).(PublisherInfoOutput)
 }
 
 // The "OriginalName" field taken from the file's version resource
@@ -7042,7 +7102,7 @@ func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutput() Publishe
 }
 
 func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
-	return o.ApplyT(func(v PublisherInfoResponse) *PublisherInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfoResponse) *PublisherInfoResponse {
 		return &v
 	}).(PublisherInfoResponsePtrOutput)
 }
@@ -7082,7 +7142,13 @@ func (o PublisherInfoResponsePtrOutput) ToPublisherInfoResponsePtrOutputWithCont
 }
 
 func (o PublisherInfoResponsePtrOutput) Elem() PublisherInfoResponseOutput {
-	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse { return *v }).(PublisherInfoResponseOutput)
+	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfoResponse
+		return ret
+	}).(PublisherInfoResponseOutput)
 }
 
 // The "OriginalName" field taken from the file's version resource
@@ -7445,7 +7511,7 @@ func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrO
 }
 
 func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx context.Context) RuleResultsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RuleResultsPropertiesResponse) *RuleResultsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleResultsPropertiesResponse) *RuleResultsPropertiesResponse {
 		return &v
 	}).(RuleResultsPropertiesResponsePtrOutput)
 }
@@ -7470,7 +7536,13 @@ func (o RuleResultsPropertiesResponsePtrOutput) ToRuleResultsPropertiesResponseP
 }
 
 func (o RuleResultsPropertiesResponsePtrOutput) Elem() RuleResultsPropertiesResponseOutput {
-	return o.ApplyT(func(v *RuleResultsPropertiesResponse) RuleResultsPropertiesResponse { return *v }).(RuleResultsPropertiesResponseOutput)
+	return o.ApplyT(func(v *RuleResultsPropertiesResponse) RuleResultsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RuleResultsPropertiesResponse
+		return ret
+	}).(RuleResultsPropertiesResponseOutput)
 }
 
 // Expected results in the baseline.
@@ -7787,7 +7859,7 @@ func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadat
 }
 
 func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerData) *SecurityAssessmentMetadataPartnerData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPartnerData) *SecurityAssessmentMetadataPartnerData {
 		return &v
 	}).(SecurityAssessmentMetadataPartnerDataPtrOutput)
 }
@@ -7822,7 +7894,13 @@ func (o SecurityAssessmentMetadataPartnerDataPtrOutput) ToSecurityAssessmentMeta
 }
 
 func (o SecurityAssessmentMetadataPartnerDataPtrOutput) Elem() SecurityAssessmentMetadataPartnerDataOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) SecurityAssessmentMetadataPartnerData { return *v }).(SecurityAssessmentMetadataPartnerDataOutput)
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) SecurityAssessmentMetadataPartnerData {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataPartnerData
+		return ret
+	}).(SecurityAssessmentMetadataPartnerDataOutput)
 }
 
 // Name of the company of the partner
@@ -7959,7 +8037,7 @@ func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmen
 }
 
 func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerDataResponse) *SecurityAssessmentMetadataPartnerDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPartnerDataResponse) *SecurityAssessmentMetadataPartnerDataResponse {
 		return &v
 	}).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
 }
@@ -7995,7 +8073,11 @@ func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) ToSecurityAssess
 
 func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) Elem() SecurityAssessmentMetadataPartnerDataResponseOutput {
 	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerDataResponse) SecurityAssessmentMetadataPartnerDataResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataPartnerDataResponse
+		return ret
 	}).(SecurityAssessmentMetadataPartnerDataResponseOutput)
 }
 
@@ -8161,7 +8243,7 @@ func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadata
 }
 
 func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *SecurityAssessmentMetadataProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataProperties) *SecurityAssessmentMetadataProperties {
 		return &v
 	}).(SecurityAssessmentMetadataPropertiesPtrOutput)
 }
@@ -8236,7 +8318,13 @@ func (o SecurityAssessmentMetadataPropertiesPtrOutput) ToSecurityAssessmentMetad
 }
 
 func (o SecurityAssessmentMetadataPropertiesPtrOutput) Elem() SecurityAssessmentMetadataPropertiesOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) SecurityAssessmentMetadataProperties { return *v }).(SecurityAssessmentMetadataPropertiesOutput)
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) SecurityAssessmentMetadataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataProperties
+		return ret
+	}).(SecurityAssessmentMetadataPropertiesOutput)
 }
 
 // BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
@@ -8483,7 +8571,7 @@ func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessment
 }
 
 func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *SecurityAssessmentMetadataPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPropertiesResponse) *SecurityAssessmentMetadataPropertiesResponse {
 		return &v
 	}).(SecurityAssessmentMetadataPropertiesResponsePtrOutput)
 }
@@ -8564,7 +8652,11 @@ func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) ToSecurityAssessm
 
 func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Elem() SecurityAssessmentMetadataPropertiesResponseOutput {
 	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) SecurityAssessmentMetadataPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataPropertiesResponse
+		return ret
 	}).(SecurityAssessmentMetadataPropertiesResponseOutput)
 }
 
@@ -8786,7 +8878,7 @@ func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataPtrO
 }
 
 func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentPartnerData) *SecurityAssessmentPartnerData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentPartnerData) *SecurityAssessmentPartnerData {
 		return &v
 	}).(SecurityAssessmentPartnerDataPtrOutput)
 }
@@ -8816,7 +8908,13 @@ func (o SecurityAssessmentPartnerDataPtrOutput) ToSecurityAssessmentPartnerDataP
 }
 
 func (o SecurityAssessmentPartnerDataPtrOutput) Elem() SecurityAssessmentPartnerDataOutput {
-	return o.ApplyT(func(v *SecurityAssessmentPartnerData) SecurityAssessmentPartnerData { return *v }).(SecurityAssessmentPartnerDataOutput)
+	return o.ApplyT(func(v *SecurityAssessmentPartnerData) SecurityAssessmentPartnerData {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentPartnerData
+		return ret
+	}).(SecurityAssessmentPartnerDataOutput)
 }
 
 // Name of the company of the partner
@@ -8939,7 +9037,7 @@ func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartner
 }
 
 func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponsePtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentPartnerDataResponse) *SecurityAssessmentPartnerDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentPartnerDataResponse) *SecurityAssessmentPartnerDataResponse {
 		return &v
 	}).(SecurityAssessmentPartnerDataResponsePtrOutput)
 }
@@ -8969,7 +9067,13 @@ func (o SecurityAssessmentPartnerDataResponsePtrOutput) ToSecurityAssessmentPart
 }
 
 func (o SecurityAssessmentPartnerDataResponsePtrOutput) Elem() SecurityAssessmentPartnerDataResponseOutput {
-	return o.ApplyT(func(v *SecurityAssessmentPartnerDataResponse) SecurityAssessmentPartnerDataResponse { return *v }).(SecurityAssessmentPartnerDataResponseOutput)
+	return o.ApplyT(func(v *SecurityAssessmentPartnerDataResponse) SecurityAssessmentPartnerDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentPartnerDataResponse
+		return ret
+	}).(SecurityAssessmentPartnerDataResponseOutput)
 }
 
 // Name of the company of the partner
@@ -9092,7 +9196,7 @@ func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactProp
 }
 
 func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsPtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesAlertNotifications) *SecurityContactPropertiesAlertNotifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesAlertNotifications) *SecurityContactPropertiesAlertNotifications {
 		return &v
 	}).(SecurityContactPropertiesAlertNotificationsPtrOutput)
 }
@@ -9123,7 +9227,11 @@ func (o SecurityContactPropertiesAlertNotificationsPtrOutput) ToSecurityContactP
 
 func (o SecurityContactPropertiesAlertNotificationsPtrOutput) Elem() SecurityContactPropertiesAlertNotificationsOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesAlertNotifications) SecurityContactPropertiesAlertNotifications {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesAlertNotifications
+		return ret
 	}).(SecurityContactPropertiesAlertNotificationsOutput)
 }
 
@@ -9247,7 +9355,7 @@ func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPro
 }
 
 func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRolePtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) *SecurityContactPropertiesNotificationsByRole {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesNotificationsByRole) *SecurityContactPropertiesNotificationsByRole {
 		return &v
 	}).(SecurityContactPropertiesNotificationsByRolePtrOutput)
 }
@@ -9278,7 +9386,11 @@ func (o SecurityContactPropertiesNotificationsByRolePtrOutput) ToSecurityContact
 
 func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Elem() SecurityContactPropertiesNotificationsByRoleOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) SecurityContactPropertiesNotificationsByRole {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesNotificationsByRole
+		return ret
 	}).(SecurityContactPropertiesNotificationsByRoleOutput)
 }
 
@@ -9402,7 +9514,7 @@ func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityCon
 }
 
 func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesResponseAlertNotifications) *SecurityContactPropertiesResponseAlertNotifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesResponseAlertNotifications) *SecurityContactPropertiesResponseAlertNotifications {
 		return &v
 	}).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
 }
@@ -9433,7 +9545,11 @@ func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) ToSecurity
 
 func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) Elem() SecurityContactPropertiesResponseAlertNotificationsOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseAlertNotifications) SecurityContactPropertiesResponseAlertNotifications {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesResponseAlertNotifications
+		return ret
 	}).(SecurityContactPropertiesResponseAlertNotificationsOutput)
 }
 
@@ -9557,7 +9673,7 @@ func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityCo
 }
 
 func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) *SecurityContactPropertiesResponseNotificationsByRole {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesResponseNotificationsByRole) *SecurityContactPropertiesResponseNotificationsByRole {
 		return &v
 	}).(SecurityContactPropertiesResponseNotificationsByRolePtrOutput)
 }
@@ -9588,7 +9704,11 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) ToSecurit
 
 func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Elem() SecurityContactPropertiesResponseNotificationsByRoleOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) SecurityContactPropertiesResponseNotificationsByRole {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesResponseNotificationsByRole
+		return ret
 	}).(SecurityContactPropertiesResponseNotificationsByRoleOutput)
 }
 
@@ -9712,7 +9832,7 @@ func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutput(
 }
 
 func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
-	return o.ApplyT(func(v ServicePrincipalProperties) *ServicePrincipalProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalProperties) *ServicePrincipalProperties {
 		return &v
 	}).(ServicePrincipalPropertiesPtrOutput)
 }
@@ -9742,7 +9862,13 @@ func (o ServicePrincipalPropertiesPtrOutput) ToServicePrincipalPropertiesPtrOutp
 }
 
 func (o ServicePrincipalPropertiesPtrOutput) Elem() ServicePrincipalPropertiesOutput {
-	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties { return *v }).(ServicePrincipalPropertiesOutput)
+	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalProperties
+		return ret
+	}).(ServicePrincipalPropertiesOutput)
 }
 
 // Application ID of service principal.
@@ -9865,7 +9991,7 @@ func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesRe
 }
 
 func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
 		return &v
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
@@ -9895,7 +10021,13 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) ToServicePrincipalPropertie
 }
 
 func (o ServicePrincipalPropertiesResponsePtrOutput) Elem() ServicePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse { return *v }).(ServicePrincipalPropertiesResponseOutput)
+	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalPropertiesResponse
+		return ret
+	}).(ServicePrincipalPropertiesResponseOutput)
 }
 
 // Application ID of service principal.
@@ -10011,7 +10143,7 @@ func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutput() Suppre
 }
 
 func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
-	return o.ApplyT(func(v SuppressionAlertsScope) *SuppressionAlertsScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionAlertsScope) *SuppressionAlertsScope {
 		return &v
 	}).(SuppressionAlertsScopePtrOutput)
 }
@@ -10036,7 +10168,13 @@ func (o SuppressionAlertsScopePtrOutput) ToSuppressionAlertsScopePtrOutputWithCo
 }
 
 func (o SuppressionAlertsScopePtrOutput) Elem() SuppressionAlertsScopeOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope { return *v }).(SuppressionAlertsScopeOutput)
+	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionAlertsScope
+		return ret
+	}).(SuppressionAlertsScopeOutput)
 }
 
 // All the conditions inside need to be true in order to suppress the alert
@@ -10142,7 +10280,7 @@ func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePt
 }
 
 func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
-	return o.ApplyT(func(v SuppressionAlertsScopeResponse) *SuppressionAlertsScopeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionAlertsScopeResponse) *SuppressionAlertsScopeResponse {
 		return &v
 	}).(SuppressionAlertsScopeResponsePtrOutput)
 }
@@ -10167,7 +10305,13 @@ func (o SuppressionAlertsScopeResponsePtrOutput) ToSuppressionAlertsScopeRespons
 }
 
 func (o SuppressionAlertsScopeResponsePtrOutput) Elem() SuppressionAlertsScopeResponseOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) SuppressionAlertsScopeResponse { return *v }).(SuppressionAlertsScopeResponseOutput)
+	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) SuppressionAlertsScopeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionAlertsScopeResponse
+		return ret
+	}).(SuppressionAlertsScopeResponseOutput)
 }
 
 // All the conditions inside need to be true in order to suppress the alert
@@ -10296,7 +10440,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -10346,7 +10490,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -11083,7 +11233,7 @@ func (o UserDefinedResourcesPropertiesOutput) ToUserDefinedResourcesPropertiesPt
 }
 
 func (o UserDefinedResourcesPropertiesOutput) ToUserDefinedResourcesPropertiesPtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesPtrOutput {
-	return o.ApplyT(func(v UserDefinedResourcesProperties) *UserDefinedResourcesProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedResourcesProperties) *UserDefinedResourcesProperties {
 		return &v
 	}).(UserDefinedResourcesPropertiesPtrOutput)
 }
@@ -11113,7 +11263,13 @@ func (o UserDefinedResourcesPropertiesPtrOutput) ToUserDefinedResourcesPropertie
 }
 
 func (o UserDefinedResourcesPropertiesPtrOutput) Elem() UserDefinedResourcesPropertiesOutput {
-	return o.ApplyT(func(v *UserDefinedResourcesProperties) UserDefinedResourcesProperties { return *v }).(UserDefinedResourcesPropertiesOutput)
+	return o.ApplyT(func(v *UserDefinedResourcesProperties) UserDefinedResourcesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedResourcesProperties
+		return ret
+	}).(UserDefinedResourcesPropertiesOutput)
 }
 
 // Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
@@ -11236,7 +11392,7 @@ func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesProp
 }
 
 func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v UserDefinedResourcesPropertiesResponse) *UserDefinedResourcesPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedResourcesPropertiesResponse) *UserDefinedResourcesPropertiesResponse {
 		return &v
 	}).(UserDefinedResourcesPropertiesResponsePtrOutput)
 }
@@ -11266,7 +11422,13 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) ToUserDefinedResourcesP
 }
 
 func (o UserDefinedResourcesPropertiesResponsePtrOutput) Elem() UserDefinedResourcesPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) UserDefinedResourcesPropertiesResponse { return *v }).(UserDefinedResourcesPropertiesResponseOutput)
+	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) UserDefinedResourcesPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedResourcesPropertiesResponse
+		return ret
+	}).(UserDefinedResourcesPropertiesResponseOutput)
 }
 
 // Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""

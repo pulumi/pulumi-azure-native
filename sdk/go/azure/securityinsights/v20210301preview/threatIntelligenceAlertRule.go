@@ -114,59 +114,9 @@ func GetThreatIntelligenceAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThreatIntelligenceAlertRule resources.
 type threatIntelligenceAlertRuleState struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName *string `pulumi:"alertRuleTemplateName"`
-	// The description of the alert rule.
-	Description *string `pulumi:"description"`
-	// The display name for alerts created by this alert rule.
-	DisplayName *string `pulumi:"displayName"`
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the alert rule
-	// Expected value is 'ThreatIntelligence'.
-	Kind *string `pulumi:"kind"`
-	// The last time that this alert has been modified.
-	LastModifiedUtc *string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The severity for alerts created by this alert rule.
-	Severity *string `pulumi:"severity"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The tactics of the alert rule
-	Tactics []string `pulumi:"tactics"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type ThreatIntelligenceAlertRuleState struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName pulumi.StringPtrInput
-	// The description of the alert rule.
-	Description pulumi.StringPtrInput
-	// The display name for alerts created by this alert rule.
-	DisplayName pulumi.StringPtrInput
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled pulumi.BoolPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the alert rule
-	// Expected value is 'ThreatIntelligence'.
-	Kind pulumi.StringPtrInput
-	// The last time that this alert has been modified.
-	LastModifiedUtc pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The severity for alerts created by this alert rule.
-	Severity pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// The tactics of the alert rule
-	Tactics pulumi.StringArrayInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ThreatIntelligenceAlertRuleState) ElementType() reflect.Type {
@@ -237,9 +187,7 @@ func (i *ThreatIntelligenceAlertRule) ToThreatIntelligenceAlertRuleOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceAlertRuleOutput)
 }
 
-type ThreatIntelligenceAlertRuleOutput struct {
-	*pulumi.OutputState
-}
+type ThreatIntelligenceAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreatIntelligenceAlertRule)(nil))

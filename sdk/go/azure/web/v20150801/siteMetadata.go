@@ -142,33 +142,9 @@ func GetSiteMetadata(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteMetadata resources.
 type siteMetadataState struct {
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Settings
-	Properties map[string]string `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SiteMetadataState struct {
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Settings
-	Properties pulumi.StringMapInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SiteMetadataState) ElementType() reflect.Type {
@@ -237,9 +213,7 @@ func (i *SiteMetadata) ToSiteMetadataOutputWithContext(ctx context.Context) Site
 	return pulumi.ToOutputWithContext(ctx, i).(SiteMetadataOutput)
 }
 
-type SiteMetadataOutput struct {
-	*pulumi.OutputState
-}
+type SiteMetadataOutput struct{ *pulumi.OutputState }
 
 func (SiteMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteMetadata)(nil))

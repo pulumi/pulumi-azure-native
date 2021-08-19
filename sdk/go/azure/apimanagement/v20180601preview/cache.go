@@ -113,29 +113,9 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	// Runtime connection string to cache
-	ConnectionString *string `pulumi:"connectionString"`
-	// Cache description
-	Description *string `pulumi:"description"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Original uri of entity in external system cache points to
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type CacheState struct {
-	// Runtime connection string to cache
-	ConnectionString pulumi.StringPtrInput
-	// Cache description
-	Description pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Original uri of entity in external system cache points to
-	ResourceId pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {
@@ -196,9 +176,7 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
 }
 
-type CacheOutput struct {
-	*pulumi.OutputState
-}
+type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cache)(nil))

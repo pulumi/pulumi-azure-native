@@ -82,29 +82,9 @@ func GetEntityQuery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EntityQuery resources.
 type entityQueryState struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// the entity query kind
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type EntityQueryState struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// the entity query kind
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (EntityQueryState) ElementType() reflect.Type {
@@ -165,9 +145,7 @@ func (i *EntityQuery) ToEntityQueryOutputWithContext(ctx context.Context) Entity
 	return pulumi.ToOutputWithContext(ctx, i).(EntityQueryOutput)
 }
 
-type EntityQueryOutput struct {
-	*pulumi.OutputState
-}
+type EntityQueryOutput struct{ *pulumi.OutputState }
 
 func (EntityQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EntityQuery)(nil))

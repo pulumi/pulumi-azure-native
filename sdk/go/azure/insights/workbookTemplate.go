@@ -92,45 +92,9 @@ func GetWorkbookTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkbookTemplate resources.
 type workbookTemplateState struct {
-	// Information about the author of the workbook template.
-	Author *string `pulumi:"author"`
-	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
-	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-	Localized map[string][]WorkbookTemplateLocalizedGalleryResponse `pulumi:"localized"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name *string `pulumi:"name"`
-	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
-	Priority *int `pulumi:"priority"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData interface{} `pulumi:"templateData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type WorkbookTemplateState struct {
-	// Information about the author of the workbook template.
-	Author pulumi.StringPtrInput
-	// Workbook galleries supported by the template.
-	Galleries WorkbookTemplateGalleryResponseArrayInput
-	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-	Localized WorkbookTemplateLocalizedGalleryResponseArrayMapInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Azure resource name.
-	Name pulumi.StringPtrInput
-	// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
-	Priority pulumi.IntPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.Input
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (WorkbookTemplateState) ElementType() reflect.Type {
@@ -203,9 +167,7 @@ func (i *WorkbookTemplate) ToWorkbookTemplateOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateOutput)
 }
 
-type WorkbookTemplateOutput struct {
-	*pulumi.OutputState
-}
+type WorkbookTemplateOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkbookTemplate)(nil))

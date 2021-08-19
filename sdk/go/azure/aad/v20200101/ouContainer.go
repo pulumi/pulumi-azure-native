@@ -108,61 +108,9 @@ func GetOuContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OuContainer resources.
 type ouContainerState struct {
-	// The list of container accounts
-	Accounts []ContainerAccountResponse `pulumi:"accounts"`
-	// The OuContainer name
-	ContainerId *string `pulumi:"containerId"`
-	// The Deployment id
-	DeploymentId *string `pulumi:"deploymentId"`
-	// Distinguished Name of OuContainer instance
-	DistinguishedName *string `pulumi:"distinguishedName"`
-	// The domain name of Domain Services.
-	DomainName *string `pulumi:"domainName"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Status of OuContainer instance
-	ServiceStatus *string `pulumi:"serviceStatus"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure Active Directory tenant id
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type OuContainerState struct {
-	// The list of container accounts
-	Accounts ContainerAccountResponseArrayInput
-	// The OuContainer name
-	ContainerId pulumi.StringPtrInput
-	// The Deployment id
-	DeploymentId pulumi.StringPtrInput
-	// Distinguished Name of OuContainer instance
-	DistinguishedName pulumi.StringPtrInput
-	// The domain name of Domain Services.
-	DomainName pulumi.StringPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// Status of OuContainer instance
-	ServiceStatus pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure Active Directory tenant id
-	TenantId pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (OuContainerState) ElementType() reflect.Type {
@@ -223,9 +171,7 @@ func (i *OuContainer) ToOuContainerOutputWithContext(ctx context.Context) OuCont
 	return pulumi.ToOutputWithContext(ctx, i).(OuContainerOutput)
 }
 
-type OuContainerOutput struct {
-	*pulumi.OutputState
-}
+type OuContainerOutput struct{ *pulumi.OutputState }
 
 func (OuContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OuContainer)(nil))

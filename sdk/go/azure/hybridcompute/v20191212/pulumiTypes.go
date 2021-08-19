@@ -242,7 +242,7 @@ func (o LocationDataOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
 }
 
 func (o LocationDataOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
-	return o.ApplyT(func(v LocationData) *LocationData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationData) *LocationData {
 		return &v
 	}).(LocationDataPtrOutput)
 }
@@ -282,7 +282,13 @@ func (o LocationDataPtrOutput) ToLocationDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o LocationDataPtrOutput) Elem() LocationDataOutput {
-	return o.ApplyT(func(v *LocationData) LocationData { return *v }).(LocationDataOutput)
+	return o.ApplyT(func(v *LocationData) LocationData {
+		if v != nil {
+			return *v
+		}
+		var ret LocationData
+		return ret
+	}).(LocationDataOutput)
 }
 
 // The city or locality where the resource is located.
@@ -433,7 +439,7 @@ func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutput() LocationDa
 }
 
 func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return o.ApplyT(func(v LocationDataResponse) *LocationDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationDataResponse) *LocationDataResponse {
 		return &v
 	}).(LocationDataResponsePtrOutput)
 }
@@ -473,7 +479,13 @@ func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutputWithContex
 }
 
 func (o LocationDataResponsePtrOutput) Elem() LocationDataResponseOutput {
-	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse { return *v }).(LocationDataResponseOutput)
+	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LocationDataResponse
+		return ret
+	}).(LocationDataResponseOutput)
 }
 
 // The city or locality where the resource is located.
@@ -884,7 +896,7 @@ func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInst
 }
 
 func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
 		return &v
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
@@ -930,7 +942,11 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) ToMachineExtensionI
 
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Elem() MachineExtensionInstanceViewResponseStatusOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) MachineExtensionInstanceViewResponseStatus {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionInstanceViewResponseStatus
+		return ret
 	}).(MachineExtensionInstanceViewResponseStatusOutput)
 }
 
@@ -1096,7 +1112,7 @@ func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceView
 }
 
 func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
 		return &v
 	}).(MachineExtensionInstanceViewStatusPtrOutput)
 }
@@ -1141,7 +1157,13 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceV
 }
 
 func (o MachineExtensionInstanceViewStatusPtrOutput) Elem() MachineExtensionInstanceViewStatusOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus { return *v }).(MachineExtensionInstanceViewStatusOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionInstanceViewStatus
+		return ret
+	}).(MachineExtensionInstanceViewStatusOutput)
 }
 
 // The status code.
@@ -1302,7 +1324,7 @@ func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionProperti
 }
 
 func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *MachineExtensionPropertiesInstanceView {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesInstanceView) *MachineExtensionPropertiesInstanceView {
 		return &v
 	}).(MachineExtensionPropertiesInstanceViewPtrOutput)
 }
@@ -1342,7 +1364,13 @@ func (o MachineExtensionPropertiesInstanceViewPtrOutput) ToMachineExtensionPrope
 }
 
 func (o MachineExtensionPropertiesInstanceViewPtrOutput) Elem() MachineExtensionPropertiesInstanceViewOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) MachineExtensionPropertiesInstanceView { return *v }).(MachineExtensionPropertiesInstanceViewOutput)
+	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) MachineExtensionPropertiesInstanceView {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionPropertiesInstanceView
+		return ret
+	}).(MachineExtensionPropertiesInstanceViewOutput)
 }
 
 // The machine extension name.
@@ -1493,7 +1521,7 @@ func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtension
 }
 
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionPropertiesResponseInstanceView {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionPropertiesResponseInstanceView {
 		return &v
 	}).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
 }
@@ -1536,7 +1564,11 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) ToMachineExtens
 
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Elem() MachineExtensionPropertiesResponseInstanceViewOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) MachineExtensionPropertiesResponseInstanceView {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionPropertiesResponseInstanceView
+		return ret
 	}).(MachineExtensionPropertiesResponseInstanceViewOutput)
 }
 
@@ -1582,7 +1614,7 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVers
 
 type MachineIdentity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // MachineIdentityInput is an input type that accepts MachineIdentityArgs and MachineIdentityOutput values.
@@ -1598,7 +1630,7 @@ type MachineIdentityInput interface {
 
 type MachineIdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (MachineIdentityArgs) ElementType() reflect.Type {
@@ -1673,14 +1705,14 @@ func (o MachineIdentityOutput) ToMachineIdentityPtrOutput() MachineIdentityPtrOu
 }
 
 func (o MachineIdentityOutput) ToMachineIdentityPtrOutputWithContext(ctx context.Context) MachineIdentityPtrOutput {
-	return o.ApplyT(func(v MachineIdentity) *MachineIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineIdentity) *MachineIdentity {
 		return &v
 	}).(MachineIdentityPtrOutput)
 }
 
 // The identity type.
-func (o MachineIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o MachineIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v MachineIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type MachineIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1698,17 +1730,23 @@ func (o MachineIdentityPtrOutput) ToMachineIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o MachineIdentityPtrOutput) Elem() MachineIdentityOutput {
-	return o.ApplyT(func(v *MachineIdentity) MachineIdentity { return *v }).(MachineIdentityOutput)
+	return o.ApplyT(func(v *MachineIdentity) MachineIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MachineIdentity
+		return ret
+	}).(MachineIdentityOutput)
 }
 
 // The identity type.
-func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MachineIdentity) *string {
+func (o MachineIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *MachineIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Specifies the operating system settings for the hybrid machine.
@@ -1807,7 +1845,7 @@ func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsP
 }
 
 func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
-	return o.ApplyT(func(v MachinePropertiesResponseOsProfile) *MachinePropertiesResponseOsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachinePropertiesResponseOsProfile) *MachinePropertiesResponseOsProfile {
 		return &v
 	}).(MachinePropertiesResponseOsProfilePtrOutput)
 }
@@ -1832,7 +1870,13 @@ func (o MachinePropertiesResponseOsProfilePtrOutput) ToMachinePropertiesResponse
 }
 
 func (o MachinePropertiesResponseOsProfilePtrOutput) Elem() MachinePropertiesResponseOsProfileOutput {
-	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) MachinePropertiesResponseOsProfile { return *v }).(MachinePropertiesResponseOsProfileOutput)
+	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) MachinePropertiesResponseOsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret MachinePropertiesResponseOsProfile
+		return ret
+	}).(MachinePropertiesResponseOsProfileOutput)
 }
 
 // Specifies the host OS name of the hybrid machine.
@@ -1946,7 +1990,7 @@ func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutput() Mach
 }
 
 func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
-	return o.ApplyT(func(v MachineResponseIdentity) *MachineResponseIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineResponseIdentity) *MachineResponseIdentity {
 		return &v
 	}).(MachineResponseIdentityPtrOutput)
 }
@@ -1981,7 +2025,13 @@ func (o MachineResponseIdentityPtrOutput) ToMachineResponseIdentityPtrOutputWith
 }
 
 func (o MachineResponseIdentityPtrOutput) Elem() MachineResponseIdentityOutput {
-	return o.ApplyT(func(v *MachineResponseIdentity) MachineResponseIdentity { return *v }).(MachineResponseIdentityOutput)
+	return o.ApplyT(func(v *MachineResponseIdentity) MachineResponseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MachineResponseIdentity
+		return ret
+	}).(MachineResponseIdentityOutput)
 }
 
 // The principal ID of resource identity.

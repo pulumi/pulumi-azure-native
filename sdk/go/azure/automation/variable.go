@@ -94,37 +94,9 @@ func GetVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Variable resources.
 type variableState struct {
-	// Gets or sets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets or sets the encrypted flag of the variable.
-	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// Gets or sets the value of the variable.
-	Value *string `pulumi:"value"`
 }
 
 type VariableState struct {
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrInput
-	// Gets or sets the description.
-	Description pulumi.StringPtrInput
-	// Gets or sets the encrypted flag of the variable.
-	IsEncrypted pulumi.BoolPtrInput
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// Gets or sets the value of the variable.
-	Value pulumi.StringPtrInput
 }
 
 func (VariableState) ElementType() reflect.Type {
@@ -189,9 +161,7 @@ func (i *Variable) ToVariableOutputWithContext(ctx context.Context) VariableOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VariableOutput)
 }
 
-type VariableOutput struct {
-	*pulumi.OutputState
-}
+type VariableOutput struct{ *pulumi.OutputState }
 
 func (VariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Variable)(nil))

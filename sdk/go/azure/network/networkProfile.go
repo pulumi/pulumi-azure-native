@@ -194,45 +194,9 @@ func GetNetworkProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkProfile resources.
 type networkProfileState struct {
-	// List of chid container network interface configurations.
-	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfigurationResponse `pulumi:"containerNetworkInterfaceConfigurations"`
-	// List of child container network interfaces.
-	ContainerNetworkInterfaces []ContainerNetworkInterfaceResponse `pulumi:"containerNetworkInterfaces"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the network profile resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource GUID property of the network profile resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type NetworkProfileState struct {
-	// List of chid container network interface configurations.
-	ContainerNetworkInterfaceConfigurations ContainerNetworkInterfaceConfigurationResponseArrayInput
-	// List of child container network interfaces.
-	ContainerNetworkInterfaces ContainerNetworkInterfaceResponseArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the network profile resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource GUID property of the network profile resource.
-	ResourceGuid pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (NetworkProfileState) ElementType() reflect.Type {
@@ -293,9 +257,7 @@ func (i *NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput)
 }
 
-type NetworkProfileOutput struct {
-	*pulumi.OutputState
-}
+type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkProfile)(nil))

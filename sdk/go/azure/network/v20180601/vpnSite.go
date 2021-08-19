@@ -217,57 +217,9 @@ func GetVpnSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnSite resources.
 type vpnSiteState struct {
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
-	// The set of bgp properties.
-	BgpProperties *BgpSettingsResponse `pulumi:"bgpProperties"`
-	// The device properties
-	DeviceProperties *DevicePropertiesResponse `pulumi:"deviceProperties"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The ip-address for the vpn-site.
-	IpAddress *string `pulumi:"ipAddress"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The key for vpn-site that can be used for connections.
-	SiteKey *string `pulumi:"siteKey"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The VirtualWAN to which the vpnSite belongs
-	VirtualWAN *SubResourceResponse `pulumi:"virtualWAN"`
 }
 
 type VpnSiteState struct {
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace AddressSpaceResponsePtrInput
-	// The set of bgp properties.
-	BgpProperties BgpSettingsResponsePtrInput
-	// The device properties
-	DeviceProperties DevicePropertiesResponsePtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The ip-address for the vpn-site.
-	IpAddress pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The key for vpn-site that can be used for connections.
-	SiteKey pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The VirtualWAN to which the vpnSite belongs
-	VirtualWAN SubResourceResponsePtrInput
 }
 
 func (VpnSiteState) ElementType() reflect.Type {
@@ -348,9 +300,7 @@ func (i *VpnSite) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteOutput)
 }
 
-type VpnSiteOutput struct {
-	*pulumi.OutputState
-}
+type VpnSiteOutput struct{ *pulumi.OutputState }
 
 func (VpnSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnSite)(nil))

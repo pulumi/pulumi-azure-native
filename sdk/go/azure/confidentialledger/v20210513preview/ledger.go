@@ -79,33 +79,9 @@ func GetLedger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Ledger resources.
 type ledgerState struct {
-	// The Azure location where the Confidential Ledger is running.
-	Location *string `pulumi:"location"`
-	// Name of the Resource.
-	Name *string `pulumi:"name"`
-	// Properties of Confidential Ledger Resource.
-	Properties *LedgerPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Additional tags for Confidential Ledger
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type LedgerState struct {
-	// The Azure location where the Confidential Ledger is running.
-	Location pulumi.StringPtrInput
-	// Name of the Resource.
-	Name pulumi.StringPtrInput
-	// Properties of Confidential Ledger Resource.
-	Properties LedgerPropertiesResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponsePtrInput
-	// Additional tags for Confidential Ledger
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (LedgerState) ElementType() reflect.Type {
@@ -162,9 +138,7 @@ func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerOutput)
 }
 
-type LedgerOutput struct {
-	*pulumi.OutputState
-}
+type LedgerOutput struct{ *pulumi.OutputState }
 
 func (LedgerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Ledger)(nil))

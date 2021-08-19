@@ -84,41 +84,9 @@ func GetAdminRuleCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdminRuleCollection resources.
 type adminRuleCollectionState struct {
-	// Groups for configuration
-	AppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"appliesToGroups"`
-	// A description of the rule collection.
-	Description *string `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type AdminRuleCollectionState struct {
-	// Groups for configuration
-	AppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput
-	// A description of the rule collection.
-	Description pulumi.StringPtrInput
-	// A display name of the rule collection.
-	DisplayName pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The system metadata related to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (AdminRuleCollectionState) ElementType() reflect.Type {
@@ -183,9 +151,7 @@ func (i *AdminRuleCollection) ToAdminRuleCollectionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRuleCollectionOutput)
 }
 
-type AdminRuleCollectionOutput struct {
-	*pulumi.OutputState
-}
+type AdminRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (AdminRuleCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdminRuleCollection)(nil))

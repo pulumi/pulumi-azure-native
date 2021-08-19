@@ -81,37 +81,9 @@ func GetSqlServerRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlServerRegistration resources.
 type sqlServerRegistrationState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Optional Properties as JSON string
-	PropertyBag *string `pulumi:"propertyBag"`
-	// Resource Group Name
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SqlServerRegistrationState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Optional Properties as JSON string
-	PropertyBag pulumi.StringPtrInput
-	// Resource Group Name
-	ResourceGroup pulumi.StringPtrInput
-	// Subscription Id
-	SubscriptionId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SqlServerRegistrationState) ElementType() reflect.Type {
@@ -176,9 +148,7 @@ func (i *SqlServerRegistration) ToSqlServerRegistrationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerRegistrationOutput)
 }
 
-type SqlServerRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerRegistrationOutput struct{ *pulumi.OutputState }
 
 func (SqlServerRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServerRegistration)(nil))

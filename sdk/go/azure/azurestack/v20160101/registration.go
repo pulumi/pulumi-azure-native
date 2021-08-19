@@ -92,41 +92,9 @@ func GetRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registration resources.
 type registrationState struct {
-	// Specifies the billing mode for the Azure Stack registration.
-	BillingModel *string `pulumi:"billingModel"`
-	// The identifier of the registered Azure Stack.
-	CloudId *string `pulumi:"cloudId"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The object identifier associated with the Azure Stack connecting to Azure.
-	ObjectId *string `pulumi:"objectId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type RegistrationState struct {
-	// Specifies the billing mode for the Azure Stack registration.
-	BillingModel pulumi.StringPtrInput
-	// The identifier of the registered Azure Stack.
-	CloudId pulumi.StringPtrInput
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The object identifier associated with the Azure Stack connecting to Azure.
-	ObjectId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (RegistrationState) ElementType() reflect.Type {
@@ -179,9 +147,7 @@ func (i *Registration) ToRegistrationOutputWithContext(ctx context.Context) Regi
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationOutput)
 }
 
-type RegistrationOutput struct {
-	*pulumi.OutputState
-}
+type RegistrationOutput struct{ *pulumi.OutputState }
 
 func (RegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Registration)(nil))

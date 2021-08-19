@@ -185,29 +185,9 @@ func GetSqlResourceSqlContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlResourceSqlContainer resources.
 type sqlResourceSqlContainerState struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name     *string                                    `pulumi:"name"`
-	Options  *SqlContainerGetPropertiesResponseOptions  `pulumi:"options"`
-	Resource *SqlContainerGetPropertiesResponseResource `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type SqlResourceSqlContainerState struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// The name of the ARM resource.
-	Name     pulumi.StringPtrInput
-	Options  SqlContainerGetPropertiesResponseOptionsPtrInput
-	Resource SqlContainerGetPropertiesResponseResourcePtrInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (SqlResourceSqlContainerState) ElementType() reflect.Type {
@@ -276,9 +256,7 @@ func (i *SqlResourceSqlContainer) ToSqlResourceSqlContainerOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlContainerOutput)
 }
 
-type SqlResourceSqlContainerOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlContainerOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlContainer)(nil))

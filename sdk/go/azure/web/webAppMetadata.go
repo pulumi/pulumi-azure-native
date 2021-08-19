@@ -139,25 +139,9 @@ func GetWebAppMetadata(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppMetadata resources.
 type webAppMetadataState struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Settings.
-	Properties map[string]string `pulumi:"properties"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppMetadataState struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Settings.
-	Properties pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppMetadataState) ElementType() reflect.Type {
@@ -210,9 +194,7 @@ func (i *WebAppMetadata) ToWebAppMetadataOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppMetadataOutput)
 }
 
-type WebAppMetadataOutput struct {
-	*pulumi.OutputState
-}
+type WebAppMetadataOutput struct{ *pulumi.OutputState }
 
 func (WebAppMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppMetadata)(nil))

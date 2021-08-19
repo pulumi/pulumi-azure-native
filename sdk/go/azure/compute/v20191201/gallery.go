@@ -99,37 +99,9 @@ func GetGallery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gallery resources.
 type galleryState struct {
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// Describes the gallery unique name.
-	Identifier *GalleryIdentifierResponse `pulumi:"identifier"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type GalleryState struct {
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description pulumi.StringPtrInput
-	// Describes the gallery unique name.
-	Identifier GalleryIdentifierResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (GalleryState) ElementType() reflect.Type {
@@ -186,9 +158,7 @@ func (i *Gallery) ToGalleryOutputWithContext(ctx context.Context) GalleryOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOutput)
 }
 
-type GalleryOutput struct {
-	*pulumi.OutputState
-}
+type GalleryOutput struct{ *pulumi.OutputState }
 
 func (GalleryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Gallery)(nil))

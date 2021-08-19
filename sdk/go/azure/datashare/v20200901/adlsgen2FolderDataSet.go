@@ -125,51 +125,9 @@ func GetADLSGen2FolderDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ADLSGen2FolderDataSet resources.
 type adlsgen2FolderDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// File system to which the folder belongs.
-	FileSystem *string `pulumi:"fileSystem"`
-	// Folder path within the file system.
-	FolderPath *string `pulumi:"folderPath"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen2Folder'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Resource group of storage account
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type ADLSGen2FolderDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// File system to which the folder belongs.
-	FileSystem pulumi.StringPtrInput
-	// Folder path within the file system.
-	FolderPath pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'AdlsGen2Folder'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Resource group of storage account
-	ResourceGroup pulumi.StringPtrInput
-	// Storage account name of the source data set
-	StorageAccountName pulumi.StringPtrInput
-	// Subscription id of storage account
-	SubscriptionId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (ADLSGen2FolderDataSetState) ElementType() reflect.Type {
@@ -248,9 +206,7 @@ func (i *ADLSGen2FolderDataSet) ToADLSGen2FolderDataSetOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2FolderDataSetOutput)
 }
 
-type ADLSGen2FolderDataSetOutput struct {
-	*pulumi.OutputState
-}
+type ADLSGen2FolderDataSetOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2FolderDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen2FolderDataSet)(nil))

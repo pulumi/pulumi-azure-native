@@ -75,29 +75,9 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// The location of the resource
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The SKU of the resource
-	Sku *SKUResponse `pulumi:"sku"`
-	// The tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// The fully qualified type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
-	// The location of the resource
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The SKU of the resource
-	Sku SKUResponsePtrInput
-	// The tags of the resource
-	Tags pulumi.StringMapInput
-	// The fully qualified type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -154,9 +134,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

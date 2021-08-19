@@ -142,7 +142,7 @@ func (o BotPropertiesOutput) ToBotPropertiesPtrOutput() BotPropertiesPtrOutput {
 }
 
 func (o BotPropertiesOutput) ToBotPropertiesPtrOutputWithContext(ctx context.Context) BotPropertiesPtrOutput {
-	return o.ApplyT(func(v BotProperties) *BotProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotProperties) *BotProperties {
 		return &v
 	}).(BotPropertiesPtrOutput)
 }
@@ -212,7 +212,13 @@ func (o BotPropertiesPtrOutput) ToBotPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o BotPropertiesPtrOutput) Elem() BotPropertiesOutput {
-	return o.ApplyT(func(v *BotProperties) BotProperties { return *v }).(BotPropertiesOutput)
+	return o.ApplyT(func(v *BotProperties) BotProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotProperties
+		return ret
+	}).(BotPropertiesOutput)
 }
 
 // The description of the bot
@@ -459,7 +465,7 @@ func (o BotPropertiesResponseOutput) ToBotPropertiesResponsePtrOutput() BotPrope
 }
 
 func (o BotPropertiesResponseOutput) ToBotPropertiesResponsePtrOutputWithContext(ctx context.Context) BotPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BotPropertiesResponse) *BotPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotPropertiesResponse) *BotPropertiesResponse {
 		return &v
 	}).(BotPropertiesResponsePtrOutput)
 }
@@ -544,7 +550,13 @@ func (o BotPropertiesResponsePtrOutput) ToBotPropertiesResponsePtrOutputWithCont
 }
 
 func (o BotPropertiesResponsePtrOutput) Elem() BotPropertiesResponseOutput {
-	return o.ApplyT(func(v *BotPropertiesResponse) BotPropertiesResponse { return *v }).(BotPropertiesResponseOutput)
+	return o.ApplyT(func(v *BotPropertiesResponse) BotPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BotPropertiesResponse
+		return ret
+	}).(BotPropertiesResponseOutput)
 }
 
 // Collection of channels for which the bot is configured
@@ -1011,7 +1023,7 @@ func (o ConnectionSettingPropertiesOutput) ToConnectionSettingPropertiesPtrOutpu
 }
 
 func (o ConnectionSettingPropertiesOutput) ToConnectionSettingPropertiesPtrOutputWithContext(ctx context.Context) ConnectionSettingPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionSettingProperties) *ConnectionSettingProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionSettingProperties) *ConnectionSettingProperties {
 		return &v
 	}).(ConnectionSettingPropertiesPtrOutput)
 }
@@ -1061,7 +1073,13 @@ func (o ConnectionSettingPropertiesPtrOutput) ToConnectionSettingPropertiesPtrOu
 }
 
 func (o ConnectionSettingPropertiesPtrOutput) Elem() ConnectionSettingPropertiesOutput {
-	return o.ApplyT(func(v *ConnectionSettingProperties) ConnectionSettingProperties { return *v }).(ConnectionSettingPropertiesOutput)
+	return o.ApplyT(func(v *ConnectionSettingProperties) ConnectionSettingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionSettingProperties
+		return ret
+	}).(ConnectionSettingPropertiesOutput)
 }
 
 // Client Id associated with the Connection Setting.
@@ -1244,7 +1262,7 @@ func (o ConnectionSettingPropertiesResponseOutput) ToConnectionSettingProperties
 }
 
 func (o ConnectionSettingPropertiesResponseOutput) ToConnectionSettingPropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectionSettingPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) *ConnectionSettingPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionSettingPropertiesResponse) *ConnectionSettingPropertiesResponse {
 		return &v
 	}).(ConnectionSettingPropertiesResponsePtrOutput)
 }
@@ -1299,7 +1317,13 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) ToConnectionSettingPropert
 }
 
 func (o ConnectionSettingPropertiesResponsePtrOutput) Elem() ConnectionSettingPropertiesResponseOutput {
-	return o.ApplyT(func(v *ConnectionSettingPropertiesResponse) ConnectionSettingPropertiesResponse { return *v }).(ConnectionSettingPropertiesResponseOutput)
+	return o.ApplyT(func(v *ConnectionSettingPropertiesResponse) ConnectionSettingPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionSettingPropertiesResponse
+		return ret
+	}).(ConnectionSettingPropertiesResponseOutput)
 }
 
 // Client Id associated with the Connection Setting.
@@ -1535,7 +1559,7 @@ func (o DirectLineChannelPropertiesOutput) ToDirectLineChannelPropertiesPtrOutpu
 }
 
 func (o DirectLineChannelPropertiesOutput) ToDirectLineChannelPropertiesPtrOutputWithContext(ctx context.Context) DirectLineChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v DirectLineChannelProperties) *DirectLineChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectLineChannelProperties) *DirectLineChannelProperties {
 		return &v
 	}).(DirectLineChannelPropertiesPtrOutput)
 }
@@ -1560,7 +1584,13 @@ func (o DirectLineChannelPropertiesPtrOutput) ToDirectLineChannelPropertiesPtrOu
 }
 
 func (o DirectLineChannelPropertiesPtrOutput) Elem() DirectLineChannelPropertiesOutput {
-	return o.ApplyT(func(v *DirectLineChannelProperties) DirectLineChannelProperties { return *v }).(DirectLineChannelPropertiesOutput)
+	return o.ApplyT(func(v *DirectLineChannelProperties) DirectLineChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectLineChannelProperties
+		return ret
+	}).(DirectLineChannelPropertiesOutput)
 }
 
 // The list of Direct Line sites
@@ -1669,7 +1699,7 @@ func (o DirectLineChannelPropertiesResponseOutput) ToDirectLineChannelProperties
 }
 
 func (o DirectLineChannelPropertiesResponseOutput) ToDirectLineChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) DirectLineChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DirectLineChannelPropertiesResponse) *DirectLineChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectLineChannelPropertiesResponse) *DirectLineChannelPropertiesResponse {
 		return &v
 	}).(DirectLineChannelPropertiesResponsePtrOutput)
 }
@@ -1694,7 +1724,13 @@ func (o DirectLineChannelPropertiesResponsePtrOutput) ToDirectLineChannelPropert
 }
 
 func (o DirectLineChannelPropertiesResponsePtrOutput) Elem() DirectLineChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *DirectLineChannelPropertiesResponse) DirectLineChannelPropertiesResponse { return *v }).(DirectLineChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *DirectLineChannelPropertiesResponse) DirectLineChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DirectLineChannelPropertiesResponse
+		return ret
+	}).(DirectLineChannelPropertiesResponseOutput)
 }
 
 // The list of Direct Line sites
@@ -2262,7 +2298,7 @@ func (o EmailChannelPropertiesOutput) ToEmailChannelPropertiesPtrOutput() EmailC
 }
 
 func (o EmailChannelPropertiesOutput) ToEmailChannelPropertiesPtrOutputWithContext(ctx context.Context) EmailChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v EmailChannelProperties) *EmailChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailChannelProperties) *EmailChannelProperties {
 		return &v
 	}).(EmailChannelPropertiesPtrOutput)
 }
@@ -2297,7 +2333,13 @@ func (o EmailChannelPropertiesPtrOutput) ToEmailChannelPropertiesPtrOutputWithCo
 }
 
 func (o EmailChannelPropertiesPtrOutput) Elem() EmailChannelPropertiesOutput {
-	return o.ApplyT(func(v *EmailChannelProperties) EmailChannelProperties { return *v }).(EmailChannelPropertiesOutput)
+	return o.ApplyT(func(v *EmailChannelProperties) EmailChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EmailChannelProperties
+		return ret
+	}).(EmailChannelPropertiesOutput)
 }
 
 // The email address
@@ -2434,7 +2476,7 @@ func (o EmailChannelPropertiesResponseOutput) ToEmailChannelPropertiesResponsePt
 }
 
 func (o EmailChannelPropertiesResponseOutput) ToEmailChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) EmailChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EmailChannelPropertiesResponse) *EmailChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailChannelPropertiesResponse) *EmailChannelPropertiesResponse {
 		return &v
 	}).(EmailChannelPropertiesResponsePtrOutput)
 }
@@ -2469,7 +2511,13 @@ func (o EmailChannelPropertiesResponsePtrOutput) ToEmailChannelPropertiesRespons
 }
 
 func (o EmailChannelPropertiesResponsePtrOutput) Elem() EmailChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *EmailChannelPropertiesResponse) EmailChannelPropertiesResponse { return *v }).(EmailChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *EmailChannelPropertiesResponse) EmailChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EmailChannelPropertiesResponse
+		return ret
+	}).(EmailChannelPropertiesResponseOutput)
 }
 
 // The email address
@@ -2932,7 +2980,7 @@ func (o EnterpriseChannelPropertiesOutput) ToEnterpriseChannelPropertiesPtrOutpu
 }
 
 func (o EnterpriseChannelPropertiesOutput) ToEnterpriseChannelPropertiesPtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v EnterpriseChannelProperties) *EnterpriseChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseChannelProperties) *EnterpriseChannelProperties {
 		return &v
 	}).(EnterpriseChannelPropertiesPtrOutput)
 }
@@ -2962,7 +3010,13 @@ func (o EnterpriseChannelPropertiesPtrOutput) ToEnterpriseChannelPropertiesPtrOu
 }
 
 func (o EnterpriseChannelPropertiesPtrOutput) Elem() EnterpriseChannelPropertiesOutput {
-	return o.ApplyT(func(v *EnterpriseChannelProperties) EnterpriseChannelProperties { return *v }).(EnterpriseChannelPropertiesOutput)
+	return o.ApplyT(func(v *EnterpriseChannelProperties) EnterpriseChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseChannelProperties
+		return ret
+	}).(EnterpriseChannelPropertiesOutput)
 }
 
 // The nodes associated with the Enterprise Channel.
@@ -3085,7 +3139,7 @@ func (o EnterpriseChannelPropertiesResponseOutput) ToEnterpriseChannelProperties
 }
 
 func (o EnterpriseChannelPropertiesResponseOutput) ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EnterpriseChannelPropertiesResponse) *EnterpriseChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseChannelPropertiesResponse) *EnterpriseChannelPropertiesResponse {
 		return &v
 	}).(EnterpriseChannelPropertiesResponsePtrOutput)
 }
@@ -3115,7 +3169,13 @@ func (o EnterpriseChannelPropertiesResponsePtrOutput) ToEnterpriseChannelPropert
 }
 
 func (o EnterpriseChannelPropertiesResponsePtrOutput) Elem() EnterpriseChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *EnterpriseChannelPropertiesResponse) EnterpriseChannelPropertiesResponse { return *v }).(EnterpriseChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *EnterpriseChannelPropertiesResponse) EnterpriseChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseChannelPropertiesResponse
+		return ret
+	}).(EnterpriseChannelPropertiesResponseOutput)
 }
 
 // The nodes associated with the Enterprise Channel.
@@ -3313,7 +3373,7 @@ func (o FacebookChannelPropertiesOutput) ToFacebookChannelPropertiesPtrOutput() 
 }
 
 func (o FacebookChannelPropertiesOutput) ToFacebookChannelPropertiesPtrOutputWithContext(ctx context.Context) FacebookChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v FacebookChannelProperties) *FacebookChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FacebookChannelProperties) *FacebookChannelProperties {
 		return &v
 	}).(FacebookChannelPropertiesPtrOutput)
 }
@@ -3353,7 +3413,13 @@ func (o FacebookChannelPropertiesPtrOutput) ToFacebookChannelPropertiesPtrOutput
 }
 
 func (o FacebookChannelPropertiesPtrOutput) Elem() FacebookChannelPropertiesOutput {
-	return o.ApplyT(func(v *FacebookChannelProperties) FacebookChannelProperties { return *v }).(FacebookChannelPropertiesOutput)
+	return o.ApplyT(func(v *FacebookChannelProperties) FacebookChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FacebookChannelProperties
+		return ret
+	}).(FacebookChannelPropertiesOutput)
 }
 
 // Facebook application id
@@ -3512,7 +3578,7 @@ func (o FacebookChannelPropertiesResponseOutput) ToFacebookChannelPropertiesResp
 }
 
 func (o FacebookChannelPropertiesResponseOutput) ToFacebookChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) FacebookChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FacebookChannelPropertiesResponse) *FacebookChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FacebookChannelPropertiesResponse) *FacebookChannelPropertiesResponse {
 		return &v
 	}).(FacebookChannelPropertiesResponsePtrOutput)
 }
@@ -3562,7 +3628,13 @@ func (o FacebookChannelPropertiesResponsePtrOutput) ToFacebookChannelPropertiesR
 }
 
 func (o FacebookChannelPropertiesResponsePtrOutput) Elem() FacebookChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *FacebookChannelPropertiesResponse) FacebookChannelPropertiesResponse { return *v }).(FacebookChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *FacebookChannelPropertiesResponse) FacebookChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FacebookChannelPropertiesResponse
+		return ret
+	}).(FacebookChannelPropertiesResponseOutput)
 }
 
 // Facebook application id
@@ -4085,7 +4157,7 @@ func (o KikChannelPropertiesOutput) ToKikChannelPropertiesPtrOutput() KikChannel
 }
 
 func (o KikChannelPropertiesOutput) ToKikChannelPropertiesPtrOutputWithContext(ctx context.Context) KikChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v KikChannelProperties) *KikChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KikChannelProperties) *KikChannelProperties {
 		return &v
 	}).(KikChannelPropertiesPtrOutput)
 }
@@ -4125,7 +4197,13 @@ func (o KikChannelPropertiesPtrOutput) ToKikChannelPropertiesPtrOutputWithContex
 }
 
 func (o KikChannelPropertiesPtrOutput) Elem() KikChannelPropertiesOutput {
-	return o.ApplyT(func(v *KikChannelProperties) KikChannelProperties { return *v }).(KikChannelPropertiesOutput)
+	return o.ApplyT(func(v *KikChannelProperties) KikChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KikChannelProperties
+		return ret
+	}).(KikChannelPropertiesOutput)
 }
 
 // Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -4276,7 +4354,7 @@ func (o KikChannelPropertiesResponseOutput) ToKikChannelPropertiesResponsePtrOut
 }
 
 func (o KikChannelPropertiesResponseOutput) ToKikChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) KikChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KikChannelPropertiesResponse) *KikChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KikChannelPropertiesResponse) *KikChannelPropertiesResponse {
 		return &v
 	}).(KikChannelPropertiesResponsePtrOutput)
 }
@@ -4316,7 +4394,13 @@ func (o KikChannelPropertiesResponsePtrOutput) ToKikChannelPropertiesResponsePtr
 }
 
 func (o KikChannelPropertiesResponsePtrOutput) Elem() KikChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *KikChannelPropertiesResponse) KikChannelPropertiesResponse { return *v }).(KikChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *KikChannelPropertiesResponse) KikChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KikChannelPropertiesResponse
+		return ret
+	}).(KikChannelPropertiesResponseOutput)
 }
 
 // Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -4597,7 +4681,7 @@ func (o MsTeamsChannelPropertiesOutput) ToMsTeamsChannelPropertiesPtrOutput() Ms
 }
 
 func (o MsTeamsChannelPropertiesOutput) ToMsTeamsChannelPropertiesPtrOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v MsTeamsChannelProperties) *MsTeamsChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MsTeamsChannelProperties) *MsTeamsChannelProperties {
 		return &v
 	}).(MsTeamsChannelPropertiesPtrOutput)
 }
@@ -4632,7 +4716,13 @@ func (o MsTeamsChannelPropertiesPtrOutput) ToMsTeamsChannelPropertiesPtrOutputWi
 }
 
 func (o MsTeamsChannelPropertiesPtrOutput) Elem() MsTeamsChannelPropertiesOutput {
-	return o.ApplyT(func(v *MsTeamsChannelProperties) MsTeamsChannelProperties { return *v }).(MsTeamsChannelPropertiesOutput)
+	return o.ApplyT(func(v *MsTeamsChannelProperties) MsTeamsChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MsTeamsChannelProperties
+		return ret
+	}).(MsTeamsChannelPropertiesOutput)
 }
 
 // Webhook for Microsoft Teams channel calls
@@ -4769,7 +4859,7 @@ func (o MsTeamsChannelPropertiesResponseOutput) ToMsTeamsChannelPropertiesRespon
 }
 
 func (o MsTeamsChannelPropertiesResponseOutput) ToMsTeamsChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MsTeamsChannelPropertiesResponse) *MsTeamsChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MsTeamsChannelPropertiesResponse) *MsTeamsChannelPropertiesResponse {
 		return &v
 	}).(MsTeamsChannelPropertiesResponsePtrOutput)
 }
@@ -4804,7 +4894,13 @@ func (o MsTeamsChannelPropertiesResponsePtrOutput) ToMsTeamsChannelPropertiesRes
 }
 
 func (o MsTeamsChannelPropertiesResponsePtrOutput) Elem() MsTeamsChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *MsTeamsChannelPropertiesResponse) MsTeamsChannelPropertiesResponse { return *v }).(MsTeamsChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesResponse) MsTeamsChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MsTeamsChannelPropertiesResponse
+		return ret
+	}).(MsTeamsChannelPropertiesResponseOutput)
 }
 
 // Webhook for Microsoft Teams channel calls
@@ -5165,7 +5261,7 @@ func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResp
 }
 
 func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) *ServiceProviderPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceProviderPropertiesResponse) *ServiceProviderPropertiesResponse {
 		return &v
 	}).(ServiceProviderPropertiesResponsePtrOutput)
 }
@@ -5215,7 +5311,13 @@ func (o ServiceProviderPropertiesResponsePtrOutput) ToServiceProviderPropertiesR
 }
 
 func (o ServiceProviderPropertiesResponsePtrOutput) Elem() ServiceProviderPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) ServiceProviderPropertiesResponse { return *v }).(ServiceProviderPropertiesResponseOutput)
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) ServiceProviderPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceProviderPropertiesResponse
+		return ret
+	}).(ServiceProviderPropertiesResponseOutput)
 }
 
 // Display Name of the Service Provider
@@ -5474,7 +5576,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -5499,7 +5601,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The sku name
@@ -5612,7 +5720,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -5642,7 +5750,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The sku name
@@ -5860,7 +5974,7 @@ func (o SkypeChannelPropertiesOutput) ToSkypeChannelPropertiesPtrOutput() SkypeC
 }
 
 func (o SkypeChannelPropertiesOutput) ToSkypeChannelPropertiesPtrOutputWithContext(ctx context.Context) SkypeChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v SkypeChannelProperties) *SkypeChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkypeChannelProperties) *SkypeChannelProperties {
 		return &v
 	}).(SkypeChannelPropertiesPtrOutput)
 }
@@ -5925,7 +6039,13 @@ func (o SkypeChannelPropertiesPtrOutput) ToSkypeChannelPropertiesPtrOutputWithCo
 }
 
 func (o SkypeChannelPropertiesPtrOutput) Elem() SkypeChannelPropertiesOutput {
-	return o.ApplyT(func(v *SkypeChannelProperties) SkypeChannelProperties { return *v }).(SkypeChannelPropertiesOutput)
+	return o.ApplyT(func(v *SkypeChannelProperties) SkypeChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SkypeChannelProperties
+		return ret
+	}).(SkypeChannelPropertiesOutput)
 }
 
 // Calling web hook for Skype channel
@@ -6146,7 +6266,7 @@ func (o SkypeChannelPropertiesResponseOutput) ToSkypeChannelPropertiesResponsePt
 }
 
 func (o SkypeChannelPropertiesResponseOutput) ToSkypeChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) SkypeChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SkypeChannelPropertiesResponse) *SkypeChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkypeChannelPropertiesResponse) *SkypeChannelPropertiesResponse {
 		return &v
 	}).(SkypeChannelPropertiesResponsePtrOutput)
 }
@@ -6211,7 +6331,13 @@ func (o SkypeChannelPropertiesResponsePtrOutput) ToSkypeChannelPropertiesRespons
 }
 
 func (o SkypeChannelPropertiesResponsePtrOutput) Elem() SkypeChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *SkypeChannelPropertiesResponse) SkypeChannelPropertiesResponse { return *v }).(SkypeChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *SkypeChannelPropertiesResponse) SkypeChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkypeChannelPropertiesResponse
+		return ret
+	}).(SkypeChannelPropertiesResponseOutput)
 }
 
 // Calling web hook for Skype channel
@@ -6550,7 +6676,7 @@ func (o SlackChannelPropertiesOutput) ToSlackChannelPropertiesPtrOutput() SlackC
 }
 
 func (o SlackChannelPropertiesOutput) ToSlackChannelPropertiesPtrOutputWithContext(ctx context.Context) SlackChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v SlackChannelProperties) *SlackChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlackChannelProperties) *SlackChannelProperties {
 		return &v
 	}).(SlackChannelPropertiesPtrOutput)
 }
@@ -6595,7 +6721,13 @@ func (o SlackChannelPropertiesPtrOutput) ToSlackChannelPropertiesPtrOutputWithCo
 }
 
 func (o SlackChannelPropertiesPtrOutput) Elem() SlackChannelPropertiesOutput {
-	return o.ApplyT(func(v *SlackChannelProperties) SlackChannelProperties { return *v }).(SlackChannelPropertiesOutput)
+	return o.ApplyT(func(v *SlackChannelProperties) SlackChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SlackChannelProperties
+		return ret
+	}).(SlackChannelPropertiesOutput)
 }
 
 // The Slack client id
@@ -6776,7 +6908,7 @@ func (o SlackChannelPropertiesResponseOutput) ToSlackChannelPropertiesResponsePt
 }
 
 func (o SlackChannelPropertiesResponseOutput) ToSlackChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) SlackChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SlackChannelPropertiesResponse) *SlackChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlackChannelPropertiesResponse) *SlackChannelPropertiesResponse {
 		return &v
 	}).(SlackChannelPropertiesResponsePtrOutput)
 }
@@ -6841,7 +6973,13 @@ func (o SlackChannelPropertiesResponsePtrOutput) ToSlackChannelPropertiesRespons
 }
 
 func (o SlackChannelPropertiesResponsePtrOutput) Elem() SlackChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *SlackChannelPropertiesResponse) SlackChannelPropertiesResponse { return *v }).(SlackChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *SlackChannelPropertiesResponse) SlackChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SlackChannelPropertiesResponse
+		return ret
+	}).(SlackChannelPropertiesResponseOutput)
 }
 
 // The Slack client id
@@ -7180,7 +7318,7 @@ func (o SmsChannelPropertiesOutput) ToSmsChannelPropertiesPtrOutput() SmsChannel
 }
 
 func (o SmsChannelPropertiesOutput) ToSmsChannelPropertiesPtrOutputWithContext(ctx context.Context) SmsChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v SmsChannelProperties) *SmsChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmsChannelProperties) *SmsChannelProperties {
 		return &v
 	}).(SmsChannelPropertiesPtrOutput)
 }
@@ -7225,7 +7363,13 @@ func (o SmsChannelPropertiesPtrOutput) ToSmsChannelPropertiesPtrOutputWithContex
 }
 
 func (o SmsChannelPropertiesPtrOutput) Elem() SmsChannelPropertiesOutput {
-	return o.ApplyT(func(v *SmsChannelProperties) SmsChannelProperties { return *v }).(SmsChannelPropertiesOutput)
+	return o.ApplyT(func(v *SmsChannelProperties) SmsChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SmsChannelProperties
+		return ret
+	}).(SmsChannelPropertiesOutput)
 }
 
 // The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -7390,7 +7534,7 @@ func (o SmsChannelPropertiesResponseOutput) ToSmsChannelPropertiesResponsePtrOut
 }
 
 func (o SmsChannelPropertiesResponseOutput) ToSmsChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) SmsChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SmsChannelPropertiesResponse) *SmsChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmsChannelPropertiesResponse) *SmsChannelPropertiesResponse {
 		return &v
 	}).(SmsChannelPropertiesResponsePtrOutput)
 }
@@ -7435,7 +7579,13 @@ func (o SmsChannelPropertiesResponsePtrOutput) ToSmsChannelPropertiesResponsePtr
 }
 
 func (o SmsChannelPropertiesResponsePtrOutput) Elem() SmsChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *SmsChannelPropertiesResponse) SmsChannelPropertiesResponse { return *v }).(SmsChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *SmsChannelPropertiesResponse) SmsChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SmsChannelPropertiesResponse
+		return ret
+	}).(SmsChannelPropertiesResponseOutput)
 }
 
 // The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -7726,7 +7876,7 @@ func (o TelegramChannelPropertiesOutput) ToTelegramChannelPropertiesPtrOutput() 
 }
 
 func (o TelegramChannelPropertiesOutput) ToTelegramChannelPropertiesPtrOutputWithContext(ctx context.Context) TelegramChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v TelegramChannelProperties) *TelegramChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelegramChannelProperties) *TelegramChannelProperties {
 		return &v
 	}).(TelegramChannelPropertiesPtrOutput)
 }
@@ -7761,7 +7911,13 @@ func (o TelegramChannelPropertiesPtrOutput) ToTelegramChannelPropertiesPtrOutput
 }
 
 func (o TelegramChannelPropertiesPtrOutput) Elem() TelegramChannelPropertiesOutput {
-	return o.ApplyT(func(v *TelegramChannelProperties) TelegramChannelProperties { return *v }).(TelegramChannelPropertiesOutput)
+	return o.ApplyT(func(v *TelegramChannelProperties) TelegramChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TelegramChannelProperties
+		return ret
+	}).(TelegramChannelPropertiesOutput)
 }
 
 // The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -7898,7 +8054,7 @@ func (o TelegramChannelPropertiesResponseOutput) ToTelegramChannelPropertiesResp
 }
 
 func (o TelegramChannelPropertiesResponseOutput) ToTelegramChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) TelegramChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TelegramChannelPropertiesResponse) *TelegramChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelegramChannelPropertiesResponse) *TelegramChannelPropertiesResponse {
 		return &v
 	}).(TelegramChannelPropertiesResponsePtrOutput)
 }
@@ -7933,7 +8089,13 @@ func (o TelegramChannelPropertiesResponsePtrOutput) ToTelegramChannelPropertiesR
 }
 
 func (o TelegramChannelPropertiesResponsePtrOutput) Elem() TelegramChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *TelegramChannelPropertiesResponse) TelegramChannelPropertiesResponse { return *v }).(TelegramChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *TelegramChannelPropertiesResponse) TelegramChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TelegramChannelPropertiesResponse
+		return ret
+	}).(TelegramChannelPropertiesResponseOutput)
 }
 
 // The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -8196,7 +8358,7 @@ func (o WebChatChannelPropertiesOutput) ToWebChatChannelPropertiesPtrOutput() We
 }
 
 func (o WebChatChannelPropertiesOutput) ToWebChatChannelPropertiesPtrOutputWithContext(ctx context.Context) WebChatChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v WebChatChannelProperties) *WebChatChannelProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebChatChannelProperties) *WebChatChannelProperties {
 		return &v
 	}).(WebChatChannelPropertiesPtrOutput)
 }
@@ -8221,7 +8383,13 @@ func (o WebChatChannelPropertiesPtrOutput) ToWebChatChannelPropertiesPtrOutputWi
 }
 
 func (o WebChatChannelPropertiesPtrOutput) Elem() WebChatChannelPropertiesOutput {
-	return o.ApplyT(func(v *WebChatChannelProperties) WebChatChannelProperties { return *v }).(WebChatChannelPropertiesOutput)
+	return o.ApplyT(func(v *WebChatChannelProperties) WebChatChannelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WebChatChannelProperties
+		return ret
+	}).(WebChatChannelPropertiesOutput)
 }
 
 // The list of Web Chat sites
@@ -8334,7 +8502,7 @@ func (o WebChatChannelPropertiesResponseOutput) ToWebChatChannelPropertiesRespon
 }
 
 func (o WebChatChannelPropertiesResponseOutput) ToWebChatChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) WebChatChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WebChatChannelPropertiesResponse) *WebChatChannelPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebChatChannelPropertiesResponse) *WebChatChannelPropertiesResponse {
 		return &v
 	}).(WebChatChannelPropertiesResponsePtrOutput)
 }
@@ -8364,7 +8532,13 @@ func (o WebChatChannelPropertiesResponsePtrOutput) ToWebChatChannelPropertiesRes
 }
 
 func (o WebChatChannelPropertiesResponsePtrOutput) Elem() WebChatChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *WebChatChannelPropertiesResponse) WebChatChannelPropertiesResponse { return *v }).(WebChatChannelPropertiesResponseOutput)
+	return o.ApplyT(func(v *WebChatChannelPropertiesResponse) WebChatChannelPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebChatChannelPropertiesResponse
+		return ret
+	}).(WebChatChannelPropertiesResponseOutput)
 }
 
 // The list of Web Chat sites

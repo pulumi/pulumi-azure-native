@@ -93,47 +93,9 @@ func GetRoleAssignmentArtifact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleAssignmentArtifact resources.
 type roleAssignmentArtifactState struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'roleAssignment'.
-	Kind *string `pulumi:"kind"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
-	PrincipalIds interface{} `pulumi:"principalIds"`
-	// RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Azure resource ID of the RoleDefinition.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type RoleAssignmentArtifactState struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'roleAssignment'.
-	Kind pulumi.StringPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
-	PrincipalIds pulumi.Input
-	// RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
-	ResourceGroup pulumi.StringPtrInput
-	// Azure resource ID of the RoleDefinition.
-	RoleDefinitionId pulumi.StringPtrInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (RoleAssignmentArtifactState) ElementType() reflect.Type {
@@ -212,9 +174,7 @@ func (i *RoleAssignmentArtifact) ToRoleAssignmentArtifactOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentArtifactOutput)
 }
 
-type RoleAssignmentArtifactOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentArtifactOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignmentArtifact)(nil))

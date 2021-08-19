@@ -159,109 +159,9 @@ func GetDevice(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Device resources.
 type deviceState struct {
-	// Type of compute roles configured.
-	ConfiguredRoleTypes []string `pulumi:"configuredRoleTypes"`
-	// The Data Box Edge/Gateway device culture.
-	Culture *string `pulumi:"culture"`
-	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
-	// The Description of the Data Box Edge/Gateway device.
-	Description *string `pulumi:"description"`
-	// The device software version number of the device (eg: 1.2.18105.6).
-	DeviceHcsVersion *string `pulumi:"deviceHcsVersion"`
-	// The Data Box Edge/Gateway device local capacity in MB.
-	DeviceLocalCapacity *float64 `pulumi:"deviceLocalCapacity"`
-	// The Data Box Edge/Gateway device model.
-	DeviceModel *string `pulumi:"deviceModel"`
-	// The Data Box Edge/Gateway device software version.
-	DeviceSoftwareVersion *string `pulumi:"deviceSoftwareVersion"`
-	// The type of the Data Box Edge/Gateway device.
-	DeviceType *string `pulumi:"deviceType"`
-	// The details of Edge Profile for this resource
-	EdgeProfile *EdgeProfileResponse `pulumi:"edgeProfile"`
-	// The etag for the devices.
-	Etag *string `pulumi:"etag"`
-	// The Data Box Edge/Gateway device name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Msi identity of the resource
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The etag for the devices.
-	Kind *string `pulumi:"kind"`
-	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-	Location *string `pulumi:"location"`
-	// The description of the Data Box Edge/Gateway device model.
-	ModelDescription *string `pulumi:"modelDescription"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// The number of nodes in the cluster.
-	NodeCount *int `pulumi:"nodeCount"`
-	// The details of the move operation on this resource.
-	ResourceMoveDetails *ResourceMoveDetailsResponse `pulumi:"resourceMoveDetails"`
-	// The Serial Number of Data Box Edge/Gateway device.
-	SerialNumber *string `pulumi:"serialNumber"`
-	// The SKU type.
-	Sku *SkuResponse `pulumi:"sku"`
-	// DataBoxEdge Resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-	Tags map[string]string `pulumi:"tags"`
-	// The Data Box Edge/Gateway device timezone.
-	TimeZone *string `pulumi:"timeZone"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type DeviceState struct {
-	// Type of compute roles configured.
-	ConfiguredRoleTypes pulumi.StringArrayInput
-	// The Data Box Edge/Gateway device culture.
-	Culture pulumi.StringPtrInput
-	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
-	// The Description of the Data Box Edge/Gateway device.
-	Description pulumi.StringPtrInput
-	// The device software version number of the device (eg: 1.2.18105.6).
-	DeviceHcsVersion pulumi.StringPtrInput
-	// The Data Box Edge/Gateway device local capacity in MB.
-	DeviceLocalCapacity pulumi.Float64PtrInput
-	// The Data Box Edge/Gateway device model.
-	DeviceModel pulumi.StringPtrInput
-	// The Data Box Edge/Gateway device software version.
-	DeviceSoftwareVersion pulumi.StringPtrInput
-	// The type of the Data Box Edge/Gateway device.
-	DeviceType pulumi.StringPtrInput
-	// The details of Edge Profile for this resource
-	EdgeProfile EdgeProfileResponsePtrInput
-	// The etag for the devices.
-	Etag pulumi.StringPtrInput
-	// The Data Box Edge/Gateway device name.
-	FriendlyName pulumi.StringPtrInput
-	// Msi identity of the resource
-	Identity ResourceIdentityResponsePtrInput
-	// The etag for the devices.
-	Kind pulumi.StringPtrInput
-	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-	Location pulumi.StringPtrInput
-	// The description of the Data Box Edge/Gateway device model.
-	ModelDescription pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// The number of nodes in the cluster.
-	NodeCount pulumi.IntPtrInput
-	// The details of the move operation on this resource.
-	ResourceMoveDetails ResourceMoveDetailsResponsePtrInput
-	// The Serial Number of Data Box Edge/Gateway device.
-	SerialNumber pulumi.StringPtrInput
-	// The SKU type.
-	Sku SkuResponsePtrInput
-	// DataBoxEdge Resource
-	SystemData SystemDataResponsePtrInput
-	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-	Tags pulumi.StringMapInput
-	// The Data Box Edge/Gateway device timezone.
-	TimeZone pulumi.StringPtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (DeviceState) ElementType() reflect.Type {
@@ -330,9 +230,7 @@ func (i *Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceOutput)
 }
 
-type DeviceOutput struct {
-	*pulumi.OutputState
-}
+type DeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Device)(nil))

@@ -92,45 +92,9 @@ func GetAssessment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assessment resources.
 type assessmentState struct {
-	// Additional data regarding the assessment
-	AdditionalData map[string]string `pulumi:"additionalData"`
-	// User friendly display name of the assessment
-	DisplayName *string `pulumi:"displayName"`
-	// Links relevant to the assessment
-	Links *AssessmentLinksResponse `pulumi:"links"`
-	// Describes properties of an assessment metadata.
-	Metadata *SecurityAssessmentMetadataPropertiesResponse `pulumi:"metadata"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Data regarding 3rd party partner integration
-	PartnersData *SecurityAssessmentPartnerDataResponse `pulumi:"partnersData"`
-	// Details of the resource that was assessed
-	ResourceDetails interface{} `pulumi:"resourceDetails"`
-	// The result of the assessment
-	Status *AssessmentStatusResponse `pulumi:"status"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type AssessmentState struct {
-	// Additional data regarding the assessment
-	AdditionalData pulumi.StringMapInput
-	// User friendly display name of the assessment
-	DisplayName pulumi.StringPtrInput
-	// Links relevant to the assessment
-	Links AssessmentLinksResponsePtrInput
-	// Describes properties of an assessment metadata.
-	Metadata SecurityAssessmentMetadataPropertiesResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Data regarding 3rd party partner integration
-	PartnersData SecurityAssessmentPartnerDataResponsePtrInput
-	// Details of the resource that was assessed
-	ResourceDetails pulumi.Input
-	// The result of the assessment
-	Status AssessmentStatusResponsePtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (AssessmentState) ElementType() reflect.Type {
@@ -195,9 +159,7 @@ func (i *Assessment) ToAssessmentOutputWithContext(ctx context.Context) Assessme
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentOutput)
 }
 
-type AssessmentOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assessment)(nil))

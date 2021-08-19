@@ -118,73 +118,9 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// Gets or sets the advanced schedule.
-	AdvancedSchedule *AdvancedScheduleResponse `pulumi:"advancedSchedule"`
-	// Gets or sets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets or sets the end time of the schedule.
-	ExpiryTime *string `pulumi:"expiryTime"`
-	// Gets or sets the expiry time's offset in minutes.
-	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
-	// Gets or sets the frequency of the schedule.
-	Frequency *string `pulumi:"frequency"`
-	// Gets or sets the interval of the schedule.
-	Interval interface{} `pulumi:"interval"`
-	// Gets or sets a value indicating whether this schedule is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the next run time of the schedule.
-	NextRun *string `pulumi:"nextRun"`
-	// Gets or sets the next run time's offset in minutes.
-	NextRunOffsetMinutes *float64 `pulumi:"nextRunOffsetMinutes"`
-	// Gets or sets the start time of the schedule.
-	StartTime *string `pulumi:"startTime"`
-	// Gets the start time's offset in minutes.
-	StartTimeOffsetMinutes *float64 `pulumi:"startTimeOffsetMinutes"`
-	// Gets or sets the time zone of the schedule.
-	TimeZone *string `pulumi:"timeZone"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ScheduleState struct {
-	// Gets or sets the advanced schedule.
-	AdvancedSchedule AdvancedScheduleResponsePtrInput
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrInput
-	// Gets or sets the description.
-	Description pulumi.StringPtrInput
-	// Gets or sets the end time of the schedule.
-	ExpiryTime pulumi.StringPtrInput
-	// Gets or sets the expiry time's offset in minutes.
-	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput
-	// Gets or sets the frequency of the schedule.
-	Frequency pulumi.StringPtrInput
-	// Gets or sets the interval of the schedule.
-	Interval pulumi.Input
-	// Gets or sets a value indicating whether this schedule is enabled.
-	IsEnabled pulumi.BoolPtrInput
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets the next run time of the schedule.
-	NextRun pulumi.StringPtrInput
-	// Gets or sets the next run time's offset in minutes.
-	NextRunOffsetMinutes pulumi.Float64PtrInput
-	// Gets or sets the start time of the schedule.
-	StartTime pulumi.StringPtrInput
-	// Gets the start time's offset in minutes.
-	StartTimeOffsetMinutes pulumi.Float64PtrInput
-	// Gets or sets the time zone of the schedule.
-	TimeZone pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ScheduleState) ElementType() reflect.Type {
@@ -265,9 +201,7 @@ func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleOutput)
 }
 
-type ScheduleOutput struct {
-	*pulumi.OutputState
-}
+type ScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Schedule)(nil))

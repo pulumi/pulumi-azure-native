@@ -126,25 +126,9 @@ func GetDomainOwnershipIdentifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainOwnershipIdentifier resources.
 type domainOwnershipIdentifierState struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Ownership Id.
-	OwnershipId *string `pulumi:"ownershipId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DomainOwnershipIdentifierState struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Ownership Id.
-	OwnershipId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DomainOwnershipIdentifierState) ElementType() reflect.Type {
@@ -201,9 +185,7 @@ func (i *DomainOwnershipIdentifier) ToDomainOwnershipIdentifierOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOwnershipIdentifierOutput)
 }
 
-type DomainOwnershipIdentifierOutput struct {
-	*pulumi.OutputState
-}
+type DomainOwnershipIdentifierOutput struct{ *pulumi.OutputState }
 
 func (DomainOwnershipIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainOwnershipIdentifier)(nil))

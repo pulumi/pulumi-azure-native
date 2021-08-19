@@ -86,33 +86,9 @@ func GetDataPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataPool resources.
 type dataPoolState struct {
-	// The Data Pool's data-plane ID
-	DataPoolId *string `pulumi:"dataPoolId"`
-	// Gets or sets the collection of locations where Data Pool resources should be created
-	Locations []DataPoolLocationResponse `pulumi:"locations"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Gets the status of the data pool at the time the operation was called
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DataPoolState struct {
-	// The Data Pool's data-plane ID
-	DataPoolId pulumi.StringPtrInput
-	// Gets or sets the collection of locations where Data Pool resources should be created
-	Locations DataPoolLocationResponseArrayInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Gets the status of the data pool at the time the operation was called
-	ProvisioningState pulumi.StringPtrInput
-	// The system meta data relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DataPoolState) ElementType() reflect.Type {
@@ -165,9 +141,7 @@ func (i *DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolOutput)
 }
 
-type DataPoolOutput struct {
-	*pulumi.OutputState
-}
+type DataPoolOutput struct{ *pulumi.OutputState }
 
 func (DataPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataPool)(nil))

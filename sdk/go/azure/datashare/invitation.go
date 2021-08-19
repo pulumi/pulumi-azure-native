@@ -114,65 +114,9 @@ func GetInvitation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Invitation resources.
 type invitationState struct {
-	// The expiration date for the invitation and share subscription.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// unique invitation id
-	InvitationId *string `pulumi:"invitationId"`
-	// The status of the invitation.
-	InvitationStatus *string `pulumi:"invitationStatus"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// The time the recipient responded to the invitation.
-	RespondedAt *string `pulumi:"respondedAt"`
-	// Gets the time at which the invitation was sent.
-	SentAt *string `pulumi:"sentAt"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The target Azure AD Id. Can't be combined with email.
-	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
-	// The email the invitation is directed to.
-	TargetEmail *string `pulumi:"targetEmail"`
-	// The target user or application Id that invitation is being sent to.
-	// Must be specified along TargetActiveDirectoryId. This enables sending
-	// invitations to specific users or applications in an AD tenant.
-	TargetObjectId *string `pulumi:"targetObjectId"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail *string `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName *string `pulumi:"userName"`
 }
 
 type InvitationState struct {
-	// The expiration date for the invitation and share subscription.
-	ExpirationDate pulumi.StringPtrInput
-	// unique invitation id
-	InvitationId pulumi.StringPtrInput
-	// The status of the invitation.
-	InvitationStatus pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// The time the recipient responded to the invitation.
-	RespondedAt pulumi.StringPtrInput
-	// Gets the time at which the invitation was sent.
-	SentAt pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// The target Azure AD Id. Can't be combined with email.
-	TargetActiveDirectoryId pulumi.StringPtrInput
-	// The email the invitation is directed to.
-	TargetEmail pulumi.StringPtrInput
-	// The target user or application Id that invitation is being sent to.
-	// Must be specified along TargetActiveDirectoryId. This enables sending
-	// invitations to specific users or applications in an AD tenant.
-	TargetObjectId pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
-	// Email of the user who created the resource
-	UserEmail pulumi.StringPtrInput
-	// Name of the user who created the resource
-	UserName pulumi.StringPtrInput
 }
 
 func (InvitationState) ElementType() reflect.Type {
@@ -245,9 +189,7 @@ func (i *Invitation) ToInvitationOutputWithContext(ctx context.Context) Invitati
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationOutput)
 }
 
-type InvitationOutput struct {
-	*pulumi.OutputState
-}
+type InvitationOutput struct{ *pulumi.OutputState }
 
 func (InvitationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Invitation)(nil))

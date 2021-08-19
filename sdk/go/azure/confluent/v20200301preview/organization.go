@@ -93,49 +93,9 @@ func GetOrganization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Organization resources.
 type organizationState struct {
-	// The creation time of the resource.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Location of Organization resource
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Confluent offer detail
-	OfferDetail *OrganizationResourcePropertiesResponseOfferDetail `pulumi:"offerDetail"`
-	// Id of the Confluent organization.
-	OrganizationId *string `pulumi:"organizationId"`
-	// Provision states for confluent RP
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// SSO url for the Confluent organization.
-	SsoUrl *string `pulumi:"ssoUrl"`
-	// Organization resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// Subscriber detail
-	UserDetail *OrganizationResourcePropertiesResponseUserDetail `pulumi:"userDetail"`
 }
 
 type OrganizationState struct {
-	// The creation time of the resource.
-	CreatedTime pulumi.StringPtrInput
-	// Location of Organization resource
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Confluent offer detail
-	OfferDetail OrganizationResourcePropertiesResponseOfferDetailPtrInput
-	// Id of the Confluent organization.
-	OrganizationId pulumi.StringPtrInput
-	// Provision states for confluent RP
-	ProvisioningState pulumi.StringPtrInput
-	// SSO url for the Confluent organization.
-	SsoUrl pulumi.StringPtrInput
-	// Organization resource tags
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// Subscriber detail
-	UserDetail OrganizationResourcePropertiesResponseUserDetailPtrInput
 }
 
 func (OrganizationState) ElementType() reflect.Type {
@@ -196,9 +156,7 @@ func (i *Organization) ToOrganizationOutputWithContext(ctx context.Context) Orga
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationOutput)
 }
 
-type OrganizationOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Organization)(nil))

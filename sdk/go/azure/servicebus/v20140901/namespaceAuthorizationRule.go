@@ -119,53 +119,9 @@ func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceAuthorizationRule resources.
 type namespaceAuthorizationRuleState struct {
-	// A string that describes Claim Type for authorization rule.
-	ClaimType *string `pulumi:"claimType"`
-	// A string that describes Claim Value of authorization rule.
-	ClaimValue *string `pulumi:"claimValue"`
-	// The time the namespace was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// A string that describes the Key Name of authorization rule.
-	KeyName *string `pulumi:"keyName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The time the namespace was updated.
-	ModifiedTime *string `pulumi:"modifiedTime"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey *string `pulumi:"secondaryKey"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type NamespaceAuthorizationRuleState struct {
-	// A string that describes Claim Type for authorization rule.
-	ClaimType pulumi.StringPtrInput
-	// A string that describes Claim Value of authorization rule.
-	ClaimValue pulumi.StringPtrInput
-	// The time the namespace was created.
-	CreatedTime pulumi.StringPtrInput
-	// A string that describes the Key Name of authorization rule.
-	KeyName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The time the namespace was updated.
-	ModifiedTime pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
@@ -192,7 +148,7 @@ type namespaceAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	Rights []AccessRights `pulumi:"rights"`
 	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
@@ -246,9 +202,7 @@ func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
 }
 
-type NamespaceAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))

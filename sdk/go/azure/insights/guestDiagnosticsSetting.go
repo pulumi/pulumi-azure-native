@@ -75,35 +75,9 @@ func GetGuestDiagnosticsSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GuestDiagnosticsSetting resources.
 type guestDiagnosticsSettingState struct {
-	// the array of data source object which are configured to collect and send data
-	DataSources []DataSourceResponse `pulumi:"dataSources"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Operating system type for the configuration
-	OsType       *string `pulumi:"osType"`
-	ProxySetting *string `pulumi:"proxySetting"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type GuestDiagnosticsSettingState struct {
-	// the array of data source object which are configured to collect and send data
-	DataSources DataSourceResponseArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Operating system type for the configuration
-	OsType       pulumi.StringPtrInput
-	ProxySetting pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (GuestDiagnosticsSettingState) ElementType() reflect.Type {
@@ -166,9 +140,7 @@ func (i *GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingOutput)
 }
 
-type GuestDiagnosticsSettingOutput struct {
-	*pulumi.OutputState
-}
+type GuestDiagnosticsSettingOutput struct{ *pulumi.OutputState }
 
 func (GuestDiagnosticsSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil))

@@ -84,53 +84,9 @@ func GetSqlVirtualMachineGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlVirtualMachineGroup resources.
 type sqlVirtualMachineGroupState struct {
-	// Cluster type.
-	ClusterConfiguration *string `pulumi:"clusterConfiguration"`
-	// Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type.
-	ClusterManagerType *string `pulumi:"clusterManagerType"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Provisioning state to track the async operation status.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Scale type.
-	ScaleType *string `pulumi:"scaleType"`
-	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer *string `pulumi:"sqlImageOffer"`
-	// SQL image sku.
-	SqlImageSku *string `pulumi:"sqlImageSku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// Cluster Active Directory domain profile.
-	WsfcDomainProfile *WsfcDomainProfileResponse `pulumi:"wsfcDomainProfile"`
 }
 
 type SqlVirtualMachineGroupState struct {
-	// Cluster type.
-	ClusterConfiguration pulumi.StringPtrInput
-	// Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type.
-	ClusterManagerType pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Provisioning state to track the async operation status.
-	ProvisioningState pulumi.StringPtrInput
-	// Scale type.
-	ScaleType pulumi.StringPtrInput
-	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer pulumi.StringPtrInput
-	// SQL image sku.
-	SqlImageSku pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// Cluster Active Directory domain profile.
-	WsfcDomainProfile WsfcDomainProfileResponsePtrInput
 }
 
 func (SqlVirtualMachineGroupState) ElementType() reflect.Type {
@@ -195,9 +151,7 @@ func (i *SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineGroupOutput)
 }
 
-type SqlVirtualMachineGroupOutput struct {
-	*pulumi.OutputState
-}
+type SqlVirtualMachineGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlVirtualMachineGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil))

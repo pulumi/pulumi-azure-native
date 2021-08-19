@@ -142,33 +142,9 @@ func GetWebAppSlotConfigurationNames(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppSlotConfigurationNames resources.
 type webAppSlotConfigurationNamesState struct {
-	// List of application settings names.
-	AppSettingNames []string `pulumi:"appSettingNames"`
-	// List of external Azure storage account identifiers.
-	AzureStorageConfigNames []string `pulumi:"azureStorageConfigNames"`
-	// List of connection string names.
-	ConnectionStringNames []string `pulumi:"connectionStringNames"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppSlotConfigurationNamesState struct {
-	// List of application settings names.
-	AppSettingNames pulumi.StringArrayInput
-	// List of external Azure storage account identifiers.
-	AzureStorageConfigNames pulumi.StringArrayInput
-	// List of connection string names.
-	ConnectionStringNames pulumi.StringArrayInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppSlotConfigurationNamesState) ElementType() reflect.Type {
@@ -229,9 +205,7 @@ func (i *WebAppSlotConfigurationNames) ToWebAppSlotConfigurationNamesOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotConfigurationNamesOutput)
 }
 
-type WebAppSlotConfigurationNamesOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSlotConfigurationNamesOutput struct{ *pulumi.OutputState }
 
 func (WebAppSlotConfigurationNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSlotConfigurationNames)(nil))

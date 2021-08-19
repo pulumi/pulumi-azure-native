@@ -346,7 +346,7 @@ func (o SKUOutput) ToSKUPtrOutput() SKUPtrOutput {
 }
 
 func (o SKUOutput) ToSKUPtrOutputWithContext(ctx context.Context) SKUPtrOutput {
-	return o.ApplyT(func(v SKU) *SKU {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SKU) *SKU {
 		return &v
 	}).(SKUPtrOutput)
 }
@@ -376,7 +376,13 @@ func (o SKUPtrOutput) ToSKUPtrOutputWithContext(ctx context.Context) SKUPtrOutpu
 }
 
 func (o SKUPtrOutput) Elem() SKUOutput {
-	return o.ApplyT(func(v *SKU) SKU { return *v }).(SKUOutput)
+	return o.ApplyT(func(v *SKU) SKU {
+		if v != nil {
+			return *v
+		}
+		var ret SKU
+		return ret
+	}).(SKUOutput)
 }
 
 // The name of the SKU
@@ -499,7 +505,7 @@ func (o SKUResponseOutput) ToSKUResponsePtrOutput() SKUResponsePtrOutput {
 }
 
 func (o SKUResponseOutput) ToSKUResponsePtrOutputWithContext(ctx context.Context) SKUResponsePtrOutput {
-	return o.ApplyT(func(v SKUResponse) *SKUResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SKUResponse) *SKUResponse {
 		return &v
 	}).(SKUResponsePtrOutput)
 }
@@ -529,7 +535,13 @@ func (o SKUResponsePtrOutput) ToSKUResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SKUResponsePtrOutput) Elem() SKUResponseOutput {
-	return o.ApplyT(func(v *SKUResponse) SKUResponse { return *v }).(SKUResponseOutput)
+	return o.ApplyT(func(v *SKUResponse) SKUResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SKUResponse
+		return ret
+	}).(SKUResponseOutput)
 }
 
 // The name of the SKU

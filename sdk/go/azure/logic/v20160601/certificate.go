@@ -100,45 +100,9 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The key details in the key vault.
-	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// The public certificate.
-	PublicCertificate *string `pulumi:"publicCertificate"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
 }
 
 type CertificateState struct {
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The key details in the key vault.
-	Key KeyVaultKeyReferenceResponsePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// The public certificate.
-	PublicCertificate pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -207,9 +171,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

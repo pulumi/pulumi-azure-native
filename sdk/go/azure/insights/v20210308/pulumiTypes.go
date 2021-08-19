@@ -106,7 +106,7 @@ func (o MyWorkbookManagedIdentityOutput) ToMyWorkbookManagedIdentityPtrOutput() 
 }
 
 func (o MyWorkbookManagedIdentityOutput) ToMyWorkbookManagedIdentityPtrOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityPtrOutput {
-	return o.ApplyT(func(v MyWorkbookManagedIdentity) *MyWorkbookManagedIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookManagedIdentity) *MyWorkbookManagedIdentity {
 		return &v
 	}).(MyWorkbookManagedIdentityPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o MyWorkbookManagedIdentityPtrOutput) ToMyWorkbookManagedIdentityPtrOutput
 }
 
 func (o MyWorkbookManagedIdentityPtrOutput) Elem() MyWorkbookManagedIdentityOutput {
-	return o.ApplyT(func(v *MyWorkbookManagedIdentity) MyWorkbookManagedIdentity { return *v }).(MyWorkbookManagedIdentityOutput)
+	return o.ApplyT(func(v *MyWorkbookManagedIdentity) MyWorkbookManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MyWorkbookManagedIdentity
+		return ret
+	}).(MyWorkbookManagedIdentityOutput)
 }
 
 // The identity type.
@@ -244,7 +250,7 @@ func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResp
 }
 
 func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v MyWorkbookManagedIdentityResponse) *MyWorkbookManagedIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookManagedIdentityResponse) *MyWorkbookManagedIdentityResponse {
 		return &v
 	}).(MyWorkbookManagedIdentityResponsePtrOutput)
 }
@@ -276,7 +282,13 @@ func (o MyWorkbookManagedIdentityResponsePtrOutput) ToMyWorkbookManagedIdentityR
 }
 
 func (o MyWorkbookManagedIdentityResponsePtrOutput) Elem() MyWorkbookManagedIdentityResponseOutput {
-	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) MyWorkbookManagedIdentityResponse { return *v }).(MyWorkbookManagedIdentityResponseOutput)
+	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) MyWorkbookManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MyWorkbookManagedIdentityResponse
+		return ret
+	}).(MyWorkbookManagedIdentityResponseOutput)
 }
 
 // The identity type.
@@ -399,7 +411,7 @@ func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssigned
 }
 
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ApplyT(func(v MyWorkbookUserAssignedIdentitiesResponse) *MyWorkbookUserAssignedIdentitiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookUserAssignedIdentitiesResponse) *MyWorkbookUserAssignedIdentitiesResponse {
 		return &v
 	}).(MyWorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
@@ -429,7 +441,13 @@ func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) ToMyWorkbookUserAssig
 }
 
 func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) Elem() MyWorkbookUserAssignedIdentitiesResponseOutput {
-	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) MyWorkbookUserAssignedIdentitiesResponse { return *v }).(MyWorkbookUserAssignedIdentitiesResponseOutput)
+	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) MyWorkbookUserAssignedIdentitiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MyWorkbookUserAssignedIdentitiesResponse
+		return ret
+	}).(MyWorkbookUserAssignedIdentitiesResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -568,7 +586,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -618,7 +636,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -777,7 +801,7 @@ func (o WorkbookManagedIdentityOutput) ToWorkbookManagedIdentityPtrOutput() Work
 }
 
 func (o WorkbookManagedIdentityOutput) ToWorkbookManagedIdentityPtrOutputWithContext(ctx context.Context) WorkbookManagedIdentityPtrOutput {
-	return o.ApplyT(func(v WorkbookManagedIdentity) *WorkbookManagedIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookManagedIdentity) *WorkbookManagedIdentity {
 		return &v
 	}).(WorkbookManagedIdentityPtrOutput)
 }
@@ -802,7 +826,13 @@ func (o WorkbookManagedIdentityPtrOutput) ToWorkbookManagedIdentityPtrOutputWith
 }
 
 func (o WorkbookManagedIdentityPtrOutput) Elem() WorkbookManagedIdentityOutput {
-	return o.ApplyT(func(v *WorkbookManagedIdentity) WorkbookManagedIdentity { return *v }).(WorkbookManagedIdentityOutput)
+	return o.ApplyT(func(v *WorkbookManagedIdentity) WorkbookManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookManagedIdentity
+		return ret
+	}).(WorkbookManagedIdentityOutput)
 }
 
 // The identity type.
@@ -915,7 +945,7 @@ func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponse
 }
 
 func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) WorkbookManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v WorkbookManagedIdentityResponse) *WorkbookManagedIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookManagedIdentityResponse) *WorkbookManagedIdentityResponse {
 		return &v
 	}).(WorkbookManagedIdentityResponsePtrOutput)
 }
@@ -947,7 +977,13 @@ func (o WorkbookManagedIdentityResponsePtrOutput) ToWorkbookManagedIdentityRespo
 }
 
 func (o WorkbookManagedIdentityResponsePtrOutput) Elem() WorkbookManagedIdentityResponseOutput {
-	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) WorkbookManagedIdentityResponse { return *v }).(WorkbookManagedIdentityResponseOutput)
+	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) WorkbookManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookManagedIdentityResponse
+		return ret
+	}).(WorkbookManagedIdentityResponseOutput)
 }
 
 // The identity type.
@@ -1074,7 +1110,7 @@ func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIden
 }
 
 func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) *WorkbookUserAssignedIdentitiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookUserAssignedIdentitiesResponse) *WorkbookUserAssignedIdentitiesResponse {
 		return &v
 	}).(WorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
@@ -1109,7 +1145,13 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) ToWorkbookUserAssignedI
 }
 
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) Elem() WorkbookUserAssignedIdentitiesResponseOutput {
-	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) WorkbookUserAssignedIdentitiesResponse { return *v }).(WorkbookUserAssignedIdentitiesResponseOutput)
+	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) WorkbookUserAssignedIdentitiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookUserAssignedIdentitiesResponse
+		return ret
+	}).(WorkbookUserAssignedIdentitiesResponseOutput)
 }
 
 // The client ID of resource.

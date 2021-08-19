@@ -114,7 +114,7 @@ func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusProp
 }
 
 func (o ArtifactDeploymentStatusPropertiesOutput) ToArtifactDeploymentStatusPropertiesPtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesPtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusProperties) *ArtifactDeploymentStatusProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactDeploymentStatusProperties) *ArtifactDeploymentStatusProperties {
 		return &v
 	}).(ArtifactDeploymentStatusPropertiesPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o ArtifactDeploymentStatusPropertiesPtrOutput) ToArtifactDeploymentStatusP
 }
 
 func (o ArtifactDeploymentStatusPropertiesPtrOutput) Elem() ArtifactDeploymentStatusPropertiesOutput {
-	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) ArtifactDeploymentStatusProperties { return *v }).(ArtifactDeploymentStatusPropertiesOutput)
+	return o.ApplyT(func(v *ArtifactDeploymentStatusProperties) ArtifactDeploymentStatusProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactDeploymentStatusProperties
+		return ret
+	}).(ArtifactDeploymentStatusPropertiesOutput)
 }
 
 // The total count of the artifacts that were successfully applied.
@@ -286,7 +292,7 @@ func (o ArtifactDeploymentStatusPropertiesResponseOutput) ToArtifactDeploymentSt
 }
 
 func (o ArtifactDeploymentStatusPropertiesResponseOutput) ToArtifactDeploymentStatusPropertiesResponsePtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactDeploymentStatusPropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
 		return &v
 	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
 }
@@ -322,7 +328,11 @@ func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) ToArtifactDeploymen
 
 func (o ArtifactDeploymentStatusPropertiesResponsePtrOutput) Elem() ArtifactDeploymentStatusPropertiesResponseOutput {
 	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesResponse) ArtifactDeploymentStatusPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactDeploymentStatusPropertiesResponse
+		return ret
 	}).(ArtifactDeploymentStatusPropertiesResponseOutput)
 }
 
@@ -892,7 +902,7 @@ func (o CustomImagePropertiesCustomOutput) ToCustomImagePropertiesCustomPtrOutpu
 }
 
 func (o CustomImagePropertiesCustomOutput) ToCustomImagePropertiesCustomPtrOutputWithContext(ctx context.Context) CustomImagePropertiesCustomPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesCustom) *CustomImagePropertiesCustom {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesCustom) *CustomImagePropertiesCustom {
 		return &v
 	}).(CustomImagePropertiesCustomPtrOutput)
 }
@@ -922,7 +932,13 @@ func (o CustomImagePropertiesCustomPtrOutput) ToCustomImagePropertiesCustomPtrOu
 }
 
 func (o CustomImagePropertiesCustomPtrOutput) Elem() CustomImagePropertiesCustomOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesCustom) CustomImagePropertiesCustom { return *v }).(CustomImagePropertiesCustomOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesCustom) CustomImagePropertiesCustom {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesCustom
+		return ret
+	}).(CustomImagePropertiesCustomOutput)
 }
 
 // The image name.
@@ -1045,7 +1061,7 @@ func (o CustomImagePropertiesCustomResponseOutput) ToCustomImagePropertiesCustom
 }
 
 func (o CustomImagePropertiesCustomResponseOutput) ToCustomImagePropertiesCustomResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesCustomResponsePtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesCustomResponse) *CustomImagePropertiesCustomResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesCustomResponse) *CustomImagePropertiesCustomResponse {
 		return &v
 	}).(CustomImagePropertiesCustomResponsePtrOutput)
 }
@@ -1075,7 +1091,13 @@ func (o CustomImagePropertiesCustomResponsePtrOutput) ToCustomImagePropertiesCus
 }
 
 func (o CustomImagePropertiesCustomResponsePtrOutput) Elem() CustomImagePropertiesCustomResponseOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesCustomResponse) CustomImagePropertiesCustomResponse { return *v }).(CustomImagePropertiesCustomResponseOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesCustomResponse) CustomImagePropertiesCustomResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesCustomResponse
+		return ret
+	}).(CustomImagePropertiesCustomResponseOutput)
 }
 
 // The image name.
@@ -1206,7 +1228,7 @@ func (o CustomImagePropertiesFromVmOutput) ToCustomImagePropertiesFromVmPtrOutpu
 }
 
 func (o CustomImagePropertiesFromVmOutput) ToCustomImagePropertiesFromVmPtrOutputWithContext(ctx context.Context) CustomImagePropertiesFromVmPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesFromVm) *CustomImagePropertiesFromVm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesFromVm) *CustomImagePropertiesFromVm {
 		return &v
 	}).(CustomImagePropertiesFromVmPtrOutput)
 }
@@ -1246,7 +1268,13 @@ func (o CustomImagePropertiesFromVmPtrOutput) ToCustomImagePropertiesFromVmPtrOu
 }
 
 func (o CustomImagePropertiesFromVmPtrOutput) Elem() CustomImagePropertiesFromVmOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesFromVm) CustomImagePropertiesFromVm { return *v }).(CustomImagePropertiesFromVmOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesFromVm) CustomImagePropertiesFromVm {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesFromVm
+		return ret
+	}).(CustomImagePropertiesFromVmOutput)
 }
 
 // The Linux OS information of the VM.
@@ -1397,7 +1425,7 @@ func (o CustomImagePropertiesFromVmResponseOutput) ToCustomImagePropertiesFromVm
 }
 
 func (o CustomImagePropertiesFromVmResponseOutput) ToCustomImagePropertiesFromVmResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesFromVmResponse) *CustomImagePropertiesFromVmResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImagePropertiesFromVmResponse) *CustomImagePropertiesFromVmResponse {
 		return &v
 	}).(CustomImagePropertiesFromVmResponsePtrOutput)
 }
@@ -1437,7 +1465,13 @@ func (o CustomImagePropertiesFromVmResponsePtrOutput) ToCustomImagePropertiesFro
 }
 
 func (o CustomImagePropertiesFromVmResponsePtrOutput) Elem() CustomImagePropertiesFromVmResponseOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesFromVmResponse) CustomImagePropertiesFromVmResponse { return *v }).(CustomImagePropertiesFromVmResponseOutput)
+	return o.ApplyT(func(v *CustomImagePropertiesFromVmResponse) CustomImagePropertiesFromVmResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImagePropertiesFromVmResponse
+		return ret
+	}).(CustomImagePropertiesFromVmResponseOutput)
 }
 
 // The Linux OS information of the VM.
@@ -1574,10 +1608,11 @@ func (o DayDetailsOutput) ToDayDetailsPtrOutput() DayDetailsPtrOutput {
 }
 
 func (o DayDetailsOutput) ToDayDetailsPtrOutputWithContext(ctx context.Context) DayDetailsPtrOutput {
-	return o.ApplyT(func(v DayDetails) *DayDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DayDetails) *DayDetails {
 		return &v
 	}).(DayDetailsPtrOutput)
 }
+
 func (o DayDetailsOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DayDetails) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -1597,7 +1632,13 @@ func (o DayDetailsPtrOutput) ToDayDetailsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o DayDetailsPtrOutput) Elem() DayDetailsOutput {
-	return o.ApplyT(func(v *DayDetails) DayDetails { return *v }).(DayDetailsOutput)
+	return o.ApplyT(func(v *DayDetails) DayDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DayDetails
+		return ret
+	}).(DayDetailsOutput)
 }
 
 func (o DayDetailsPtrOutput) Time() pulumi.StringPtrOutput {
@@ -1703,10 +1744,11 @@ func (o DayDetailsResponseOutput) ToDayDetailsResponsePtrOutput() DayDetailsResp
 }
 
 func (o DayDetailsResponseOutput) ToDayDetailsResponsePtrOutputWithContext(ctx context.Context) DayDetailsResponsePtrOutput {
-	return o.ApplyT(func(v DayDetailsResponse) *DayDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DayDetailsResponse) *DayDetailsResponse {
 		return &v
 	}).(DayDetailsResponsePtrOutput)
 }
+
 func (o DayDetailsResponseOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DayDetailsResponse) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -1726,7 +1768,13 @@ func (o DayDetailsResponsePtrOutput) ToDayDetailsResponsePtrOutputWithContext(ct
 }
 
 func (o DayDetailsResponsePtrOutput) Elem() DayDetailsResponseOutput {
-	return o.ApplyT(func(v *DayDetailsResponse) DayDetailsResponse { return *v }).(DayDetailsResponseOutput)
+	return o.ApplyT(func(v *DayDetailsResponse) DayDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DayDetailsResponse
+		return ret
+	}).(DayDetailsResponseOutput)
 }
 
 func (o DayDetailsResponsePtrOutput) Time() pulumi.StringPtrOutput {
@@ -1834,7 +1882,7 @@ func (o FormulaPropertiesFromVmOutput) ToFormulaPropertiesFromVmPtrOutput() Form
 }
 
 func (o FormulaPropertiesFromVmOutput) ToFormulaPropertiesFromVmPtrOutputWithContext(ctx context.Context) FormulaPropertiesFromVmPtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesFromVm) *FormulaPropertiesFromVm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormulaPropertiesFromVm) *FormulaPropertiesFromVm {
 		return &v
 	}).(FormulaPropertiesFromVmPtrOutput)
 }
@@ -1859,7 +1907,13 @@ func (o FormulaPropertiesFromVmPtrOutput) ToFormulaPropertiesFromVmPtrOutputWith
 }
 
 func (o FormulaPropertiesFromVmPtrOutput) Elem() FormulaPropertiesFromVmOutput {
-	return o.ApplyT(func(v *FormulaPropertiesFromVm) FormulaPropertiesFromVm { return *v }).(FormulaPropertiesFromVmOutput)
+	return o.ApplyT(func(v *FormulaPropertiesFromVm) FormulaPropertiesFromVm {
+		if v != nil {
+			return *v
+		}
+		var ret FormulaPropertiesFromVm
+		return ret
+	}).(FormulaPropertiesFromVmOutput)
 }
 
 // The identifier of the VM from which a formula is to be created.
@@ -1968,7 +2022,7 @@ func (o FormulaPropertiesFromVmResponseOutput) ToFormulaPropertiesFromVmResponse
 }
 
 func (o FormulaPropertiesFromVmResponseOutput) ToFormulaPropertiesFromVmResponsePtrOutputWithContext(ctx context.Context) FormulaPropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesFromVmResponse) *FormulaPropertiesFromVmResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormulaPropertiesFromVmResponse) *FormulaPropertiesFromVmResponse {
 		return &v
 	}).(FormulaPropertiesFromVmResponsePtrOutput)
 }
@@ -1993,7 +2047,13 @@ func (o FormulaPropertiesFromVmResponsePtrOutput) ToFormulaPropertiesFromVmRespo
 }
 
 func (o FormulaPropertiesFromVmResponsePtrOutput) Elem() FormulaPropertiesFromVmResponseOutput {
-	return o.ApplyT(func(v *FormulaPropertiesFromVmResponse) FormulaPropertiesFromVmResponse { return *v }).(FormulaPropertiesFromVmResponseOutput)
+	return o.ApplyT(func(v *FormulaPropertiesFromVmResponse) FormulaPropertiesFromVmResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FormulaPropertiesFromVmResponse
+		return ret
+	}).(FormulaPropertiesFromVmResponseOutput)
 }
 
 // The identifier of the VM from which a formula is to be created.
@@ -2118,7 +2178,7 @@ func (o GalleryImageReferenceOutput) ToGalleryImageReferencePtrOutput() GalleryI
 }
 
 func (o GalleryImageReferenceOutput) ToGalleryImageReferencePtrOutputWithContext(ctx context.Context) GalleryImageReferencePtrOutput {
-	return o.ApplyT(func(v GalleryImageReference) *GalleryImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageReference) *GalleryImageReference {
 		return &v
 	}).(GalleryImageReferencePtrOutput)
 }
@@ -2163,7 +2223,13 @@ func (o GalleryImageReferencePtrOutput) ToGalleryImageReferencePtrOutputWithCont
 }
 
 func (o GalleryImageReferencePtrOutput) Elem() GalleryImageReferenceOutput {
-	return o.ApplyT(func(v *GalleryImageReference) GalleryImageReference { return *v }).(GalleryImageReferenceOutput)
+	return o.ApplyT(func(v *GalleryImageReference) GalleryImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageReference
+		return ret
+	}).(GalleryImageReferenceOutput)
 }
 
 // The offer of the gallery image.
@@ -2328,7 +2394,7 @@ func (o GalleryImageReferenceResponseOutput) ToGalleryImageReferenceResponsePtrO
 }
 
 func (o GalleryImageReferenceResponseOutput) ToGalleryImageReferenceResponsePtrOutputWithContext(ctx context.Context) GalleryImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageReferenceResponse) *GalleryImageReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageReferenceResponse) *GalleryImageReferenceResponse {
 		return &v
 	}).(GalleryImageReferenceResponsePtrOutput)
 }
@@ -2373,7 +2439,13 @@ func (o GalleryImageReferenceResponsePtrOutput) ToGalleryImageReferenceResponseP
 }
 
 func (o GalleryImageReferenceResponsePtrOutput) Elem() GalleryImageReferenceResponseOutput {
-	return o.ApplyT(func(v *GalleryImageReferenceResponse) GalleryImageReferenceResponse { return *v }).(GalleryImageReferenceResponseOutput)
+	return o.ApplyT(func(v *GalleryImageReferenceResponse) GalleryImageReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageReferenceResponse
+		return ret
+	}).(GalleryImageReferenceResponseOutput)
 }
 
 // The offer of the gallery image.
@@ -2522,7 +2594,7 @@ func (o HourDetailsOutput) ToHourDetailsPtrOutput() HourDetailsPtrOutput {
 }
 
 func (o HourDetailsOutput) ToHourDetailsPtrOutputWithContext(ctx context.Context) HourDetailsPtrOutput {
-	return o.ApplyT(func(v HourDetails) *HourDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourDetails) *HourDetails {
 		return &v
 	}).(HourDetailsPtrOutput)
 }
@@ -2547,7 +2619,13 @@ func (o HourDetailsPtrOutput) ToHourDetailsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o HourDetailsPtrOutput) Elem() HourDetailsOutput {
-	return o.ApplyT(func(v *HourDetails) HourDetails { return *v }).(HourDetailsOutput)
+	return o.ApplyT(func(v *HourDetails) HourDetails {
+		if v != nil {
+			return *v
+		}
+		var ret HourDetails
+		return ret
+	}).(HourDetailsOutput)
 }
 
 // Minutes of the hour the schedule will run.
@@ -2656,7 +2734,7 @@ func (o HourDetailsResponseOutput) ToHourDetailsResponsePtrOutput() HourDetailsR
 }
 
 func (o HourDetailsResponseOutput) ToHourDetailsResponsePtrOutputWithContext(ctx context.Context) HourDetailsResponsePtrOutput {
-	return o.ApplyT(func(v HourDetailsResponse) *HourDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourDetailsResponse) *HourDetailsResponse {
 		return &v
 	}).(HourDetailsResponsePtrOutput)
 }
@@ -2681,7 +2759,13 @@ func (o HourDetailsResponsePtrOutput) ToHourDetailsResponsePtrOutputWithContext(
 }
 
 func (o HourDetailsResponsePtrOutput) Elem() HourDetailsResponseOutput {
-	return o.ApplyT(func(v *HourDetailsResponse) HourDetailsResponse { return *v }).(HourDetailsResponseOutput)
+	return o.ApplyT(func(v *HourDetailsResponse) HourDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HourDetailsResponse
+		return ret
+	}).(HourDetailsResponseOutput)
 }
 
 // Minutes of the hour the schedule will run.
@@ -2986,7 +3070,7 @@ func (o LabVirtualMachineOutput) ToLabVirtualMachinePtrOutput() LabVirtualMachin
 }
 
 func (o LabVirtualMachineOutput) ToLabVirtualMachinePtrOutputWithContext(ctx context.Context) LabVirtualMachinePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachine) *LabVirtualMachine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachine) *LabVirtualMachine {
 		return &v
 	}).(LabVirtualMachinePtrOutput)
 }
@@ -3131,7 +3215,13 @@ func (o LabVirtualMachinePtrOutput) ToLabVirtualMachinePtrOutputWithContext(ctx 
 }
 
 func (o LabVirtualMachinePtrOutput) Elem() LabVirtualMachineOutput {
-	return o.ApplyT(func(v *LabVirtualMachine) LabVirtualMachine { return *v }).(LabVirtualMachineOutput)
+	return o.ApplyT(func(v *LabVirtualMachine) LabVirtualMachine {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachine
+		return ret
+	}).(LabVirtualMachineOutput)
 }
 
 // The artifact deployment status for the virtual machine.
@@ -3576,7 +3666,7 @@ func (o LabVirtualMachineResponseOutput) ToLabVirtualMachineResponsePtrOutput() 
 }
 
 func (o LabVirtualMachineResponseOutput) ToLabVirtualMachineResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachineResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineResponse) *LabVirtualMachineResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachineResponse) *LabVirtualMachineResponse {
 		return &v
 	}).(LabVirtualMachineResponsePtrOutput)
 }
@@ -3723,7 +3813,13 @@ func (o LabVirtualMachineResponsePtrOutput) ToLabVirtualMachineResponsePtrOutput
 }
 
 func (o LabVirtualMachineResponsePtrOutput) Elem() LabVirtualMachineResponseOutput {
-	return o.ApplyT(func(v *LabVirtualMachineResponse) LabVirtualMachineResponse { return *v }).(LabVirtualMachineResponseOutput)
+	return o.ApplyT(func(v *LabVirtualMachineResponse) LabVirtualMachineResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachineResponse
+		return ret
+	}).(LabVirtualMachineResponseOutput)
 }
 
 // The artifact deployment status for the virtual machine.
@@ -4072,7 +4168,7 @@ func (o LinuxOsInfoOutput) ToLinuxOsInfoPtrOutput() LinuxOsInfoPtrOutput {
 }
 
 func (o LinuxOsInfoOutput) ToLinuxOsInfoPtrOutputWithContext(ctx context.Context) LinuxOsInfoPtrOutput {
-	return o.ApplyT(func(v LinuxOsInfo) *LinuxOsInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxOsInfo) *LinuxOsInfo {
 		return &v
 	}).(LinuxOsInfoPtrOutput)
 }
@@ -4097,7 +4193,13 @@ func (o LinuxOsInfoPtrOutput) ToLinuxOsInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o LinuxOsInfoPtrOutput) Elem() LinuxOsInfoOutput {
-	return o.ApplyT(func(v *LinuxOsInfo) LinuxOsInfo { return *v }).(LinuxOsInfoOutput)
+	return o.ApplyT(func(v *LinuxOsInfo) LinuxOsInfo {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxOsInfo
+		return ret
+	}).(LinuxOsInfoOutput)
 }
 
 // The state of the Linux OS.
@@ -4206,7 +4308,7 @@ func (o LinuxOsInfoResponseOutput) ToLinuxOsInfoResponsePtrOutput() LinuxOsInfoR
 }
 
 func (o LinuxOsInfoResponseOutput) ToLinuxOsInfoResponsePtrOutputWithContext(ctx context.Context) LinuxOsInfoResponsePtrOutput {
-	return o.ApplyT(func(v LinuxOsInfoResponse) *LinuxOsInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxOsInfoResponse) *LinuxOsInfoResponse {
 		return &v
 	}).(LinuxOsInfoResponsePtrOutput)
 }
@@ -4231,7 +4333,13 @@ func (o LinuxOsInfoResponsePtrOutput) ToLinuxOsInfoResponsePtrOutputWithContext(
 }
 
 func (o LinuxOsInfoResponsePtrOutput) Elem() LinuxOsInfoResponseOutput {
-	return o.ApplyT(func(v *LinuxOsInfoResponse) LinuxOsInfoResponse { return *v }).(LinuxOsInfoResponseOutput)
+	return o.ApplyT(func(v *LinuxOsInfoResponse) LinuxOsInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxOsInfoResponse
+		return ret
+	}).(LinuxOsInfoResponseOutput)
 }
 
 // The state of the Linux OS.
@@ -4810,7 +4918,7 @@ func (o WeekDetailsOutput) ToWeekDetailsPtrOutput() WeekDetailsPtrOutput {
 }
 
 func (o WeekDetailsOutput) ToWeekDetailsPtrOutputWithContext(ctx context.Context) WeekDetailsPtrOutput {
-	return o.ApplyT(func(v WeekDetails) *WeekDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeekDetails) *WeekDetails {
 		return &v
 	}).(WeekDetailsPtrOutput)
 }
@@ -4840,7 +4948,13 @@ func (o WeekDetailsPtrOutput) ToWeekDetailsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o WeekDetailsPtrOutput) Elem() WeekDetailsOutput {
-	return o.ApplyT(func(v *WeekDetails) WeekDetails { return *v }).(WeekDetailsOutput)
+	return o.ApplyT(func(v *WeekDetails) WeekDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WeekDetails
+		return ret
+	}).(WeekDetailsOutput)
 }
 
 // The time of the day.
@@ -4963,7 +5077,7 @@ func (o WeekDetailsResponseOutput) ToWeekDetailsResponsePtrOutput() WeekDetailsR
 }
 
 func (o WeekDetailsResponseOutput) ToWeekDetailsResponsePtrOutputWithContext(ctx context.Context) WeekDetailsResponsePtrOutput {
-	return o.ApplyT(func(v WeekDetailsResponse) *WeekDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeekDetailsResponse) *WeekDetailsResponse {
 		return &v
 	}).(WeekDetailsResponsePtrOutput)
 }
@@ -4993,7 +5107,13 @@ func (o WeekDetailsResponsePtrOutput) ToWeekDetailsResponsePtrOutputWithContext(
 }
 
 func (o WeekDetailsResponsePtrOutput) Elem() WeekDetailsResponseOutput {
-	return o.ApplyT(func(v *WeekDetailsResponse) WeekDetailsResponse { return *v }).(WeekDetailsResponseOutput)
+	return o.ApplyT(func(v *WeekDetailsResponse) WeekDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WeekDetailsResponse
+		return ret
+	}).(WeekDetailsResponseOutput)
 }
 
 // The time of the day.
@@ -5112,7 +5232,7 @@ func (o WindowsOsInfoOutput) ToWindowsOsInfoPtrOutput() WindowsOsInfoPtrOutput {
 }
 
 func (o WindowsOsInfoOutput) ToWindowsOsInfoPtrOutputWithContext(ctx context.Context) WindowsOsInfoPtrOutput {
-	return o.ApplyT(func(v WindowsOsInfo) *WindowsOsInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsOsInfo) *WindowsOsInfo {
 		return &v
 	}).(WindowsOsInfoPtrOutput)
 }
@@ -5137,7 +5257,13 @@ func (o WindowsOsInfoPtrOutput) ToWindowsOsInfoPtrOutputWithContext(ctx context.
 }
 
 func (o WindowsOsInfoPtrOutput) Elem() WindowsOsInfoOutput {
-	return o.ApplyT(func(v *WindowsOsInfo) WindowsOsInfo { return *v }).(WindowsOsInfoOutput)
+	return o.ApplyT(func(v *WindowsOsInfo) WindowsOsInfo {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsOsInfo
+		return ret
+	}).(WindowsOsInfoOutput)
 }
 
 // The state of the Windows OS.
@@ -5246,7 +5372,7 @@ func (o WindowsOsInfoResponseOutput) ToWindowsOsInfoResponsePtrOutput() WindowsO
 }
 
 func (o WindowsOsInfoResponseOutput) ToWindowsOsInfoResponsePtrOutputWithContext(ctx context.Context) WindowsOsInfoResponsePtrOutput {
-	return o.ApplyT(func(v WindowsOsInfoResponse) *WindowsOsInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsOsInfoResponse) *WindowsOsInfoResponse {
 		return &v
 	}).(WindowsOsInfoResponsePtrOutput)
 }
@@ -5271,7 +5397,13 @@ func (o WindowsOsInfoResponsePtrOutput) ToWindowsOsInfoResponsePtrOutputWithCont
 }
 
 func (o WindowsOsInfoResponsePtrOutput) Elem() WindowsOsInfoResponseOutput {
-	return o.ApplyT(func(v *WindowsOsInfoResponse) WindowsOsInfoResponse { return *v }).(WindowsOsInfoResponseOutput)
+	return o.ApplyT(func(v *WindowsOsInfoResponse) WindowsOsInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsOsInfoResponse
+		return ret
+	}).(WindowsOsInfoResponseOutput)
 }
 
 // The state of the Windows OS.

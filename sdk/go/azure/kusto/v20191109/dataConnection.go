@@ -122,25 +122,9 @@ func GetDataConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataConnection resources.
 type dataConnectionState struct {
-	// Kind of the endpoint for the data connection
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DataConnectionState struct {
-	// Kind of the endpoint for the data connection
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DataConnectionState) ElementType() reflect.Type {
@@ -201,9 +185,7 @@ func (i *DataConnection) ToDataConnectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectionOutput)
 }
 
-type DataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type DataConnectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnection)(nil))

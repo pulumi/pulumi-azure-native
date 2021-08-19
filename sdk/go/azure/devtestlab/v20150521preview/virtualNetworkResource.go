@@ -94,45 +94,9 @@ func GetVirtualNetworkResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkResource resources.
 type virtualNetworkResourceState struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets []SubnetResponse `pulumi:"allowedSubnets"`
-	// The description of the virtual network.
-	Description *string `pulumi:"description"`
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId *string `pulumi:"externalProviderResourceId"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The subnet overrides of the virtual network.
-	SubnetOverrides []SubnetOverrideResponse `pulumi:"subnetOverrides"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type VirtualNetworkResourceState struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets SubnetResponseArrayInput
-	// The description of the virtual network.
-	Description pulumi.StringPtrInput
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The subnet overrides of the virtual network.
-	SubnetOverrides SubnetOverrideResponseArrayInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (VirtualNetworkResourceState) ElementType() reflect.Type {
@@ -217,9 +181,7 @@ func (i *VirtualNetworkResource) ToVirtualNetworkResourceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkResourceOutput)
 }
 
-type VirtualNetworkResourceOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkResourceOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkResource)(nil))

@@ -92,45 +92,9 @@ func GetView(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering View resources.
 type viewState struct {
-	// Date time when view was last modified.
-	Changed *string `pulumi:"changed"`
-	// Date time when view was created.
-	Created *string `pulumi:"created"`
-	// View definition.
-	Definition *string `pulumi:"definition"`
-	// Localized display name for the view.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// the hub name.
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// the user ID.
-	UserId *string `pulumi:"userId"`
-	// Name of the view.
-	ViewName *string `pulumi:"viewName"`
 }
 
 type ViewState struct {
-	// Date time when view was last modified.
-	Changed pulumi.StringPtrInput
-	// Date time when view was created.
-	Created pulumi.StringPtrInput
-	// View definition.
-	Definition pulumi.StringPtrInput
-	// Localized display name for the view.
-	DisplayName pulumi.StringMapInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// the hub name.
-	TenantId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// the user ID.
-	UserId pulumi.StringPtrInput
-	// Name of the view.
-	ViewName pulumi.StringPtrInput
 }
 
 func (ViewState) ElementType() reflect.Type {
@@ -191,9 +155,7 @@ func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
 }
 
-type ViewOutput struct {
-	*pulumi.OutputState
-}
+type ViewOutput struct{ *pulumi.OutputState }
 
 func (ViewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*View)(nil))

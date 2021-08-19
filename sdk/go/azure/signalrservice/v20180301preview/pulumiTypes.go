@@ -124,7 +124,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -170,7 +170,13 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
 // Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not
@@ -338,7 +344,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -384,7 +390,13 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
 // Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not
@@ -536,7 +548,7 @@ func (o SignalRCreateOrUpdatePropertiesOutput) ToSignalRCreateOrUpdateProperties
 }
 
 func (o SignalRCreateOrUpdatePropertiesOutput) ToSignalRCreateOrUpdatePropertiesPtrOutputWithContext(ctx context.Context) SignalRCreateOrUpdatePropertiesPtrOutput {
-	return o.ApplyT(func(v SignalRCreateOrUpdateProperties) *SignalRCreateOrUpdateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCreateOrUpdateProperties) *SignalRCreateOrUpdateProperties {
 		return &v
 	}).(SignalRCreateOrUpdatePropertiesPtrOutput)
 }
@@ -562,7 +574,13 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) ToSignalRCreateOrUpdatePropert
 }
 
 func (o SignalRCreateOrUpdatePropertiesPtrOutput) Elem() SignalRCreateOrUpdatePropertiesOutput {
-	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) SignalRCreateOrUpdateProperties { return *v }).(SignalRCreateOrUpdatePropertiesOutput)
+	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) SignalRCreateOrUpdateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SignalRCreateOrUpdateProperties
+		return ret
+	}).(SignalRCreateOrUpdatePropertiesOutput)
 }
 
 // Prefix for the hostName of the SignalR service. Retained for future use.

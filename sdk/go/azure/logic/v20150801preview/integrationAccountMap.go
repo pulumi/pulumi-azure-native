@@ -103,53 +103,9 @@ func GetIntegrationAccountMap(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountMap resources.
 type integrationAccountMapState struct {
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The content.
-	Content interface{} `pulumi:"content"`
-	// The content link.
-	ContentLink *IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The map type.
-	MapType *string `pulumi:"mapType"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountMapState struct {
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The content.
-	Content pulumi.Input
-	// The content link.
-	ContentLink IntegrationAccountContentLinkResponsePtrInput
-	// The content type.
-	ContentType pulumi.StringPtrInput
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The map type.
-	MapType pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountMapState) ElementType() reflect.Type {
@@ -170,7 +126,7 @@ type integrationAccountMapArgs struct {
 	// The integration account map name.
 	MapName *string `pulumi:"mapName"`
 	// The map type.
-	MapType *string `pulumi:"mapType"`
+	MapType *MapType `pulumi:"mapType"`
 	// The metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
@@ -198,7 +154,7 @@ type IntegrationAccountMapArgs struct {
 	// The integration account map name.
 	MapName pulumi.StringPtrInput
 	// The map type.
-	MapType *MapType
+	MapType MapTypePtrInput
 	// The metadata.
 	Metadata pulumi.Input
 	// The resource name.
@@ -234,9 +190,7 @@ func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
 }
 
-type IntegrationAccountMapOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountMap)(nil))

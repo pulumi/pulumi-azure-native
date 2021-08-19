@@ -127,57 +127,9 @@ func GetLiveOutput(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LiveOutput resources.
 type liveOutputState struct {
-	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
-	ArchiveWindowLength *string `pulumi:"archiveWindowLength"`
-	// The asset name.
-	AssetName *string `pulumi:"assetName"`
-	// The exact time the Live Output was created.
-	Created *string `pulumi:"created"`
-	// The description of the Live Output.
-	Description *string `pulumi:"description"`
-	// The HLS configuration.
-	Hls *HlsResponse `pulumi:"hls"`
-	// The exact time the Live Output was last modified.
-	LastModified *string `pulumi:"lastModified"`
-	// The manifest file name.
-	ManifestName *string `pulumi:"manifestName"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The output snapshot time.
-	OutputSnapTime *float64 `pulumi:"outputSnapTime"`
-	// The provisioning state of the Live Output.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource state of the Live Output.
-	ResourceState *string `pulumi:"resourceState"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type LiveOutputState struct {
-	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
-	ArchiveWindowLength pulumi.StringPtrInput
-	// The asset name.
-	AssetName pulumi.StringPtrInput
-	// The exact time the Live Output was created.
-	Created pulumi.StringPtrInput
-	// The description of the Live Output.
-	Description pulumi.StringPtrInput
-	// The HLS configuration.
-	Hls HlsResponsePtrInput
-	// The exact time the Live Output was last modified.
-	LastModified pulumi.StringPtrInput
-	// The manifest file name.
-	ManifestName pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The output snapshot time.
-	OutputSnapTime pulumi.Float64PtrInput
-	// The provisioning state of the Live Output.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource state of the Live Output.
-	ResourceState pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (LiveOutputState) ElementType() reflect.Type {
@@ -254,9 +206,7 @@ func (i *LiveOutput) ToLiveOutputOutputWithContext(ctx context.Context) LiveOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LiveOutputOutput)
 }
 
-type LiveOutputOutput struct {
-	*pulumi.OutputState
-}
+type LiveOutputOutput struct{ *pulumi.OutputState }
 
 func (LiveOutputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveOutput)(nil))

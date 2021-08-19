@@ -86,45 +86,9 @@ func GetVideoAnalyzer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VideoAnalyzer resources.
 type videoAnalyzerState struct {
-	// The account encryption properties.
-	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
-	// The list of endpoints associated with this resource.
-	Endpoints []EndpointResponse `pulumi:"endpoints"`
-	// The set of managed identities associated with the Video Analyzer resource.
-	Identity *VideoAnalyzerIdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The storage accounts for this resource.
-	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
-	// The system data of the Video Analyzer account.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type VideoAnalyzerState struct {
-	// The account encryption properties.
-	Encryption AccountEncryptionResponsePtrInput
-	// The list of endpoints associated with this resource.
-	Endpoints EndpointResponseArrayInput
-	// The set of managed identities associated with the Video Analyzer resource.
-	Identity VideoAnalyzerIdentityResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The storage accounts for this resource.
-	StorageAccounts StorageAccountResponseArrayInput
-	// The system data of the Video Analyzer account.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (VideoAnalyzerState) ElementType() reflect.Type {
@@ -189,9 +153,7 @@ func (i *VideoAnalyzer) ToVideoAnalyzerOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerOutput)
 }
 
-type VideoAnalyzerOutput struct {
-	*pulumi.OutputState
-}
+type VideoAnalyzerOutput struct{ *pulumi.OutputState }
 
 func (VideoAnalyzerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VideoAnalyzer)(nil))

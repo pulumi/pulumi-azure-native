@@ -90,37 +90,9 @@ func GetSession(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Session resources.
 type sessionState struct {
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The session content.
-	Content interface{} `pulumi:"content"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SessionState struct {
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The session content.
-	Content pulumi.Input
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SessionState) ElementType() reflect.Type {
@@ -181,9 +153,7 @@ func (i *Session) ToSessionOutputWithContext(ctx context.Context) SessionOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SessionOutput)
 }
 
-type SessionOutput struct {
-	*pulumi.OutputState
-}
+type SessionOutput struct{ *pulumi.OutputState }
 
 func (SessionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Session)(nil))

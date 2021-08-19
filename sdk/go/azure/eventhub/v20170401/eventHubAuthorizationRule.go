@@ -106,21 +106,9 @@ func GetEventHubAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHubAuthorizationRule resources.
 type eventHubAuthorizationRuleState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type EventHubAuthorizationRuleState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (EventHubAuthorizationRuleState) ElementType() reflect.Type {
@@ -177,9 +165,7 @@ func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
 }
 
-type EventHubAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type EventHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))

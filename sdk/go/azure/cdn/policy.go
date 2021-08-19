@@ -116,63 +116,9 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// Describes custom rules inside the policy.
-	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
-	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
-	EndpointLinks []CdnEndpointResponse `pulumi:"endpointLinks"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Describes managed rules inside the policy.
-	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Describes  policySettings for policy
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Describes rate limit rules inside the policy.
-	RateLimitRules *RateLimitRuleListResponse `pulumi:"rateLimitRules"`
-	ResourceState  *string                    `pulumi:"resourceState"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type PolicyState struct {
-	// Describes custom rules inside the policy.
-	CustomRules CustomRuleListResponsePtrInput
-	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
-	EndpointLinks CdnEndpointResponseArrayInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Describes managed rules inside the policy.
-	ManagedRules ManagedRuleSetListResponsePtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Describes  policySettings for policy
-	PolicySettings PolicySettingsResponsePtrInput
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState pulumi.StringPtrInput
-	// Describes rate limit rules inside the policy.
-	RateLimitRules RateLimitRuleListResponsePtrInput
-	ResourceState  pulumi.StringPtrInput
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-	Sku SkuResponsePtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (PolicyState) ElementType() reflect.Type {
@@ -249,9 +195,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
 }
 
-type PolicyOutput struct {
-	*pulumi.OutputState
-}
+type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Policy)(nil))

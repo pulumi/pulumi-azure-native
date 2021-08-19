@@ -121,21 +121,9 @@ func GetNotificationRecipientUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationRecipientUser resources.
 type notificationRecipientUserState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// API Management UserId subscribed to notification.
-	UserId *string `pulumi:"userId"`
 }
 
 type NotificationRecipientUserState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// API Management UserId subscribed to notification.
-	UserId pulumi.StringPtrInput
 }
 
 func (NotificationRecipientUserState) ElementType() reflect.Type {
@@ -188,9 +176,7 @@ func (i *NotificationRecipientUser) ToNotificationRecipientUserOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientUserOutput)
 }
 
-type NotificationRecipientUserOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRecipientUserOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRecipientUser)(nil))

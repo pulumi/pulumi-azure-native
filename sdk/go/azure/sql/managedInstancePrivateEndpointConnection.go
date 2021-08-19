@@ -93,29 +93,9 @@ func GetManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedInstancePrivateEndpointConnection resources.
 type managedInstancePrivateEndpointConnectionState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *ManagedInstancePrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection State of the Private Endpoint Connection.
-	PrivateLinkServiceConnectionState *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the Private Endpoint Connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedInstancePrivateEndpointConnectionState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint ManagedInstancePrivateEndpointPropertyResponsePtrInput
-	// Connection State of the Private Endpoint Connection.
-	PrivateLinkServiceConnectionState ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrInput
-	// State of the Private Endpoint Connection.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedInstancePrivateEndpointConnectionState) ElementType() reflect.Type {
@@ -170,9 +150,7 @@ func (i *ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateEndpointConnectionOutput)
 }
 
-type ManagedInstancePrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstancePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstancePrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnection)(nil))

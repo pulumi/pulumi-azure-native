@@ -215,7 +215,7 @@ func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutput() Asse
 }
 
 func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
-	return o.ApplyT(func(v AssessmentLinksResponse) *AssessmentLinksResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentLinksResponse) *AssessmentLinksResponse {
 		return &v
 	}).(AssessmentLinksResponsePtrOutput)
 }
@@ -240,7 +240,13 @@ func (o AssessmentLinksResponsePtrOutput) ToAssessmentLinksResponsePtrOutputWith
 }
 
 func (o AssessmentLinksResponsePtrOutput) Elem() AssessmentLinksResponseOutput {
-	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse { return *v }).(AssessmentLinksResponseOutput)
+	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentLinksResponse
+		return ret
+	}).(AssessmentLinksResponseOutput)
 }
 
 // Link to assessment in Azure Portal
@@ -357,7 +363,7 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPt
 }
 
 func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o.ApplyT(func(v AssessmentStatus) *AssessmentStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
 		return &v
 	}).(AssessmentStatusPtrOutput)
 }
@@ -392,7 +398,13 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx co
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus { return *v }).(AssessmentStatusOutput)
+	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatus
+		return ret
+	}).(AssessmentStatusOutput)
 }
 
 // Programmatic code for the cause of the assessment status
@@ -529,7 +541,7 @@ func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutput() As
 }
 
 func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v AssessmentStatusResponse) *AssessmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatusResponse) *AssessmentStatusResponse {
 		return &v
 	}).(AssessmentStatusResponsePtrOutput)
 }
@@ -564,7 +576,13 @@ func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutputWi
 }
 
 func (o AssessmentStatusResponsePtrOutput) Elem() AssessmentStatusResponseOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse { return *v }).(AssessmentStatusResponseOutput)
+	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatusResponse
+		return ret
+	}).(AssessmentStatusResponseOutput)
 }
 
 // Programmatic code for the cause of the assessment status
@@ -2814,7 +2832,7 @@ func (o ProtectionModeOutput) ToProtectionModePtrOutput() ProtectionModePtrOutpu
 }
 
 func (o ProtectionModeOutput) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
-	return o.ApplyT(func(v ProtectionMode) *ProtectionMode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionMode) *ProtectionMode {
 		return &v
 	}).(ProtectionModePtrOutput)
 }
@@ -2854,7 +2872,13 @@ func (o ProtectionModePtrOutput) ToProtectionModePtrOutputWithContext(ctx contex
 }
 
 func (o ProtectionModePtrOutput) Elem() ProtectionModeOutput {
-	return o.ApplyT(func(v *ProtectionMode) ProtectionMode { return *v }).(ProtectionModeOutput)
+	return o.ApplyT(func(v *ProtectionMode) ProtectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionMode
+		return ret
+	}).(ProtectionModeOutput)
 }
 
 // The application control policy enforcement/protection mode of the machine group
@@ -3005,7 +3029,7 @@ func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutput() Protec
 }
 
 func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
-	return o.ApplyT(func(v ProtectionModeResponse) *ProtectionModeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionModeResponse) *ProtectionModeResponse {
 		return &v
 	}).(ProtectionModeResponsePtrOutput)
 }
@@ -3045,7 +3069,13 @@ func (o ProtectionModeResponsePtrOutput) ToProtectionModeResponsePtrOutputWithCo
 }
 
 func (o ProtectionModeResponsePtrOutput) Elem() ProtectionModeResponseOutput {
-	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse { return *v }).(ProtectionModeResponseOutput)
+	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionModeResponse
+		return ret
+	}).(ProtectionModeResponseOutput)
 }
 
 // The application control policy enforcement/protection mode of the machine group
@@ -3196,7 +3226,7 @@ func (o PublisherInfoOutput) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
 }
 
 func (o PublisherInfoOutput) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
-	return o.ApplyT(func(v PublisherInfo) *PublisherInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfo) *PublisherInfo {
 		return &v
 	}).(PublisherInfoPtrOutput)
 }
@@ -3236,7 +3266,13 @@ func (o PublisherInfoPtrOutput) ToPublisherInfoPtrOutputWithContext(ctx context.
 }
 
 func (o PublisherInfoPtrOutput) Elem() PublisherInfoOutput {
-	return o.ApplyT(func(v *PublisherInfo) PublisherInfo { return *v }).(PublisherInfoOutput)
+	return o.ApplyT(func(v *PublisherInfo) PublisherInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfo
+		return ret
+	}).(PublisherInfoOutput)
 }
 
 // The "OriginalName" field taken from the file's version resource
@@ -3387,7 +3423,7 @@ func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutput() Publishe
 }
 
 func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
-	return o.ApplyT(func(v PublisherInfoResponse) *PublisherInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfoResponse) *PublisherInfoResponse {
 		return &v
 	}).(PublisherInfoResponsePtrOutput)
 }
@@ -3427,7 +3463,13 @@ func (o PublisherInfoResponsePtrOutput) ToPublisherInfoResponsePtrOutputWithCont
 }
 
 func (o PublisherInfoResponsePtrOutput) Elem() PublisherInfoResponseOutput {
-	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse { return *v }).(PublisherInfoResponseOutput)
+	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfoResponse
+		return ret
+	}).(PublisherInfoResponseOutput)
 }
 
 // The "OriginalName" field taken from the file's version resource
@@ -3574,7 +3616,7 @@ func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadat
 }
 
 func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerData) *SecurityAssessmentMetadataPartnerData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPartnerData) *SecurityAssessmentMetadataPartnerData {
 		return &v
 	}).(SecurityAssessmentMetadataPartnerDataPtrOutput)
 }
@@ -3609,7 +3651,13 @@ func (o SecurityAssessmentMetadataPartnerDataPtrOutput) ToSecurityAssessmentMeta
 }
 
 func (o SecurityAssessmentMetadataPartnerDataPtrOutput) Elem() SecurityAssessmentMetadataPartnerDataOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) SecurityAssessmentMetadataPartnerData { return *v }).(SecurityAssessmentMetadataPartnerDataOutput)
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) SecurityAssessmentMetadataPartnerData {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataPartnerData
+		return ret
+	}).(SecurityAssessmentMetadataPartnerDataOutput)
 }
 
 // Name of the company of the partner
@@ -3746,7 +3794,7 @@ func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmen
 }
 
 func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerDataResponse) *SecurityAssessmentMetadataPartnerDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPartnerDataResponse) *SecurityAssessmentMetadataPartnerDataResponse {
 		return &v
 	}).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
 }
@@ -3782,7 +3830,11 @@ func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) ToSecurityAssess
 
 func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) Elem() SecurityAssessmentMetadataPartnerDataResponseOutput {
 	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerDataResponse) SecurityAssessmentMetadataPartnerDataResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataPartnerDataResponse
+		return ret
 	}).(SecurityAssessmentMetadataPartnerDataResponseOutput)
 }
 
@@ -3948,7 +4000,7 @@ func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadata
 }
 
 func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *SecurityAssessmentMetadataProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataProperties) *SecurityAssessmentMetadataProperties {
 		return &v
 	}).(SecurityAssessmentMetadataPropertiesPtrOutput)
 }
@@ -4023,7 +4075,13 @@ func (o SecurityAssessmentMetadataPropertiesPtrOutput) ToSecurityAssessmentMetad
 }
 
 func (o SecurityAssessmentMetadataPropertiesPtrOutput) Elem() SecurityAssessmentMetadataPropertiesOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) SecurityAssessmentMetadataProperties { return *v }).(SecurityAssessmentMetadataPropertiesOutput)
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) SecurityAssessmentMetadataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataProperties
+		return ret
+	}).(SecurityAssessmentMetadataPropertiesOutput)
 }
 
 // BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
@@ -4270,7 +4328,7 @@ func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessment
 }
 
 func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *SecurityAssessmentMetadataPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPropertiesResponse) *SecurityAssessmentMetadataPropertiesResponse {
 		return &v
 	}).(SecurityAssessmentMetadataPropertiesResponsePtrOutput)
 }
@@ -4351,7 +4409,11 @@ func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) ToSecurityAssessm
 
 func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Elem() SecurityAssessmentMetadataPropertiesResponseOutput {
 	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) SecurityAssessmentMetadataPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentMetadataPropertiesResponse
+		return ret
 	}).(SecurityAssessmentMetadataPropertiesResponseOutput)
 }
 
@@ -4573,7 +4635,7 @@ func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataPtrO
 }
 
 func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentPartnerData) *SecurityAssessmentPartnerData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentPartnerData) *SecurityAssessmentPartnerData {
 		return &v
 	}).(SecurityAssessmentPartnerDataPtrOutput)
 }
@@ -4603,7 +4665,13 @@ func (o SecurityAssessmentPartnerDataPtrOutput) ToSecurityAssessmentPartnerDataP
 }
 
 func (o SecurityAssessmentPartnerDataPtrOutput) Elem() SecurityAssessmentPartnerDataOutput {
-	return o.ApplyT(func(v *SecurityAssessmentPartnerData) SecurityAssessmentPartnerData { return *v }).(SecurityAssessmentPartnerDataOutput)
+	return o.ApplyT(func(v *SecurityAssessmentPartnerData) SecurityAssessmentPartnerData {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentPartnerData
+		return ret
+	}).(SecurityAssessmentPartnerDataOutput)
 }
 
 // Name of the company of the partner
@@ -4726,7 +4794,7 @@ func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartner
 }
 
 func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponsePtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentPartnerDataResponse) *SecurityAssessmentPartnerDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentPartnerDataResponse) *SecurityAssessmentPartnerDataResponse {
 		return &v
 	}).(SecurityAssessmentPartnerDataResponsePtrOutput)
 }
@@ -4756,7 +4824,13 @@ func (o SecurityAssessmentPartnerDataResponsePtrOutput) ToSecurityAssessmentPart
 }
 
 func (o SecurityAssessmentPartnerDataResponsePtrOutput) Elem() SecurityAssessmentPartnerDataResponseOutput {
-	return o.ApplyT(func(v *SecurityAssessmentPartnerDataResponse) SecurityAssessmentPartnerDataResponse { return *v }).(SecurityAssessmentPartnerDataResponseOutput)
+	return o.ApplyT(func(v *SecurityAssessmentPartnerDataResponse) SecurityAssessmentPartnerDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityAssessmentPartnerDataResponse
+		return ret
+	}).(SecurityAssessmentPartnerDataResponseOutput)
 }
 
 // Name of the company of the partner

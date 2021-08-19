@@ -253,7 +253,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -278,7 +278,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -395,7 +401,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -430,7 +436,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -567,7 +579,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -603,7 +615,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -737,7 +753,7 @@ func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutput() Redi
 }
 
 func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return o.ApplyT(func(v RedisAccessKeysResponse) *RedisAccessKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisAccessKeysResponse) *RedisAccessKeysResponse {
 		return &v
 	}).(RedisAccessKeysResponsePtrOutput)
 }
@@ -767,7 +783,13 @@ func (o RedisAccessKeysResponsePtrOutput) ToRedisAccessKeysResponsePtrOutputWith
 }
 
 func (o RedisAccessKeysResponsePtrOutput) Elem() RedisAccessKeysResponseOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse { return *v }).(RedisAccessKeysResponseOutput)
+	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RedisAccessKeysResponse
+		return ret
+	}).(RedisAccessKeysResponseOutput)
 }
 
 // The current primary key that clients can use to authenticate with Redis cache.
@@ -1029,7 +1051,7 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 // Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntry struct {
 	// Day of the week when a cache can be patched.
-	DayOfWeek string `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
 	// ISO8601 timespan specifying how much time cache patching can take.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Start hour after which cache patching can start.
@@ -1050,7 +1072,7 @@ type ScheduleEntryInput interface {
 // Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryArgs struct {
 	// Day of the week when a cache can be patched.
-	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeekInput `pulumi:"dayOfWeek"`
 	// ISO8601 timespan specifying how much time cache patching can take.
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
 	// Start hour after which cache patching can start.
@@ -1110,8 +1132,8 @@ func (o ScheduleEntryOutput) ToScheduleEntryOutputWithContext(ctx context.Contex
 }
 
 // Day of the week when a cache can be patched.
-func (o ScheduleEntryOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleEntry) string { return v.DayOfWeek }).(pulumi.StringOutput)
+func (o ScheduleEntryOutput) DayOfWeek() DayOfWeekOutput {
+	return o.ApplyT(func(v ScheduleEntry) DayOfWeek { return v.DayOfWeek }).(DayOfWeekOutput)
 }
 
 // ISO8601 timespan specifying how much time cache patching can take.
@@ -1366,7 +1388,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1401,7 +1423,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
@@ -1538,7 +1566,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1573,7 +1601,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).

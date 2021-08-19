@@ -107,7 +107,7 @@ func (o AccessControlOutput) ToAccessControlPtrOutput() AccessControlPtrOutput {
 }
 
 func (o AccessControlOutput) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
-	return o.ApplyT(func(v AccessControl) *AccessControl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessControl) *AccessControl {
 		return &v
 	}).(AccessControlPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o AccessControlPtrOutput) ToAccessControlPtrOutputWithContext(ctx context.
 }
 
 func (o AccessControlPtrOutput) Elem() AccessControlOutput {
-	return o.ApplyT(func(v *AccessControl) AccessControl { return *v }).(AccessControlOutput)
+	return o.ApplyT(func(v *AccessControl) AccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControl
+		return ret
+	}).(AccessControlOutput)
 }
 
 // The behavior for IP access control in Key Delivery.
@@ -257,7 +263,7 @@ func (o AccessControlResponseOutput) ToAccessControlResponsePtrOutput() AccessCo
 }
 
 func (o AccessControlResponseOutput) ToAccessControlResponsePtrOutputWithContext(ctx context.Context) AccessControlResponsePtrOutput {
-	return o.ApplyT(func(v AccessControlResponse) *AccessControlResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessControlResponse) *AccessControlResponse {
 		return &v
 	}).(AccessControlResponsePtrOutput)
 }
@@ -287,7 +293,13 @@ func (o AccessControlResponsePtrOutput) ToAccessControlResponsePtrOutputWithCont
 }
 
 func (o AccessControlResponsePtrOutput) Elem() AccessControlResponseOutput {
-	return o.ApplyT(func(v *AccessControlResponse) AccessControlResponse { return *v }).(AccessControlResponseOutput)
+	return o.ApplyT(func(v *AccessControlResponse) AccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControlResponse
+		return ret
+	}).(AccessControlResponseOutput)
 }
 
 // The behavior for IP access control in Key Delivery.
@@ -407,7 +419,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptio
 }
 
 func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
-	return o.ApplyT(func(v AccountEncryption) *AccountEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
 		return &v
 	}).(AccountEncryptionPtrOutput)
 }
@@ -437,7 +449,13 @@ func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx 
 }
 
 func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
-	return o.ApplyT(func(v *AccountEncryption) AccountEncryption { return *v }).(AccountEncryptionOutput)
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
 }
 
 // The properties of the key used to encrypt the account.
@@ -557,7 +575,7 @@ func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutput() 
 }
 
 func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v AccountEncryptionResponse) *AccountEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionResponse) *AccountEncryptionResponse {
 		return &v
 	}).(AccountEncryptionResponsePtrOutput)
 }
@@ -587,7 +605,13 @@ func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput
 }
 
 func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
-	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse { return *v }).(AccountEncryptionResponseOutput)
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionResponse
+		return ret
+	}).(AccountEncryptionResponseOutput)
 }
 
 // The properties of the key used to encrypt the account.
@@ -790,7 +814,7 @@ func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrO
 }
 
 func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
 		return &v
 	}).(EdgeUsageDataEventHubResponsePtrOutput)
 }
@@ -825,7 +849,13 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponseP
 }
 
 func (o EdgeUsageDataEventHubResponsePtrOutput) Elem() EdgeUsageDataEventHubResponseOutput {
-	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse { return *v }).(EdgeUsageDataEventHubResponseOutput)
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataEventHubResponse
+		return ret
+	}).(EdgeUsageDataEventHubResponseOutput)
 }
 
 // Name of the Event Hub where usage will be reported.
@@ -951,7 +981,7 @@ func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
 }
 
 func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
-	return o.ApplyT(func(v KeyDelivery) *KeyDelivery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyDelivery) *KeyDelivery {
 		return &v
 	}).(KeyDeliveryPtrOutput)
 }
@@ -976,7 +1006,13 @@ func (o KeyDeliveryPtrOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Cont
 }
 
 func (o KeyDeliveryPtrOutput) Elem() KeyDeliveryOutput {
-	return o.ApplyT(func(v *KeyDelivery) KeyDelivery { return *v }).(KeyDeliveryOutput)
+	return o.ApplyT(func(v *KeyDelivery) KeyDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDelivery
+		return ret
+	}).(KeyDeliveryOutput)
 }
 
 // The access control properties for Key Delivery.
@@ -1082,7 +1118,7 @@ func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponsePtrOutput() KeyDeliveryR
 }
 
 func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponsePtrOutputWithContext(ctx context.Context) KeyDeliveryResponsePtrOutput {
-	return o.ApplyT(func(v KeyDeliveryResponse) *KeyDeliveryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyDeliveryResponse) *KeyDeliveryResponse {
 		return &v
 	}).(KeyDeliveryResponsePtrOutput)
 }
@@ -1107,7 +1143,13 @@ func (o KeyDeliveryResponsePtrOutput) ToKeyDeliveryResponsePtrOutputWithContext(
 }
 
 func (o KeyDeliveryResponsePtrOutput) Elem() KeyDeliveryResponseOutput {
-	return o.ApplyT(func(v *KeyDeliveryResponse) KeyDeliveryResponse { return *v }).(KeyDeliveryResponseOutput)
+	return o.ApplyT(func(v *KeyDeliveryResponse) KeyDeliveryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDeliveryResponse
+		return ret
+	}).(KeyDeliveryResponseOutput)
 }
 
 // The access control properties for Key Delivery.
@@ -1213,7 +1255,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -1238,7 +1280,13 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
 // The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
@@ -1348,7 +1396,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -1378,7 +1426,13 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
 // The current key used to encrypt the Media Services account, including the key version.
@@ -1494,7 +1548,7 @@ func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutput() MediaServi
 }
 
 func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutputWithContext(ctx context.Context) MediaServiceIdentityPtrOutput {
-	return o.ApplyT(func(v MediaServiceIdentity) *MediaServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaServiceIdentity) *MediaServiceIdentity {
 		return &v
 	}).(MediaServiceIdentityPtrOutput)
 }
@@ -1519,7 +1573,13 @@ func (o MediaServiceIdentityPtrOutput) ToMediaServiceIdentityPtrOutputWithContex
 }
 
 func (o MediaServiceIdentityPtrOutput) Elem() MediaServiceIdentityOutput {
-	return o.ApplyT(func(v *MediaServiceIdentity) MediaServiceIdentity { return *v }).(MediaServiceIdentityOutput)
+	return o.ApplyT(func(v *MediaServiceIdentity) MediaServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentity
+		return ret
+	}).(MediaServiceIdentityOutput)
 }
 
 // The identity type.
@@ -1633,7 +1693,7 @@ func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponsePtrOut
 }
 
 func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponsePtrOutputWithContext(ctx context.Context) MediaServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v MediaServiceIdentityResponse) *MediaServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaServiceIdentityResponse) *MediaServiceIdentityResponse {
 		return &v
 	}).(MediaServiceIdentityResponsePtrOutput)
 }
@@ -1668,7 +1728,13 @@ func (o MediaServiceIdentityResponsePtrOutput) ToMediaServiceIdentityResponsePtr
 }
 
 func (o MediaServiceIdentityResponsePtrOutput) Elem() MediaServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *MediaServiceIdentityResponse) MediaServiceIdentityResponse { return *v }).(MediaServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) MediaServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentityResponse
+		return ret
+	}).(MediaServiceIdentityResponseOutput)
 }
 
 // The Principal ID of the identity.
@@ -1797,7 +1863,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -1822,7 +1888,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -1939,7 +2011,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -1974,7 +2046,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -2111,7 +2189,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -2147,7 +2225,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -2515,7 +2597,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -2565,7 +2647,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

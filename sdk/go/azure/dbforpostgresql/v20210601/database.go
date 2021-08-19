@@ -74,29 +74,9 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	// The charset of the database.
-	Charset *string `pulumi:"charset"`
-	// The collation of the database.
-	Collation *string `pulumi:"collation"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DatabaseState struct {
-	// The charset of the database.
-	Charset pulumi.StringPtrInput
-	// The collation of the database.
-	Collation pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -153,9 +133,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-type DatabaseOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Database)(nil))

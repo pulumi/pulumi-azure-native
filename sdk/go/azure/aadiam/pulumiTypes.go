@@ -103,7 +103,7 @@ func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsProperties
 }
 
 func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
 		return &v
 	}).(AzureADMetricsPropertiesFormatResponsePtrOutput)
 }
@@ -128,7 +128,13 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ToAzureADMetricsPropert
 }
 
 func (o AzureADMetricsPropertiesFormatResponsePtrOutput) Elem() AzureADMetricsPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse { return *v }).(AzureADMetricsPropertiesFormatResponseOutput)
+	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureADMetricsPropertiesFormatResponse
+		return ret
+	}).(AzureADMetricsPropertiesFormatResponseOutput)
 }
 
 // The provisioning state of the resource.
@@ -477,7 +483,7 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOu
 }
 
 func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicy) *RetentionPolicy {
 		return &v
 	}).(RetentionPolicyPtrOutput)
 }
@@ -507,7 +513,13 @@ func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
+	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicy
+		return ret
+	}).(RetentionPolicyOutput)
 }
 
 // The number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -630,7 +642,7 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() Rete
 }
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetentionPolicyResponse) *RetentionPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
 		return &v
 	}).(RetentionPolicyResponsePtrOutput)
 }
@@ -660,7 +672,13 @@ func (o RetentionPolicyResponsePtrOutput) ToRetentionPolicyResponsePtrOutputWith
 }
 
 func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse { return *v }).(RetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicyResponse
+		return ret
+	}).(RetentionPolicyResponseOutput)
 }
 
 // The number of days for the retention in days. A value of 0 will retain the events indefinitely.

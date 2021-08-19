@@ -109,33 +109,9 @@ func GetMediaService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MediaService resources.
 type mediaServiceState struct {
-	// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
-	ApiEndpoints []ApiEndpointResponse `pulumi:"apiEndpoints"`
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The storage accounts for this resource.
-	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type MediaServiceState struct {
-	// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
-	ApiEndpoints ApiEndpointResponseArrayInput
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The storage accounts for this resource.
-	StorageAccounts StorageAccountResponseArrayInput
-	// Tags to help categorize the resource in the Azure portal.
-	Tags pulumi.StringMapInput
-	// The type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (MediaServiceState) ElementType() reflect.Type {
@@ -192,9 +168,7 @@ func (i *MediaService) ToMediaServiceOutputWithContext(ctx context.Context) Medi
 	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceOutput)
 }
 
-type MediaServiceOutput struct {
-	*pulumi.OutputState
-}
+type MediaServiceOutput struct{ *pulumi.OutputState }
 
 func (MediaServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MediaService)(nil))

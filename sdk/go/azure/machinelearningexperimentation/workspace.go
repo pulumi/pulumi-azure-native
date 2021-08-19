@@ -88,49 +88,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The immutable id of the team account which contains this workspace.
-	AccountId *string `pulumi:"accountId"`
-	// The creation date of the machine learning workspace in ISO8601 format.
-	CreationDate *string `pulumi:"creationDate"`
-	// The description of this workspace.
-	Description *string `pulumi:"description"`
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The current deployment state of team account workspace resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The immutable id of this workspace.
-	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceState struct {
-	// The immutable id of the team account which contains this workspace.
-	AccountId pulumi.StringPtrInput
-	// The creation date of the machine learning workspace in ISO8601 format.
-	CreationDate pulumi.StringPtrInput
-	// The description of this workspace.
-	Description pulumi.StringPtrInput
-	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
-	FriendlyName pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The current deployment state of team account workspace resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The immutable id of this workspace.
-	WorkspaceId pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -195,9 +155,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

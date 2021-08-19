@@ -92,65 +92,9 @@ func GetSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteInstanceDeploymentSlot resources.
 type siteInstanceDeploymentSlotState struct {
-	// Active
-	Active *bool `pulumi:"active"`
-	// Author
-	Author *string `pulumi:"author"`
-	// AuthorEmail
-	AuthorEmail *string `pulumi:"authorEmail"`
-	// Deployer
-	Deployer *string `pulumi:"deployer"`
-	// Detail
-	Details *string `pulumi:"details"`
-	// EndTime
-	EndTime *string `pulumi:"endTime"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Message
-	Message *string `pulumi:"message"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// StartTime
-	StartTime *string `pulumi:"startTime"`
-	// Status
-	Status *int `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SiteInstanceDeploymentSlotState struct {
-	// Active
-	Active pulumi.BoolPtrInput
-	// Author
-	Author pulumi.StringPtrInput
-	// AuthorEmail
-	AuthorEmail pulumi.StringPtrInput
-	// Deployer
-	Deployer pulumi.StringPtrInput
-	// Detail
-	Details pulumi.StringPtrInput
-	// EndTime
-	EndTime pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Message
-	Message pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// StartTime
-	StartTime pulumi.StringPtrInput
-	// Status
-	Status pulumi.IntPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SiteInstanceDeploymentSlotState) ElementType() reflect.Type {
@@ -259,9 +203,7 @@ func (i *SiteInstanceDeploymentSlot) ToSiteInstanceDeploymentSlotOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SiteInstanceDeploymentSlotOutput)
 }
 
-type SiteInstanceDeploymentSlotOutput struct {
-	*pulumi.OutputState
-}
+type SiteInstanceDeploymentSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteInstanceDeploymentSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteInstanceDeploymentSlot)(nil))

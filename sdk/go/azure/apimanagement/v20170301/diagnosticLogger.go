@@ -88,39 +88,9 @@ func GetDiagnosticLogger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiagnosticLogger resources.
 type diagnosticLoggerState struct {
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
-	Credentials map[string]string `pulumi:"credentials"`
-	// Logger description.
-	Description *string `pulumi:"description"`
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered *bool `pulumi:"isBuffered"`
-	// Logger type.
-	LoggerType *string `pulumi:"loggerType"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Sampling settings for an ApplicationInsights logger.
-	Sampling *LoggerSamplingContractResponse `pulumi:"sampling"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type DiagnosticLoggerState struct {
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
-	Credentials pulumi.StringMapInput
-	// Logger description.
-	Description pulumi.StringPtrInput
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered pulumi.BoolPtrInput
-	// Logger type.
-	LoggerType pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Sampling settings for an ApplicationInsights logger.
-	Sampling LoggerSamplingContractResponsePtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DiagnosticLoggerState) ElementType() reflect.Type {
@@ -173,9 +143,7 @@ func (i *DiagnosticLogger) ToDiagnosticLoggerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticLoggerOutput)
 }
 
-type DiagnosticLoggerOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticLoggerOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticLoggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticLogger)(nil))

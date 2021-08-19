@@ -88,49 +88,9 @@ func GetDiagnosticSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiagnosticSetting resources.
 type diagnosticSettingState struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName *string `pulumi:"eventHubName"`
-	// A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
-	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
-	// The list of logs settings.
-	Logs []LogSettingsResponse `pulumi:"logs"`
-	// The list of metric settings.
-	Metrics []MetricSettingsResponse `pulumi:"metrics"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type DiagnosticSettingState struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId pulumi.StringPtrInput
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName pulumi.StringPtrInput
-	// A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
-	LogAnalyticsDestinationType pulumi.StringPtrInput
-	// The list of logs settings.
-	Logs LogSettingsResponseArrayInput
-	// The list of metric settings.
-	Metrics MetricSettingsResponseArrayInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId pulumi.StringPtrInput
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId pulumi.StringPtrInput
 }
 
 func (DiagnosticSettingState) ElementType() reflect.Type {
@@ -207,9 +167,7 @@ func (i *DiagnosticSetting) ToDiagnosticSettingOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingOutput)
 }
 
-type DiagnosticSettingOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticSetting)(nil))

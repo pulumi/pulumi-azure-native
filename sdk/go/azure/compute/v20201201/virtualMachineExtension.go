@@ -174,61 +174,9 @@ func GetVirtualMachineExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachineExtension resources.
 type virtualMachineExtensionState struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
-	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The virtual machine extension instance view.
-	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 type VirtualMachineExtensionState struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput
-	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
-	EnableAutomaticUpgrade pulumi.BoolPtrInput
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput
-	// The virtual machine extension instance view.
-	InstanceView VirtualMachineExtensionInstanceViewResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.Input
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput
-	// Json formatted public settings for the extension.
-	Settings pulumi.Input
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput
 }
 
 func (VirtualMachineExtensionState) ElementType() reflect.Type {
@@ -321,9 +269,7 @@ func (i *VirtualMachineExtension) ToVirtualMachineExtensionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionOutput)
 }
 
-type VirtualMachineExtensionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineExtensionOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineExtension)(nil))

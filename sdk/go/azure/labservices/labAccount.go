@@ -80,45 +80,9 @@ func GetLabAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LabAccount resources.
 type labAccountState struct {
-	// Represents if region selection is enabled
-	EnabledRegionSelection *bool `pulumi:"enabledRegionSelection"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult *LatestOperationResultResponse `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Represents the size configuration under the lab account
-	SizeConfiguration *SizeConfigurationPropertiesResponse `pulumi:"sizeConfiguration"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type LabAccountState struct {
-	// Represents if region selection is enabled
-	EnabledRegionSelection pulumi.BoolPtrInput
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponsePtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Represents the size configuration under the lab account
-	SizeConfiguration SizeConfigurationPropertiesResponsePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (LabAccountState) ElementType() reflect.Type {
@@ -183,9 +147,7 @@ func (i *LabAccount) ToLabAccountOutputWithContext(ctx context.Context) LabAccou
 	return pulumi.ToOutputWithContext(ctx, i).(LabAccountOutput)
 }
 
-type LabAccountOutput struct {
-	*pulumi.OutputState
-}
+type LabAccountOutput struct{ *pulumi.OutputState }
 
 func (LabAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabAccount)(nil))

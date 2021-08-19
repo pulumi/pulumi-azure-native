@@ -83,53 +83,9 @@ func GetAutomation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Automation resources.
 type automationState struct {
-	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions []interface{} `pulumi:"actions"`
-	// The security automation description.
-	Description *string `pulumi:"description"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag *string `pulumi:"etag"`
-	// Indicates whether the security automation is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Kind of the resource
-	Kind *string `pulumi:"kind"`
-	// Location where the resource is stored
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
-	Scopes []AutomationScopeResponse `pulumi:"scopes"`
-	// A collection of the source event types which evaluate the security automation set of rules.
-	Sources []AutomationSourceResponse `pulumi:"sources"`
-	// A list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type AutomationState struct {
-	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions pulumi.ArrayInput
-	// The security automation description.
-	Description pulumi.StringPtrInput
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrInput
-	// Indicates whether the security automation is enabled.
-	IsEnabled pulumi.BoolPtrInput
-	// Kind of the resource
-	Kind pulumi.StringPtrInput
-	// Location where the resource is stored
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
-	Scopes AutomationScopeResponseArrayInput
-	// A collection of the source event types which evaluate the security automation set of rules.
-	Sources AutomationSourceResponseArrayInput
-	// A list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (AutomationState) ElementType() reflect.Type {
@@ -210,9 +166,7 @@ func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) Automati
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationOutput)
 }
 
-type AutomationOutput struct {
-	*pulumi.OutputState
-}
+type AutomationOutput struct{ *pulumi.OutputState }
 
 func (AutomationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Automation)(nil))

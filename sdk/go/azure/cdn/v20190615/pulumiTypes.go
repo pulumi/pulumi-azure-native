@@ -982,7 +982,7 @@ func (o CustomRuleListOutput) ToCustomRuleListPtrOutput() CustomRuleListPtrOutpu
 }
 
 func (o CustomRuleListOutput) ToCustomRuleListPtrOutputWithContext(ctx context.Context) CustomRuleListPtrOutput {
-	return o.ApplyT(func(v CustomRuleList) *CustomRuleList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleList) *CustomRuleList {
 		return &v
 	}).(CustomRuleListPtrOutput)
 }
@@ -1007,7 +1007,13 @@ func (o CustomRuleListPtrOutput) ToCustomRuleListPtrOutputWithContext(ctx contex
 }
 
 func (o CustomRuleListPtrOutput) Elem() CustomRuleListOutput {
-	return o.ApplyT(func(v *CustomRuleList) CustomRuleList { return *v }).(CustomRuleListOutput)
+	return o.ApplyT(func(v *CustomRuleList) CustomRuleList {
+		if v != nil {
+			return *v
+		}
+		var ret CustomRuleList
+		return ret
+	}).(CustomRuleListOutput)
 }
 
 // List of rules
@@ -1116,7 +1122,7 @@ func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutput() Custom
 }
 
 func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutputWithContext(ctx context.Context) CustomRuleListResponsePtrOutput {
-	return o.ApplyT(func(v CustomRuleListResponse) *CustomRuleListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleListResponse) *CustomRuleListResponse {
 		return &v
 	}).(CustomRuleListResponsePtrOutput)
 }
@@ -1141,7 +1147,13 @@ func (o CustomRuleListResponsePtrOutput) ToCustomRuleListResponsePtrOutputWithCo
 }
 
 func (o CustomRuleListResponsePtrOutput) Elem() CustomRuleListResponseOutput {
-	return o.ApplyT(func(v *CustomRuleListResponse) CustomRuleListResponse { return *v }).(CustomRuleListResponseOutput)
+	return o.ApplyT(func(v *CustomRuleListResponse) CustomRuleListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomRuleListResponse
+		return ret
+	}).(CustomRuleListResponseOutput)
 }
 
 // List of rules
@@ -4344,7 +4356,7 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointProper
 }
 
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) *EndpointPropertiesUpdateParametersDeliveryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersDeliveryPolicy) *EndpointPropertiesUpdateParametersDeliveryPolicy {
 		return &v
 	}).(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput)
 }
@@ -4375,7 +4387,11 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) ToEndpointPro
 
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) EndpointPropertiesUpdateParametersDeliveryPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersDeliveryPolicy
+		return ret
 	}).(EndpointPropertiesUpdateParametersDeliveryPolicyOutput)
 }
 
@@ -4499,7 +4515,7 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpoi
 }
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
 		return &v
 	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
@@ -4532,7 +4548,11 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) ToEnd
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersResponseDeliveryPolicy
+		return ret
 	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput)
 }
 
@@ -4652,7 +4672,7 @@ func (o EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLi
 }
 
 func (o EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ToEndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink) *EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink) *EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		return &v
 	}).(EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
@@ -4680,7 +4700,11 @@ func (o EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLi
 
 func (o EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) Elem() EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink) EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink
+		return ret
 	}).(EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput)
 }
 
@@ -4790,7 +4814,7 @@ func (o EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkOutput
 }
 
 func (o EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkOutput) ToEndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink) *EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink) *EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink {
 		return &v
 	}).(EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput)
 }
@@ -4816,7 +4840,11 @@ func (o EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOut
 
 func (o EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) Elem() EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink) EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink
+		return ret
 	}).(EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkOutput)
 }
 
@@ -4833,7 +4861,7 @@ func (o EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOut
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilter struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action string `pulumi:"action"`
+	Action GeoFilterActions `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes []string `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -4854,7 +4882,7 @@ type GeoFilterInput interface {
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilterArgs struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action GeoFilterActions `pulumi:"action"`
+	Action GeoFilterActionsInput `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -4914,8 +4942,8 @@ func (o GeoFilterOutput) ToGeoFilterOutputWithContext(ctx context.Context) GeoFi
 }
 
 // Action of the geo filter, i.e. allow or block access.
-func (o GeoFilterOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v GeoFilter) string { return v.Action }).(pulumi.StringOutput)
+func (o GeoFilterOutput) Action() GeoFilterActionsOutput {
+	return o.ApplyT(func(v GeoFilter) GeoFilterActions { return v.Action }).(GeoFilterActionsOutput)
 }
 
 // Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
@@ -6350,7 +6378,7 @@ func (o ManagedRuleSetListOutput) ToManagedRuleSetListPtrOutput() ManagedRuleSet
 }
 
 func (o ManagedRuleSetListOutput) ToManagedRuleSetListPtrOutputWithContext(ctx context.Context) ManagedRuleSetListPtrOutput {
-	return o.ApplyT(func(v ManagedRuleSetList) *ManagedRuleSetList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleSetList) *ManagedRuleSetList {
 		return &v
 	}).(ManagedRuleSetListPtrOutput)
 }
@@ -6375,7 +6403,13 @@ func (o ManagedRuleSetListPtrOutput) ToManagedRuleSetListPtrOutputWithContext(ct
 }
 
 func (o ManagedRuleSetListPtrOutput) Elem() ManagedRuleSetListOutput {
-	return o.ApplyT(func(v *ManagedRuleSetList) ManagedRuleSetList { return *v }).(ManagedRuleSetListOutput)
+	return o.ApplyT(func(v *ManagedRuleSetList) ManagedRuleSetList {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedRuleSetList
+		return ret
+	}).(ManagedRuleSetListOutput)
 }
 
 // List of rule sets.
@@ -6484,7 +6518,7 @@ func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutput(
 }
 
 func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutputWithContext(ctx context.Context) ManagedRuleSetListResponsePtrOutput {
-	return o.ApplyT(func(v ManagedRuleSetListResponse) *ManagedRuleSetListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleSetListResponse) *ManagedRuleSetListResponse {
 		return &v
 	}).(ManagedRuleSetListResponsePtrOutput)
 }
@@ -6509,7 +6543,13 @@ func (o ManagedRuleSetListResponsePtrOutput) ToManagedRuleSetListResponsePtrOutp
 }
 
 func (o ManagedRuleSetListResponsePtrOutput) Elem() ManagedRuleSetListResponseOutput {
-	return o.ApplyT(func(v *ManagedRuleSetListResponse) ManagedRuleSetListResponse { return *v }).(ManagedRuleSetListResponseOutput)
+	return o.ApplyT(func(v *ManagedRuleSetListResponse) ManagedRuleSetListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedRuleSetListResponse
+		return ret
+	}).(ManagedRuleSetListResponseOutput)
 }
 
 // List of rule sets.
@@ -7051,7 +7091,7 @@ func (o PolicySettingsOutput) ToPolicySettingsPtrOutput() PolicySettingsPtrOutpu
 }
 
 func (o PolicySettingsOutput) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
-	return o.ApplyT(func(v PolicySettings) *PolicySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySettings) *PolicySettings {
 		return &v
 	}).(PolicySettingsPtrOutput)
 }
@@ -7096,7 +7136,13 @@ func (o PolicySettingsPtrOutput) ToPolicySettingsPtrOutputWithContext(ctx contex
 }
 
 func (o PolicySettingsPtrOutput) Elem() PolicySettingsOutput {
-	return o.ApplyT(func(v *PolicySettings) PolicySettings { return *v }).(PolicySettingsOutput)
+	return o.ApplyT(func(v *PolicySettings) PolicySettings {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySettings
+		return ret
+	}).(PolicySettingsOutput)
 }
 
 // If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -7261,7 +7307,7 @@ func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutput() Policy
 }
 
 func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
-	return o.ApplyT(func(v PolicySettingsResponse) *PolicySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySettingsResponse) *PolicySettingsResponse {
 		return &v
 	}).(PolicySettingsResponsePtrOutput)
 }
@@ -7306,7 +7352,13 @@ func (o PolicySettingsResponsePtrOutput) ToPolicySettingsResponsePtrOutputWithCo
 }
 
 func (o PolicySettingsResponsePtrOutput) Elem() PolicySettingsResponseOutput {
-	return o.ApplyT(func(v *PolicySettingsResponse) PolicySettingsResponse { return *v }).(PolicySettingsResponseOutput)
+	return o.ApplyT(func(v *PolicySettingsResponse) PolicySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySettingsResponse
+		return ret
+	}).(PolicySettingsResponseOutput)
 }
 
 // If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -7979,7 +8031,7 @@ func (o RateLimitRuleListOutput) ToRateLimitRuleListPtrOutput() RateLimitRuleLis
 }
 
 func (o RateLimitRuleListOutput) ToRateLimitRuleListPtrOutputWithContext(ctx context.Context) RateLimitRuleListPtrOutput {
-	return o.ApplyT(func(v RateLimitRuleList) *RateLimitRuleList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RateLimitRuleList) *RateLimitRuleList {
 		return &v
 	}).(RateLimitRuleListPtrOutput)
 }
@@ -8004,7 +8056,13 @@ func (o RateLimitRuleListPtrOutput) ToRateLimitRuleListPtrOutputWithContext(ctx 
 }
 
 func (o RateLimitRuleListPtrOutput) Elem() RateLimitRuleListOutput {
-	return o.ApplyT(func(v *RateLimitRuleList) RateLimitRuleList { return *v }).(RateLimitRuleListOutput)
+	return o.ApplyT(func(v *RateLimitRuleList) RateLimitRuleList {
+		if v != nil {
+			return *v
+		}
+		var ret RateLimitRuleList
+		return ret
+	}).(RateLimitRuleListOutput)
 }
 
 // List of rules
@@ -8113,7 +8171,7 @@ func (o RateLimitRuleListResponseOutput) ToRateLimitRuleListResponsePtrOutput() 
 }
 
 func (o RateLimitRuleListResponseOutput) ToRateLimitRuleListResponsePtrOutputWithContext(ctx context.Context) RateLimitRuleListResponsePtrOutput {
-	return o.ApplyT(func(v RateLimitRuleListResponse) *RateLimitRuleListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RateLimitRuleListResponse) *RateLimitRuleListResponse {
 		return &v
 	}).(RateLimitRuleListResponsePtrOutput)
 }
@@ -8138,7 +8196,13 @@ func (o RateLimitRuleListResponsePtrOutput) ToRateLimitRuleListResponsePtrOutput
 }
 
 func (o RateLimitRuleListResponsePtrOutput) Elem() RateLimitRuleListResponseOutput {
-	return o.ApplyT(func(v *RateLimitRuleListResponse) RateLimitRuleListResponse { return *v }).(RateLimitRuleListResponseOutput)
+	return o.ApplyT(func(v *RateLimitRuleListResponse) RateLimitRuleListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RateLimitRuleListResponse
+		return ret
+	}).(RateLimitRuleListResponseOutput)
 }
 
 // List of rules
@@ -9439,7 +9503,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -9464,7 +9528,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Name of the pricing tier.
@@ -9573,7 +9643,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -9598,7 +9668,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // Name of the pricing tier.

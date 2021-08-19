@@ -340,7 +340,7 @@ func (o AutoScaleRunErrorResponseOutput) ToAutoScaleRunErrorResponsePtrOutput() 
 }
 
 func (o AutoScaleRunErrorResponseOutput) ToAutoScaleRunErrorResponsePtrOutputWithContext(ctx context.Context) AutoScaleRunErrorResponsePtrOutput {
-	return o.ApplyT(func(v AutoScaleRunErrorResponse) *AutoScaleRunErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleRunErrorResponse) *AutoScaleRunErrorResponse {
 		return &v
 	}).(AutoScaleRunErrorResponsePtrOutput)
 }
@@ -374,7 +374,13 @@ func (o AutoScaleRunErrorResponsePtrOutput) ToAutoScaleRunErrorResponsePtrOutput
 }
 
 func (o AutoScaleRunErrorResponsePtrOutput) Elem() AutoScaleRunErrorResponseOutput {
-	return o.ApplyT(func(v *AutoScaleRunErrorResponse) AutoScaleRunErrorResponse { return *v }).(AutoScaleRunErrorResponseOutput)
+	return o.ApplyT(func(v *AutoScaleRunErrorResponse) AutoScaleRunErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleRunErrorResponse
+		return ret
+	}).(AutoScaleRunErrorResponseOutput)
 }
 
 // An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
@@ -523,10 +529,11 @@ func (o AutoScaleRunResponseOutput) ToAutoScaleRunResponsePtrOutput() AutoScaleR
 }
 
 func (o AutoScaleRunResponseOutput) ToAutoScaleRunResponsePtrOutputWithContext(ctx context.Context) AutoScaleRunResponsePtrOutput {
-	return o.ApplyT(func(v AutoScaleRunResponse) *AutoScaleRunResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleRunResponse) *AutoScaleRunResponse {
 		return &v
 	}).(AutoScaleRunResponsePtrOutput)
 }
+
 func (o AutoScaleRunResponseOutput) Error() AutoScaleRunErrorResponsePtrOutput {
 	return o.ApplyT(func(v AutoScaleRunResponse) *AutoScaleRunErrorResponse { return v.Error }).(AutoScaleRunErrorResponsePtrOutput)
 }
@@ -555,7 +562,13 @@ func (o AutoScaleRunResponsePtrOutput) ToAutoScaleRunResponsePtrOutputWithContex
 }
 
 func (o AutoScaleRunResponsePtrOutput) Elem() AutoScaleRunResponseOutput {
-	return o.ApplyT(func(v *AutoScaleRunResponse) AutoScaleRunResponse { return *v }).(AutoScaleRunResponseOutput)
+	return o.ApplyT(func(v *AutoScaleRunResponse) AutoScaleRunResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleRunResponse
+		return ret
+	}).(AutoScaleRunResponseOutput)
 }
 
 func (o AutoScaleRunResponsePtrOutput) Error() AutoScaleRunErrorResponsePtrOutput {
@@ -681,7 +694,7 @@ func (o AutoScaleSettingsOutput) ToAutoScaleSettingsPtrOutput() AutoScaleSetting
 }
 
 func (o AutoScaleSettingsOutput) ToAutoScaleSettingsPtrOutputWithContext(ctx context.Context) AutoScaleSettingsPtrOutput {
-	return o.ApplyT(func(v AutoScaleSettings) *AutoScaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleSettings) *AutoScaleSettings {
 		return &v
 	}).(AutoScaleSettingsPtrOutput)
 }
@@ -710,7 +723,13 @@ func (o AutoScaleSettingsPtrOutput) ToAutoScaleSettingsPtrOutputWithContext(ctx 
 }
 
 func (o AutoScaleSettingsPtrOutput) Elem() AutoScaleSettingsOutput {
-	return o.ApplyT(func(v *AutoScaleSettings) AutoScaleSettings { return *v }).(AutoScaleSettingsOutput)
+	return o.ApplyT(func(v *AutoScaleSettings) AutoScaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleSettings
+		return ret
+	}).(AutoScaleSettingsOutput)
 }
 
 // If omitted, the default value is 15 minutes (PT15M).
@@ -827,7 +846,7 @@ func (o AutoScaleSettingsResponseOutput) ToAutoScaleSettingsResponsePtrOutput() 
 }
 
 func (o AutoScaleSettingsResponseOutput) ToAutoScaleSettingsResponsePtrOutputWithContext(ctx context.Context) AutoScaleSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AutoScaleSettingsResponse) *AutoScaleSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleSettingsResponse) *AutoScaleSettingsResponse {
 		return &v
 	}).(AutoScaleSettingsResponsePtrOutput)
 }
@@ -856,7 +875,13 @@ func (o AutoScaleSettingsResponsePtrOutput) ToAutoScaleSettingsResponsePtrOutput
 }
 
 func (o AutoScaleSettingsResponsePtrOutput) Elem() AutoScaleSettingsResponseOutput {
-	return o.ApplyT(func(v *AutoScaleSettingsResponse) AutoScaleSettingsResponse { return *v }).(AutoScaleSettingsResponseOutput)
+	return o.ApplyT(func(v *AutoScaleSettingsResponse) AutoScaleSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleSettingsResponse
+		return ret
+	}).(AutoScaleSettingsResponseOutput)
 }
 
 // If omitted, the default value is 15 minutes (PT15M).
@@ -974,7 +999,7 @@ func (o AutoStorageBasePropertiesOutput) ToAutoStorageBasePropertiesPtrOutput() 
 }
 
 func (o AutoStorageBasePropertiesOutput) ToAutoStorageBasePropertiesPtrOutputWithContext(ctx context.Context) AutoStorageBasePropertiesPtrOutput {
-	return o.ApplyT(func(v AutoStorageBaseProperties) *AutoStorageBaseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStorageBaseProperties) *AutoStorageBaseProperties {
 		return &v
 	}).(AutoStorageBasePropertiesPtrOutput)
 }
@@ -999,7 +1024,13 @@ func (o AutoStorageBasePropertiesPtrOutput) ToAutoStorageBasePropertiesPtrOutput
 }
 
 func (o AutoStorageBasePropertiesPtrOutput) Elem() AutoStorageBasePropertiesOutput {
-	return o.ApplyT(func(v *AutoStorageBaseProperties) AutoStorageBaseProperties { return *v }).(AutoStorageBasePropertiesOutput)
+	return o.ApplyT(func(v *AutoStorageBaseProperties) AutoStorageBaseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AutoStorageBaseProperties
+		return ret
+	}).(AutoStorageBasePropertiesOutput)
 }
 
 // The resource ID of the storage account to be used for auto-storage account.
@@ -1112,7 +1143,7 @@ func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrO
 }
 
 func (o AutoStoragePropertiesResponseOutput) ToAutoStoragePropertiesResponsePtrOutputWithContext(ctx context.Context) AutoStoragePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoStoragePropertiesResponse) *AutoStoragePropertiesResponse {
 		return &v
 	}).(AutoStoragePropertiesResponsePtrOutput)
 }
@@ -1142,7 +1173,13 @@ func (o AutoStoragePropertiesResponsePtrOutput) ToAutoStoragePropertiesResponseP
 }
 
 func (o AutoStoragePropertiesResponsePtrOutput) Elem() AutoStoragePropertiesResponseOutput {
-	return o.ApplyT(func(v *AutoStoragePropertiesResponse) AutoStoragePropertiesResponse { return *v }).(AutoStoragePropertiesResponseOutput)
+	return o.ApplyT(func(v *AutoStoragePropertiesResponse) AutoStoragePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoStoragePropertiesResponse
+		return ret
+	}).(AutoStoragePropertiesResponseOutput)
 }
 
 // The UTC time at which storage keys were last synchronized with the Batch account.
@@ -1167,9 +1204,9 @@ func (o AutoStoragePropertiesResponsePtrOutput) StorageAccountId() pulumi.String
 
 type AutoUserSpecification struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel *string `pulumi:"elevationLevel"`
+	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
 	// The default value is task.
-	Scope *string `pulumi:"scope"`
+	Scope *AutoUserScope `pulumi:"scope"`
 }
 
 // AutoUserSpecificationInput is an input type that accepts AutoUserSpecificationArgs and AutoUserSpecificationOutput values.
@@ -1185,9 +1222,9 @@ type AutoUserSpecificationInput interface {
 
 type AutoUserSpecificationArgs struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
+	ElevationLevel ElevationLevelPtrInput `pulumi:"elevationLevel"`
 	// The default value is task.
-	Scope *AutoUserScope `pulumi:"scope"`
+	Scope AutoUserScopePtrInput `pulumi:"scope"`
 }
 
 func (AutoUserSpecificationArgs) ElementType() reflect.Type {
@@ -1262,19 +1299,19 @@ func (o AutoUserSpecificationOutput) ToAutoUserSpecificationPtrOutput() AutoUser
 }
 
 func (o AutoUserSpecificationOutput) ToAutoUserSpecificationPtrOutputWithContext(ctx context.Context) AutoUserSpecificationPtrOutput {
-	return o.ApplyT(func(v AutoUserSpecification) *AutoUserSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoUserSpecification) *AutoUserSpecification {
 		return &v
 	}).(AutoUserSpecificationPtrOutput)
 }
 
 // nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-func (o AutoUserSpecificationOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoUserSpecification) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
+func (o AutoUserSpecificationOutput) ElevationLevel() ElevationLevelPtrOutput {
+	return o.ApplyT(func(v AutoUserSpecification) *ElevationLevel { return v.ElevationLevel }).(ElevationLevelPtrOutput)
 }
 
 // The default value is task.
-func (o AutoUserSpecificationOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoUserSpecification) *string { return v.Scope }).(pulumi.StringPtrOutput)
+func (o AutoUserSpecificationOutput) Scope() AutoUserScopePtrOutput {
+	return o.ApplyT(func(v AutoUserSpecification) *AutoUserScope { return v.Scope }).(AutoUserScopePtrOutput)
 }
 
 type AutoUserSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -1292,27 +1329,33 @@ func (o AutoUserSpecificationPtrOutput) ToAutoUserSpecificationPtrOutputWithCont
 }
 
 func (o AutoUserSpecificationPtrOutput) Elem() AutoUserSpecificationOutput {
-	return o.ApplyT(func(v *AutoUserSpecification) AutoUserSpecification { return *v }).(AutoUserSpecificationOutput)
+	return o.ApplyT(func(v *AutoUserSpecification) AutoUserSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AutoUserSpecification
+		return ret
+	}).(AutoUserSpecificationOutput)
 }
 
 // nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-func (o AutoUserSpecificationPtrOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoUserSpecification) *string {
+func (o AutoUserSpecificationPtrOutput) ElevationLevel() ElevationLevelPtrOutput {
+	return o.ApplyT(func(v *AutoUserSpecification) *ElevationLevel {
 		if v == nil {
 			return nil
 		}
 		return v.ElevationLevel
-	}).(pulumi.StringPtrOutput)
+	}).(ElevationLevelPtrOutput)
 }
 
 // The default value is task.
-func (o AutoUserSpecificationPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoUserSpecification) *string {
+func (o AutoUserSpecificationPtrOutput) Scope() AutoUserScopePtrOutput {
+	return o.ApplyT(func(v *AutoUserSpecification) *AutoUserScope {
 		if v == nil {
 			return nil
 		}
 		return v.Scope
-	}).(pulumi.StringPtrOutput)
+	}).(AutoUserScopePtrOutput)
 }
 
 type AutoUserSpecificationResponse struct {
@@ -1412,7 +1455,7 @@ func (o AutoUserSpecificationResponseOutput) ToAutoUserSpecificationResponsePtrO
 }
 
 func (o AutoUserSpecificationResponseOutput) ToAutoUserSpecificationResponsePtrOutputWithContext(ctx context.Context) AutoUserSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v AutoUserSpecificationResponse) *AutoUserSpecificationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoUserSpecificationResponse) *AutoUserSpecificationResponse {
 		return &v
 	}).(AutoUserSpecificationResponsePtrOutput)
 }
@@ -1442,7 +1485,13 @@ func (o AutoUserSpecificationResponsePtrOutput) ToAutoUserSpecificationResponseP
 }
 
 func (o AutoUserSpecificationResponsePtrOutput) Elem() AutoUserSpecificationResponseOutput {
-	return o.ApplyT(func(v *AutoUserSpecificationResponse) AutoUserSpecificationResponse { return *v }).(AutoUserSpecificationResponseOutput)
+	return o.ApplyT(func(v *AutoUserSpecificationResponse) AutoUserSpecificationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoUserSpecificationResponse
+		return ret
+	}).(AutoUserSpecificationResponseOutput)
 }
 
 // nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
@@ -1468,10 +1517,10 @@ func (o AutoUserSpecificationResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 type CertificateReference struct {
 	Id string `pulumi:"id"`
 	// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-	StoreLocation *string `pulumi:"storeLocation"`
+	StoreLocation *CertificateStoreLocation `pulumi:"storeLocation"`
 	// This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
-	StoreName  *string  `pulumi:"storeName"`
-	Visibility []string `pulumi:"visibility"`
+	StoreName  *string                 `pulumi:"storeName"`
+	Visibility []CertificateVisibility `pulumi:"visibility"`
 }
 
 // CertificateReferenceInput is an input type that accepts CertificateReferenceArgs and CertificateReferenceOutput values.
@@ -1488,7 +1537,7 @@ type CertificateReferenceInput interface {
 type CertificateReferenceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-	StoreLocation *CertificateStoreLocation `pulumi:"storeLocation"`
+	StoreLocation CertificateStoreLocationPtrInput `pulumi:"storeLocation"`
 	// This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
 	StoreName  pulumi.StringPtrInput           `pulumi:"storeName"`
 	Visibility CertificateVisibilityArrayInput `pulumi:"visibility"`
@@ -1550,8 +1599,8 @@ func (o CertificateReferenceOutput) Id() pulumi.StringOutput {
 }
 
 // The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-func (o CertificateReferenceOutput) StoreLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateReference) *string { return v.StoreLocation }).(pulumi.StringPtrOutput)
+func (o CertificateReferenceOutput) StoreLocation() CertificateStoreLocationPtrOutput {
+	return o.ApplyT(func(v CertificateReference) *CertificateStoreLocation { return v.StoreLocation }).(CertificateStoreLocationPtrOutput)
 }
 
 // This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
@@ -1559,8 +1608,8 @@ func (o CertificateReferenceOutput) StoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateReference) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
 
-func (o CertificateReferenceOutput) Visibility() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateReference) []string { return v.Visibility }).(pulumi.StringArrayOutput)
+func (o CertificateReferenceOutput) Visibility() CertificateVisibilityArrayOutput {
+	return o.ApplyT(func(v CertificateReference) []CertificateVisibility { return v.Visibility }).(CertificateVisibilityArrayOutput)
 }
 
 type CertificateReferenceArrayOutput struct{ *pulumi.OutputState }
@@ -1798,7 +1847,7 @@ func (o CloudServiceConfigurationOutput) ToCloudServiceConfigurationPtrOutput() 
 }
 
 func (o CloudServiceConfigurationOutput) ToCloudServiceConfigurationPtrOutputWithContext(ctx context.Context) CloudServiceConfigurationPtrOutput {
-	return o.ApplyT(func(v CloudServiceConfiguration) *CloudServiceConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceConfiguration) *CloudServiceConfiguration {
 		return &v
 	}).(CloudServiceConfigurationPtrOutput)
 }
@@ -1828,7 +1877,13 @@ func (o CloudServiceConfigurationPtrOutput) ToCloudServiceConfigurationPtrOutput
 }
 
 func (o CloudServiceConfigurationPtrOutput) Elem() CloudServiceConfigurationOutput {
-	return o.ApplyT(func(v *CloudServiceConfiguration) CloudServiceConfiguration { return *v }).(CloudServiceConfigurationOutput)
+	return o.ApplyT(func(v *CloudServiceConfiguration) CloudServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceConfiguration
+		return ret
+	}).(CloudServiceConfigurationOutput)
 }
 
 // Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
@@ -1948,7 +2003,7 @@ func (o CloudServiceConfigurationResponseOutput) ToCloudServiceConfigurationResp
 }
 
 func (o CloudServiceConfigurationResponseOutput) ToCloudServiceConfigurationResponsePtrOutputWithContext(ctx context.Context) CloudServiceConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceConfigurationResponse) *CloudServiceConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceConfigurationResponse) *CloudServiceConfigurationResponse {
 		return &v
 	}).(CloudServiceConfigurationResponsePtrOutput)
 }
@@ -1978,7 +2033,13 @@ func (o CloudServiceConfigurationResponsePtrOutput) ToCloudServiceConfigurationR
 }
 
 func (o CloudServiceConfigurationResponsePtrOutput) Elem() CloudServiceConfigurationResponseOutput {
-	return o.ApplyT(func(v *CloudServiceConfigurationResponse) CloudServiceConfigurationResponse { return *v }).(CloudServiceConfigurationResponseOutput)
+	return o.ApplyT(func(v *CloudServiceConfigurationResponse) CloudServiceConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceConfigurationResponse
+		return ret
+	}).(CloudServiceConfigurationResponseOutput)
 }
 
 // Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
@@ -2006,7 +2067,7 @@ type ContainerConfiguration struct {
 	ContainerImageNames []string `pulumi:"containerImageNames"`
 	// If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
 	ContainerRegistries []ContainerRegistry `pulumi:"containerRegistries"`
-	Type                string              `pulumi:"type"`
+	Type                ContainerType       `pulumi:"type"`
 }
 
 // ContainerConfigurationInput is an input type that accepts ContainerConfigurationArgs and ContainerConfigurationOutput values.
@@ -2025,7 +2086,7 @@ type ContainerConfigurationArgs struct {
 	ContainerImageNames pulumi.StringArrayInput `pulumi:"containerImageNames"`
 	// If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
 	ContainerRegistries ContainerRegistryArrayInput `pulumi:"containerRegistries"`
-	Type                ContainerType               `pulumi:"type"`
+	Type                ContainerTypeInput          `pulumi:"type"`
 }
 
 func (ContainerConfigurationArgs) ElementType() reflect.Type {
@@ -2100,7 +2161,7 @@ func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutput() Contai
 }
 
 func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerConfiguration) *ContainerConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfiguration) *ContainerConfiguration {
 		return &v
 	}).(ContainerConfigurationPtrOutput)
 }
@@ -2115,8 +2176,8 @@ func (o ContainerConfigurationOutput) ContainerRegistries() ContainerRegistryArr
 	return o.ApplyT(func(v ContainerConfiguration) []ContainerRegistry { return v.ContainerRegistries }).(ContainerRegistryArrayOutput)
 }
 
-func (o ContainerConfigurationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerConfiguration) string { return v.Type }).(pulumi.StringOutput)
+func (o ContainerConfigurationOutput) Type() ContainerTypeOutput {
+	return o.ApplyT(func(v ContainerConfiguration) ContainerType { return v.Type }).(ContainerTypeOutput)
 }
 
 type ContainerConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2134,7 +2195,13 @@ func (o ContainerConfigurationPtrOutput) ToContainerConfigurationPtrOutputWithCo
 }
 
 func (o ContainerConfigurationPtrOutput) Elem() ContainerConfigurationOutput {
-	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration { return *v }).(ContainerConfigurationOutput)
+	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerConfiguration
+		return ret
+	}).(ContainerConfigurationOutput)
 }
 
 // This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
@@ -2157,13 +2224,13 @@ func (o ContainerConfigurationPtrOutput) ContainerRegistries() ContainerRegistry
 	}).(ContainerRegistryArrayOutput)
 }
 
-func (o ContainerConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerConfiguration) *string {
+func (o ContainerConfigurationPtrOutput) Type() ContainerTypePtrOutput {
+	return o.ApplyT(func(v *ContainerConfiguration) *ContainerType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerTypePtrOutput)
 }
 
 type ContainerConfigurationResponse struct {
@@ -2265,7 +2332,7 @@ func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePt
 }
 
 func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerConfigurationResponse) *ContainerConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfigurationResponse) *ContainerConfigurationResponse {
 		return &v
 	}).(ContainerConfigurationResponsePtrOutput)
 }
@@ -2299,7 +2366,13 @@ func (o ContainerConfigurationResponsePtrOutput) ToContainerConfigurationRespons
 }
 
 func (o ContainerConfigurationResponsePtrOutput) Elem() ContainerConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse { return *v }).(ContainerConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerConfigurationResponse
+		return ret
+	}).(ContainerConfigurationResponseOutput)
 }
 
 // This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.
@@ -2453,10 +2526,11 @@ func (o ContainerRegistryOutput) ToContainerRegistryPtrOutput() ContainerRegistr
 }
 
 func (o ContainerRegistryOutput) ToContainerRegistryPtrOutputWithContext(ctx context.Context) ContainerRegistryPtrOutput {
-	return o.ApplyT(func(v ContainerRegistry) *ContainerRegistry {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRegistry) *ContainerRegistry {
 		return &v
 	}).(ContainerRegistryPtrOutput)
 }
+
 func (o ContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -2485,7 +2559,13 @@ func (o ContainerRegistryPtrOutput) ToContainerRegistryPtrOutputWithContext(ctx 
 }
 
 func (o ContainerRegistryPtrOutput) Elem() ContainerRegistryOutput {
-	return o.ApplyT(func(v *ContainerRegistry) ContainerRegistry { return *v }).(ContainerRegistryOutput)
+	return o.ApplyT(func(v *ContainerRegistry) ContainerRegistry {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRegistry
+		return ret
+	}).(ContainerRegistryOutput)
 }
 
 func (o ContainerRegistryPtrOutput) Password() pulumi.StringPtrOutput {
@@ -2658,10 +2738,11 @@ func (o ContainerRegistryResponseOutput) ToContainerRegistryResponsePtrOutput() 
 }
 
 func (o ContainerRegistryResponseOutput) ToContainerRegistryResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryResponsePtrOutput {
-	return o.ApplyT(func(v ContainerRegistryResponse) *ContainerRegistryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRegistryResponse) *ContainerRegistryResponse {
 		return &v
 	}).(ContainerRegistryResponsePtrOutput)
 }
+
 func (o ContainerRegistryResponseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRegistryResponse) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -2690,7 +2771,13 @@ func (o ContainerRegistryResponsePtrOutput) ToContainerRegistryResponsePtrOutput
 }
 
 func (o ContainerRegistryResponsePtrOutput) Elem() ContainerRegistryResponseOutput {
-	return o.ApplyT(func(v *ContainerRegistryResponse) ContainerRegistryResponse { return *v }).(ContainerRegistryResponseOutput)
+	return o.ApplyT(func(v *ContainerRegistryResponse) ContainerRegistryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRegistryResponse
+		return ret
+	}).(ContainerRegistryResponseOutput)
 }
 
 func (o ContainerRegistryResponsePtrOutput) Password() pulumi.StringPtrOutput {
@@ -2750,15 +2837,15 @@ type DataDisk struct {
 	//  readWrite - The caching mode for the disk is read and write.
 	//
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-	Caching    *string `pulumi:"caching"`
-	DiskSizeGB int     `pulumi:"diskSizeGB"`
+	Caching    *CachingType `pulumi:"caching"`
+	DiskSizeGB int          `pulumi:"diskSizeGB"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
 	Lun int `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
 	//  Standard_LRS - The data disk should use standard locally redundant storage.
 	//  Premium_LRS - The data disk should use premium locally redundant storage.
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	StorageAccountType *StorageAccountType `pulumi:"storageAccountType"`
 }
 
 // DataDiskInput is an input type that accepts DataDiskArgs and DataDiskOutput values.
@@ -2781,15 +2868,15 @@ type DataDiskArgs struct {
 	//  readWrite - The caching mode for the disk is read and write.
 	//
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-	Caching    *CachingType    `pulumi:"caching"`
-	DiskSizeGB pulumi.IntInput `pulumi:"diskSizeGB"`
+	Caching    CachingTypePtrInput `pulumi:"caching"`
+	DiskSizeGB pulumi.IntInput     `pulumi:"diskSizeGB"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
 	//  Standard_LRS - The data disk should use standard locally redundant storage.
 	//  Premium_LRS - The data disk should use premium locally redundant storage.
-	StorageAccountType *StorageAccountType `pulumi:"storageAccountType"`
+	StorageAccountType StorageAccountTypePtrInput `pulumi:"storageAccountType"`
 }
 
 func (DataDiskArgs) ElementType() reflect.Type {
@@ -2851,8 +2938,8 @@ func (o DataDiskOutput) ToDataDiskOutputWithContext(ctx context.Context) DataDis
 //  readWrite - The caching mode for the disk is read and write.
 //
 //  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-func (o DataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o DataDiskOutput) Caching() CachingTypePtrOutput {
+	return o.ApplyT(func(v DataDisk) *CachingType { return v.Caching }).(CachingTypePtrOutput)
 }
 
 func (o DataDiskOutput) DiskSizeGB() pulumi.IntOutput {
@@ -2868,8 +2955,8 @@ func (o DataDiskOutput) Lun() pulumi.IntOutput {
 //
 //  Standard_LRS - The data disk should use standard locally redundant storage.
 //  Premium_LRS - The data disk should use premium locally redundant storage.
-func (o DataDiskOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataDisk) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+func (o DataDiskOutput) StorageAccountType() StorageAccountTypePtrOutput {
+	return o.ApplyT(func(v DataDisk) *StorageAccountType { return v.StorageAccountType }).(StorageAccountTypePtrOutput)
 }
 
 type DataDiskArrayOutput struct{ *pulumi.OutputState }
@@ -3176,7 +3263,7 @@ func (o DeleteCertificateErrorResponseOutput) ToDeleteCertificateErrorResponsePt
 }
 
 func (o DeleteCertificateErrorResponseOutput) ToDeleteCertificateErrorResponsePtrOutputWithContext(ctx context.Context) DeleteCertificateErrorResponsePtrOutput {
-	return o.ApplyT(func(v DeleteCertificateErrorResponse) *DeleteCertificateErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeleteCertificateErrorResponse) *DeleteCertificateErrorResponse {
 		return &v
 	}).(DeleteCertificateErrorResponsePtrOutput)
 }
@@ -3216,7 +3303,13 @@ func (o DeleteCertificateErrorResponsePtrOutput) ToDeleteCertificateErrorRespons
 }
 
 func (o DeleteCertificateErrorResponsePtrOutput) Elem() DeleteCertificateErrorResponseOutput {
-	return o.ApplyT(func(v *DeleteCertificateErrorResponse) DeleteCertificateErrorResponse { return *v }).(DeleteCertificateErrorResponseOutput)
+	return o.ApplyT(func(v *DeleteCertificateErrorResponse) DeleteCertificateErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeleteCertificateErrorResponse
+		return ret
+	}).(DeleteCertificateErrorResponseOutput)
 }
 
 // An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
@@ -3376,7 +3469,7 @@ func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutput() Depl
 }
 
 func (o DeploymentConfigurationOutput) ToDeploymentConfigurationPtrOutputWithContext(ctx context.Context) DeploymentConfigurationPtrOutput {
-	return o.ApplyT(func(v DeploymentConfiguration) *DeploymentConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfiguration) *DeploymentConfiguration {
 		return &v
 	}).(DeploymentConfigurationPtrOutput)
 }
@@ -3406,7 +3499,13 @@ func (o DeploymentConfigurationPtrOutput) ToDeploymentConfigurationPtrOutputWith
 }
 
 func (o DeploymentConfigurationPtrOutput) Elem() DeploymentConfigurationOutput {
-	return o.ApplyT(func(v *DeploymentConfiguration) DeploymentConfiguration { return *v }).(DeploymentConfigurationOutput)
+	return o.ApplyT(func(v *DeploymentConfiguration) DeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfiguration
+		return ret
+	}).(DeploymentConfigurationOutput)
 }
 
 // This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
@@ -3526,7 +3625,7 @@ func (o DeploymentConfigurationResponseOutput) ToDeploymentConfigurationResponse
 }
 
 func (o DeploymentConfigurationResponseOutput) ToDeploymentConfigurationResponsePtrOutputWithContext(ctx context.Context) DeploymentConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v DeploymentConfigurationResponse) *DeploymentConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigurationResponse) *DeploymentConfigurationResponse {
 		return &v
 	}).(DeploymentConfigurationResponsePtrOutput)
 }
@@ -3560,7 +3659,13 @@ func (o DeploymentConfigurationResponsePtrOutput) ToDeploymentConfigurationRespo
 }
 
 func (o DeploymentConfigurationResponsePtrOutput) Elem() DeploymentConfigurationResponseOutput {
-	return o.ApplyT(func(v *DeploymentConfigurationResponse) DeploymentConfigurationResponse { return *v }).(DeploymentConfigurationResponseOutput)
+	return o.ApplyT(func(v *DeploymentConfigurationResponse) DeploymentConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigurationResponse
+		return ret
+	}).(DeploymentConfigurationResponseOutput)
 }
 
 // This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
@@ -3785,7 +3890,7 @@ func (o EnvironmentSettingResponseArrayOutput) Index(i pulumi.IntInput) Environm
 
 type FixedScaleSettings struct {
 	// If omitted, the default value is Requeue.
-	NodeDeallocationOption *string `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption *ComputeNodeDeallocationOption `pulumi:"nodeDeallocationOption"`
 	// The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 	ResizeTimeout *string `pulumi:"resizeTimeout"`
 	// At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
@@ -3807,7 +3912,7 @@ type FixedScaleSettingsInput interface {
 
 type FixedScaleSettingsArgs struct {
 	// If omitted, the default value is Requeue.
-	NodeDeallocationOption *ComputeNodeDeallocationOption `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption ComputeNodeDeallocationOptionPtrInput `pulumi:"nodeDeallocationOption"`
 	// The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 	ResizeTimeout pulumi.StringPtrInput `pulumi:"resizeTimeout"`
 	// At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
@@ -3888,14 +3993,14 @@ func (o FixedScaleSettingsOutput) ToFixedScaleSettingsPtrOutput() FixedScaleSett
 }
 
 func (o FixedScaleSettingsOutput) ToFixedScaleSettingsPtrOutputWithContext(ctx context.Context) FixedScaleSettingsPtrOutput {
-	return o.ApplyT(func(v FixedScaleSettings) *FixedScaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FixedScaleSettings) *FixedScaleSettings {
 		return &v
 	}).(FixedScaleSettingsPtrOutput)
 }
 
 // If omitted, the default value is Requeue.
-func (o FixedScaleSettingsOutput) NodeDeallocationOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FixedScaleSettings) *string { return v.NodeDeallocationOption }).(pulumi.StringPtrOutput)
+func (o FixedScaleSettingsOutput) NodeDeallocationOption() ComputeNodeDeallocationOptionPtrOutput {
+	return o.ApplyT(func(v FixedScaleSettings) *ComputeNodeDeallocationOption { return v.NodeDeallocationOption }).(ComputeNodeDeallocationOptionPtrOutput)
 }
 
 // The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
@@ -3928,17 +4033,23 @@ func (o FixedScaleSettingsPtrOutput) ToFixedScaleSettingsPtrOutputWithContext(ct
 }
 
 func (o FixedScaleSettingsPtrOutput) Elem() FixedScaleSettingsOutput {
-	return o.ApplyT(func(v *FixedScaleSettings) FixedScaleSettings { return *v }).(FixedScaleSettingsOutput)
+	return o.ApplyT(func(v *FixedScaleSettings) FixedScaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FixedScaleSettings
+		return ret
+	}).(FixedScaleSettingsOutput)
 }
 
 // If omitted, the default value is Requeue.
-func (o FixedScaleSettingsPtrOutput) NodeDeallocationOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FixedScaleSettings) *string {
+func (o FixedScaleSettingsPtrOutput) NodeDeallocationOption() ComputeNodeDeallocationOptionPtrOutput {
+	return o.ApplyT(func(v *FixedScaleSettings) *ComputeNodeDeallocationOption {
 		if v == nil {
 			return nil
 		}
 		return v.NodeDeallocationOption
-	}).(pulumi.StringPtrOutput)
+	}).(ComputeNodeDeallocationOptionPtrOutput)
 }
 
 // The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
@@ -4076,7 +4187,7 @@ func (o FixedScaleSettingsResponseOutput) ToFixedScaleSettingsResponsePtrOutput(
 }
 
 func (o FixedScaleSettingsResponseOutput) ToFixedScaleSettingsResponsePtrOutputWithContext(ctx context.Context) FixedScaleSettingsResponsePtrOutput {
-	return o.ApplyT(func(v FixedScaleSettingsResponse) *FixedScaleSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FixedScaleSettingsResponse) *FixedScaleSettingsResponse {
 		return &v
 	}).(FixedScaleSettingsResponsePtrOutput)
 }
@@ -4116,7 +4227,13 @@ func (o FixedScaleSettingsResponsePtrOutput) ToFixedScaleSettingsResponsePtrOutp
 }
 
 func (o FixedScaleSettingsResponsePtrOutput) Elem() FixedScaleSettingsResponseOutput {
-	return o.ApplyT(func(v *FixedScaleSettingsResponse) FixedScaleSettingsResponse { return *v }).(FixedScaleSettingsResponseOutput)
+	return o.ApplyT(func(v *FixedScaleSettingsResponse) FixedScaleSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FixedScaleSettingsResponse
+		return ret
+	}).(FixedScaleSettingsResponseOutput)
 }
 
 // If omitted, the default value is Requeue.
@@ -4268,7 +4385,7 @@ func (o ImageReferenceOutput) ToImageReferencePtrOutput() ImageReferencePtrOutpu
 }
 
 func (o ImageReferenceOutput) ToImageReferencePtrOutputWithContext(ctx context.Context) ImageReferencePtrOutput {
-	return o.ApplyT(func(v ImageReference) *ImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageReference) *ImageReference {
 		return &v
 	}).(ImageReferencePtrOutput)
 }
@@ -4313,7 +4430,13 @@ func (o ImageReferencePtrOutput) ToImageReferencePtrOutputWithContext(ctx contex
 }
 
 func (o ImageReferencePtrOutput) Elem() ImageReferenceOutput {
-	return o.ApplyT(func(v *ImageReference) ImageReference { return *v }).(ImageReferenceOutput)
+	return o.ApplyT(func(v *ImageReference) ImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret ImageReference
+		return ret
+	}).(ImageReferenceOutput)
 }
 
 // This property is mutually exclusive with other properties. The virtual machine image must be in the same region and subscription as the Azure Batch account. For information about the firewall settings for Batch node agent to communicate with Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration .
@@ -4475,7 +4598,7 @@ func (o ImageReferenceResponseOutput) ToImageReferenceResponsePtrOutput() ImageR
 }
 
 func (o ImageReferenceResponseOutput) ToImageReferenceResponsePtrOutputWithContext(ctx context.Context) ImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ImageReferenceResponse) *ImageReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageReferenceResponse) *ImageReferenceResponse {
 		return &v
 	}).(ImageReferenceResponsePtrOutput)
 }
@@ -4520,7 +4643,13 @@ func (o ImageReferenceResponsePtrOutput) ToImageReferenceResponsePtrOutputWithCo
 }
 
 func (o ImageReferenceResponsePtrOutput) Elem() ImageReferenceResponseOutput {
-	return o.ApplyT(func(v *ImageReferenceResponse) ImageReferenceResponse { return *v }).(ImageReferenceResponseOutput)
+	return o.ApplyT(func(v *ImageReferenceResponse) ImageReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageReferenceResponse
+		return ret
+	}).(ImageReferenceResponseOutput)
 }
 
 // This property is mutually exclusive with other properties. The virtual machine image must be in the same region and subscription as the Azure Batch account. For information about the firewall settings for Batch node agent to communicate with Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration .
@@ -4584,7 +4713,7 @@ type InboundNatPool struct {
 	Name string `pulumi:"name"`
 	// The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
 	NetworkSecurityGroupRules []NetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
-	Protocol                  string                     `pulumi:"protocol"`
+	Protocol                  InboundEndpointProtocol    `pulumi:"protocol"`
 }
 
 // InboundNatPoolInput is an input type that accepts InboundNatPoolArgs and InboundNatPoolOutput values.
@@ -4609,7 +4738,7 @@ type InboundNatPoolArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
 	NetworkSecurityGroupRules NetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
-	Protocol                  InboundEndpointProtocol            `pulumi:"protocol"`
+	Protocol                  InboundEndpointProtocolInput       `pulumi:"protocol"`
 }
 
 func (InboundNatPoolArgs) ElementType() reflect.Type {
@@ -4688,8 +4817,8 @@ func (o InboundNatPoolOutput) NetworkSecurityGroupRules() NetworkSecurityGroupRu
 	return o.ApplyT(func(v InboundNatPool) []NetworkSecurityGroupRule { return v.NetworkSecurityGroupRules }).(NetworkSecurityGroupRuleArrayOutput)
 }
 
-func (o InboundNatPoolOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v InboundNatPool) string { return v.Protocol }).(pulumi.StringOutput)
+func (o InboundNatPoolOutput) Protocol() InboundEndpointProtocolOutput {
+	return o.ApplyT(func(v InboundNatPool) InboundEndpointProtocol { return v.Protocol }).(InboundEndpointProtocolOutput)
 }
 
 type InboundNatPoolArrayOutput struct{ *pulumi.OutputState }
@@ -4951,7 +5080,7 @@ func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferenc
 }
 
 func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultReference) *KeyVaultReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReference) *KeyVaultReference {
 		return &v
 	}).(KeyVaultReferencePtrOutput)
 }
@@ -4981,7 +5110,13 @@ func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutputWithContext(ctx 
 }
 
 func (o KeyVaultReferencePtrOutput) Elem() KeyVaultReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference { return *v }).(KeyVaultReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultReference
+		return ret
+	}).(KeyVaultReferenceOutput)
 }
 
 // The resource ID of the Azure key vault associated with the Batch account.
@@ -5104,7 +5239,7 @@ func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutput() 
 }
 
 func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
 		return &v
 	}).(KeyVaultReferenceResponsePtrOutput)
 }
@@ -5134,7 +5269,13 @@ func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutput
 }
 
 func (o KeyVaultReferenceResponsePtrOutput) Elem() KeyVaultReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse { return *v }).(KeyVaultReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultReferenceResponse
+		return ret
+	}).(KeyVaultReferenceResponseOutput)
 }
 
 // The resource ID of the Azure key vault associated with the Batch account.
@@ -5258,7 +5399,7 @@ func (o LinuxUserConfigurationOutput) ToLinuxUserConfigurationPtrOutput() LinuxU
 }
 
 func (o LinuxUserConfigurationOutput) ToLinuxUserConfigurationPtrOutputWithContext(ctx context.Context) LinuxUserConfigurationPtrOutput {
-	return o.ApplyT(func(v LinuxUserConfiguration) *LinuxUserConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxUserConfiguration) *LinuxUserConfiguration {
 		return &v
 	}).(LinuxUserConfigurationPtrOutput)
 }
@@ -5293,7 +5434,13 @@ func (o LinuxUserConfigurationPtrOutput) ToLinuxUserConfigurationPtrOutputWithCo
 }
 
 func (o LinuxUserConfigurationPtrOutput) Elem() LinuxUserConfigurationOutput {
-	return o.ApplyT(func(v *LinuxUserConfiguration) LinuxUserConfiguration { return *v }).(LinuxUserConfigurationOutput)
+	return o.ApplyT(func(v *LinuxUserConfiguration) LinuxUserConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxUserConfiguration
+		return ret
+	}).(LinuxUserConfigurationOutput)
 }
 
 // The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
@@ -5427,7 +5574,7 @@ func (o LinuxUserConfigurationResponseOutput) ToLinuxUserConfigurationResponsePt
 }
 
 func (o LinuxUserConfigurationResponseOutput) ToLinuxUserConfigurationResponsePtrOutputWithContext(ctx context.Context) LinuxUserConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v LinuxUserConfigurationResponse) *LinuxUserConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxUserConfigurationResponse) *LinuxUserConfigurationResponse {
 		return &v
 	}).(LinuxUserConfigurationResponsePtrOutput)
 }
@@ -5462,7 +5609,13 @@ func (o LinuxUserConfigurationResponsePtrOutput) ToLinuxUserConfigurationRespons
 }
 
 func (o LinuxUserConfigurationResponsePtrOutput) Elem() LinuxUserConfigurationResponseOutput {
-	return o.ApplyT(func(v *LinuxUserConfigurationResponse) LinuxUserConfigurationResponse { return *v }).(LinuxUserConfigurationResponseOutput)
+	return o.ApplyT(func(v *LinuxUserConfigurationResponse) LinuxUserConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxUserConfigurationResponse
+		return ret
+	}).(LinuxUserConfigurationResponseOutput)
 }
 
 // The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
@@ -5801,7 +5954,7 @@ func (o NetworkConfigurationOutput) ToNetworkConfigurationPtrOutput() NetworkCon
 }
 
 func (o NetworkConfigurationOutput) ToNetworkConfigurationPtrOutputWithContext(ctx context.Context) NetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v NetworkConfiguration) *NetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConfiguration) *NetworkConfiguration {
 		return &v
 	}).(NetworkConfigurationPtrOutput)
 }
@@ -5831,7 +5984,13 @@ func (o NetworkConfigurationPtrOutput) ToNetworkConfigurationPtrOutputWithContex
 }
 
 func (o NetworkConfigurationPtrOutput) Elem() NetworkConfigurationOutput {
-	return o.ApplyT(func(v *NetworkConfiguration) NetworkConfiguration { return *v }).(NetworkConfigurationOutput)
+	return o.ApplyT(func(v *NetworkConfiguration) NetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConfiguration
+		return ret
+	}).(NetworkConfigurationOutput)
 }
 
 // Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
@@ -5954,7 +6113,7 @@ func (o NetworkConfigurationResponseOutput) ToNetworkConfigurationResponsePtrOut
 }
 
 func (o NetworkConfigurationResponseOutput) ToNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) NetworkConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v NetworkConfigurationResponse) *NetworkConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkConfigurationResponse) *NetworkConfigurationResponse {
 		return &v
 	}).(NetworkConfigurationResponsePtrOutput)
 }
@@ -5986,7 +6145,13 @@ func (o NetworkConfigurationResponsePtrOutput) ToNetworkConfigurationResponsePtr
 }
 
 func (o NetworkConfigurationResponsePtrOutput) Elem() NetworkConfigurationResponseOutput {
-	return o.ApplyT(func(v *NetworkConfigurationResponse) NetworkConfigurationResponse { return *v }).(NetworkConfigurationResponseOutput)
+	return o.ApplyT(func(v *NetworkConfigurationResponse) NetworkConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkConfigurationResponse
+		return ret
+	}).(NetworkConfigurationResponseOutput)
 }
 
 // Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
@@ -6010,7 +6175,7 @@ func (o NetworkConfigurationResponsePtrOutput) SubnetId() pulumi.StringPtrOutput
 }
 
 type NetworkSecurityGroupRule struct {
-	Access string `pulumi:"access"`
+	Access NetworkSecurityGroupRuleAccess `pulumi:"access"`
 	// Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
 	Priority int `pulumi:"priority"`
 	// Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
@@ -6029,7 +6194,7 @@ type NetworkSecurityGroupRuleInput interface {
 }
 
 type NetworkSecurityGroupRuleArgs struct {
-	Access NetworkSecurityGroupRuleAccess `pulumi:"access"`
+	Access NetworkSecurityGroupRuleAccessInput `pulumi:"access"`
 	// Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
@@ -6087,8 +6252,8 @@ func (o NetworkSecurityGroupRuleOutput) ToNetworkSecurityGroupRuleOutputWithCont
 	return o
 }
 
-func (o NetworkSecurityGroupRuleOutput) Access() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkSecurityGroupRule) string { return v.Access }).(pulumi.StringOutput)
+func (o NetworkSecurityGroupRuleOutput) Access() NetworkSecurityGroupRuleAccessOutput {
+	return o.ApplyT(func(v NetworkSecurityGroupRule) NetworkSecurityGroupRuleAccess { return v.Access }).(NetworkSecurityGroupRuleAccessOutput)
 }
 
 // Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
@@ -6326,7 +6491,7 @@ func (o PoolEndpointConfigurationOutput) ToPoolEndpointConfigurationPtrOutput() 
 }
 
 func (o PoolEndpointConfigurationOutput) ToPoolEndpointConfigurationPtrOutputWithContext(ctx context.Context) PoolEndpointConfigurationPtrOutput {
-	return o.ApplyT(func(v PoolEndpointConfiguration) *PoolEndpointConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolEndpointConfiguration) *PoolEndpointConfiguration {
 		return &v
 	}).(PoolEndpointConfigurationPtrOutput)
 }
@@ -6351,7 +6516,13 @@ func (o PoolEndpointConfigurationPtrOutput) ToPoolEndpointConfigurationPtrOutput
 }
 
 func (o PoolEndpointConfigurationPtrOutput) Elem() PoolEndpointConfigurationOutput {
-	return o.ApplyT(func(v *PoolEndpointConfiguration) PoolEndpointConfiguration { return *v }).(PoolEndpointConfigurationOutput)
+	return o.ApplyT(func(v *PoolEndpointConfiguration) PoolEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PoolEndpointConfiguration
+		return ret
+	}).(PoolEndpointConfigurationOutput)
 }
 
 // The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
@@ -6457,7 +6628,7 @@ func (o PoolEndpointConfigurationResponseOutput) ToPoolEndpointConfigurationResp
 }
 
 func (o PoolEndpointConfigurationResponseOutput) ToPoolEndpointConfigurationResponsePtrOutputWithContext(ctx context.Context) PoolEndpointConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v PoolEndpointConfigurationResponse) *PoolEndpointConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolEndpointConfigurationResponse) *PoolEndpointConfigurationResponse {
 		return &v
 	}).(PoolEndpointConfigurationResponsePtrOutput)
 }
@@ -6482,7 +6653,13 @@ func (o PoolEndpointConfigurationResponsePtrOutput) ToPoolEndpointConfigurationR
 }
 
 func (o PoolEndpointConfigurationResponsePtrOutput) Elem() PoolEndpointConfigurationResponseOutput {
-	return o.ApplyT(func(v *PoolEndpointConfigurationResponse) PoolEndpointConfigurationResponse { return *v }).(PoolEndpointConfigurationResponseOutput)
+	return o.ApplyT(func(v *PoolEndpointConfigurationResponse) PoolEndpointConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PoolEndpointConfigurationResponse
+		return ret
+	}).(PoolEndpointConfigurationResponseOutput)
 }
 
 // The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
@@ -6717,7 +6894,7 @@ func (o ResizeOperationStatusResponseOutput) ToResizeOperationStatusResponsePtrO
 }
 
 func (o ResizeOperationStatusResponseOutput) ToResizeOperationStatusResponsePtrOutputWithContext(ctx context.Context) ResizeOperationStatusResponsePtrOutput {
-	return o.ApplyT(func(v ResizeOperationStatusResponse) *ResizeOperationStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResizeOperationStatusResponse) *ResizeOperationStatusResponse {
 		return &v
 	}).(ResizeOperationStatusResponsePtrOutput)
 }
@@ -6764,7 +6941,13 @@ func (o ResizeOperationStatusResponsePtrOutput) ToResizeOperationStatusResponseP
 }
 
 func (o ResizeOperationStatusResponsePtrOutput) Elem() ResizeOperationStatusResponseOutput {
-	return o.ApplyT(func(v *ResizeOperationStatusResponse) ResizeOperationStatusResponse { return *v }).(ResizeOperationStatusResponseOutput)
+	return o.ApplyT(func(v *ResizeOperationStatusResponse) ResizeOperationStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResizeOperationStatusResponse
+		return ret
+	}).(ResizeOperationStatusResponseOutput)
 }
 
 // This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
@@ -7208,7 +7391,7 @@ func (o ScaleSettingsOutput) ToScaleSettingsPtrOutput() ScaleSettingsPtrOutput {
 }
 
 func (o ScaleSettingsOutput) ToScaleSettingsPtrOutputWithContext(ctx context.Context) ScaleSettingsPtrOutput {
-	return o.ApplyT(func(v ScaleSettings) *ScaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettings) *ScaleSettings {
 		return &v
 	}).(ScaleSettingsPtrOutput)
 }
@@ -7238,7 +7421,13 @@ func (o ScaleSettingsPtrOutput) ToScaleSettingsPtrOutputWithContext(ctx context.
 }
 
 func (o ScaleSettingsPtrOutput) Elem() ScaleSettingsOutput {
-	return o.ApplyT(func(v *ScaleSettings) ScaleSettings { return *v }).(ScaleSettingsOutput)
+	return o.ApplyT(func(v *ScaleSettings) ScaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSettings
+		return ret
+	}).(ScaleSettingsOutput)
 }
 
 // This property and fixedScale are mutually exclusive and one of the properties must be specified.
@@ -7361,7 +7550,7 @@ func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutput() ScaleSet
 }
 
 func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutputWithContext(ctx context.Context) ScaleSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ScaleSettingsResponse) *ScaleSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettingsResponse) *ScaleSettingsResponse {
 		return &v
 	}).(ScaleSettingsResponsePtrOutput)
 }
@@ -7391,7 +7580,13 @@ func (o ScaleSettingsResponsePtrOutput) ToScaleSettingsResponsePtrOutputWithCont
 }
 
 func (o ScaleSettingsResponsePtrOutput) Elem() ScaleSettingsResponseOutput {
-	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse { return *v }).(ScaleSettingsResponseOutput)
+	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSettingsResponse
+		return ret
+	}).(ScaleSettingsResponseOutput)
 }
 
 // This property and fixedScale are mutually exclusive and one of the properties must be specified.
@@ -7527,7 +7722,7 @@ func (o StartTaskOutput) ToStartTaskPtrOutput() StartTaskPtrOutput {
 }
 
 func (o StartTaskOutput) ToStartTaskPtrOutputWithContext(ctx context.Context) StartTaskPtrOutput {
-	return o.ApplyT(func(v StartTask) *StartTask {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StartTask) *StartTask {
 		return &v
 	}).(StartTaskPtrOutput)
 }
@@ -7580,7 +7775,13 @@ func (o StartTaskPtrOutput) ToStartTaskPtrOutputWithContext(ctx context.Context)
 }
 
 func (o StartTaskPtrOutput) Elem() StartTaskOutput {
-	return o.ApplyT(func(v *StartTask) StartTask { return *v }).(StartTaskOutput)
+	return o.ApplyT(func(v *StartTask) StartTask {
+		if v != nil {
+			return *v
+		}
+		var ret StartTask
+		return ret
+	}).(StartTaskOutput)
 }
 
 // The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
@@ -7764,7 +7965,7 @@ func (o StartTaskResponseOutput) ToStartTaskResponsePtrOutput() StartTaskRespons
 }
 
 func (o StartTaskResponseOutput) ToStartTaskResponsePtrOutputWithContext(ctx context.Context) StartTaskResponsePtrOutput {
-	return o.ApplyT(func(v StartTaskResponse) *StartTaskResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StartTaskResponse) *StartTaskResponse {
 		return &v
 	}).(StartTaskResponsePtrOutput)
 }
@@ -7817,7 +8018,13 @@ func (o StartTaskResponsePtrOutput) ToStartTaskResponsePtrOutputWithContext(ctx 
 }
 
 func (o StartTaskResponsePtrOutput) Elem() StartTaskResponseOutput {
-	return o.ApplyT(func(v *StartTaskResponse) StartTaskResponse { return *v }).(StartTaskResponseOutput)
+	return o.ApplyT(func(v *StartTaskResponse) StartTaskResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StartTaskResponse
+		return ret
+	}).(StartTaskResponseOutput)
 }
 
 // The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
@@ -7989,7 +8196,7 @@ func (o TaskContainerSettingsOutput) ToTaskContainerSettingsPtrOutput() TaskCont
 }
 
 func (o TaskContainerSettingsOutput) ToTaskContainerSettingsPtrOutputWithContext(ctx context.Context) TaskContainerSettingsPtrOutput {
-	return o.ApplyT(func(v TaskContainerSettings) *TaskContainerSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskContainerSettings) *TaskContainerSettings {
 		return &v
 	}).(TaskContainerSettingsPtrOutput)
 }
@@ -8024,7 +8231,13 @@ func (o TaskContainerSettingsPtrOutput) ToTaskContainerSettingsPtrOutputWithCont
 }
 
 func (o TaskContainerSettingsPtrOutput) Elem() TaskContainerSettingsOutput {
-	return o.ApplyT(func(v *TaskContainerSettings) TaskContainerSettings { return *v }).(TaskContainerSettingsOutput)
+	return o.ApplyT(func(v *TaskContainerSettings) TaskContainerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret TaskContainerSettings
+		return ret
+	}).(TaskContainerSettingsOutput)
 }
 
 // These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
@@ -8158,7 +8371,7 @@ func (o TaskContainerSettingsResponseOutput) ToTaskContainerSettingsResponsePtrO
 }
 
 func (o TaskContainerSettingsResponseOutput) ToTaskContainerSettingsResponsePtrOutputWithContext(ctx context.Context) TaskContainerSettingsResponsePtrOutput {
-	return o.ApplyT(func(v TaskContainerSettingsResponse) *TaskContainerSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskContainerSettingsResponse) *TaskContainerSettingsResponse {
 		return &v
 	}).(TaskContainerSettingsResponsePtrOutput)
 }
@@ -8193,7 +8406,13 @@ func (o TaskContainerSettingsResponsePtrOutput) ToTaskContainerSettingsResponseP
 }
 
 func (o TaskContainerSettingsResponsePtrOutput) Elem() TaskContainerSettingsResponseOutput {
-	return o.ApplyT(func(v *TaskContainerSettingsResponse) TaskContainerSettingsResponse { return *v }).(TaskContainerSettingsResponseOutput)
+	return o.ApplyT(func(v *TaskContainerSettingsResponse) TaskContainerSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TaskContainerSettingsResponse
+		return ret
+	}).(TaskContainerSettingsResponseOutput)
 }
 
 // These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
@@ -8227,7 +8446,7 @@ func (o TaskContainerSettingsResponsePtrOutput) Registry() ContainerRegistryResp
 }
 
 type TaskSchedulingPolicy struct {
-	NodeFillType string `pulumi:"nodeFillType"`
+	NodeFillType ComputeNodeFillType `pulumi:"nodeFillType"`
 }
 
 // TaskSchedulingPolicyInput is an input type that accepts TaskSchedulingPolicyArgs and TaskSchedulingPolicyOutput values.
@@ -8242,7 +8461,7 @@ type TaskSchedulingPolicyInput interface {
 }
 
 type TaskSchedulingPolicyArgs struct {
-	NodeFillType ComputeNodeFillType `pulumi:"nodeFillType"`
+	NodeFillType ComputeNodeFillTypeInput `pulumi:"nodeFillType"`
 }
 
 func (TaskSchedulingPolicyArgs) ElementType() reflect.Type {
@@ -8317,12 +8536,13 @@ func (o TaskSchedulingPolicyOutput) ToTaskSchedulingPolicyPtrOutput() TaskSchedu
 }
 
 func (o TaskSchedulingPolicyOutput) ToTaskSchedulingPolicyPtrOutputWithContext(ctx context.Context) TaskSchedulingPolicyPtrOutput {
-	return o.ApplyT(func(v TaskSchedulingPolicy) *TaskSchedulingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSchedulingPolicy) *TaskSchedulingPolicy {
 		return &v
 	}).(TaskSchedulingPolicyPtrOutput)
 }
-func (o TaskSchedulingPolicyOutput) NodeFillType() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskSchedulingPolicy) string { return v.NodeFillType }).(pulumi.StringOutput)
+
+func (o TaskSchedulingPolicyOutput) NodeFillType() ComputeNodeFillTypeOutput {
+	return o.ApplyT(func(v TaskSchedulingPolicy) ComputeNodeFillType { return v.NodeFillType }).(ComputeNodeFillTypeOutput)
 }
 
 type TaskSchedulingPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -8340,16 +8560,22 @@ func (o TaskSchedulingPolicyPtrOutput) ToTaskSchedulingPolicyPtrOutputWithContex
 }
 
 func (o TaskSchedulingPolicyPtrOutput) Elem() TaskSchedulingPolicyOutput {
-	return o.ApplyT(func(v *TaskSchedulingPolicy) TaskSchedulingPolicy { return *v }).(TaskSchedulingPolicyOutput)
+	return o.ApplyT(func(v *TaskSchedulingPolicy) TaskSchedulingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TaskSchedulingPolicy
+		return ret
+	}).(TaskSchedulingPolicyOutput)
 }
 
-func (o TaskSchedulingPolicyPtrOutput) NodeFillType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskSchedulingPolicy) *string {
+func (o TaskSchedulingPolicyPtrOutput) NodeFillType() ComputeNodeFillTypePtrOutput {
+	return o.ApplyT(func(v *TaskSchedulingPolicy) *ComputeNodeFillType {
 		if v == nil {
 			return nil
 		}
 		return &v.NodeFillType
-	}).(pulumi.StringPtrOutput)
+	}).(ComputeNodeFillTypePtrOutput)
 }
 
 type TaskSchedulingPolicyResponse struct {
@@ -8443,10 +8669,11 @@ func (o TaskSchedulingPolicyResponseOutput) ToTaskSchedulingPolicyResponsePtrOut
 }
 
 func (o TaskSchedulingPolicyResponseOutput) ToTaskSchedulingPolicyResponsePtrOutputWithContext(ctx context.Context) TaskSchedulingPolicyResponsePtrOutput {
-	return o.ApplyT(func(v TaskSchedulingPolicyResponse) *TaskSchedulingPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSchedulingPolicyResponse) *TaskSchedulingPolicyResponse {
 		return &v
 	}).(TaskSchedulingPolicyResponsePtrOutput)
 }
+
 func (o TaskSchedulingPolicyResponseOutput) NodeFillType() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSchedulingPolicyResponse) string { return v.NodeFillType }).(pulumi.StringOutput)
 }
@@ -8466,7 +8693,13 @@ func (o TaskSchedulingPolicyResponsePtrOutput) ToTaskSchedulingPolicyResponsePtr
 }
 
 func (o TaskSchedulingPolicyResponsePtrOutput) Elem() TaskSchedulingPolicyResponseOutput {
-	return o.ApplyT(func(v *TaskSchedulingPolicyResponse) TaskSchedulingPolicyResponse { return *v }).(TaskSchedulingPolicyResponseOutput)
+	return o.ApplyT(func(v *TaskSchedulingPolicyResponse) TaskSchedulingPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TaskSchedulingPolicyResponse
+		return ret
+	}).(TaskSchedulingPolicyResponseOutput)
 }
 
 func (o TaskSchedulingPolicyResponsePtrOutput) NodeFillType() pulumi.StringPtrOutput {
@@ -8480,7 +8713,7 @@ func (o TaskSchedulingPolicyResponsePtrOutput) NodeFillType() pulumi.StringPtrOu
 
 type UserAccount struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel *string `pulumi:"elevationLevel"`
+	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
 	// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfiguration *LinuxUserConfiguration `pulumi:"linuxUserConfiguration"`
 	Name                   string                  `pulumi:"name"`
@@ -8502,7 +8735,7 @@ type UserAccountInput interface {
 
 type UserAccountArgs struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
+	ElevationLevel ElevationLevelPtrInput `pulumi:"elevationLevel"`
 	// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfiguration LinuxUserConfigurationPtrInput `pulumi:"linuxUserConfiguration"`
 	Name                   pulumi.StringInput             `pulumi:"name"`
@@ -8563,8 +8796,8 @@ func (o UserAccountOutput) ToUserAccountOutputWithContext(ctx context.Context) U
 }
 
 // nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-func (o UserAccountOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAccount) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
+func (o UserAccountOutput) ElevationLevel() ElevationLevelPtrOutput {
+	return o.ApplyT(func(v UserAccount) *ElevationLevel { return v.ElevationLevel }).(ElevationLevelPtrOutput)
 }
 
 // This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
@@ -8832,7 +9065,7 @@ func (o UserIdentityOutput) ToUserIdentityPtrOutput() UserIdentityPtrOutput {
 }
 
 func (o UserIdentityOutput) ToUserIdentityPtrOutputWithContext(ctx context.Context) UserIdentityPtrOutput {
-	return o.ApplyT(func(v UserIdentity) *UserIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserIdentity) *UserIdentity {
 		return &v
 	}).(UserIdentityPtrOutput)
 }
@@ -8862,7 +9095,13 @@ func (o UserIdentityPtrOutput) ToUserIdentityPtrOutputWithContext(ctx context.Co
 }
 
 func (o UserIdentityPtrOutput) Elem() UserIdentityOutput {
-	return o.ApplyT(func(v *UserIdentity) UserIdentity { return *v }).(UserIdentityOutput)
+	return o.ApplyT(func(v *UserIdentity) UserIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret UserIdentity
+		return ret
+	}).(UserIdentityOutput)
 }
 
 // The userName and autoUser properties are mutually exclusive; you must specify one but not both.
@@ -8985,7 +9224,7 @@ func (o UserIdentityResponseOutput) ToUserIdentityResponsePtrOutput() UserIdenti
 }
 
 func (o UserIdentityResponseOutput) ToUserIdentityResponsePtrOutputWithContext(ctx context.Context) UserIdentityResponsePtrOutput {
-	return o.ApplyT(func(v UserIdentityResponse) *UserIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserIdentityResponse) *UserIdentityResponse {
 		return &v
 	}).(UserIdentityResponsePtrOutput)
 }
@@ -9015,7 +9254,13 @@ func (o UserIdentityResponsePtrOutput) ToUserIdentityResponsePtrOutputWithContex
 }
 
 func (o UserIdentityResponsePtrOutput) Elem() UserIdentityResponseOutput {
-	return o.ApplyT(func(v *UserIdentityResponse) UserIdentityResponse { return *v }).(UserIdentityResponseOutput)
+	return o.ApplyT(func(v *UserIdentityResponse) UserIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserIdentityResponse
+		return ret
+	}).(UserIdentityResponseOutput)
 }
 
 // The userName and autoUser properties are mutually exclusive; you must specify one but not both.
@@ -9155,7 +9400,7 @@ func (o VirtualMachineConfigurationOutput) ToVirtualMachineConfigurationPtrOutpu
 }
 
 func (o VirtualMachineConfigurationOutput) ToVirtualMachineConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationPtrOutput {
-	return o.ApplyT(func(v VirtualMachineConfiguration) *VirtualMachineConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineConfiguration) *VirtualMachineConfiguration {
 		return &v
 	}).(VirtualMachineConfigurationPtrOutput)
 }
@@ -9207,7 +9452,13 @@ func (o VirtualMachineConfigurationPtrOutput) ToVirtualMachineConfigurationPtrOu
 }
 
 func (o VirtualMachineConfigurationPtrOutput) Elem() VirtualMachineConfigurationOutput {
-	return o.ApplyT(func(v *VirtualMachineConfiguration) VirtualMachineConfiguration { return *v }).(VirtualMachineConfigurationOutput)
+	return o.ApplyT(func(v *VirtualMachineConfiguration) VirtualMachineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineConfiguration
+		return ret
+	}).(VirtualMachineConfigurationOutput)
 }
 
 // If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
@@ -9389,7 +9640,7 @@ func (o VirtualMachineConfigurationResponseOutput) ToVirtualMachineConfiguration
 }
 
 func (o VirtualMachineConfigurationResponseOutput) ToVirtualMachineConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineConfigurationResponse) *VirtualMachineConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineConfigurationResponse) *VirtualMachineConfigurationResponse {
 		return &v
 	}).(VirtualMachineConfigurationResponsePtrOutput)
 }
@@ -9445,7 +9696,13 @@ func (o VirtualMachineConfigurationResponsePtrOutput) ToVirtualMachineConfigurat
 }
 
 func (o VirtualMachineConfigurationResponsePtrOutput) Elem() VirtualMachineConfigurationResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationResponse) VirtualMachineConfigurationResponse { return *v }).(VirtualMachineConfigurationResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineConfigurationResponse) VirtualMachineConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineConfigurationResponse
+		return ret
+	}).(VirtualMachineConfigurationResponseOutput)
 }
 
 // If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.
@@ -9603,7 +9860,7 @@ func (o WindowsConfigurationOutput) ToWindowsConfigurationPtrOutput() WindowsCon
 }
 
 func (o WindowsConfigurationOutput) ToWindowsConfigurationPtrOutputWithContext(ctx context.Context) WindowsConfigurationPtrOutput {
-	return o.ApplyT(func(v WindowsConfiguration) *WindowsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsConfiguration) *WindowsConfiguration {
 		return &v
 	}).(WindowsConfigurationPtrOutput)
 }
@@ -9628,7 +9885,13 @@ func (o WindowsConfigurationPtrOutput) ToWindowsConfigurationPtrOutputWithContex
 }
 
 func (o WindowsConfigurationPtrOutput) Elem() WindowsConfigurationOutput {
-	return o.ApplyT(func(v *WindowsConfiguration) WindowsConfiguration { return *v }).(WindowsConfigurationOutput)
+	return o.ApplyT(func(v *WindowsConfiguration) WindowsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsConfiguration
+		return ret
+	}).(WindowsConfigurationOutput)
 }
 
 // If omitted, the default value is true.
@@ -9734,7 +9997,7 @@ func (o WindowsConfigurationResponseOutput) ToWindowsConfigurationResponsePtrOut
 }
 
 func (o WindowsConfigurationResponseOutput) ToWindowsConfigurationResponsePtrOutputWithContext(ctx context.Context) WindowsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v WindowsConfigurationResponse) *WindowsConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsConfigurationResponse) *WindowsConfigurationResponse {
 		return &v
 	}).(WindowsConfigurationResponsePtrOutput)
 }
@@ -9759,7 +10022,13 @@ func (o WindowsConfigurationResponsePtrOutput) ToWindowsConfigurationResponsePtr
 }
 
 func (o WindowsConfigurationResponsePtrOutput) Elem() WindowsConfigurationResponseOutput {
-	return o.ApplyT(func(v *WindowsConfigurationResponse) WindowsConfigurationResponse { return *v }).(WindowsConfigurationResponseOutput)
+	return o.ApplyT(func(v *WindowsConfigurationResponse) WindowsConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsConfigurationResponse
+		return ret
+	}).(WindowsConfigurationResponseOutput)
 }
 
 // If omitted, the default value is true.
@@ -9774,7 +10043,7 @@ func (o WindowsConfigurationResponsePtrOutput) EnableAutomaticUpdates() pulumi.B
 
 type WindowsUserConfiguration struct {
 	// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-	LoginMode *string `pulumi:"loginMode"`
+	LoginMode *LoginMode `pulumi:"loginMode"`
 }
 
 // WindowsUserConfigurationInput is an input type that accepts WindowsUserConfigurationArgs and WindowsUserConfigurationOutput values.
@@ -9790,7 +10059,7 @@ type WindowsUserConfigurationInput interface {
 
 type WindowsUserConfigurationArgs struct {
 	// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-	LoginMode *LoginMode `pulumi:"loginMode"`
+	LoginMode LoginModePtrInput `pulumi:"loginMode"`
 }
 
 func (WindowsUserConfigurationArgs) ElementType() reflect.Type {
@@ -9865,14 +10134,14 @@ func (o WindowsUserConfigurationOutput) ToWindowsUserConfigurationPtrOutput() Wi
 }
 
 func (o WindowsUserConfigurationOutput) ToWindowsUserConfigurationPtrOutputWithContext(ctx context.Context) WindowsUserConfigurationPtrOutput {
-	return o.ApplyT(func(v WindowsUserConfiguration) *WindowsUserConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsUserConfiguration) *WindowsUserConfiguration {
 		return &v
 	}).(WindowsUserConfigurationPtrOutput)
 }
 
 // Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-func (o WindowsUserConfigurationOutput) LoginMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsUserConfiguration) *string { return v.LoginMode }).(pulumi.StringPtrOutput)
+func (o WindowsUserConfigurationOutput) LoginMode() LoginModePtrOutput {
+	return o.ApplyT(func(v WindowsUserConfiguration) *LoginMode { return v.LoginMode }).(LoginModePtrOutput)
 }
 
 type WindowsUserConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -9890,17 +10159,23 @@ func (o WindowsUserConfigurationPtrOutput) ToWindowsUserConfigurationPtrOutputWi
 }
 
 func (o WindowsUserConfigurationPtrOutput) Elem() WindowsUserConfigurationOutput {
-	return o.ApplyT(func(v *WindowsUserConfiguration) WindowsUserConfiguration { return *v }).(WindowsUserConfigurationOutput)
+	return o.ApplyT(func(v *WindowsUserConfiguration) WindowsUserConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsUserConfiguration
+		return ret
+	}).(WindowsUserConfigurationOutput)
 }
 
 // Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-func (o WindowsUserConfigurationPtrOutput) LoginMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsUserConfiguration) *string {
+func (o WindowsUserConfigurationPtrOutput) LoginMode() LoginModePtrOutput {
+	return o.ApplyT(func(v *WindowsUserConfiguration) *LoginMode {
 		if v == nil {
 			return nil
 		}
 		return v.LoginMode
-	}).(pulumi.StringPtrOutput)
+	}).(LoginModePtrOutput)
 }
 
 type WindowsUserConfigurationResponse struct {
@@ -9996,7 +10271,7 @@ func (o WindowsUserConfigurationResponseOutput) ToWindowsUserConfigurationRespon
 }
 
 func (o WindowsUserConfigurationResponseOutput) ToWindowsUserConfigurationResponsePtrOutputWithContext(ctx context.Context) WindowsUserConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v WindowsUserConfigurationResponse) *WindowsUserConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsUserConfigurationResponse) *WindowsUserConfigurationResponse {
 		return &v
 	}).(WindowsUserConfigurationResponsePtrOutput)
 }
@@ -10021,7 +10296,13 @@ func (o WindowsUserConfigurationResponsePtrOutput) ToWindowsUserConfigurationRes
 }
 
 func (o WindowsUserConfigurationResponsePtrOutput) Elem() WindowsUserConfigurationResponseOutput {
-	return o.ApplyT(func(v *WindowsUserConfigurationResponse) WindowsUserConfigurationResponse { return *v }).(WindowsUserConfigurationResponseOutput)
+	return o.ApplyT(func(v *WindowsUserConfigurationResponse) WindowsUserConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsUserConfigurationResponse
+		return ret
+	}).(WindowsUserConfigurationResponseOutput)
 }
 
 // Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.

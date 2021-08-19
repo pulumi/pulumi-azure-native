@@ -146,45 +146,9 @@ func GetProduct(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Product resources.
 type productState struct {
-	// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
-	ApprovalRequired *bool `pulumi:"approvalRequired"`
-	// Product description. May include HTML formatting tags.
-	Description *string `pulumi:"description"`
-	// Product name.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
-	State *string `pulumi:"state"`
-	// Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
-	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
-	// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
-	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
-	// Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
-	Terms *string `pulumi:"terms"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type ProductState struct {
-	// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
-	ApprovalRequired pulumi.BoolPtrInput
-	// Product description. May include HTML formatting tags.
-	Description pulumi.StringPtrInput
-	// Product name.
-	DisplayName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
-	State pulumi.StringPtrInput
-	// Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
-	SubscriptionRequired pulumi.BoolPtrInput
-	// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
-	SubscriptionsLimit pulumi.IntPtrInput
-	// Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
-	Terms pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ProductState) ElementType() reflect.Type {
@@ -205,7 +169,7 @@ type productArgs struct {
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
-	State *string `pulumi:"state"`
+	State *ProductStateEnum `pulumi:"state"`
 	// Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
@@ -229,7 +193,7 @@ type ProductArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
-	State *ProductStateEnum
+	State ProductStateEnumPtrInput
 	// Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
 	SubscriptionRequired pulumi.BoolPtrInput
 	// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
@@ -261,9 +225,7 @@ func (i *Product) ToProductOutputWithContext(ctx context.Context) ProductOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProductOutput)
 }
 
-type ProductOutput struct {
-	*pulumi.OutputState
-}
+type ProductOutput struct{ *pulumi.OutputState }
 
 func (ProductOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Product)(nil))

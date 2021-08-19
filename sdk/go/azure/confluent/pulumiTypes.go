@@ -122,7 +122,7 @@ func (o OrganizationResourcePropertiesOfferDetailOutput) ToOrganizationResourceP
 }
 
 func (o OrganizationResourcePropertiesOfferDetailOutput) ToOrganizationResourcePropertiesOfferDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesOfferDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *OrganizationResourcePropertiesOfferDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesOfferDetail) *OrganizationResourcePropertiesOfferDetail {
 		return &v
 	}).(OrganizationResourcePropertiesOfferDetailPtrOutput)
 }
@@ -168,7 +168,11 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) ToOrganizationResour
 
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) Elem() OrganizationResourcePropertiesOfferDetailOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) OrganizationResourcePropertiesOfferDetail {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesOfferDetail
+		return ret
 	}).(OrganizationResourcePropertiesOfferDetailOutput)
 }
 
@@ -338,7 +342,7 @@ func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationR
 }
 
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *OrganizationResourcePropertiesResponseOfferDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesResponseOfferDetail) *OrganizationResourcePropertiesResponseOfferDetail {
 		return &v
 	}).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
 }
@@ -389,7 +393,11 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) ToOrganizati
 
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) Elem() OrganizationResourcePropertiesResponseOfferDetailOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) OrganizationResourcePropertiesResponseOfferDetail {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesResponseOfferDetail
+		return ret
 	}).(OrganizationResourcePropertiesResponseOfferDetailOutput)
 }
 
@@ -557,7 +565,7 @@ func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationRe
 }
 
 func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesResponseUserDetail) *OrganizationResourcePropertiesResponseUserDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesResponseUserDetail) *OrganizationResourcePropertiesResponseUserDetail {
 		return &v
 	}).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
 }
@@ -593,7 +601,11 @@ func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) ToOrganizatio
 
 func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) Elem() OrganizationResourcePropertiesResponseUserDetailOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseUserDetail) OrganizationResourcePropertiesResponseUserDetail {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesResponseUserDetail
+		return ret
 	}).(OrganizationResourcePropertiesResponseUserDetailOutput)
 }
 
@@ -731,7 +743,7 @@ func (o OrganizationResourcePropertiesUserDetailOutput) ToOrganizationResourcePr
 }
 
 func (o OrganizationResourcePropertiesUserDetailOutput) ToOrganizationResourcePropertiesUserDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesUserDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesUserDetail) *OrganizationResourcePropertiesUserDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesUserDetail) *OrganizationResourcePropertiesUserDetail {
 		return &v
 	}).(OrganizationResourcePropertiesUserDetailPtrOutput)
 }
@@ -766,7 +778,13 @@ func (o OrganizationResourcePropertiesUserDetailPtrOutput) ToOrganizationResourc
 }
 
 func (o OrganizationResourcePropertiesUserDetailPtrOutput) Elem() OrganizationResourcePropertiesUserDetailOutput {
-	return o.ApplyT(func(v *OrganizationResourcePropertiesUserDetail) OrganizationResourcePropertiesUserDetail { return *v }).(OrganizationResourcePropertiesUserDetailOutput)
+	return o.ApplyT(func(v *OrganizationResourcePropertiesUserDetail) OrganizationResourcePropertiesUserDetail {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesUserDetail
+		return ret
+	}).(OrganizationResourcePropertiesUserDetailOutput)
 }
 
 // Email address

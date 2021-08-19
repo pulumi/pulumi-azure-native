@@ -84,53 +84,9 @@ func GetNetworkManager(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkManager resources.
 type networkManagerState struct {
-	// A description of the network manager.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network manager.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Scope Access.
-	NetworkManagerScopeAccesses []string `pulumi:"networkManagerScopeAccesses"`
-	// Scope of Network Manager.
-	NetworkManagerScopes *NetworkManagerPropertiesResponseNetworkManagerScopes `pulumi:"networkManagerScopes"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type NetworkManagerState struct {
-	// A description of the network manager.
-	Description pulumi.StringPtrInput
-	// A friendly name for the network manager.
-	DisplayName pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Scope Access.
-	NetworkManagerScopeAccesses pulumi.StringArrayInput
-	// Scope of Network Manager.
-	NetworkManagerScopes NetworkManagerPropertiesResponseNetworkManagerScopesPtrInput
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The system metadata related to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (NetworkManagerState) ElementType() reflect.Type {
@@ -203,9 +159,7 @@ func (i *NetworkManager) ToNetworkManagerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerOutput)
 }
 
-type NetworkManagerOutput struct {
-	*pulumi.OutputState
-}
+type NetworkManagerOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkManager)(nil))

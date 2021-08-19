@@ -112,35 +112,9 @@ func GetWebAppAuthSettingsV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppAuthSettingsV2 resources.
 type webAppAuthSettingsV2State struct {
-	GlobalValidation  *GlobalValidationResponse  `pulumi:"globalValidation"`
-	HttpSettings      *HttpSettingsResponse      `pulumi:"httpSettings"`
-	IdentityProviders *IdentityProvidersResponse `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind  *string        `pulumi:"kind"`
-	Login *LoginResponse `pulumi:"login"`
-	// Resource Name.
-	Name     *string               `pulumi:"name"`
-	Platform *AuthPlatformResponse `pulumi:"platform"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppAuthSettingsV2State struct {
-	GlobalValidation  GlobalValidationResponsePtrInput
-	HttpSettings      HttpSettingsResponsePtrInput
-	IdentityProviders IdentityProvidersResponsePtrInput
-	// Kind of resource.
-	Kind  pulumi.StringPtrInput
-	Login LoginResponsePtrInput
-	// Resource Name.
-	Name     pulumi.StringPtrInput
-	Platform AuthPlatformResponsePtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppAuthSettingsV2State) ElementType() reflect.Type {
@@ -199,9 +173,7 @@ func (i *WebAppAuthSettingsV2) ToWebAppAuthSettingsV2OutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppAuthSettingsV2Output)
 }
 
-type WebAppAuthSettingsV2Output struct {
-	*pulumi.OutputState
-}
+type WebAppAuthSettingsV2Output struct{ *pulumi.OutputState }
 
 func (WebAppAuthSettingsV2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppAuthSettingsV2)(nil))

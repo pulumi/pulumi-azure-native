@@ -289,45 +289,9 @@ func GetPacketCapture(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PacketCapture resources.
 type packetCaptureState struct {
-	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket *int                          `pulumi:"bytesToCapturePerPacket"`
-	Etag                    *string                       `pulumi:"etag"`
-	Filters                 []PacketCaptureFilterResponse `pulumi:"filters"`
-	// Name of the packet capture.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the packet capture session.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Describes the storage location for a packet capture session.
-	StorageLocation *PacketCaptureStorageLocationResponse `pulumi:"storageLocation"`
-	// The ID of the targeted resource, only VM is currently supported.
-	Target *string `pulumi:"target"`
-	// Maximum duration of the capture session in seconds.
-	TimeLimitInSeconds *int `pulumi:"timeLimitInSeconds"`
-	// Maximum size of the capture output.
-	TotalBytesPerSession *int `pulumi:"totalBytesPerSession"`
-	// Packet capture type.
-	Type *string `pulumi:"type"`
 }
 
 type PacketCaptureState struct {
-	// Number of bytes captured per packet, the remaining bytes are truncated.
-	BytesToCapturePerPacket pulumi.IntPtrInput
-	Etag                    pulumi.StringPtrInput
-	Filters                 PacketCaptureFilterResponseArrayInput
-	// Name of the packet capture.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the packet capture session.
-	ProvisioningState pulumi.StringPtrInput
-	// Describes the storage location for a packet capture session.
-	StorageLocation PacketCaptureStorageLocationResponsePtrInput
-	// The ID of the targeted resource, only VM is currently supported.
-	Target pulumi.StringPtrInput
-	// Maximum duration of the capture session in seconds.
-	TimeLimitInSeconds pulumi.IntPtrInput
-	// Maximum size of the capture output.
-	TotalBytesPerSession pulumi.IntPtrInput
-	// Packet capture type.
-	Type pulumi.StringPtrInput
 }
 
 func (PacketCaptureState) ElementType() reflect.Type {
@@ -398,9 +362,7 @@ func (i *PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureOutput)
 }
 
-type PacketCaptureOutput struct {
-	*pulumi.OutputState
-}
+type PacketCaptureOutput struct{ *pulumi.OutputState }
 
 func (PacketCaptureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCapture)(nil))

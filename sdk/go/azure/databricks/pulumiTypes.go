@@ -106,7 +106,7 @@ func (o AddressSpaceOutput) ToAddressSpacePtrOutput() AddressSpacePtrOutput {
 }
 
 func (o AddressSpaceOutput) ToAddressSpacePtrOutputWithContext(ctx context.Context) AddressSpacePtrOutput {
-	return o.ApplyT(func(v AddressSpace) *AddressSpace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressSpace) *AddressSpace {
 		return &v
 	}).(AddressSpacePtrOutput)
 }
@@ -131,7 +131,13 @@ func (o AddressSpacePtrOutput) ToAddressSpacePtrOutputWithContext(ctx context.Co
 }
 
 func (o AddressSpacePtrOutput) Elem() AddressSpaceOutput {
-	return o.ApplyT(func(v *AddressSpace) AddressSpace { return *v }).(AddressSpaceOutput)
+	return o.ApplyT(func(v *AddressSpace) AddressSpace {
+		if v != nil {
+			return *v
+		}
+		var ret AddressSpace
+		return ret
+	}).(AddressSpaceOutput)
 }
 
 // A list of address blocks reserved for this virtual network in CIDR notation.
@@ -240,7 +246,7 @@ func (o AddressSpaceResponseOutput) ToAddressSpaceResponsePtrOutput() AddressSpa
 }
 
 func (o AddressSpaceResponseOutput) ToAddressSpaceResponsePtrOutputWithContext(ctx context.Context) AddressSpaceResponsePtrOutput {
-	return o.ApplyT(func(v AddressSpaceResponse) *AddressSpaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressSpaceResponse) *AddressSpaceResponse {
 		return &v
 	}).(AddressSpaceResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o AddressSpaceResponsePtrOutput) ToAddressSpaceResponsePtrOutputWithContex
 }
 
 func (o AddressSpaceResponsePtrOutput) Elem() AddressSpaceResponseOutput {
-	return o.ApplyT(func(v *AddressSpaceResponse) AddressSpaceResponse { return *v }).(AddressSpaceResponseOutput)
+	return o.ApplyT(func(v *AddressSpaceResponse) AddressSpaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AddressSpaceResponse
+		return ret
+	}).(AddressSpaceResponseOutput)
 }
 
 // A list of address blocks reserved for this virtual network in CIDR notation.
@@ -382,7 +394,7 @@ func (o CreatedByResponseOutput) ToCreatedByResponsePtrOutput() CreatedByRespons
 }
 
 func (o CreatedByResponseOutput) ToCreatedByResponsePtrOutputWithContext(ctx context.Context) CreatedByResponsePtrOutput {
-	return o.ApplyT(func(v CreatedByResponse) *CreatedByResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatedByResponse) *CreatedByResponse {
 		return &v
 	}).(CreatedByResponsePtrOutput)
 }
@@ -417,7 +429,13 @@ func (o CreatedByResponsePtrOutput) ToCreatedByResponsePtrOutputWithContext(ctx 
 }
 
 func (o CreatedByResponsePtrOutput) Elem() CreatedByResponseOutput {
-	return o.ApplyT(func(v *CreatedByResponse) CreatedByResponse { return *v }).(CreatedByResponseOutput)
+	return o.ApplyT(func(v *CreatedByResponse) CreatedByResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CreatedByResponse
+		return ret
+	}).(CreatedByResponseOutput)
 }
 
 // The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
@@ -558,7 +576,7 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
@@ -598,7 +616,13 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
 // The name of KeyVault key.
@@ -749,7 +773,7 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
@@ -789,7 +813,13 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
 // The name of KeyVault key.
@@ -936,7 +966,7 @@ func (o ManagedIdentityConfigurationResponseOutput) ToManagedIdentityConfigurati
 }
 
 func (o ManagedIdentityConfigurationResponseOutput) ToManagedIdentityConfigurationResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ManagedIdentityConfigurationResponse) *ManagedIdentityConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityConfigurationResponse) *ManagedIdentityConfigurationResponse {
 		return &v
 	}).(ManagedIdentityConfigurationResponsePtrOutput)
 }
@@ -971,7 +1001,13 @@ func (o ManagedIdentityConfigurationResponsePtrOutput) ToManagedIdentityConfigur
 }
 
 func (o ManagedIdentityConfigurationResponsePtrOutput) Elem() ManagedIdentityConfigurationResponseOutput {
-	return o.ApplyT(func(v *ManagedIdentityConfigurationResponse) ManagedIdentityConfigurationResponse { return *v }).(ManagedIdentityConfigurationResponseOutput)
+	return o.ApplyT(func(v *ManagedIdentityConfigurationResponse) ManagedIdentityConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityConfigurationResponse
+		return ret
+	}).(ManagedIdentityConfigurationResponseOutput)
 }
 
 // The objectId of the Managed Identity that is linked to the Managed Storage account.
@@ -1100,7 +1136,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -1127,7 +1163,13 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionProperties
+		return ret
+	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // Private endpoint connection state
@@ -1244,7 +1286,7 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
@@ -1282,7 +1324,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -1412,7 +1458,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -1437,7 +1483,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The resource identifier.
@@ -1554,7 +1606,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -1589,7 +1641,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // Actions required for a private endpoint connection
@@ -1726,7 +1784,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -1762,7 +1820,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -1896,7 +1958,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1926,7 +1988,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The SKU name.
@@ -2049,7 +2117,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -2079,7 +2147,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The SKU name.
@@ -2198,7 +2272,7 @@ func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ToV
 }
 
 func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork {
 		return &v
 	}).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput)
 }
@@ -2224,7 +2298,11 @@ func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) 
 
 func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork
+		return ret
 	}).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput)
 }
 
@@ -2334,7 +2412,7 @@ func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ToVirtu
 }
 
 func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork {
 		return &v
 	}).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput)
 }
@@ -2360,7 +2438,11 @@ func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) ToVi
 
 func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork
+		return ret
 	}).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput)
 }
 
@@ -2470,7 +2552,7 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOut
 }
 
 func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
 		return &v
 	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
 }
@@ -2496,7 +2578,11 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtr
 
 func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork
+		return ret
 	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput)
 }
 
@@ -2606,7 +2692,7 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput)
 }
 
 func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
 		return &v
 	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput)
 }
@@ -2632,7 +2718,11 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutp
 
 func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork
+		return ret
 	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput)
 }
 
@@ -2742,7 +2832,7 @@ func (o WorkspaceCustomBooleanParameterOutput) ToWorkspaceCustomBooleanParameter
 }
 
 func (o WorkspaceCustomBooleanParameterOutput) ToWorkspaceCustomBooleanParameterPtrOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomBooleanParameter) *WorkspaceCustomBooleanParameter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomBooleanParameter) *WorkspaceCustomBooleanParameter {
 		return &v
 	}).(WorkspaceCustomBooleanParameterPtrOutput)
 }
@@ -2767,7 +2857,13 @@ func (o WorkspaceCustomBooleanParameterPtrOutput) ToWorkspaceCustomBooleanParame
 }
 
 func (o WorkspaceCustomBooleanParameterPtrOutput) Elem() WorkspaceCustomBooleanParameterOutput {
-	return o.ApplyT(func(v *WorkspaceCustomBooleanParameter) WorkspaceCustomBooleanParameter { return *v }).(WorkspaceCustomBooleanParameterOutput)
+	return o.ApplyT(func(v *WorkspaceCustomBooleanParameter) WorkspaceCustomBooleanParameter {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomBooleanParameter
+		return ret
+	}).(WorkspaceCustomBooleanParameterOutput)
 }
 
 // The value which should be used for this field.
@@ -2880,7 +2976,7 @@ func (o WorkspaceCustomBooleanParameterResponseOutput) ToWorkspaceCustomBooleanP
 }
 
 func (o WorkspaceCustomBooleanParameterResponseOutput) ToWorkspaceCustomBooleanParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomBooleanParameterResponse) *WorkspaceCustomBooleanParameterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomBooleanParameterResponse) *WorkspaceCustomBooleanParameterResponse {
 		return &v
 	}).(WorkspaceCustomBooleanParameterResponsePtrOutput)
 }
@@ -2910,7 +3006,13 @@ func (o WorkspaceCustomBooleanParameterResponsePtrOutput) ToWorkspaceCustomBoole
 }
 
 func (o WorkspaceCustomBooleanParameterResponsePtrOutput) Elem() WorkspaceCustomBooleanParameterResponseOutput {
-	return o.ApplyT(func(v *WorkspaceCustomBooleanParameterResponse) WorkspaceCustomBooleanParameterResponse { return *v }).(WorkspaceCustomBooleanParameterResponseOutput)
+	return o.ApplyT(func(v *WorkspaceCustomBooleanParameterResponse) WorkspaceCustomBooleanParameterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomBooleanParameterResponse
+		return ret
+	}).(WorkspaceCustomBooleanParameterResponseOutput)
 }
 
 // The type of variable that this is
@@ -3033,7 +3135,7 @@ func (o WorkspaceCustomObjectParameterResponseOutput) ToWorkspaceCustomObjectPar
 }
 
 func (o WorkspaceCustomObjectParameterResponseOutput) ToWorkspaceCustomObjectParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomObjectParameterResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomObjectParameterResponse) *WorkspaceCustomObjectParameterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomObjectParameterResponse) *WorkspaceCustomObjectParameterResponse {
 		return &v
 	}).(WorkspaceCustomObjectParameterResponsePtrOutput)
 }
@@ -3063,7 +3165,13 @@ func (o WorkspaceCustomObjectParameterResponsePtrOutput) ToWorkspaceCustomObject
 }
 
 func (o WorkspaceCustomObjectParameterResponsePtrOutput) Elem() WorkspaceCustomObjectParameterResponseOutput {
-	return o.ApplyT(func(v *WorkspaceCustomObjectParameterResponse) WorkspaceCustomObjectParameterResponse { return *v }).(WorkspaceCustomObjectParameterResponseOutput)
+	return o.ApplyT(func(v *WorkspaceCustomObjectParameterResponse) WorkspaceCustomObjectParameterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomObjectParameterResponse
+		return ret
+	}).(WorkspaceCustomObjectParameterResponseOutput)
 }
 
 // The type of variable that this is
@@ -3238,7 +3346,7 @@ func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutput() 
 }
 
 func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutputWithContext(ctx context.Context) WorkspaceCustomParametersPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomParameters) *WorkspaceCustomParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomParameters) *WorkspaceCustomParameters {
 		return &v
 	}).(WorkspaceCustomParametersPtrOutput)
 }
@@ -3337,7 +3445,13 @@ func (o WorkspaceCustomParametersPtrOutput) ToWorkspaceCustomParametersPtrOutput
 }
 
 func (o WorkspaceCustomParametersPtrOutput) Elem() WorkspaceCustomParametersOutput {
-	return o.ApplyT(func(v *WorkspaceCustomParameters) WorkspaceCustomParameters { return *v }).(WorkspaceCustomParametersOutput)
+	return o.ApplyT(func(v *WorkspaceCustomParameters) WorkspaceCustomParameters {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomParameters
+		return ret
+	}).(WorkspaceCustomParametersOutput)
 }
 
 // The ID of a Azure Machine Learning workspace to link with Databricks workspace
@@ -3646,7 +3760,7 @@ func (o WorkspaceCustomParametersResponseOutput) ToWorkspaceCustomParametersResp
 }
 
 func (o WorkspaceCustomParametersResponseOutput) ToWorkspaceCustomParametersResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomParametersResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomParametersResponse) *WorkspaceCustomParametersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomParametersResponse) *WorkspaceCustomParametersResponse {
 		return &v
 	}).(WorkspaceCustomParametersResponsePtrOutput)
 }
@@ -3776,7 +3890,13 @@ func (o WorkspaceCustomParametersResponsePtrOutput) ToWorkspaceCustomParametersR
 }
 
 func (o WorkspaceCustomParametersResponsePtrOutput) Elem() WorkspaceCustomParametersResponseOutput {
-	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) WorkspaceCustomParametersResponse { return *v }).(WorkspaceCustomParametersResponseOutput)
+	return o.ApplyT(func(v *WorkspaceCustomParametersResponse) WorkspaceCustomParametersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomParametersResponse
+		return ret
+	}).(WorkspaceCustomParametersResponseOutput)
 }
 
 // The ID of a Azure Machine Learning workspace to link with Databricks workspace
@@ -4035,7 +4155,7 @@ func (o WorkspaceCustomStringParameterOutput) ToWorkspaceCustomStringParameterPt
 }
 
 func (o WorkspaceCustomStringParameterOutput) ToWorkspaceCustomStringParameterPtrOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomStringParameter) *WorkspaceCustomStringParameter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomStringParameter) *WorkspaceCustomStringParameter {
 		return &v
 	}).(WorkspaceCustomStringParameterPtrOutput)
 }
@@ -4060,7 +4180,13 @@ func (o WorkspaceCustomStringParameterPtrOutput) ToWorkspaceCustomStringParamete
 }
 
 func (o WorkspaceCustomStringParameterPtrOutput) Elem() WorkspaceCustomStringParameterOutput {
-	return o.ApplyT(func(v *WorkspaceCustomStringParameter) WorkspaceCustomStringParameter { return *v }).(WorkspaceCustomStringParameterOutput)
+	return o.ApplyT(func(v *WorkspaceCustomStringParameter) WorkspaceCustomStringParameter {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomStringParameter
+		return ret
+	}).(WorkspaceCustomStringParameterOutput)
 }
 
 // The value which should be used for this field.
@@ -4173,7 +4299,7 @@ func (o WorkspaceCustomStringParameterResponseOutput) ToWorkspaceCustomStringPar
 }
 
 func (o WorkspaceCustomStringParameterResponseOutput) ToWorkspaceCustomStringParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomStringParameterResponse) *WorkspaceCustomStringParameterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCustomStringParameterResponse) *WorkspaceCustomStringParameterResponse {
 		return &v
 	}).(WorkspaceCustomStringParameterResponsePtrOutput)
 }
@@ -4203,7 +4329,13 @@ func (o WorkspaceCustomStringParameterResponsePtrOutput) ToWorkspaceCustomString
 }
 
 func (o WorkspaceCustomStringParameterResponsePtrOutput) Elem() WorkspaceCustomStringParameterResponseOutput {
-	return o.ApplyT(func(v *WorkspaceCustomStringParameterResponse) WorkspaceCustomStringParameterResponse { return *v }).(WorkspaceCustomStringParameterResponseOutput)
+	return o.ApplyT(func(v *WorkspaceCustomStringParameterResponse) WorkspaceCustomStringParameterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCustomStringParameterResponse
+		return ret
+	}).(WorkspaceCustomStringParameterResponseOutput)
 }
 
 // The type of variable that this is
@@ -4322,7 +4454,7 @@ func (o WorkspaceEncryptionParameterOutput) ToWorkspaceEncryptionParameterPtrOut
 }
 
 func (o WorkspaceEncryptionParameterOutput) ToWorkspaceEncryptionParameterPtrOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterPtrOutput {
-	return o.ApplyT(func(v WorkspaceEncryptionParameter) *WorkspaceEncryptionParameter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceEncryptionParameter) *WorkspaceEncryptionParameter {
 		return &v
 	}).(WorkspaceEncryptionParameterPtrOutput)
 }
@@ -4347,7 +4479,13 @@ func (o WorkspaceEncryptionParameterPtrOutput) ToWorkspaceEncryptionParameterPtr
 }
 
 func (o WorkspaceEncryptionParameterPtrOutput) Elem() WorkspaceEncryptionParameterOutput {
-	return o.ApplyT(func(v *WorkspaceEncryptionParameter) WorkspaceEncryptionParameter { return *v }).(WorkspaceEncryptionParameterOutput)
+	return o.ApplyT(func(v *WorkspaceEncryptionParameter) WorkspaceEncryptionParameter {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceEncryptionParameter
+		return ret
+	}).(WorkspaceEncryptionParameterOutput)
 }
 
 // The value which should be used for this field.
@@ -4460,7 +4598,7 @@ func (o WorkspaceEncryptionParameterResponseOutput) ToWorkspaceEncryptionParamet
 }
 
 func (o WorkspaceEncryptionParameterResponseOutput) ToWorkspaceEncryptionParameterResponsePtrOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceEncryptionParameterResponse) *WorkspaceEncryptionParameterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceEncryptionParameterResponse) *WorkspaceEncryptionParameterResponse {
 		return &v
 	}).(WorkspaceEncryptionParameterResponsePtrOutput)
 }
@@ -4490,7 +4628,13 @@ func (o WorkspaceEncryptionParameterResponsePtrOutput) ToWorkspaceEncryptionPara
 }
 
 func (o WorkspaceEncryptionParameterResponsePtrOutput) Elem() WorkspaceEncryptionParameterResponseOutput {
-	return o.ApplyT(func(v *WorkspaceEncryptionParameterResponse) WorkspaceEncryptionParameterResponse { return *v }).(WorkspaceEncryptionParameterResponseOutput)
+	return o.ApplyT(func(v *WorkspaceEncryptionParameterResponse) WorkspaceEncryptionParameterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceEncryptionParameterResponse
+		return ret
+	}).(WorkspaceEncryptionParameterResponseOutput)
 }
 
 // The type of variable that this is

@@ -103,21 +103,9 @@ func GetJobCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobCredential resources.
 type jobCredentialState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The credential user name.
-	Username *string `pulumi:"username"`
 }
 
 type JobCredentialState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The credential user name.
-	Username pulumi.StringPtrInput
 }
 
 func (JobCredentialState) ElementType() reflect.Type {
@@ -178,9 +166,7 @@ func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialOutput)
 }
 
-type JobCredentialOutput struct {
-	*pulumi.OutputState
-}
+type JobCredentialOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobCredential)(nil))

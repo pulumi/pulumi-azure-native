@@ -90,49 +90,9 @@ func GetController(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Controller resources.
 type controllerState struct {
-	// DNS name for accessing DataPlane services
-	DataPlaneFqdn *string `pulumi:"dataPlaneFqdn"`
-	// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-	HostSuffix *string `pulumi:"hostSuffix"`
-	// Region where the Azure resource is located.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Provisioning state of the Azure Dev Spaces Controller.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Tags for the Azure resource.
-	Tags map[string]string `pulumi:"tags"`
-	// DNS of the target container host's API server
-	TargetContainerHostApiServerFqdn *string `pulumi:"targetContainerHostApiServerFqdn"`
-	// Resource ID of the target container host
-	TargetContainerHostResourceId *string `pulumi:"targetContainerHostResourceId"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ControllerState struct {
-	// DNS name for accessing DataPlane services
-	DataPlaneFqdn pulumi.StringPtrInput
-	// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
-	HostSuffix pulumi.StringPtrInput
-	// Region where the Azure resource is located.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Provisioning state of the Azure Dev Spaces Controller.
-	ProvisioningState pulumi.StringPtrInput
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku SkuResponsePtrInput
-	// Tags for the Azure resource.
-	Tags pulumi.StringMapInput
-	// DNS of the target container host's API server
-	TargetContainerHostApiServerFqdn pulumi.StringPtrInput
-	// Resource ID of the target container host
-	TargetContainerHostResourceId pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ControllerState) ElementType() reflect.Type {
@@ -197,9 +157,7 @@ func (i *Controller) ToControllerOutputWithContext(ctx context.Context) Controll
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerOutput)
 }
 
-type ControllerOutput struct {
-	*pulumi.OutputState
-}
+type ControllerOutput struct{ *pulumi.OutputState }
 
 func (ControllerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Controller)(nil))

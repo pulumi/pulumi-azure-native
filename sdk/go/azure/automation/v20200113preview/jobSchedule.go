@@ -96,37 +96,9 @@ func GetJobSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobSchedule resources.
 type jobScheduleState struct {
-	// Gets or sets the id of job schedule.
-	JobScheduleId *string `pulumi:"jobScheduleId"`
-	// Gets the name of the variable.
-	Name *string `pulumi:"name"`
-	// Gets or sets the parameters of the job schedule.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Gets or sets the hybrid worker group that the scheduled job should run on.
-	RunOn *string `pulumi:"runOn"`
-	// Gets or sets the runbook.
-	Runbook *RunbookAssociationPropertyResponse `pulumi:"runbook"`
-	// Gets or sets the schedule.
-	Schedule *ScheduleAssociationPropertyResponse `pulumi:"schedule"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type JobScheduleState struct {
-	// Gets or sets the id of job schedule.
-	JobScheduleId pulumi.StringPtrInput
-	// Gets the name of the variable.
-	Name pulumi.StringPtrInput
-	// Gets or sets the parameters of the job schedule.
-	Parameters pulumi.StringMapInput
-	// Gets or sets the hybrid worker group that the scheduled job should run on.
-	RunOn pulumi.StringPtrInput
-	// Gets or sets the runbook.
-	Runbook RunbookAssociationPropertyResponsePtrInput
-	// Gets or sets the schedule.
-	Schedule ScheduleAssociationPropertyResponsePtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (JobScheduleState) ElementType() reflect.Type {
@@ -191,9 +163,7 @@ func (i *JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobSch
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
 }
 
-type JobScheduleOutput struct {
-	*pulumi.OutputState
-}
+type JobScheduleOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobSchedule)(nil))

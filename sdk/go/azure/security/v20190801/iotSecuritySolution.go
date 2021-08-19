@@ -111,73 +111,9 @@ func GetIotSecuritySolution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotSecuritySolution resources.
 type iotSecuritySolutionState struct {
-	// List of additional workspaces
-	AdditionalWorkspaces []AdditionalWorkspacesPropertiesResponse `pulumi:"additionalWorkspaces"`
-	// List of resources that were automatically discovered as relevant to the security solution.
-	AutoDiscoveredResources []string `pulumi:"autoDiscoveredResources"`
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources []string `pulumi:"disabledDataSources"`
-	// Resource display name.
-	DisplayName *string `pulumi:"displayName"`
-	// List of additional options for exporting to workspace data.
-	Export []string `pulumi:"export"`
-	// IoT Hub resource IDs
-	IotHubs []string `pulumi:"iotHubs"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// List of the configuration status for each recommendation type.
-	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
-	// Status of the IoT Security solution.
-	Status *string `pulumi:"status"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Unmasked IP address logging status
-	UnmaskedIpLoggingStatus *string `pulumi:"unmaskedIpLoggingStatus"`
-	// Properties of the IoT Security solution's user defined resources.
-	UserDefinedResources *UserDefinedResourcesPropertiesResponse `pulumi:"userDefinedResources"`
-	// Workspace resource ID
-	Workspace *string `pulumi:"workspace"`
 }
 
 type IotSecuritySolutionState struct {
-	// List of additional workspaces
-	AdditionalWorkspaces AdditionalWorkspacesPropertiesResponseArrayInput
-	// List of resources that were automatically discovered as relevant to the security solution.
-	AutoDiscoveredResources pulumi.StringArrayInput
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources pulumi.StringArrayInput
-	// Resource display name.
-	DisplayName pulumi.StringPtrInput
-	// List of additional options for exporting to workspace data.
-	Export pulumi.StringArrayInput
-	// IoT Hub resource IDs
-	IotHubs pulumi.StringArrayInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// List of the configuration status for each recommendation type.
-	RecommendationsConfiguration RecommendationConfigurationPropertiesResponseArrayInput
-	// Status of the IoT Security solution.
-	Status pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Unmasked IP address logging status
-	UnmaskedIpLoggingStatus pulumi.StringPtrInput
-	// Properties of the IoT Security solution's user defined resources.
-	UserDefinedResources UserDefinedResourcesPropertiesResponsePtrInput
-	// Workspace resource ID
-	Workspace pulumi.StringPtrInput
 }
 
 func (IotSecuritySolutionState) ElementType() reflect.Type {
@@ -270,9 +206,7 @@ func (i *IotSecuritySolution) ToIotSecuritySolutionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IotSecuritySolutionOutput)
 }
 
-type IotSecuritySolutionOutput struct {
-	*pulumi.OutputState
-}
+type IotSecuritySolutionOutput struct{ *pulumi.OutputState }
 
 func (IotSecuritySolutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotSecuritySolution)(nil))

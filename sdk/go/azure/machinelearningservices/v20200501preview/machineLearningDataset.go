@@ -90,37 +90,9 @@ func GetMachineLearningDataset(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MachineLearningDataset resources.
 type machineLearningDatasetState struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name *string `pulumi:"name"`
-	// Dataset properties
-	Properties *DatasetResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type MachineLearningDatasetState struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Specifies the name of the resource.
-	Name pulumi.StringPtrInput
-	// Dataset properties
-	Properties DatasetResponsePtrInput
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// Specifies the type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (MachineLearningDatasetState) ElementType() reflect.Type {
@@ -183,9 +155,7 @@ func (i *MachineLearningDataset) ToMachineLearningDatasetOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningDatasetOutput)
 }
 
-type MachineLearningDatasetOutput struct {
-	*pulumi.OutputState
-}
+type MachineLearningDatasetOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningDatasetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningDataset)(nil))

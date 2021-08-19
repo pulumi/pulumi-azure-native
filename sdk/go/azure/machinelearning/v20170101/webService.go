@@ -80,29 +80,9 @@ func GetWebService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebService resources.
 type webServiceState struct {
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name *string `pulumi:"name"`
-	// Contains the property payload that describes the web service.
-	Properties *WebServicePropertiesForGraphResponse `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type WebServiceState struct {
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Specifies the name of the resource.
-	Name pulumi.StringPtrInput
-	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesForGraphResponsePtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// Specifies the type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (WebServiceState) ElementType() reflect.Type {
@@ -159,9 +139,7 @@ func (i *WebService) ToWebServiceOutputWithContext(ctx context.Context) WebServi
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceOutput)
 }
 
-type WebServiceOutput struct {
-	*pulumi.OutputState
-}
+type WebServiceOutput struct{ *pulumi.OutputState }
 
 func (WebServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebService)(nil))

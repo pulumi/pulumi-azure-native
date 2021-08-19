@@ -75,25 +75,9 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties interface{} `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties pulumi.Input
-	// System data associated with resource provider
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (JobState) ElementType() reflect.Type {
@@ -146,9 +130,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-type JobOutput struct {
-	*pulumi.OutputState
-}
+type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Job)(nil))

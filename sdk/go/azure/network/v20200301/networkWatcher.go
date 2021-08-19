@@ -265,33 +265,9 @@ func GetNetworkWatcher(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkWatcher resources.
 type networkWatcherState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the network watcher resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type NetworkWatcherState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the network watcher resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (NetworkWatcherState) ElementType() reflect.Type {
@@ -348,9 +324,7 @@ func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherOutput)
 }
 
-type NetworkWatcherOutput struct {
-	*pulumi.OutputState
-}
+type NetworkWatcherOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkWatcher)(nil))

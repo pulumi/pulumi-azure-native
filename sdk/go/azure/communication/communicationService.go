@@ -93,53 +93,9 @@ func GetCommunicationService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CommunicationService resources.
 type communicationServiceState struct {
-	// The location where the communication service stores its data at rest.
-	DataLocation *string `pulumi:"dataLocation"`
-	// FQDN of the CommunicationService instance.
-	HostName *string `pulumi:"hostName"`
-	// The immutable resource Id of the communication service.
-	ImmutableResourceId *string `pulumi:"immutableResourceId"`
-	// The Azure location where the CommunicationService is running.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Resource ID of an Azure Notification Hub linked to this resource.
-	NotificationHubId *string `pulumi:"notificationHubId"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
-	Version *string `pulumi:"version"`
 }
 
 type CommunicationServiceState struct {
-	// The location where the communication service stores its data at rest.
-	DataLocation pulumi.StringPtrInput
-	// FQDN of the CommunicationService instance.
-	HostName pulumi.StringPtrInput
-	// The immutable resource Id of the communication service.
-	ImmutableResourceId pulumi.StringPtrInput
-	// The Azure location where the CommunicationService is running.
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Resource ID of an Azure Notification Hub linked to this resource.
-	NotificationHubId pulumi.StringPtrInput
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringPtrInput
 }
 
 func (CommunicationServiceState) ElementType() reflect.Type {
@@ -196,9 +152,7 @@ func (i *CommunicationService) ToCommunicationServiceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CommunicationServiceOutput)
 }
 
-type CommunicationServiceOutput struct {
-	*pulumi.OutputState
-}
+type CommunicationServiceOutput struct{ *pulumi.OutputState }
 
 func (CommunicationServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CommunicationService)(nil))

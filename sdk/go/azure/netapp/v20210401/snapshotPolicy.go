@@ -144,49 +144,9 @@ func GetSnapshotPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotPolicy resources.
 type snapshotPolicyState struct {
-	// Schedule for daily snapshots
-	DailySchedule *DailyScheduleResponse `pulumi:"dailySchedule"`
-	// The property to decide policy is enabled or not
-	Enabled *bool `pulumi:"enabled"`
-	// Schedule for hourly snapshots
-	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Schedule for monthly snapshots
-	MonthlySchedule *MonthlyScheduleResponse `pulumi:"monthlySchedule"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Schedule for weekly snapshots
-	WeeklySchedule *WeeklyScheduleResponse `pulumi:"weeklySchedule"`
 }
 
 type SnapshotPolicyState struct {
-	// Schedule for daily snapshots
-	DailySchedule DailyScheduleResponsePtrInput
-	// The property to decide policy is enabled or not
-	Enabled pulumi.BoolPtrInput
-	// Schedule for hourly snapshots
-	HourlySchedule HourlyScheduleResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Schedule for monthly snapshots
-	MonthlySchedule MonthlyScheduleResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Schedule for weekly snapshots
-	WeeklySchedule WeeklyScheduleResponsePtrInput
 }
 
 func (SnapshotPolicyState) ElementType() reflect.Type {
@@ -263,9 +223,7 @@ func (i *SnapshotPolicy) ToSnapshotPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyOutput)
 }
 
-type SnapshotPolicyOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotPolicyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotPolicy)(nil))

@@ -13,7 +13,7 @@ import (
 // Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
 // Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
 // If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-type CloudServiceUpgradeMode pulumi.String
+type CloudServiceUpgradeMode string
 
 const (
 	CloudServiceUpgradeModeAuto         = CloudServiceUpgradeMode("Auto")
@@ -22,7 +22,23 @@ const (
 )
 
 func (CloudServiceUpgradeMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*CloudServiceUpgradeMode)(nil)).Elem()
+}
+
+func (e CloudServiceUpgradeMode) ToCloudServiceUpgradeModeOutput() CloudServiceUpgradeModeOutput {
+	return pulumi.ToOutput(e).(CloudServiceUpgradeModeOutput)
+}
+
+func (e CloudServiceUpgradeMode) ToCloudServiceUpgradeModeOutputWithContext(ctx context.Context) CloudServiceUpgradeModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CloudServiceUpgradeModeOutput)
+}
+
+func (e CloudServiceUpgradeMode) ToCloudServiceUpgradeModePtrOutput() CloudServiceUpgradeModePtrOutput {
+	return e.ToCloudServiceUpgradeModePtrOutputWithContext(context.Background())
+}
+
+func (e CloudServiceUpgradeMode) ToCloudServiceUpgradeModePtrOutputWithContext(ctx context.Context) CloudServiceUpgradeModePtrOutput {
+	return CloudServiceUpgradeMode(e).ToCloudServiceUpgradeModeOutputWithContext(ctx).ToCloudServiceUpgradeModePtrOutputWithContext(ctx)
 }
 
 func (e CloudServiceUpgradeMode) ToStringOutput() pulumi.StringOutput {
@@ -39,4 +55,130 @@ func (e CloudServiceUpgradeMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e CloudServiceUpgradeMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CloudServiceUpgradeModeOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceUpgradeModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceUpgradeMode)(nil)).Elem()
+}
+
+func (o CloudServiceUpgradeModeOutput) ToCloudServiceUpgradeModeOutput() CloudServiceUpgradeModeOutput {
+	return o
+}
+
+func (o CloudServiceUpgradeModeOutput) ToCloudServiceUpgradeModeOutputWithContext(ctx context.Context) CloudServiceUpgradeModeOutput {
+	return o
+}
+
+func (o CloudServiceUpgradeModeOutput) ToCloudServiceUpgradeModePtrOutput() CloudServiceUpgradeModePtrOutput {
+	return o.ToCloudServiceUpgradeModePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceUpgradeModeOutput) ToCloudServiceUpgradeModePtrOutputWithContext(ctx context.Context) CloudServiceUpgradeModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceUpgradeMode) *CloudServiceUpgradeMode {
+		return &v
+	}).(CloudServiceUpgradeModePtrOutput)
+}
+
+func (o CloudServiceUpgradeModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CloudServiceUpgradeModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudServiceUpgradeMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CloudServiceUpgradeModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceUpgradeModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudServiceUpgradeMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudServiceUpgradeModePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceUpgradeModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceUpgradeMode)(nil)).Elem()
+}
+
+func (o CloudServiceUpgradeModePtrOutput) ToCloudServiceUpgradeModePtrOutput() CloudServiceUpgradeModePtrOutput {
+	return o
+}
+
+func (o CloudServiceUpgradeModePtrOutput) ToCloudServiceUpgradeModePtrOutputWithContext(ctx context.Context) CloudServiceUpgradeModePtrOutput {
+	return o
+}
+
+func (o CloudServiceUpgradeModePtrOutput) Elem() CloudServiceUpgradeModeOutput {
+	return o.ApplyT(func(v *CloudServiceUpgradeMode) CloudServiceUpgradeMode {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceUpgradeMode
+		return ret
+	}).(CloudServiceUpgradeModeOutput)
+}
+
+func (o CloudServiceUpgradeModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceUpgradeModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CloudServiceUpgradeMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CloudServiceUpgradeModeInput is an input type that accepts CloudServiceUpgradeModeArgs and CloudServiceUpgradeModeOutput values.
+// You can construct a concrete instance of `CloudServiceUpgradeModeInput` via:
+//
+//          CloudServiceUpgradeModeArgs{...}
+type CloudServiceUpgradeModeInput interface {
+	pulumi.Input
+
+	ToCloudServiceUpgradeModeOutput() CloudServiceUpgradeModeOutput
+	ToCloudServiceUpgradeModeOutputWithContext(context.Context) CloudServiceUpgradeModeOutput
+}
+
+var cloudServiceUpgradeModePtrType = reflect.TypeOf((**CloudServiceUpgradeMode)(nil)).Elem()
+
+type CloudServiceUpgradeModePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceUpgradeModePtrOutput() CloudServiceUpgradeModePtrOutput
+	ToCloudServiceUpgradeModePtrOutputWithContext(context.Context) CloudServiceUpgradeModePtrOutput
+}
+
+type cloudServiceUpgradeModePtr string
+
+func CloudServiceUpgradeModePtr(v string) CloudServiceUpgradeModePtrInput {
+	return (*cloudServiceUpgradeModePtr)(&v)
+}
+
+func (*cloudServiceUpgradeModePtr) ElementType() reflect.Type {
+	return cloudServiceUpgradeModePtrType
+}
+
+func (in *cloudServiceUpgradeModePtr) ToCloudServiceUpgradeModePtrOutput() CloudServiceUpgradeModePtrOutput {
+	return pulumi.ToOutput(in).(CloudServiceUpgradeModePtrOutput)
+}
+
+func (in *cloudServiceUpgradeModePtr) ToCloudServiceUpgradeModePtrOutputWithContext(ctx context.Context) CloudServiceUpgradeModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CloudServiceUpgradeModePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(CloudServiceUpgradeModeOutput{})
+	pulumi.RegisterOutputType(CloudServiceUpgradeModePtrOutput{})
 }

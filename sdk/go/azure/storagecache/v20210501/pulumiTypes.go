@@ -110,7 +110,7 @@ func (o BlobNfsTargetOutput) ToBlobNfsTargetPtrOutput() BlobNfsTargetPtrOutput {
 }
 
 func (o BlobNfsTargetOutput) ToBlobNfsTargetPtrOutputWithContext(ctx context.Context) BlobNfsTargetPtrOutput {
-	return o.ApplyT(func(v BlobNfsTarget) *BlobNfsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobNfsTarget) *BlobNfsTarget {
 		return &v
 	}).(BlobNfsTargetPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o BlobNfsTargetPtrOutput) ToBlobNfsTargetPtrOutputWithContext(ctx context.
 }
 
 func (o BlobNfsTargetPtrOutput) Elem() BlobNfsTargetOutput {
-	return o.ApplyT(func(v *BlobNfsTarget) BlobNfsTarget { return *v }).(BlobNfsTargetOutput)
+	return o.ApplyT(func(v *BlobNfsTarget) BlobNfsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret BlobNfsTarget
+		return ret
+	}).(BlobNfsTargetOutput)
 }
 
 // Resource ID of the storage container.
@@ -263,7 +269,7 @@ func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponsePtrOutput() BlobNfsT
 }
 
 func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponsePtrOutputWithContext(ctx context.Context) BlobNfsTargetResponsePtrOutput {
-	return o.ApplyT(func(v BlobNfsTargetResponse) *BlobNfsTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobNfsTargetResponse) *BlobNfsTargetResponse {
 		return &v
 	}).(BlobNfsTargetResponsePtrOutput)
 }
@@ -293,7 +299,13 @@ func (o BlobNfsTargetResponsePtrOutput) ToBlobNfsTargetResponsePtrOutputWithCont
 }
 
 func (o BlobNfsTargetResponsePtrOutput) Elem() BlobNfsTargetResponseOutput {
-	return o.ApplyT(func(v *BlobNfsTargetResponse) BlobNfsTargetResponse { return *v }).(BlobNfsTargetResponseOutput)
+	return o.ApplyT(func(v *BlobNfsTargetResponse) BlobNfsTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlobNfsTargetResponse
+		return ret
+	}).(BlobNfsTargetResponseOutput)
 }
 
 // Resource ID of the storage container.
@@ -432,7 +444,7 @@ func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsPtrOut
 }
 
 func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsPtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettings) *CacheActiveDirectorySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettings) *CacheActiveDirectorySettings {
 		return &v
 	}).(CacheActiveDirectorySettingsPtrOutput)
 }
@@ -482,7 +494,13 @@ func (o CacheActiveDirectorySettingsPtrOutput) ToCacheActiveDirectorySettingsPtr
 }
 
 func (o CacheActiveDirectorySettingsPtrOutput) Elem() CacheActiveDirectorySettingsOutput {
-	return o.ApplyT(func(v *CacheActiveDirectorySettings) CacheActiveDirectorySettings { return *v }).(CacheActiveDirectorySettingsOutput)
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) CacheActiveDirectorySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettings
+		return ret
+	}).(CacheActiveDirectorySettingsOutput)
 }
 
 // The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
@@ -645,7 +663,7 @@ func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySet
 }
 
 func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettingsCredentials) *CacheActiveDirectorySettingsCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettingsCredentials) *CacheActiveDirectorySettingsCredentials {
 		return &v
 	}).(CacheActiveDirectorySettingsCredentialsPtrOutput)
 }
@@ -675,7 +693,13 @@ func (o CacheActiveDirectorySettingsCredentialsPtrOutput) ToCacheActiveDirectory
 }
 
 func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Elem() CacheActiveDirectorySettingsCredentialsOutput {
-	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) CacheActiveDirectorySettingsCredentials { return *v }).(CacheActiveDirectorySettingsCredentialsOutput)
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) CacheActiveDirectorySettingsCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettingsCredentials
+		return ret
+	}).(CacheActiveDirectorySettingsCredentialsOutput)
 }
 
 // Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
@@ -818,7 +842,7 @@ func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettin
 }
 
 func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse {
 		return &v
 	}).(CacheActiveDirectorySettingsResponsePtrOutput)
 }
@@ -875,7 +899,13 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) ToCacheActiveDirectorySet
 }
 
 func (o CacheActiveDirectorySettingsResponsePtrOutput) Elem() CacheActiveDirectorySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) CacheActiveDirectorySettingsResponse { return *v }).(CacheActiveDirectorySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) CacheActiveDirectorySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettingsResponse
+		return ret
+	}).(CacheActiveDirectorySettingsResponseOutput)
 }
 
 // The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
@@ -1048,7 +1078,7 @@ func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDire
 }
 
 func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettingsResponseCredentials) *CacheActiveDirectorySettingsResponseCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettingsResponseCredentials) *CacheActiveDirectorySettingsResponseCredentials {
 		return &v
 	}).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
 }
@@ -1079,7 +1109,11 @@ func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) ToCacheActiveD
 
 func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Elem() CacheActiveDirectorySettingsResponseCredentialsOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponseCredentials) CacheActiveDirectorySettingsResponseCredentials {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettingsResponseCredentials
+		return ret
 	}).(CacheActiveDirectorySettingsResponseCredentialsOutput)
 }
 
@@ -1203,7 +1237,7 @@ func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsPtrOutput() CacheD
 }
 
 func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheDirectorySettingsPtrOutput {
-	return o.ApplyT(func(v CacheDirectorySettings) *CacheDirectorySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectorySettings) *CacheDirectorySettings {
 		return &v
 	}).(CacheDirectorySettingsPtrOutput)
 }
@@ -1233,7 +1267,13 @@ func (o CacheDirectorySettingsPtrOutput) ToCacheDirectorySettingsPtrOutputWithCo
 }
 
 func (o CacheDirectorySettingsPtrOutput) Elem() CacheDirectorySettingsOutput {
-	return o.ApplyT(func(v *CacheDirectorySettings) CacheDirectorySettings { return *v }).(CacheDirectorySettingsOutput)
+	return o.ApplyT(func(v *CacheDirectorySettings) CacheDirectorySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectorySettings
+		return ret
+	}).(CacheDirectorySettingsOutput)
 }
 
 // Specifies settings for joining the HPC Cache to an Active Directory domain.
@@ -1356,7 +1396,7 @@ func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponsePt
 }
 
 func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheDirectorySettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheDirectorySettingsResponse) *CacheDirectorySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectorySettingsResponse) *CacheDirectorySettingsResponse {
 		return &v
 	}).(CacheDirectorySettingsResponsePtrOutput)
 }
@@ -1388,7 +1428,13 @@ func (o CacheDirectorySettingsResponsePtrOutput) ToCacheDirectorySettingsRespons
 }
 
 func (o CacheDirectorySettingsResponsePtrOutput) Elem() CacheDirectorySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheDirectorySettingsResponse) CacheDirectorySettingsResponse { return *v }).(CacheDirectorySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheDirectorySettingsResponse) CacheDirectorySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectorySettingsResponse
+		return ret
+	}).(CacheDirectorySettingsResponseOutput)
 }
 
 // Specifies settings for joining the HPC Cache to an Active Directory domain.
@@ -1511,7 +1557,7 @@ func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutput() Cach
 }
 
 func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v CacheEncryptionSettings) *CacheEncryptionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettings) *CacheEncryptionSettings {
 		return &v
 	}).(CacheEncryptionSettingsPtrOutput)
 }
@@ -1541,7 +1587,13 @@ func (o CacheEncryptionSettingsPtrOutput) ToCacheEncryptionSettingsPtrOutputWith
 }
 
 func (o CacheEncryptionSettingsPtrOutput) Elem() CacheEncryptionSettingsOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings { return *v }).(CacheEncryptionSettingsOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettings
+		return ret
+	}).(CacheEncryptionSettingsOutput)
 }
 
 // Specifies the location of the key encryption key in Key Vault.
@@ -1664,7 +1716,7 @@ func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponse
 }
 
 func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
 		return &v
 	}).(CacheEncryptionSettingsResponsePtrOutput)
 }
@@ -1694,7 +1746,13 @@ func (o CacheEncryptionSettingsResponsePtrOutput) ToCacheEncryptionSettingsRespo
 }
 
 func (o CacheEncryptionSettingsResponsePtrOutput) Elem() CacheEncryptionSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse { return *v }).(CacheEncryptionSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettingsResponse
+		return ret
+	}).(CacheEncryptionSettingsResponseOutput)
 }
 
 // Specifies the location of the key encryption key in Key Vault.
@@ -1821,7 +1879,7 @@ func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutput() CacheHealthR
 }
 
 func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
-	return o.ApplyT(func(v CacheHealthResponse) *CacheHealthResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheHealthResponse) *CacheHealthResponse {
 		return &v
 	}).(CacheHealthResponsePtrOutput)
 }
@@ -1856,7 +1914,13 @@ func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(
 }
 
 func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
-	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse { return *v }).(CacheHealthResponseOutput)
+	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheHealthResponse
+		return ret
+	}).(CacheHealthResponseOutput)
 }
 
 // Outstanding conditions that need to be investigated and resolved.
@@ -1892,7 +1956,7 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 // Cache identity properties.
 type CacheIdentity struct {
 	// The type of identity used for the cache
-	Type *string `pulumi:"type"`
+	Type *CacheIdentityType `pulumi:"type"`
 	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -1911,7 +1975,7 @@ type CacheIdentityInput interface {
 // Cache identity properties.
 type CacheIdentityArgs struct {
 	// The type of identity used for the cache
-	Type *CacheIdentityType `pulumi:"type"`
+	Type CacheIdentityTypePtrInput `pulumi:"type"`
 	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -1989,14 +2053,14 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
 }
 
 func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *CacheIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
 		return &v
 	}).(CacheIdentityPtrOutput)
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
 }
 
 // A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
@@ -2019,17 +2083,23 @@ func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
-	return o.ApplyT(func(v *CacheIdentity) CacheIdentity { return *v }).(CacheIdentityOutput)
+	return o.ApplyT(func(v *CacheIdentity) CacheIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentity
+		return ret
+	}).(CacheIdentityOutput)
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheIdentity) *string {
+func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *CacheIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(CacheIdentityTypePtrOutput)
 }
 
 // A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
@@ -2150,7 +2220,7 @@ func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutput() CacheIde
 }
 
 func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
-	return o.ApplyT(func(v CacheIdentityResponse) *CacheIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentityResponse) *CacheIdentityResponse {
 		return &v
 	}).(CacheIdentityResponsePtrOutput)
 }
@@ -2192,7 +2262,13 @@ func (o CacheIdentityResponsePtrOutput) ToCacheIdentityResponsePtrOutputWithCont
 }
 
 func (o CacheIdentityResponsePtrOutput) Elem() CacheIdentityResponseOutput {
-	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse { return *v }).(CacheIdentityResponseOutput)
+	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentityResponse
+		return ret
+	}).(CacheIdentityResponseOutput)
 }
 
 // The principal ID for the system-assigned identity of the cache.
@@ -2449,7 +2525,7 @@ func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutput() CacheNetwo
 }
 
 func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
-	return o.ApplyT(func(v CacheNetworkSettings) *CacheNetworkSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettings) *CacheNetworkSettings {
 		return &v
 	}).(CacheNetworkSettingsPtrOutput)
 }
@@ -2489,7 +2565,13 @@ func (o CacheNetworkSettingsPtrOutput) ToCacheNetworkSettingsPtrOutputWithContex
 }
 
 func (o CacheNetworkSettingsPtrOutput) Elem() CacheNetworkSettingsOutput {
-	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings { return *v }).(CacheNetworkSettingsOutput)
+	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettings
+		return ret
+	}).(CacheNetworkSettingsOutput)
 }
 
 // DNS search domain
@@ -2644,7 +2726,7 @@ func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOut
 }
 
 func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
 		return &v
 	}).(CacheNetworkSettingsResponsePtrOutput)
 }
@@ -2689,7 +2771,13 @@ func (o CacheNetworkSettingsResponsePtrOutput) ToCacheNetworkSettingsResponsePtr
 }
 
 func (o CacheNetworkSettingsResponsePtrOutput) Elem() CacheNetworkSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse { return *v }).(CacheNetworkSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettingsResponse
+		return ret
+	}).(CacheNetworkSettingsResponseOutput)
 }
 
 // DNS search domain
@@ -2838,7 +2926,7 @@ func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPt
 }
 
 func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
-	return o.ApplyT(func(v CacheResponseSku) *CacheResponseSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheResponseSku) *CacheResponseSku {
 		return &v
 	}).(CacheResponseSkuPtrOutput)
 }
@@ -2863,7 +2951,13 @@ func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx co
 }
 
 func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
-	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku { return *v }).(CacheResponseSkuOutput)
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheResponseSku
+		return ret
+	}).(CacheResponseSkuOutput)
 }
 
 // SKU name for this Cache.
@@ -2972,7 +3066,7 @@ func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutput() CacheSec
 }
 
 func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettings) *CacheSecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettings) *CacheSecuritySettings {
 		return &v
 	}).(CacheSecuritySettingsPtrOutput)
 }
@@ -2997,7 +3091,13 @@ func (o CacheSecuritySettingsPtrOutput) ToCacheSecuritySettingsPtrOutputWithCont
 }
 
 func (o CacheSecuritySettingsPtrOutput) Elem() CacheSecuritySettingsOutput {
-	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings { return *v }).(CacheSecuritySettingsOutput)
+	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettings
+		return ret
+	}).(CacheSecuritySettingsOutput)
 }
 
 // NFS access policies defined for this cache.
@@ -3106,7 +3206,7 @@ func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrO
 }
 
 func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
 		return &v
 	}).(CacheSecuritySettingsResponsePtrOutput)
 }
@@ -3131,7 +3231,13 @@ func (o CacheSecuritySettingsResponsePtrOutput) ToCacheSecuritySettingsResponseP
 }
 
 func (o CacheSecuritySettingsResponsePtrOutput) Elem() CacheSecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse { return *v }).(CacheSecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettingsResponse
+		return ret
+	}).(CacheSecuritySettingsResponseOutput)
 }
 
 // NFS access policies defined for this cache.
@@ -3240,7 +3346,7 @@ func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
 }
 
 func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
-	return o.ApplyT(func(v CacheSku) *CacheSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSku) *CacheSku {
 		return &v
 	}).(CacheSkuPtrOutput)
 }
@@ -3265,7 +3371,13 @@ func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) C
 }
 
 func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
-	return o.ApplyT(func(v *CacheSku) CacheSku { return *v }).(CacheSkuOutput)
+	return o.ApplyT(func(v *CacheSku) CacheSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSku
+		return ret
+	}).(CacheSkuOutput)
 }
 
 // SKU name for this Cache.
@@ -3390,7 +3502,7 @@ func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutput(
 }
 
 func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
-	return o.ApplyT(func(v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
 		return &v
 	}).(CacheUpgradeStatusResponsePtrOutput)
 }
@@ -3435,7 +3547,13 @@ func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutp
 }
 
 func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse { return *v }).(CacheUpgradeStatusResponseOutput)
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUpgradeStatusResponse
+		return ret
+	}).(CacheUpgradeStatusResponseOutput)
 }
 
 // Version string of the firmware currently installed on this Cache.
@@ -3624,7 +3742,7 @@ func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsPtrO
 }
 
 func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettings) *CacheUsernameDownloadSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettings) *CacheUsernameDownloadSettings {
 		return &v
 	}).(CacheUsernameDownloadSettingsPtrOutput)
 }
@@ -3699,7 +3817,13 @@ func (o CacheUsernameDownloadSettingsPtrOutput) ToCacheUsernameDownloadSettingsP
 }
 
 func (o CacheUsernameDownloadSettingsPtrOutput) Elem() CacheUsernameDownloadSettingsOutput {
-	return o.ApplyT(func(v *CacheUsernameDownloadSettings) CacheUsernameDownloadSettings { return *v }).(CacheUsernameDownloadSettingsOutput)
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) CacheUsernameDownloadSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettings
+		return ret
+	}).(CacheUsernameDownloadSettingsOutput)
 }
 
 // Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
@@ -3912,7 +4036,7 @@ func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadS
 }
 
 func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsCredentials) *CacheUsernameDownloadSettingsCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettingsCredentials) *CacheUsernameDownloadSettingsCredentials {
 		return &v
 	}).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
 }
@@ -3942,7 +4066,13 @@ func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) ToCacheUsernameDownlo
 }
 
 func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) Elem() CacheUsernameDownloadSettingsCredentialsOutput {
-	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) CacheUsernameDownloadSettingsCredentials { return *v }).(CacheUsernameDownloadSettingsCredentialsOutput)
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) CacheUsernameDownloadSettingsCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettingsCredentials
+		return ret
+	}).(CacheUsernameDownloadSettingsCredentialsOutput)
 }
 
 // The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
@@ -4105,7 +4235,7 @@ func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSett
 }
 
 func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponse {
 		return &v
 	}).(CacheUsernameDownloadSettingsResponsePtrOutput)
 }
@@ -4187,7 +4317,13 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) ToCacheUsernameDownloadS
 }
 
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) Elem() CacheUsernameDownloadSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) CacheUsernameDownloadSettingsResponse { return *v }).(CacheUsernameDownloadSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) CacheUsernameDownloadSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettingsResponse
+		return ret
+	}).(CacheUsernameDownloadSettingsResponseOutput)
 }
 
 // Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
@@ -4410,7 +4546,7 @@ func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameD
 }
 
 func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponseCredentials) *CacheUsernameDownloadSettingsResponseCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettingsResponseCredentials) *CacheUsernameDownloadSettingsResponseCredentials {
 		return &v
 	}).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
 }
@@ -4441,7 +4577,11 @@ func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) ToCacheUserna
 
 func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) Elem() CacheUsernameDownloadSettingsResponseCredentialsOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponseCredentials) CacheUsernameDownloadSettingsResponseCredentials {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettingsResponseCredentials
+		return ret
 	}).(CacheUsernameDownloadSettingsResponseCredentialsOutput)
 }
 
@@ -4561,7 +4701,7 @@ func (o ClfsTargetOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
 }
 
 func (o ClfsTargetOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
-	return o.ApplyT(func(v ClfsTarget) *ClfsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTarget) *ClfsTarget {
 		return &v
 	}).(ClfsTargetPtrOutput)
 }
@@ -4586,7 +4726,13 @@ func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClfsTargetPtrOutput) Elem() ClfsTargetOutput {
-	return o.ApplyT(func(v *ClfsTarget) ClfsTarget { return *v }).(ClfsTargetOutput)
+	return o.ApplyT(func(v *ClfsTarget) ClfsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTarget
+		return ret
+	}).(ClfsTargetOutput)
 }
 
 // Resource ID of storage container.
@@ -4695,7 +4841,7 @@ func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResp
 }
 
 func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
-	return o.ApplyT(func(v ClfsTargetResponse) *ClfsTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTargetResponse) *ClfsTargetResponse {
 		return &v
 	}).(ClfsTargetResponsePtrOutput)
 }
@@ -4720,7 +4866,13 @@ func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutputWithContext(ct
 }
 
 func (o ClfsTargetResponsePtrOutput) Elem() ClfsTargetResponseOutput {
-	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse { return *v }).(ClfsTargetResponseOutput)
+	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTargetResponse
+		return ret
+	}).(ClfsTargetResponseOutput)
 }
 
 // Resource ID of storage container.
@@ -4942,7 +5094,7 @@ func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKe
 }
 
 func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReference) *KeyVaultKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
 		return &v
 	}).(KeyVaultKeyReferencePtrOutput)
 }
@@ -4972,7 +5124,13 @@ func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContex
 }
 
 func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference { return *v }).(KeyVaultKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReference
+		return ret
+	}).(KeyVaultKeyReferenceOutput)
 }
 
 // The URL referencing a key encryption key in Key Vault.
@@ -5095,7 +5253,7 @@ func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOut
 }
 
 func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
 		return &v
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
@@ -5125,7 +5283,13 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtr
 }
 
 func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse { return *v }).(KeyVaultKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponse
+		return ret
+	}).(KeyVaultKeyReferenceResponseOutput)
 }
 
 // The URL referencing a key encryption key in Key Vault.
@@ -5244,7 +5408,7 @@ func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceRes
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
@@ -5269,7 +5433,13 @@ func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) ToKeyVaultKeyReference
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault { return *v }).(KeyVaultKeyReferenceResponseSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponseSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceResponseSourceVaultOutput)
 }
 
 // Resource Id.
@@ -5378,7 +5548,7 @@ func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVault
 }
 
 func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
@@ -5403,7 +5573,13 @@ func (o KeyVaultKeyReferenceSourceVaultPtrOutput) ToKeyVaultKeyReferenceSourceVa
 }
 
 func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault { return *v }).(KeyVaultKeyReferenceSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceSourceVaultOutput)
 }
 
 // Resource Id.
@@ -5770,7 +5946,7 @@ func (o Nfs3TargetOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
 }
 
 func (o Nfs3TargetOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
-	return o.ApplyT(func(v Nfs3Target) *Nfs3Target {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3Target) *Nfs3Target {
 		return &v
 	}).(Nfs3TargetPtrOutput)
 }
@@ -5800,7 +5976,13 @@ func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o Nfs3TargetPtrOutput) Elem() Nfs3TargetOutput {
-	return o.ApplyT(func(v *Nfs3Target) Nfs3Target { return *v }).(Nfs3TargetOutput)
+	return o.ApplyT(func(v *Nfs3Target) Nfs3Target {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3Target
+		return ret
+	}).(Nfs3TargetOutput)
 }
 
 // IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
@@ -5923,7 +6105,7 @@ func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResp
 }
 
 func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
-	return o.ApplyT(func(v Nfs3TargetResponse) *Nfs3TargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3TargetResponse) *Nfs3TargetResponse {
 		return &v
 	}).(Nfs3TargetResponsePtrOutput)
 }
@@ -5953,7 +6135,13 @@ func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutputWithContext(ct
 }
 
 func (o Nfs3TargetResponsePtrOutput) Elem() Nfs3TargetResponseOutput {
-	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse { return *v }).(Nfs3TargetResponseOutput)
+	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3TargetResponse
+		return ret
+	}).(Nfs3TargetResponseOutput)
 }
 
 // IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
@@ -6636,7 +6824,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -6686,7 +6874,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -6845,7 +7039,7 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
 }
 
 func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
-	return o.ApplyT(func(v UnknownTarget) *UnknownTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTarget) *UnknownTarget {
 		return &v
 	}).(UnknownTargetPtrOutput)
 }
@@ -6870,7 +7064,13 @@ func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutputWithContext(ctx context.
 }
 
 func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
-	return o.ApplyT(func(v *UnknownTarget) UnknownTarget { return *v }).(UnknownTargetOutput)
+	return o.ApplyT(func(v *UnknownTarget) UnknownTarget {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTarget
+		return ret
+	}).(UnknownTargetOutput)
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
@@ -6979,7 +7179,7 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutput() UnknownT
 }
 
 func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
-	return o.ApplyT(func(v UnknownTargetResponse) *UnknownTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTargetResponse) *UnknownTargetResponse {
 		return &v
 	}).(UnknownTargetResponsePtrOutput)
 }
@@ -7004,7 +7204,13 @@ func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutputWithCont
 }
 
 func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
-	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse { return *v }).(UnknownTargetResponseOutput)
+	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTargetResponse
+		return ret
+	}).(UnknownTargetResponseOutput)
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.

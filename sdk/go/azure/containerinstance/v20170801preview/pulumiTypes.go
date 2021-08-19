@@ -1021,7 +1021,7 @@ func (o ContainerStateResponseOutput) ToContainerStateResponsePtrOutput() Contai
 }
 
 func (o ContainerStateResponseOutput) ToContainerStateResponsePtrOutputWithContext(ctx context.Context) ContainerStateResponsePtrOutput {
-	return o.ApplyT(func(v ContainerStateResponse) *ContainerStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerStateResponse) *ContainerStateResponse {
 		return &v
 	}).(ContainerStateResponsePtrOutput)
 }
@@ -1066,7 +1066,13 @@ func (o ContainerStateResponsePtrOutput) ToContainerStateResponsePtrOutputWithCo
 }
 
 func (o ContainerStateResponsePtrOutput) Elem() ContainerStateResponseOutput {
-	return o.ApplyT(func(v *ContainerStateResponse) ContainerStateResponse { return *v }).(ContainerStateResponseOutput)
+	return o.ApplyT(func(v *ContainerStateResponse) ContainerStateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerStateResponse
+		return ret
+	}).(ContainerStateResponseOutput)
 }
 
 // The human-readable status of the container instance state.
@@ -1677,7 +1683,7 @@ func (o IpAddressOutput) ToIpAddressPtrOutput() IpAddressPtrOutput {
 }
 
 func (o IpAddressOutput) ToIpAddressPtrOutputWithContext(ctx context.Context) IpAddressPtrOutput {
-	return o.ApplyT(func(v IpAddress) *IpAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddress) *IpAddress {
 		return &v
 	}).(IpAddressPtrOutput)
 }
@@ -1712,7 +1718,13 @@ func (o IpAddressPtrOutput) ToIpAddressPtrOutputWithContext(ctx context.Context)
 }
 
 func (o IpAddressPtrOutput) Elem() IpAddressOutput {
-	return o.ApplyT(func(v *IpAddress) IpAddress { return *v }).(IpAddressOutput)
+	return o.ApplyT(func(v *IpAddress) IpAddress {
+		if v != nil {
+			return *v
+		}
+		var ret IpAddress
+		return ret
+	}).(IpAddressOutput)
 }
 
 // The IP exposed to the public internet.
@@ -1849,7 +1861,7 @@ func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutput() IpAddressRespons
 }
 
 func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutputWithContext(ctx context.Context) IpAddressResponsePtrOutput {
-	return o.ApplyT(func(v IpAddressResponse) *IpAddressResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddressResponse) *IpAddressResponse {
 		return &v
 	}).(IpAddressResponsePtrOutput)
 }
@@ -1884,7 +1896,13 @@ func (o IpAddressResponsePtrOutput) ToIpAddressResponsePtrOutputWithContext(ctx 
 }
 
 func (o IpAddressResponsePtrOutput) Elem() IpAddressResponseOutput {
-	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse { return *v }).(IpAddressResponseOutput)
+	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IpAddressResponse
+		return ret
+	}).(IpAddressResponseOutput)
 }
 
 // The IP exposed to the public internet.
@@ -2235,7 +2253,7 @@ func (o ResourceLimitsOutput) ToResourceLimitsPtrOutput() ResourceLimitsPtrOutpu
 }
 
 func (o ResourceLimitsOutput) ToResourceLimitsPtrOutputWithContext(ctx context.Context) ResourceLimitsPtrOutput {
-	return o.ApplyT(func(v ResourceLimits) *ResourceLimits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimits) *ResourceLimits {
 		return &v
 	}).(ResourceLimitsPtrOutput)
 }
@@ -2265,7 +2283,13 @@ func (o ResourceLimitsPtrOutput) ToResourceLimitsPtrOutputWithContext(ctx contex
 }
 
 func (o ResourceLimitsPtrOutput) Elem() ResourceLimitsOutput {
-	return o.ApplyT(func(v *ResourceLimits) ResourceLimits { return *v }).(ResourceLimitsOutput)
+	return o.ApplyT(func(v *ResourceLimits) ResourceLimits {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLimits
+		return ret
+	}).(ResourceLimitsOutput)
 }
 
 // The CPU limit of this container instance.
@@ -2388,7 +2412,7 @@ func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutput() Resour
 }
 
 func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceLimitsResponse) *ResourceLimitsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimitsResponse) *ResourceLimitsResponse {
 		return &v
 	}).(ResourceLimitsResponsePtrOutput)
 }
@@ -2418,7 +2442,13 @@ func (o ResourceLimitsResponsePtrOutput) ToResourceLimitsResponsePtrOutputWithCo
 }
 
 func (o ResourceLimitsResponsePtrOutput) Elem() ResourceLimitsResponseOutput {
-	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse { return *v }).(ResourceLimitsResponseOutput)
+	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLimitsResponse
+		return ret
+	}).(ResourceLimitsResponseOutput)
 }
 
 // The CPU limit of this container instance.

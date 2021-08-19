@@ -118,33 +118,9 @@ func GetFirewallPolicyRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicyRuleGroup resources.
 type firewallPolicyRuleGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Priority of the Firewall Policy Rule Group resource.
-	Priority *int `pulumi:"priority"`
-	// The provisioning state of the firewall policy rule group resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Group of Firewall Policy rules.
-	Rules []interface{} `pulumi:"rules"`
-	// Rule Group type.
-	Type *string `pulumi:"type"`
 }
 
 type FirewallPolicyRuleGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Priority of the Firewall Policy Rule Group resource.
-	Priority pulumi.IntPtrInput
-	// The provisioning state of the firewall policy rule group resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Group of Firewall Policy rules.
-	Rules pulumi.ArrayInput
-	// Rule Group type.
-	Type pulumi.StringPtrInput
 }
 
 func (FirewallPolicyRuleGroupState) ElementType() reflect.Type {
@@ -209,9 +185,7 @@ func (i *FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleGroupOutput)
 }
 
-type FirewallPolicyRuleGroupOutput struct {
-	*pulumi.OutputState
-}
+type FirewallPolicyRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyRuleGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil))

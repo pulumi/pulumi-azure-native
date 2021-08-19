@@ -68,17 +68,9 @@ func GetServerCollector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerCollector resources.
 type serverCollectorState struct {
-	ETag       *string                      `pulumi:"eTag"`
-	Name       *string                      `pulumi:"name"`
-	Properties *CollectorPropertiesResponse `pulumi:"properties"`
-	Type       *string                      `pulumi:"type"`
 }
 
 type ServerCollectorState struct {
-	ETag       pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	Properties CollectorPropertiesResponsePtrInput
-	Type       pulumi.StringPtrInput
 }
 
 func (ServerCollectorState) ElementType() reflect.Type {
@@ -131,9 +123,7 @@ func (i *ServerCollector) ToServerCollectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCollectorOutput)
 }
 
-type ServerCollectorOutput struct {
-	*pulumi.OutputState
-}
+type ServerCollectorOutput struct{ *pulumi.OutputState }
 
 func (ServerCollectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerCollector)(nil))

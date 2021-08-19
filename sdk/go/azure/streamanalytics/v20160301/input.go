@@ -82,21 +82,9 @@ func GetInput(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Input resources.
 type inputState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties interface{} `pulumi:"properties"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type InputState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties pulumi.Input
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (InputState) ElementType() reflect.Type {
@@ -153,9 +141,7 @@ func (i *Input) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputOutput)
 }
 
-type InputOutput struct {
-	*pulumi.OutputState
-}
+type InputOutput struct{ *pulumi.OutputState }
 
 func (InputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Input)(nil))

@@ -118,7 +118,7 @@ func (o CompatibilityResponseOutput) ToCompatibilityResponsePtrOutput() Compatib
 }
 
 func (o CompatibilityResponseOutput) ToCompatibilityResponsePtrOutputWithContext(ctx context.Context) CompatibilityResponsePtrOutput {
-	return o.ApplyT(func(v CompatibilityResponse) *CompatibilityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompatibilityResponse) *CompatibilityResponse {
 		return &v
 	}).(CompatibilityResponsePtrOutput)
 }
@@ -158,7 +158,13 @@ func (o CompatibilityResponsePtrOutput) ToCompatibilityResponsePtrOutputWithCont
 }
 
 func (o CompatibilityResponsePtrOutput) Elem() CompatibilityResponseOutput {
-	return o.ApplyT(func(v *CompatibilityResponse) CompatibilityResponse { return *v }).(CompatibilityResponseOutput)
+	return o.ApplyT(func(v *CompatibilityResponse) CompatibilityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CompatibilityResponse
+		return ret
+	}).(CompatibilityResponseOutput)
 }
 
 // Full error message if any compatibility issues are found
@@ -422,7 +428,7 @@ func (o IconUrisResponseOutput) ToIconUrisResponsePtrOutput() IconUrisResponsePt
 }
 
 func (o IconUrisResponseOutput) ToIconUrisResponsePtrOutputWithContext(ctx context.Context) IconUrisResponsePtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *IconUrisResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IconUrisResponse) *IconUrisResponse {
 		return &v
 	}).(IconUrisResponsePtrOutput)
 }
@@ -467,7 +473,13 @@ func (o IconUrisResponsePtrOutput) ToIconUrisResponsePtrOutputWithContext(ctx co
 }
 
 func (o IconUrisResponsePtrOutput) Elem() IconUrisResponseOutput {
-	return o.ApplyT(func(v *IconUrisResponse) IconUrisResponse { return *v }).(IconUrisResponseOutput)
+	return o.ApplyT(func(v *IconUrisResponse) IconUrisResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IconUrisResponse
+		return ret
+	}).(IconUrisResponseOutput)
 }
 
 // URI to hero icon.
@@ -789,7 +801,7 @@ func (o ProductPropertiesResponseOutput) ToProductPropertiesResponsePtrOutput() 
 }
 
 func (o ProductPropertiesResponseOutput) ToProductPropertiesResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProductPropertiesResponse) *ProductPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductPropertiesResponse) *ProductPropertiesResponse {
 		return &v
 	}).(ProductPropertiesResponsePtrOutput)
 }
@@ -814,7 +826,13 @@ func (o ProductPropertiesResponsePtrOutput) ToProductPropertiesResponsePtrOutput
 }
 
 func (o ProductPropertiesResponsePtrOutput) Elem() ProductPropertiesResponseOutput {
-	return o.ApplyT(func(v *ProductPropertiesResponse) ProductPropertiesResponse { return *v }).(ProductPropertiesResponseOutput)
+	return o.ApplyT(func(v *ProductPropertiesResponse) ProductPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProductPropertiesResponse
+		return ret
+	}).(ProductPropertiesResponseOutput)
 }
 
 // The version.

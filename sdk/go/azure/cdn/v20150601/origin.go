@@ -114,37 +114,9 @@ func GetOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Origin resources.
 type originState struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName *string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the https port. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Provisioning status of the origin.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource status of the origin.
-	ResourceState *string `pulumi:"resourceState"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type OriginState struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName pulumi.StringPtrInput
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput
-	// The value of the https port. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Provisioning status of the origin.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource status of the origin.
-	ResourceState pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (OriginState) ElementType() reflect.Type {
@@ -209,9 +181,7 @@ func (i *Origin) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginOutput)
 }
 
-type OriginOutput struct {
-	*pulumi.OutputState
-}
+type OriginOutput struct{ *pulumi.OutputState }
 
 func (OriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Origin)(nil))

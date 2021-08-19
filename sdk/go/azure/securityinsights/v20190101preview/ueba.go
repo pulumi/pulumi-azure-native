@@ -87,29 +87,9 @@ func GetUeba(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Ueba resources.
 type uebaState struct {
-	// The relevant data sources that enriched by ueba
-	DataSources []string `pulumi:"dataSources"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'Ueba'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type UebaState struct {
-	// The relevant data sources that enriched by ueba
-	DataSources pulumi.StringArrayInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'Ueba'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (UebaState) ElementType() reflect.Type {
@@ -174,9 +154,7 @@ func (i *Ueba) ToUebaOutputWithContext(ctx context.Context) UebaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UebaOutput)
 }
 
-type UebaOutput struct {
-	*pulumi.OutputState
-}
+type UebaOutput struct{ *pulumi.OutputState }
 
 func (UebaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Ueba)(nil))

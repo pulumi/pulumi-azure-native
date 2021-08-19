@@ -221,65 +221,9 @@ func GetPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pool resources.
 type poolState struct {
-	// If enabled (true) the pool can contain cool Access enabled volumes.
-	CoolAccess *bool `pulumi:"coolAccess"`
-	// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-	EncryptionType *string `pulumi:"encryptionType"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// UUID v4 used to identify the Pool
-	PoolId *string `pulumi:"poolId"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The qos type of the pool
-	QosType *string `pulumi:"qosType"`
-	// The service level of the file system
-	ServiceLevel *string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size *float64 `pulumi:"size"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Total throughput of pool in Mibps
-	TotalThroughputMibps *float64 `pulumi:"totalThroughputMibps"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Utilized throughput of pool in Mibps
-	UtilizedThroughputMibps *float64 `pulumi:"utilizedThroughputMibps"`
 }
 
 type PoolState struct {
-	// If enabled (true) the pool can contain cool Access enabled volumes.
-	CoolAccess pulumi.BoolPtrInput
-	// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-	EncryptionType pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// UUID v4 used to identify the Pool
-	PoolId pulumi.StringPtrInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// The qos type of the pool
-	QosType pulumi.StringPtrInput
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrInput
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size pulumi.Float64PtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Total throughput of pool in Mibps
-	TotalThroughputMibps pulumi.Float64PtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Utilized throughput of pool in Mibps
-	UtilizedThroughputMibps pulumi.Float64PtrInput
 }
 
 func (PoolState) ElementType() reflect.Type {
@@ -356,9 +300,7 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
 }
 
-type PoolOutput struct {
-	*pulumi.OutputState
-}
+type PoolOutput struct{ *pulumi.OutputState }
 
 func (PoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pool)(nil))

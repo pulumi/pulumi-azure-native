@@ -103,7 +103,7 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 }
 
 func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
 		return &v
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
@@ -128,7 +128,13 @@ func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyRespo
 }
 
 func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointPropertyResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse { return *v }).(PrivateEndpointPropertyResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointPropertyResponse
+		return ret
+	}).(PrivateEndpointPropertyResponseOutput)
 }
 
 // Resource id of the private endpoint.
@@ -237,7 +243,7 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
@@ -262,7 +268,13 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -379,7 +391,7 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
@@ -414,7 +426,13 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
 }
 
 // The Azure Active Directory principal id.
@@ -736,7 +754,7 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerP
 }
 
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponseOutput) ToServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyT(func(v ServerPrivateLinkServiceConnectionStatePropertyResponse) *ServerPrivateLinkServiceConnectionStatePropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerPrivateLinkServiceConnectionStatePropertyResponse) *ServerPrivateLinkServiceConnectionStatePropertyResponse {
 		return &v
 	}).(ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
@@ -772,7 +790,11 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToServ
 
 func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() ServerPrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o.ApplyT(func(v *ServerPrivateLinkServiceConnectionStatePropertyResponse) ServerPrivateLinkServiceConnectionStatePropertyResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerPrivateLinkServiceConnectionStatePropertyResponse
+		return ret
 	}).(ServerPrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
@@ -822,7 +844,7 @@ type ServerPropertiesForDefaultCreate struct {
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -856,7 +878,7 @@ type ServerPropertiesForDefaultCreateArgs struct {
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -922,8 +944,8 @@ func (o ServerPropertiesForDefaultCreateOutput) PublicNetworkAccess() pulumi.Str
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
 // Storage profile of a server.
@@ -950,7 +972,7 @@ type ServerPropertiesForGeoRestore struct {
 	// The source server id to restore from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -982,7 +1004,7 @@ type ServerPropertiesForGeoRestoreArgs struct {
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -1043,8 +1065,8 @@ func (o ServerPropertiesForGeoRestoreOutput) SourceServerId() pulumi.StringOutpu
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForGeoRestoreOutput) SslEnforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForGeoRestoreOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
 // Storage profile of a server.
@@ -1071,7 +1093,7 @@ type ServerPropertiesForReplica struct {
 	// The master server id to create replica from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -1103,7 +1125,7 @@ type ServerPropertiesForReplicaArgs struct {
 	// The master server id to create replica from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -1164,8 +1186,8 @@ func (o ServerPropertiesForReplicaOutput) SourceServerId() pulumi.StringOutput {
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForReplicaOutput) SslEnforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForReplicaOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
 // Storage profile of a server.
@@ -1194,7 +1216,7 @@ type ServerPropertiesForRestore struct {
 	// The source server id to restore from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -1228,7 +1250,7 @@ type ServerPropertiesForRestoreArgs struct {
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -1294,8 +1316,8 @@ func (o ServerPropertiesForRestoreOutput) SourceServerId() pulumi.StringOutput {
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForRestoreOutput) SslEnforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForRestoreOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
 }
 
 // Storage profile of a server.
@@ -1420,7 +1442,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1465,7 +1487,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The scale up/out capacity, representing server's compute units.
@@ -1630,7 +1658,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1675,7 +1703,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The scale up/out capacity, representing server's compute units.
@@ -1836,7 +1870,7 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyT(func(v StorageProfile) *StorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
@@ -1876,7 +1910,13 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfile
+		return ret
+	}).(StorageProfileOutput)
 }
 
 // Backup retention days for the server.
@@ -2027,7 +2067,7 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
@@ -2067,7 +2107,13 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfileResponse
+		return ret
+	}).(StorageProfileResponseOutput)
 }
 
 // Backup retention days for the server.

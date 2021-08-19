@@ -91,21 +91,9 @@ func GetLinkedService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedService resources.
 type linkedServiceState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The resource id of the resource that will be linked to the workspace.
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type LinkedServiceState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The resource id of the resource that will be linked to the workspace.
-	ResourceId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (LinkedServiceState) ElementType() reflect.Type {
@@ -158,9 +146,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
-type LinkedServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))

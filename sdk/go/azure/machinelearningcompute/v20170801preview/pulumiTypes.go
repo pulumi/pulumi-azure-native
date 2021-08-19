@@ -126,7 +126,7 @@ func (o AcsClusterPropertiesOutput) ToAcsClusterPropertiesPtrOutput() AcsCluster
 }
 
 func (o AcsClusterPropertiesOutput) ToAcsClusterPropertiesPtrOutputWithContext(ctx context.Context) AcsClusterPropertiesPtrOutput {
-	return o.ApplyT(func(v AcsClusterProperties) *AcsClusterProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcsClusterProperties) *AcsClusterProperties {
 		return &v
 	}).(AcsClusterPropertiesPtrOutput)
 }
@@ -176,7 +176,13 @@ func (o AcsClusterPropertiesPtrOutput) ToAcsClusterPropertiesPtrOutputWithContex
 }
 
 func (o AcsClusterPropertiesPtrOutput) Elem() AcsClusterPropertiesOutput {
-	return o.ApplyT(func(v *AcsClusterProperties) AcsClusterProperties { return *v }).(AcsClusterPropertiesOutput)
+	return o.ApplyT(func(v *AcsClusterProperties) AcsClusterProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AcsClusterProperties
+		return ret
+	}).(AcsClusterPropertiesOutput)
 }
 
 // The number of agent nodes in the Container Service. This can be changed to scale the cluster.
@@ -359,7 +365,7 @@ func (o AcsClusterPropertiesResponseOutput) ToAcsClusterPropertiesResponsePtrOut
 }
 
 func (o AcsClusterPropertiesResponseOutput) ToAcsClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) AcsClusterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AcsClusterPropertiesResponse) *AcsClusterPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcsClusterPropertiesResponse) *AcsClusterPropertiesResponse {
 		return &v
 	}).(AcsClusterPropertiesResponsePtrOutput)
 }
@@ -416,7 +422,13 @@ func (o AcsClusterPropertiesResponsePtrOutput) ToAcsClusterPropertiesResponsePtr
 }
 
 func (o AcsClusterPropertiesResponsePtrOutput) Elem() AcsClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) AcsClusterPropertiesResponse { return *v }).(AcsClusterPropertiesResponseOutput)
+	return o.ApplyT(func(v *AcsClusterPropertiesResponse) AcsClusterPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AcsClusterPropertiesResponse
+		return ret
+	}).(AcsClusterPropertiesResponseOutput)
 }
 
 // The number of agent nodes in the Container Service. This can be changed to scale the cluster.
@@ -649,7 +661,7 @@ func (o AppInsightsPropertiesOutput) ToAppInsightsPropertiesPtrOutput() AppInsig
 }
 
 func (o AppInsightsPropertiesOutput) ToAppInsightsPropertiesPtrOutputWithContext(ctx context.Context) AppInsightsPropertiesPtrOutput {
-	return o.ApplyT(func(v AppInsightsProperties) *AppInsightsProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppInsightsProperties) *AppInsightsProperties {
 		return &v
 	}).(AppInsightsPropertiesPtrOutput)
 }
@@ -674,7 +686,13 @@ func (o AppInsightsPropertiesPtrOutput) ToAppInsightsPropertiesPtrOutputWithCont
 }
 
 func (o AppInsightsPropertiesPtrOutput) Elem() AppInsightsPropertiesOutput {
-	return o.ApplyT(func(v *AppInsightsProperties) AppInsightsProperties { return *v }).(AppInsightsPropertiesOutput)
+	return o.ApplyT(func(v *AppInsightsProperties) AppInsightsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AppInsightsProperties
+		return ret
+	}).(AppInsightsPropertiesOutput)
 }
 
 // ARM resource ID of the App Insights.
@@ -783,7 +801,7 @@ func (o AppInsightsPropertiesResponseOutput) ToAppInsightsPropertiesResponsePtrO
 }
 
 func (o AppInsightsPropertiesResponseOutput) ToAppInsightsPropertiesResponsePtrOutputWithContext(ctx context.Context) AppInsightsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AppInsightsPropertiesResponse) *AppInsightsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppInsightsPropertiesResponse) *AppInsightsPropertiesResponse {
 		return &v
 	}).(AppInsightsPropertiesResponsePtrOutput)
 }
@@ -808,7 +826,13 @@ func (o AppInsightsPropertiesResponsePtrOutput) ToAppInsightsPropertiesResponseP
 }
 
 func (o AppInsightsPropertiesResponsePtrOutput) Elem() AppInsightsPropertiesResponseOutput {
-	return o.ApplyT(func(v *AppInsightsPropertiesResponse) AppInsightsPropertiesResponse { return *v }).(AppInsightsPropertiesResponseOutput)
+	return o.ApplyT(func(v *AppInsightsPropertiesResponse) AppInsightsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AppInsightsPropertiesResponse
+		return ret
+	}).(AppInsightsPropertiesResponseOutput)
 }
 
 // ARM resource ID of the App Insights.
@@ -933,7 +957,7 @@ func (o AutoScaleConfigurationOutput) ToAutoScaleConfigurationPtrOutput() AutoSc
 }
 
 func (o AutoScaleConfigurationOutput) ToAutoScaleConfigurationPtrOutputWithContext(ctx context.Context) AutoScaleConfigurationPtrOutput {
-	return o.ApplyT(func(v AutoScaleConfiguration) *AutoScaleConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleConfiguration) *AutoScaleConfiguration {
 		return &v
 	}).(AutoScaleConfigurationPtrOutput)
 }
@@ -978,7 +1002,13 @@ func (o AutoScaleConfigurationPtrOutput) ToAutoScaleConfigurationPtrOutputWithCo
 }
 
 func (o AutoScaleConfigurationPtrOutput) Elem() AutoScaleConfigurationOutput {
-	return o.ApplyT(func(v *AutoScaleConfiguration) AutoScaleConfiguration { return *v }).(AutoScaleConfigurationOutput)
+	return o.ApplyT(func(v *AutoScaleConfiguration) AutoScaleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleConfiguration
+		return ret
+	}).(AutoScaleConfigurationOutput)
 }
 
 // The maximum number of replicas for each service.
@@ -1143,7 +1173,7 @@ func (o AutoScaleConfigurationResponseOutput) ToAutoScaleConfigurationResponsePt
 }
 
 func (o AutoScaleConfigurationResponseOutput) ToAutoScaleConfigurationResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v AutoScaleConfigurationResponse) *AutoScaleConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleConfigurationResponse) *AutoScaleConfigurationResponse {
 		return &v
 	}).(AutoScaleConfigurationResponsePtrOutput)
 }
@@ -1188,7 +1218,13 @@ func (o AutoScaleConfigurationResponsePtrOutput) ToAutoScaleConfigurationRespons
 }
 
 func (o AutoScaleConfigurationResponsePtrOutput) Elem() AutoScaleConfigurationResponseOutput {
-	return o.ApplyT(func(v *AutoScaleConfigurationResponse) AutoScaleConfigurationResponse { return *v }).(AutoScaleConfigurationResponseOutput)
+	return o.ApplyT(func(v *AutoScaleConfigurationResponse) AutoScaleConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleConfigurationResponse
+		return ret
+	}).(AutoScaleConfigurationResponseOutput)
 }
 
 // The maximum number of replicas for each service.
@@ -1419,7 +1455,7 @@ func (o ContainerRegistryPropertiesOutput) ToContainerRegistryPropertiesPtrOutpu
 }
 
 func (o ContainerRegistryPropertiesOutput) ToContainerRegistryPropertiesPtrOutputWithContext(ctx context.Context) ContainerRegistryPropertiesPtrOutput {
-	return o.ApplyT(func(v ContainerRegistryProperties) *ContainerRegistryProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRegistryProperties) *ContainerRegistryProperties {
 		return &v
 	}).(ContainerRegistryPropertiesPtrOutput)
 }
@@ -1444,7 +1480,13 @@ func (o ContainerRegistryPropertiesPtrOutput) ToContainerRegistryPropertiesPtrOu
 }
 
 func (o ContainerRegistryPropertiesPtrOutput) Elem() ContainerRegistryPropertiesOutput {
-	return o.ApplyT(func(v *ContainerRegistryProperties) ContainerRegistryProperties { return *v }).(ContainerRegistryPropertiesOutput)
+	return o.ApplyT(func(v *ContainerRegistryProperties) ContainerRegistryProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRegistryProperties
+		return ret
+	}).(ContainerRegistryPropertiesOutput)
 }
 
 // ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
@@ -1553,7 +1595,7 @@ func (o ContainerRegistryPropertiesResponseOutput) ToContainerRegistryProperties
 }
 
 func (o ContainerRegistryPropertiesResponseOutput) ToContainerRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ContainerRegistryPropertiesResponse) *ContainerRegistryPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRegistryPropertiesResponse) *ContainerRegistryPropertiesResponse {
 		return &v
 	}).(ContainerRegistryPropertiesResponsePtrOutput)
 }
@@ -1578,7 +1620,13 @@ func (o ContainerRegistryPropertiesResponsePtrOutput) ToContainerRegistryPropert
 }
 
 func (o ContainerRegistryPropertiesResponsePtrOutput) Elem() ContainerRegistryPropertiesResponseOutput {
-	return o.ApplyT(func(v *ContainerRegistryPropertiesResponse) ContainerRegistryPropertiesResponse { return *v }).(ContainerRegistryPropertiesResponseOutput)
+	return o.ApplyT(func(v *ContainerRegistryPropertiesResponse) ContainerRegistryPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRegistryPropertiesResponse
+		return ret
+	}).(ContainerRegistryPropertiesResponseOutput)
 }
 
 // ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
@@ -1879,7 +1927,7 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutput() ErrorRes
 }
 
 func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return o.ApplyT(func(v ErrorResponseResponse) *ErrorResponseResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponseResponse) *ErrorResponseResponse {
 		return &v
 	}).(ErrorResponseResponsePtrOutput)
 }
@@ -1914,7 +1962,13 @@ func (o ErrorResponseResponsePtrOutput) ToErrorResponseResponsePtrOutputWithCont
 }
 
 func (o ErrorResponseResponsePtrOutput) Elem() ErrorResponseResponseOutput {
-	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse { return *v }).(ErrorResponseResponseOutput)
+	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorResponseResponse
+		return ret
+	}).(ErrorResponseResponseOutput)
 }
 
 // Error code.
@@ -2155,7 +2209,7 @@ func (o GlobalServiceConfigurationOutput) ToGlobalServiceConfigurationPtrOutput(
 }
 
 func (o GlobalServiceConfigurationOutput) ToGlobalServiceConfigurationPtrOutputWithContext(ctx context.Context) GlobalServiceConfigurationPtrOutput {
-	return o.ApplyT(func(v GlobalServiceConfiguration) *GlobalServiceConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalServiceConfiguration) *GlobalServiceConfiguration {
 		return &v
 	}).(GlobalServiceConfigurationPtrOutput)
 }
@@ -2195,7 +2249,13 @@ func (o GlobalServiceConfigurationPtrOutput) ToGlobalServiceConfigurationPtrOutp
 }
 
 func (o GlobalServiceConfigurationPtrOutput) Elem() GlobalServiceConfigurationOutput {
-	return o.ApplyT(func(v *GlobalServiceConfiguration) GlobalServiceConfiguration { return *v }).(GlobalServiceConfigurationOutput)
+	return o.ApplyT(func(v *GlobalServiceConfiguration) GlobalServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalServiceConfiguration
+		return ret
+	}).(GlobalServiceConfigurationOutput)
 }
 
 // The auto-scale configuration
@@ -2346,7 +2406,7 @@ func (o GlobalServiceConfigurationResponseOutput) ToGlobalServiceConfigurationRe
 }
 
 func (o GlobalServiceConfigurationResponseOutput) ToGlobalServiceConfigurationResponsePtrOutputWithContext(ctx context.Context) GlobalServiceConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v GlobalServiceConfigurationResponse) *GlobalServiceConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalServiceConfigurationResponse) *GlobalServiceConfigurationResponse {
 		return &v
 	}).(GlobalServiceConfigurationResponsePtrOutput)
 }
@@ -2386,7 +2446,13 @@ func (o GlobalServiceConfigurationResponsePtrOutput) ToGlobalServiceConfiguratio
 }
 
 func (o GlobalServiceConfigurationResponsePtrOutput) Elem() GlobalServiceConfigurationResponseOutput {
-	return o.ApplyT(func(v *GlobalServiceConfigurationResponse) GlobalServiceConfigurationResponse { return *v }).(GlobalServiceConfigurationResponseOutput)
+	return o.ApplyT(func(v *GlobalServiceConfigurationResponse) GlobalServiceConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalServiceConfigurationResponse
+		return ret
+	}).(GlobalServiceConfigurationResponseOutput)
 }
 
 // The auto-scale configuration
@@ -2525,7 +2591,7 @@ func (o KubernetesClusterPropertiesOutput) ToKubernetesClusterPropertiesPtrOutpu
 }
 
 func (o KubernetesClusterPropertiesOutput) ToKubernetesClusterPropertiesPtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterProperties) *KubernetesClusterProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterProperties) *KubernetesClusterProperties {
 		return &v
 	}).(KubernetesClusterPropertiesPtrOutput)
 }
@@ -2550,7 +2616,13 @@ func (o KubernetesClusterPropertiesPtrOutput) ToKubernetesClusterPropertiesPtrOu
 }
 
 func (o KubernetesClusterPropertiesPtrOutput) Elem() KubernetesClusterPropertiesOutput {
-	return o.ApplyT(func(v *KubernetesClusterProperties) KubernetesClusterProperties { return *v }).(KubernetesClusterPropertiesOutput)
+	return o.ApplyT(func(v *KubernetesClusterProperties) KubernetesClusterProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterProperties
+		return ret
+	}).(KubernetesClusterPropertiesOutput)
 }
 
 // The Azure Service Principal used by Kubernetes
@@ -2659,7 +2731,7 @@ func (o KubernetesClusterPropertiesResponseOutput) ToKubernetesClusterProperties
 }
 
 func (o KubernetesClusterPropertiesResponseOutput) ToKubernetesClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KubernetesClusterPropertiesResponse) *KubernetesClusterPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterPropertiesResponse) *KubernetesClusterPropertiesResponse {
 		return &v
 	}).(KubernetesClusterPropertiesResponsePtrOutput)
 }
@@ -2686,7 +2758,13 @@ func (o KubernetesClusterPropertiesResponsePtrOutput) ToKubernetesClusterPropert
 }
 
 func (o KubernetesClusterPropertiesResponsePtrOutput) Elem() KubernetesClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v *KubernetesClusterPropertiesResponse) KubernetesClusterPropertiesResponse { return *v }).(KubernetesClusterPropertiesResponseOutput)
+	return o.ApplyT(func(v *KubernetesClusterPropertiesResponse) KubernetesClusterPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterPropertiesResponse
+		return ret
+	}).(KubernetesClusterPropertiesResponseOutput)
 }
 
 // The Azure Service Principal used by Kubernetes
@@ -2799,7 +2877,7 @@ func (o ServiceAuthConfigurationOutput) ToServiceAuthConfigurationPtrOutput() Se
 }
 
 func (o ServiceAuthConfigurationOutput) ToServiceAuthConfigurationPtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceAuthConfiguration) *ServiceAuthConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAuthConfiguration) *ServiceAuthConfiguration {
 		return &v
 	}).(ServiceAuthConfigurationPtrOutput)
 }
@@ -2829,7 +2907,13 @@ func (o ServiceAuthConfigurationPtrOutput) ToServiceAuthConfigurationPtrOutputWi
 }
 
 func (o ServiceAuthConfigurationPtrOutput) Elem() ServiceAuthConfigurationOutput {
-	return o.ApplyT(func(v *ServiceAuthConfiguration) ServiceAuthConfiguration { return *v }).(ServiceAuthConfigurationOutput)
+	return o.ApplyT(func(v *ServiceAuthConfiguration) ServiceAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAuthConfiguration
+		return ret
+	}).(ServiceAuthConfigurationOutput)
 }
 
 // The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
@@ -2952,7 +3036,7 @@ func (o ServiceAuthConfigurationResponseOutput) ToServiceAuthConfigurationRespon
 }
 
 func (o ServiceAuthConfigurationResponseOutput) ToServiceAuthConfigurationResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ServiceAuthConfigurationResponse) *ServiceAuthConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAuthConfigurationResponse) *ServiceAuthConfigurationResponse {
 		return &v
 	}).(ServiceAuthConfigurationResponsePtrOutput)
 }
@@ -2982,7 +3066,13 @@ func (o ServiceAuthConfigurationResponsePtrOutput) ToServiceAuthConfigurationRes
 }
 
 func (o ServiceAuthConfigurationResponsePtrOutput) Elem() ServiceAuthConfigurationResponseOutput {
-	return o.ApplyT(func(v *ServiceAuthConfigurationResponse) ServiceAuthConfigurationResponse { return *v }).(ServiceAuthConfigurationResponseOutput)
+	return o.ApplyT(func(v *ServiceAuthConfigurationResponse) ServiceAuthConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAuthConfigurationResponse
+		return ret
+	}).(ServiceAuthConfigurationResponseOutput)
 }
 
 // The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
@@ -3105,7 +3195,7 @@ func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutput(
 }
 
 func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
-	return o.ApplyT(func(v ServicePrincipalProperties) *ServicePrincipalProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalProperties) *ServicePrincipalProperties {
 		return &v
 	}).(ServicePrincipalPropertiesPtrOutput)
 }
@@ -3135,7 +3225,13 @@ func (o ServicePrincipalPropertiesPtrOutput) ToServicePrincipalPropertiesPtrOutp
 }
 
 func (o ServicePrincipalPropertiesPtrOutput) Elem() ServicePrincipalPropertiesOutput {
-	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties { return *v }).(ServicePrincipalPropertiesOutput)
+	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalProperties
+		return ret
+	}).(ServicePrincipalPropertiesOutput)
 }
 
 // The service principal client ID
@@ -3258,7 +3354,7 @@ func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesRe
 }
 
 func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
 		return &v
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
@@ -3288,7 +3384,13 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) ToServicePrincipalPropertie
 }
 
 func (o ServicePrincipalPropertiesResponsePtrOutput) Elem() ServicePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse { return *v }).(ServicePrincipalPropertiesResponseOutput)
+	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalPropertiesResponse
+		return ret
+	}).(ServicePrincipalPropertiesResponseOutput)
 }
 
 // The service principal client ID
@@ -3419,7 +3521,7 @@ func (o SslConfigurationOutput) ToSslConfigurationPtrOutput() SslConfigurationPt
 }
 
 func (o SslConfigurationOutput) ToSslConfigurationPtrOutputWithContext(ctx context.Context) SslConfigurationPtrOutput {
-	return o.ApplyT(func(v SslConfiguration) *SslConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfiguration) *SslConfiguration {
 		return &v
 	}).(SslConfigurationPtrOutput)
 }
@@ -3459,7 +3561,13 @@ func (o SslConfigurationPtrOutput) ToSslConfigurationPtrOutputWithContext(ctx co
 }
 
 func (o SslConfigurationPtrOutput) Elem() SslConfigurationOutput {
-	return o.ApplyT(func(v *SslConfiguration) SslConfiguration { return *v }).(SslConfigurationOutput)
+	return o.ApplyT(func(v *SslConfiguration) SslConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SslConfiguration
+		return ret
+	}).(SslConfigurationOutput)
 }
 
 // The SSL cert data in PEM format.
@@ -3610,7 +3718,7 @@ func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutput() Ss
 }
 
 func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutputWithContext(ctx context.Context) SslConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v SslConfigurationResponse) *SslConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfigurationResponse) *SslConfigurationResponse {
 		return &v
 	}).(SslConfigurationResponsePtrOutput)
 }
@@ -3650,7 +3758,13 @@ func (o SslConfigurationResponsePtrOutput) ToSslConfigurationResponsePtrOutputWi
 }
 
 func (o SslConfigurationResponsePtrOutput) Elem() SslConfigurationResponseOutput {
-	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse { return *v }).(SslConfigurationResponseOutput)
+	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SslConfigurationResponse
+		return ret
+	}).(SslConfigurationResponseOutput)
 }
 
 // The SSL cert data in PEM format.
@@ -3862,7 +3976,7 @@ func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutput() St
 }
 
 func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v StorageAccountProperties) *StorageAccountProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountProperties) *StorageAccountProperties {
 		return &v
 	}).(StorageAccountPropertiesPtrOutput)
 }
@@ -3887,7 +4001,13 @@ func (o StorageAccountPropertiesPtrOutput) ToStorageAccountPropertiesPtrOutputWi
 }
 
 func (o StorageAccountPropertiesPtrOutput) Elem() StorageAccountPropertiesOutput {
-	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties { return *v }).(StorageAccountPropertiesOutput)
+	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountProperties
+		return ret
+	}).(StorageAccountPropertiesOutput)
 }
 
 // ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
@@ -3996,7 +4116,7 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
@@ -4021,7 +4141,13 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountPropertiesResponse
+		return ret
+	}).(StorageAccountPropertiesResponseOutput)
 }
 
 // ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.

@@ -114,7 +114,7 @@ func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResp
 }
 
 func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfileResponsePtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
 		return &v
 	}).(HostingEnvironmentProfileResponsePtrOutput)
 }
@@ -149,7 +149,13 @@ func (o HostingEnvironmentProfileResponsePtrOutput) ToHostingEnvironmentProfileR
 }
 
 func (o HostingEnvironmentProfileResponsePtrOutput) Elem() HostingEnvironmentProfileResponseOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse { return *v }).(HostingEnvironmentProfileResponseOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HostingEnvironmentProfileResponse
+		return ret
+	}).(HostingEnvironmentProfileResponseOutput)
 }
 
 // Resource ID of the App Service Environment.

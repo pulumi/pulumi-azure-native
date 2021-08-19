@@ -161,65 +161,9 @@ func GetSiteDeploymentSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteDeploymentSlot resources.
 type siteDeploymentSlotState struct {
-	// Active
-	Active *bool `pulumi:"active"`
-	// Author
-	Author *string `pulumi:"author"`
-	// AuthorEmail
-	AuthorEmail *string `pulumi:"authorEmail"`
-	// Deployer
-	Deployer *string `pulumi:"deployer"`
-	// Detail
-	Details *string `pulumi:"details"`
-	// EndTime
-	EndTime *string `pulumi:"endTime"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Message
-	Message *string `pulumi:"message"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// StartTime
-	StartTime *string `pulumi:"startTime"`
-	// Status
-	Status *int `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SiteDeploymentSlotState struct {
-	// Active
-	Active pulumi.BoolPtrInput
-	// Author
-	Author pulumi.StringPtrInput
-	// AuthorEmail
-	AuthorEmail pulumi.StringPtrInput
-	// Deployer
-	Deployer pulumi.StringPtrInput
-	// Detail
-	Details pulumi.StringPtrInput
-	// EndTime
-	EndTime pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Message
-	Message pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// StartTime
-	StartTime pulumi.StringPtrInput
-	// Status
-	Status pulumi.IntPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SiteDeploymentSlotState) ElementType() reflect.Type {
@@ -324,9 +268,7 @@ func (i *SiteDeploymentSlot) ToSiteDeploymentSlotOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SiteDeploymentSlotOutput)
 }
 
-type SiteDeploymentSlotOutput struct {
-	*pulumi.OutputState
-}
+type SiteDeploymentSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteDeploymentSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteDeploymentSlot)(nil))

@@ -81,25 +81,9 @@ func GetLinkedService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedService resources.
 type linkedServiceState struct {
-	// Etag identifies change in the resource.
-	Etag *string `pulumi:"etag"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Properties of linked service.
-	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type LinkedServiceState struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Properties of linked service.
-	Properties pulumi.Input
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (LinkedServiceState) ElementType() reflect.Type {
@@ -152,9 +136,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
-type LinkedServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))

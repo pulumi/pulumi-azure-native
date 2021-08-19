@@ -145,39 +145,9 @@ func GetLogger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Logger resources.
 type loggerState struct {
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
-	Credentials map[string]string `pulumi:"credentials"`
-	// Logger description.
-	Description *string `pulumi:"description"`
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered *bool `pulumi:"isBuffered"`
-	// Logger type.
-	LoggerType *string `pulumi:"loggerType"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Sampling settings for an ApplicationInsights logger.
-	Sampling *LoggerSamplingContractResponse `pulumi:"sampling"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type LoggerState struct {
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
-	Credentials pulumi.StringMapInput
-	// Logger description.
-	Description pulumi.StringPtrInput
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered pulumi.BoolPtrInput
-	// Logger type.
-	LoggerType pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Sampling settings for an ApplicationInsights logger.
-	Sampling LoggerSamplingContractResponsePtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (LoggerState) ElementType() reflect.Type {
@@ -248,9 +218,7 @@ func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerOutput)
 }
 
-type LoggerOutput struct {
-	*pulumi.OutputState
-}
+type LoggerOutput struct{ *pulumi.OutputState }
 
 func (LoggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Logger)(nil))

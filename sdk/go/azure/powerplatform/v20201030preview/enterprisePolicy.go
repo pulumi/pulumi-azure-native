@@ -84,49 +84,9 @@ func GetEnterprisePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnterprisePolicy resources.
 type enterprisePolicyState struct {
-	// The encryption settings for a configuration store.
-	Encryption *PropertiesResponseEncryption `pulumi:"encryption"`
-	// The identity of the EnterprisePolicy.
-	Identity *EnterprisePolicyIdentityResponse `pulumi:"identity"`
-	// The kind (type) of Enterprise Policy.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Settings concerning lockbox.
-	Lockbox *PropertiesResponseLockbox `pulumi:"lockbox"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Settings concerning network injection.
-	NetworkInjection *PropertiesResponseNetworkInjection `pulumi:"networkInjection"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type EnterprisePolicyState struct {
-	// The encryption settings for a configuration store.
-	Encryption PropertiesResponseEncryptionPtrInput
-	// The identity of the EnterprisePolicy.
-	Identity EnterprisePolicyIdentityResponsePtrInput
-	// The kind (type) of Enterprise Policy.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Settings concerning lockbox.
-	Lockbox PropertiesResponseLockboxPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Settings concerning network injection.
-	NetworkInjection PropertiesResponseNetworkInjectionPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (EnterprisePolicyState) ElementType() reflect.Type {
@@ -199,9 +159,7 @@ func (i *EnterprisePolicy) ToEnterprisePolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyOutput)
 }
 
-type EnterprisePolicyOutput struct {
-	*pulumi.OutputState
-}
+type EnterprisePolicyOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterprisePolicy)(nil))

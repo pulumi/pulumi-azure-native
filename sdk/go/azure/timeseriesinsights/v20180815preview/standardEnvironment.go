@@ -124,67 +124,9 @@ func GetStandardEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StandardEnvironment resources.
 type standardEnvironmentState struct {
-	// The time the resource was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessFqdn *string `pulumi:"dataAccessFqdn"`
-	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessId *string `pulumi:"dataAccessId"`
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime *string `pulumi:"dataRetentionTime"`
-	// The kind of the environment.
-	// Expected value is 'Standard'.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
-	PartitionKeyProperties []TimeSeriesIdPropertyResponse `pulumi:"partitionKeyProperties"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku *SkuResponse `pulumi:"sku"`
-	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status *EnvironmentStatusResponse `pulumi:"status"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type StandardEnvironmentState struct {
-	// The time the resource was created.
-	CreationTime pulumi.StringPtrInput
-	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessFqdn pulumi.StringPtrInput
-	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessId pulumi.StringPtrInput
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime pulumi.StringPtrInput
-	// The kind of the environment.
-	// Expected value is 'Standard'.
-	Kind pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
-	PartitionKeyProperties TimeSeriesIdPropertyResponseArrayInput
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuResponsePtrInput
-	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status EnvironmentStatusResponsePtrInput
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (StandardEnvironmentState) ElementType() reflect.Type {
@@ -259,9 +201,7 @@ func (i *StandardEnvironment) ToStandardEnvironmentOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StandardEnvironmentOutput)
 }
 
-type StandardEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type StandardEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (StandardEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StandardEnvironment)(nil))

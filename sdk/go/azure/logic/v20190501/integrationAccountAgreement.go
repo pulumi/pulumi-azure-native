@@ -50,6 +50,9 @@ func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AgreementType == nil {
+		return nil, errors.New("invalid value for required argument 'AgreementType'")
+	}
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
@@ -123,61 +126,9 @@ func GetIntegrationAccountAgreement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountAgreement resources.
 type integrationAccountAgreementState struct {
-	// The agreement type.
-	AgreementType *string `pulumi:"agreementType"`
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The agreement content.
-	Content *AgreementContentResponse `pulumi:"content"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The business identity of the guest partner.
-	GuestIdentity *BusinessIdentityResponse `pulumi:"guestIdentity"`
-	// The integration account partner that is set as guest partner for this agreement.
-	GuestPartner *string `pulumi:"guestPartner"`
-	// The business identity of the host partner.
-	HostIdentity *BusinessIdentityResponse `pulumi:"hostIdentity"`
-	// The integration account partner that is set as host partner for this agreement.
-	HostPartner *string `pulumi:"hostPartner"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountAgreementState struct {
-	// The agreement type.
-	AgreementType pulumi.StringPtrInput
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The agreement content.
-	Content AgreementContentResponsePtrInput
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The business identity of the guest partner.
-	GuestIdentity BusinessIdentityResponsePtrInput
-	// The integration account partner that is set as guest partner for this agreement.
-	GuestPartner pulumi.StringPtrInput
-	// The business identity of the host partner.
-	HostIdentity BusinessIdentityResponsePtrInput
-	// The integration account partner that is set as host partner for this agreement.
-	HostPartner pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountAgreementState) ElementType() reflect.Type {
@@ -188,7 +139,7 @@ type integrationAccountAgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName *string `pulumi:"agreementName"`
 	// The agreement type.
-	AgreementType string `pulumi:"agreementType"`
+	AgreementType AgreementType `pulumi:"agreementType"`
 	// The agreement content.
 	Content AgreementContent `pulumi:"content"`
 	// The business identity of the guest partner.
@@ -216,7 +167,7 @@ type IntegrationAccountAgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName pulumi.StringPtrInput
 	// The agreement type.
-	AgreementType AgreementType
+	AgreementType AgreementTypeInput
 	// The agreement content.
 	Content AgreementContentInput
 	// The business identity of the guest partner.
@@ -262,9 +213,7 @@ func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementOutput)
 }
 
-type IntegrationAccountAgreementOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountAgreementOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))

@@ -88,33 +88,9 @@ func GetConfigurationAssignmentParent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationAssignmentParent resources.
 type configurationAssignmentParentState struct {
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The maintenance configuration Id
-	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
-	// Name of the resource
-	Name *string `pulumi:"name"`
-	// The unique resourceId
-	ResourceId *string `pulumi:"resourceId"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type ConfigurationAssignmentParentState struct {
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The maintenance configuration Id
-	MaintenanceConfigurationId pulumi.StringPtrInput
-	// Name of the resource
-	Name pulumi.StringPtrInput
-	// The unique resourceId
-	ResourceId pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (ConfigurationAssignmentParentState) ElementType() reflect.Type {
@@ -191,9 +167,7 @@ func (i *ConfigurationAssignmentParent) ToConfigurationAssignmentParentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssignmentParentOutput)
 }
 
-type ConfigurationAssignmentParentOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationAssignmentParentOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAssignmentParentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationAssignmentParent)(nil))

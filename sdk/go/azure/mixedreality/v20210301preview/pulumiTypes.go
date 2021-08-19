@@ -13,7 +13,7 @@ import (
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -30,7 +30,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -106,14 +106,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,17 +131,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the resource.
@@ -248,7 +254,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -283,7 +289,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -318,7 +330,7 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 type ObjectAnchorsAccountIdentity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // ObjectAnchorsAccountIdentityInput is an input type that accepts ObjectAnchorsAccountIdentityArgs and ObjectAnchorsAccountIdentityOutput values.
@@ -334,7 +346,7 @@ type ObjectAnchorsAccountIdentityInput interface {
 
 type ObjectAnchorsAccountIdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (ObjectAnchorsAccountIdentityArgs) ElementType() reflect.Type {
@@ -409,14 +421,14 @@ func (o ObjectAnchorsAccountIdentityOutput) ToObjectAnchorsAccountIdentityPtrOut
 }
 
 func (o ObjectAnchorsAccountIdentityOutput) ToObjectAnchorsAccountIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountIdentityPtrOutput {
-	return o.ApplyT(func(v ObjectAnchorsAccountIdentity) *ObjectAnchorsAccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectAnchorsAccountIdentity) *ObjectAnchorsAccountIdentity {
 		return &v
 	}).(ObjectAnchorsAccountIdentityPtrOutput)
 }
 
 // The identity type.
-func (o ObjectAnchorsAccountIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObjectAnchorsAccountIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ObjectAnchorsAccountIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ObjectAnchorsAccountIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type ObjectAnchorsAccountIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -434,17 +446,23 @@ func (o ObjectAnchorsAccountIdentityPtrOutput) ToObjectAnchorsAccountIdentityPtr
 }
 
 func (o ObjectAnchorsAccountIdentityPtrOutput) Elem() ObjectAnchorsAccountIdentityOutput {
-	return o.ApplyT(func(v *ObjectAnchorsAccountIdentity) ObjectAnchorsAccountIdentity { return *v }).(ObjectAnchorsAccountIdentityOutput)
+	return o.ApplyT(func(v *ObjectAnchorsAccountIdentity) ObjectAnchorsAccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectAnchorsAccountIdentity
+		return ret
+	}).(ObjectAnchorsAccountIdentityOutput)
 }
 
 // The identity type.
-func (o ObjectAnchorsAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectAnchorsAccountIdentity) *string {
+func (o ObjectAnchorsAccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccountIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 type ObjectAnchorsAccountResponseIdentity struct {
@@ -548,7 +566,7 @@ func (o ObjectAnchorsAccountResponseIdentityOutput) ToObjectAnchorsAccountRespon
 }
 
 func (o ObjectAnchorsAccountResponseIdentityOutput) ToObjectAnchorsAccountResponseIdentityPtrOutputWithContext(ctx context.Context) ObjectAnchorsAccountResponseIdentityPtrOutput {
-	return o.ApplyT(func(v ObjectAnchorsAccountResponseIdentity) *ObjectAnchorsAccountResponseIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectAnchorsAccountResponseIdentity) *ObjectAnchorsAccountResponseIdentity {
 		return &v
 	}).(ObjectAnchorsAccountResponseIdentityPtrOutput)
 }
@@ -583,7 +601,13 @@ func (o ObjectAnchorsAccountResponseIdentityPtrOutput) ToObjectAnchorsAccountRes
 }
 
 func (o ObjectAnchorsAccountResponseIdentityPtrOutput) Elem() ObjectAnchorsAccountResponseIdentityOutput {
-	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) ObjectAnchorsAccountResponseIdentity { return *v }).(ObjectAnchorsAccountResponseIdentityOutput)
+	return o.ApplyT(func(v *ObjectAnchorsAccountResponseIdentity) ObjectAnchorsAccountResponseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectAnchorsAccountResponseIdentity
+		return ret
+	}).(ObjectAnchorsAccountResponseIdentityOutput)
 }
 
 // The principal ID of resource identity.
@@ -627,7 +651,7 @@ type Sku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -652,7 +676,7 @@ type SkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *SkuTier `pulumi:"tier"`
+	Tier SkuTierPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -728,7 +752,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -754,8 +778,8 @@ func (o SkuOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v Sku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -773,7 +797,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -817,13 +847,13 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(SkuTierPtrOutput)
 }
 
 // The resource model definition representing SKU
@@ -938,7 +968,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -983,7 +1013,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -1152,7 +1188,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1202,7 +1238,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

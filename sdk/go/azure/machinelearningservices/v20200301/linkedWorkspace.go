@@ -70,21 +70,9 @@ func GetLinkedWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedWorkspace resources.
 type linkedWorkspaceState struct {
-	// Friendly name of the linked workspace.
-	Name *string `pulumi:"name"`
-	// LinkedWorkspace specific properties.
-	Properties *LinkedWorkspacePropsResponse `pulumi:"properties"`
-	// Resource type of linked workspace.
-	Type *string `pulumi:"type"`
 }
 
 type LinkedWorkspaceState struct {
-	// Friendly name of the linked workspace.
-	Name pulumi.StringPtrInput
-	// LinkedWorkspace specific properties.
-	Properties LinkedWorkspacePropsResponsePtrInput
-	// Resource type of linked workspace.
-	Type pulumi.StringPtrInput
 }
 
 func (LinkedWorkspaceState) ElementType() reflect.Type {
@@ -141,9 +129,7 @@ func (i *LinkedWorkspace) ToLinkedWorkspaceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspaceOutput)
 }
 
-type LinkedWorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (LinkedWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedWorkspace)(nil))

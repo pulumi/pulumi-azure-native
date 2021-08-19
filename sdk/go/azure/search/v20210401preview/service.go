@@ -72,8 +72,7 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.HostingMode == nil {
-		e := HostingMode("default")
-		args.HostingMode = &e
+		args.HostingMode = HostingMode("default")
 	}
 	if args.PartitionCount == nil {
 		args.PartitionCount = pulumi.IntPtr(1)
@@ -148,97 +147,9 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
-	AuthOptions *DataPlaneAuthOptionsResponse `pulumi:"authOptions"`
-	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
-	DisabledDataExfiltrationOptions []string `pulumi:"disabledDataExfiltrationOptions"`
-	// A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
-	ETag *string `pulumi:"eTag"`
-	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
-	EncryptionWithCmk *EncryptionWithCmkResponse `pulumi:"encryptionWithCmk"`
-	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-	HostingMode *string `pulumi:"hostingMode"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Network specific rules that determine how the Azure Cognitive Search service may be reached.
-	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
-	// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-	PartitionCount *int `pulumi:"partitionCount"`
-	// The list of private endpoint connections to the Azure Cognitive Search service.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-	ReplicaCount *int `pulumi:"replicaCount"`
-	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
-	SemanticSearch *string `pulumi:"semanticSearch"`
-	// The list of shared private link resources managed by the Azure Cognitive Search service.
-	SharedPrivateLinkResources []SharedPrivateLinkResourceResponse `pulumi:"sharedPrivateLinkResources"`
-	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. 'stopped': The search service is in a subscription that's disabled. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
-	Status *string `pulumi:"status"`
-	// The details of the search service status.
-	StatusDetails *string `pulumi:"statusDetails"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
-	// Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
-	AuthOptions DataPlaneAuthOptionsResponsePtrInput
-	// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
-	DisableLocalAuth pulumi.BoolPtrInput
-	// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
-	DisabledDataExfiltrationOptions pulumi.StringArrayInput
-	// A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
-	ETag pulumi.StringPtrInput
-	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
-	EncryptionWithCmk EncryptionWithCmkResponsePtrInput
-	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-	HostingMode pulumi.StringPtrInput
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Network specific rules that determine how the Azure Cognitive Search service may be reached.
-	NetworkRuleSet NetworkRuleSetResponsePtrInput
-	// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-	PartitionCount pulumi.IntPtrInput
-	// The list of private endpoint connections to the Azure Cognitive Search service.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
-	ProvisioningState pulumi.StringPtrInput
-	// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-	ReplicaCount pulumi.IntPtrInput
-	// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
-	SemanticSearch pulumi.StringPtrInput
-	// The list of shared private link resources managed by the Azure Cognitive Search service.
-	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayInput
-	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-	Sku SkuResponsePtrInput
-	// The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. 'stopped': The search service is in a subscription that's disabled. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
-	Status pulumi.StringPtrInput
-	// The details of the search service status.
-	StatusDetails pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -255,7 +166,7 @@ type serviceArgs struct {
 	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
 	EncryptionWithCmk *EncryptionWithCmk `pulumi:"encryptionWithCmk"`
 	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-	HostingMode *string `pulumi:"hostingMode"`
+	HostingMode *HostingMode `pulumi:"hostingMode"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -291,7 +202,7 @@ type ServiceArgs struct {
 	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
 	EncryptionWithCmk EncryptionWithCmkPtrInput
 	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-	HostingMode *HostingMode
+	HostingMode HostingModePtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
@@ -339,9 +250,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

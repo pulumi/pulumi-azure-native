@@ -97,45 +97,9 @@ func GetActivityLogAlert(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActivityLogAlert resources.
 type activityLogAlertState struct {
-	// The actions that will activate when the condition is met.
-	Actions *ActivityLogAlertActionListResponse `pulumi:"actions"`
-	// The condition that will cause this alert to activate.
-	Condition *ActivityLogAlertAllOfConditionResponse `pulumi:"condition"`
-	// A description of this activity log alert.
-	Description *string `pulumi:"description"`
-	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
-	Enabled *bool `pulumi:"enabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
-	Scopes []string `pulumi:"scopes"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type ActivityLogAlertState struct {
-	// The actions that will activate when the condition is met.
-	Actions ActivityLogAlertActionListResponsePtrInput
-	// The condition that will cause this alert to activate.
-	Condition ActivityLogAlertAllOfConditionResponsePtrInput
-	// A description of this activity log alert.
-	Description pulumi.StringPtrInput
-	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
-	Enabled pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
-	Scopes pulumi.StringArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ActivityLogAlertState) ElementType() reflect.Type {
@@ -208,9 +172,7 @@ func (i *ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertOutput)
 }
 
-type ActivityLogAlertOutput struct {
-	*pulumi.OutputState
-}
+type ActivityLogAlertOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityLogAlert)(nil))

@@ -109,37 +109,9 @@ func GetApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationGatewayPrivateEndpointConnection resources.
 type applicationGatewayPrivateEndpointConnectionState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The consumer link id.
-	LinkIdentifier *string `pulumi:"linkIdentifier"`
-	// Name of the private endpoint connection on an application gateway.
-	Name *string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the application gateway private endpoint connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ApplicationGatewayPrivateEndpointConnectionState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The consumer link id.
-	LinkIdentifier pulumi.StringPtrInput
-	// Name of the private endpoint connection on an application gateway.
-	Name pulumi.StringPtrInput
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
-	// The provisioning state of the application gateway private endpoint connection resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ApplicationGatewayPrivateEndpointConnectionState) ElementType() reflect.Type {
@@ -200,9 +172,7 @@ func (i *ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateEndpointConnectionOutput)
 }
 
-type ApplicationGatewayPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationGatewayPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil))

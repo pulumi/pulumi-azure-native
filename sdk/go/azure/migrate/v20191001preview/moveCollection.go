@@ -81,37 +81,9 @@ func GetMoveCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MoveCollection resources.
 type moveCollectionState struct {
-	// The etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// Defines the MSI properties of the Move Collection.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Defines the move collection properties.
-	Properties *MoveCollectionPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type MoveCollectionState struct {
-	// The etag of the resource.
-	Etag pulumi.StringPtrInput
-	// Defines the MSI properties of the Move Collection.
-	Identity IdentityResponsePtrInput
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Defines the move collection properties.
-	Properties MoveCollectionPropertiesResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (MoveCollectionState) ElementType() reflect.Type {
@@ -172,9 +144,7 @@ func (i *MoveCollection) ToMoveCollectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionOutput)
 }
 
-type MoveCollectionOutput struct {
-	*pulumi.OutputState
-}
+type MoveCollectionOutput struct{ *pulumi.OutputState }
 
 func (MoveCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MoveCollection)(nil))

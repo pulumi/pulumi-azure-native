@@ -95,21 +95,9 @@ func GetServerDnsAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerDnsAlias resources.
 type serverDnsAliasState struct {
-	// The fully qualified DNS record for alias
-	AzureDnsRecord *string `pulumi:"azureDnsRecord"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ServerDnsAliasState struct {
-	// The fully qualified DNS record for alias
-	AzureDnsRecord pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ServerDnsAliasState) ElementType() reflect.Type {
@@ -158,9 +146,7 @@ func (i *ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDnsAliasOutput)
 }
 
-type ServerDnsAliasOutput struct {
-	*pulumi.OutputState
-}
+type ServerDnsAliasOutput struct{ *pulumi.OutputState }
 
 func (ServerDnsAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerDnsAlias)(nil))

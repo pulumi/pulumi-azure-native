@@ -136,93 +136,9 @@ func GetFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileShare resources.
 type fileShareState struct {
-	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-	AccessTier *string `pulumi:"accessTier"`
-	// Indicates the last modification time for share access tier.
-	AccessTierChangeTime *string `pulumi:"accessTierChangeTime"`
-	// Indicates if there is a pending transition for access tier.
-	AccessTierStatus *string `pulumi:"accessTierStatus"`
-	// Indicates whether the share was deleted.
-	Deleted *bool `pulumi:"deleted"`
-	// The deleted time if the share was deleted.
-	DeletedTime *string `pulumi:"deletedTime"`
-	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-	EnabledProtocols *string `pulumi:"enabledProtocols"`
-	// Resource Etag.
-	Etag *string `pulumi:"etag"`
-	// Returns the date and time the share was last modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-	LeaseDuration *string `pulumi:"leaseDuration"`
-	// Lease state of the share.
-	LeaseState *string `pulumi:"leaseState"`
-	// The lease status of the share.
-	LeaseStatus *string `pulumi:"leaseStatus"`
-	// A name-value pair to associate with the share as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Remaining retention days for share that was soft deleted.
-	RemainingRetentionDays *int `pulumi:"remainingRetentionDays"`
-	// The property is for NFS share only. The default is NoRootSquash.
-	RootSquash *string `pulumi:"rootSquash"`
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-	ShareQuota *int `pulumi:"shareQuota"`
-	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes *float64 `pulumi:"shareUsageBytes"`
-	// List of stored access policies specified on the share.
-	SignedIdentifiers []SignedIdentifierResponse `pulumi:"signedIdentifiers"`
-	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
-	SnapshotTime *string `pulumi:"snapshotTime"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The version of the share.
-	Version *string `pulumi:"version"`
 }
 
 type FileShareState struct {
-	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-	AccessTier pulumi.StringPtrInput
-	// Indicates the last modification time for share access tier.
-	AccessTierChangeTime pulumi.StringPtrInput
-	// Indicates if there is a pending transition for access tier.
-	AccessTierStatus pulumi.StringPtrInput
-	// Indicates whether the share was deleted.
-	Deleted pulumi.BoolPtrInput
-	// The deleted time if the share was deleted.
-	DeletedTime pulumi.StringPtrInput
-	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
-	EnabledProtocols pulumi.StringPtrInput
-	// Resource Etag.
-	Etag pulumi.StringPtrInput
-	// Returns the date and time the share was last modified.
-	LastModifiedTime pulumi.StringPtrInput
-	// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
-	LeaseDuration pulumi.StringPtrInput
-	// Lease state of the share.
-	LeaseState pulumi.StringPtrInput
-	// The lease status of the share.
-	LeaseStatus pulumi.StringPtrInput
-	// A name-value pair to associate with the share as metadata.
-	Metadata pulumi.StringMapInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Remaining retention days for share that was soft deleted.
-	RemainingRetentionDays pulumi.IntPtrInput
-	// The property is for NFS share only. The default is NoRootSquash.
-	RootSquash pulumi.StringPtrInput
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-	ShareQuota pulumi.IntPtrInput
-	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-	ShareUsageBytes pulumi.Float64PtrInput
-	// List of stored access policies specified on the share.
-	SignedIdentifiers SignedIdentifierResponseArrayInput
-	// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
-	SnapshotTime pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The version of the share.
-	Version pulumi.StringPtrInput
 }
 
 func (FileShareState) ElementType() reflect.Type {
@@ -299,9 +215,7 @@ func (i *FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareO
 	return pulumi.ToOutputWithContext(ctx, i).(FileShareOutput)
 }
 
-type FileShareOutput struct {
-	*pulumi.OutputState
-}
+type FileShareOutput struct{ *pulumi.OutputState }
 
 func (FileShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileShare)(nil))

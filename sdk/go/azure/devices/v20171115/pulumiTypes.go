@@ -126,7 +126,7 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
@@ -176,7 +176,13 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificatePropertiesResponse
+		return ret
+	}).(CertificatePropertiesResponseOutput)
 }
 
 // The certificate's creation date and time.
@@ -351,7 +357,7 @@ func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutpu
 }
 
 func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionPtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
 		return &v
 	}).(IotDpsPropertiesDescriptionPtrOutput)
 }
@@ -398,7 +404,13 @@ func (o IotDpsPropertiesDescriptionPtrOutput) ToIotDpsPropertiesDescriptionPtrOu
 }
 
 func (o IotDpsPropertiesDescriptionPtrOutput) Elem() IotDpsPropertiesDescriptionOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription { return *v }).(IotDpsPropertiesDescriptionOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescription
+		return ret
+	}).(IotDpsPropertiesDescriptionOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -575,7 +587,7 @@ func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescription
 }
 
 func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
 		return &v
 	}).(IotDpsPropertiesDescriptionResponsePtrOutput)
 }
@@ -637,7 +649,13 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ToIotDpsPropertiesDescript
 }
 
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) Elem() IotDpsPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse { return *v }).(IotDpsPropertiesDescriptionResponseOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescriptionResponse
+		return ret
+	}).(IotDpsPropertiesDescriptionResponseOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -820,7 +838,7 @@ func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutput() IotDpsSkuInfoPtrOutput {
 }
 
 func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.Context) IotDpsSkuInfoPtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfo) *IotDpsSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfo) *IotDpsSkuInfo {
 		return &v
 	}).(IotDpsSkuInfoPtrOutput)
 }
@@ -850,7 +868,13 @@ func (o IotDpsSkuInfoPtrOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotDpsSkuInfoPtrOutput) Elem() IotDpsSkuInfoOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo { return *v }).(IotDpsSkuInfoOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfo
+		return ret
+	}).(IotDpsSkuInfoOutput)
 }
 
 // The number of units to provision
@@ -977,7 +1001,7 @@ func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutput() IotDpsSk
 }
 
 func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotDpsSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
 		return &v
 	}).(IotDpsSkuInfoResponsePtrOutput)
 }
@@ -1012,7 +1036,13 @@ func (o IotDpsSkuInfoResponsePtrOutput) ToIotDpsSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotDpsSkuInfoResponsePtrOutput) Elem() IotDpsSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse { return *v }).(IotDpsSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfoResponse
+		return ret
+	}).(IotDpsSkuInfoResponseOutput)
 }
 
 // The number of units to provision

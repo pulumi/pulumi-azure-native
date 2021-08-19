@@ -101,41 +101,9 @@ func GetBot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bot resources.
 type botState struct {
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name *string `pulumi:"name"`
-	// The set of properties specific to bot resource
-	Properties *BotPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type BotState struct {
-	// Entity Tag
-	Etag pulumi.StringPtrInput
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Specifies the name of the resource.
-	Name pulumi.StringPtrInput
-	// The set of properties specific to bot resource
-	Properties BotPropertiesResponsePtrInput
-	// Gets or sets the SKU of the resource.
-	Sku SkuResponsePtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// Specifies the type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (BotState) ElementType() reflect.Type {
@@ -204,9 +172,7 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
 }
 
-type BotOutput struct {
-	*pulumi.OutputState
-}
+type BotOutput struct{ *pulumi.OutputState }
 
 func (BotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Bot)(nil))

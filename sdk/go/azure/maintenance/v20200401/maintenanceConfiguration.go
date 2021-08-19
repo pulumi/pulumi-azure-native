@@ -99,37 +99,9 @@ func GetMaintenanceConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceConfiguration resources.
 type maintenanceConfigurationState struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
-	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
-	// Gets or sets location of the resource
-	Location *string `pulumi:"location"`
-	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-	MaintenanceScope *string `pulumi:"maintenanceScope"`
-	// Name of the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
-	Namespace *string `pulumi:"namespace"`
-	// Gets or sets tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type MaintenanceConfigurationState struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
-	ExtensionProperties pulumi.StringMapInput
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrInput
-	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-	MaintenanceScope pulumi.StringPtrInput
-	// Name of the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
-	Namespace pulumi.StringPtrInput
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapInput
-	// Type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (MaintenanceConfigurationState) ElementType() reflect.Type {
@@ -194,9 +166,7 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
 }
 
-type MaintenanceConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaintenanceConfiguration)(nil))

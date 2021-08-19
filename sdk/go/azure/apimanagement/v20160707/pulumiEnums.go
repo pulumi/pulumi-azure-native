@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ApiProtocolContract pulumi.String
+type ApiProtocolContract string
 
 const (
 	ApiProtocolContractHttp  = ApiProtocolContract("Http")
@@ -18,7 +18,23 @@ const (
 )
 
 func (ApiProtocolContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ApiProtocolContract)(nil)).Elem()
+}
+
+func (e ApiProtocolContract) ToApiProtocolContractOutput() ApiProtocolContractOutput {
+	return pulumi.ToOutput(e).(ApiProtocolContractOutput)
+}
+
+func (e ApiProtocolContract) ToApiProtocolContractOutputWithContext(ctx context.Context) ApiProtocolContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApiProtocolContractOutput)
+}
+
+func (e ApiProtocolContract) ToApiProtocolContractPtrOutput() ApiProtocolContractPtrOutput {
+	return e.ToApiProtocolContractPtrOutputWithContext(context.Background())
+}
+
+func (e ApiProtocolContract) ToApiProtocolContractPtrOutputWithContext(ctx context.Context) ApiProtocolContractPtrOutput {
+	return ApiProtocolContract(e).ToApiProtocolContractOutputWithContext(ctx).ToApiProtocolContractPtrOutputWithContext(ctx)
 }
 
 func (e ApiProtocolContract) ToStringOutput() pulumi.StringOutput {
@@ -37,8 +53,129 @@ func (e ApiProtocolContract) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ApiProtocolContractOutput struct{ *pulumi.OutputState }
+
+func (ApiProtocolContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiProtocolContract)(nil)).Elem()
+}
+
+func (o ApiProtocolContractOutput) ToApiProtocolContractOutput() ApiProtocolContractOutput {
+	return o
+}
+
+func (o ApiProtocolContractOutput) ToApiProtocolContractOutputWithContext(ctx context.Context) ApiProtocolContractOutput {
+	return o
+}
+
+func (o ApiProtocolContractOutput) ToApiProtocolContractPtrOutput() ApiProtocolContractPtrOutput {
+	return o.ToApiProtocolContractPtrOutputWithContext(context.Background())
+}
+
+func (o ApiProtocolContractOutput) ToApiProtocolContractPtrOutputWithContext(ctx context.Context) ApiProtocolContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiProtocolContract) *ApiProtocolContract {
+		return &v
+	}).(ApiProtocolContractPtrOutput)
+}
+
+func (o ApiProtocolContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApiProtocolContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiProtocolContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiProtocolContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiProtocolContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiProtocolContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiProtocolContractPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiProtocolContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiProtocolContract)(nil)).Elem()
+}
+
+func (o ApiProtocolContractPtrOutput) ToApiProtocolContractPtrOutput() ApiProtocolContractPtrOutput {
+	return o
+}
+
+func (o ApiProtocolContractPtrOutput) ToApiProtocolContractPtrOutputWithContext(ctx context.Context) ApiProtocolContractPtrOutput {
+	return o
+}
+
+func (o ApiProtocolContractPtrOutput) Elem() ApiProtocolContractOutput {
+	return o.ApplyT(func(v *ApiProtocolContract) ApiProtocolContract {
+		if v != nil {
+			return *v
+		}
+		var ret ApiProtocolContract
+		return ret
+	}).(ApiProtocolContractOutput)
+}
+
+func (o ApiProtocolContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiProtocolContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApiProtocolContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApiProtocolContractInput is an input type that accepts ApiProtocolContractArgs and ApiProtocolContractOutput values.
+// You can construct a concrete instance of `ApiProtocolContractInput` via:
+//
+//          ApiProtocolContractArgs{...}
+type ApiProtocolContractInput interface {
+	pulumi.Input
+
+	ToApiProtocolContractOutput() ApiProtocolContractOutput
+	ToApiProtocolContractOutputWithContext(context.Context) ApiProtocolContractOutput
+}
+
+var apiProtocolContractPtrType = reflect.TypeOf((**ApiProtocolContract)(nil)).Elem()
+
+type ApiProtocolContractPtrInput interface {
+	pulumi.Input
+
+	ToApiProtocolContractPtrOutput() ApiProtocolContractPtrOutput
+	ToApiProtocolContractPtrOutputWithContext(context.Context) ApiProtocolContractPtrOutput
+}
+
+type apiProtocolContractPtr string
+
+func ApiProtocolContractPtr(v string) ApiProtocolContractPtrInput {
+	return (*apiProtocolContractPtr)(&v)
+}
+
+func (*apiProtocolContractPtr) ElementType() reflect.Type {
+	return apiProtocolContractPtrType
+}
+
+func (in *apiProtocolContractPtr) ToApiProtocolContractPtrOutput() ApiProtocolContractPtrOutput {
+	return pulumi.ToOutput(in).(ApiProtocolContractPtrOutput)
+}
+
+func (in *apiProtocolContractPtr) ToApiProtocolContractPtrOutputWithContext(ctx context.Context) ApiProtocolContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApiProtocolContractPtrOutput)
+}
+
 // Type of API.
-type ApiTypeContract pulumi.String
+type ApiTypeContract string
 
 const (
 	ApiTypeContractHttp = ApiTypeContract("Http")
@@ -46,7 +183,23 @@ const (
 )
 
 func (ApiTypeContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ApiTypeContract)(nil)).Elem()
+}
+
+func (e ApiTypeContract) ToApiTypeContractOutput() ApiTypeContractOutput {
+	return pulumi.ToOutput(e).(ApiTypeContractOutput)
+}
+
+func (e ApiTypeContract) ToApiTypeContractOutputWithContext(ctx context.Context) ApiTypeContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApiTypeContractOutput)
+}
+
+func (e ApiTypeContract) ToApiTypeContractPtrOutput() ApiTypeContractPtrOutput {
+	return e.ToApiTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (e ApiTypeContract) ToApiTypeContractPtrOutputWithContext(ctx context.Context) ApiTypeContractPtrOutput {
+	return ApiTypeContract(e).ToApiTypeContractOutputWithContext(ctx).ToApiTypeContractPtrOutputWithContext(ctx)
 }
 
 func (e ApiTypeContract) ToStringOutput() pulumi.StringOutput {
@@ -65,7 +218,128 @@ func (e ApiTypeContract) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type BearerTokenSendingMethodsContract pulumi.String
+type ApiTypeContractOutput struct{ *pulumi.OutputState }
+
+func (ApiTypeContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTypeContract)(nil)).Elem()
+}
+
+func (o ApiTypeContractOutput) ToApiTypeContractOutput() ApiTypeContractOutput {
+	return o
+}
+
+func (o ApiTypeContractOutput) ToApiTypeContractOutputWithContext(ctx context.Context) ApiTypeContractOutput {
+	return o
+}
+
+func (o ApiTypeContractOutput) ToApiTypeContractPtrOutput() ApiTypeContractPtrOutput {
+	return o.ToApiTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (o ApiTypeContractOutput) ToApiTypeContractPtrOutputWithContext(ctx context.Context) ApiTypeContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiTypeContract) *ApiTypeContract {
+		return &v
+	}).(ApiTypeContractPtrOutput)
+}
+
+func (o ApiTypeContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApiTypeContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiTypeContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiTypeContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiTypeContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiTypeContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiTypeContractPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiTypeContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiTypeContract)(nil)).Elem()
+}
+
+func (o ApiTypeContractPtrOutput) ToApiTypeContractPtrOutput() ApiTypeContractPtrOutput {
+	return o
+}
+
+func (o ApiTypeContractPtrOutput) ToApiTypeContractPtrOutputWithContext(ctx context.Context) ApiTypeContractPtrOutput {
+	return o
+}
+
+func (o ApiTypeContractPtrOutput) Elem() ApiTypeContractOutput {
+	return o.ApplyT(func(v *ApiTypeContract) ApiTypeContract {
+		if v != nil {
+			return *v
+		}
+		var ret ApiTypeContract
+		return ret
+	}).(ApiTypeContractOutput)
+}
+
+func (o ApiTypeContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiTypeContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApiTypeContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApiTypeContractInput is an input type that accepts ApiTypeContractArgs and ApiTypeContractOutput values.
+// You can construct a concrete instance of `ApiTypeContractInput` via:
+//
+//          ApiTypeContractArgs{...}
+type ApiTypeContractInput interface {
+	pulumi.Input
+
+	ToApiTypeContractOutput() ApiTypeContractOutput
+	ToApiTypeContractOutputWithContext(context.Context) ApiTypeContractOutput
+}
+
+var apiTypeContractPtrType = reflect.TypeOf((**ApiTypeContract)(nil)).Elem()
+
+type ApiTypeContractPtrInput interface {
+	pulumi.Input
+
+	ToApiTypeContractPtrOutput() ApiTypeContractPtrOutput
+	ToApiTypeContractPtrOutputWithContext(context.Context) ApiTypeContractPtrOutput
+}
+
+type apiTypeContractPtr string
+
+func ApiTypeContractPtr(v string) ApiTypeContractPtrInput {
+	return (*apiTypeContractPtr)(&v)
+}
+
+func (*apiTypeContractPtr) ElementType() reflect.Type {
+	return apiTypeContractPtrType
+}
+
+func (in *apiTypeContractPtr) ToApiTypeContractPtrOutput() ApiTypeContractPtrOutput {
+	return pulumi.ToOutput(in).(ApiTypeContractPtrOutput)
+}
+
+func (in *apiTypeContractPtr) ToApiTypeContractPtrOutputWithContext(ctx context.Context) ApiTypeContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApiTypeContractPtrOutput)
+}
+
+type BearerTokenSendingMethodsContract string
 
 const (
 	BearerTokenSendingMethodsContractAuthorizationHeader = BearerTokenSendingMethodsContract("authorizationHeader")
@@ -73,7 +347,23 @@ const (
 )
 
 func (BearerTokenSendingMethodsContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*BearerTokenSendingMethodsContract)(nil)).Elem()
+}
+
+func (e BearerTokenSendingMethodsContract) ToBearerTokenSendingMethodsContractOutput() BearerTokenSendingMethodsContractOutput {
+	return pulumi.ToOutput(e).(BearerTokenSendingMethodsContractOutput)
+}
+
+func (e BearerTokenSendingMethodsContract) ToBearerTokenSendingMethodsContractOutputWithContext(ctx context.Context) BearerTokenSendingMethodsContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BearerTokenSendingMethodsContractOutput)
+}
+
+func (e BearerTokenSendingMethodsContract) ToBearerTokenSendingMethodsContractPtrOutput() BearerTokenSendingMethodsContractPtrOutput {
+	return e.ToBearerTokenSendingMethodsContractPtrOutputWithContext(context.Background())
+}
+
+func (e BearerTokenSendingMethodsContract) ToBearerTokenSendingMethodsContractPtrOutputWithContext(ctx context.Context) BearerTokenSendingMethodsContractPtrOutput {
+	return BearerTokenSendingMethodsContract(e).ToBearerTokenSendingMethodsContractOutputWithContext(ctx).ToBearerTokenSendingMethodsContractPtrOutputWithContext(ctx)
 }
 
 func (e BearerTokenSendingMethodsContract) ToStringOutput() pulumi.StringOutput {
@@ -92,7 +382,128 @@ func (e BearerTokenSendingMethodsContract) ToStringPtrOutputWithContext(ctx cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ClientAuthenticationMethodContract pulumi.String
+type BearerTokenSendingMethodsContractOutput struct{ *pulumi.OutputState }
+
+func (BearerTokenSendingMethodsContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BearerTokenSendingMethodsContract)(nil)).Elem()
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToBearerTokenSendingMethodsContractOutput() BearerTokenSendingMethodsContractOutput {
+	return o
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToBearerTokenSendingMethodsContractOutputWithContext(ctx context.Context) BearerTokenSendingMethodsContractOutput {
+	return o
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToBearerTokenSendingMethodsContractPtrOutput() BearerTokenSendingMethodsContractPtrOutput {
+	return o.ToBearerTokenSendingMethodsContractPtrOutputWithContext(context.Background())
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToBearerTokenSendingMethodsContractPtrOutputWithContext(ctx context.Context) BearerTokenSendingMethodsContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BearerTokenSendingMethodsContract) *BearerTokenSendingMethodsContract {
+		return &v
+	}).(BearerTokenSendingMethodsContractPtrOutput)
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BearerTokenSendingMethodsContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BearerTokenSendingMethodsContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BearerTokenSendingMethodsContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BearerTokenSendingMethodsContractPtrOutput struct{ *pulumi.OutputState }
+
+func (BearerTokenSendingMethodsContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BearerTokenSendingMethodsContract)(nil)).Elem()
+}
+
+func (o BearerTokenSendingMethodsContractPtrOutput) ToBearerTokenSendingMethodsContractPtrOutput() BearerTokenSendingMethodsContractPtrOutput {
+	return o
+}
+
+func (o BearerTokenSendingMethodsContractPtrOutput) ToBearerTokenSendingMethodsContractPtrOutputWithContext(ctx context.Context) BearerTokenSendingMethodsContractPtrOutput {
+	return o
+}
+
+func (o BearerTokenSendingMethodsContractPtrOutput) Elem() BearerTokenSendingMethodsContractOutput {
+	return o.ApplyT(func(v *BearerTokenSendingMethodsContract) BearerTokenSendingMethodsContract {
+		if v != nil {
+			return *v
+		}
+		var ret BearerTokenSendingMethodsContract
+		return ret
+	}).(BearerTokenSendingMethodsContractOutput)
+}
+
+func (o BearerTokenSendingMethodsContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BearerTokenSendingMethodsContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BearerTokenSendingMethodsContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BearerTokenSendingMethodsContractInput is an input type that accepts BearerTokenSendingMethodsContractArgs and BearerTokenSendingMethodsContractOutput values.
+// You can construct a concrete instance of `BearerTokenSendingMethodsContractInput` via:
+//
+//          BearerTokenSendingMethodsContractArgs{...}
+type BearerTokenSendingMethodsContractInput interface {
+	pulumi.Input
+
+	ToBearerTokenSendingMethodsContractOutput() BearerTokenSendingMethodsContractOutput
+	ToBearerTokenSendingMethodsContractOutputWithContext(context.Context) BearerTokenSendingMethodsContractOutput
+}
+
+var bearerTokenSendingMethodsContractPtrType = reflect.TypeOf((**BearerTokenSendingMethodsContract)(nil)).Elem()
+
+type BearerTokenSendingMethodsContractPtrInput interface {
+	pulumi.Input
+
+	ToBearerTokenSendingMethodsContractPtrOutput() BearerTokenSendingMethodsContractPtrOutput
+	ToBearerTokenSendingMethodsContractPtrOutputWithContext(context.Context) BearerTokenSendingMethodsContractPtrOutput
+}
+
+type bearerTokenSendingMethodsContractPtr string
+
+func BearerTokenSendingMethodsContractPtr(v string) BearerTokenSendingMethodsContractPtrInput {
+	return (*bearerTokenSendingMethodsContractPtr)(&v)
+}
+
+func (*bearerTokenSendingMethodsContractPtr) ElementType() reflect.Type {
+	return bearerTokenSendingMethodsContractPtrType
+}
+
+func (in *bearerTokenSendingMethodsContractPtr) ToBearerTokenSendingMethodsContractPtrOutput() BearerTokenSendingMethodsContractPtrOutput {
+	return pulumi.ToOutput(in).(BearerTokenSendingMethodsContractPtrOutput)
+}
+
+func (in *bearerTokenSendingMethodsContractPtr) ToBearerTokenSendingMethodsContractPtrOutputWithContext(ctx context.Context) BearerTokenSendingMethodsContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BearerTokenSendingMethodsContractPtrOutput)
+}
+
+type ClientAuthenticationMethodContract string
 
 const (
 	ClientAuthenticationMethodContractBasic = ClientAuthenticationMethodContract("Basic")
@@ -100,7 +511,23 @@ const (
 )
 
 func (ClientAuthenticationMethodContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ClientAuthenticationMethodContract)(nil)).Elem()
+}
+
+func (e ClientAuthenticationMethodContract) ToClientAuthenticationMethodContractOutput() ClientAuthenticationMethodContractOutput {
+	return pulumi.ToOutput(e).(ClientAuthenticationMethodContractOutput)
+}
+
+func (e ClientAuthenticationMethodContract) ToClientAuthenticationMethodContractOutputWithContext(ctx context.Context) ClientAuthenticationMethodContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClientAuthenticationMethodContractOutput)
+}
+
+func (e ClientAuthenticationMethodContract) ToClientAuthenticationMethodContractPtrOutput() ClientAuthenticationMethodContractPtrOutput {
+	return e.ToClientAuthenticationMethodContractPtrOutputWithContext(context.Background())
+}
+
+func (e ClientAuthenticationMethodContract) ToClientAuthenticationMethodContractPtrOutputWithContext(ctx context.Context) ClientAuthenticationMethodContractPtrOutput {
+	return ClientAuthenticationMethodContract(e).ToClientAuthenticationMethodContractOutputWithContext(ctx).ToClientAuthenticationMethodContractPtrOutputWithContext(ctx)
 }
 
 func (e ClientAuthenticationMethodContract) ToStringOutput() pulumi.StringOutput {
@@ -119,7 +546,128 @@ func (e ClientAuthenticationMethodContract) ToStringPtrOutputWithContext(ctx con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type GrantTypesContract pulumi.String
+type ClientAuthenticationMethodContractOutput struct{ *pulumi.OutputState }
+
+func (ClientAuthenticationMethodContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientAuthenticationMethodContract)(nil)).Elem()
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToClientAuthenticationMethodContractOutput() ClientAuthenticationMethodContractOutput {
+	return o
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToClientAuthenticationMethodContractOutputWithContext(ctx context.Context) ClientAuthenticationMethodContractOutput {
+	return o
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToClientAuthenticationMethodContractPtrOutput() ClientAuthenticationMethodContractPtrOutput {
+	return o.ToClientAuthenticationMethodContractPtrOutputWithContext(context.Background())
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToClientAuthenticationMethodContractPtrOutputWithContext(ctx context.Context) ClientAuthenticationMethodContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientAuthenticationMethodContract) *ClientAuthenticationMethodContract {
+		return &v
+	}).(ClientAuthenticationMethodContractPtrOutput)
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClientAuthenticationMethodContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClientAuthenticationMethodContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClientAuthenticationMethodContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientAuthenticationMethodContractPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientAuthenticationMethodContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientAuthenticationMethodContract)(nil)).Elem()
+}
+
+func (o ClientAuthenticationMethodContractPtrOutput) ToClientAuthenticationMethodContractPtrOutput() ClientAuthenticationMethodContractPtrOutput {
+	return o
+}
+
+func (o ClientAuthenticationMethodContractPtrOutput) ToClientAuthenticationMethodContractPtrOutputWithContext(ctx context.Context) ClientAuthenticationMethodContractPtrOutput {
+	return o
+}
+
+func (o ClientAuthenticationMethodContractPtrOutput) Elem() ClientAuthenticationMethodContractOutput {
+	return o.ApplyT(func(v *ClientAuthenticationMethodContract) ClientAuthenticationMethodContract {
+		if v != nil {
+			return *v
+		}
+		var ret ClientAuthenticationMethodContract
+		return ret
+	}).(ClientAuthenticationMethodContractOutput)
+}
+
+func (o ClientAuthenticationMethodContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClientAuthenticationMethodContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClientAuthenticationMethodContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClientAuthenticationMethodContractInput is an input type that accepts ClientAuthenticationMethodContractArgs and ClientAuthenticationMethodContractOutput values.
+// You can construct a concrete instance of `ClientAuthenticationMethodContractInput` via:
+//
+//          ClientAuthenticationMethodContractArgs{...}
+type ClientAuthenticationMethodContractInput interface {
+	pulumi.Input
+
+	ToClientAuthenticationMethodContractOutput() ClientAuthenticationMethodContractOutput
+	ToClientAuthenticationMethodContractOutputWithContext(context.Context) ClientAuthenticationMethodContractOutput
+}
+
+var clientAuthenticationMethodContractPtrType = reflect.TypeOf((**ClientAuthenticationMethodContract)(nil)).Elem()
+
+type ClientAuthenticationMethodContractPtrInput interface {
+	pulumi.Input
+
+	ToClientAuthenticationMethodContractPtrOutput() ClientAuthenticationMethodContractPtrOutput
+	ToClientAuthenticationMethodContractPtrOutputWithContext(context.Context) ClientAuthenticationMethodContractPtrOutput
+}
+
+type clientAuthenticationMethodContractPtr string
+
+func ClientAuthenticationMethodContractPtr(v string) ClientAuthenticationMethodContractPtrInput {
+	return (*clientAuthenticationMethodContractPtr)(&v)
+}
+
+func (*clientAuthenticationMethodContractPtr) ElementType() reflect.Type {
+	return clientAuthenticationMethodContractPtrType
+}
+
+func (in *clientAuthenticationMethodContractPtr) ToClientAuthenticationMethodContractPtrOutput() ClientAuthenticationMethodContractPtrOutput {
+	return pulumi.ToOutput(in).(ClientAuthenticationMethodContractPtrOutput)
+}
+
+func (in *clientAuthenticationMethodContractPtr) ToClientAuthenticationMethodContractPtrOutputWithContext(ctx context.Context) ClientAuthenticationMethodContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClientAuthenticationMethodContractPtrOutput)
+}
+
+type GrantTypesContract string
 
 const (
 	GrantTypesContractAuthorizationCode     = GrantTypesContract("authorizationCode")
@@ -129,7 +677,23 @@ const (
 )
 
 func (GrantTypesContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*GrantTypesContract)(nil)).Elem()
+}
+
+func (e GrantTypesContract) ToGrantTypesContractOutput() GrantTypesContractOutput {
+	return pulumi.ToOutput(e).(GrantTypesContractOutput)
+}
+
+func (e GrantTypesContract) ToGrantTypesContractOutputWithContext(ctx context.Context) GrantTypesContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GrantTypesContractOutput)
+}
+
+func (e GrantTypesContract) ToGrantTypesContractPtrOutput() GrantTypesContractPtrOutput {
+	return e.ToGrantTypesContractPtrOutputWithContext(context.Background())
+}
+
+func (e GrantTypesContract) ToGrantTypesContractPtrOutputWithContext(ctx context.Context) GrantTypesContractPtrOutput {
+	return GrantTypesContract(e).ToGrantTypesContractOutputWithContext(ctx).ToGrantTypesContractPtrOutputWithContext(ctx)
 }
 
 func (e GrantTypesContract) ToStringOutput() pulumi.StringOutput {
@@ -148,8 +712,129 @@ func (e GrantTypesContract) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type GrantTypesContractOutput struct{ *pulumi.OutputState }
+
+func (GrantTypesContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrantTypesContract)(nil)).Elem()
+}
+
+func (o GrantTypesContractOutput) ToGrantTypesContractOutput() GrantTypesContractOutput {
+	return o
+}
+
+func (o GrantTypesContractOutput) ToGrantTypesContractOutputWithContext(ctx context.Context) GrantTypesContractOutput {
+	return o
+}
+
+func (o GrantTypesContractOutput) ToGrantTypesContractPtrOutput() GrantTypesContractPtrOutput {
+	return o.ToGrantTypesContractPtrOutputWithContext(context.Background())
+}
+
+func (o GrantTypesContractOutput) ToGrantTypesContractPtrOutputWithContext(ctx context.Context) GrantTypesContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrantTypesContract) *GrantTypesContract {
+		return &v
+	}).(GrantTypesContractPtrOutput)
+}
+
+func (o GrantTypesContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GrantTypesContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GrantTypesContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GrantTypesContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GrantTypesContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GrantTypesContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GrantTypesContractPtrOutput struct{ *pulumi.OutputState }
+
+func (GrantTypesContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrantTypesContract)(nil)).Elem()
+}
+
+func (o GrantTypesContractPtrOutput) ToGrantTypesContractPtrOutput() GrantTypesContractPtrOutput {
+	return o
+}
+
+func (o GrantTypesContractPtrOutput) ToGrantTypesContractPtrOutputWithContext(ctx context.Context) GrantTypesContractPtrOutput {
+	return o
+}
+
+func (o GrantTypesContractPtrOutput) Elem() GrantTypesContractOutput {
+	return o.ApplyT(func(v *GrantTypesContract) GrantTypesContract {
+		if v != nil {
+			return *v
+		}
+		var ret GrantTypesContract
+		return ret
+	}).(GrantTypesContractOutput)
+}
+
+func (o GrantTypesContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GrantTypesContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GrantTypesContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GrantTypesContractInput is an input type that accepts GrantTypesContractArgs and GrantTypesContractOutput values.
+// You can construct a concrete instance of `GrantTypesContractInput` via:
+//
+//          GrantTypesContractArgs{...}
+type GrantTypesContractInput interface {
+	pulumi.Input
+
+	ToGrantTypesContractOutput() GrantTypesContractOutput
+	ToGrantTypesContractOutputWithContext(context.Context) GrantTypesContractOutput
+}
+
+var grantTypesContractPtrType = reflect.TypeOf((**GrantTypesContract)(nil)).Elem()
+
+type GrantTypesContractPtrInput interface {
+	pulumi.Input
+
+	ToGrantTypesContractPtrOutput() GrantTypesContractPtrOutput
+	ToGrantTypesContractPtrOutputWithContext(context.Context) GrantTypesContractPtrOutput
+}
+
+type grantTypesContractPtr string
+
+func GrantTypesContractPtr(v string) GrantTypesContractPtrInput {
+	return (*grantTypesContractPtr)(&v)
+}
+
+func (*grantTypesContractPtr) ElementType() reflect.Type {
+	return grantTypesContractPtrType
+}
+
+func (in *grantTypesContractPtr) ToGrantTypesContractPtrOutput() GrantTypesContractPtrOutput {
+	return pulumi.ToOutput(in).(GrantTypesContractPtrOutput)
+}
+
+func (in *grantTypesContractPtr) ToGrantTypesContractPtrOutputWithContext(ctx context.Context) GrantTypesContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GrantTypesContractPtrOutput)
+}
+
 // Group type.
-type GroupTypeContract pulumi.String
+type GroupTypeContract string
 
 const (
 	GroupTypeContractCustom   = GroupTypeContract("Custom")
@@ -158,7 +843,23 @@ const (
 )
 
 func (GroupTypeContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*GroupTypeContract)(nil)).Elem()
+}
+
+func (e GroupTypeContract) ToGroupTypeContractOutput() GroupTypeContractOutput {
+	return pulumi.ToOutput(e).(GroupTypeContractOutput)
+}
+
+func (e GroupTypeContract) ToGroupTypeContractOutputWithContext(ctx context.Context) GroupTypeContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GroupTypeContractOutput)
+}
+
+func (e GroupTypeContract) ToGroupTypeContractPtrOutput() GroupTypeContractPtrOutput {
+	return e.ToGroupTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (e GroupTypeContract) ToGroupTypeContractPtrOutputWithContext(ctx context.Context) GroupTypeContractPtrOutput {
+	return GroupTypeContract(e).ToGroupTypeContractOutputWithContext(ctx).ToGroupTypeContractPtrOutputWithContext(ctx)
 }
 
 func (e GroupTypeContract) ToStringOutput() pulumi.StringOutput {
@@ -177,8 +878,129 @@ func (e GroupTypeContract) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type GroupTypeContractOutput struct{ *pulumi.OutputState }
+
+func (GroupTypeContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupTypeContract)(nil)).Elem()
+}
+
+func (o GroupTypeContractOutput) ToGroupTypeContractOutput() GroupTypeContractOutput {
+	return o
+}
+
+func (o GroupTypeContractOutput) ToGroupTypeContractOutputWithContext(ctx context.Context) GroupTypeContractOutput {
+	return o
+}
+
+func (o GroupTypeContractOutput) ToGroupTypeContractPtrOutput() GroupTypeContractPtrOutput {
+	return o.ToGroupTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (o GroupTypeContractOutput) ToGroupTypeContractPtrOutputWithContext(ctx context.Context) GroupTypeContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupTypeContract) *GroupTypeContract {
+		return &v
+	}).(GroupTypeContractPtrOutput)
+}
+
+func (o GroupTypeContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GroupTypeContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GroupTypeContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupTypeContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GroupTypeContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GroupTypeContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GroupTypeContractPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupTypeContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupTypeContract)(nil)).Elem()
+}
+
+func (o GroupTypeContractPtrOutput) ToGroupTypeContractPtrOutput() GroupTypeContractPtrOutput {
+	return o
+}
+
+func (o GroupTypeContractPtrOutput) ToGroupTypeContractPtrOutputWithContext(ctx context.Context) GroupTypeContractPtrOutput {
+	return o
+}
+
+func (o GroupTypeContractPtrOutput) Elem() GroupTypeContractOutput {
+	return o.ApplyT(func(v *GroupTypeContract) GroupTypeContract {
+		if v != nil {
+			return *v
+		}
+		var ret GroupTypeContract
+		return ret
+	}).(GroupTypeContractOutput)
+}
+
+func (o GroupTypeContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GroupTypeContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GroupTypeContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GroupTypeContractInput is an input type that accepts GroupTypeContractArgs and GroupTypeContractOutput values.
+// You can construct a concrete instance of `GroupTypeContractInput` via:
+//
+//          GroupTypeContractArgs{...}
+type GroupTypeContractInput interface {
+	pulumi.Input
+
+	ToGroupTypeContractOutput() GroupTypeContractOutput
+	ToGroupTypeContractOutputWithContext(context.Context) GroupTypeContractOutput
+}
+
+var groupTypeContractPtrType = reflect.TypeOf((**GroupTypeContract)(nil)).Elem()
+
+type GroupTypeContractPtrInput interface {
+	pulumi.Input
+
+	ToGroupTypeContractPtrOutput() GroupTypeContractPtrOutput
+	ToGroupTypeContractPtrOutputWithContext(context.Context) GroupTypeContractPtrOutput
+}
+
+type groupTypeContractPtr string
+
+func GroupTypeContractPtr(v string) GroupTypeContractPtrInput {
+	return (*groupTypeContractPtr)(&v)
+}
+
+func (*groupTypeContractPtr) ElementType() reflect.Type {
+	return groupTypeContractPtrType
+}
+
+func (in *groupTypeContractPtr) ToGroupTypeContractPtrOutput() GroupTypeContractPtrOutput {
+	return pulumi.ToOutput(in).(GroupTypeContractPtrOutput)
+}
+
+func (in *groupTypeContractPtr) ToGroupTypeContractPtrOutputWithContext(ctx context.Context) GroupTypeContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GroupTypeContractPtrOutput)
+}
+
 // Hostname type.
-type HostnameType pulumi.String
+type HostnameType string
 
 const (
 	HostnameTypeProxy      = HostnameType("Proxy")
@@ -188,7 +1010,23 @@ const (
 )
 
 func (HostnameType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*HostnameType)(nil)).Elem()
+}
+
+func (e HostnameType) ToHostnameTypeOutput() HostnameTypeOutput {
+	return pulumi.ToOutput(e).(HostnameTypeOutput)
+}
+
+func (e HostnameType) ToHostnameTypeOutputWithContext(ctx context.Context) HostnameTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostnameTypeOutput)
+}
+
+func (e HostnameType) ToHostnameTypePtrOutput() HostnameTypePtrOutput {
+	return e.ToHostnameTypePtrOutputWithContext(context.Background())
+}
+
+func (e HostnameType) ToHostnameTypePtrOutputWithContext(ctx context.Context) HostnameTypePtrOutput {
+	return HostnameType(e).ToHostnameTypeOutputWithContext(ctx).ToHostnameTypePtrOutputWithContext(ctx)
 }
 
 func (e HostnameType) ToStringOutput() pulumi.StringOutput {
@@ -207,8 +1045,129 @@ func (e HostnameType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type HostnameTypeOutput struct{ *pulumi.OutputState }
+
+func (HostnameTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostnameType)(nil)).Elem()
+}
+
+func (o HostnameTypeOutput) ToHostnameTypeOutput() HostnameTypeOutput {
+	return o
+}
+
+func (o HostnameTypeOutput) ToHostnameTypeOutputWithContext(ctx context.Context) HostnameTypeOutput {
+	return o
+}
+
+func (o HostnameTypeOutput) ToHostnameTypePtrOutput() HostnameTypePtrOutput {
+	return o.ToHostnameTypePtrOutputWithContext(context.Background())
+}
+
+func (o HostnameTypeOutput) ToHostnameTypePtrOutputWithContext(ctx context.Context) HostnameTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostnameType) *HostnameType {
+		return &v
+	}).(HostnameTypePtrOutput)
+}
+
+func (o HostnameTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostnameTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostnameType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostnameTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostnameTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostnameType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostnameTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HostnameTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostnameType)(nil)).Elem()
+}
+
+func (o HostnameTypePtrOutput) ToHostnameTypePtrOutput() HostnameTypePtrOutput {
+	return o
+}
+
+func (o HostnameTypePtrOutput) ToHostnameTypePtrOutputWithContext(ctx context.Context) HostnameTypePtrOutput {
+	return o
+}
+
+func (o HostnameTypePtrOutput) Elem() HostnameTypeOutput {
+	return o.ApplyT(func(v *HostnameType) HostnameType {
+		if v != nil {
+			return *v
+		}
+		var ret HostnameType
+		return ret
+	}).(HostnameTypeOutput)
+}
+
+func (o HostnameTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostnameTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostnameType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostnameTypeInput is an input type that accepts HostnameTypeArgs and HostnameTypeOutput values.
+// You can construct a concrete instance of `HostnameTypeInput` via:
+//
+//          HostnameTypeArgs{...}
+type HostnameTypeInput interface {
+	pulumi.Input
+
+	ToHostnameTypeOutput() HostnameTypeOutput
+	ToHostnameTypeOutputWithContext(context.Context) HostnameTypeOutput
+}
+
+var hostnameTypePtrType = reflect.TypeOf((**HostnameType)(nil)).Elem()
+
+type HostnameTypePtrInput interface {
+	pulumi.Input
+
+	ToHostnameTypePtrOutput() HostnameTypePtrOutput
+	ToHostnameTypePtrOutputWithContext(context.Context) HostnameTypePtrOutput
+}
+
+type hostnameTypePtr string
+
+func HostnameTypePtr(v string) HostnameTypePtrInput {
+	return (*hostnameTypePtr)(&v)
+}
+
+func (*hostnameTypePtr) ElementType() reflect.Type {
+	return hostnameTypePtrType
+}
+
+func (in *hostnameTypePtr) ToHostnameTypePtrOutput() HostnameTypePtrOutput {
+	return pulumi.ToOutput(in).(HostnameTypePtrOutput)
+}
+
+func (in *hostnameTypePtr) ToHostnameTypePtrOutputWithContext(ctx context.Context) HostnameTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostnameTypePtrOutput)
+}
+
 // Identity Provider Type identifier.
-type IdentityProviderNameType pulumi.String
+type IdentityProviderNameType string
 
 const (
 	IdentityProviderNameTypeFacebook  = IdentityProviderNameType("facebook")
@@ -219,7 +1178,23 @@ const (
 )
 
 func (IdentityProviderNameType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*IdentityProviderNameType)(nil)).Elem()
+}
+
+func (e IdentityProviderNameType) ToIdentityProviderNameTypeOutput() IdentityProviderNameTypeOutput {
+	return pulumi.ToOutput(e).(IdentityProviderNameTypeOutput)
+}
+
+func (e IdentityProviderNameType) ToIdentityProviderNameTypeOutputWithContext(ctx context.Context) IdentityProviderNameTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IdentityProviderNameTypeOutput)
+}
+
+func (e IdentityProviderNameType) ToIdentityProviderNameTypePtrOutput() IdentityProviderNameTypePtrOutput {
+	return e.ToIdentityProviderNameTypePtrOutputWithContext(context.Background())
+}
+
+func (e IdentityProviderNameType) ToIdentityProviderNameTypePtrOutputWithContext(ctx context.Context) IdentityProviderNameTypePtrOutput {
+	return IdentityProviderNameType(e).ToIdentityProviderNameTypeOutputWithContext(ctx).ToIdentityProviderNameTypePtrOutputWithContext(ctx)
 }
 
 func (e IdentityProviderNameType) ToStringOutput() pulumi.StringOutput {
@@ -238,15 +1213,152 @@ func (e IdentityProviderNameType) ToStringPtrOutputWithContext(ctx context.Conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type IdentityProviderNameTypeOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderNameTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderNameType)(nil)).Elem()
+}
+
+func (o IdentityProviderNameTypeOutput) ToIdentityProviderNameTypeOutput() IdentityProviderNameTypeOutput {
+	return o
+}
+
+func (o IdentityProviderNameTypeOutput) ToIdentityProviderNameTypeOutputWithContext(ctx context.Context) IdentityProviderNameTypeOutput {
+	return o
+}
+
+func (o IdentityProviderNameTypeOutput) ToIdentityProviderNameTypePtrOutput() IdentityProviderNameTypePtrOutput {
+	return o.ToIdentityProviderNameTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderNameTypeOutput) ToIdentityProviderNameTypePtrOutputWithContext(ctx context.Context) IdentityProviderNameTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderNameType) *IdentityProviderNameType {
+		return &v
+	}).(IdentityProviderNameTypePtrOutput)
+}
+
+func (o IdentityProviderNameTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderNameTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityProviderNameType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdentityProviderNameTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderNameTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityProviderNameType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentityProviderNameTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderNameTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityProviderNameType)(nil)).Elem()
+}
+
+func (o IdentityProviderNameTypePtrOutput) ToIdentityProviderNameTypePtrOutput() IdentityProviderNameTypePtrOutput {
+	return o
+}
+
+func (o IdentityProviderNameTypePtrOutput) ToIdentityProviderNameTypePtrOutputWithContext(ctx context.Context) IdentityProviderNameTypePtrOutput {
+	return o
+}
+
+func (o IdentityProviderNameTypePtrOutput) Elem() IdentityProviderNameTypeOutput {
+	return o.ApplyT(func(v *IdentityProviderNameType) IdentityProviderNameType {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderNameType
+		return ret
+	}).(IdentityProviderNameTypeOutput)
+}
+
+func (o IdentityProviderNameTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityProviderNameTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdentityProviderNameType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IdentityProviderNameTypeInput is an input type that accepts IdentityProviderNameTypeArgs and IdentityProviderNameTypeOutput values.
+// You can construct a concrete instance of `IdentityProviderNameTypeInput` via:
+//
+//          IdentityProviderNameTypeArgs{...}
+type IdentityProviderNameTypeInput interface {
+	pulumi.Input
+
+	ToIdentityProviderNameTypeOutput() IdentityProviderNameTypeOutput
+	ToIdentityProviderNameTypeOutputWithContext(context.Context) IdentityProviderNameTypeOutput
+}
+
+var identityProviderNameTypePtrType = reflect.TypeOf((**IdentityProviderNameType)(nil)).Elem()
+
+type IdentityProviderNameTypePtrInput interface {
+	pulumi.Input
+
+	ToIdentityProviderNameTypePtrOutput() IdentityProviderNameTypePtrOutput
+	ToIdentityProviderNameTypePtrOutputWithContext(context.Context) IdentityProviderNameTypePtrOutput
+}
+
+type identityProviderNameTypePtr string
+
+func IdentityProviderNameTypePtr(v string) IdentityProviderNameTypePtrInput {
+	return (*identityProviderNameTypePtr)(&v)
+}
+
+func (*identityProviderNameTypePtr) ElementType() reflect.Type {
+	return identityProviderNameTypePtrType
+}
+
+func (in *identityProviderNameTypePtr) ToIdentityProviderNameTypePtrOutput() IdentityProviderNameTypePtrOutput {
+	return pulumi.ToOutput(in).(IdentityProviderNameTypePtrOutput)
+}
+
+func (in *identityProviderNameTypePtr) ToIdentityProviderNameTypePtrOutputWithContext(ctx context.Context) IdentityProviderNameTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IdentityProviderNameTypePtrOutput)
+}
+
 // Logger type.
-type LoggerTypeContract pulumi.String
+type LoggerTypeContract string
 
 const (
 	LoggerTypeContractAzureEventHub = LoggerTypeContract("AzureEventHub")
 )
 
 func (LoggerTypeContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*LoggerTypeContract)(nil)).Elem()
+}
+
+func (e LoggerTypeContract) ToLoggerTypeContractOutput() LoggerTypeContractOutput {
+	return pulumi.ToOutput(e).(LoggerTypeContractOutput)
+}
+
+func (e LoggerTypeContract) ToLoggerTypeContractOutputWithContext(ctx context.Context) LoggerTypeContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggerTypeContractOutput)
+}
+
+func (e LoggerTypeContract) ToLoggerTypeContractPtrOutput() LoggerTypeContractPtrOutput {
+	return e.ToLoggerTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (e LoggerTypeContract) ToLoggerTypeContractPtrOutputWithContext(ctx context.Context) LoggerTypeContractPtrOutput {
+	return LoggerTypeContract(e).ToLoggerTypeContractOutputWithContext(ctx).ToLoggerTypeContractPtrOutputWithContext(ctx)
 }
 
 func (e LoggerTypeContract) ToStringOutput() pulumi.StringOutput {
@@ -265,7 +1377,128 @@ func (e LoggerTypeContract) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type MethodContract pulumi.String
+type LoggerTypeContractOutput struct{ *pulumi.OutputState }
+
+func (LoggerTypeContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerTypeContract)(nil)).Elem()
+}
+
+func (o LoggerTypeContractOutput) ToLoggerTypeContractOutput() LoggerTypeContractOutput {
+	return o
+}
+
+func (o LoggerTypeContractOutput) ToLoggerTypeContractOutputWithContext(ctx context.Context) LoggerTypeContractOutput {
+	return o
+}
+
+func (o LoggerTypeContractOutput) ToLoggerTypeContractPtrOutput() LoggerTypeContractPtrOutput {
+	return o.ToLoggerTypeContractPtrOutputWithContext(context.Background())
+}
+
+func (o LoggerTypeContractOutput) ToLoggerTypeContractPtrOutputWithContext(ctx context.Context) LoggerTypeContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggerTypeContract) *LoggerTypeContract {
+		return &v
+	}).(LoggerTypeContractPtrOutput)
+}
+
+func (o LoggerTypeContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggerTypeContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggerTypeContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggerTypeContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggerTypeContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggerTypeContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggerTypeContractPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggerTypeContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggerTypeContract)(nil)).Elem()
+}
+
+func (o LoggerTypeContractPtrOutput) ToLoggerTypeContractPtrOutput() LoggerTypeContractPtrOutput {
+	return o
+}
+
+func (o LoggerTypeContractPtrOutput) ToLoggerTypeContractPtrOutputWithContext(ctx context.Context) LoggerTypeContractPtrOutput {
+	return o
+}
+
+func (o LoggerTypeContractPtrOutput) Elem() LoggerTypeContractOutput {
+	return o.ApplyT(func(v *LoggerTypeContract) LoggerTypeContract {
+		if v != nil {
+			return *v
+		}
+		var ret LoggerTypeContract
+		return ret
+	}).(LoggerTypeContractOutput)
+}
+
+func (o LoggerTypeContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggerTypeContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggerTypeContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggerTypeContractInput is an input type that accepts LoggerTypeContractArgs and LoggerTypeContractOutput values.
+// You can construct a concrete instance of `LoggerTypeContractInput` via:
+//
+//          LoggerTypeContractArgs{...}
+type LoggerTypeContractInput interface {
+	pulumi.Input
+
+	ToLoggerTypeContractOutput() LoggerTypeContractOutput
+	ToLoggerTypeContractOutputWithContext(context.Context) LoggerTypeContractOutput
+}
+
+var loggerTypeContractPtrType = reflect.TypeOf((**LoggerTypeContract)(nil)).Elem()
+
+type LoggerTypeContractPtrInput interface {
+	pulumi.Input
+
+	ToLoggerTypeContractPtrOutput() LoggerTypeContractPtrOutput
+	ToLoggerTypeContractPtrOutputWithContext(context.Context) LoggerTypeContractPtrOutput
+}
+
+type loggerTypeContractPtr string
+
+func LoggerTypeContractPtr(v string) LoggerTypeContractPtrInput {
+	return (*loggerTypeContractPtr)(&v)
+}
+
+func (*loggerTypeContractPtr) ElementType() reflect.Type {
+	return loggerTypeContractPtrType
+}
+
+func (in *loggerTypeContractPtr) ToLoggerTypeContractPtrOutput() LoggerTypeContractPtrOutput {
+	return pulumi.ToOutput(in).(LoggerTypeContractPtrOutput)
+}
+
+func (in *loggerTypeContractPtr) ToLoggerTypeContractPtrOutputWithContext(ctx context.Context) LoggerTypeContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggerTypeContractPtrOutput)
+}
+
+type MethodContract string
 
 const (
 	MethodContractHEAD    = MethodContract("HEAD")
@@ -279,7 +1512,23 @@ const (
 )
 
 func (MethodContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*MethodContract)(nil)).Elem()
+}
+
+func (e MethodContract) ToMethodContractOutput() MethodContractOutput {
+	return pulumi.ToOutput(e).(MethodContractOutput)
+}
+
+func (e MethodContract) ToMethodContractOutputWithContext(ctx context.Context) MethodContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MethodContractOutput)
+}
+
+func (e MethodContract) ToMethodContractPtrOutput() MethodContractPtrOutput {
+	return e.ToMethodContractPtrOutputWithContext(context.Background())
+}
+
+func (e MethodContract) ToMethodContractPtrOutputWithContext(ctx context.Context) MethodContractPtrOutput {
+	return MethodContract(e).ToMethodContractOutputWithContext(ctx).ToMethodContractPtrOutputWithContext(ctx)
 }
 
 func (e MethodContract) ToStringOutput() pulumi.StringOutput {
@@ -298,8 +1547,129 @@ func (e MethodContract) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type MethodContractOutput struct{ *pulumi.OutputState }
+
+func (MethodContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodContract)(nil)).Elem()
+}
+
+func (o MethodContractOutput) ToMethodContractOutput() MethodContractOutput {
+	return o
+}
+
+func (o MethodContractOutput) ToMethodContractOutputWithContext(ctx context.Context) MethodContractOutput {
+	return o
+}
+
+func (o MethodContractOutput) ToMethodContractPtrOutput() MethodContractPtrOutput {
+	return o.ToMethodContractPtrOutputWithContext(context.Background())
+}
+
+func (o MethodContractOutput) ToMethodContractPtrOutputWithContext(ctx context.Context) MethodContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodContract) *MethodContract {
+		return &v
+	}).(MethodContractPtrOutput)
+}
+
+func (o MethodContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MethodContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MethodContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MethodContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MethodContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MethodContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MethodContractPtrOutput struct{ *pulumi.OutputState }
+
+func (MethodContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodContract)(nil)).Elem()
+}
+
+func (o MethodContractPtrOutput) ToMethodContractPtrOutput() MethodContractPtrOutput {
+	return o
+}
+
+func (o MethodContractPtrOutput) ToMethodContractPtrOutputWithContext(ctx context.Context) MethodContractPtrOutput {
+	return o
+}
+
+func (o MethodContractPtrOutput) Elem() MethodContractOutput {
+	return o.ApplyT(func(v *MethodContract) MethodContract {
+		if v != nil {
+			return *v
+		}
+		var ret MethodContract
+		return ret
+	}).(MethodContractOutput)
+}
+
+func (o MethodContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MethodContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MethodContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MethodContractInput is an input type that accepts MethodContractArgs and MethodContractOutput values.
+// You can construct a concrete instance of `MethodContractInput` via:
+//
+//          MethodContractArgs{...}
+type MethodContractInput interface {
+	pulumi.Input
+
+	ToMethodContractOutput() MethodContractOutput
+	ToMethodContractOutputWithContext(context.Context) MethodContractOutput
+}
+
+var methodContractPtrType = reflect.TypeOf((**MethodContract)(nil)).Elem()
+
+type MethodContractPtrInput interface {
+	pulumi.Input
+
+	ToMethodContractPtrOutput() MethodContractPtrOutput
+	ToMethodContractPtrOutputWithContext(context.Context) MethodContractPtrOutput
+}
+
+type methodContractPtr string
+
+func MethodContractPtr(v string) MethodContractPtrInput {
+	return (*methodContractPtr)(&v)
+}
+
+func (*methodContractPtr) ElementType() reflect.Type {
+	return methodContractPtrType
+}
+
+func (in *methodContractPtr) ToMethodContractPtrOutput() MethodContractPtrOutput {
+	return pulumi.ToOutput(in).(MethodContractPtrOutput)
+}
+
+func (in *methodContractPtr) ToMethodContractPtrOutputWithContext(ctx context.Context) MethodContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MethodContractPtrOutput)
+}
+
 // whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is NotPublished.
-type ProductStateContract pulumi.String
+type ProductStateContract string
 
 const (
 	ProductStateContractNotPublished = ProductStateContract("NotPublished")
@@ -307,7 +1677,23 @@ const (
 )
 
 func (ProductStateContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ProductStateContract)(nil)).Elem()
+}
+
+func (e ProductStateContract) ToProductStateContractOutput() ProductStateContractOutput {
+	return pulumi.ToOutput(e).(ProductStateContractOutput)
+}
+
+func (e ProductStateContract) ToProductStateContractOutputWithContext(ctx context.Context) ProductStateContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProductStateContractOutput)
+}
+
+func (e ProductStateContract) ToProductStateContractPtrOutput() ProductStateContractPtrOutput {
+	return e.ToProductStateContractPtrOutputWithContext(context.Background())
+}
+
+func (e ProductStateContract) ToProductStateContractPtrOutputWithContext(ctx context.Context) ProductStateContractPtrOutput {
+	return ProductStateContract(e).ToProductStateContractOutputWithContext(ctx).ToProductStateContractPtrOutputWithContext(ctx)
 }
 
 func (e ProductStateContract) ToStringOutput() pulumi.StringOutput {
@@ -326,8 +1712,129 @@ func (e ProductStateContract) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ProductStateContractOutput struct{ *pulumi.OutputState }
+
+func (ProductStateContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductStateContract)(nil)).Elem()
+}
+
+func (o ProductStateContractOutput) ToProductStateContractOutput() ProductStateContractOutput {
+	return o
+}
+
+func (o ProductStateContractOutput) ToProductStateContractOutputWithContext(ctx context.Context) ProductStateContractOutput {
+	return o
+}
+
+func (o ProductStateContractOutput) ToProductStateContractPtrOutput() ProductStateContractPtrOutput {
+	return o.ToProductStateContractPtrOutputWithContext(context.Background())
+}
+
+func (o ProductStateContractOutput) ToProductStateContractPtrOutputWithContext(ctx context.Context) ProductStateContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductStateContract) *ProductStateContract {
+		return &v
+	}).(ProductStateContractPtrOutput)
+}
+
+func (o ProductStateContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProductStateContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProductStateContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProductStateContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProductStateContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProductStateContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProductStateContractPtrOutput struct{ *pulumi.OutputState }
+
+func (ProductStateContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProductStateContract)(nil)).Elem()
+}
+
+func (o ProductStateContractPtrOutput) ToProductStateContractPtrOutput() ProductStateContractPtrOutput {
+	return o
+}
+
+func (o ProductStateContractPtrOutput) ToProductStateContractPtrOutputWithContext(ctx context.Context) ProductStateContractPtrOutput {
+	return o
+}
+
+func (o ProductStateContractPtrOutput) Elem() ProductStateContractOutput {
+	return o.ApplyT(func(v *ProductStateContract) ProductStateContract {
+		if v != nil {
+			return *v
+		}
+		var ret ProductStateContract
+		return ret
+	}).(ProductStateContractOutput)
+}
+
+func (o ProductStateContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProductStateContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProductStateContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProductStateContractInput is an input type that accepts ProductStateContractArgs and ProductStateContractOutput values.
+// You can construct a concrete instance of `ProductStateContractInput` via:
+//
+//          ProductStateContractArgs{...}
+type ProductStateContractInput interface {
+	pulumi.Input
+
+	ToProductStateContractOutput() ProductStateContractOutput
+	ToProductStateContractOutputWithContext(context.Context) ProductStateContractOutput
+}
+
+var productStateContractPtrType = reflect.TypeOf((**ProductStateContract)(nil)).Elem()
+
+type ProductStateContractPtrInput interface {
+	pulumi.Input
+
+	ToProductStateContractPtrOutput() ProductStateContractPtrOutput
+	ToProductStateContractPtrOutputWithContext(context.Context) ProductStateContractPtrOutput
+}
+
+type productStateContractPtr string
+
+func ProductStateContractPtr(v string) ProductStateContractPtrInput {
+	return (*productStateContractPtr)(&v)
+}
+
+func (*productStateContractPtr) ElementType() reflect.Type {
+	return productStateContractPtrType
+}
+
+func (in *productStateContractPtr) ToProductStateContractPtrOutput() ProductStateContractPtrOutput {
+	return pulumi.ToOutput(in).(ProductStateContractPtrOutput)
+}
+
+func (in *productStateContractPtr) ToProductStateContractPtrOutputWithContext(ctx context.Context) ProductStateContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProductStateContractPtrOutput)
+}
+
 // Name of the Sku.
-type SkuType pulumi.String
+type SkuType string
 
 const (
 	SkuTypeDeveloper = SkuType("Developer")
@@ -336,7 +1843,23 @@ const (
 )
 
 func (SkuType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SkuType)(nil)).Elem()
+}
+
+func (e SkuType) ToSkuTypeOutput() SkuTypeOutput {
+	return pulumi.ToOutput(e).(SkuTypeOutput)
+}
+
+func (e SkuType) ToSkuTypeOutputWithContext(ctx context.Context) SkuTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SkuTypeOutput)
+}
+
+func (e SkuType) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return e.ToSkuTypePtrOutputWithContext(context.Background())
+}
+
+func (e SkuType) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return SkuType(e).ToSkuTypeOutputWithContext(ctx).ToSkuTypePtrOutputWithContext(ctx)
 }
 
 func (e SkuType) ToStringOutput() pulumi.StringOutput {
@@ -355,8 +1878,129 @@ func (e SkuType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type SkuTypeOutput struct{ *pulumi.OutputState }
+
+func (SkuTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuType)(nil)).Elem()
+}
+
+func (o SkuTypeOutput) ToSkuTypeOutput() SkuTypeOutput {
+	return o
+}
+
+func (o SkuTypeOutput) ToSkuTypeOutputWithContext(ctx context.Context) SkuTypeOutput {
+	return o
+}
+
+func (o SkuTypeOutput) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return o.ToSkuTypePtrOutputWithContext(context.Background())
+}
+
+func (o SkuTypeOutput) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuType) *SkuType {
+		return &v
+	}).(SkuTypePtrOutput)
+}
+
+func (o SkuTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SkuTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SkuTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SkuTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuType)(nil)).Elem()
+}
+
+func (o SkuTypePtrOutput) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return o
+}
+
+func (o SkuTypePtrOutput) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return o
+}
+
+func (o SkuTypePtrOutput) Elem() SkuTypeOutput {
+	return o.ApplyT(func(v *SkuType) SkuType {
+		if v != nil {
+			return *v
+		}
+		var ret SkuType
+		return ret
+	}).(SkuTypeOutput)
+}
+
+func (o SkuTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SkuTypeInput is an input type that accepts SkuTypeArgs and SkuTypeOutput values.
+// You can construct a concrete instance of `SkuTypeInput` via:
+//
+//          SkuTypeArgs{...}
+type SkuTypeInput interface {
+	pulumi.Input
+
+	ToSkuTypeOutput() SkuTypeOutput
+	ToSkuTypeOutputWithContext(context.Context) SkuTypeOutput
+}
+
+var skuTypePtrType = reflect.TypeOf((**SkuType)(nil)).Elem()
+
+type SkuTypePtrInput interface {
+	pulumi.Input
+
+	ToSkuTypePtrOutput() SkuTypePtrOutput
+	ToSkuTypePtrOutputWithContext(context.Context) SkuTypePtrOutput
+}
+
+type skuTypePtr string
+
+func SkuTypePtr(v string) SkuTypePtrInput {
+	return (*skuTypePtr)(&v)
+}
+
+func (*skuTypePtr) ElementType() reflect.Type {
+	return skuTypePtrType
+}
+
+func (in *skuTypePtr) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return pulumi.ToOutput(in).(SkuTypePtrOutput)
+}
+
+func (in *skuTypePtr) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SkuTypePtrOutput)
+}
+
 // Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-type SubscriptionStateContract pulumi.String
+type SubscriptionStateContract string
 
 const (
 	SubscriptionStateContractSuspended = SubscriptionStateContract("Suspended")
@@ -368,7 +2012,23 @@ const (
 )
 
 func (SubscriptionStateContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SubscriptionStateContract)(nil)).Elem()
+}
+
+func (e SubscriptionStateContract) ToSubscriptionStateContractOutput() SubscriptionStateContractOutput {
+	return pulumi.ToOutput(e).(SubscriptionStateContractOutput)
+}
+
+func (e SubscriptionStateContract) ToSubscriptionStateContractOutputWithContext(ctx context.Context) SubscriptionStateContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SubscriptionStateContractOutput)
+}
+
+func (e SubscriptionStateContract) ToSubscriptionStateContractPtrOutput() SubscriptionStateContractPtrOutput {
+	return e.ToSubscriptionStateContractPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriptionStateContract) ToSubscriptionStateContractPtrOutputWithContext(ctx context.Context) SubscriptionStateContractPtrOutput {
+	return SubscriptionStateContract(e).ToSubscriptionStateContractOutputWithContext(ctx).ToSubscriptionStateContractPtrOutputWithContext(ctx)
 }
 
 func (e SubscriptionStateContract) ToStringOutput() pulumi.StringOutput {
@@ -387,8 +2047,129 @@ func (e SubscriptionStateContract) ToStringPtrOutputWithContext(ctx context.Cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type SubscriptionStateContractOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionStateContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionStateContract)(nil)).Elem()
+}
+
+func (o SubscriptionStateContractOutput) ToSubscriptionStateContractOutput() SubscriptionStateContractOutput {
+	return o
+}
+
+func (o SubscriptionStateContractOutput) ToSubscriptionStateContractOutputWithContext(ctx context.Context) SubscriptionStateContractOutput {
+	return o
+}
+
+func (o SubscriptionStateContractOutput) ToSubscriptionStateContractPtrOutput() SubscriptionStateContractPtrOutput {
+	return o.ToSubscriptionStateContractPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionStateContractOutput) ToSubscriptionStateContractPtrOutputWithContext(ctx context.Context) SubscriptionStateContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionStateContract) *SubscriptionStateContract {
+		return &v
+	}).(SubscriptionStateContractPtrOutput)
+}
+
+func (o SubscriptionStateContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SubscriptionStateContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriptionStateContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SubscriptionStateContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionStateContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriptionStateContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionStateContractPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionStateContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionStateContract)(nil)).Elem()
+}
+
+func (o SubscriptionStateContractPtrOutput) ToSubscriptionStateContractPtrOutput() SubscriptionStateContractPtrOutput {
+	return o
+}
+
+func (o SubscriptionStateContractPtrOutput) ToSubscriptionStateContractPtrOutputWithContext(ctx context.Context) SubscriptionStateContractPtrOutput {
+	return o
+}
+
+func (o SubscriptionStateContractPtrOutput) Elem() SubscriptionStateContractOutput {
+	return o.ApplyT(func(v *SubscriptionStateContract) SubscriptionStateContract {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionStateContract
+		return ret
+	}).(SubscriptionStateContractOutput)
+}
+
+func (o SubscriptionStateContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionStateContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SubscriptionStateContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SubscriptionStateContractInput is an input type that accepts SubscriptionStateContractArgs and SubscriptionStateContractOutput values.
+// You can construct a concrete instance of `SubscriptionStateContractInput` via:
+//
+//          SubscriptionStateContractArgs{...}
+type SubscriptionStateContractInput interface {
+	pulumi.Input
+
+	ToSubscriptionStateContractOutput() SubscriptionStateContractOutput
+	ToSubscriptionStateContractOutputWithContext(context.Context) SubscriptionStateContractOutput
+}
+
+var subscriptionStateContractPtrType = reflect.TypeOf((**SubscriptionStateContract)(nil)).Elem()
+
+type SubscriptionStateContractPtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionStateContractPtrOutput() SubscriptionStateContractPtrOutput
+	ToSubscriptionStateContractPtrOutputWithContext(context.Context) SubscriptionStateContractPtrOutput
+}
+
+type subscriptionStateContractPtr string
+
+func SubscriptionStateContractPtr(v string) SubscriptionStateContractPtrInput {
+	return (*subscriptionStateContractPtr)(&v)
+}
+
+func (*subscriptionStateContractPtr) ElementType() reflect.Type {
+	return subscriptionStateContractPtrType
+}
+
+func (in *subscriptionStateContractPtr) ToSubscriptionStateContractPtrOutput() SubscriptionStateContractPtrOutput {
+	return pulumi.ToOutput(in).(SubscriptionStateContractPtrOutput)
+}
+
+func (in *subscriptionStateContractPtr) ToSubscriptionStateContractPtrOutputWithContext(ctx context.Context) SubscriptionStateContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SubscriptionStateContractPtrOutput)
+}
+
 // Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-type UserStateContract pulumi.String
+type UserStateContract string
 
 const (
 	UserStateContractActive  = UserStateContract("Active")
@@ -396,7 +2177,23 @@ const (
 )
 
 func (UserStateContract) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*UserStateContract)(nil)).Elem()
+}
+
+func (e UserStateContract) ToUserStateContractOutput() UserStateContractOutput {
+	return pulumi.ToOutput(e).(UserStateContractOutput)
+}
+
+func (e UserStateContract) ToUserStateContractOutputWithContext(ctx context.Context) UserStateContractOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserStateContractOutput)
+}
+
+func (e UserStateContract) ToUserStateContractPtrOutput() UserStateContractPtrOutput {
+	return e.ToUserStateContractPtrOutputWithContext(context.Background())
+}
+
+func (e UserStateContract) ToUserStateContractPtrOutputWithContext(ctx context.Context) UserStateContractPtrOutput {
+	return UserStateContract(e).ToUserStateContractOutputWithContext(ctx).ToUserStateContractPtrOutputWithContext(ctx)
 }
 
 func (e UserStateContract) ToStringOutput() pulumi.StringOutput {
@@ -415,8 +2212,129 @@ func (e UserStateContract) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type UserStateContractOutput struct{ *pulumi.OutputState }
+
+func (UserStateContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserStateContract)(nil)).Elem()
+}
+
+func (o UserStateContractOutput) ToUserStateContractOutput() UserStateContractOutput {
+	return o
+}
+
+func (o UserStateContractOutput) ToUserStateContractOutputWithContext(ctx context.Context) UserStateContractOutput {
+	return o
+}
+
+func (o UserStateContractOutput) ToUserStateContractPtrOutput() UserStateContractPtrOutput {
+	return o.ToUserStateContractPtrOutputWithContext(context.Background())
+}
+
+func (o UserStateContractOutput) ToUserStateContractPtrOutputWithContext(ctx context.Context) UserStateContractPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserStateContract) *UserStateContract {
+		return &v
+	}).(UserStateContractPtrOutput)
+}
+
+func (o UserStateContractOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserStateContractOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserStateContract) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserStateContractOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserStateContractOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserStateContract) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserStateContractPtrOutput struct{ *pulumi.OutputState }
+
+func (UserStateContractPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserStateContract)(nil)).Elem()
+}
+
+func (o UserStateContractPtrOutput) ToUserStateContractPtrOutput() UserStateContractPtrOutput {
+	return o
+}
+
+func (o UserStateContractPtrOutput) ToUserStateContractPtrOutputWithContext(ctx context.Context) UserStateContractPtrOutput {
+	return o
+}
+
+func (o UserStateContractPtrOutput) Elem() UserStateContractOutput {
+	return o.ApplyT(func(v *UserStateContract) UserStateContract {
+		if v != nil {
+			return *v
+		}
+		var ret UserStateContract
+		return ret
+	}).(UserStateContractOutput)
+}
+
+func (o UserStateContractPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserStateContractPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserStateContract) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserStateContractInput is an input type that accepts UserStateContractArgs and UserStateContractOutput values.
+// You can construct a concrete instance of `UserStateContractInput` via:
+//
+//          UserStateContractArgs{...}
+type UserStateContractInput interface {
+	pulumi.Input
+
+	ToUserStateContractOutput() UserStateContractOutput
+	ToUserStateContractOutputWithContext(context.Context) UserStateContractOutput
+}
+
+var userStateContractPtrType = reflect.TypeOf((**UserStateContract)(nil)).Elem()
+
+type UserStateContractPtrInput interface {
+	pulumi.Input
+
+	ToUserStateContractPtrOutput() UserStateContractPtrOutput
+	ToUserStateContractPtrOutputWithContext(context.Context) UserStateContractPtrOutput
+}
+
+type userStateContractPtr string
+
+func UserStateContractPtr(v string) UserStateContractPtrInput {
+	return (*userStateContractPtr)(&v)
+}
+
+func (*userStateContractPtr) ElementType() reflect.Type {
+	return userStateContractPtrType
+}
+
+func (in *userStateContractPtr) ToUserStateContractPtrOutput() UserStateContractPtrOutput {
+	return pulumi.ToOutput(in).(UserStateContractPtrOutput)
+}
+
+func (in *userStateContractPtr) ToUserStateContractPtrOutputWithContext(ctx context.Context) UserStateContractPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserStateContractPtrOutput)
+}
+
 // The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-type VirtualNetworkType pulumi.String
+type VirtualNetworkType string
 
 const (
 	VirtualNetworkTypeNone     = VirtualNetworkType("None")
@@ -425,7 +2343,23 @@ const (
 )
 
 func (VirtualNetworkType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*VirtualNetworkType)(nil)).Elem()
+}
+
+func (e VirtualNetworkType) ToVirtualNetworkTypeOutput() VirtualNetworkTypeOutput {
+	return pulumi.ToOutput(e).(VirtualNetworkTypeOutput)
+}
+
+func (e VirtualNetworkType) ToVirtualNetworkTypeOutputWithContext(ctx context.Context) VirtualNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VirtualNetworkTypeOutput)
+}
+
+func (e VirtualNetworkType) ToVirtualNetworkTypePtrOutput() VirtualNetworkTypePtrOutput {
+	return e.ToVirtualNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e VirtualNetworkType) ToVirtualNetworkTypePtrOutputWithContext(ctx context.Context) VirtualNetworkTypePtrOutput {
+	return VirtualNetworkType(e).ToVirtualNetworkTypeOutputWithContext(ctx).ToVirtualNetworkTypePtrOutputWithContext(ctx)
 }
 
 func (e VirtualNetworkType) ToStringOutput() pulumi.StringOutput {
@@ -442,4 +2376,158 @@ func (e VirtualNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e VirtualNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VirtualNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkType)(nil)).Elem()
+}
+
+func (o VirtualNetworkTypeOutput) ToVirtualNetworkTypeOutput() VirtualNetworkTypeOutput {
+	return o
+}
+
+func (o VirtualNetworkTypeOutput) ToVirtualNetworkTypeOutputWithContext(ctx context.Context) VirtualNetworkTypeOutput {
+	return o
+}
+
+func (o VirtualNetworkTypeOutput) ToVirtualNetworkTypePtrOutput() VirtualNetworkTypePtrOutput {
+	return o.ToVirtualNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkTypeOutput) ToVirtualNetworkTypePtrOutputWithContext(ctx context.Context) VirtualNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkType) *VirtualNetworkType {
+		return &v
+	}).(VirtualNetworkTypePtrOutput)
+}
+
+func (o VirtualNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VirtualNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VirtualNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkType)(nil)).Elem()
+}
+
+func (o VirtualNetworkTypePtrOutput) ToVirtualNetworkTypePtrOutput() VirtualNetworkTypePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkTypePtrOutput) ToVirtualNetworkTypePtrOutputWithContext(ctx context.Context) VirtualNetworkTypePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkTypePtrOutput) Elem() VirtualNetworkTypeOutput {
+	return o.ApplyT(func(v *VirtualNetworkType) VirtualNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkType
+		return ret
+	}).(VirtualNetworkTypeOutput)
+}
+
+func (o VirtualNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VirtualNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VirtualNetworkTypeInput is an input type that accepts VirtualNetworkTypeArgs and VirtualNetworkTypeOutput values.
+// You can construct a concrete instance of `VirtualNetworkTypeInput` via:
+//
+//          VirtualNetworkTypeArgs{...}
+type VirtualNetworkTypeInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkTypeOutput() VirtualNetworkTypeOutput
+	ToVirtualNetworkTypeOutputWithContext(context.Context) VirtualNetworkTypeOutput
+}
+
+var virtualNetworkTypePtrType = reflect.TypeOf((**VirtualNetworkType)(nil)).Elem()
+
+type VirtualNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkTypePtrOutput() VirtualNetworkTypePtrOutput
+	ToVirtualNetworkTypePtrOutputWithContext(context.Context) VirtualNetworkTypePtrOutput
+}
+
+type virtualNetworkTypePtr string
+
+func VirtualNetworkTypePtr(v string) VirtualNetworkTypePtrInput {
+	return (*virtualNetworkTypePtr)(&v)
+}
+
+func (*virtualNetworkTypePtr) ElementType() reflect.Type {
+	return virtualNetworkTypePtrType
+}
+
+func (in *virtualNetworkTypePtr) ToVirtualNetworkTypePtrOutput() VirtualNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(VirtualNetworkTypePtrOutput)
+}
+
+func (in *virtualNetworkTypePtr) ToVirtualNetworkTypePtrOutputWithContext(ctx context.Context) VirtualNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VirtualNetworkTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiProtocolContractOutput{})
+	pulumi.RegisterOutputType(ApiProtocolContractPtrOutput{})
+	pulumi.RegisterOutputType(ApiTypeContractOutput{})
+	pulumi.RegisterOutputType(ApiTypeContractPtrOutput{})
+	pulumi.RegisterOutputType(BearerTokenSendingMethodsContractOutput{})
+	pulumi.RegisterOutputType(BearerTokenSendingMethodsContractPtrOutput{})
+	pulumi.RegisterOutputType(ClientAuthenticationMethodContractOutput{})
+	pulumi.RegisterOutputType(ClientAuthenticationMethodContractPtrOutput{})
+	pulumi.RegisterOutputType(GrantTypesContractOutput{})
+	pulumi.RegisterOutputType(GrantTypesContractPtrOutput{})
+	pulumi.RegisterOutputType(GroupTypeContractOutput{})
+	pulumi.RegisterOutputType(GroupTypeContractPtrOutput{})
+	pulumi.RegisterOutputType(HostnameTypeOutput{})
+	pulumi.RegisterOutputType(HostnameTypePtrOutput{})
+	pulumi.RegisterOutputType(IdentityProviderNameTypeOutput{})
+	pulumi.RegisterOutputType(IdentityProviderNameTypePtrOutput{})
+	pulumi.RegisterOutputType(LoggerTypeContractOutput{})
+	pulumi.RegisterOutputType(LoggerTypeContractPtrOutput{})
+	pulumi.RegisterOutputType(MethodContractOutput{})
+	pulumi.RegisterOutputType(MethodContractPtrOutput{})
+	pulumi.RegisterOutputType(ProductStateContractOutput{})
+	pulumi.RegisterOutputType(ProductStateContractPtrOutput{})
+	pulumi.RegisterOutputType(SkuTypeOutput{})
+	pulumi.RegisterOutputType(SkuTypePtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionStateContractOutput{})
+	pulumi.RegisterOutputType(SubscriptionStateContractPtrOutput{})
+	pulumi.RegisterOutputType(UserStateContractOutput{})
+	pulumi.RegisterOutputType(UserStateContractPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkTypeOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkTypePtrOutput{})
 }

@@ -13,7 +13,7 @@ import (
 // ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthentication struct {
 	// The location of the authentication key/value pair in the request.
-	In string `pulumi:"in"`
+	In RestAuthLocation `pulumi:"in"`
 	// The key name of the authentication key/value pair.
 	Name string `pulumi:"name"`
 	// The authentication type.
@@ -37,7 +37,7 @@ type ApiKeyAuthenticationInput interface {
 // ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationArgs struct {
 	// The location of the authentication key/value pair in the request.
-	In RestAuthLocation `pulumi:"in"`
+	In RestAuthLocationInput `pulumi:"in"`
 	// The key name of the authentication key/value pair.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The authentication type.
@@ -75,8 +75,8 @@ func (o ApiKeyAuthenticationOutput) ToApiKeyAuthenticationOutputWithContext(ctx 
 }
 
 // The location of the authentication key/value pair in the request.
-func (o ApiKeyAuthenticationOutput) In() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.In }).(pulumi.StringOutput)
+func (o ApiKeyAuthenticationOutput) In() RestAuthLocationOutput {
+	return o.ApplyT(func(v ApiKeyAuthentication) RestAuthLocation { return v.In }).(RestAuthLocationOutput)
 }
 
 // The key name of the authentication key/value pair.
@@ -313,7 +313,7 @@ func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutput() CloudE
 }
 
 func (o CloudErrorBodyResponseOutput) ToCloudErrorBodyResponsePtrOutputWithContext(ctx context.Context) CloudErrorBodyResponsePtrOutput {
-	return o.ApplyT(func(v CloudErrorBodyResponse) *CloudErrorBodyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudErrorBodyResponse) *CloudErrorBodyResponse {
 		return &v
 	}).(CloudErrorBodyResponsePtrOutput)
 }
@@ -353,7 +353,13 @@ func (o CloudErrorBodyResponsePtrOutput) ToCloudErrorBodyResponsePtrOutputWithCo
 }
 
 func (o CloudErrorBodyResponsePtrOutput) Elem() CloudErrorBodyResponseOutput {
-	return o.ApplyT(func(v *CloudErrorBodyResponse) CloudErrorBodyResponse { return *v }).(CloudErrorBodyResponseOutput)
+	return o.ApplyT(func(v *CloudErrorBodyResponse) CloudErrorBodyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudErrorBodyResponse
+		return ret
+	}).(CloudErrorBodyResponseOutput)
 }
 
 // Error code string.
@@ -650,7 +656,7 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
@@ -680,7 +686,13 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The list of identities.
@@ -803,7 +815,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -833,7 +845,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The list of identities.
@@ -1739,7 +1757,7 @@ type RestRequest struct {
 	// The authentication information required in the request to the health provider.
 	Authentication interface{} `pulumi:"authentication"`
 	// The HTTP method to use for the request.
-	Method string `pulumi:"method"`
+	Method RestRequestMethod `pulumi:"method"`
 	// The HTTP URI to use for the request.
 	Uri string `pulumi:"uri"`
 }
@@ -1760,7 +1778,7 @@ type RestRequestArgs struct {
 	// The authentication information required in the request to the health provider.
 	Authentication pulumi.Input `pulumi:"authentication"`
 	// The HTTP method to use for the request.
-	Method RestRequestMethod `pulumi:"method"`
+	Method RestRequestMethodInput `pulumi:"method"`
 	// The HTTP URI to use for the request.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -1798,8 +1816,8 @@ func (o RestRequestOutput) Authentication() pulumi.AnyOutput {
 }
 
 // The HTTP method to use for the request.
-func (o RestRequestOutput) Method() pulumi.StringOutput {
-	return o.ApplyT(func(v RestRequest) string { return v.Method }).(pulumi.StringOutput)
+func (o RestRequestOutput) Method() RestRequestMethodOutput {
+	return o.ApplyT(func(v RestRequest) RestRequestMethod { return v.Method }).(RestRequestMethodOutput)
 }
 
 // The HTTP URI to use for the request.
@@ -1980,7 +1998,7 @@ func (o RestResponseOutput) ToRestResponsePtrOutput() RestResponsePtrOutput {
 }
 
 func (o RestResponseOutput) ToRestResponsePtrOutputWithContext(ctx context.Context) RestResponsePtrOutput {
-	return o.ApplyT(func(v RestResponse) *RestResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestResponse) *RestResponse {
 		return &v
 	}).(RestResponsePtrOutput)
 }
@@ -2010,7 +2028,13 @@ func (o RestResponsePtrOutput) ToRestResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o RestResponsePtrOutput) Elem() RestResponseOutput {
-	return o.ApplyT(func(v *RestResponse) RestResponse { return *v }).(RestResponseOutput)
+	return o.ApplyT(func(v *RestResponse) RestResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RestResponse
+		return ret
+	}).(RestResponseOutput)
 }
 
 // The regular expressions to match the response content with.
@@ -2036,7 +2060,7 @@ func (o RestResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 // The regular expressions to match the response content with.
 type RestResponseRegex struct {
 	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier *string `pulumi:"matchQuantifier"`
+	MatchQuantifier *RestMatchQuantifier `pulumi:"matchQuantifier"`
 	// The list of regular expressions.
 	Matches []string `pulumi:"matches"`
 }
@@ -2055,7 +2079,7 @@ type RestResponseRegexInput interface {
 // The regular expressions to match the response content with.
 type RestResponseRegexArgs struct {
 	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier *RestMatchQuantifier `pulumi:"matchQuantifier"`
+	MatchQuantifier RestMatchQuantifierPtrInput `pulumi:"matchQuantifier"`
 	// The list of regular expressions.
 	Matches pulumi.StringArrayInput `pulumi:"matches"`
 }
@@ -2133,14 +2157,14 @@ func (o RestResponseRegexOutput) ToRestResponseRegexPtrOutput() RestResponseRege
 }
 
 func (o RestResponseRegexOutput) ToRestResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseRegexPtrOutput {
-	return o.ApplyT(func(v RestResponseRegex) *RestResponseRegex {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestResponseRegex) *RestResponseRegex {
 		return &v
 	}).(RestResponseRegexPtrOutput)
 }
 
 // Indicates whether any or all of the expressions should match with the response content.
-func (o RestResponseRegexOutput) MatchQuantifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RestResponseRegex) *string { return v.MatchQuantifier }).(pulumi.StringPtrOutput)
+func (o RestResponseRegexOutput) MatchQuantifier() RestMatchQuantifierPtrOutput {
+	return o.ApplyT(func(v RestResponseRegex) *RestMatchQuantifier { return v.MatchQuantifier }).(RestMatchQuantifierPtrOutput)
 }
 
 // The list of regular expressions.
@@ -2163,17 +2187,23 @@ func (o RestResponseRegexPtrOutput) ToRestResponseRegexPtrOutputWithContext(ctx 
 }
 
 func (o RestResponseRegexPtrOutput) Elem() RestResponseRegexOutput {
-	return o.ApplyT(func(v *RestResponseRegex) RestResponseRegex { return *v }).(RestResponseRegexOutput)
+	return o.ApplyT(func(v *RestResponseRegex) RestResponseRegex {
+		if v != nil {
+			return *v
+		}
+		var ret RestResponseRegex
+		return ret
+	}).(RestResponseRegexOutput)
 }
 
 // Indicates whether any or all of the expressions should match with the response content.
-func (o RestResponseRegexPtrOutput) MatchQuantifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RestResponseRegex) *string {
+func (o RestResponseRegexPtrOutput) MatchQuantifier() RestMatchQuantifierPtrOutput {
+	return o.ApplyT(func(v *RestResponseRegex) *RestMatchQuantifier {
 		if v == nil {
 			return nil
 		}
 		return v.MatchQuantifier
-	}).(pulumi.StringPtrOutput)
+	}).(RestMatchQuantifierPtrOutput)
 }
 
 // The list of regular expressions.
@@ -2286,7 +2316,7 @@ func (o RestResponseResponseOutput) ToRestResponseResponsePtrOutput() RestRespon
 }
 
 func (o RestResponseResponseOutput) ToRestResponseResponsePtrOutputWithContext(ctx context.Context) RestResponseResponsePtrOutput {
-	return o.ApplyT(func(v RestResponseResponse) *RestResponseResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestResponseResponse) *RestResponseResponse {
 		return &v
 	}).(RestResponseResponsePtrOutput)
 }
@@ -2316,7 +2346,13 @@ func (o RestResponseResponsePtrOutput) ToRestResponseResponsePtrOutputWithContex
 }
 
 func (o RestResponseResponsePtrOutput) Elem() RestResponseResponseOutput {
-	return o.ApplyT(func(v *RestResponseResponse) RestResponseResponse { return *v }).(RestResponseResponseOutput)
+	return o.ApplyT(func(v *RestResponseResponse) RestResponseResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RestResponseResponse
+		return ret
+	}).(RestResponseResponseOutput)
 }
 
 // The regular expressions to match the response content with.
@@ -2439,7 +2475,7 @@ func (o RestResponseResponseRegexOutput) ToRestResponseResponseRegexPtrOutput() 
 }
 
 func (o RestResponseResponseRegexOutput) ToRestResponseResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseResponseRegexPtrOutput {
-	return o.ApplyT(func(v RestResponseResponseRegex) *RestResponseResponseRegex {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestResponseResponseRegex) *RestResponseResponseRegex {
 		return &v
 	}).(RestResponseResponseRegexPtrOutput)
 }
@@ -2469,7 +2505,13 @@ func (o RestResponseResponseRegexPtrOutput) ToRestResponseResponseRegexPtrOutput
 }
 
 func (o RestResponseResponseRegexPtrOutput) Elem() RestResponseResponseRegexOutput {
-	return o.ApplyT(func(v *RestResponseResponseRegex) RestResponseResponseRegex { return *v }).(RestResponseResponseRegexOutput)
+	return o.ApplyT(func(v *RestResponseResponseRegex) RestResponseResponseRegex {
+		if v != nil {
+			return *v
+		}
+		var ret RestResponseResponseRegex
+		return ret
+	}).(RestResponseResponseRegexOutput)
 }
 
 // Indicates whether any or all of the expressions should match with the response content.
@@ -2946,7 +2988,7 @@ func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutput() SasAuthenticatio
 }
 
 func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
-	return o.ApplyT(func(v SasAuthentication) *SasAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SasAuthentication) *SasAuthentication {
 		return &v
 	}).(SasAuthenticationPtrOutput)
 }
@@ -2977,7 +3019,13 @@ func (o SasAuthenticationPtrOutput) ToSasAuthenticationPtrOutputWithContext(ctx 
 }
 
 func (o SasAuthenticationPtrOutput) Elem() SasAuthenticationOutput {
-	return o.ApplyT(func(v *SasAuthentication) SasAuthentication { return *v }).(SasAuthenticationOutput)
+	return o.ApplyT(func(v *SasAuthentication) SasAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret SasAuthentication
+		return ret
+	}).(SasAuthenticationOutput)
 }
 
 // The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
@@ -3103,7 +3151,7 @@ func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutput() 
 }
 
 func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v SasAuthenticationResponse) *SasAuthenticationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SasAuthenticationResponse) *SasAuthenticationResponse {
 		return &v
 	}).(SasAuthenticationResponsePtrOutput)
 }
@@ -3134,7 +3182,13 @@ func (o SasAuthenticationResponsePtrOutput) ToSasAuthenticationResponsePtrOutput
 }
 
 func (o SasAuthenticationResponsePtrOutput) Elem() SasAuthenticationResponseOutput {
-	return o.ApplyT(func(v *SasAuthenticationResponse) SasAuthenticationResponse { return *v }).(SasAuthenticationResponseOutput)
+	return o.ApplyT(func(v *SasAuthenticationResponse) SasAuthenticationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SasAuthenticationResponse
+		return ret
+	}).(SasAuthenticationResponseOutput)
 }
 
 // The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
@@ -3393,7 +3447,7 @@ func (o ServiceUnitArtifactsOutput) ToServiceUnitArtifactsPtrOutput() ServiceUni
 }
 
 func (o ServiceUnitArtifactsOutput) ToServiceUnitArtifactsPtrOutputWithContext(ctx context.Context) ServiceUnitArtifactsPtrOutput {
-	return o.ApplyT(func(v ServiceUnitArtifacts) *ServiceUnitArtifacts {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceUnitArtifacts) *ServiceUnitArtifacts {
 		return &v
 	}).(ServiceUnitArtifactsPtrOutput)
 }
@@ -3433,7 +3487,13 @@ func (o ServiceUnitArtifactsPtrOutput) ToServiceUnitArtifactsPtrOutputWithContex
 }
 
 func (o ServiceUnitArtifactsPtrOutput) Elem() ServiceUnitArtifactsOutput {
-	return o.ApplyT(func(v *ServiceUnitArtifacts) ServiceUnitArtifacts { return *v }).(ServiceUnitArtifactsOutput)
+	return o.ApplyT(func(v *ServiceUnitArtifacts) ServiceUnitArtifacts {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceUnitArtifacts
+		return ret
+	}).(ServiceUnitArtifactsOutput)
 }
 
 // The path to the ARM parameters file relative to the artifact source.
@@ -3584,7 +3644,7 @@ func (o ServiceUnitArtifactsResponseOutput) ToServiceUnitArtifactsResponsePtrOut
 }
 
 func (o ServiceUnitArtifactsResponseOutput) ToServiceUnitArtifactsResponsePtrOutputWithContext(ctx context.Context) ServiceUnitArtifactsResponsePtrOutput {
-	return o.ApplyT(func(v ServiceUnitArtifactsResponse) *ServiceUnitArtifactsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceUnitArtifactsResponse) *ServiceUnitArtifactsResponse {
 		return &v
 	}).(ServiceUnitArtifactsResponsePtrOutput)
 }
@@ -3624,7 +3684,13 @@ func (o ServiceUnitArtifactsResponsePtrOutput) ToServiceUnitArtifactsResponsePtr
 }
 
 func (o ServiceUnitArtifactsResponsePtrOutput) Elem() ServiceUnitArtifactsResponseOutput {
-	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) ServiceUnitArtifactsResponse { return *v }).(ServiceUnitArtifactsResponseOutput)
+	return o.ApplyT(func(v *ServiceUnitArtifactsResponse) ServiceUnitArtifactsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceUnitArtifactsResponse
+		return ret
+	}).(ServiceUnitArtifactsResponseOutput)
 }
 
 // The path to the ARM parameters file relative to the artifact source.

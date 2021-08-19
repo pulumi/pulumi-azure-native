@@ -127,55 +127,9 @@ func GetSqlDWTableDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlDWTableDataSetMapping resources.
 type sqlDWTableDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus *string `pulumi:"dataSetMappingStatus"`
-	// DataWarehouse name of the source data set
-	DataWarehouseName *string `pulumi:"dataWarehouseName"`
-	// Kind of data set mapping.
-	// Expected value is 'SqlDWTable'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Schema of the table. Default value is dbo.
-	SchemaName *string `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId *string `pulumi:"sqlServerResourceId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// SQL DW table name.
-	TableName *string `pulumi:"tableName"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type SqlDWTableDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId pulumi.StringPtrInput
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringPtrInput
-	// DataWarehouse name of the source data set
-	DataWarehouseName pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'SqlDWTable'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringPtrInput
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringPtrInput
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// SQL DW table name.
-	TableName pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (SqlDWTableDataSetMappingState) ElementType() reflect.Type {
@@ -254,9 +208,7 @@ func (i *SqlDWTableDataSetMapping) ToSqlDWTableDataSetMappingOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDWTableDataSetMappingOutput)
 }
 
-type SqlDWTableDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type SqlDWTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SqlDWTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDWTableDataSetMapping)(nil))

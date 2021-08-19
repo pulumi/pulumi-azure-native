@@ -58,21 +58,9 @@ func GetStorageAccountStaticWebsite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccountStaticWebsite resources.
 type storageAccountStaticWebsiteState struct {
-	// The name of the container to upload blobs to.
-	ContainerName *string `pulumi:"containerName"`
-	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-	Error404Document *string `pulumi:"error404Document"`
-	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
-	IndexDocument *string `pulumi:"indexDocument"`
 }
 
 type StorageAccountStaticWebsiteState struct {
-	// The name of the container to upload blobs to.
-	ContainerName pulumi.StringPtrInput
-	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-	Error404Document pulumi.StringPtrInput
-	// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
-	IndexDocument pulumi.StringPtrInput
 }
 
 func (StorageAccountStaticWebsiteState) ElementType() reflect.Type {
@@ -125,9 +113,7 @@ func (i *StorageAccountStaticWebsite) ToStorageAccountStaticWebsiteOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountStaticWebsiteOutput)
 }
 
-type StorageAccountStaticWebsiteOutput struct {
-	*pulumi.OutputState
-}
+type StorageAccountStaticWebsiteOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountStaticWebsiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountStaticWebsite)(nil))

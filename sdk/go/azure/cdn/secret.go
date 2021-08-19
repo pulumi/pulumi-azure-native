@@ -76,31 +76,9 @@ func GetSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Secret resources.
 type secretState struct {
-	DeploymentStatus *string `pulumi:"deploymentStatus"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// object which contains secret parameters
-	Parameters interface{} `pulumi:"parameters"`
-	// Provisioning status
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SecretState struct {
-	DeploymentStatus pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// object which contains secret parameters
-	Parameters pulumi.Input
-	// Provisioning status
-	ProvisioningState pulumi.StringPtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SecretState) ElementType() reflect.Type {
@@ -153,9 +131,7 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretOutput)
 }
 
-type SecretOutput struct {
-	*pulumi.OutputState
-}
+type SecretOutput struct{ *pulumi.OutputState }
 
 func (SecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Secret)(nil))

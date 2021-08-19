@@ -114,7 +114,7 @@ func (o CloudToDevicePropertiesOutput) ToCloudToDevicePropertiesPtrOutput() Clou
 }
 
 func (o CloudToDevicePropertiesOutput) ToCloudToDevicePropertiesPtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesPtrOutput {
-	return o.ApplyT(func(v CloudToDeviceProperties) *CloudToDeviceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudToDeviceProperties) *CloudToDeviceProperties {
 		return &v
 	}).(CloudToDevicePropertiesPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o CloudToDevicePropertiesPtrOutput) ToCloudToDevicePropertiesPtrOutputWith
 }
 
 func (o CloudToDevicePropertiesPtrOutput) Elem() CloudToDevicePropertiesOutput {
-	return o.ApplyT(func(v *CloudToDeviceProperties) CloudToDeviceProperties { return *v }).(CloudToDevicePropertiesOutput)
+	return o.ApplyT(func(v *CloudToDeviceProperties) CloudToDeviceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CloudToDeviceProperties
+		return ret
+	}).(CloudToDevicePropertiesOutput)
 }
 
 // The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -286,7 +292,7 @@ func (o CloudToDevicePropertiesResponseOutput) ToCloudToDevicePropertiesResponse
 }
 
 func (o CloudToDevicePropertiesResponseOutput) ToCloudToDevicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CloudToDevicePropertiesResponse) *CloudToDevicePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudToDevicePropertiesResponse) *CloudToDevicePropertiesResponse {
 		return &v
 	}).(CloudToDevicePropertiesResponsePtrOutput)
 }
@@ -321,7 +327,13 @@ func (o CloudToDevicePropertiesResponsePtrOutput) ToCloudToDevicePropertiesRespo
 }
 
 func (o CloudToDevicePropertiesResponsePtrOutput) Elem() CloudToDevicePropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) CloudToDevicePropertiesResponse { return *v }).(CloudToDevicePropertiesResponseOutput)
+	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) CloudToDevicePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudToDevicePropertiesResponse
+		return ret
+	}).(CloudToDevicePropertiesResponseOutput)
 }
 
 // The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -703,7 +715,7 @@ func (o FeedbackPropertiesOutput) ToFeedbackPropertiesPtrOutput() FeedbackProper
 }
 
 func (o FeedbackPropertiesOutput) ToFeedbackPropertiesPtrOutputWithContext(ctx context.Context) FeedbackPropertiesPtrOutput {
-	return o.ApplyT(func(v FeedbackProperties) *FeedbackProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedbackProperties) *FeedbackProperties {
 		return &v
 	}).(FeedbackPropertiesPtrOutput)
 }
@@ -738,7 +750,13 @@ func (o FeedbackPropertiesPtrOutput) ToFeedbackPropertiesPtrOutputWithContext(ct
 }
 
 func (o FeedbackPropertiesPtrOutput) Elem() FeedbackPropertiesOutput {
-	return o.ApplyT(func(v *FeedbackProperties) FeedbackProperties { return *v }).(FeedbackPropertiesOutput)
+	return o.ApplyT(func(v *FeedbackProperties) FeedbackProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FeedbackProperties
+		return ret
+	}).(FeedbackPropertiesOutput)
 }
 
 // The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -875,7 +893,7 @@ func (o FeedbackPropertiesResponseOutput) ToFeedbackPropertiesResponsePtrOutput(
 }
 
 func (o FeedbackPropertiesResponseOutput) ToFeedbackPropertiesResponsePtrOutputWithContext(ctx context.Context) FeedbackPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FeedbackPropertiesResponse) *FeedbackPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedbackPropertiesResponse) *FeedbackPropertiesResponse {
 		return &v
 	}).(FeedbackPropertiesResponsePtrOutput)
 }
@@ -910,7 +928,13 @@ func (o FeedbackPropertiesResponsePtrOutput) ToFeedbackPropertiesResponsePtrOutp
 }
 
 func (o FeedbackPropertiesResponsePtrOutput) Elem() FeedbackPropertiesResponseOutput {
-	return o.ApplyT(func(v *FeedbackPropertiesResponse) FeedbackPropertiesResponse { return *v }).(FeedbackPropertiesResponseOutput)
+	return o.ApplyT(func(v *FeedbackPropertiesResponse) FeedbackPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FeedbackPropertiesResponse
+		return ret
+	}).(FeedbackPropertiesResponseOutput)
 }
 
 // The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -1075,7 +1099,7 @@ func (o IotHubPropertiesOutput) ToIotHubPropertiesPtrOutput() IotHubPropertiesPt
 }
 
 func (o IotHubPropertiesOutput) ToIotHubPropertiesPtrOutputWithContext(ctx context.Context) IotHubPropertiesPtrOutput {
-	return o.ApplyT(func(v IotHubProperties) *IotHubProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubProperties) *IotHubProperties {
 		return &v
 	}).(IotHubPropertiesPtrOutput)
 }
@@ -1145,7 +1169,13 @@ func (o IotHubPropertiesPtrOutput) ToIotHubPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o IotHubPropertiesPtrOutput) Elem() IotHubPropertiesOutput {
-	return o.ApplyT(func(v *IotHubProperties) IotHubProperties { return *v }).(IotHubPropertiesOutput)
+	return o.ApplyT(func(v *IotHubProperties) IotHubProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubProperties
+		return ret
+	}).(IotHubPropertiesOutput)
 }
 
 // The shared access policies you can use to secure a connection to the IoT hub.
@@ -1388,7 +1418,7 @@ func (o IotHubPropertiesResponseOutput) ToIotHubPropertiesResponsePtrOutput() Io
 }
 
 func (o IotHubPropertiesResponseOutput) ToIotHubPropertiesResponsePtrOutputWithContext(ctx context.Context) IotHubPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IotHubPropertiesResponse) *IotHubPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubPropertiesResponse) *IotHubPropertiesResponse {
 		return &v
 	}).(IotHubPropertiesResponsePtrOutput)
 }
@@ -1476,7 +1506,13 @@ func (o IotHubPropertiesResponsePtrOutput) ToIotHubPropertiesResponsePtrOutputWi
 }
 
 func (o IotHubPropertiesResponsePtrOutput) Elem() IotHubPropertiesResponseOutput {
-	return o.ApplyT(func(v *IotHubPropertiesResponse) IotHubPropertiesResponse { return *v }).(IotHubPropertiesResponseOutput)
+	return o.ApplyT(func(v *IotHubPropertiesResponse) IotHubPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubPropertiesResponse
+		return ret
+	}).(IotHubPropertiesResponseOutput)
 }
 
 // The shared access policies you can use to secure a connection to the IoT hub.
@@ -1699,7 +1735,7 @@ func (o IotHubSkuInfoOutput) ToIotHubSkuInfoPtrOutput() IotHubSkuInfoPtrOutput {
 }
 
 func (o IotHubSkuInfoOutput) ToIotHubSkuInfoPtrOutputWithContext(ctx context.Context) IotHubSkuInfoPtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfo) *IotHubSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubSkuInfo) *IotHubSkuInfo {
 		return &v
 	}).(IotHubSkuInfoPtrOutput)
 }
@@ -1729,7 +1765,13 @@ func (o IotHubSkuInfoPtrOutput) ToIotHubSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotHubSkuInfoPtrOutput) Elem() IotHubSkuInfoOutput {
-	return o.ApplyT(func(v *IotHubSkuInfo) IotHubSkuInfo { return *v }).(IotHubSkuInfoOutput)
+	return o.ApplyT(func(v *IotHubSkuInfo) IotHubSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubSkuInfo
+		return ret
+	}).(IotHubSkuInfoOutput)
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
@@ -1856,7 +1898,7 @@ func (o IotHubSkuInfoResponseOutput) ToIotHubSkuInfoResponsePtrOutput() IotHubSk
 }
 
 func (o IotHubSkuInfoResponseOutput) ToIotHubSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotHubSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfoResponse) *IotHubSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubSkuInfoResponse) *IotHubSkuInfoResponse {
 		return &v
 	}).(IotHubSkuInfoResponsePtrOutput)
 }
@@ -1891,7 +1933,13 @@ func (o IotHubSkuInfoResponsePtrOutput) ToIotHubSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotHubSkuInfoResponsePtrOutput) Elem() IotHubSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotHubSkuInfoResponse) IotHubSkuInfoResponse { return *v }).(IotHubSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotHubSkuInfoResponse) IotHubSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubSkuInfoResponse
+		return ret
+	}).(IotHubSkuInfoResponseOutput)
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
@@ -1927,7 +1975,7 @@ func (o IotHubSkuInfoResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // The IP filter rules for the IoT hub.
 type IpFilterRule struct {
 	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName string `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
@@ -1948,7 +1996,7 @@ type IpFilterRuleInput interface {
 // The IP filter rules for the IoT hub.
 type IpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
+	Action IpFilterActionTypeInput `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
@@ -2008,8 +2056,8 @@ func (o IpFilterRuleOutput) ToIpFilterRuleOutputWithContext(ctx context.Context)
 }
 
 // The desired action for requests captured by this rule.
-func (o IpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o IpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v IpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
 // The name of the IP filter rule.
@@ -2490,10 +2538,11 @@ func (o OperationsMonitoringPropertiesOutput) ToOperationsMonitoringPropertiesPt
 }
 
 func (o OperationsMonitoringPropertiesOutput) ToOperationsMonitoringPropertiesPtrOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesPtrOutput {
-	return o.ApplyT(func(v OperationsMonitoringProperties) *OperationsMonitoringProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OperationsMonitoringProperties) *OperationsMonitoringProperties {
 		return &v
 	}).(OperationsMonitoringPropertiesPtrOutput)
 }
+
 func (o OperationsMonitoringPropertiesOutput) Events() pulumi.StringMapOutput {
 	return o.ApplyT(func(v OperationsMonitoringProperties) map[string]string { return v.Events }).(pulumi.StringMapOutput)
 }
@@ -2513,7 +2562,13 @@ func (o OperationsMonitoringPropertiesPtrOutput) ToOperationsMonitoringPropertie
 }
 
 func (o OperationsMonitoringPropertiesPtrOutput) Elem() OperationsMonitoringPropertiesOutput {
-	return o.ApplyT(func(v *OperationsMonitoringProperties) OperationsMonitoringProperties { return *v }).(OperationsMonitoringPropertiesOutput)
+	return o.ApplyT(func(v *OperationsMonitoringProperties) OperationsMonitoringProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OperationsMonitoringProperties
+		return ret
+	}).(OperationsMonitoringPropertiesOutput)
 }
 
 func (o OperationsMonitoringPropertiesPtrOutput) Events() pulumi.StringMapOutput {
@@ -2619,10 +2674,11 @@ func (o OperationsMonitoringPropertiesResponseOutput) ToOperationsMonitoringProp
 }
 
 func (o OperationsMonitoringPropertiesResponseOutput) ToOperationsMonitoringPropertiesResponsePtrOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v OperationsMonitoringPropertiesResponse) *OperationsMonitoringPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OperationsMonitoringPropertiesResponse) *OperationsMonitoringPropertiesResponse {
 		return &v
 	}).(OperationsMonitoringPropertiesResponsePtrOutput)
 }
+
 func (o OperationsMonitoringPropertiesResponseOutput) Events() pulumi.StringMapOutput {
 	return o.ApplyT(func(v OperationsMonitoringPropertiesResponse) map[string]string { return v.Events }).(pulumi.StringMapOutput)
 }
@@ -2642,7 +2698,13 @@ func (o OperationsMonitoringPropertiesResponsePtrOutput) ToOperationsMonitoringP
 }
 
 func (o OperationsMonitoringPropertiesResponsePtrOutput) Elem() OperationsMonitoringPropertiesResponseOutput {
-	return o.ApplyT(func(v *OperationsMonitoringPropertiesResponse) OperationsMonitoringPropertiesResponse { return *v }).(OperationsMonitoringPropertiesResponseOutput)
+	return o.ApplyT(func(v *OperationsMonitoringPropertiesResponse) OperationsMonitoringPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OperationsMonitoringPropertiesResponse
+		return ret
+	}).(OperationsMonitoringPropertiesResponseOutput)
 }
 
 func (o OperationsMonitoringPropertiesResponsePtrOutput) Events() pulumi.StringMapOutput {
@@ -2661,7 +2723,7 @@ type SharedAccessSignatureAuthorizationRule struct {
 	// The primary key.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The permissions assigned to the shared access policy.
-	Rights string `pulumi:"rights"`
+	Rights AccessRights `pulumi:"rights"`
 	// The secondary key.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
@@ -2684,7 +2746,7 @@ type SharedAccessSignatureAuthorizationRuleArgs struct {
 	// The primary key.
 	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
 	// The permissions assigned to the shared access policy.
-	Rights AccessRights `pulumi:"rights"`
+	Rights AccessRightsInput `pulumi:"rights"`
 	// The secondary key.
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
@@ -2752,8 +2814,8 @@ func (o SharedAccessSignatureAuthorizationRuleOutput) PrimaryKey() pulumi.String
 }
 
 // The permissions assigned to the shared access policy.
-func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) string { return v.Rights }).(pulumi.StringOutput)
+func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() AccessRightsOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) AccessRights { return v.Rights }).(AccessRightsOutput)
 }
 
 // The secondary key.

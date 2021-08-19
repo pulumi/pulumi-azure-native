@@ -101,33 +101,9 @@ func GetMSTIDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MSTIDataConnector resources.
 type mstidataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes *MSTIDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'MicrosoftThreatIntelligence'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type MSTIDataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes MSTIDataConnectorDataTypesResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'MicrosoftThreatIntelligence'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (MSTIDataConnectorState) ElementType() reflect.Type {
@@ -196,9 +172,7 @@ func (i *MSTIDataConnector) ToMSTIDataConnectorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorOutput)
 }
 
-type MSTIDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type MSTIDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MSTIDataConnector)(nil))

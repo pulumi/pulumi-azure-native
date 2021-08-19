@@ -138,7 +138,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -191,7 +191,13 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
 // Optional, integer. The unit count of SignalR resource. 1 by default.
@@ -380,7 +386,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -433,7 +439,13 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
 // Optional, integer. The unit count of SignalR resource. 1 by default.
@@ -590,7 +602,7 @@ func (o SignalRCorsSettingsOutput) ToSignalRCorsSettingsPtrOutput() SignalRCorsS
 }
 
 func (o SignalRCorsSettingsOutput) ToSignalRCorsSettingsPtrOutputWithContext(ctx context.Context) SignalRCorsSettingsPtrOutput {
-	return o.ApplyT(func(v SignalRCorsSettings) *SignalRCorsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCorsSettings) *SignalRCorsSettings {
 		return &v
 	}).(SignalRCorsSettingsPtrOutput)
 }
@@ -615,7 +627,13 @@ func (o SignalRCorsSettingsPtrOutput) ToSignalRCorsSettingsPtrOutputWithContext(
 }
 
 func (o SignalRCorsSettingsPtrOutput) Elem() SignalRCorsSettingsOutput {
-	return o.ApplyT(func(v *SignalRCorsSettings) SignalRCorsSettings { return *v }).(SignalRCorsSettingsOutput)
+	return o.ApplyT(func(v *SignalRCorsSettings) SignalRCorsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SignalRCorsSettings
+		return ret
+	}).(SignalRCorsSettingsOutput)
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
@@ -724,7 +742,7 @@ func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponsePtrOutpu
 }
 
 func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRCorsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SignalRCorsSettingsResponse) *SignalRCorsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCorsSettingsResponse) *SignalRCorsSettingsResponse {
 		return &v
 	}).(SignalRCorsSettingsResponsePtrOutput)
 }
@@ -749,7 +767,13 @@ func (o SignalRCorsSettingsResponsePtrOutput) ToSignalRCorsSettingsResponsePtrOu
 }
 
 func (o SignalRCorsSettingsResponsePtrOutput) Elem() SignalRCorsSettingsResponseOutput {
-	return o.ApplyT(func(v *SignalRCorsSettingsResponse) SignalRCorsSettingsResponse { return *v }).(SignalRCorsSettingsResponseOutput)
+	return o.ApplyT(func(v *SignalRCorsSettingsResponse) SignalRCorsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SignalRCorsSettingsResponse
+		return ret
+	}).(SignalRCorsSettingsResponseOutput)
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
@@ -878,7 +902,7 @@ func (o SignalRCreateOrUpdatePropertiesOutput) ToSignalRCreateOrUpdateProperties
 }
 
 func (o SignalRCreateOrUpdatePropertiesOutput) ToSignalRCreateOrUpdatePropertiesPtrOutputWithContext(ctx context.Context) SignalRCreateOrUpdatePropertiesPtrOutput {
-	return o.ApplyT(func(v SignalRCreateOrUpdateProperties) *SignalRCreateOrUpdateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCreateOrUpdateProperties) *SignalRCreateOrUpdateProperties {
 		return &v
 	}).(SignalRCreateOrUpdatePropertiesPtrOutput)
 }
@@ -919,7 +943,13 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) ToSignalRCreateOrUpdatePropert
 }
 
 func (o SignalRCreateOrUpdatePropertiesPtrOutput) Elem() SignalRCreateOrUpdatePropertiesOutput {
-	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) SignalRCreateOrUpdateProperties { return *v }).(SignalRCreateOrUpdatePropertiesOutput)
+	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) SignalRCreateOrUpdateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SignalRCreateOrUpdateProperties
+		return ret
+	}).(SignalRCreateOrUpdatePropertiesOutput)
 }
 
 // Cross-Origin Resource Sharing (CORS) settings.

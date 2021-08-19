@@ -11,7 +11,7 @@ import (
 )
 
 // SaaS Offer Status
-type SaaSOfferStatus pulumi.String
+type SaaSOfferStatus string
 
 const (
 	SaaSOfferStatusStarted                 = SaaSOfferStatus("Started")
@@ -27,7 +27,23 @@ const (
 )
 
 func (SaaSOfferStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SaaSOfferStatus)(nil)).Elem()
+}
+
+func (e SaaSOfferStatus) ToSaaSOfferStatusOutput() SaaSOfferStatusOutput {
+	return pulumi.ToOutput(e).(SaaSOfferStatusOutput)
+}
+
+func (e SaaSOfferStatus) ToSaaSOfferStatusOutputWithContext(ctx context.Context) SaaSOfferStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SaaSOfferStatusOutput)
+}
+
+func (e SaaSOfferStatus) ToSaaSOfferStatusPtrOutput() SaaSOfferStatusPtrOutput {
+	return e.ToSaaSOfferStatusPtrOutputWithContext(context.Background())
+}
+
+func (e SaaSOfferStatus) ToSaaSOfferStatusPtrOutputWithContext(ctx context.Context) SaaSOfferStatusPtrOutput {
+	return SaaSOfferStatus(e).ToSaaSOfferStatusOutputWithContext(ctx).ToSaaSOfferStatusPtrOutputWithContext(ctx)
 }
 
 func (e SaaSOfferStatus) ToStringOutput() pulumi.StringOutput {
@@ -44,4 +60,130 @@ func (e SaaSOfferStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SaaSOfferStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SaaSOfferStatusOutput struct{ *pulumi.OutputState }
+
+func (SaaSOfferStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SaaSOfferStatus)(nil)).Elem()
+}
+
+func (o SaaSOfferStatusOutput) ToSaaSOfferStatusOutput() SaaSOfferStatusOutput {
+	return o
+}
+
+func (o SaaSOfferStatusOutput) ToSaaSOfferStatusOutputWithContext(ctx context.Context) SaaSOfferStatusOutput {
+	return o
+}
+
+func (o SaaSOfferStatusOutput) ToSaaSOfferStatusPtrOutput() SaaSOfferStatusPtrOutput {
+	return o.ToSaaSOfferStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SaaSOfferStatusOutput) ToSaaSOfferStatusPtrOutputWithContext(ctx context.Context) SaaSOfferStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SaaSOfferStatus) *SaaSOfferStatus {
+		return &v
+	}).(SaaSOfferStatusPtrOutput)
+}
+
+func (o SaaSOfferStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SaaSOfferStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SaaSOfferStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SaaSOfferStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SaaSOfferStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SaaSOfferStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SaaSOfferStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SaaSOfferStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SaaSOfferStatus)(nil)).Elem()
+}
+
+func (o SaaSOfferStatusPtrOutput) ToSaaSOfferStatusPtrOutput() SaaSOfferStatusPtrOutput {
+	return o
+}
+
+func (o SaaSOfferStatusPtrOutput) ToSaaSOfferStatusPtrOutputWithContext(ctx context.Context) SaaSOfferStatusPtrOutput {
+	return o
+}
+
+func (o SaaSOfferStatusPtrOutput) Elem() SaaSOfferStatusOutput {
+	return o.ApplyT(func(v *SaaSOfferStatus) SaaSOfferStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SaaSOfferStatus
+		return ret
+	}).(SaaSOfferStatusOutput)
+}
+
+func (o SaaSOfferStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SaaSOfferStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SaaSOfferStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SaaSOfferStatusInput is an input type that accepts SaaSOfferStatusArgs and SaaSOfferStatusOutput values.
+// You can construct a concrete instance of `SaaSOfferStatusInput` via:
+//
+//          SaaSOfferStatusArgs{...}
+type SaaSOfferStatusInput interface {
+	pulumi.Input
+
+	ToSaaSOfferStatusOutput() SaaSOfferStatusOutput
+	ToSaaSOfferStatusOutputWithContext(context.Context) SaaSOfferStatusOutput
+}
+
+var saaSOfferStatusPtrType = reflect.TypeOf((**SaaSOfferStatus)(nil)).Elem()
+
+type SaaSOfferStatusPtrInput interface {
+	pulumi.Input
+
+	ToSaaSOfferStatusPtrOutput() SaaSOfferStatusPtrOutput
+	ToSaaSOfferStatusPtrOutputWithContext(context.Context) SaaSOfferStatusPtrOutput
+}
+
+type saaSOfferStatusPtr string
+
+func SaaSOfferStatusPtr(v string) SaaSOfferStatusPtrInput {
+	return (*saaSOfferStatusPtr)(&v)
+}
+
+func (*saaSOfferStatusPtr) ElementType() reflect.Type {
+	return saaSOfferStatusPtrType
+}
+
+func (in *saaSOfferStatusPtr) ToSaaSOfferStatusPtrOutput() SaaSOfferStatusPtrOutput {
+	return pulumi.ToOutput(in).(SaaSOfferStatusPtrOutput)
+}
+
+func (in *saaSOfferStatusPtr) ToSaaSOfferStatusPtrOutputWithContext(ctx context.Context) SaaSOfferStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SaaSOfferStatusPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(SaaSOfferStatusOutput{})
+	pulumi.RegisterOutputType(SaaSOfferStatusPtrOutput{})
 }

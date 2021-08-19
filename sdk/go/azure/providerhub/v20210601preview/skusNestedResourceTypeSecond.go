@@ -91,23 +91,9 @@ func GetSkusNestedResourceTypeSecond(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SkusNestedResourceTypeSecond resources.
 type skusNestedResourceTypeSecondState struct {
-	// The name of the resource
-	Name       *string                        `pulumi:"name"`
-	Properties *SkuResourceResponseProperties `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type SkusNestedResourceTypeSecondState struct {
-	// The name of the resource
-	Name       pulumi.StringPtrInput
-	Properties SkuResourceResponsePropertiesPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (SkusNestedResourceTypeSecondState) ElementType() reflect.Type {
@@ -170,9 +156,7 @@ func (i *SkusNestedResourceTypeSecond) ToSkusNestedResourceTypeSecondOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SkusNestedResourceTypeSecondOutput)
 }
 
-type SkusNestedResourceTypeSecondOutput struct {
-	*pulumi.OutputState
-}
+type SkusNestedResourceTypeSecondOutput struct{ *pulumi.OutputState }
 
 func (SkusNestedResourceTypeSecondOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SkusNestedResourceTypeSecond)(nil))

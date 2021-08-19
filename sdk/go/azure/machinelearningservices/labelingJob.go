@@ -79,25 +79,9 @@ func GetLabelingJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LabelingJob resources.
 type labelingJobState struct {
-	// The name of the resource entity.
-	Name *string `pulumi:"name"`
-	// Definition of a labeling job.
-	Properties *LabelingJobPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The resource provider and type.
-	Type *string `pulumi:"type"`
 }
 
 type LabelingJobState struct {
-	// The name of the resource entity.
-	Name pulumi.StringPtrInput
-	// Definition of a labeling job.
-	Properties LabelingJobPropertiesResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The resource provider and type.
-	Type pulumi.StringPtrInput
 }
 
 func (LabelingJobState) ElementType() reflect.Type {
@@ -150,9 +134,7 @@ func (i *LabelingJob) ToLabelingJobOutputWithContext(ctx context.Context) Labeli
 	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobOutput)
 }
 
-type LabelingJobOutput struct {
-	*pulumi.OutputState
-}
+type LabelingJobOutput struct{ *pulumi.OutputState }
 
 func (LabelingJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabelingJob)(nil))

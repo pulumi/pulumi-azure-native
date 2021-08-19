@@ -107,21 +107,9 @@ func GetQueueAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueueAuthorizationRule resources.
 type queueAuthorizationRuleState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type QueueAuthorizationRuleState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (QueueAuthorizationRuleState) ElementType() reflect.Type {
@@ -138,7 +126,7 @@ type queueAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	Rights []AccessRights `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a QueueAuthorizationRule resource.
@@ -178,9 +166,7 @@ func (i *QueueAuthorizationRule) ToQueueAuthorizationRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleOutput)
 }
 
-type QueueAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type QueueAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (QueueAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueueAuthorizationRule)(nil))

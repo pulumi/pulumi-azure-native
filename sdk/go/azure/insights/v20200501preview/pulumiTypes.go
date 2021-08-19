@@ -491,7 +491,7 @@ func (o ConditionFailingPeriodsOutput) ToConditionFailingPeriodsPtrOutput() Cond
 }
 
 func (o ConditionFailingPeriodsOutput) ToConditionFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionFailingPeriodsPtrOutput {
-	return o.ApplyT(func(v ConditionFailingPeriods) *ConditionFailingPeriods {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionFailingPeriods) *ConditionFailingPeriods {
 		return &v
 	}).(ConditionFailingPeriodsPtrOutput)
 }
@@ -521,7 +521,13 @@ func (o ConditionFailingPeriodsPtrOutput) ToConditionFailingPeriodsPtrOutputWith
 }
 
 func (o ConditionFailingPeriodsPtrOutput) Elem() ConditionFailingPeriodsOutput {
-	return o.ApplyT(func(v *ConditionFailingPeriods) ConditionFailingPeriods { return *v }).(ConditionFailingPeriodsOutput)
+	return o.ApplyT(func(v *ConditionFailingPeriods) ConditionFailingPeriods {
+		if v != nil {
+			return *v
+		}
+		var ret ConditionFailingPeriods
+		return ret
+	}).(ConditionFailingPeriodsOutput)
 }
 
 // The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
@@ -807,7 +813,7 @@ func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriods
 }
 
 func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionResponseFailingPeriodsPtrOutput {
-	return o.ApplyT(func(v ConditionResponseFailingPeriods) *ConditionResponseFailingPeriods {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionResponseFailingPeriods) *ConditionResponseFailingPeriods {
 		return &v
 	}).(ConditionResponseFailingPeriodsPtrOutput)
 }
@@ -837,7 +843,13 @@ func (o ConditionResponseFailingPeriodsPtrOutput) ToConditionResponseFailingPeri
 }
 
 func (o ConditionResponseFailingPeriodsPtrOutput) Elem() ConditionResponseFailingPeriodsOutput {
-	return o.ApplyT(func(v *ConditionResponseFailingPeriods) ConditionResponseFailingPeriods { return *v }).(ConditionResponseFailingPeriodsOutput)
+	return o.ApplyT(func(v *ConditionResponseFailingPeriods) ConditionResponseFailingPeriods {
+		if v != nil {
+			return *v
+		}
+		var ret ConditionResponseFailingPeriods
+		return ret
+	}).(ConditionResponseFailingPeriodsOutput)
 }
 
 // The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
@@ -1192,7 +1204,7 @@ func (o ScheduledQueryRuleCriteriaOutput) ToScheduledQueryRuleCriteriaPtrOutput(
 }
 
 func (o ScheduledQueryRuleCriteriaOutput) ToScheduledQueryRuleCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleCriteria) *ScheduledQueryRuleCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRuleCriteria) *ScheduledQueryRuleCriteria {
 		return &v
 	}).(ScheduledQueryRuleCriteriaPtrOutput)
 }
@@ -1217,7 +1229,13 @@ func (o ScheduledQueryRuleCriteriaPtrOutput) ToScheduledQueryRuleCriteriaPtrOutp
 }
 
 func (o ScheduledQueryRuleCriteriaPtrOutput) Elem() ScheduledQueryRuleCriteriaOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteria) ScheduledQueryRuleCriteria { return *v }).(ScheduledQueryRuleCriteriaOutput)
+	return o.ApplyT(func(v *ScheduledQueryRuleCriteria) ScheduledQueryRuleCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRuleCriteria
+		return ret
+	}).(ScheduledQueryRuleCriteriaOutput)
 }
 
 // A list of conditions to evaluate against the specified scopes
@@ -1326,7 +1344,7 @@ func (o ScheduledQueryRuleCriteriaResponseOutput) ToScheduledQueryRuleCriteriaRe
 }
 
 func (o ScheduledQueryRuleCriteriaResponseOutput) ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleCriteriaResponse) *ScheduledQueryRuleCriteriaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRuleCriteriaResponse) *ScheduledQueryRuleCriteriaResponse {
 		return &v
 	}).(ScheduledQueryRuleCriteriaResponsePtrOutput)
 }
@@ -1351,7 +1369,13 @@ func (o ScheduledQueryRuleCriteriaResponsePtrOutput) ToScheduledQueryRuleCriteri
 }
 
 func (o ScheduledQueryRuleCriteriaResponsePtrOutput) Elem() ScheduledQueryRuleCriteriaResponseOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteriaResponse) ScheduledQueryRuleCriteriaResponse { return *v }).(ScheduledQueryRuleCriteriaResponseOutput)
+	return o.ApplyT(func(v *ScheduledQueryRuleCriteriaResponse) ScheduledQueryRuleCriteriaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRuleCriteriaResponse
+		return ret
+	}).(ScheduledQueryRuleCriteriaResponseOutput)
 }
 
 // A list of conditions to evaluate against the specified scopes

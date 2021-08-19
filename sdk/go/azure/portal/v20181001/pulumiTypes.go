@@ -114,7 +114,7 @@ func (o ConsoleCreatePropertiesOutput) ToConsoleCreatePropertiesPtrOutput() Cons
 }
 
 func (o ConsoleCreatePropertiesOutput) ToConsoleCreatePropertiesPtrOutputWithContext(ctx context.Context) ConsoleCreatePropertiesPtrOutput {
-	return o.ApplyT(func(v ConsoleCreateProperties) *ConsoleCreateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsoleCreateProperties) *ConsoleCreateProperties {
 		return &v
 	}).(ConsoleCreatePropertiesPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o ConsoleCreatePropertiesPtrOutput) ToConsoleCreatePropertiesPtrOutputWith
 }
 
 func (o ConsoleCreatePropertiesPtrOutput) Elem() ConsoleCreatePropertiesOutput {
-	return o.ApplyT(func(v *ConsoleCreateProperties) ConsoleCreateProperties { return *v }).(ConsoleCreatePropertiesOutput)
+	return o.ApplyT(func(v *ConsoleCreateProperties) ConsoleCreateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConsoleCreateProperties
+		return ret
+	}).(ConsoleCreatePropertiesOutput)
 }
 
 // The operating system type of the cloud shell.
@@ -286,7 +292,7 @@ func (o ConsolePropertiesResponseOutput) ToConsolePropertiesResponsePtrOutput() 
 }
 
 func (o ConsolePropertiesResponseOutput) ToConsolePropertiesResponsePtrOutputWithContext(ctx context.Context) ConsolePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ConsolePropertiesResponse) *ConsolePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsolePropertiesResponse) *ConsolePropertiesResponse {
 		return &v
 	}).(ConsolePropertiesResponsePtrOutput)
 }
@@ -321,7 +327,13 @@ func (o ConsolePropertiesResponsePtrOutput) ToConsolePropertiesResponsePtrOutput
 }
 
 func (o ConsolePropertiesResponsePtrOutput) Elem() ConsolePropertiesResponseOutput {
-	return o.ApplyT(func(v *ConsolePropertiesResponse) ConsolePropertiesResponse { return *v }).(ConsolePropertiesResponseOutput)
+	return o.ApplyT(func(v *ConsolePropertiesResponse) ConsolePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConsolePropertiesResponse
+		return ret
+	}).(ConsolePropertiesResponseOutput)
 }
 
 // The operating system type of the cloud shell.
@@ -458,7 +470,7 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyT(func(v StorageProfile) *StorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
@@ -493,7 +505,13 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfile
+		return ret
+	}).(StorageProfileOutput)
 }
 
 // Size of file share
@@ -630,7 +648,7 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
@@ -665,7 +683,13 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfileResponse
+		return ret
+	}).(StorageProfileResponseOutput)
 }
 
 // Size of file share
@@ -798,7 +822,7 @@ func (o TerminalSettingsOutput) ToTerminalSettingsPtrOutput() TerminalSettingsPt
 }
 
 func (o TerminalSettingsOutput) ToTerminalSettingsPtrOutputWithContext(ctx context.Context) TerminalSettingsPtrOutput {
-	return o.ApplyT(func(v TerminalSettings) *TerminalSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminalSettings) *TerminalSettings {
 		return &v
 	}).(TerminalSettingsPtrOutput)
 }
@@ -828,7 +852,13 @@ func (o TerminalSettingsPtrOutput) ToTerminalSettingsPtrOutputWithContext(ctx co
 }
 
 func (o TerminalSettingsPtrOutput) Elem() TerminalSettingsOutput {
-	return o.ApplyT(func(v *TerminalSettings) TerminalSettings { return *v }).(TerminalSettingsOutput)
+	return o.ApplyT(func(v *TerminalSettings) TerminalSettings {
+		if v != nil {
+			return *v
+		}
+		var ret TerminalSettings
+		return ret
+	}).(TerminalSettingsOutput)
 }
 
 // Size of terminal font.
@@ -951,7 +981,7 @@ func (o TerminalSettingsResponseOutput) ToTerminalSettingsResponsePtrOutput() Te
 }
 
 func (o TerminalSettingsResponseOutput) ToTerminalSettingsResponsePtrOutputWithContext(ctx context.Context) TerminalSettingsResponsePtrOutput {
-	return o.ApplyT(func(v TerminalSettingsResponse) *TerminalSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminalSettingsResponse) *TerminalSettingsResponse {
 		return &v
 	}).(TerminalSettingsResponsePtrOutput)
 }
@@ -981,7 +1011,13 @@ func (o TerminalSettingsResponsePtrOutput) ToTerminalSettingsResponsePtrOutputWi
 }
 
 func (o TerminalSettingsResponsePtrOutput) Elem() TerminalSettingsResponseOutput {
-	return o.ApplyT(func(v *TerminalSettingsResponse) TerminalSettingsResponse { return *v }).(TerminalSettingsResponseOutput)
+	return o.ApplyT(func(v *TerminalSettingsResponse) TerminalSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TerminalSettingsResponse
+		return ret
+	}).(TerminalSettingsResponseOutput)
 }
 
 // Size of terminal font.
@@ -1116,7 +1152,7 @@ func (o UserPropertiesOutput) ToUserPropertiesPtrOutput() UserPropertiesPtrOutpu
 }
 
 func (o UserPropertiesOutput) ToUserPropertiesPtrOutputWithContext(ctx context.Context) UserPropertiesPtrOutput {
-	return o.ApplyT(func(v UserProperties) *UserProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProperties) *UserProperties {
 		return &v
 	}).(UserPropertiesPtrOutput)
 }
@@ -1161,7 +1197,13 @@ func (o UserPropertiesPtrOutput) ToUserPropertiesPtrOutputWithContext(ctx contex
 }
 
 func (o UserPropertiesPtrOutput) Elem() UserPropertiesOutput {
-	return o.ApplyT(func(v *UserProperties) UserProperties { return *v }).(UserPropertiesOutput)
+	return o.ApplyT(func(v *UserProperties) UserProperties {
+		if v != nil {
+			return *v
+		}
+		var ret UserProperties
+		return ret
+	}).(UserPropertiesOutput)
 }
 
 // The preferred location of the cloud shell.
@@ -1326,7 +1368,7 @@ func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutput() UserPr
 }
 
 func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutputWithContext(ctx context.Context) UserPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) *UserPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPropertiesResponse) *UserPropertiesResponse {
 		return &v
 	}).(UserPropertiesResponsePtrOutput)
 }
@@ -1371,7 +1413,13 @@ func (o UserPropertiesResponsePtrOutput) ToUserPropertiesResponsePtrOutputWithCo
 }
 
 func (o UserPropertiesResponsePtrOutput) Elem() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) UserPropertiesResponse { return *v }).(UserPropertiesResponseOutput)
+	return o.ApplyT(func(v *UserPropertiesResponse) UserPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserPropertiesResponse
+		return ret
+	}).(UserPropertiesResponseOutput)
 }
 
 // The preferred location of the cloud shell.

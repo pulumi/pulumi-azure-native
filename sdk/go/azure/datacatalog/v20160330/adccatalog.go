@@ -83,53 +83,9 @@ func GetADCCatalog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ADCCatalog resources.
 type adccatalogState struct {
-	// Azure data catalog admin list.
-	Admins []PrincipalsResponse `pulumi:"admins"`
-	// Automatic unit adjustment enabled or not.
-	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Azure data catalog SKU.
-	Sku *string `pulumi:"sku"`
-	// Azure data catalog provision status.
-	SuccessfullyProvisioned *bool `pulumi:"successfullyProvisioned"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Azure data catalog units.
-	Units *int `pulumi:"units"`
-	// Azure data catalog user list.
-	Users []PrincipalsResponse `pulumi:"users"`
 }
 
 type ADCCatalogState struct {
-	// Azure data catalog admin list.
-	Admins PrincipalsResponseArrayInput
-	// Automatic unit adjustment enabled or not.
-	EnableAutomaticUnitAdjustment pulumi.BoolPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Azure data catalog SKU.
-	Sku pulumi.StringPtrInput
-	// Azure data catalog provision status.
-	SuccessfullyProvisioned pulumi.BoolPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Azure data catalog units.
-	Units pulumi.IntPtrInput
-	// Azure data catalog user list.
-	Users PrincipalsResponseArrayInput
 }
 
 func (ADCCatalogState) ElementType() reflect.Type {
@@ -210,9 +166,7 @@ func (i *ADCCatalog) ToADCCatalogOutputWithContext(ctx context.Context) ADCCatal
 	return pulumi.ToOutputWithContext(ctx, i).(ADCCatalogOutput)
 }
 
-type ADCCatalogOutput struct {
-	*pulumi.OutputState
-}
+type ADCCatalogOutput struct{ *pulumi.OutputState }
 
 func (ADCCatalogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADCCatalog)(nil))

@@ -123,21 +123,9 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	// Trigger Kind.
-	Kind *string `pulumi:"kind"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type TriggerState struct {
-	// Trigger Kind.
-	Kind pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (TriggerState) ElementType() reflect.Type {
@@ -190,9 +178,7 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
 }
 
-type TriggerOutput struct {
-	*pulumi.OutputState
-}
+type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Trigger)(nil))

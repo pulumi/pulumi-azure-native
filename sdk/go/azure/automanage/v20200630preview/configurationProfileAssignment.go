@@ -70,21 +70,9 @@ func GetConfigurationProfileAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationProfileAssignment resources.
 type configurationProfileAssignmentState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Properties of the configuration profile assignment.
-	Properties *ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ConfigurationProfileAssignmentState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Properties of the configuration profile assignment.
-	Properties ConfigurationProfileAssignmentPropertiesResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ConfigurationProfileAssignmentState) ElementType() reflect.Type {
@@ -137,9 +125,7 @@ func (i *ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentOutput)
 }
 
-type ConfigurationProfileAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationProfileAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil))

@@ -82,45 +82,9 @@ func GetSessionHostConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SessionHostConfiguration resources.
 type sessionHostConfigurationState struct {
-	// The disk type used by virtual machine in hostpool session host.
-	DiskType *string `pulumi:"diskType"`
-	// Domain configurations of session hosts.
-	DomainInfo *DomainInfoPropertiesResponse `pulumi:"domainInfo"`
-	// Image configurations of HostPool.
-	ImageInfo *ImageInfoPropertiesResponse `pulumi:"imageInfo"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The id of the size of a virtual machine connected to a hostpool.
-	VMSizeId *string `pulumi:"vMSizeId"`
-	// The time when session host configuration was last modified and something was changed.
-	Version *string `pulumi:"version"`
-	// The uri to the storage blob containing scripts to be run on the virtual machine after provisioning.
-	VmCustomConfigurationUri *string `pulumi:"vmCustomConfigurationUri"`
 }
 
 type SessionHostConfigurationState struct {
-	// The disk type used by virtual machine in hostpool session host.
-	DiskType pulumi.StringPtrInput
-	// Domain configurations of session hosts.
-	DomainInfo DomainInfoPropertiesResponsePtrInput
-	// Image configurations of HostPool.
-	ImageInfo ImageInfoPropertiesResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The id of the size of a virtual machine connected to a hostpool.
-	VMSizeId pulumi.StringPtrInput
-	// The time when session host configuration was last modified and something was changed.
-	Version pulumi.StringPtrInput
-	// The uri to the storage blob containing scripts to be run on the virtual machine after provisioning.
-	VmCustomConfigurationUri pulumi.StringPtrInput
 }
 
 func (SessionHostConfigurationState) ElementType() reflect.Type {
@@ -185,9 +149,7 @@ func (i *SessionHostConfiguration) ToSessionHostConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SessionHostConfigurationOutput)
 }
 
-type SessionHostConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type SessionHostConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SessionHostConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SessionHostConfiguration)(nil))
