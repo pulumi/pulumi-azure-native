@@ -10,6 +10,16 @@ export {
     v20210901preview,
 };
 
+export const MdeIntegration = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Integration status
+ */
+export type MdeIntegration = (typeof MdeIntegration)[keyof typeof MdeIntegration];
+
 export const OnboardingKind = {
     Default: "Default",
     MigratedToAzure: "MigratedToAzure",

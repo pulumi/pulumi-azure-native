@@ -22,10 +22,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ParameterContractResponse> FormParameters;
         /// <summary>
-        /// An example of the representation.
-        /// </summary>
-        public readonly string? Sample;
-        /// <summary>
         /// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         /// </summary>
         public readonly string? SchemaId;
@@ -40,15 +36,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
 
             ImmutableArray<Outputs.ParameterContractResponse> formParameters,
 
-            string? sample,
-
             string? schemaId,
 
             string? typeName)
         {
             ContentType = contentType;
             FormParameters = formParameters;
-            Sample = sample;
             SchemaId = schemaId;
             TypeName = typeName;
         }

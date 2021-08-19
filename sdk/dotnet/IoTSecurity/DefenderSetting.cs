@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.IoTSecurity
         public Output<string> EvaluationEndTime { get; private set; } = null!;
 
         /// <summary>
+        /// MDE integration configuration
+        /// </summary>
+        [Output("mdeIntegration")]
+        public Output<Outputs.DefenderSettingsPropertiesResponseMdeIntegration> MdeIntegration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -108,6 +114,12 @@ namespace Pulumi.AzureNative.IoTSecurity
         /// </summary>
         [Input("deviceQuota", required: true)]
         public Input<int> DeviceQuota { get; set; } = null!;
+
+        /// <summary>
+        /// MDE integration configuration
+        /// </summary>
+        [Input("mdeIntegration", required: true)]
+        public Input<Inputs.DefenderSettingsPropertiesMdeIntegrationArgs> MdeIntegration { get; set; } = null!;
 
         /// <summary>
         /// The kind of onboarding for the subscription

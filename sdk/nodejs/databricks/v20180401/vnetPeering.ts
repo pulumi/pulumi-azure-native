@@ -136,7 +136,7 @@ export class VNetPeering extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databricks/v20180401:vNetPeering" }, { type: "azure-native:databricks:vNetPeering" }, { type: "azure-nextgen:databricks:vNetPeering" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databricks/v20180401:vNetPeering" }, { type: "azure-native:databricks:vNetPeering" }, { type: "azure-nextgen:databricks:vNetPeering" }, { type: "azure-native:databricks/v20210401preview:vNetPeering" }, { type: "azure-nextgen:databricks/v20210401preview:vNetPeering" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VNetPeering.__pulumiType, name, inputs, opts);
     }

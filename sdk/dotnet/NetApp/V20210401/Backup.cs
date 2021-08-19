@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Output<double> Size { get; private set; } = null!;
 
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
@@ -133,6 +139,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20210201:Backup"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Backup"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20210401preview:Backup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:Backup"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20210601:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

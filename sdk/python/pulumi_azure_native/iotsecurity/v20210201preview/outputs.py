@@ -10,8 +10,31 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'DefenderSettingsPropertiesResponseMdeIntegration',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class DefenderSettingsPropertiesResponseMdeIntegration(dict):
+    """
+    MDE integration configuration
+    """
+    def __init__(__self__, *,
+                 status: str):
+        """
+        MDE integration configuration
+        :param str status: Integration status
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Integration status
+        """
+        return pulumi.get(self, "status")
+
 
 @pulumi.output_type
 class SystemDataResponse(dict):

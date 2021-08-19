@@ -20,7 +20,7 @@ class GetBackupPolicyResult:
     """
     Backup policy information
     """
-    def __init__(__self__, daily_backups_to_keep=None, enabled=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
+    def __init__(__self__, daily_backups_to_keep=None, enabled=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
         if daily_backups_to_keep and not isinstance(daily_backups_to_keep, int):
             raise TypeError("Expected argument 'daily_backups_to_keep' to be a int")
         pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
@@ -42,6 +42,9 @@ class GetBackupPolicyResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -118,6 +121,14 @@ class GetBackupPolicyResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -179,6 +190,7 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
             monthly_backups_to_keep=self.monthly_backups_to_keep,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             volume_backups=self.volume_backups,
@@ -217,6 +229,7 @@ def get_backup_policy(account_name: Optional[str] = None,
         monthly_backups_to_keep=__ret__.monthly_backups_to_keep,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         volume_backups=__ret__.volume_backups,

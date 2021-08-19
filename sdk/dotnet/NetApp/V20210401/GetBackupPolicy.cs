@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
             MonthlyBackupsToKeep = monthlyBackupsToKeep;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             VolumeBackups = volumeBackups;

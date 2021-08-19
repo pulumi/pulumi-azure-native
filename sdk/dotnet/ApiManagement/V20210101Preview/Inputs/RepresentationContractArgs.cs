@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Inputs
         }
 
         /// <summary>
-        /// An example of the representation.
-        /// </summary>
-        [Input("sample")]
-        public Input<string>? Sample { get; set; }
-
-        /// <summary>
         /// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         /// </summary>
         [Input("schemaId")]

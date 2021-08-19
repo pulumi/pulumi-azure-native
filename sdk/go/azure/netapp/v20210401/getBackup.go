@@ -52,6 +52,8 @@ type LookupBackupResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Size of backup
 	Size float64 `pulumi:"size"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups

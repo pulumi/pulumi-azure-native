@@ -10,6 +10,276 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// MDE integration configuration
+type DefenderSettingsPropertiesMdeIntegration struct {
+	// Integration status
+	Status string `pulumi:"status"`
+}
+
+// DefenderSettingsPropertiesMdeIntegrationInput is an input type that accepts DefenderSettingsPropertiesMdeIntegrationArgs and DefenderSettingsPropertiesMdeIntegrationOutput values.
+// You can construct a concrete instance of `DefenderSettingsPropertiesMdeIntegrationInput` via:
+//
+//          DefenderSettingsPropertiesMdeIntegrationArgs{...}
+type DefenderSettingsPropertiesMdeIntegrationInput interface {
+	pulumi.Input
+
+	ToDefenderSettingsPropertiesMdeIntegrationOutput() DefenderSettingsPropertiesMdeIntegrationOutput
+	ToDefenderSettingsPropertiesMdeIntegrationOutputWithContext(context.Context) DefenderSettingsPropertiesMdeIntegrationOutput
+}
+
+// MDE integration configuration
+type DefenderSettingsPropertiesMdeIntegrationArgs struct {
+	// Integration status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DefenderSettingsPropertiesMdeIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefenderSettingsPropertiesMdeIntegration)(nil)).Elem()
+}
+
+func (i DefenderSettingsPropertiesMdeIntegrationArgs) ToDefenderSettingsPropertiesMdeIntegrationOutput() DefenderSettingsPropertiesMdeIntegrationOutput {
+	return i.ToDefenderSettingsPropertiesMdeIntegrationOutputWithContext(context.Background())
+}
+
+func (i DefenderSettingsPropertiesMdeIntegrationArgs) ToDefenderSettingsPropertiesMdeIntegrationOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesMdeIntegrationOutput)
+}
+
+func (i DefenderSettingsPropertiesMdeIntegrationArgs) ToDefenderSettingsPropertiesMdeIntegrationPtrOutput() DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return i.ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i DefenderSettingsPropertiesMdeIntegrationArgs) ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesMdeIntegrationOutput).ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(ctx)
+}
+
+// DefenderSettingsPropertiesMdeIntegrationPtrInput is an input type that accepts DefenderSettingsPropertiesMdeIntegrationArgs, DefenderSettingsPropertiesMdeIntegrationPtr and DefenderSettingsPropertiesMdeIntegrationPtrOutput values.
+// You can construct a concrete instance of `DefenderSettingsPropertiesMdeIntegrationPtrInput` via:
+//
+//          DefenderSettingsPropertiesMdeIntegrationArgs{...}
+//
+//  or:
+//
+//          nil
+type DefenderSettingsPropertiesMdeIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToDefenderSettingsPropertiesMdeIntegrationPtrOutput() DefenderSettingsPropertiesMdeIntegrationPtrOutput
+	ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(context.Context) DefenderSettingsPropertiesMdeIntegrationPtrOutput
+}
+
+type defenderSettingsPropertiesMdeIntegrationPtrType DefenderSettingsPropertiesMdeIntegrationArgs
+
+func DefenderSettingsPropertiesMdeIntegrationPtr(v *DefenderSettingsPropertiesMdeIntegrationArgs) DefenderSettingsPropertiesMdeIntegrationPtrInput {
+	return (*defenderSettingsPropertiesMdeIntegrationPtrType)(v)
+}
+
+func (*defenderSettingsPropertiesMdeIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefenderSettingsPropertiesMdeIntegration)(nil)).Elem()
+}
+
+func (i *defenderSettingsPropertiesMdeIntegrationPtrType) ToDefenderSettingsPropertiesMdeIntegrationPtrOutput() DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return i.ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *defenderSettingsPropertiesMdeIntegrationPtrType) ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesMdeIntegrationPtrOutput)
+}
+
+// MDE integration configuration
+type DefenderSettingsPropertiesMdeIntegrationOutput struct{ *pulumi.OutputState }
+
+func (DefenderSettingsPropertiesMdeIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefenderSettingsPropertiesMdeIntegration)(nil)).Elem()
+}
+
+func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsPropertiesMdeIntegrationOutput() DefenderSettingsPropertiesMdeIntegrationOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsPropertiesMdeIntegrationOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsPropertiesMdeIntegrationPtrOutput() DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return o.ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return o.ApplyT(func(v DefenderSettingsPropertiesMdeIntegration) *DefenderSettingsPropertiesMdeIntegration {
+		return &v
+	}).(DefenderSettingsPropertiesMdeIntegrationPtrOutput)
+}
+
+// Integration status
+func (o DefenderSettingsPropertiesMdeIntegrationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DefenderSettingsPropertiesMdeIntegration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DefenderSettingsPropertiesMdeIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (DefenderSettingsPropertiesMdeIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefenderSettingsPropertiesMdeIntegration)(nil)).Elem()
+}
+
+func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) ToDefenderSettingsPropertiesMdeIntegrationPtrOutput() DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationPtrOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) Elem() DefenderSettingsPropertiesMdeIntegrationOutput {
+	return o.ApplyT(func(v *DefenderSettingsPropertiesMdeIntegration) DefenderSettingsPropertiesMdeIntegration { return *v }).(DefenderSettingsPropertiesMdeIntegrationOutput)
+}
+
+// Integration status
+func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefenderSettingsPropertiesMdeIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// MDE integration configuration
+type DefenderSettingsPropertiesResponseMdeIntegration struct {
+	// Integration status
+	Status string `pulumi:"status"`
+}
+
+// DefenderSettingsPropertiesResponseMdeIntegrationInput is an input type that accepts DefenderSettingsPropertiesResponseMdeIntegrationArgs and DefenderSettingsPropertiesResponseMdeIntegrationOutput values.
+// You can construct a concrete instance of `DefenderSettingsPropertiesResponseMdeIntegrationInput` via:
+//
+//          DefenderSettingsPropertiesResponseMdeIntegrationArgs{...}
+type DefenderSettingsPropertiesResponseMdeIntegrationInput interface {
+	pulumi.Input
+
+	ToDefenderSettingsPropertiesResponseMdeIntegrationOutput() DefenderSettingsPropertiesResponseMdeIntegrationOutput
+	ToDefenderSettingsPropertiesResponseMdeIntegrationOutputWithContext(context.Context) DefenderSettingsPropertiesResponseMdeIntegrationOutput
+}
+
+// MDE integration configuration
+type DefenderSettingsPropertiesResponseMdeIntegrationArgs struct {
+	// Integration status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DefenderSettingsPropertiesResponseMdeIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefenderSettingsPropertiesResponseMdeIntegration)(nil)).Elem()
+}
+
+func (i DefenderSettingsPropertiesResponseMdeIntegrationArgs) ToDefenderSettingsPropertiesResponseMdeIntegrationOutput() DefenderSettingsPropertiesResponseMdeIntegrationOutput {
+	return i.ToDefenderSettingsPropertiesResponseMdeIntegrationOutputWithContext(context.Background())
+}
+
+func (i DefenderSettingsPropertiesResponseMdeIntegrationArgs) ToDefenderSettingsPropertiesResponseMdeIntegrationOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesResponseMdeIntegrationOutput)
+}
+
+func (i DefenderSettingsPropertiesResponseMdeIntegrationArgs) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutput() DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return i.ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i DefenderSettingsPropertiesResponseMdeIntegrationArgs) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesResponseMdeIntegrationOutput).ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(ctx)
+}
+
+// DefenderSettingsPropertiesResponseMdeIntegrationPtrInput is an input type that accepts DefenderSettingsPropertiesResponseMdeIntegrationArgs, DefenderSettingsPropertiesResponseMdeIntegrationPtr and DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput values.
+// You can construct a concrete instance of `DefenderSettingsPropertiesResponseMdeIntegrationPtrInput` via:
+//
+//          DefenderSettingsPropertiesResponseMdeIntegrationArgs{...}
+//
+//  or:
+//
+//          nil
+type DefenderSettingsPropertiesResponseMdeIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutput() DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput
+	ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(context.Context) DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput
+}
+
+type defenderSettingsPropertiesResponseMdeIntegrationPtrType DefenderSettingsPropertiesResponseMdeIntegrationArgs
+
+func DefenderSettingsPropertiesResponseMdeIntegrationPtr(v *DefenderSettingsPropertiesResponseMdeIntegrationArgs) DefenderSettingsPropertiesResponseMdeIntegrationPtrInput {
+	return (*defenderSettingsPropertiesResponseMdeIntegrationPtrType)(v)
+}
+
+func (*defenderSettingsPropertiesResponseMdeIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefenderSettingsPropertiesResponseMdeIntegration)(nil)).Elem()
+}
+
+func (i *defenderSettingsPropertiesResponseMdeIntegrationPtrType) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutput() DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return i.ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *defenderSettingsPropertiesResponseMdeIntegrationPtrType) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput)
+}
+
+// MDE integration configuration
+type DefenderSettingsPropertiesResponseMdeIntegrationOutput struct{ *pulumi.OutputState }
+
+func (DefenderSettingsPropertiesResponseMdeIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefenderSettingsPropertiesResponseMdeIntegration)(nil)).Elem()
+}
+
+func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationOutput() DefenderSettingsPropertiesResponseMdeIntegrationOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutput() DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return o.ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return o.ApplyT(func(v DefenderSettingsPropertiesResponseMdeIntegration) *DefenderSettingsPropertiesResponseMdeIntegration {
+		return &v
+	}).(DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput)
+}
+
+// Integration status
+func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DefenderSettingsPropertiesResponseMdeIntegration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefenderSettingsPropertiesResponseMdeIntegration)(nil)).Elem()
+}
+
+func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutput() DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
+	return o
+}
+
+func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) Elem() DefenderSettingsPropertiesResponseMdeIntegrationOutput {
+	return o.ApplyT(func(v *DefenderSettingsPropertiesResponseMdeIntegration) DefenderSettingsPropertiesResponseMdeIntegration {
+		return *v
+	}).(DefenderSettingsPropertiesResponseMdeIntegrationOutput)
+}
+
+// Integration status
+func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefenderSettingsPropertiesResponseMdeIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -240,6 +510,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(DefenderSettingsPropertiesMdeIntegrationOutput{})
+	pulumi.RegisterOutputType(DefenderSettingsPropertiesMdeIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(DefenderSettingsPropertiesResponseMdeIntegrationOutput{})
+	pulumi.RegisterOutputType(DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

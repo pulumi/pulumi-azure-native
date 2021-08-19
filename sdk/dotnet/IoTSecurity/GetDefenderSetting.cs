@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.IoTSecurity
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// MDE integration configuration
+        /// </summary>
+        public readonly Outputs.DefenderSettingsPropertiesResponseMdeIntegration MdeIntegration;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNative.IoTSecurity
 
             string id,
 
+            Outputs.DefenderSettingsPropertiesResponseMdeIntegration mdeIntegration,
+
             string name,
 
             string onboardingKind,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNative.IoTSecurity
             DeviceQuota = deviceQuota;
             EvaluationEndTime = evaluationEndTime;
             Id = id;
+            MdeIntegration = mdeIntegration;
             Name = name;
             OnboardingKind = onboardingKind;
             SentinelWorkspaceResourceIds = sentinelWorkspaceResourceIds;

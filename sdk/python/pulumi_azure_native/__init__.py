@@ -1551,6 +1551,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "authorization/v20210601",
+  "fqn": "pulumi_azure_native.authorization.v20210601",
+  "classes": {
+   "azure-native:authorization/v20210601:PolicyAssignment": "PolicyAssignment",
+   "azure-native:authorization/v20210601:PolicyDefinition": "PolicyDefinition",
+   "azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
+   "azure-native:authorization/v20210601:PolicySetDefinition": "PolicySetDefinition",
+   "azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "authorization/v20210701preview",
   "fqn": "pulumi_azure_native.authorization.v20210701preview",
   "classes": {
@@ -4382,7 +4394,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.databricks.v20210401preview",
   "classes": {
    "azure-native:databricks/v20210401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:databricks/v20210401preview:Workspace": "Workspace"
+   "azure-native:databricks/v20210401preview:Workspace": "Workspace",
+   "azure-native:databricks/v20210401preview:vNetPeering": "VNetPeering"
   }
  },
  {
@@ -9437,6 +9450,20 @@ _utilities.register(
    "azure-native:netapp/v20210401preview:Snapshot": "Snapshot",
    "azure-native:netapp/v20210401preview:SnapshotPolicy": "SnapshotPolicy",
    "azure-native:netapp/v20210401preview:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20210601",
+  "fqn": "pulumi_azure_native.netapp.v20210601",
+  "classes": {
+   "azure-native:netapp/v20210601:Account": "Account",
+   "azure-native:netapp/v20210601:Backup": "Backup",
+   "azure-native:netapp/v20210601:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20210601:Pool": "Pool",
+   "azure-native:netapp/v20210601:Snapshot": "Snapshot",
+   "azure-native:netapp/v20210601:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20210601:Volume": "Volume"
   }
  },
  {

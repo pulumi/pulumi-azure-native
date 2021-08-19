@@ -27,6 +27,8 @@ type BackupPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -118,6 +120,12 @@ func NewBackupPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20210401preview:BackupPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20210601:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20210601:BackupPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupPolicy
@@ -154,6 +162,8 @@ type backupPolicyState struct {
 	Name *string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -181,6 +191,8 @@ type BackupPolicyState struct {
 	Name pulumi.StringPtrInput
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringPtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

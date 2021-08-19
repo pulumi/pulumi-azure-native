@@ -16,4 +16,5 @@ from .get_site import *
 from .on_premise_sensor import *
 from .sensor import *
 from .site import *
+from ._inputs import *
 from . import outputs

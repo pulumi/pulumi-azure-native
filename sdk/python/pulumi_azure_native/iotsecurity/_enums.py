@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'MdeIntegration',
     'OnboardingKind',
     'SensorType',
 ]
+
+
+class MdeIntegration(str, Enum):
+    """
+    Integration status
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class OnboardingKind(str, Enum):

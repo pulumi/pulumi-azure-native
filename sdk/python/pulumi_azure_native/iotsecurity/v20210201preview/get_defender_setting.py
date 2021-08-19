@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetDefenderSettingResult',
@@ -19,7 +20,7 @@ class GetDefenderSettingResult:
     """
     IoT Defender settings
     """
-    def __init__(__self__, device_quota=None, evaluation_end_time=None, id=None, name=None, onboarding_kind=None, sentinel_workspace_resource_ids=None, type=None):
+    def __init__(__self__, device_quota=None, evaluation_end_time=None, id=None, mde_integration=None, name=None, onboarding_kind=None, sentinel_workspace_resource_ids=None, type=None):
         if device_quota and not isinstance(device_quota, int):
             raise TypeError("Expected argument 'device_quota' to be a int")
         pulumi.set(__self__, "device_quota", device_quota)
@@ -29,6 +30,9 @@ class GetDefenderSettingResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if mde_integration and not isinstance(mde_integration, dict):
+            raise TypeError("Expected argument 'mde_integration' to be a dict")
+        pulumi.set(__self__, "mde_integration", mde_integration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +69,14 @@ class GetDefenderSettingResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="mdeIntegration")
+    def mde_integration(self) -> 'outputs.DefenderSettingsPropertiesResponseMdeIntegration':
+        """
+        MDE integration configuration
+        """
+        return pulumi.get(self, "mde_integration")
 
     @property
     @pulumi.getter
@@ -108,6 +120,7 @@ class AwaitableGetDefenderSettingResult(GetDefenderSettingResult):
             device_quota=self.device_quota,
             evaluation_end_time=self.evaluation_end_time,
             id=self.id,
+            mde_integration=self.mde_integration,
             name=self.name,
             onboarding_kind=self.onboarding_kind,
             sentinel_workspace_resource_ids=self.sentinel_workspace_resource_ids,
@@ -129,6 +142,7 @@ def get_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitab
         device_quota=__ret__.device_quota,
         evaluation_end_time=__ret__.evaluation_end_time,
         id=__ret__.id,
+        mde_integration=__ret__.mde_integration,
         name=__ret__.name,
         onboarding_kind=__ret__.onboarding_kind,
         sentinel_workspace_resource_ids=__ret__.sentinel_workspace_resource_ids,

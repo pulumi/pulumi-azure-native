@@ -29,6 +29,8 @@ type LookupDefenderSettingResult struct {
 	EvaluationEndTime string `pulumi:"evaluationEndTime"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// MDE integration configuration
+	MdeIntegration DefenderSettingsPropertiesResponseMdeIntegration `pulumi:"mdeIntegration"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The kind of onboarding for the subscription

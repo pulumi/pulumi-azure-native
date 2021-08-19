@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Exampled defined for the parameter.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ParameterExampleContractResponse>? Examples;
+        /// <summary>
         /// Parameter name.
         /// </summary>
         public readonly string Name;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
 
             string? description,
 
+            ImmutableDictionary<string, Outputs.ParameterExampleContractResponse>? examples,
+
             string name,
 
             bool? required,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
         {
             DefaultValue = defaultValue;
             Description = description;
+            Examples = examples;
             Name = name;
             Required = required;
             SchemaId = schemaId;

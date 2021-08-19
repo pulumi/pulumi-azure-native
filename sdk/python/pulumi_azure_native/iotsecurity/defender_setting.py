@@ -7,7 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['DefenderSettingArgs', 'DefenderSetting']
 
@@ -15,15 +17,18 @@ __all__ = ['DefenderSettingArgs', 'DefenderSetting']
 class DefenderSettingArgs:
     def __init__(__self__, *,
                  device_quota: pulumi.Input[int],
+                 mde_integration: pulumi.Input['DefenderSettingsPropertiesMdeIntegrationArgs'],
                  onboarding_kind: pulumi.Input[Union[str, 'OnboardingKind']],
                  sentinel_workspace_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a DefenderSetting resource.
         :param pulumi.Input[int] device_quota: Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        :param pulumi.Input['DefenderSettingsPropertiesMdeIntegrationArgs'] mde_integration: MDE integration configuration
         :param pulumi.Input[Union[str, 'OnboardingKind']] onboarding_kind: The kind of onboarding for the subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
         """
         pulumi.set(__self__, "device_quota", device_quota)
+        pulumi.set(__self__, "mde_integration", mde_integration)
         pulumi.set(__self__, "onboarding_kind", onboarding_kind)
         pulumi.set(__self__, "sentinel_workspace_resource_ids", sentinel_workspace_resource_ids)
 
@@ -38,6 +43,18 @@ class DefenderSettingArgs:
     @device_quota.setter
     def device_quota(self, value: pulumi.Input[int]):
         pulumi.set(self, "device_quota", value)
+
+    @property
+    @pulumi.getter(name="mdeIntegration")
+    def mde_integration(self) -> pulumi.Input['DefenderSettingsPropertiesMdeIntegrationArgs']:
+        """
+        MDE integration configuration
+        """
+        return pulumi.get(self, "mde_integration")
+
+    @mde_integration.setter
+    def mde_integration(self, value: pulumi.Input['DefenderSettingsPropertiesMdeIntegrationArgs']):
+        pulumi.set(self, "mde_integration", value)
 
     @property
     @pulumi.getter(name="onboardingKind")
@@ -70,6 +87,7 @@ class DefenderSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_quota: Optional[pulumi.Input[int]] = None,
+                 mde_integration: Optional[pulumi.Input[pulumi.InputType['DefenderSettingsPropertiesMdeIntegrationArgs']]] = None,
                  onboarding_kind: Optional[pulumi.Input[Union[str, 'OnboardingKind']]] = None,
                  sentinel_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -80,6 +98,7 @@ class DefenderSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] device_quota: Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
+        :param pulumi.Input[pulumi.InputType['DefenderSettingsPropertiesMdeIntegrationArgs']] mde_integration: MDE integration configuration
         :param pulumi.Input[Union[str, 'OnboardingKind']] onboarding_kind: The kind of onboarding for the subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sentinel_workspace_resource_ids: Sentinel Workspace Resource Ids
         """
@@ -109,6 +128,7 @@ class DefenderSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_quota: Optional[pulumi.Input[int]] = None,
+                 mde_integration: Optional[pulumi.Input[pulumi.InputType['DefenderSettingsPropertiesMdeIntegrationArgs']]] = None,
                  onboarding_kind: Optional[pulumi.Input[Union[str, 'OnboardingKind']]] = None,
                  sentinel_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -126,6 +146,9 @@ class DefenderSetting(pulumi.CustomResource):
             if device_quota is None and not opts.urn:
                 raise TypeError("Missing required property 'device_quota'")
             __props__.__dict__["device_quota"] = device_quota
+            if mde_integration is None and not opts.urn:
+                raise TypeError("Missing required property 'mde_integration'")
+            __props__.__dict__["mde_integration"] = mde_integration
             if onboarding_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'onboarding_kind'")
             __props__.__dict__["onboarding_kind"] = onboarding_kind
@@ -161,6 +184,7 @@ class DefenderSetting(pulumi.CustomResource):
 
         __props__.__dict__["device_quota"] = None
         __props__.__dict__["evaluation_end_time"] = None
+        __props__.__dict__["mde_integration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["onboarding_kind"] = None
         __props__.__dict__["sentinel_workspace_resource_ids"] = None
@@ -182,6 +206,14 @@ class DefenderSetting(pulumi.CustomResource):
         End time of the evaluation period, if such exist
         """
         return pulumi.get(self, "evaluation_end_time")
+
+    @property
+    @pulumi.getter(name="mdeIntegration")
+    def mde_integration(self) -> pulumi.Output['outputs.DefenderSettingsPropertiesResponseMdeIntegration']:
+        """
+        MDE integration configuration
+        """
+        return pulumi.get(self, "mde_integration")
 
     @property
     @pulumi.getter

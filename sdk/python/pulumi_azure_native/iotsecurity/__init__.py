@@ -20,6 +20,7 @@ from .on_premise_sensor import *
 from .sensor import *
 from .site import *
 from .site_sensor import *
+from ._inputs import *
 from . import outputs
 
 # Make subpackages available:

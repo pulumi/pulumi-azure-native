@@ -42,6 +42,8 @@ type LookupBackupPolicyResult struct {
 	Name string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

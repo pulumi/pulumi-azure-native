@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const MdeIntegration = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Integration status
+ */
+export type MdeIntegration = (typeof MdeIntegration)[keyof typeof MdeIntegration];
+
 export const OnboardingKind = {
     Default: "Default",
     MigratedToAzure: "MigratedToAzure",

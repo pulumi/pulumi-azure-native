@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.IoTSecurity
 {
     /// <summary>
+    /// Integration status
+    /// </summary>
+    [EnumType]
+    public readonly struct MdeIntegration : IEquatable<MdeIntegration>
+    {
+        private readonly string _value;
+
+        private MdeIntegration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MdeIntegration Disabled { get; } = new MdeIntegration("Disabled");
+        public static MdeIntegration Enabled { get; } = new MdeIntegration("Enabled");
+
+        public static bool operator ==(MdeIntegration left, MdeIntegration right) => left.Equals(right);
+        public static bool operator !=(MdeIntegration left, MdeIntegration right) => !left.Equals(right);
+
+        public static explicit operator string(MdeIntegration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MdeIntegration other && Equals(other);
+        public bool Equals(MdeIntegration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of onboarding for the subscription
     /// </summary>
     [EnumType]

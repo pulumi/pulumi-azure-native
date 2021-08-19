@@ -33,6 +33,8 @@ type Backup struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Size of backup
 	Size pulumi.Float64Output `pulumi:"size"`
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
@@ -127,6 +129,12 @@ func NewBackup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20210401preview:Backup"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20210601:Backup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20210601:Backup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Backup
@@ -169,6 +177,8 @@ type backupState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Size of backup
 	Size *float64 `pulumi:"size"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type
 	Type *string `pulumi:"type"`
 	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
@@ -196,6 +206,8 @@ type BackupState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Size of backup
 	Size pulumi.Float64PtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups

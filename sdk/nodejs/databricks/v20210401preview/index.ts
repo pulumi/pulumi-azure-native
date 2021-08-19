@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
+export * from "./getvNetPeering";
 export * from "./privateEndpointConnection";
+export * from "./vnetPeering";
 export * from "./workspace";
 
 // Export enums:
@@ -16,6 +18,7 @@ export * from "../../types/enums/databricks/v20210401preview";
 // Import resources to register:
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Workspace } from "./workspace";
+import { VNetPeering } from "./vnetPeering";
 
 const _module = {
     version: utilities.getVersion(),
@@ -25,6 +28,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:databricks/v20210401preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure-native:databricks/v20210401preview:vNetPeering":
+                return new VNetPeering(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

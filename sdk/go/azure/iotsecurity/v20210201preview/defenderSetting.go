@@ -19,6 +19,8 @@ type DefenderSetting struct {
 	DeviceQuota pulumi.IntOutput `pulumi:"deviceQuota"`
 	// End time of the evaluation period, if such exist
 	EvaluationEndTime pulumi.StringOutput `pulumi:"evaluationEndTime"`
+	// MDE integration configuration
+	MdeIntegration DefenderSettingsPropertiesResponseMdeIntegrationOutput `pulumi:"mdeIntegration"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The kind of onboarding for the subscription
@@ -38,6 +40,9 @@ func NewDefenderSetting(ctx *pulumi.Context,
 
 	if args.DeviceQuota == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceQuota'")
+	}
+	if args.MdeIntegration == nil {
+		return nil, errors.New("invalid value for required argument 'MdeIntegration'")
 	}
 	if args.OnboardingKind == nil {
 		return nil, errors.New("invalid value for required argument 'OnboardingKind'")
@@ -83,6 +88,8 @@ type defenderSettingState struct {
 	DeviceQuota *int `pulumi:"deviceQuota"`
 	// End time of the evaluation period, if such exist
 	EvaluationEndTime *string `pulumi:"evaluationEndTime"`
+	// MDE integration configuration
+	MdeIntegration *DefenderSettingsPropertiesResponseMdeIntegration `pulumi:"mdeIntegration"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The kind of onboarding for the subscription
@@ -98,6 +105,8 @@ type DefenderSettingState struct {
 	DeviceQuota pulumi.IntPtrInput
 	// End time of the evaluation period, if such exist
 	EvaluationEndTime pulumi.StringPtrInput
+	// MDE integration configuration
+	MdeIntegration DefenderSettingsPropertiesResponseMdeIntegrationPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The kind of onboarding for the subscription
@@ -115,6 +124,8 @@ func (DefenderSettingState) ElementType() reflect.Type {
 type defenderSettingArgs struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota int `pulumi:"deviceQuota"`
+	// MDE integration configuration
+	MdeIntegration DefenderSettingsPropertiesMdeIntegration `pulumi:"mdeIntegration"`
 	// The kind of onboarding for the subscription
 	OnboardingKind string `pulumi:"onboardingKind"`
 	// Sentinel Workspace Resource Ids
@@ -125,6 +136,8 @@ type defenderSettingArgs struct {
 type DefenderSettingArgs struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota pulumi.IntInput
+	// MDE integration configuration
+	MdeIntegration DefenderSettingsPropertiesMdeIntegrationInput
 	// The kind of onboarding for the subscription
 	OnboardingKind pulumi.StringInput
 	// Sentinel Workspace Resource Ids

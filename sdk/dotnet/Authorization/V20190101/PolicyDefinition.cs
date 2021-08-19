@@ -115,6 +115,8 @@ namespace Pulumi.AzureNative.Authorization.V20190101
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200901:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200901:PolicyDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20210601:PolicyDefinition"},
+                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20210601:PolicyDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

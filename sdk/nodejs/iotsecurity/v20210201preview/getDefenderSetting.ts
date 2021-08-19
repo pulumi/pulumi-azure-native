@@ -41,6 +41,10 @@ export interface GetDefenderSettingResult {
      */
     readonly id: string;
     /**
+     * MDE integration configuration
+     */
+    readonly mdeIntegration: outputs.iotsecurity.v20210201preview.DefenderSettingsPropertiesResponseMdeIntegration;
+    /**
      * The name of the resource
      */
     readonly name: string;

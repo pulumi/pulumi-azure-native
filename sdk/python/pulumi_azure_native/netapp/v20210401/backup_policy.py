@@ -312,8 +312,9 @@ class BackupPolicy(pulumi.CustomResource):
             __props__.__dict__["yearly_backups_to_keep"] = yearly_backups_to_keep
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20210401:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20210401preview:BackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20210401:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20210401preview:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:netapp/v20210601:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
             'azure-native:netapp/v20210401:BackupPolicy',
@@ -343,6 +344,7 @@ class BackupPolicy(pulumi.CustomResource):
         __props__.__dict__["monthly_backups_to_keep"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["volume_backups"] = None
@@ -398,6 +400,14 @@ class BackupPolicy(pulumi.CustomResource):
         Azure lifecycle management
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

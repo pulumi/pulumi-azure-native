@@ -93,6 +93,10 @@ export interface GetBackupResult {
      */
     readonly size: number;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.netapp.v20210401.SystemDataResponse;
+    /**
      * Resource type
      */
     readonly type: string;

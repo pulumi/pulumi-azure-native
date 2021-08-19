@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -71,6 +72,10 @@ export class Backup extends pulumi.CustomResource {
      */
     public /*out*/ readonly size!: pulumi.Output<number>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.v20210401.SystemDataResponse>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -121,6 +126,7 @@ export class Backup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["size"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["backupId"] = undefined /*out*/;
@@ -132,6 +138,7 @@ export class Backup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["size"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["useExistingSnapshot"] = undefined /*out*/;
             inputs["volumeName"] = undefined /*out*/;
@@ -139,7 +146,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20210401:Backup" }, { type: "azure-native:netapp:Backup" }, { type: "azure-nextgen:netapp:Backup" }, { type: "azure-native:netapp/v20200501:Backup" }, { type: "azure-nextgen:netapp/v20200501:Backup" }, { type: "azure-native:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-native:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-native:netapp/v20200801:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }, { type: "azure-native:netapp/v20200901:Backup" }, { type: "azure-nextgen:netapp/v20200901:Backup" }, { type: "azure-native:netapp/v20201101:Backup" }, { type: "azure-nextgen:netapp/v20201101:Backup" }, { type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-nextgen:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210201:Backup" }, { type: "azure-nextgen:netapp/v20210201:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-nextgen:netapp/v20210401preview:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20210401:Backup" }, { type: "azure-native:netapp:Backup" }, { type: "azure-nextgen:netapp:Backup" }, { type: "azure-native:netapp/v20200501:Backup" }, { type: "azure-nextgen:netapp/v20200501:Backup" }, { type: "azure-native:netapp/v20200601:Backup" }, { type: "azure-nextgen:netapp/v20200601:Backup" }, { type: "azure-native:netapp/v20200701:Backup" }, { type: "azure-nextgen:netapp/v20200701:Backup" }, { type: "azure-native:netapp/v20200801:Backup" }, { type: "azure-nextgen:netapp/v20200801:Backup" }, { type: "azure-native:netapp/v20200901:Backup" }, { type: "azure-nextgen:netapp/v20200901:Backup" }, { type: "azure-native:netapp/v20201101:Backup" }, { type: "azure-nextgen:netapp/v20201101:Backup" }, { type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-nextgen:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210201:Backup" }, { type: "azure-nextgen:netapp/v20210201:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-nextgen:netapp/v20210401preview:Backup" }, { type: "azure-native:netapp/v20210601:Backup" }, { type: "azure-nextgen:netapp/v20210601:Backup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Backup.__pulumiType, name, inputs, opts);
     }

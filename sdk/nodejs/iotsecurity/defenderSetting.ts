@@ -45,6 +45,10 @@ export class DefenderSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly evaluationEndTime!: pulumi.Output<string>;
     /**
+     * MDE integration configuration
+     */
+    public readonly mdeIntegration!: pulumi.Output<outputs.iotsecurity.DefenderSettingsPropertiesResponseMdeIntegration>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -75,6 +79,9 @@ export class DefenderSetting extends pulumi.CustomResource {
             if ((!args || args.deviceQuota === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deviceQuota'");
             }
+            if ((!args || args.mdeIntegration === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'mdeIntegration'");
+            }
             if ((!args || args.onboardingKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'onboardingKind'");
             }
@@ -82,6 +89,7 @@ export class DefenderSetting extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sentinelWorkspaceResourceIds'");
             }
             inputs["deviceQuota"] = args ? args.deviceQuota : undefined;
+            inputs["mdeIntegration"] = args ? args.mdeIntegration : undefined;
             inputs["onboardingKind"] = args ? args.onboardingKind : undefined;
             inputs["sentinelWorkspaceResourceIds"] = args ? args.sentinelWorkspaceResourceIds : undefined;
             inputs["evaluationEndTime"] = undefined /*out*/;
@@ -90,6 +98,7 @@ export class DefenderSetting extends pulumi.CustomResource {
         } else {
             inputs["deviceQuota"] = undefined /*out*/;
             inputs["evaluationEndTime"] = undefined /*out*/;
+            inputs["mdeIntegration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["onboardingKind"] = undefined /*out*/;
             inputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;
@@ -112,6 +121,10 @@ export interface DefenderSettingArgs {
      * Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
      */
     deviceQuota: pulumi.Input<number>;
+    /**
+     * MDE integration configuration
+     */
+    mdeIntegration: pulumi.Input<inputs.iotsecurity.DefenderSettingsPropertiesMdeIntegrationArgs>;
     /**
      * The kind of onboarding for the subscription
      */

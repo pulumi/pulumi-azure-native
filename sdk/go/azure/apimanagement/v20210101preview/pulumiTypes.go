@@ -8557,6 +8557,8 @@ type ParameterContract struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// Parameter description.
 	Description *string `pulumi:"description"`
+	// Exampled defined for the parameter.
+	Examples map[string]ParameterExampleContract `pulumi:"examples"`
 	// Parameter name.
 	Name string `pulumi:"name"`
 	// Specifies whether parameter is required or not.
@@ -8588,6 +8590,8 @@ type ParameterContractArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// Parameter description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Exampled defined for the parameter.
+	Examples ParameterExampleContractMapInput `pulumi:"examples"`
 	// Parameter name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether parameter is required or not.
@@ -8664,6 +8668,11 @@ func (o ParameterContractOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterContract) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Exampled defined for the parameter.
+func (o ParameterContractOutput) Examples() ParameterExampleContractMapOutput {
+	return o.ApplyT(func(v ParameterContract) map[string]ParameterExampleContract { return v.Examples }).(ParameterExampleContractMapOutput)
+}
+
 // Parameter name.
 func (o ParameterContractOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterContract) string { return v.Name }).(pulumi.StringOutput)
@@ -8720,6 +8729,8 @@ type ParameterContractResponse struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// Parameter description.
 	Description *string `pulumi:"description"`
+	// Exampled defined for the parameter.
+	Examples map[string]ParameterExampleContractResponse `pulumi:"examples"`
 	// Parameter name.
 	Name string `pulumi:"name"`
 	// Specifies whether parameter is required or not.
@@ -8751,6 +8762,8 @@ type ParameterContractResponseArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// Parameter description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Exampled defined for the parameter.
+	Examples ParameterExampleContractResponseMapInput `pulumi:"examples"`
 	// Parameter name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether parameter is required or not.
@@ -8827,6 +8840,11 @@ func (o ParameterContractResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterContractResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Exampled defined for the parameter.
+func (o ParameterContractResponseOutput) Examples() ParameterExampleContractResponseMapOutput {
+	return o.ApplyT(func(v ParameterContractResponse) map[string]ParameterExampleContractResponse { return v.Examples }).(ParameterExampleContractResponseMapOutput)
+}
+
 // Parameter name.
 func (o ParameterContractResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterContractResponse) string { return v.Name }).(pulumi.StringOutput)
@@ -8875,6 +8893,260 @@ func (o ParameterContractResponseArrayOutput) Index(i pulumi.IntInput) Parameter
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterContractResponse {
 		return vs[0].([]ParameterContractResponse)[vs[1].(int)]
 	}).(ParameterContractResponseOutput)
+}
+
+// Parameter example.
+type ParameterExampleContract struct {
+	// Long description for the example
+	Description *string `pulumi:"description"`
+	// A URL that points to the literal example
+	ExternalValue *string `pulumi:"externalValue"`
+	// Short description for the example
+	Summary *string `pulumi:"summary"`
+	// Example value. May be a primitive value, or an object.
+	Value interface{} `pulumi:"value"`
+}
+
+// ParameterExampleContractInput is an input type that accepts ParameterExampleContractArgs and ParameterExampleContractOutput values.
+// You can construct a concrete instance of `ParameterExampleContractInput` via:
+//
+//          ParameterExampleContractArgs{...}
+type ParameterExampleContractInput interface {
+	pulumi.Input
+
+	ToParameterExampleContractOutput() ParameterExampleContractOutput
+	ToParameterExampleContractOutputWithContext(context.Context) ParameterExampleContractOutput
+}
+
+// Parameter example.
+type ParameterExampleContractArgs struct {
+	// Long description for the example
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A URL that points to the literal example
+	ExternalValue pulumi.StringPtrInput `pulumi:"externalValue"`
+	// Short description for the example
+	Summary pulumi.StringPtrInput `pulumi:"summary"`
+	// Example value. May be a primitive value, or an object.
+	Value pulumi.Input `pulumi:"value"`
+}
+
+func (ParameterExampleContractArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterExampleContract)(nil)).Elem()
+}
+
+func (i ParameterExampleContractArgs) ToParameterExampleContractOutput() ParameterExampleContractOutput {
+	return i.ToParameterExampleContractOutputWithContext(context.Background())
+}
+
+func (i ParameterExampleContractArgs) ToParameterExampleContractOutputWithContext(ctx context.Context) ParameterExampleContractOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterExampleContractOutput)
+}
+
+// ParameterExampleContractMapInput is an input type that accepts ParameterExampleContractMap and ParameterExampleContractMapOutput values.
+// You can construct a concrete instance of `ParameterExampleContractMapInput` via:
+//
+//          ParameterExampleContractMap{ "key": ParameterExampleContractArgs{...} }
+type ParameterExampleContractMapInput interface {
+	pulumi.Input
+
+	ToParameterExampleContractMapOutput() ParameterExampleContractMapOutput
+	ToParameterExampleContractMapOutputWithContext(context.Context) ParameterExampleContractMapOutput
+}
+
+type ParameterExampleContractMap map[string]ParameterExampleContractInput
+
+func (ParameterExampleContractMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterExampleContract)(nil)).Elem()
+}
+
+func (i ParameterExampleContractMap) ToParameterExampleContractMapOutput() ParameterExampleContractMapOutput {
+	return i.ToParameterExampleContractMapOutputWithContext(context.Background())
+}
+
+func (i ParameterExampleContractMap) ToParameterExampleContractMapOutputWithContext(ctx context.Context) ParameterExampleContractMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterExampleContractMapOutput)
+}
+
+// Parameter example.
+type ParameterExampleContractOutput struct{ *pulumi.OutputState }
+
+func (ParameterExampleContractOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterExampleContract)(nil)).Elem()
+}
+
+func (o ParameterExampleContractOutput) ToParameterExampleContractOutput() ParameterExampleContractOutput {
+	return o
+}
+
+func (o ParameterExampleContractOutput) ToParameterExampleContractOutputWithContext(ctx context.Context) ParameterExampleContractOutput {
+	return o
+}
+
+// Long description for the example
+func (o ParameterExampleContractOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterExampleContract) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A URL that points to the literal example
+func (o ParameterExampleContractOutput) ExternalValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterExampleContract) *string { return v.ExternalValue }).(pulumi.StringPtrOutput)
+}
+
+// Short description for the example
+func (o ParameterExampleContractOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterExampleContract) *string { return v.Summary }).(pulumi.StringPtrOutput)
+}
+
+// Example value. May be a primitive value, or an object.
+func (o ParameterExampleContractOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterExampleContract) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type ParameterExampleContractMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterExampleContractMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterExampleContract)(nil)).Elem()
+}
+
+func (o ParameterExampleContractMapOutput) ToParameterExampleContractMapOutput() ParameterExampleContractMapOutput {
+	return o
+}
+
+func (o ParameterExampleContractMapOutput) ToParameterExampleContractMapOutputWithContext(ctx context.Context) ParameterExampleContractMapOutput {
+	return o
+}
+
+func (o ParameterExampleContractMapOutput) MapIndex(k pulumi.StringInput) ParameterExampleContractOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterExampleContract {
+		return vs[0].(map[string]ParameterExampleContract)[vs[1].(string)]
+	}).(ParameterExampleContractOutput)
+}
+
+// Parameter example.
+type ParameterExampleContractResponse struct {
+	// Long description for the example
+	Description *string `pulumi:"description"`
+	// A URL that points to the literal example
+	ExternalValue *string `pulumi:"externalValue"`
+	// Short description for the example
+	Summary *string `pulumi:"summary"`
+	// Example value. May be a primitive value, or an object.
+	Value interface{} `pulumi:"value"`
+}
+
+// ParameterExampleContractResponseInput is an input type that accepts ParameterExampleContractResponseArgs and ParameterExampleContractResponseOutput values.
+// You can construct a concrete instance of `ParameterExampleContractResponseInput` via:
+//
+//          ParameterExampleContractResponseArgs{...}
+type ParameterExampleContractResponseInput interface {
+	pulumi.Input
+
+	ToParameterExampleContractResponseOutput() ParameterExampleContractResponseOutput
+	ToParameterExampleContractResponseOutputWithContext(context.Context) ParameterExampleContractResponseOutput
+}
+
+// Parameter example.
+type ParameterExampleContractResponseArgs struct {
+	// Long description for the example
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A URL that points to the literal example
+	ExternalValue pulumi.StringPtrInput `pulumi:"externalValue"`
+	// Short description for the example
+	Summary pulumi.StringPtrInput `pulumi:"summary"`
+	// Example value. May be a primitive value, or an object.
+	Value pulumi.Input `pulumi:"value"`
+}
+
+func (ParameterExampleContractResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterExampleContractResponse)(nil)).Elem()
+}
+
+func (i ParameterExampleContractResponseArgs) ToParameterExampleContractResponseOutput() ParameterExampleContractResponseOutput {
+	return i.ToParameterExampleContractResponseOutputWithContext(context.Background())
+}
+
+func (i ParameterExampleContractResponseArgs) ToParameterExampleContractResponseOutputWithContext(ctx context.Context) ParameterExampleContractResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterExampleContractResponseOutput)
+}
+
+// ParameterExampleContractResponseMapInput is an input type that accepts ParameterExampleContractResponseMap and ParameterExampleContractResponseMapOutput values.
+// You can construct a concrete instance of `ParameterExampleContractResponseMapInput` via:
+//
+//          ParameterExampleContractResponseMap{ "key": ParameterExampleContractResponseArgs{...} }
+type ParameterExampleContractResponseMapInput interface {
+	pulumi.Input
+
+	ToParameterExampleContractResponseMapOutput() ParameterExampleContractResponseMapOutput
+	ToParameterExampleContractResponseMapOutputWithContext(context.Context) ParameterExampleContractResponseMapOutput
+}
+
+type ParameterExampleContractResponseMap map[string]ParameterExampleContractResponseInput
+
+func (ParameterExampleContractResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterExampleContractResponse)(nil)).Elem()
+}
+
+func (i ParameterExampleContractResponseMap) ToParameterExampleContractResponseMapOutput() ParameterExampleContractResponseMapOutput {
+	return i.ToParameterExampleContractResponseMapOutputWithContext(context.Background())
+}
+
+func (i ParameterExampleContractResponseMap) ToParameterExampleContractResponseMapOutputWithContext(ctx context.Context) ParameterExampleContractResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterExampleContractResponseMapOutput)
+}
+
+// Parameter example.
+type ParameterExampleContractResponseOutput struct{ *pulumi.OutputState }
+
+func (ParameterExampleContractResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterExampleContractResponse)(nil)).Elem()
+}
+
+func (o ParameterExampleContractResponseOutput) ToParameterExampleContractResponseOutput() ParameterExampleContractResponseOutput {
+	return o
+}
+
+func (o ParameterExampleContractResponseOutput) ToParameterExampleContractResponseOutputWithContext(ctx context.Context) ParameterExampleContractResponseOutput {
+	return o
+}
+
+// Long description for the example
+func (o ParameterExampleContractResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterExampleContractResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A URL that points to the literal example
+func (o ParameterExampleContractResponseOutput) ExternalValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterExampleContractResponse) *string { return v.ExternalValue }).(pulumi.StringPtrOutput)
+}
+
+// Short description for the example
+func (o ParameterExampleContractResponseOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterExampleContractResponse) *string { return v.Summary }).(pulumi.StringPtrOutput)
+}
+
+// Example value. May be a primitive value, or an object.
+func (o ParameterExampleContractResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterExampleContractResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type ParameterExampleContractResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterExampleContractResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterExampleContractResponse)(nil)).Elem()
+}
+
+func (o ParameterExampleContractResponseMapOutput) ToParameterExampleContractResponseMapOutput() ParameterExampleContractResponseMapOutput {
+	return o
+}
+
+func (o ParameterExampleContractResponseMapOutput) ToParameterExampleContractResponseMapOutputWithContext(ctx context.Context) ParameterExampleContractResponseMapOutput {
+	return o
+}
+
+func (o ParameterExampleContractResponseMapOutput) MapIndex(k pulumi.StringInput) ParameterExampleContractResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterExampleContractResponse {
+		return vs[0].(map[string]ParameterExampleContractResponse)[vs[1].(string)]
+	}).(ParameterExampleContractResponseOutput)
 }
 
 // Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
@@ -9189,8 +9461,6 @@ type RepresentationContract struct {
 	ContentType string `pulumi:"contentType"`
 	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
 	FormParameters []ParameterContract `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample *string `pulumi:"sample"`
 	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 	SchemaId *string `pulumi:"schemaId"`
 	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
@@ -9214,8 +9484,6 @@ type RepresentationContractArgs struct {
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
 	FormParameters ParameterContractArrayInput `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample pulumi.StringPtrInput `pulumi:"sample"`
 	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
 	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
@@ -9284,11 +9552,6 @@ func (o RepresentationContractOutput) FormParameters() ParameterContractArrayOut
 	return o.ApplyT(func(v RepresentationContract) []ParameterContract { return v.FormParameters }).(ParameterContractArrayOutput)
 }
 
-// An example of the representation.
-func (o RepresentationContractOutput) Sample() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepresentationContract) *string { return v.Sample }).(pulumi.StringPtrOutput)
-}
-
 // Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 func (o RepresentationContractOutput) SchemaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepresentationContract) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
@@ -9325,8 +9588,6 @@ type RepresentationContractResponse struct {
 	ContentType string `pulumi:"contentType"`
 	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
 	FormParameters []ParameterContractResponse `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample *string `pulumi:"sample"`
 	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 	SchemaId *string `pulumi:"schemaId"`
 	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
@@ -9350,8 +9611,6 @@ type RepresentationContractResponseArgs struct {
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
 	FormParameters ParameterContractResponseArrayInput `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample pulumi.StringPtrInput `pulumi:"sample"`
 	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
 	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
@@ -9418,11 +9677,6 @@ func (o RepresentationContractResponseOutput) ContentType() pulumi.StringOutput 
 // Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
 func (o RepresentationContractResponseOutput) FormParameters() ParameterContractResponseArrayOutput {
 	return o.ApplyT(func(v RepresentationContractResponse) []ParameterContractResponse { return v.FormParameters }).(ParameterContractResponseArrayOutput)
-}
-
-// An example of the representation.
-func (o RepresentationContractResponseOutput) Sample() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepresentationContractResponse) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
 
 // Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
@@ -12370,6 +12624,10 @@ func init() {
 	pulumi.RegisterOutputType(ParameterContractArrayOutput{})
 	pulumi.RegisterOutputType(ParameterContractResponseOutput{})
 	pulumi.RegisterOutputType(ParameterContractResponseArrayOutput{})
+	pulumi.RegisterOutputType(ParameterExampleContractOutput{})
+	pulumi.RegisterOutputType(ParameterExampleContractMapOutput{})
+	pulumi.RegisterOutputType(ParameterExampleContractResponseOutput{})
+	pulumi.RegisterOutputType(ParameterExampleContractResponseMapOutput{})
 	pulumi.RegisterOutputType(PipelineDiagnosticSettingsOutput{})
 	pulumi.RegisterOutputType(PipelineDiagnosticSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineDiagnosticSettingsResponseOutput{})

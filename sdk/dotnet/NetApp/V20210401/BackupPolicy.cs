@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
@@ -133,6 +139,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20210201:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:netapp/v20210401preview:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20210601:BackupPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:netapp/v20210601:BackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

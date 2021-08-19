@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetBackupResult',
@@ -19,7 +20,7 @@ class GetBackupResult:
     """
     Backup of a Volume
     """
-    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None, use_existing_snapshot=None, volume_name=None):
+    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, system_data=None, type=None, use_existing_snapshot=None, volume_name=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -50,6 +51,9 @@ class GetBackupResult:
         if size and not isinstance(size, float):
             raise TypeError("Expected argument 'size' to be a float")
         pulumi.set(__self__, "size", size)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -141,6 +145,14 @@ class GetBackupResult:
         return pulumi.get(self, "size")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -181,6 +193,7 @@ class AwaitableGetBackupResult(GetBackupResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             size=self.size,
+            system_data=self.system_data,
             type=self.type,
             use_existing_snapshot=self.use_existing_snapshot,
             volume_name=self.volume_name)
@@ -225,6 +238,7 @@ def get_backup(account_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         size=__ret__.size,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         use_existing_snapshot=__ret__.use_existing_snapshot,
         volume_name=__ret__.volume_name)

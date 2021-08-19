@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("examples")]
+        private InputMap<Inputs.ParameterExampleContractArgs>? _examples;
+
+        /// <summary>
+        /// Exampled defined for the parameter.
+        /// </summary>
+        public InputMap<Inputs.ParameterExampleContractArgs> Examples
+        {
+            get => _examples ?? (_examples = new InputMap<Inputs.ParameterExampleContractArgs>());
+            set => _examples = value;
+        }
+
         /// <summary>
         /// Parameter name.
         /// </summary>

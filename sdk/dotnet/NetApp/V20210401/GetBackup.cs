@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         public readonly double Size;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
             double size,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             bool? useExistingSnapshot,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
             Name = name;
             ProvisioningState = provisioningState;
             Size = size;
+            SystemData = systemData;
             Type = type;
             UseExistingSnapshot = useExistingSnapshot;
             VolumeName = volumeName;

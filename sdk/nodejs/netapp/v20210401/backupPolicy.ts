@@ -60,6 +60,10 @@ export class BackupPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.v20210401.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,6 +119,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             inputs["yearlyBackupsToKeep"] = args ? args.yearlyBackupsToKeep : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["dailyBackupsToKeep"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             inputs["monthlyBackupsToKeep"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumeBackups"] = undefined /*out*/;
@@ -133,7 +139,7 @@ export class BackupPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20210401:BackupPolicy" }, { type: "azure-native:netapp:BackupPolicy" }, { type: "azure-nextgen:netapp:BackupPolicy" }, { type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-nextgen:netapp/v20201101:BackupPolicy" }, { type: "azure-native:netapp/v20201201:BackupPolicy" }, { type: "azure-nextgen:netapp/v20201201:BackupPolicy" }, { type: "azure-native:netapp/v20210201:BackupPolicy" }, { type: "azure-nextgen:netapp/v20210201:BackupPolicy" }, { type: "azure-native:netapp/v20210401preview:BackupPolicy" }, { type: "azure-nextgen:netapp/v20210401preview:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:netapp/v20210401:BackupPolicy" }, { type: "azure-native:netapp:BackupPolicy" }, { type: "azure-nextgen:netapp:BackupPolicy" }, { type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-nextgen:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-nextgen:netapp/v20201101:BackupPolicy" }, { type: "azure-native:netapp/v20201201:BackupPolicy" }, { type: "azure-nextgen:netapp/v20201201:BackupPolicy" }, { type: "azure-native:netapp/v20210201:BackupPolicy" }, { type: "azure-nextgen:netapp/v20210201:BackupPolicy" }, { type: "azure-native:netapp/v20210401preview:BackupPolicy" }, { type: "azure-nextgen:netapp/v20210401preview:BackupPolicy" }, { type: "azure-native:netapp/v20210601:BackupPolicy" }, { type: "azure-nextgen:netapp/v20210601:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupPolicy.__pulumiType, name, inputs, opts);
     }

@@ -249,6 +249,12 @@ func NewVolume(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:netapp/v20210401:Volume"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20210601:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:netapp/v20210601:Volume"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Volume

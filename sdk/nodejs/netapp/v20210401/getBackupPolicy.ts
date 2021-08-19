@@ -71,6 +71,10 @@ export interface GetBackupPolicyResult {
      */
     readonly provisioningState: string;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.netapp.v20210401.SystemDataResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};

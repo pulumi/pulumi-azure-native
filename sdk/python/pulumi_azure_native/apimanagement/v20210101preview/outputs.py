@@ -39,6 +39,7 @@ __all__ = [
     'OAuth2AuthenticationSettingsContractResponse',
     'OpenIdAuthenticationSettingsContractResponse',
     'ParameterContractResponse',
+    'ParameterExampleContractResponse',
     'PipelineDiagnosticSettingsResponse',
     'RepresentationContractResponse',
     'RequestContractResponse',
@@ -1837,6 +1838,7 @@ class ParameterContractResponse(dict):
                  type: str,
                  default_value: Optional[str] = None,
                  description: Optional[str] = None,
+                 examples: Optional[Mapping[str, 'outputs.ParameterExampleContractResponse']] = None,
                  required: Optional[bool] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None,
@@ -1847,6 +1849,7 @@ class ParameterContractResponse(dict):
         :param str type: Parameter type.
         :param str default_value: Default parameter value.
         :param str description: Parameter description.
+        :param Mapping[str, 'ParameterExampleContractResponse'] examples: Exampled defined for the parameter.
         :param bool required: Specifies whether parameter is required or not.
         :param str schema_id: Schema identifier.
         :param str type_name: Type name defined by the schema.
@@ -1858,6 +1861,8 @@ class ParameterContractResponse(dict):
             pulumi.set(__self__, "default_value", default_value)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
         if required is not None:
             pulumi.set(__self__, "required", required)
         if schema_id is not None:
@@ -1901,6 +1906,14 @@ class ParameterContractResponse(dict):
 
     @property
     @pulumi.getter
+    def examples(self) -> Optional[Mapping[str, 'outputs.ParameterExampleContractResponse']]:
+        """
+        Exampled defined for the parameter.
+        """
+        return pulumi.get(self, "examples")
+
+    @property
+    @pulumi.getter
     def required(self) -> Optional[bool]:
         """
         Specifies whether parameter is required or not.
@@ -1930,6 +1943,82 @@ class ParameterContractResponse(dict):
         Parameter values.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ParameterExampleContractResponse(dict):
+    """
+    Parameter example.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalValue":
+            suggest = "external_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParameterExampleContractResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParameterExampleContractResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParameterExampleContractResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 external_value: Optional[str] = None,
+                 summary: Optional[str] = None,
+                 value: Optional[Any] = None):
+        """
+        Parameter example.
+        :param str description: Long description for the example
+        :param str external_value: A URL that points to the literal example
+        :param str summary: Short description for the example
+        :param Any value: Example value. May be a primitive value, or an object.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_value is not None:
+            pulumi.set(__self__, "external_value", external_value)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Long description for the example
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalValue")
+    def external_value(self) -> Optional[str]:
+        """
+        A URL that points to the literal example
+        """
+        return pulumi.get(self, "external_value")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Optional[str]:
+        """
+        Short description for the example
+        """
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Example value. May be a primitive value, or an object.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1998,22 +2087,18 @@ class RepresentationContractResponse(dict):
     def __init__(__self__, *,
                  content_type: str,
                  form_parameters: Optional[Sequence['outputs.ParameterContractResponse']] = None,
-                 sample: Optional[str] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None):
         """
         Operation request/response representation details.
         :param str content_type: Specifies a registered or custom content type for this representation, e.g. application/xml.
         :param Sequence['ParameterContractResponse'] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
-        :param str sample: An example of the representation.
         :param str schema_id: Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         :param str type_name: Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         """
         pulumi.set(__self__, "content_type", content_type)
         if form_parameters is not None:
             pulumi.set(__self__, "form_parameters", form_parameters)
-        if sample is not None:
-            pulumi.set(__self__, "sample", sample)
         if schema_id is not None:
             pulumi.set(__self__, "schema_id", schema_id)
         if type_name is not None:
@@ -2034,14 +2119,6 @@ class RepresentationContractResponse(dict):
         Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
         """
         return pulumi.get(self, "form_parameters")
-
-    @property
-    @pulumi.getter
-    def sample(self) -> Optional[str]:
-        """
-        An example of the representation.
-        """
-        return pulumi.get(self, "sample")
 
     @property
     @pulumi.getter(name="schemaId")

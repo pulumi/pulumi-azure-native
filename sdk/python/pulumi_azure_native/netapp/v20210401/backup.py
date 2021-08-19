@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = ['BackupArgs', 'Backup']
 
@@ -241,8 +242,9 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["size"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp:Backup"), pulumi.Alias(type_="azure-nextgen:netapp:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20210401preview:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp:Backup"), pulumi.Alias(type_="azure-nextgen:netapp:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210601:Backup"), pulumi.Alias(type_="azure-nextgen:netapp/v20210601:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-native:netapp/v20210401:Backup',
@@ -275,6 +277,7 @@ class Backup(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["size"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["use_existing_snapshot"] = None
         __props__.__dict__["volume_name"] = None
@@ -351,6 +354,14 @@ class Backup(pulumi.CustomResource):
         Size of backup
         """
         return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
