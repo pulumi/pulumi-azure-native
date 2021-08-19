@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy assignment.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**
@@ -85,10 +85,6 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
-    /**
      * The type of the policy assignment.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -120,7 +116,6 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["description"] = undefined /*out*/;
@@ -135,7 +130,6 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["parameters"] = undefined /*out*/;
             inputs["policyDefinitionId"] = undefined /*out*/;
             inputs["scope"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

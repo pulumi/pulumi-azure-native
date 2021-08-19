@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy definition.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionResult> {
     if (!opts) {
@@ -69,10 +69,6 @@ export interface GetPolicyDefinitionResult {
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
     readonly policyType?: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.authorization.SystemDataResponse;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */

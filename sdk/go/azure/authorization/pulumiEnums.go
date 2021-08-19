@@ -284,14 +284,12 @@ func (e PrincipalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+// The identity type. This is the only required field when adding a system assigned identity to a resource.
 type ResourceIdentityType pulumi.String
 
 const (
 	// Indicates that a system assigned identity is associated with the resource.
 	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
-	// Indicates that a system assigned identity is associated with the resource.
-	ResourceIdentityTypeUserAssigned = ResourceIdentityType("UserAssigned")
 	// Indicates that no identity is associated with the resource or that the existing identity should be removed.
 	ResourceIdentityTypeNone = ResourceIdentityType("None")
 )

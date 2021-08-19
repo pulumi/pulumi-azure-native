@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy definition.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
@@ -69,10 +69,6 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
-    /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -101,7 +97,6 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["description"] = undefined /*out*/;
@@ -112,7 +107,6 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
             inputs["parameters"] = undefined /*out*/;
             inputs["policyRule"] = undefined /*out*/;
             inputs["policyType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

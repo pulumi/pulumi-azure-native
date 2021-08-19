@@ -317,7 +317,7 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
-    /// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+    /// The identity type. This is the only required field when adding a system assigned identity to a resource.
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
@@ -333,10 +333,6 @@ namespace Pulumi.AzureNative.Authorization
         /// Indicates that a system assigned identity is associated with the resource.
         /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        /// <summary>
-        /// Indicates that a system assigned identity is associated with the resource.
-        /// </summary>
-        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
         /// <summary>
         /// Indicates that no identity is associated with the resource or that the existing identity should be removed.
         /// </summary>

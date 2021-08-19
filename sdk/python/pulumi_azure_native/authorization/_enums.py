@@ -110,8 +110,7 @@ class PrincipalType(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+    The identity type. This is the only required field when adding a system assigned identity to a resource.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
     NONE = "None"

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy assignment.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
     if (!opts) {
@@ -90,10 +90,6 @@ export interface GetPolicyAssignmentResult {
      * The scope for the policy assignment.
      */
     readonly scope: string;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.authorization.SystemDataResponse;
     /**
      * The type of the policy assignment.
      */

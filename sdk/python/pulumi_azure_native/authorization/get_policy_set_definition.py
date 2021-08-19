@@ -20,7 +20,7 @@ class GetPolicySetDefinitionResult:
     """
     The policy set definition.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, system_data=None, type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -48,9 +48,6 @@ class GetPolicySetDefinitionResult:
         if policy_type and not isinstance(policy_type, str):
             raise TypeError("Expected argument 'policy_type' to be a str")
         pulumi.set(__self__, "policy_type", policy_type)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -128,14 +125,6 @@ class GetPolicySetDefinitionResult:
         return pulumi.get(self, "policy_type")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system metadata relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -159,7 +148,6 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
             policy_definition_groups=self.policy_definition_groups,
             policy_definitions=self.policy_definitions,
             policy_type=self.policy_type,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -167,7 +155,7 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionResult:
     """
     The policy set definition.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
     :param str policy_set_definition_name: The name of the policy set definition to get.
@@ -190,5 +178,4 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
         policy_definition_groups=__ret__.policy_definition_groups,
         policy_definitions=__ret__.policy_definitions,
         policy_type=__ret__.policy_type,
-        system_data=__ret__.system_data,
         type=__ret__.type)

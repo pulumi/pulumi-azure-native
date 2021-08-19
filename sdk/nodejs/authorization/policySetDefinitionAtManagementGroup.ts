@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy set definition.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
@@ -69,10 +69,6 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
-    /**
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -104,7 +100,6 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             inputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["description"] = undefined /*out*/;
@@ -115,7 +110,6 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             inputs["policyDefinitionGroups"] = undefined /*out*/;
             inputs["policyDefinitions"] = undefined /*out*/;
             inputs["policyType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

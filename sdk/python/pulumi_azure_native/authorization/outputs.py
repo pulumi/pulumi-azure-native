@@ -14,7 +14,6 @@ __all__ = [
     'AccessReviewInstanceResponse',
     'AccessReviewReviewerResponse',
     'IdentityResponse',
-    'IdentityResponseUserAssignedIdentities',
     'ManagementLockOwnerResponse',
     'NonComplianceMessageResponse',
     'ParameterDefinitionsValueResponse',
@@ -186,7 +185,7 @@ class AccessReviewReviewerResponse(dict):
 @pulumi.output_type
 class IdentityResponse(dict):
     """
-    Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+    Identity for the resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -195,8 +194,6 @@ class IdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -212,27 +209,23 @@ class IdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
+                 type: Optional[str] = None):
         """
-        Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
-        :param str principal_id: The principal ID of the resource identity.  This property will only be provided for a system assigned identity
-        :param str tenant_id: The tenant ID of the resource identity.  This property will only be provided for a system assigned identity
-        :param str type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-        :param Mapping[str, 'IdentityResponseUserAssignedIdentities'] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        Identity for the resource.
+        :param str principal_id: The principal ID of the resource identity.
+        :param str tenant_id: The tenant ID of the resource identity.
+        :param str type: The identity type. This is the only required field when adding a system assigned identity to a resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal ID of the resource identity.  This property will only be provided for a system assigned identity
+        The principal ID of the resource identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -240,7 +233,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant ID of the resource identity.  This property will only be provided for a system assigned identity
+        The tenant ID of the resource identity.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -248,65 +241,9 @@ class IdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+        The identity type. This is the only required field when adding a system assigned identity to a resource.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']]:
-        """
-        The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class IdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

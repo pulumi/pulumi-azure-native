@@ -178,16 +178,12 @@ export const ResourceIdentityType = {
      */
     SystemAssigned: "SystemAssigned",
     /**
-     * Indicates that a system assigned identity is associated with the resource.
-     */
-    UserAssigned: "UserAssigned",
-    /**
      * Indicates that no identity is associated with the resource or that the existing identity should be removed.
      */
     None: "None",
 } as const;
 
 /**
- * The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+ * The identity type. This is the only required field when adding a system assigned identity to a resource.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

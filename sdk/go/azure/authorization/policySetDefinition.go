@@ -12,7 +12,7 @@ import (
 )
 
 // The policy set definition.
-// API Version: 2021-06-01.
+// API Version: 2020-09-01.
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 
@@ -32,8 +32,6 @@ type PolicySetDefinition struct {
 	PolicyDefinitions PolicyDefinitionReferenceResponseArrayOutput `pulumi:"policyDefinitions"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -146,8 +144,6 @@ type policySetDefinitionState struct {
 	PolicyDefinitions []PolicyDefinitionReferenceResponse `pulumi:"policyDefinitions"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type *string `pulumi:"type"`
 }
@@ -169,8 +165,6 @@ type PolicySetDefinitionState struct {
 	PolicyDefinitions PolicyDefinitionReferenceResponseArrayInput
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type pulumi.StringPtrInput
 }

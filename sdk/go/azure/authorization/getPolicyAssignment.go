@@ -8,7 +8,7 @@ import (
 )
 
 // The policy assignment.
-// API Version: 2021-06-01.
+// API Version: 2020-09-01.
 func LookupPolicyAssignment(ctx *pulumi.Context, args *LookupPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupPolicyAssignmentResult, error) {
 	var rv LookupPolicyAssignmentResult
 	err := ctx.Invoke("azure-native:authorization:getPolicyAssignment", args, &rv, opts...)
@@ -53,8 +53,6 @@ type LookupPolicyAssignmentResult struct {
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
 	Scope string `pulumi:"scope"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the policy assignment.
 	Type string `pulumi:"type"`
 }
