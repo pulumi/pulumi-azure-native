@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.23.0 (2021-08-20)
+
 #### New resources:
 
 - `dataprotection.ResourceGuard`
@@ -33,8 +39,6 @@ CHANGELOG
 
 - `network.listEffectiveSecurityUserRuleBySubnet` was removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15668))
-
----
 
 ## 1.22.0 (2021-08-17)
 
