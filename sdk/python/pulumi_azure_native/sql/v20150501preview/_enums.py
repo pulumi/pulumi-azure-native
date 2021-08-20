@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AutoExecuteStatus',
     'BlobAuditingPolicyState',
     'IdentityType',
     'ManagedInstanceLicenseType',
@@ -17,6 +18,15 @@ __all__ = [
     'SyncDirection',
     'SyncMemberDbType',
 ]
+
+
+class AutoExecuteStatus(str, Enum):
+    """
+    Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    DEFAULT = "Default"
 
 
 class BlobAuditingPolicyState(str, Enum):

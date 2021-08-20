@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
+    'AutoExecuteStatus',
     'CreateMode',
     'DataMaskingState',
     'DatabaseEdition',
@@ -27,6 +28,15 @@ class AdministratorType(str, Enum):
     The type of administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
+
+
+class AutoExecuteStatus(str, Enum):
+    """
+    Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    DEFAULT = "Default"
 
 
 class CreateMode(str, Enum):

@@ -33,6 +33,12 @@ __all__ = [
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'RecommendedActionErrorInfoResponse',
+    'RecommendedActionImpactRecordResponse',
+    'RecommendedActionImplementationInfoResponse',
+    'RecommendedActionMetricInfoResponse',
+    'RecommendedActionResponse',
+    'RecommendedActionStateInfoResponse',
     'ResourceIdentityResponse',
     'ServerExternalAdministratorResponse',
     'ServerInfoResponse',
@@ -1406,6 +1412,706 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RecommendedActionErrorInfoResponse(dict):
+    """
+    Contains error information for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "isRetryable":
+            suggest = "is_retryable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendedActionErrorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendedActionErrorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendedActionErrorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: str,
+                 is_retryable: str):
+        """
+        Contains error information for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+        :param str error_code: Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
+        :param str is_retryable: Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "is_retryable", is_retryable)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="isRetryable")
+    def is_retryable(self) -> str:
+        """
+        Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
+        """
+        return pulumi.get(self, "is_retryable")
+
+
+@pulumi.output_type
+class RecommendedActionImpactRecordResponse(dict):
+    """
+    Contains information of estimated or observed impact on various metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "absoluteValue":
+            suggest = "absolute_value"
+        elif key == "changeValueAbsolute":
+            suggest = "change_value_absolute"
+        elif key == "changeValueRelative":
+            suggest = "change_value_relative"
+        elif key == "dimensionName":
+            suggest = "dimension_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendedActionImpactRecordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendedActionImpactRecordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendedActionImpactRecordResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 absolute_value: float,
+                 change_value_absolute: float,
+                 change_value_relative: float,
+                 dimension_name: str,
+                 unit: str):
+        """
+        Contains information of estimated or observed impact on various metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+        :param float absolute_value: Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
+        :param float change_value_absolute: Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
+        :param float change_value_relative: Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
+        :param str dimension_name: Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+        :param str unit: Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+        """
+        pulumi.set(__self__, "absolute_value", absolute_value)
+        pulumi.set(__self__, "change_value_absolute", change_value_absolute)
+        pulumi.set(__self__, "change_value_relative", change_value_relative)
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="absoluteValue")
+    def absolute_value(self) -> float:
+        """
+        Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
+        """
+        return pulumi.get(self, "absolute_value")
+
+    @property
+    @pulumi.getter(name="changeValueAbsolute")
+    def change_value_absolute(self) -> float:
+        """
+        Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
+        """
+        return pulumi.get(self, "change_value_absolute")
+
+    @property
+    @pulumi.getter(name="changeValueRelative")
+    def change_value_relative(self) -> float:
+        """
+        Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
+        """
+        return pulumi.get(self, "change_value_relative")
+
+    @property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> str:
+        """
+        Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+        """
+        return pulumi.get(self, "dimension_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class RecommendedActionImplementationInfoResponse(dict):
+    """
+    Contains information for manual implementation for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+    """
+    def __init__(__self__, *,
+                 method: str,
+                 script: str):
+        """
+        Contains information for manual implementation for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+        :param str method: Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
+        :param str script: Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
+        """
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def script(self) -> str:
+        """
+        Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
+        """
+        return pulumi.get(self, "script")
+
+
+@pulumi.output_type
+class RecommendedActionMetricInfoResponse(dict):
+    """
+    Contains time series of various impacted metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendedActionMetricInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendedActionMetricInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendedActionMetricInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: str,
+                 start_time: str,
+                 time_grain: str,
+                 unit: str,
+                 value: float):
+        """
+        Contains time series of various impacted metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+        :param str metric_name: Gets the name of the metric. e.g., CPU, Number of Queries.
+        :param str start_time: Gets the start time of time interval given by this MetricInfo.
+        :param str time_grain: Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
+        :param str unit: Gets the unit in which metric is measured. e.g., DTU, Frequency
+        :param float value: Gets the value of the metric in the time interval given by this MetricInfo.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "time_grain", time_grain)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> str:
+        """
+        Gets the name of the metric. e.g., CPU, Number of Queries.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Gets the start time of time interval given by this MetricInfo.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> str:
+        """
+        Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
+        """
+        return pulumi.get(self, "time_grain")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        Gets the unit in which metric is measured. e.g., DTU, Frequency
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        """
+        Gets the value of the metric in the time interval given by this MetricInfo.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RecommendedActionResponse(dict):
+    """
+    Database, Server or Elastic Pool Recommended Action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorDetails":
+            suggest = "error_details"
+        elif key == "estimatedImpact":
+            suggest = "estimated_impact"
+        elif key == "executeActionDuration":
+            suggest = "execute_action_duration"
+        elif key == "executeActionInitiatedBy":
+            suggest = "execute_action_initiated_by"
+        elif key == "executeActionInitiatedTime":
+            suggest = "execute_action_initiated_time"
+        elif key == "executeActionStartTime":
+            suggest = "execute_action_start_time"
+        elif key == "implementationDetails":
+            suggest = "implementation_details"
+        elif key == "isArchivedAction":
+            suggest = "is_archived_action"
+        elif key == "isExecutableAction":
+            suggest = "is_executable_action"
+        elif key == "isRevertableAction":
+            suggest = "is_revertable_action"
+        elif key == "lastRefresh":
+            suggest = "last_refresh"
+        elif key == "linkedObjects":
+            suggest = "linked_objects"
+        elif key == "observedImpact":
+            suggest = "observed_impact"
+        elif key == "recommendationReason":
+            suggest = "recommendation_reason"
+        elif key == "revertActionDuration":
+            suggest = "revert_action_duration"
+        elif key == "revertActionInitiatedBy":
+            suggest = "revert_action_initiated_by"
+        elif key == "revertActionInitiatedTime":
+            suggest = "revert_action_initiated_time"
+        elif key == "revertActionStartTime":
+            suggest = "revert_action_start_time"
+        elif key == "timeSeries":
+            suggest = "time_series"
+        elif key == "validSince":
+            suggest = "valid_since"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendedActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendedActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendedActionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 details: Mapping[str, Any],
+                 error_details: 'outputs.RecommendedActionErrorInfoResponse',
+                 estimated_impact: Sequence['outputs.RecommendedActionImpactRecordResponse'],
+                 execute_action_duration: str,
+                 execute_action_initiated_by: str,
+                 execute_action_initiated_time: str,
+                 execute_action_start_time: str,
+                 id: str,
+                 implementation_details: 'outputs.RecommendedActionImplementationInfoResponse',
+                 is_archived_action: bool,
+                 is_executable_action: bool,
+                 is_revertable_action: bool,
+                 kind: str,
+                 last_refresh: str,
+                 linked_objects: Sequence[str],
+                 location: str,
+                 name: str,
+                 observed_impact: Sequence['outputs.RecommendedActionImpactRecordResponse'],
+                 recommendation_reason: str,
+                 revert_action_duration: str,
+                 revert_action_initiated_by: str,
+                 revert_action_initiated_time: str,
+                 revert_action_start_time: str,
+                 score: int,
+                 state: 'outputs.RecommendedActionStateInfoResponse',
+                 time_series: Sequence['outputs.RecommendedActionMetricInfoResponse'],
+                 type: str,
+                 valid_since: str):
+        """
+        Database, Server or Elastic Pool Recommended Action.
+        :param Mapping[str, Any] details: Gets additional details specific to this recommended action.
+        :param 'RecommendedActionErrorInfoResponse' error_details: Gets the error details if and why this recommended action is put to error state.
+        :param Sequence['RecommendedActionImpactRecordResponse'] estimated_impact: Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
+        :param str execute_action_duration: Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
+        :param str execute_action_initiated_by: Gets if approval for applying this recommended action was given by user/system.
+        :param str execute_action_initiated_time: Gets the time when this recommended action was approved for execution.
+        :param str execute_action_start_time: Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
+        :param str id: Resource ID.
+        :param 'RecommendedActionImplementationInfoResponse' implementation_details: Gets the implementation details of this recommended action for user to apply it manually.
+        :param bool is_archived_action: Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
+        :param bool is_executable_action: Gets if this recommended action is actionable by user
+        :param bool is_revertable_action: Gets if changes applied by this recommended action can be reverted by user
+        :param str kind: Resource kind.
+        :param str last_refresh: Gets time when this recommended action was last refreshed.
+        :param Sequence[str] linked_objects: Gets the linked objects, if any.
+        :param str location: Resource location.
+        :param str name: Resource name.
+        :param Sequence['RecommendedActionImpactRecordResponse'] observed_impact: Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
+        :param str recommendation_reason: Gets the reason for recommending this action. e.g., DuplicateIndex
+        :param str revert_action_duration: Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
+        :param str revert_action_initiated_by: Gets if approval for reverting this recommended action was given by user/system.
+        :param str revert_action_initiated_time: Gets the time when this recommended action was approved for revert.
+        :param str revert_action_start_time: Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
+        :param int score: Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
+        :param 'RecommendedActionStateInfoResponse' state: Gets the info of the current state the recommended action is in.
+        :param Sequence['RecommendedActionMetricInfoResponse'] time_series: Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
+        :param str type: Resource type.
+        :param str valid_since: Gets the time since when this recommended action is valid.
+        """
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "error_details", error_details)
+        pulumi.set(__self__, "estimated_impact", estimated_impact)
+        pulumi.set(__self__, "execute_action_duration", execute_action_duration)
+        pulumi.set(__self__, "execute_action_initiated_by", execute_action_initiated_by)
+        pulumi.set(__self__, "execute_action_initiated_time", execute_action_initiated_time)
+        pulumi.set(__self__, "execute_action_start_time", execute_action_start_time)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "implementation_details", implementation_details)
+        pulumi.set(__self__, "is_archived_action", is_archived_action)
+        pulumi.set(__self__, "is_executable_action", is_executable_action)
+        pulumi.set(__self__, "is_revertable_action", is_revertable_action)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "last_refresh", last_refresh)
+        pulumi.set(__self__, "linked_objects", linked_objects)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "observed_impact", observed_impact)
+        pulumi.set(__self__, "recommendation_reason", recommendation_reason)
+        pulumi.set(__self__, "revert_action_duration", revert_action_duration)
+        pulumi.set(__self__, "revert_action_initiated_by", revert_action_initiated_by)
+        pulumi.set(__self__, "revert_action_initiated_time", revert_action_initiated_time)
+        pulumi.set(__self__, "revert_action_start_time", revert_action_start_time)
+        pulumi.set(__self__, "score", score)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "time_series", time_series)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "valid_since", valid_since)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Mapping[str, Any]:
+        """
+        Gets additional details specific to this recommended action.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> 'outputs.RecommendedActionErrorInfoResponse':
+        """
+        Gets the error details if and why this recommended action is put to error state.
+        """
+        return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter(name="estimatedImpact")
+    def estimated_impact(self) -> Sequence['outputs.RecommendedActionImpactRecordResponse']:
+        """
+        Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
+        """
+        return pulumi.get(self, "estimated_impact")
+
+    @property
+    @pulumi.getter(name="executeActionDuration")
+    def execute_action_duration(self) -> str:
+        """
+        Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
+        """
+        return pulumi.get(self, "execute_action_duration")
+
+    @property
+    @pulumi.getter(name="executeActionInitiatedBy")
+    def execute_action_initiated_by(self) -> str:
+        """
+        Gets if approval for applying this recommended action was given by user/system.
+        """
+        return pulumi.get(self, "execute_action_initiated_by")
+
+    @property
+    @pulumi.getter(name="executeActionInitiatedTime")
+    def execute_action_initiated_time(self) -> str:
+        """
+        Gets the time when this recommended action was approved for execution.
+        """
+        return pulumi.get(self, "execute_action_initiated_time")
+
+    @property
+    @pulumi.getter(name="executeActionStartTime")
+    def execute_action_start_time(self) -> str:
+        """
+        Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
+        """
+        return pulumi.get(self, "execute_action_start_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="implementationDetails")
+    def implementation_details(self) -> 'outputs.RecommendedActionImplementationInfoResponse':
+        """
+        Gets the implementation details of this recommended action for user to apply it manually.
+        """
+        return pulumi.get(self, "implementation_details")
+
+    @property
+    @pulumi.getter(name="isArchivedAction")
+    def is_archived_action(self) -> bool:
+        """
+        Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
+        """
+        return pulumi.get(self, "is_archived_action")
+
+    @property
+    @pulumi.getter(name="isExecutableAction")
+    def is_executable_action(self) -> bool:
+        """
+        Gets if this recommended action is actionable by user
+        """
+        return pulumi.get(self, "is_executable_action")
+
+    @property
+    @pulumi.getter(name="isRevertableAction")
+    def is_revertable_action(self) -> bool:
+        """
+        Gets if changes applied by this recommended action can be reverted by user
+        """
+        return pulumi.get(self, "is_revertable_action")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Resource kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lastRefresh")
+    def last_refresh(self) -> str:
+        """
+        Gets time when this recommended action was last refreshed.
+        """
+        return pulumi.get(self, "last_refresh")
+
+    @property
+    @pulumi.getter(name="linkedObjects")
+    def linked_objects(self) -> Sequence[str]:
+        """
+        Gets the linked objects, if any.
+        """
+        return pulumi.get(self, "linked_objects")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="observedImpact")
+    def observed_impact(self) -> Sequence['outputs.RecommendedActionImpactRecordResponse']:
+        """
+        Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
+        """
+        return pulumi.get(self, "observed_impact")
+
+    @property
+    @pulumi.getter(name="recommendationReason")
+    def recommendation_reason(self) -> str:
+        """
+        Gets the reason for recommending this action. e.g., DuplicateIndex
+        """
+        return pulumi.get(self, "recommendation_reason")
+
+    @property
+    @pulumi.getter(name="revertActionDuration")
+    def revert_action_duration(self) -> str:
+        """
+        Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
+        """
+        return pulumi.get(self, "revert_action_duration")
+
+    @property
+    @pulumi.getter(name="revertActionInitiatedBy")
+    def revert_action_initiated_by(self) -> str:
+        """
+        Gets if approval for reverting this recommended action was given by user/system.
+        """
+        return pulumi.get(self, "revert_action_initiated_by")
+
+    @property
+    @pulumi.getter(name="revertActionInitiatedTime")
+    def revert_action_initiated_time(self) -> str:
+        """
+        Gets the time when this recommended action was approved for revert.
+        """
+        return pulumi.get(self, "revert_action_initiated_time")
+
+    @property
+    @pulumi.getter(name="revertActionStartTime")
+    def revert_action_start_time(self) -> str:
+        """
+        Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
+        """
+        return pulumi.get(self, "revert_action_start_time")
+
+    @property
+    @pulumi.getter
+    def score(self) -> int:
+        """
+        Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
+        """
+        return pulumi.get(self, "score")
+
+    @property
+    @pulumi.getter
+    def state(self) -> 'outputs.RecommendedActionStateInfoResponse':
+        """
+        Gets the info of the current state the recommended action is in.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="timeSeries")
+    def time_series(self) -> Sequence['outputs.RecommendedActionMetricInfoResponse']:
+        """
+        Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
+        """
+        return pulumi.get(self, "time_series")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validSince")
+    def valid_since(self) -> str:
+        """
+        Gets the time since when this recommended action is valid.
+        """
+        return pulumi.get(self, "valid_since")
+
+
+@pulumi.output_type
+class RecommendedActionStateInfoResponse(dict):
+    """
+    Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionInitiatedBy":
+            suggest = "action_initiated_by"
+        elif key == "currentValue":
+            suggest = "current_value"
+        elif key == "lastModified":
+            suggest = "last_modified"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommendedActionStateInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommendedActionStateInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommendedActionStateInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_initiated_by: str,
+                 current_value: str,
+                 last_modified: str):
+        """
+        Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+        :param str action_initiated_by: Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
+        :param str current_value: Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action. 
+        :param str last_modified: Gets the time when the state was last modified
+        """
+        pulumi.set(__self__, "action_initiated_by", action_initiated_by)
+        pulumi.set(__self__, "current_value", current_value)
+        pulumi.set(__self__, "last_modified", last_modified)
+
+    @property
+    @pulumi.getter(name="actionInitiatedBy")
+    def action_initiated_by(self) -> str:
+        """
+        Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
+        """
+        return pulumi.get(self, "action_initiated_by")
+
+    @property
+    @pulumi.getter(name="currentValue")
+    def current_value(self) -> str:
+        """
+        Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action. 
+        """
+        return pulumi.get(self, "current_value")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        Gets the time when the state was last modified
+        """
+        return pulumi.get(self, "last_modified")
 
 
 @pulumi.output_type
