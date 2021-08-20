@@ -18,9 +18,9 @@ __all__ = [
 @pulumi.output_type
 class GetAssessmentMetadataInSubscriptionResult:
     """
-    Security assessment metadata response
+    Security assessment metadata
     """
-    def __init__(__self__, assessment_type=None, categories=None, description=None, display_name=None, id=None, implementation_effort=None, name=None, partner_data=None, planned_deprecation_date=None, policy_definition_id=None, preview=None, publish_dates=None, remediation_description=None, severity=None, tactics=None, techniques=None, threats=None, type=None, user_impact=None):
+    def __init__(__self__, assessment_type=None, categories=None, description=None, display_name=None, id=None, implementation_effort=None, name=None, partner_data=None, policy_definition_id=None, preview=None, remediation_description=None, severity=None, threats=None, type=None, user_impact=None):
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
@@ -45,30 +45,18 @@ class GetAssessmentMetadataInSubscriptionResult:
         if partner_data and not isinstance(partner_data, dict):
             raise TypeError("Expected argument 'partner_data' to be a dict")
         pulumi.set(__self__, "partner_data", partner_data)
-        if planned_deprecation_date and not isinstance(planned_deprecation_date, str):
-            raise TypeError("Expected argument 'planned_deprecation_date' to be a str")
-        pulumi.set(__self__, "planned_deprecation_date", planned_deprecation_date)
         if policy_definition_id and not isinstance(policy_definition_id, str):
             raise TypeError("Expected argument 'policy_definition_id' to be a str")
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if preview and not isinstance(preview, bool):
             raise TypeError("Expected argument 'preview' to be a bool")
         pulumi.set(__self__, "preview", preview)
-        if publish_dates and not isinstance(publish_dates, dict):
-            raise TypeError("Expected argument 'publish_dates' to be a dict")
-        pulumi.set(__self__, "publish_dates", publish_dates)
         if remediation_description and not isinstance(remediation_description, str):
             raise TypeError("Expected argument 'remediation_description' to be a str")
         pulumi.set(__self__, "remediation_description", remediation_description)
         if severity and not isinstance(severity, str):
             raise TypeError("Expected argument 'severity' to be a str")
         pulumi.set(__self__, "severity", severity)
-        if tactics and not isinstance(tactics, list):
-            raise TypeError("Expected argument 'tactics' to be a list")
-        pulumi.set(__self__, "tactics", tactics)
-        if techniques and not isinstance(techniques, list):
-            raise TypeError("Expected argument 'techniques' to be a list")
-        pulumi.set(__self__, "techniques", techniques)
         if threats and not isinstance(threats, list):
             raise TypeError("Expected argument 'threats' to be a list")
         pulumi.set(__self__, "threats", threats)
@@ -141,11 +129,6 @@ class GetAssessmentMetadataInSubscriptionResult:
         return pulumi.get(self, "partner_data")
 
     @property
-    @pulumi.getter(name="plannedDeprecationDate")
-    def planned_deprecation_date(self) -> Optional[str]:
-        return pulumi.get(self, "planned_deprecation_date")
-
-    @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> str:
         """
@@ -162,11 +145,6 @@ class GetAssessmentMetadataInSubscriptionResult:
         return pulumi.get(self, "preview")
 
     @property
-    @pulumi.getter(name="publishDates")
-    def publish_dates(self) -> Optional['outputs.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates']:
-        return pulumi.get(self, "publish_dates")
-
-    @property
     @pulumi.getter(name="remediationDescription")
     def remediation_description(self) -> Optional[str]:
         """
@@ -181,16 +159,6 @@ class GetAssessmentMetadataInSubscriptionResult:
         The severity level of the assessment
         """
         return pulumi.get(self, "severity")
-
-    @property
-    @pulumi.getter
-    def tactics(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "tactics")
-
-    @property
-    @pulumi.getter
-    def techniques(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "techniques")
 
     @property
     @pulumi.getter
@@ -228,14 +196,10 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
             implementation_effort=self.implementation_effort,
             name=self.name,
             partner_data=self.partner_data,
-            planned_deprecation_date=self.planned_deprecation_date,
             policy_definition_id=self.policy_definition_id,
             preview=self.preview,
-            publish_dates=self.publish_dates,
             remediation_description=self.remediation_description,
             severity=self.severity,
-            tactics=self.tactics,
-            techniques=self.techniques,
             threats=self.threats,
             type=self.type,
             user_impact=self.user_impact)
@@ -244,8 +208,8 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
 def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentMetadataInSubscriptionResult:
     """
-    Security assessment metadata response
-    API Version: 2021-06-01.
+    Security assessment metadata
+    API Version: 2020-01-01.
 
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
@@ -267,14 +231,10 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
         implementation_effort=__ret__.implementation_effort,
         name=__ret__.name,
         partner_data=__ret__.partner_data,
-        planned_deprecation_date=__ret__.planned_deprecation_date,
         policy_definition_id=__ret__.policy_definition_id,
         preview=__ret__.preview,
-        publish_dates=__ret__.publish_dates,
         remediation_description=__ret__.remediation_description,
         severity=__ret__.severity,
-        tactics=__ret__.tactics,
-        techniques=__ret__.techniques,
         threats=__ret__.threats,
         type=__ret__.type,
         user_impact=__ret__.user_impact)

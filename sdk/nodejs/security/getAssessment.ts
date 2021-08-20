@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Security assessment on a resource - response format
- * API Version: 2021-06-01.
+ * Security assessment on a resource
+ * API Version: 2020-01-01.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
     if (!opts) {
@@ -40,7 +40,7 @@ export interface GetAssessmentArgs {
 }
 
 /**
- * Security assessment on a resource - response format
+ * Security assessment on a resource
  */
 export interface GetAssessmentResult {
     /**
@@ -78,7 +78,7 @@ export interface GetAssessmentResult {
     /**
      * The result of the assessment
      */
-    readonly status: outputs.security.AssessmentStatusResponseResponse;
+    readonly status: outputs.security.AssessmentStatusResponse;
     /**
      * Resource type
      */

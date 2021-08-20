@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security.Outputs
     /// The result of the assessment
     /// </summary>
     [OutputType]
-    public sealed class AssessmentStatusResponseResponse
+    public sealed class AssessmentStatusResponse
     {
         /// <summary>
         /// Programmatic code for the cause of the assessment status
@@ -28,32 +28,18 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// Human readable description of the assessment status
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
-        /// </summary>
-        public readonly string FirstEvaluationDate;
-        /// <summary>
-        /// The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
-        /// </summary>
-        public readonly string StatusChangeDate;
 
         [OutputConstructor]
-        private AssessmentStatusResponseResponse(
+        private AssessmentStatusResponse(
             string? cause,
 
             string code,
 
-            string? description,
-
-            string firstEvaluationDate,
-
-            string statusChangeDate)
+            string? description)
         {
             Cause = cause;
             Code = code;
             Description = description;
-            FirstEvaluationDate = firstEvaluationDate;
-            StatusChangeDate = statusChangeDate;
         }
     }
 }

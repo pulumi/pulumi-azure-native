@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Security assessment metadata response
- * API Version: 2021-06-01.
+ * Security assessment metadata
+ * API Version: 2020-01-01.
  */
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
     if (!opts) {
@@ -30,7 +30,7 @@ export interface GetAssessmentMetadataInSubscriptionArgs {
 }
 
 /**
- * Security assessment metadata response
+ * Security assessment metadata
  */
 export interface GetAssessmentMetadataInSubscriptionResult {
     /**
@@ -62,7 +62,6 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      * Describes the partner that created the assessment
      */
     readonly partnerData?: outputs.security.SecurityAssessmentMetadataPartnerDataResponse;
-    readonly plannedDeprecationDate?: string;
     /**
      * Azure resource ID of the policy definition that turns this assessment calculation on
      */
@@ -71,7 +70,6 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      * True if this assessment is in preview release status
      */
     readonly preview?: boolean;
-    readonly publishDates?: outputs.security.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates;
     /**
      * Human readable description of what you should do to mitigate this security issue
      */
@@ -80,8 +78,6 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      * The severity level of the assessment
      */
     readonly severity: string;
-    readonly tactics?: string[];
-    readonly techniques?: string[];
     readonly threats?: string[];
     /**
      * Resource type

@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment on a resource - response format
-// API Version: 2021-06-01.
+// Security assessment on a resource
+// API Version: 2020-01-01.
 type Assessment struct {
 	pulumi.CustomResourceState
 
@@ -31,7 +31,7 @@ type Assessment struct {
 	// Details of the resource that was assessed
 	ResourceDetails pulumi.AnyOutput `pulumi:"resourceDetails"`
 	// The result of the assessment
-	Status AssessmentStatusResponseResponseOutput `pulumi:"status"`
+	Status AssessmentStatusResponseOutput `pulumi:"status"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }

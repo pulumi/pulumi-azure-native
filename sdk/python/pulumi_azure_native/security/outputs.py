@@ -15,7 +15,7 @@ __all__ = [
     'AdditionalWorkspacesPropertiesResponse',
     'AllowlistCustomAlertRuleResponse',
     'AssessmentLinksResponse',
-    'AssessmentStatusResponseResponse',
+    'AssessmentStatusResponse',
     'AutomationActionEventHubResponse',
     'AutomationActionLogicAppResponse',
     'AutomationActionWorkspaceResponse',
@@ -46,7 +46,6 @@ __all__ = [
     'ScopeElementResponse',
     'SecurityAssessmentMetadataPartnerDataResponse',
     'SecurityAssessmentMetadataPropertiesResponse',
-    'SecurityAssessmentMetadataPropertiesResponseResponsePublishDates',
     'SecurityAssessmentPartnerDataResponse',
     'SecurityContactPropertiesResponseAlertNotifications',
     'SecurityContactPropertiesResponseNotificationsByRole',
@@ -322,46 +321,21 @@ class AssessmentLinksResponse(dict):
 
 
 @pulumi.output_type
-class AssessmentStatusResponseResponse(dict):
+class AssessmentStatusResponse(dict):
     """
     The result of the assessment
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "firstEvaluationDate":
-            suggest = "first_evaluation_date"
-        elif key == "statusChangeDate":
-            suggest = "status_change_date"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssessmentStatusResponseResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AssessmentStatusResponseResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AssessmentStatusResponseResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  code: str,
-                 first_evaluation_date: str,
-                 status_change_date: str,
                  cause: Optional[str] = None,
                  description: Optional[str] = None):
         """
         The result of the assessment
         :param str code: Programmatic code for the status of the assessment
-        :param str first_evaluation_date: The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
-        :param str status_change_date: The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
         :param str cause: Programmatic code for the cause of the assessment status
         :param str description: Human readable description of the assessment status
         """
         pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "first_evaluation_date", first_evaluation_date)
-        pulumi.set(__self__, "status_change_date", status_change_date)
         if cause is not None:
             pulumi.set(__self__, "cause", cause)
         if description is not None:
@@ -374,22 +348,6 @@ class AssessmentStatusResponseResponse(dict):
         Programmatic code for the status of the assessment
         """
         return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter(name="firstEvaluationDate")
-    def first_evaluation_date(self) -> str:
-        """
-        The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
-        """
-        return pulumi.get(self, "first_evaluation_date")
-
-    @property
-    @pulumi.getter(name="statusChangeDate")
-    def status_change_date(self) -> str:
-        """
-        The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
-        """
-        return pulumi.get(self, "status_change_date")
 
     @property
     @pulumi.getter
@@ -2705,43 +2663,6 @@ class SecurityAssessmentMetadataPropertiesResponse(dict):
         The user impact of the assessment
         """
         return pulumi.get(self, "user_impact")
-
-
-@pulumi.output_type
-class SecurityAssessmentMetadataPropertiesResponseResponsePublishDates(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "gA":
-            suggest = "g_a"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecurityAssessmentMetadataPropertiesResponseResponsePublishDates. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecurityAssessmentMetadataPropertiesResponseResponsePublishDates.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecurityAssessmentMetadataPropertiesResponseResponsePublishDates.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 public: str,
-                 g_a: Optional[str] = None):
-        pulumi.set(__self__, "public", public)
-        if g_a is not None:
-            pulumi.set(__self__, "g_a", g_a)
-
-    @property
-    @pulumi.getter
-    def public(self) -> str:
-        return pulumi.get(self, "public")
-
-    @property
-    @pulumi.getter(name="gA")
-    def g_a(self) -> Optional[str]:
-        return pulumi.get(self, "g_a")
 
 
 @pulumi.output_type

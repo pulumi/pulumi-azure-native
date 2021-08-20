@@ -40,7 +40,6 @@ __all__ = [
     'RecommendationConfigurationPropertiesArgs',
     'ScopeElementArgs',
     'SecurityAssessmentMetadataPartnerDataArgs',
-    'SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs',
     'SecurityAssessmentMetadataPropertiesArgs',
     'SecurityAssessmentPartnerDataArgs',
     'SecurityContactPropertiesAlertNotificationsArgs',
@@ -2001,34 +2000,6 @@ class SecurityAssessmentMetadataPartnerDataArgs:
     @product_name.setter
     def product_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "product_name", value)
-
-
-@pulumi.input_type
-class SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs:
-    def __init__(__self__, *,
-                 public: pulumi.Input[str],
-                 g_a: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "public", public)
-        if g_a is not None:
-            pulumi.set(__self__, "g_a", g_a)
-
-    @property
-    @pulumi.getter
-    def public(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "public")
-
-    @public.setter
-    def public(self, value: pulumi.Input[str]):
-        pulumi.set(self, "public", value)
-
-    @property
-    @pulumi.getter(name="gA")
-    def g_a(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "g_a")
-
-    @g_a.setter
-    def g_a(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "g_a", value)
 
 
 @pulumi.input_type

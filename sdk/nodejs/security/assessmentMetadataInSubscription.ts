@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Security assessment metadata response
- * API Version: 2021-06-01.
+ * Security assessment metadata
+ * API Version: 2020-01-01.
  */
 export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**
@@ -61,7 +61,6 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * Describes the partner that created the assessment
      */
     public readonly partnerData!: pulumi.Output<outputs.security.SecurityAssessmentMetadataPartnerDataResponse | undefined>;
-    public readonly plannedDeprecationDate!: pulumi.Output<string | undefined>;
     /**
      * Azure resource ID of the policy definition that turns this assessment calculation on
      */
@@ -70,7 +69,6 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * True if this assessment is in preview release status
      */
     public readonly preview!: pulumi.Output<boolean | undefined>;
-    public readonly publishDates!: pulumi.Output<outputs.security.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates | undefined>;
     /**
      * Human readable description of what you should do to mitigate this security issue
      */
@@ -79,8 +77,6 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * The severity level of the assessment
      */
     public readonly severity!: pulumi.Output<string>;
-    public readonly tactics!: pulumi.Output<string[] | undefined>;
-    public readonly techniques!: pulumi.Output<string[] | undefined>;
     public readonly threats!: pulumi.Output<string[] | undefined>;
     /**
      * Resource type
@@ -118,13 +114,9 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["implementationEffort"] = args ? args.implementationEffort : undefined;
             inputs["partnerData"] = args ? args.partnerData : undefined;
-            inputs["plannedDeprecationDate"] = args ? args.plannedDeprecationDate : undefined;
             inputs["preview"] = args ? args.preview : undefined;
-            inputs["publishDates"] = args ? args.publishDates : undefined;
             inputs["remediationDescription"] = args ? args.remediationDescription : undefined;
             inputs["severity"] = args ? args.severity : undefined;
-            inputs["tactics"] = args ? args.tactics : undefined;
-            inputs["techniques"] = args ? args.techniques : undefined;
             inputs["threats"] = args ? args.threats : undefined;
             inputs["userImpact"] = args ? args.userImpact : undefined;
             inputs["name"] = undefined /*out*/;
@@ -138,14 +130,10 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             inputs["implementationEffort"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["partnerData"] = undefined /*out*/;
-            inputs["plannedDeprecationDate"] = undefined /*out*/;
             inputs["policyDefinitionId"] = undefined /*out*/;
             inputs["preview"] = undefined /*out*/;
-            inputs["publishDates"] = undefined /*out*/;
             inputs["remediationDescription"] = undefined /*out*/;
             inputs["severity"] = undefined /*out*/;
-            inputs["tactics"] = undefined /*out*/;
-            inputs["techniques"] = undefined /*out*/;
             inputs["threats"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["userImpact"] = undefined /*out*/;
@@ -188,12 +176,10 @@ export interface AssessmentMetadataInSubscriptionArgs {
      * Describes the partner that created the assessment
      */
     partnerData?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPartnerDataArgs>;
-    plannedDeprecationDate?: pulumi.Input<string>;
     /**
      * True if this assessment is in preview release status
      */
     preview?: pulumi.Input<boolean>;
-    publishDates?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs>;
     /**
      * Human readable description of what you should do to mitigate this security issue
      */
@@ -202,8 +188,6 @@ export interface AssessmentMetadataInSubscriptionArgs {
      * The severity level of the assessment
      */
     severity: pulumi.Input<string | enums.security.Severity>;
-    tactics?: pulumi.Input<pulumi.Input<string | enums.security.Tactics>[]>;
-    techniques?: pulumi.Input<pulumi.Input<string | enums.security.Techniques>[]>;
     threats?: pulumi.Input<pulumi.Input<string | enums.security.Threats>[]>;
     /**
      * The user impact of the assessment

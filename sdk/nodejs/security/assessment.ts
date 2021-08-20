@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Security assessment on a resource - response format
- * API Version: 2021-06-01.
+ * Security assessment on a resource
+ * API Version: 2020-01-01.
  */
 export class Assessment extends pulumi.CustomResource {
     /**
@@ -67,7 +67,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * The result of the assessment
      */
-    public readonly status!: pulumi.Output<outputs.security.AssessmentStatusResponseResponse>;
+    public readonly status!: pulumi.Output<outputs.security.AssessmentStatusResponse>;
     /**
      * Resource type
      */

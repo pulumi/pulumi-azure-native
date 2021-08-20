@@ -123,6 +123,7 @@ var cutoffProviderVersions = map[string]string{
 	"operationalinsights":     "v20201001",
 	"purview":                 "v20201201preview",
 	"recoveryservices":        "v20210201preview",
+	"security":                "v20200101preview",
 	"securityinsights":        "v20210301preview",
 	"servicefabric":           "v20200301",
 	"signalrservice":          "v20210401preview",

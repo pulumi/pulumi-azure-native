@@ -943,174 +943,156 @@ func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The result of the assessment
-type AssessmentStatusResponseResponse struct {
+type AssessmentStatusResponse struct {
 	// Programmatic code for the cause of the assessment status
 	Cause *string `pulumi:"cause"`
 	// Programmatic code for the status of the assessment
 	Code string `pulumi:"code"`
 	// Human readable description of the assessment status
 	Description *string `pulumi:"description"`
-	// The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
-	FirstEvaluationDate string `pulumi:"firstEvaluationDate"`
-	// The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
-	StatusChangeDate string `pulumi:"statusChangeDate"`
 }
 
-// AssessmentStatusResponseResponseInput is an input type that accepts AssessmentStatusResponseResponseArgs and AssessmentStatusResponseResponseOutput values.
-// You can construct a concrete instance of `AssessmentStatusResponseResponseInput` via:
+// AssessmentStatusResponseInput is an input type that accepts AssessmentStatusResponseArgs and AssessmentStatusResponseOutput values.
+// You can construct a concrete instance of `AssessmentStatusResponseInput` via:
 //
-//          AssessmentStatusResponseResponseArgs{...}
-type AssessmentStatusResponseResponseInput interface {
+//          AssessmentStatusResponseArgs{...}
+type AssessmentStatusResponseInput interface {
 	pulumi.Input
 
-	ToAssessmentStatusResponseResponseOutput() AssessmentStatusResponseResponseOutput
-	ToAssessmentStatusResponseResponseOutputWithContext(context.Context) AssessmentStatusResponseResponseOutput
+	ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput
+	ToAssessmentStatusResponseOutputWithContext(context.Context) AssessmentStatusResponseOutput
 }
 
 // The result of the assessment
-type AssessmentStatusResponseResponseArgs struct {
+type AssessmentStatusResponseArgs struct {
 	// Programmatic code for the cause of the assessment status
 	Cause pulumi.StringPtrInput `pulumi:"cause"`
 	// Programmatic code for the status of the assessment
 	Code pulumi.StringInput `pulumi:"code"`
 	// Human readable description of the assessment status
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
-	FirstEvaluationDate pulumi.StringInput `pulumi:"firstEvaluationDate"`
-	// The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
-	StatusChangeDate pulumi.StringInput `pulumi:"statusChangeDate"`
 }
 
-func (AssessmentStatusResponseResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentStatusResponseResponse)(nil)).Elem()
+func (AssessmentStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatusResponse)(nil)).Elem()
 }
 
-func (i AssessmentStatusResponseResponseArgs) ToAssessmentStatusResponseResponseOutput() AssessmentStatusResponseResponseOutput {
-	return i.ToAssessmentStatusResponseResponseOutputWithContext(context.Background())
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput {
+	return i.ToAssessmentStatusResponseOutputWithContext(context.Background())
 }
 
-func (i AssessmentStatusResponseResponseArgs) ToAssessmentStatusResponseResponseOutputWithContext(ctx context.Context) AssessmentStatusResponseResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseResponseOutput)
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponseOutputWithContext(ctx context.Context) AssessmentStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseOutput)
 }
 
-func (i AssessmentStatusResponseResponseArgs) ToAssessmentStatusResponseResponsePtrOutput() AssessmentStatusResponseResponsePtrOutput {
-	return i.ToAssessmentStatusResponseResponsePtrOutputWithContext(context.Background())
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
+	return i.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
 }
 
-func (i AssessmentStatusResponseResponseArgs) ToAssessmentStatusResponseResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponseResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseResponseOutput).ToAssessmentStatusResponseResponsePtrOutputWithContext(ctx)
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseOutput).ToAssessmentStatusResponsePtrOutputWithContext(ctx)
 }
 
-// AssessmentStatusResponseResponsePtrInput is an input type that accepts AssessmentStatusResponseResponseArgs, AssessmentStatusResponseResponsePtr and AssessmentStatusResponseResponsePtrOutput values.
-// You can construct a concrete instance of `AssessmentStatusResponseResponsePtrInput` via:
+// AssessmentStatusResponsePtrInput is an input type that accepts AssessmentStatusResponseArgs, AssessmentStatusResponsePtr and AssessmentStatusResponsePtrOutput values.
+// You can construct a concrete instance of `AssessmentStatusResponsePtrInput` via:
 //
-//          AssessmentStatusResponseResponseArgs{...}
+//          AssessmentStatusResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type AssessmentStatusResponseResponsePtrInput interface {
+type AssessmentStatusResponsePtrInput interface {
 	pulumi.Input
 
-	ToAssessmentStatusResponseResponsePtrOutput() AssessmentStatusResponseResponsePtrOutput
-	ToAssessmentStatusResponseResponsePtrOutputWithContext(context.Context) AssessmentStatusResponseResponsePtrOutput
+	ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput
+	ToAssessmentStatusResponsePtrOutputWithContext(context.Context) AssessmentStatusResponsePtrOutput
 }
 
-type assessmentStatusResponseResponsePtrType AssessmentStatusResponseResponseArgs
+type assessmentStatusResponsePtrType AssessmentStatusResponseArgs
 
-func AssessmentStatusResponseResponsePtr(v *AssessmentStatusResponseResponseArgs) AssessmentStatusResponseResponsePtrInput {
-	return (*assessmentStatusResponseResponsePtrType)(v)
+func AssessmentStatusResponsePtr(v *AssessmentStatusResponseArgs) AssessmentStatusResponsePtrInput {
+	return (*assessmentStatusResponsePtrType)(v)
 }
 
-func (*assessmentStatusResponseResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentStatusResponseResponse)(nil)).Elem()
+func (*assessmentStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentStatusResponse)(nil)).Elem()
 }
 
-func (i *assessmentStatusResponseResponsePtrType) ToAssessmentStatusResponseResponsePtrOutput() AssessmentStatusResponseResponsePtrOutput {
-	return i.ToAssessmentStatusResponseResponsePtrOutputWithContext(context.Background())
+func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
+	return i.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *assessmentStatusResponseResponsePtrType) ToAssessmentStatusResponseResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponseResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseResponsePtrOutput)
+func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponsePtrOutput)
 }
 
 // The result of the assessment
-type AssessmentStatusResponseResponseOutput struct{ *pulumi.OutputState }
+type AssessmentStatusResponseOutput struct{ *pulumi.OutputState }
 
-func (AssessmentStatusResponseResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentStatusResponseResponse)(nil)).Elem()
+func (AssessmentStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatusResponse)(nil)).Elem()
 }
 
-func (o AssessmentStatusResponseResponseOutput) ToAssessmentStatusResponseResponseOutput() AssessmentStatusResponseResponseOutput {
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput {
 	return o
 }
 
-func (o AssessmentStatusResponseResponseOutput) ToAssessmentStatusResponseResponseOutputWithContext(ctx context.Context) AssessmentStatusResponseResponseOutput {
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponseOutputWithContext(ctx context.Context) AssessmentStatusResponseOutput {
 	return o
 }
 
-func (o AssessmentStatusResponseResponseOutput) ToAssessmentStatusResponseResponsePtrOutput() AssessmentStatusResponseResponsePtrOutput {
-	return o.ToAssessmentStatusResponseResponsePtrOutputWithContext(context.Background())
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
+	return o.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
 }
 
-func (o AssessmentStatusResponseResponseOutput) ToAssessmentStatusResponseResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponseResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatusResponseResponse) *AssessmentStatusResponseResponse {
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatusResponse) *AssessmentStatusResponse {
 		return &v
-	}).(AssessmentStatusResponseResponsePtrOutput)
+	}).(AssessmentStatusResponsePtrOutput)
 }
 
 // Programmatic code for the cause of the assessment status
-func (o AssessmentStatusResponseResponseOutput) Cause() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentStatusResponseResponse) *string { return v.Cause }).(pulumi.StringPtrOutput)
+func (o AssessmentStatusResponseOutput) Cause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatusResponse) *string { return v.Cause }).(pulumi.StringPtrOutput)
 }
 
 // Programmatic code for the status of the assessment
-func (o AssessmentStatusResponseResponseOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentStatusResponseResponse) string { return v.Code }).(pulumi.StringOutput)
+func (o AssessmentStatusResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentStatusResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
 // Human readable description of the assessment status
-func (o AssessmentStatusResponseResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentStatusResponseResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o AssessmentStatusResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatusResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
-func (o AssessmentStatusResponseResponseOutput) FirstEvaluationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentStatusResponseResponse) string { return v.FirstEvaluationDate }).(pulumi.StringOutput)
+type AssessmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentStatusResponse)(nil)).Elem()
 }
 
-// The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
-func (o AssessmentStatusResponseResponseOutput) StatusChangeDate() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentStatusResponseResponse) string { return v.StatusChangeDate }).(pulumi.StringOutput)
-}
-
-type AssessmentStatusResponseResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentStatusResponseResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentStatusResponseResponse)(nil)).Elem()
-}
-
-func (o AssessmentStatusResponseResponsePtrOutput) ToAssessmentStatusResponseResponsePtrOutput() AssessmentStatusResponseResponsePtrOutput {
+func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
 	return o
 }
 
-func (o AssessmentStatusResponseResponsePtrOutput) ToAssessmentStatusResponseResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponseResponsePtrOutput {
+func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
 	return o
 }
 
-func (o AssessmentStatusResponseResponsePtrOutput) Elem() AssessmentStatusResponseResponseOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponseResponse) AssessmentStatusResponseResponse {
+func (o AssessmentStatusResponsePtrOutput) Elem() AssessmentStatusResponseOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse {
 		if v != nil {
 			return *v
 		}
-		var ret AssessmentStatusResponseResponse
+		var ret AssessmentStatusResponse
 		return ret
-	}).(AssessmentStatusResponseResponseOutput)
+	}).(AssessmentStatusResponseOutput)
 }
 
 // Programmatic code for the cause of the assessment status
-func (o AssessmentStatusResponseResponsePtrOutput) Cause() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponseResponse) *string {
+func (o AssessmentStatusResponsePtrOutput) Cause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1119,8 +1101,8 @@ func (o AssessmentStatusResponseResponsePtrOutput) Cause() pulumi.StringPtrOutpu
 }
 
 // Programmatic code for the status of the assessment
-func (o AssessmentStatusResponseResponsePtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponseResponse) *string {
+func (o AssessmentStatusResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1129,32 +1111,12 @@ func (o AssessmentStatusResponseResponsePtrOutput) Code() pulumi.StringPtrOutput
 }
 
 // Human readable description of the assessment status
-func (o AssessmentStatusResponseResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponseResponse) *string {
+func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time that the assessment was created and first evaluated. Returned as UTC time in ISO 8601 format
-func (o AssessmentStatusResponseResponsePtrOutput) FirstEvaluationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponseResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FirstEvaluationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time that the status of the assessment last changed. Returned as UTC time in ISO 8601 format
-func (o AssessmentStatusResponseResponsePtrOutput) StatusChangeDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponseResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StatusChangeDate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8816,302 +8778,6 @@ func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) UserImpact() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-type SecurityAssessmentMetadataPropertiesResponsePublishDates struct {
-	GA     *string `pulumi:"gA"`
-	Public string  `pulumi:"public"`
-}
-
-// SecurityAssessmentMetadataPropertiesResponsePublishDatesInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs and SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput values.
-// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponsePublishDatesInput` via:
-//
-//          SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs{...}
-type SecurityAssessmentMetadataPropertiesResponsePublishDatesInput interface {
-	pulumi.Input
-
-	ToSecurityAssessmentMetadataPropertiesResponsePublishDatesOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput
-	ToSecurityAssessmentMetadataPropertiesResponsePublishDatesOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput
-}
-
-type SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs struct {
-	GA     pulumi.StringPtrInput `pulumi:"gA"`
-	Public pulumi.StringInput    `pulumi:"public"`
-}
-
-func (SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAssessmentMetadataPropertiesResponsePublishDates)(nil)).Elem()
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput {
-	return i.ToSecurityAssessmentMetadataPropertiesResponsePublishDatesOutputWithContext(context.Background())
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput)
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return i.ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(context.Background())
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput).ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(ctx)
-}
-
-// SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs, SecurityAssessmentMetadataPropertiesResponsePublishDatesPtr and SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput values.
-// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrInput` via:
-//
-//          SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs{...}
-//
-//  or:
-//
-//          nil
-type SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrInput interface {
-	pulumi.Input
-
-	ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput
-	ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput
-}
-
-type securityAssessmentMetadataPropertiesResponsePublishDatesPtrType SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs
-
-func SecurityAssessmentMetadataPropertiesResponsePublishDatesPtr(v *SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs) SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrInput {
-	return (*securityAssessmentMetadataPropertiesResponsePublishDatesPtrType)(v)
-}
-
-func (*securityAssessmentMetadataPropertiesResponsePublishDatesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityAssessmentMetadataPropertiesResponsePublishDates)(nil)).Elem()
-}
-
-func (i *securityAssessmentMetadataPropertiesResponsePublishDatesPtrType) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return i.ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(context.Background())
-}
-
-func (i *securityAssessmentMetadataPropertiesResponsePublishDatesPtrType) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput)
-}
-
-type SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput struct{ *pulumi.OutputState }
-
-func (SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAssessmentMetadataPropertiesResponsePublishDates)(nil)).Elem()
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return o.ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPropertiesResponsePublishDates) *SecurityAssessmentMetadataPropertiesResponsePublishDates {
-		return &v
-	}).(SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput) GA() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponsePublishDates) *string { return v.GA }).(pulumi.StringPtrOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput) Public() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponsePublishDates) string { return v.Public }).(pulumi.StringOutput)
-}
-
-type SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityAssessmentMetadataPropertiesResponsePublishDates)(nil)).Elem()
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput) ToSecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput) Elem() SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponsePublishDates) SecurityAssessmentMetadataPropertiesResponsePublishDates {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityAssessmentMetadataPropertiesResponsePublishDates
-		return ret
-	}).(SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput) GA() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponsePublishDates) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GA
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput) Public() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponsePublishDates) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Public
-	}).(pulumi.StringPtrOutput)
-}
-
-type SecurityAssessmentMetadataPropertiesResponseResponsePublishDates struct {
-	GA     *string `pulumi:"gA"`
-	Public string  `pulumi:"public"`
-}
-
-// SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs and SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput values.
-// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesInput` via:
-//
-//          SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs{...}
-type SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesInput interface {
-	pulumi.Input
-
-	ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput
-	ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput
-}
-
-type SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs struct {
-	GA     pulumi.StringPtrInput `pulumi:"gA"`
-	Public pulumi.StringInput    `pulumi:"public"`
-}
-
-func (SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAssessmentMetadataPropertiesResponseResponsePublishDates)(nil)).Elem()
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput {
-	return i.ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutputWithContext(context.Background())
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput)
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return i.ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(context.Background())
-}
-
-func (i SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput).ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(ctx)
-}
-
-// SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs, SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtr and SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput values.
-// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrInput` via:
-//
-//          SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs{...}
-//
-//  or:
-//
-//          nil
-type SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrInput interface {
-	pulumi.Input
-
-	ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput
-	ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput
-}
-
-type securityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrType SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs
-
-func SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtr(v *SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesArgs) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrInput {
-	return (*securityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrType)(v)
-}
-
-func (*securityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityAssessmentMetadataPropertiesResponseResponsePublishDates)(nil)).Elem()
-}
-
-func (i *securityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrType) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return i.ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(context.Background())
-}
-
-func (i *securityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrType) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput)
-}
-
-type SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput struct{ *pulumi.OutputState }
-
-func (SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAssessmentMetadataPropertiesResponseResponsePublishDates)(nil)).Elem()
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return o.ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityAssessmentMetadataPropertiesResponseResponsePublishDates) *SecurityAssessmentMetadataPropertiesResponseResponsePublishDates {
-		return &v
-	}).(SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput) GA() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponseResponsePublishDates) *string { return v.GA }).(pulumi.StringPtrOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput) Public() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponseResponsePublishDates) string { return v.Public }).(pulumi.StringOutput)
-}
-
-type SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityAssessmentMetadataPropertiesResponseResponsePublishDates)(nil)).Elem()
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput) ToSecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput {
-	return o
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput) Elem() SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponseResponsePublishDates) SecurityAssessmentMetadataPropertiesResponseResponsePublishDates {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityAssessmentMetadataPropertiesResponseResponsePublishDates
-		return ret
-	}).(SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput) GA() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponseResponsePublishDates) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GA
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput) Public() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponseResponsePublishDates) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Public
-	}).(pulumi.StringPtrOutput)
-}
-
 // Data regarding 3rd party partner integration
 type SecurityAssessmentPartnerData struct {
 	// Name of the company of the partner
@@ -12272,8 +11938,8 @@ func init() {
 	pulumi.RegisterOutputType(AssessmentLinksResponsePtrOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
-	pulumi.RegisterOutputType(AssessmentStatusResponseResponseOutput{})
-	pulumi.RegisterOutputType(AssessmentStatusResponseResponsePtrOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusResponseOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutomationActionEventHubOutput{})
 	pulumi.RegisterOutputType(AutomationActionEventHubResponseOutput{})
 	pulumi.RegisterOutputType(AutomationActionLogicAppOutput{})
@@ -12372,10 +12038,6 @@ func init() {
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponsePublishDatesOutput{})
-	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponsePublishDatesPtrOutput{})
-	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesOutput{})
-	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponseResponsePublishDatesPtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataPtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataResponseOutput{})

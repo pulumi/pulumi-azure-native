@@ -5,11 +5,13 @@ CHANGELOG
 
 #### New resources:
 
+- `dataprotection.ResourceGuard`
 - `powerbi.PowerBIResource`
 - `powerbi.PrivateEndpointConnection`
 
 #### New functions:
 
+- `dataprotection.getResourceGuard`
 - `powerbi.getPrivateEndpointConnection`
 
 #### Bug Fixes

@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Security assessment on a resource - response format
-// API Version: 2021-06-01.
+// Security assessment on a resource
+// API Version: 2020-01-01.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
 	var rv LookupAssessmentResult
 	err := ctx.Invoke("azure-native:security:getAssessment", args, &rv, opts...)
@@ -27,7 +27,7 @@ type LookupAssessmentArgs struct {
 	ResourceId string `pulumi:"resourceId"`
 }
 
-// Security assessment on a resource - response format
+// Security assessment on a resource
 type LookupAssessmentResult struct {
 	// Additional data regarding the assessment
 	AdditionalData map[string]string `pulumi:"additionalData"`
@@ -46,7 +46,7 @@ type LookupAssessmentResult struct {
 	// Details of the resource that was assessed
 	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The result of the assessment
-	Status AssessmentStatusResponseResponse `pulumi:"status"`
+	Status AssessmentStatusResponse `pulumi:"status"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

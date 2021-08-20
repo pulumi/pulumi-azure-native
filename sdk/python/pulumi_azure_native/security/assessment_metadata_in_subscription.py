@@ -24,12 +24,8 @@ class AssessmentMetadataInSubscriptionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
                  partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
-                 planned_deprecation_date: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
-                 publish_dates: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Techniques']]]]] = None,
                  threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
                  user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None):
         """
@@ -58,18 +54,10 @@ class AssessmentMetadataInSubscriptionArgs:
             pulumi.set(__self__, "implementation_effort", implementation_effort)
         if partner_data is not None:
             pulumi.set(__self__, "partner_data", partner_data)
-        if planned_deprecation_date is not None:
-            pulumi.set(__self__, "planned_deprecation_date", planned_deprecation_date)
         if preview is not None:
             pulumi.set(__self__, "preview", preview)
-        if publish_dates is not None:
-            pulumi.set(__self__, "publish_dates", publish_dates)
         if remediation_description is not None:
             pulumi.set(__self__, "remediation_description", remediation_description)
-        if tactics is not None:
-            pulumi.set(__self__, "tactics", tactics)
-        if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
         if threats is not None:
             pulumi.set(__self__, "threats", threats)
         if user_impact is not None:
@@ -169,15 +157,6 @@ class AssessmentMetadataInSubscriptionArgs:
         pulumi.set(self, "partner_data", value)
 
     @property
-    @pulumi.getter(name="plannedDeprecationDate")
-    def planned_deprecation_date(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "planned_deprecation_date")
-
-    @planned_deprecation_date.setter
-    def planned_deprecation_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "planned_deprecation_date", value)
-
-    @property
     @pulumi.getter
     def preview(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -190,15 +169,6 @@ class AssessmentMetadataInSubscriptionArgs:
         pulumi.set(self, "preview", value)
 
     @property
-    @pulumi.getter(name="publishDates")
-    def publish_dates(self) -> Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']]:
-        return pulumi.get(self, "publish_dates")
-
-    @publish_dates.setter
-    def publish_dates(self, value: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']]):
-        pulumi.set(self, "publish_dates", value)
-
-    @property
     @pulumi.getter(name="remediationDescription")
     def remediation_description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -209,24 +179,6 @@ class AssessmentMetadataInSubscriptionArgs:
     @remediation_description.setter
     def remediation_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remediation_description", value)
-
-    @property
-    @pulumi.getter
-    def tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]]:
-        return pulumi.get(self, "tactics")
-
-    @tactics.setter
-    def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]]):
-        pulumi.set(self, "tactics", value)
-
-    @property
-    @pulumi.getter
-    def techniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Techniques']]]]]:
-        return pulumi.get(self, "techniques")
-
-    @techniques.setter
-    def techniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Techniques']]]]]):
-        pulumi.set(self, "techniques", value)
 
     @property
     @pulumi.getter
@@ -262,19 +214,15 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
                  partner_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']]] = None,
-                 planned_deprecation_date: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
-                 publish_dates: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Techniques']]]]] = None,
                  threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
                  user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
                  __props__=None):
         """
-        Security assessment metadata response
-        API Version: 2021-06-01.
+        Security assessment metadata
+        API Version: 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,8 +244,8 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  args: AssessmentMetadataInSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Security assessment metadata response
-        API Version: 2021-06-01.
+        Security assessment metadata
+        API Version: 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param AssessmentMetadataInSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -321,13 +269,9 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
                  partner_data: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPartnerDataArgs']]] = None,
-                 planned_deprecation_date: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
-                 publish_dates: Optional[pulumi.Input[pulumi.InputType['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]] = None,
-                 techniques: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Techniques']]]]] = None,
                  threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
                  user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
                  __props__=None):
@@ -353,15 +297,11 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["implementation_effort"] = implementation_effort
             __props__.__dict__["partner_data"] = partner_data
-            __props__.__dict__["planned_deprecation_date"] = planned_deprecation_date
             __props__.__dict__["preview"] = preview
-            __props__.__dict__["publish_dates"] = publish_dates
             __props__.__dict__["remediation_description"] = remediation_description
             if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__.__dict__["severity"] = severity
-            __props__.__dict__["tactics"] = tactics
-            __props__.__dict__["techniques"] = techniques
             __props__.__dict__["threats"] = threats
             __props__.__dict__["user_impact"] = user_impact
             __props__.__dict__["name"] = None
@@ -398,14 +338,10 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         __props__.__dict__["implementation_effort"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_data"] = None
-        __props__.__dict__["planned_deprecation_date"] = None
         __props__.__dict__["policy_definition_id"] = None
         __props__.__dict__["preview"] = None
-        __props__.__dict__["publish_dates"] = None
         __props__.__dict__["remediation_description"] = None
         __props__.__dict__["severity"] = None
-        __props__.__dict__["tactics"] = None
-        __props__.__dict__["techniques"] = None
         __props__.__dict__["threats"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_impact"] = None
@@ -465,11 +401,6 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         return pulumi.get(self, "partner_data")
 
     @property
-    @pulumi.getter(name="plannedDeprecationDate")
-    def planned_deprecation_date(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "planned_deprecation_date")
-
-    @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> pulumi.Output[str]:
         """
@@ -486,11 +417,6 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         return pulumi.get(self, "preview")
 
     @property
-    @pulumi.getter(name="publishDates")
-    def publish_dates(self) -> pulumi.Output[Optional['outputs.SecurityAssessmentMetadataPropertiesResponseResponsePublishDates']]:
-        return pulumi.get(self, "publish_dates")
-
-    @property
     @pulumi.getter(name="remediationDescription")
     def remediation_description(self) -> pulumi.Output[Optional[str]]:
         """
@@ -505,16 +431,6 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         The severity level of the assessment
         """
         return pulumi.get(self, "severity")
-
-    @property
-    @pulumi.getter
-    def tactics(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "tactics")
-
-    @property
-    @pulumi.getter
-    def techniques(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "techniques")
 
     @property
     @pulumi.getter
