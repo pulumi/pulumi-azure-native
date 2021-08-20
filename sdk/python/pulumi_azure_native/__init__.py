@@ -3330,6 +3330,36 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20210701",
+  "fqn": "pulumi_azure_native.compute.v20210701",
+  "classes": {
+   "azure-native:compute/v20210701:AvailabilitySet": "AvailabilitySet",
+   "azure-native:compute/v20210701:CapacityReservation": "CapacityReservation",
+   "azure-native:compute/v20210701:CapacityReservationGroup": "CapacityReservationGroup",
+   "azure-native:compute/v20210701:DedicatedHost": "DedicatedHost",
+   "azure-native:compute/v20210701:DedicatedHostGroup": "DedicatedHostGroup",
+   "azure-native:compute/v20210701:Gallery": "Gallery",
+   "azure-native:compute/v20210701:GalleryApplication": "GalleryApplication",
+   "azure-native:compute/v20210701:GalleryApplicationVersion": "GalleryApplicationVersion",
+   "azure-native:compute/v20210701:GalleryImage": "GalleryImage",
+   "azure-native:compute/v20210701:GalleryImageVersion": "GalleryImageVersion",
+   "azure-native:compute/v20210701:Image": "Image",
+   "azure-native:compute/v20210701:ProximityPlacementGroup": "ProximityPlacementGroup",
+   "azure-native:compute/v20210701:RestorePoint": "RestorePoint",
+   "azure-native:compute/v20210701:RestorePointCollection": "RestorePointCollection",
+   "azure-native:compute/v20210701:SshPublicKey": "SshPublicKey",
+   "azure-native:compute/v20210701:VirtualMachine": "VirtualMachine",
+   "azure-native:compute/v20210701:VirtualMachineExtension": "VirtualMachineExtension",
+   "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine": "VirtualMachineRunCommandByVirtualMachine",
+   "azure-native:compute/v20210701:VirtualMachineScaleSet": "VirtualMachineScaleSet",
+   "azure-native:compute/v20210701:VirtualMachineScaleSetExtension": "VirtualMachineScaleSetExtension",
+   "azure-native:compute/v20210701:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
+   "azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
+   "azure-native:compute/v20210701:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger",
   "fqn": "pulumi_azure_native.confidentialledger",
   "classes": {

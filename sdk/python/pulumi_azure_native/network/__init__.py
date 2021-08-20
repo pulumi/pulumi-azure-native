@@ -156,7 +156,6 @@ from .list_active_connectivity_configuration import *
 from .list_active_security_admin_rule import *
 from .list_active_security_user_rule import *
 from .list_effective_connectivity_configuration import *
-from .list_effective_security_user_rule_by_subnet import *
 from .list_effective_virtual_network_by_network_group import *
 from .list_effective_virtual_network_by_network_manager import *
 from .list_network_manager_deployment_status import *

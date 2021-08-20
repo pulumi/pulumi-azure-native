@@ -160,6 +160,8 @@ namespace Pulumi.AzureNative.Compute
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20191201:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryImage"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImage"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210701:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

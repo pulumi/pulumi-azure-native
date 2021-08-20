@@ -131,6 +131,8 @@ namespace Pulumi.AzureNative.Compute.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:AvailabilitySet"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20210401:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210701:AvailabilitySet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210701:AvailabilitySet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

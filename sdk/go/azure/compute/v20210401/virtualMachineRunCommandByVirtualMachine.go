@@ -91,6 +91,12 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachineRunCommandByVirtualMachine"),
 		},
+		{
+			Type: pulumi.String("azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:compute/v20210701:VirtualMachineRunCommandByVirtualMachine"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualMachineRunCommandByVirtualMachine

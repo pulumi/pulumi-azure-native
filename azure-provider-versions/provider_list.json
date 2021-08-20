@@ -14936,7 +14936,8 @@
           "Canada Central",
           "Australia Southeast",
           "Central India",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts"
@@ -14995,7 +14996,8 @@
           "Canada Central",
           "Australia Southeast",
           "Central India",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/runbooks"
@@ -15054,7 +15056,8 @@
           "Canada Central",
           "North Europe",
           "East Asia",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/configurations"
@@ -15111,7 +15114,8 @@
           "Australia Southeast",
           "Central India",
           "Australia East",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/webhooks"
@@ -15189,7 +15193,8 @@
           "Canada Central",
           "Australia Southeast",
           "Central India",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/softwareUpdateConfigurations"
@@ -15248,7 +15253,8 @@
           "Canada Central",
           "Australia Southeast",
           "Central India",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/jobs"
@@ -15301,7 +15307,8 @@
           "Canada Central",
           "Australia Southeast",
           "Central India",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/privateLinkResources"
@@ -15354,7 +15361,8 @@
           "Canada Central",
           "Australia Southeast",
           "Central India",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/privateEndpointConnections"
@@ -15407,7 +15415,8 @@
           "Canada Central",
           "Australia Southeast",
           "Central India",
-          "France Central"
+          "France Central",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/privateEndpointConnectionProxies"
@@ -15467,7 +15476,8 @@
           "Central India",
           "France Central",
           "Sweden Central",
-          "Korea South"
+          "Korea South",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/hybridRunbookWorkerGroups"
@@ -15520,7 +15530,8 @@
           "Central India",
           "France Central",
           "Sweden Central",
-          "Korea South"
+          "Korea South",
+          "Canada East"
         ],
         "properties": null,
         "resourceType": "automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers"
@@ -43033,7 +43044,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers"
@@ -43131,6 +43143,7 @@
           "Australia Southeast",
           "Brazil South",
           "Canada Central",
+          "Central India",
           "Central US",
           "East Asia",
           "East US",
@@ -43140,6 +43153,7 @@
           "Korea Central",
           "Korea South",
           "Japan East",
+          "Japan West",
           "North Europe",
           "Norway East",
           "South Africa North",
@@ -43154,149 +43168,7 @@
           "West Europe"
         ],
         "properties": null,
-        "resourceType": "flexibleServers",
-        "zoneMappings": [
-          {
-            "location": "East US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "France Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Southeast Asia",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "West US 2",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "North Europe",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "East US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "UK South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Japan East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Australia East",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "South Africa North",
-            "zones": []
-          },
-          {
-            "location": "South Central US",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Canada Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Germany West Central",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Brazil South",
-            "zones": [
-              "2",
-              "3",
-              "1"
-            ]
-          },
-          {
-            "location": "Korea Central",
-            "zones": []
-          },
-          {
-            "location": "Norway East",
-            "zones": []
-          },
-          {
-            "location": "East Asia",
-            "zones": []
-          },
-          {
-            "location": "Switzerland North",
-            "zones": []
-          }
-        ]
+        "resourceType": "flexibleServers"
       },
       {
         "aliases": null,
@@ -43340,7 +43212,8 @@
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/capabilities"
@@ -43387,7 +43260,8 @@
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability"
@@ -43438,7 +43312,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/recoverableServers"
@@ -43489,7 +43364,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/virtualNetworkRules"
@@ -43540,7 +43416,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -43582,7 +43459,8 @@
           "UK South",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "getPrivateDnsZoneSuffix"
@@ -43633,7 +43511,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -43684,7 +43563,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -43735,7 +43615,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/azureAsyncOperation"
@@ -43786,7 +43667,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/administratorOperationResults"
@@ -43837,7 +43719,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/administratorAzureAsyncOperation"
@@ -43884,7 +43767,8 @@
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/checkVirtualNetworkSubnetUsage"
@@ -43936,7 +43820,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionProxyOperationResults"
@@ -43988,7 +43873,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionProxyAzureAsyncOperation"
@@ -44040,7 +43926,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionOperationResults"
@@ -44092,7 +43979,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionAzureAsyncOperation"
@@ -44143,7 +44031,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/performanceTiers"
@@ -44193,7 +44082,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/securityAlertPoliciesAzureAsyncOperation"
@@ -44243,7 +44133,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/securityAlertPoliciesOperationResults"
@@ -44295,7 +44186,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/recommendedActionSessionsAzureAsyncOperation"
@@ -44347,7 +44239,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/recommendedActionSessionsOperationResults"
@@ -44399,7 +44292,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/topQueryStatistics"
@@ -44451,7 +44345,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/queryTexts"
@@ -44503,7 +44398,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/waitStatistics"
@@ -44555,7 +44451,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/resetQueryPerformanceInsightData"
@@ -44607,7 +44504,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/advisors"
@@ -44659,7 +44557,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/privateLinkResources"
@@ -44711,7 +44610,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/privateEndpointConnections"
@@ -44763,7 +44663,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/privateEndpointConnectionProxies"
@@ -44815,7 +44716,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/keys"
@@ -44867,7 +44769,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/serverKeyAzureAsyncOperation"
@@ -44919,7 +44822,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/serverKeyOperationResults"

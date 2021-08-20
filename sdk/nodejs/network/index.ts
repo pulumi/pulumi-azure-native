@@ -155,7 +155,6 @@ export * from "./listActiveConnectivityConfiguration";
 export * from "./listActiveSecurityAdminRule";
 export * from "./listActiveSecurityUserRule";
 export * from "./listEffectiveConnectivityConfiguration";
-export * from "./listEffectiveSecurityUserRuleBySubnet";
 export * from "./listEffectiveVirtualNetworkByNetworkGroup";
 export * from "./listEffectiveVirtualNetworkByNetworkManager";
 export * from "./listNetworkManagerDeploymentStatus";
