@@ -29,6 +29,11 @@ CHANGELOG
 - The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
 - Support inputty Go enums
 
+#### Breaking Changes published by Microsoft:
+
+- `network.listEffectiveSecurityUserRuleBySubnet` was removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15668))
+
 ---
 
 ## 1.22.0 (2021-08-17)
