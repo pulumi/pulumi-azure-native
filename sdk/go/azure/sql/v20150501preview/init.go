@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:sql/v20150501preview:DatabaseAdvisor":
+		r = &DatabaseAdvisor{}
 	case "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy":
 		r = &DatabaseBlobAuditingPolicy{}
 	case "azure-native:sql/v20150501preview:FailoverGroup":
@@ -31,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedInstance{}
 	case "azure-native:sql/v20150501preview:Server":
 		r = &Server{}
+	case "azure-native:sql/v20150501preview:ServerAdvisor":
+		r = &ServerAdvisor{}
 	case "azure-native:sql/v20150501preview:ServerKey":
 		r = &ServerKey{}
 	case "azure-native:sql/v20150501preview:SyncAgent":

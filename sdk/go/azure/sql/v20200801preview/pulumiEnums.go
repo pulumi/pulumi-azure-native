@@ -174,6 +174,172 @@ func (in *administratorTypePtr) ToAdministratorTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AdministratorTypePtrOutput)
 }
 
+// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+type AutoExecuteStatus string
+
+const (
+	AutoExecuteStatusEnabled  = AutoExecuteStatus("Enabled")
+	AutoExecuteStatusDisabled = AutoExecuteStatus("Disabled")
+	AutoExecuteStatusDefault  = AutoExecuteStatus("Default")
+)
+
+func (AutoExecuteStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoExecuteStatus)(nil)).Elem()
+}
+
+func (e AutoExecuteStatus) ToAutoExecuteStatusOutput() AutoExecuteStatusOutput {
+	return pulumi.ToOutput(e).(AutoExecuteStatusOutput)
+}
+
+func (e AutoExecuteStatus) ToAutoExecuteStatusOutputWithContext(ctx context.Context) AutoExecuteStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutoExecuteStatusOutput)
+}
+
+func (e AutoExecuteStatus) ToAutoExecuteStatusPtrOutput() AutoExecuteStatusPtrOutput {
+	return e.ToAutoExecuteStatusPtrOutputWithContext(context.Background())
+}
+
+func (e AutoExecuteStatus) ToAutoExecuteStatusPtrOutputWithContext(ctx context.Context) AutoExecuteStatusPtrOutput {
+	return AutoExecuteStatus(e).ToAutoExecuteStatusOutputWithContext(ctx).ToAutoExecuteStatusPtrOutputWithContext(ctx)
+}
+
+func (e AutoExecuteStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutoExecuteStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutoExecuteStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutoExecuteStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutoExecuteStatusOutput struct{ *pulumi.OutputState }
+
+func (AutoExecuteStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoExecuteStatus)(nil)).Elem()
+}
+
+func (o AutoExecuteStatusOutput) ToAutoExecuteStatusOutput() AutoExecuteStatusOutput {
+	return o
+}
+
+func (o AutoExecuteStatusOutput) ToAutoExecuteStatusOutputWithContext(ctx context.Context) AutoExecuteStatusOutput {
+	return o
+}
+
+func (o AutoExecuteStatusOutput) ToAutoExecuteStatusPtrOutput() AutoExecuteStatusPtrOutput {
+	return o.ToAutoExecuteStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AutoExecuteStatusOutput) ToAutoExecuteStatusPtrOutputWithContext(ctx context.Context) AutoExecuteStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoExecuteStatus) *AutoExecuteStatus {
+		return &v
+	}).(AutoExecuteStatusPtrOutput)
+}
+
+func (o AutoExecuteStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutoExecuteStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutoExecuteStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoExecuteStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutoExecuteStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutoExecuteStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutoExecuteStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoExecuteStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoExecuteStatus)(nil)).Elem()
+}
+
+func (o AutoExecuteStatusPtrOutput) ToAutoExecuteStatusPtrOutput() AutoExecuteStatusPtrOutput {
+	return o
+}
+
+func (o AutoExecuteStatusPtrOutput) ToAutoExecuteStatusPtrOutputWithContext(ctx context.Context) AutoExecuteStatusPtrOutput {
+	return o
+}
+
+func (o AutoExecuteStatusPtrOutput) Elem() AutoExecuteStatusOutput {
+	return o.ApplyT(func(v *AutoExecuteStatus) AutoExecuteStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AutoExecuteStatus
+		return ret
+	}).(AutoExecuteStatusOutput)
+}
+
+func (o AutoExecuteStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutoExecuteStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutoExecuteStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutoExecuteStatusInput is an input type that accepts AutoExecuteStatusArgs and AutoExecuteStatusOutput values.
+// You can construct a concrete instance of `AutoExecuteStatusInput` via:
+//
+//          AutoExecuteStatusArgs{...}
+type AutoExecuteStatusInput interface {
+	pulumi.Input
+
+	ToAutoExecuteStatusOutput() AutoExecuteStatusOutput
+	ToAutoExecuteStatusOutputWithContext(context.Context) AutoExecuteStatusOutput
+}
+
+var autoExecuteStatusPtrType = reflect.TypeOf((**AutoExecuteStatus)(nil)).Elem()
+
+type AutoExecuteStatusPtrInput interface {
+	pulumi.Input
+
+	ToAutoExecuteStatusPtrOutput() AutoExecuteStatusPtrOutput
+	ToAutoExecuteStatusPtrOutputWithContext(context.Context) AutoExecuteStatusPtrOutput
+}
+
+type autoExecuteStatusPtr string
+
+func AutoExecuteStatusPtr(v string) AutoExecuteStatusPtrInput {
+	return (*autoExecuteStatusPtr)(&v)
+}
+
+func (*autoExecuteStatusPtr) ElementType() reflect.Type {
+	return autoExecuteStatusPtrType
+}
+
+func (in *autoExecuteStatusPtr) ToAutoExecuteStatusPtrOutput() AutoExecuteStatusPtrOutput {
+	return pulumi.ToOutput(in).(AutoExecuteStatusPtrOutput)
+}
+
+func (in *autoExecuteStatusPtr) ToAutoExecuteStatusPtrOutputWithContext(ctx context.Context) AutoExecuteStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutoExecuteStatusPtrOutput)
+}
+
 // Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
 type BlobAuditingPolicyState string
 
@@ -5662,6 +5828,8 @@ func (in *transparentDataEncryptionStateEnumPtr) ToTransparentDataEncryptionStat
 func init() {
 	pulumi.RegisterOutputType(AdministratorTypeOutput{})
 	pulumi.RegisterOutputType(AdministratorTypePtrOutput{})
+	pulumi.RegisterOutputType(AutoExecuteStatusOutput{})
+	pulumi.RegisterOutputType(AutoExecuteStatusPtrOutput{})
 	pulumi.RegisterOutputType(BlobAuditingPolicyStateOutput{})
 	pulumi.RegisterOutputType(BlobAuditingPolicyStatePtrOutput{})
 	pulumi.RegisterOutputType(CatalogCollationTypeOutput{})
