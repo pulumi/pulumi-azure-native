@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./dataMaskingPolicy";
 export * from "./database";
+export * from "./databaseAdvisor";
 export * from "./databaseThreatDetectionPolicy";
 export * from "./disasterRecoveryConfiguration";
 export * from "./elasticPool";
@@ -14,16 +15,19 @@ export * from "./firewallRule";
 export * from "./geoBackupPolicy";
 export * from "./getDataMaskingPolicy";
 export * from "./getDatabase";
+export * from "./getDatabaseAdvisor";
 export * from "./getDatabaseThreatDetectionPolicy";
 export * from "./getDisasterRecoveryConfiguration";
 export * from "./getElasticPool";
 export * from "./getFirewallRule";
 export * from "./getGeoBackupPolicy";
 export * from "./getServer";
+export * from "./getServerAdvisor";
 export * from "./getServerAzureADAdministrator";
 export * from "./getServerCommunicationLink";
 export * from "./getTransparentDataEncryption";
 export * from "./server";
+export * from "./serverAdvisor";
 export * from "./serverAzureADAdministrator";
 export * from "./serverCommunicationLink";
 export * from "./transparentDataEncryption";
@@ -34,12 +38,14 @@ export * from "../../types/enums/sql/v20140401";
 // Import resources to register:
 import { DataMaskingPolicy } from "./dataMaskingPolicy";
 import { Database } from "./database";
+import { DatabaseAdvisor } from "./databaseAdvisor";
 import { DatabaseThreatDetectionPolicy } from "./databaseThreatDetectionPolicy";
 import { DisasterRecoveryConfiguration } from "./disasterRecoveryConfiguration";
 import { ElasticPool } from "./elasticPool";
 import { FirewallRule } from "./firewallRule";
 import { GeoBackupPolicy } from "./geoBackupPolicy";
 import { Server } from "./server";
+import { ServerAdvisor } from "./serverAdvisor";
 import { ServerAzureADAdministrator } from "./serverAzureADAdministrator";
 import { ServerCommunicationLink } from "./serverCommunicationLink";
 import { TransparentDataEncryption } from "./transparentDataEncryption";
@@ -52,6 +58,8 @@ const _module = {
                 return new DataMaskingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:sql/v20140401:DatabaseAdvisor":
+                return new DatabaseAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy":
                 return new DatabaseThreatDetectionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:DisasterRecoveryConfiguration":
@@ -64,6 +72,8 @@ const _module = {
                 return new GeoBackupPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:Server":
                 return new Server(name, <any>undefined, { urn })
+            case "azure-native:sql/v20140401:ServerAdvisor":
+                return new ServerAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:ServerAzureADAdministrator":
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:ServerCommunicationLink":
