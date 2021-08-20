@@ -201,7 +201,7 @@ class GetVolumeResult:
     @pulumi.getter(name="defaultGroupQuotaInKiBs")
     def default_group_quota_in_ki_bs(self) -> Optional[float]:
         """
-        Default group quota for volume in KiBs.  Minimum 4 KiBs.
+        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         """
         return pulumi.get(self, "default_group_quota_in_ki_bs")
 
@@ -209,7 +209,7 @@ class GetVolumeResult:
     @pulumi.getter(name="defaultUserQuotaInKiBs")
     def default_user_quota_in_ki_bs(self) -> Optional[float]:
         """
-        Default user quota for volume in KiBs. Minimum 4 KiBs.
+        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         """
         return pulumi.get(self, "default_user_quota_in_ki_bs")
 

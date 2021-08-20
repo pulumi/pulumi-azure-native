@@ -68,11 +68,11 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly dataProtection!: pulumi.Output<outputs.netapp.v20210601.VolumePropertiesResponseDataProtection | undefined>;
     /**
-     * Default group quota for volume in KiBs.  Minimum 4 KiBs.
+     * Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
      */
     public readonly defaultGroupQuotaInKiBs!: pulumi.Output<number | undefined>;
     /**
-     * Default user quota for volume in KiBs. Minimum 4 KiBs.
+     * Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
      */
     public readonly defaultUserQuotaInKiBs!: pulumi.Output<number | undefined>;
     /**
@@ -213,8 +213,8 @@ export class Volume extends pulumi.CustomResource {
             inputs["coolnessPeriod"] = args ? args.coolnessPeriod : undefined;
             inputs["creationToken"] = args ? args.creationToken : undefined;
             inputs["dataProtection"] = args ? args.dataProtection : undefined;
-            inputs["defaultGroupQuotaInKiBs"] = (args ? args.defaultGroupQuotaInKiBs : undefined) ?? 4;
-            inputs["defaultUserQuotaInKiBs"] = (args ? args.defaultUserQuotaInKiBs : undefined) ?? 4;
+            inputs["defaultGroupQuotaInKiBs"] = (args ? args.defaultGroupQuotaInKiBs : undefined) ?? 0;
+            inputs["defaultUserQuotaInKiBs"] = (args ? args.defaultUserQuotaInKiBs : undefined) ?? 0;
             inputs["encryptionKeySource"] = args ? args.encryptionKeySource : undefined;
             inputs["exportPolicy"] = args ? args.exportPolicy : undefined;
             inputs["isDefaultQuotaEnabled"] = (args ? args.isDefaultQuotaEnabled : undefined) ?? false;
@@ -326,11 +326,11 @@ export interface VolumeArgs {
      */
     dataProtection?: pulumi.Input<inputs.netapp.v20210601.VolumePropertiesDataProtectionArgs>;
     /**
-     * Default group quota for volume in KiBs.  Minimum 4 KiBs.
+     * Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
      */
     defaultGroupQuotaInKiBs?: pulumi.Input<number>;
     /**
-     * Default user quota for volume in KiBs. Minimum 4 KiBs.
+     * Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
      */
     defaultUserQuotaInKiBs?: pulumi.Input<number>;
     /**

@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Output<Outputs.VolumePropertiesResponseDataProtection?> DataProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Default group quota for volume in KiBs.  Minimum 4 KiBs.
+        /// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         /// </summary>
         [Output("defaultGroupQuotaInKiBs")]
         public Output<double?> DefaultGroupQuotaInKiBs { get; private set; } = null!;
 
         /// <summary>
-        /// Default user quota for volume in KiBs. Minimum 4 KiBs.
+        /// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         /// </summary>
         [Output("defaultUserQuotaInKiBs")]
         public Output<double?> DefaultUserQuotaInKiBs { get; private set; } = null!;
@@ -360,13 +360,13 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         public Input<Inputs.VolumePropertiesDataProtectionArgs>? DataProtection { get; set; }
 
         /// <summary>
-        /// Default group quota for volume in KiBs.  Minimum 4 KiBs.
+        /// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         /// </summary>
         [Input("defaultGroupQuotaInKiBs")]
         public Input<double>? DefaultGroupQuotaInKiBs { get; set; }
 
         /// <summary>
-        /// Default user quota for volume in KiBs. Minimum 4 KiBs.
+        /// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         /// </summary>
         [Input("defaultUserQuotaInKiBs")]
         public Input<double>? DefaultUserQuotaInKiBs { get; set; }
@@ -522,8 +522,8 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         {
             AvsDataStore = "Disabled";
             CoolAccess = false;
-            DefaultGroupQuotaInKiBs = 4;
-            DefaultUserQuotaInKiBs = 4;
+            DefaultGroupQuotaInKiBs = 0;
+            DefaultUserQuotaInKiBs = 0;
             IsDefaultQuotaEnabled = false;
             KerberosEnabled = false;
             LdapEnabled = false;

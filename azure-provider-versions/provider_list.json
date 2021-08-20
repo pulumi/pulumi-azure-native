@@ -61182,6 +61182,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-03-01-preview",
           "2020-01-01",
           "2019-01-01-preview"

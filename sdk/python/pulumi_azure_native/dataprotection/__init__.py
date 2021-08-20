@@ -12,6 +12,8 @@ from .backup_vault import *
 from .get_backup_instance import *
 from .get_backup_policy import *
 from .get_backup_vault import *
+from .get_resource_guard import *
+from .resource_guard import *
 from ._inputs import *
 from . import outputs
 
@@ -23,8 +25,11 @@ if typing.TYPE_CHECKING:
     v20210201preview = __v20210201preview
     import pulumi_azure_native.dataprotection.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
+    import pulumi_azure_native.dataprotection.v20210701 as __v20210701
+    v20210701 = __v20210701
 else:
     v20210101 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210101')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210201preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210601preview')
+    v20210701 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210701')
 

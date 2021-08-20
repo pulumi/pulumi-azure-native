@@ -11,6 +11,8 @@ export * from "./backupVault";
 export * from "./getBackupInstance";
 export * from "./getBackupPolicy";
 export * from "./getBackupVault";
+export * from "./getResourceGuard";
+export * from "./resourceGuard";
 
 // Export enums:
 export * from "../types/enums/dataprotection";
@@ -19,17 +21,20 @@ export * from "../types/enums/dataprotection";
 import * as v20210101 from "./v20210101";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20210701 from "./v20210701";
 
 export {
     v20210101,
     v20210201preview,
     v20210601preview,
+    v20210701,
 };
 
 // Import resources to register:
 import { BackupInstance } from "./backupInstance";
 import { BackupPolicy } from "./backupPolicy";
 import { BackupVault } from "./backupVault";
+import { ResourceGuard } from "./resourceGuard";
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,6 +46,8 @@ const _module = {
                 return new BackupPolicy(name, <any>undefined, { urn })
             case "azure-native:dataprotection:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
+            case "azure-native:dataprotection:ResourceGuard":
+                return new ResourceGuard(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

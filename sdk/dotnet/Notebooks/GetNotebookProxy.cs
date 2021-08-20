@@ -60,6 +60,10 @@ namespace Pulumi.AzureNative.Notebooks
         /// </summary>
         public readonly string? PublicDns;
         /// <summary>
+        /// Allow public network access on a V-Net locked notebook resource
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// The region of the NotebookProxy resource.
         /// </summary>
         public readonly string? Region;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNative.Notebooks
 
             string? publicDns,
 
+            string? publicNetworkAccess,
+
             string? region,
 
             string resourceId,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNative.Notebooks
             Id = id;
             Name = name;
             PublicDns = publicDns;
+            PublicNetworkAccess = publicNetworkAccess;
             Region = region;
             ResourceId = resourceId;
             SecondaryAppId = secondaryAppId;

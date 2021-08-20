@@ -76,6 +76,12 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:security/v20200101:AssessmentMetadataInSubscription"),
 		},
+		{
+			Type: pulumi.String("azure-native:security/v20210601:AssessmentMetadataInSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:security/v20210601:AssessmentMetadataInSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AssessmentMetadataInSubscription

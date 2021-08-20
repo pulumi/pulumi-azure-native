@@ -34,6 +34,8 @@ __all__ = [
     'PolicyInfoResponse',
     'PolicyParametersResponse',
     'ProtectionStatusDetailsResponse',
+    'ResourceGuardOperationResponse',
+    'ResourceGuardResponse',
     'RetentionTagResponse',
     'ScheduleBasedBackupCriteriaResponse',
     'ScheduleBasedTriggerContextResponse',
@@ -1526,6 +1528,143 @@ class ProtectionStatusDetailsResponse(dict):
         Specifies the protection status of the resource
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ResourceGuardOperationResponse(dict):
+    """
+    This class contains all the details about a critical operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestResourceType":
+            suggest = "request_resource_type"
+        elif key == "vaultCriticalOperation":
+            suggest = "vault_critical_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGuardOperationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGuardOperationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGuardOperationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_resource_type: str,
+                 vault_critical_operation: str):
+        """
+        This class contains all the details about a critical operation.
+        :param str request_resource_type: Type of resource request.
+        :param str vault_critical_operation: Name of the critical operation.
+        """
+        pulumi.set(__self__, "request_resource_type", request_resource_type)
+        pulumi.set(__self__, "vault_critical_operation", vault_critical_operation)
+
+    @property
+    @pulumi.getter(name="requestResourceType")
+    def request_resource_type(self) -> str:
+        """
+        Type of resource request.
+        """
+        return pulumi.get(self, "request_resource_type")
+
+    @property
+    @pulumi.getter(name="vaultCriticalOperation")
+    def vault_critical_operation(self) -> str:
+        """
+        Name of the critical operation.
+        """
+        return pulumi.get(self, "vault_critical_operation")
+
+
+@pulumi.output_type
+class ResourceGuardResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowAutoApprovals":
+            suggest = "allow_auto_approvals"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuardOperations":
+            suggest = "resource_guard_operations"
+        elif key == "vaultCriticalOperationExclusionList":
+            suggest = "vault_critical_operation_exclusion_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGuardResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGuardResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGuardResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_auto_approvals: bool,
+                 description: str,
+                 provisioning_state: str,
+                 resource_guard_operations: Sequence['outputs.ResourceGuardOperationResponse'],
+                 vault_critical_operation_exclusion_list: Sequence[str]):
+        """
+        :param bool allow_auto_approvals: This flag indicates whether auto approval is allowed or not.
+        :param str description: Description about the pre-req steps to perform all the critical operations.
+        :param str provisioning_state: Provisioning state of the BackupVault resource
+        :param Sequence['ResourceGuardOperationResponse'] resource_guard_operations: {readonly} List of operation details those are protected by the ResourceGuard resource
+        :param Sequence[str] vault_critical_operation_exclusion_list: List of critical operations which are not protected by this resourceGuard
+        """
+        pulumi.set(__self__, "allow_auto_approvals", allow_auto_approvals)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guard_operations", resource_guard_operations)
+        pulumi.set(__self__, "vault_critical_operation_exclusion_list", vault_critical_operation_exclusion_list)
+
+    @property
+    @pulumi.getter(name="allowAutoApprovals")
+    def allow_auto_approvals(self) -> bool:
+        """
+        This flag indicates whether auto approval is allowed or not.
+        """
+        return pulumi.get(self, "allow_auto_approvals")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description about the pre-req steps to perform all the critical operations.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the BackupVault resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuardOperations")
+    def resource_guard_operations(self) -> Sequence['outputs.ResourceGuardOperationResponse']:
+        """
+        {readonly} List of operation details those are protected by the ResourceGuard resource
+        """
+        return pulumi.get(self, "resource_guard_operations")
+
+    @property
+    @pulumi.getter(name="vaultCriticalOperationExclusionList")
+    def vault_critical_operation_exclusion_list(self) -> Sequence[str]:
+        """
+        List of critical operations which are not protected by this resourceGuard
+        """
+        return pulumi.get(self, "vault_critical_operation_exclusion_list")
 
 
 @pulumi.output_type

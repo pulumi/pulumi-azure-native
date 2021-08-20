@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.Security
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:Assessment"},
                     new Pulumi.Alias { Type = "azure-native:security/v20200101:Assessment"},
                     new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:Assessment"},
+                    new Pulumi.Alias { Type = "azure-native:security/v20210601:Assessment"},
+                    new Pulumi.Alias { Type = "azure-nextgen:security/v20210601:Assessment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

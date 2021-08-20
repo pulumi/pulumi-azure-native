@@ -4786,7 +4786,8 @@ _utilities.register(
   "classes": {
    "azure-native:dataprotection:BackupInstance": "BackupInstance",
    "azure-native:dataprotection:BackupPolicy": "BackupPolicy",
-   "azure-native:dataprotection:BackupVault": "BackupVault"
+   "azure-native:dataprotection:BackupVault": "BackupVault",
+   "azure-native:dataprotection:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -4817,6 +4818,17 @@ _utilities.register(
    "azure-native:dataprotection/v20210601preview:BackupInstance": "BackupInstance",
    "azure-native:dataprotection/v20210601preview:BackupPolicy": "BackupPolicy",
    "azure-native:dataprotection/v20210601preview:BackupVault": "BackupVault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dataprotection/v20210701",
+  "fqn": "pulumi_azure_native.dataprotection.v20210701",
+  "classes": {
+   "azure-native:dataprotection/v20210701:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20210701:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20210701:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20210701:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -12606,6 +12618,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20210701",
+  "fqn": "pulumi_azure_native.recoveryservices.v20210701",
+  "classes": {
+   "azure-native:recoveryservices/v20210701:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20210701:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20210701:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20210701:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20210701:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20210701:ResourceGuardProxy": "ResourceGuardProxy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {
@@ -13191,6 +13216,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20210115preview",
   "classes": {
    "azure-native:security/v20210115preview:IngestionSetting": "IngestionSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20210601",
+  "fqn": "pulumi_azure_native.security.v20210601",
+  "classes": {
+   "azure-native:security/v20210601:Assessment": "Assessment",
+   "azure-native:security/v20210601:AssessmentMetadataInSubscription": "AssessmentMetadataInSubscription"
   }
  },
  {

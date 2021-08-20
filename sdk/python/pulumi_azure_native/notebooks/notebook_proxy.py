@@ -18,6 +18,7 @@ class NotebookProxyArgs:
                  resource_group_name: pulumi.Input[str],
                  hostname: Optional[pulumi.Input[str]] = None,
                  public_dns: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  secondary_app_id: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class NotebookProxyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] hostname: The friendly string identifier of the creator of the NotebookProxy resource.
         :param pulumi.Input[str] public_dns: The public DNS name
+        :param pulumi.Input[str] public_network_access: Allow public network access on a V-Net locked notebook resource
         :param pulumi.Input[str] region: The region of the NotebookProxy resource.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] secondary_app_id: The alternate application ID used for auth token request in the data plane
@@ -37,6 +39,8 @@ class NotebookProxyArgs:
             pulumi.set(__self__, "hostname", hostname)
         if public_dns is not None:
             pulumi.set(__self__, "public_dns", public_dns)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if resource_name is not None:
@@ -81,6 +85,18 @@ class NotebookProxyArgs:
     @public_dns.setter
     def public_dns(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_dns", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Allow public network access on a V-Net locked notebook resource
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter
@@ -138,6 +154,7 @@ class NotebookProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  public_dns: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -152,6 +169,7 @@ class NotebookProxy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hostname: The friendly string identifier of the creator of the NotebookProxy resource.
         :param pulumi.Input[str] public_dns: The public DNS name
+        :param pulumi.Input[str] public_network_access: Allow public network access on a V-Net locked notebook resource
         :param pulumi.Input[str] region: The region of the NotebookProxy resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource.
@@ -185,6 +203,7 @@ class NotebookProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  public_dns: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -204,6 +223,7 @@ class NotebookProxy(pulumi.CustomResource):
 
             __props__.__dict__["hostname"] = hostname
             __props__.__dict__["public_dns"] = public_dns
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["region"] = region
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -241,6 +261,7 @@ class NotebookProxy(pulumi.CustomResource):
         __props__.__dict__["hostname"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["public_dns"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["region"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["secondary_app_id"] = None
@@ -271,6 +292,14 @@ class NotebookProxy(pulumi.CustomResource):
         The public DNS name
         """
         return pulumi.get(self, "public_dns")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Allow public network access on a V-Net locked notebook resource
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter

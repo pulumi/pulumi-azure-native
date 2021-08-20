@@ -54,6 +54,10 @@ export interface GetNotebookProxyResult {
      */
     readonly publicDns?: string;
     /**
+     * Allow public network access on a V-Net locked notebook resource
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * The region of the NotebookProxy resource.
      */
     readonly region?: string;

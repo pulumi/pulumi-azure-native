@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupPolicy{}
 	case "azure-native:dataprotection:BackupVault":
 		r = &BackupVault{}
+	case "azure-native:dataprotection:ResourceGuard":
+		r = &ResourceGuard{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

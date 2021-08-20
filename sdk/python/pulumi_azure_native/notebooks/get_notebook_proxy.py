@@ -20,7 +20,7 @@ class GetNotebookProxyResult:
     """
     A NotebookProxy resource.
     """
-    def __init__(__self__, hostname=None, id=None, name=None, public_dns=None, region=None, resource_id=None, secondary_app_id=None, system_data=None, type=None):
+    def __init__(__self__, hostname=None, id=None, name=None, public_dns=None, public_network_access=None, region=None, resource_id=None, secondary_app_id=None, system_data=None, type=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
@@ -33,6 +33,9 @@ class GetNotebookProxyResult:
         if public_dns and not isinstance(public_dns, str):
             raise TypeError("Expected argument 'public_dns' to be a str")
         pulumi.set(__self__, "public_dns", public_dns)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -80,6 +83,14 @@ class GetNotebookProxyResult:
         The public DNS name
         """
         return pulumi.get(self, "public_dns")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Allow public network access on a V-Net locked notebook resource
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -132,6 +143,7 @@ class AwaitableGetNotebookProxyResult(GetNotebookProxyResult):
             id=self.id,
             name=self.name,
             public_dns=self.public_dns,
+            public_network_access=self.public_network_access,
             region=self.region,
             resource_id=self.resource_id,
             secondary_app_id=self.secondary_app_id,
@@ -164,6 +176,7 @@ def get_notebook_proxy(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         public_dns=__ret__.public_dns,
+        public_network_access=__ret__.public_network_access,
         region=__ret__.region,
         resource_id=__ret__.resource_id,
         secondary_app_id=__ret__.secondary_app_id,

@@ -48,6 +48,10 @@ export class NotebookProxy extends pulumi.CustomResource {
      */
     public readonly publicDns!: pulumi.Output<string | undefined>;
     /**
+     * Allow public network access on a V-Net locked notebook resource
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The region of the NotebookProxy resource.
      */
     public readonly region!: pulumi.Output<string | undefined>;
@@ -84,6 +88,7 @@ export class NotebookProxy extends pulumi.CustomResource {
             }
             inputs["hostname"] = args ? args.hostname : undefined;
             inputs["publicDns"] = args ? args.publicDns : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["region"] = args ? args.region : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
@@ -96,6 +101,7 @@ export class NotebookProxy extends pulumi.CustomResource {
             inputs["hostname"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["publicDns"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["region"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
             inputs["secondaryAppId"] = undefined /*out*/;
@@ -123,6 +129,10 @@ export interface NotebookProxyArgs {
      * The public DNS name
      */
     publicDns?: pulumi.Input<string>;
+    /**
+     * Allow public network access on a V-Net locked notebook resource
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The region of the NotebookProxy resource.
      */

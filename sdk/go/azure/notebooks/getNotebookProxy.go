@@ -35,6 +35,8 @@ type LookupNotebookProxyResult struct {
 	Name string `pulumi:"name"`
 	// The public DNS name
 	PublicDns *string `pulumi:"publicDns"`
+	// Allow public network access on a V-Net locked notebook resource
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The region of the NotebookProxy resource.
 	Region *string `pulumi:"region"`
 	// The unique identifier (a GUID) generated for every resource.

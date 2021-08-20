@@ -31,9 +31,9 @@ type Volume struct {
 	CreationToken pulumi.StringOutput `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection VolumePropertiesResponseDataProtectionPtrOutput `pulumi:"dataProtection"`
-	// Default group quota for volume in KiBs.  Minimum 4 KiBs.
+	// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
 	DefaultGroupQuotaInKiBs pulumi.Float64PtrOutput `pulumi:"defaultGroupQuotaInKiBs"`
-	// Default user quota for volume in KiBs. Minimum 4 KiBs.
+	// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
 	DefaultUserQuotaInKiBs pulumi.Float64PtrOutput `pulumi:"defaultUserQuotaInKiBs"`
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
 	EncryptionKeySource pulumi.StringPtrOutput `pulumi:"encryptionKeySource"`
@@ -117,10 +117,10 @@ func NewVolume(ctx *pulumi.Context,
 		args.CoolAccess = pulumi.BoolPtr(false)
 	}
 	if args.DefaultGroupQuotaInKiBs == nil {
-		args.DefaultGroupQuotaInKiBs = pulumi.Float64Ptr(4)
+		args.DefaultGroupQuotaInKiBs = pulumi.Float64Ptr(0)
 	}
 	if args.DefaultUserQuotaInKiBs == nil {
-		args.DefaultUserQuotaInKiBs = pulumi.Float64Ptr(4)
+		args.DefaultUserQuotaInKiBs = pulumi.Float64Ptr(0)
 	}
 	if args.IsDefaultQuotaEnabled == nil {
 		args.IsDefaultQuotaEnabled = pulumi.BoolPtr(false)
@@ -324,9 +324,9 @@ type volumeArgs struct {
 	CreationToken string `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection *VolumePropertiesDataProtection `pulumi:"dataProtection"`
-	// Default group quota for volume in KiBs.  Minimum 4 KiBs.
+	// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
 	DefaultGroupQuotaInKiBs *float64 `pulumi:"defaultGroupQuotaInKiBs"`
-	// Default user quota for volume in KiBs. Minimum 4 KiBs.
+	// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
 	DefaultUserQuotaInKiBs *float64 `pulumi:"defaultUserQuotaInKiBs"`
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
@@ -391,9 +391,9 @@ type VolumeArgs struct {
 	CreationToken pulumi.StringInput
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection VolumePropertiesDataProtectionPtrInput
-	// Default group quota for volume in KiBs.  Minimum 4 KiBs.
+	// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
 	DefaultGroupQuotaInKiBs pulumi.Float64PtrInput
-	// Default user quota for volume in KiBs. Minimum 4 KiBs.
+	// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
 	DefaultUserQuotaInKiBs pulumi.Float64PtrInput
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
 	EncryptionKeySource pulumi.StringPtrInput

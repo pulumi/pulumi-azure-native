@@ -67,6 +67,12 @@ func NewAssessment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:security/v20190101preview:Assessment"),
 		},
+		{
+			Type: pulumi.String("azure-native:security/v20210601:Assessment"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:security/v20210601:Assessment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Assessment

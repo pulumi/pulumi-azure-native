@@ -5,11 +5,13 @@
 import * as v20210101 from "./v20210101";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20210701 from "./v20210701";
 
 export {
     v20210101,
     v20210201preview,
     v20210601preview,
+    v20210701,
 };
 
 export const AbsoluteMarker = {

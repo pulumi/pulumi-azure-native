@@ -22,6 +22,8 @@ type NotebookProxy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The public DNS name
 	PublicDns pulumi.StringPtrOutput `pulumi:"publicDns"`
+	// Allow public network access on a V-Net locked notebook resource
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The region of the NotebookProxy resource.
 	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// The unique identifier (a GUID) generated for every resource.
@@ -92,6 +94,8 @@ type notebookProxyArgs struct {
 	Hostname *string `pulumi:"hostname"`
 	// The public DNS name
 	PublicDns *string `pulumi:"publicDns"`
+	// Allow public network access on a V-Net locked notebook resource
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The region of the NotebookProxy resource.
 	Region *string `pulumi:"region"`
 	// The name of the resource group. The name is case insensitive.
@@ -110,6 +114,8 @@ type NotebookProxyArgs struct {
 	Hostname pulumi.StringPtrInput
 	// The public DNS name
 	PublicDns pulumi.StringPtrInput
+	// Allow public network access on a V-Net locked notebook resource
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The region of the NotebookProxy resource.
 	Region pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

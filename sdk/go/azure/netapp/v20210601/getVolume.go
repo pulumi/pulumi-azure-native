@@ -46,9 +46,9 @@ type LookupVolumeResult struct {
 	CreationToken string `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
 	DataProtection *VolumePropertiesResponseDataProtection `pulumi:"dataProtection"`
-	// Default group quota for volume in KiBs.  Minimum 4 KiBs.
+	// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
 	DefaultGroupQuotaInKiBs *float64 `pulumi:"defaultGroupQuotaInKiBs"`
-	// Default user quota for volume in KiBs. Minimum 4 KiBs.
+	// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
 	DefaultUserQuotaInKiBs *float64 `pulumi:"defaultUserQuotaInKiBs"`
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`

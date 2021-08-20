@@ -87,11 +87,11 @@ namespace Pulumi.AzureNative.NetApp.V20210601
         /// </summary>
         public readonly Outputs.VolumePropertiesResponseDataProtection? DataProtection;
         /// <summary>
-        /// Default group quota for volume in KiBs.  Minimum 4 KiBs.
+        /// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         /// </summary>
         public readonly double? DefaultGroupQuotaInKiBs;
         /// <summary>
-        /// Default user quota for volume in KiBs. Minimum 4 KiBs.
+        /// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         /// </summary>
         public readonly double? DefaultUserQuotaInKiBs;
         /// <summary>

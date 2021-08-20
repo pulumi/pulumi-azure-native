@@ -61,8 +61,8 @@ class VolumeArgs:
         :param pulumi.Input[bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
         :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input['VolumePropertiesDataProtectionArgs'] data_protection: DataProtection type volumes include an object containing details of the replication
-        :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs.  Minimum 4 KiBs.
-        :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. Minimum 4 KiBs.
+        :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         :param pulumi.Input[str] encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
         :param pulumi.Input['VolumePropertiesExportPolicyArgs'] export_policy: Set of export policy rules
         :param pulumi.Input[bool] is_default_quota_enabled: Specifies if default quota is enabled for the volume.
@@ -105,11 +105,11 @@ class VolumeArgs:
         if data_protection is not None:
             pulumi.set(__self__, "data_protection", data_protection)
         if default_group_quota_in_ki_bs is None:
-            default_group_quota_in_ki_bs = 4
+            default_group_quota_in_ki_bs = 0
         if default_group_quota_in_ki_bs is not None:
             pulumi.set(__self__, "default_group_quota_in_ki_bs", default_group_quota_in_ki_bs)
         if default_user_quota_in_ki_bs is None:
-            default_user_quota_in_ki_bs = 4
+            default_user_quota_in_ki_bs = 0
         if default_user_quota_in_ki_bs is not None:
             pulumi.set(__self__, "default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
         if encryption_key_source is not None:
@@ -305,7 +305,7 @@ class VolumeArgs:
     @pulumi.getter(name="defaultGroupQuotaInKiBs")
     def default_group_quota_in_ki_bs(self) -> Optional[pulumi.Input[float]]:
         """
-        Default group quota for volume in KiBs.  Minimum 4 KiBs.
+        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         """
         return pulumi.get(self, "default_group_quota_in_ki_bs")
 
@@ -317,7 +317,7 @@ class VolumeArgs:
     @pulumi.getter(name="defaultUserQuotaInKiBs")
     def default_user_quota_in_ki_bs(self) -> Optional[pulumi.Input[float]]:
         """
-        Default user quota for volume in KiBs. Minimum 4 KiBs.
+        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         """
         return pulumi.get(self, "default_user_quota_in_ki_bs")
 
@@ -601,8 +601,8 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[pulumi.InputType['VolumePropertiesDataProtectionArgs']] data_protection: DataProtection type volumes include an object containing details of the replication
-        :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs.  Minimum 4 KiBs.
-        :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. Minimum 4 KiBs.
+        :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+        :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         :param pulumi.Input[str] encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
         :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
         :param pulumi.Input[bool] is_default_quota_enabled: Specifies if default quota is enabled for the volume.
@@ -710,10 +710,10 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["creation_token"] = creation_token
             __props__.__dict__["data_protection"] = data_protection
             if default_group_quota_in_ki_bs is None:
-                default_group_quota_in_ki_bs = 4
+                default_group_quota_in_ki_bs = 0
             __props__.__dict__["default_group_quota_in_ki_bs"] = default_group_quota_in_ki_bs
             if default_user_quota_in_ki_bs is None:
-                default_user_quota_in_ki_bs = 4
+                default_user_quota_in_ki_bs = 0
             __props__.__dict__["default_user_quota_in_ki_bs"] = default_user_quota_in_ki_bs
             __props__.__dict__["encryption_key_source"] = encryption_key_source
             __props__.__dict__["export_policy"] = export_policy
@@ -904,7 +904,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="defaultGroupQuotaInKiBs")
     def default_group_quota_in_ki_bs(self) -> pulumi.Output[Optional[float]]:
         """
-        Default group quota for volume in KiBs.  Minimum 4 KiBs.
+        Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         """
         return pulumi.get(self, "default_group_quota_in_ki_bs")
 
@@ -912,7 +912,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="defaultUserQuotaInKiBs")
     def default_user_quota_in_ki_bs(self) -> pulumi.Output[Optional[float]]:
         """
-        Default user quota for volume in KiBs. Minimum 4 KiBs.
+        Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
         """
         return pulumi.get(self, "default_user_quota_in_ki_bs")
 

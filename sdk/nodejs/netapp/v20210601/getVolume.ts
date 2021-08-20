@@ -80,11 +80,11 @@ export interface GetVolumeResult {
      */
     readonly dataProtection?: outputs.netapp.v20210601.VolumePropertiesResponseDataProtection;
     /**
-     * Default group quota for volume in KiBs.  Minimum 4 KiBs.
+     * Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
      */
     readonly defaultGroupQuotaInKiBs?: number;
     /**
-     * Default user quota for volume in KiBs. Minimum 4 KiBs.
+     * Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
      */
     readonly defaultUserQuotaInKiBs?: number;
     /**

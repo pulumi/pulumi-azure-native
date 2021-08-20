@@ -216,7 +216,7 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["links"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20200101:Assessment"), pulumi.Alias(type_="azure-native:security:Assessment"), pulumi.Alias(type_="azure-nextgen:security:Assessment"), pulumi.Alias(type_="azure-native:security/v20190101preview:Assessment"), pulumi.Alias(type_="azure-nextgen:security/v20190101preview:Assessment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security/v20200101:Assessment"), pulumi.Alias(type_="azure-native:security:Assessment"), pulumi.Alias(type_="azure-nextgen:security:Assessment"), pulumi.Alias(type_="azure-native:security/v20190101preview:Assessment"), pulumi.Alias(type_="azure-nextgen:security/v20190101preview:Assessment"), pulumi.Alias(type_="azure-native:security/v20210601:Assessment"), pulumi.Alias(type_="azure-nextgen:security/v20210601:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
             'azure-native:security/v20200101:Assessment',

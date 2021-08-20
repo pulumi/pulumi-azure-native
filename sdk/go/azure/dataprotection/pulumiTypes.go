@@ -5533,6 +5533,328 @@ func (o ProtectionStatusDetailsResponsePtrOutput) Status() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// This class contains all the details about a critical operation.
+type ResourceGuardOperationResponse struct {
+	// Type of resource request.
+	RequestResourceType string `pulumi:"requestResourceType"`
+	// Name of the critical operation.
+	VaultCriticalOperation string `pulumi:"vaultCriticalOperation"`
+}
+
+// ResourceGuardOperationResponseInput is an input type that accepts ResourceGuardOperationResponseArgs and ResourceGuardOperationResponseOutput values.
+// You can construct a concrete instance of `ResourceGuardOperationResponseInput` via:
+//
+//          ResourceGuardOperationResponseArgs{...}
+type ResourceGuardOperationResponseInput interface {
+	pulumi.Input
+
+	ToResourceGuardOperationResponseOutput() ResourceGuardOperationResponseOutput
+	ToResourceGuardOperationResponseOutputWithContext(context.Context) ResourceGuardOperationResponseOutput
+}
+
+// This class contains all the details about a critical operation.
+type ResourceGuardOperationResponseArgs struct {
+	// Type of resource request.
+	RequestResourceType pulumi.StringInput `pulumi:"requestResourceType"`
+	// Name of the critical operation.
+	VaultCriticalOperation pulumi.StringInput `pulumi:"vaultCriticalOperation"`
+}
+
+func (ResourceGuardOperationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardOperationResponse)(nil)).Elem()
+}
+
+func (i ResourceGuardOperationResponseArgs) ToResourceGuardOperationResponseOutput() ResourceGuardOperationResponseOutput {
+	return i.ToResourceGuardOperationResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardOperationResponseArgs) ToResourceGuardOperationResponseOutputWithContext(ctx context.Context) ResourceGuardOperationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOperationResponseOutput)
+}
+
+// ResourceGuardOperationResponseArrayInput is an input type that accepts ResourceGuardOperationResponseArray and ResourceGuardOperationResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceGuardOperationResponseArrayInput` via:
+//
+//          ResourceGuardOperationResponseArray{ ResourceGuardOperationResponseArgs{...} }
+type ResourceGuardOperationResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceGuardOperationResponseArrayOutput() ResourceGuardOperationResponseArrayOutput
+	ToResourceGuardOperationResponseArrayOutputWithContext(context.Context) ResourceGuardOperationResponseArrayOutput
+}
+
+type ResourceGuardOperationResponseArray []ResourceGuardOperationResponseInput
+
+func (ResourceGuardOperationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGuardOperationResponse)(nil)).Elem()
+}
+
+func (i ResourceGuardOperationResponseArray) ToResourceGuardOperationResponseArrayOutput() ResourceGuardOperationResponseArrayOutput {
+	return i.ToResourceGuardOperationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardOperationResponseArray) ToResourceGuardOperationResponseArrayOutputWithContext(ctx context.Context) ResourceGuardOperationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOperationResponseArrayOutput)
+}
+
+// This class contains all the details about a critical operation.
+type ResourceGuardOperationResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardOperationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardOperationResponse)(nil)).Elem()
+}
+
+func (o ResourceGuardOperationResponseOutput) ToResourceGuardOperationResponseOutput() ResourceGuardOperationResponseOutput {
+	return o
+}
+
+func (o ResourceGuardOperationResponseOutput) ToResourceGuardOperationResponseOutputWithContext(ctx context.Context) ResourceGuardOperationResponseOutput {
+	return o
+}
+
+// Type of resource request.
+func (o ResourceGuardOperationResponseOutput) RequestResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGuardOperationResponse) string { return v.RequestResourceType }).(pulumi.StringOutput)
+}
+
+// Name of the critical operation.
+func (o ResourceGuardOperationResponseOutput) VaultCriticalOperation() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGuardOperationResponse) string { return v.VaultCriticalOperation }).(pulumi.StringOutput)
+}
+
+type ResourceGuardOperationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardOperationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGuardOperationResponse)(nil)).Elem()
+}
+
+func (o ResourceGuardOperationResponseArrayOutput) ToResourceGuardOperationResponseArrayOutput() ResourceGuardOperationResponseArrayOutput {
+	return o
+}
+
+func (o ResourceGuardOperationResponseArrayOutput) ToResourceGuardOperationResponseArrayOutputWithContext(ctx context.Context) ResourceGuardOperationResponseArrayOutput {
+	return o
+}
+
+func (o ResourceGuardOperationResponseArrayOutput) Index(i pulumi.IntInput) ResourceGuardOperationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGuardOperationResponse {
+		return vs[0].([]ResourceGuardOperationResponse)[vs[1].(int)]
+	}).(ResourceGuardOperationResponseOutput)
+}
+
+type ResourceGuardResponse struct {
+	// This flag indicates whether auto approval is allowed or not.
+	AllowAutoApprovals bool `pulumi:"allowAutoApprovals"`
+	// Description about the pre-req steps to perform all the critical operations.
+	Description string `pulumi:"description"`
+	// Provisioning state of the BackupVault resource
+	ProvisioningState string `pulumi:"provisioningState"`
+	// {readonly} List of operation details those are protected by the ResourceGuard resource
+	ResourceGuardOperations []ResourceGuardOperationResponse `pulumi:"resourceGuardOperations"`
+	// List of critical operations which are not protected by this resourceGuard
+	VaultCriticalOperationExclusionList []string `pulumi:"vaultCriticalOperationExclusionList"`
+}
+
+// ResourceGuardResponseInput is an input type that accepts ResourceGuardResponseArgs and ResourceGuardResponseOutput values.
+// You can construct a concrete instance of `ResourceGuardResponseInput` via:
+//
+//          ResourceGuardResponseArgs{...}
+type ResourceGuardResponseInput interface {
+	pulumi.Input
+
+	ToResourceGuardResponseOutput() ResourceGuardResponseOutput
+	ToResourceGuardResponseOutputWithContext(context.Context) ResourceGuardResponseOutput
+}
+
+type ResourceGuardResponseArgs struct {
+	// This flag indicates whether auto approval is allowed or not.
+	AllowAutoApprovals pulumi.BoolInput `pulumi:"allowAutoApprovals"`
+	// Description about the pre-req steps to perform all the critical operations.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Provisioning state of the BackupVault resource
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// {readonly} List of operation details those are protected by the ResourceGuard resource
+	ResourceGuardOperations ResourceGuardOperationResponseArrayInput `pulumi:"resourceGuardOperations"`
+	// List of critical operations which are not protected by this resourceGuard
+	VaultCriticalOperationExclusionList pulumi.StringArrayInput `pulumi:"vaultCriticalOperationExclusionList"`
+}
+
+func (ResourceGuardResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardResponse)(nil)).Elem()
+}
+
+func (i ResourceGuardResponseArgs) ToResourceGuardResponseOutput() ResourceGuardResponseOutput {
+	return i.ToResourceGuardResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardResponseArgs) ToResourceGuardResponseOutputWithContext(ctx context.Context) ResourceGuardResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardResponseOutput)
+}
+
+func (i ResourceGuardResponseArgs) ToResourceGuardResponsePtrOutput() ResourceGuardResponsePtrOutput {
+	return i.ToResourceGuardResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGuardResponseArgs) ToResourceGuardResponsePtrOutputWithContext(ctx context.Context) ResourceGuardResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardResponseOutput).ToResourceGuardResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceGuardResponsePtrInput is an input type that accepts ResourceGuardResponseArgs, ResourceGuardResponsePtr and ResourceGuardResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceGuardResponsePtrInput` via:
+//
+//          ResourceGuardResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceGuardResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceGuardResponsePtrOutput() ResourceGuardResponsePtrOutput
+	ToResourceGuardResponsePtrOutputWithContext(context.Context) ResourceGuardResponsePtrOutput
+}
+
+type resourceGuardResponsePtrType ResourceGuardResponseArgs
+
+func ResourceGuardResponsePtr(v *ResourceGuardResponseArgs) ResourceGuardResponsePtrInput {
+	return (*resourceGuardResponsePtrType)(v)
+}
+
+func (*resourceGuardResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGuardResponse)(nil)).Elem()
+}
+
+func (i *resourceGuardResponsePtrType) ToResourceGuardResponsePtrOutput() ResourceGuardResponsePtrOutput {
+	return i.ToResourceGuardResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGuardResponsePtrType) ToResourceGuardResponsePtrOutputWithContext(ctx context.Context) ResourceGuardResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardResponsePtrOutput)
+}
+
+type ResourceGuardResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGuardResponse)(nil)).Elem()
+}
+
+func (o ResourceGuardResponseOutput) ToResourceGuardResponseOutput() ResourceGuardResponseOutput {
+	return o
+}
+
+func (o ResourceGuardResponseOutput) ToResourceGuardResponseOutputWithContext(ctx context.Context) ResourceGuardResponseOutput {
+	return o
+}
+
+func (o ResourceGuardResponseOutput) ToResourceGuardResponsePtrOutput() ResourceGuardResponsePtrOutput {
+	return o.ToResourceGuardResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGuardResponseOutput) ToResourceGuardResponsePtrOutputWithContext(ctx context.Context) ResourceGuardResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGuardResponse) *ResourceGuardResponse {
+		return &v
+	}).(ResourceGuardResponsePtrOutput)
+}
+
+// This flag indicates whether auto approval is allowed or not.
+func (o ResourceGuardResponseOutput) AllowAutoApprovals() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResourceGuardResponse) bool { return v.AllowAutoApprovals }).(pulumi.BoolOutput)
+}
+
+// Description about the pre-req steps to perform all the critical operations.
+func (o ResourceGuardResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGuardResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the BackupVault resource
+func (o ResourceGuardResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGuardResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// {readonly} List of operation details those are protected by the ResourceGuard resource
+func (o ResourceGuardResponseOutput) ResourceGuardOperations() ResourceGuardOperationResponseArrayOutput {
+	return o.ApplyT(func(v ResourceGuardResponse) []ResourceGuardOperationResponse { return v.ResourceGuardOperations }).(ResourceGuardOperationResponseArrayOutput)
+}
+
+// List of critical operations which are not protected by this resourceGuard
+func (o ResourceGuardResponseOutput) VaultCriticalOperationExclusionList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceGuardResponse) []string { return v.VaultCriticalOperationExclusionList }).(pulumi.StringArrayOutput)
+}
+
+type ResourceGuardResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGuardResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGuardResponse)(nil)).Elem()
+}
+
+func (o ResourceGuardResponsePtrOutput) ToResourceGuardResponsePtrOutput() ResourceGuardResponsePtrOutput {
+	return o
+}
+
+func (o ResourceGuardResponsePtrOutput) ToResourceGuardResponsePtrOutputWithContext(ctx context.Context) ResourceGuardResponsePtrOutput {
+	return o
+}
+
+func (o ResourceGuardResponsePtrOutput) Elem() ResourceGuardResponseOutput {
+	return o.ApplyT(func(v *ResourceGuardResponse) ResourceGuardResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGuardResponse
+		return ret
+	}).(ResourceGuardResponseOutput)
+}
+
+// This flag indicates whether auto approval is allowed or not.
+func (o ResourceGuardResponsePtrOutput) AllowAutoApprovals() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowAutoApprovals
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Description about the pre-req steps to perform all the critical operations.
+func (o ResourceGuardResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the BackupVault resource
+func (o ResourceGuardResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// {readonly} List of operation details those are protected by the ResourceGuard resource
+func (o ResourceGuardResponsePtrOutput) ResourceGuardOperations() ResourceGuardOperationResponseArrayOutput {
+	return o.ApplyT(func(v *ResourceGuardResponse) []ResourceGuardOperationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGuardOperations
+	}).(ResourceGuardOperationResponseArrayOutput)
+}
+
+// List of critical operations which are not protected by this resourceGuard
+func (o ResourceGuardResponsePtrOutput) VaultCriticalOperationExclusionList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceGuardResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VaultCriticalOperationExclusionList
+	}).(pulumi.StringArrayOutput)
+}
+
 // Retention tag
 type RetentionTag struct {
 	// Retention Tag Name to relate it to retention rule.
@@ -7880,6 +8202,10 @@ func init() {
 	pulumi.RegisterOutputType(PolicyParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionStatusDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionStatusDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceGuardOperationResponseOutput{})
+	pulumi.RegisterOutputType(ResourceGuardOperationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGuardResponseOutput{})
+	pulumi.RegisterOutputType(ResourceGuardResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionTagOutput{})
 	pulumi.RegisterOutputType(RetentionTagPtrOutput{})
 	pulumi.RegisterOutputType(RetentionTagResponseOutput{})

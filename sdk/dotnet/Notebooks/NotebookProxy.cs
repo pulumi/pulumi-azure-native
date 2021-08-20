@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.Notebooks
         public Output<string?> PublicDns { get; private set; } = null!;
 
         /// <summary>
+        /// Allow public network access on a V-Net locked notebook resource
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The region of the NotebookProxy resource.
         /// </summary>
         [Output("region")]
@@ -126,6 +132,12 @@ namespace Pulumi.AzureNative.Notebooks
         /// </summary>
         [Input("publicDns")]
         public Input<string>? PublicDns { get; set; }
+
+        /// <summary>
+        /// Allow public network access on a V-Net locked notebook resource
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The region of the NotebookProxy resource.
