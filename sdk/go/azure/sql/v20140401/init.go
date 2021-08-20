@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataMaskingPolicy{}
 	case "azure-native:sql/v20140401:Database":
 		r = &Database{}
+	case "azure-native:sql/v20140401:DatabaseAdvisor":
+		r = &DatabaseAdvisor{}
 	case "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy":
 		r = &DatabaseThreatDetectionPolicy{}
 	case "azure-native:sql/v20140401:DisasterRecoveryConfiguration":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GeoBackupPolicy{}
 	case "azure-native:sql/v20140401:Server":
 		r = &Server{}
+	case "azure-native:sql/v20140401:ServerAdvisor":
+		r = &ServerAdvisor{}
 	case "azure-native:sql/v20140401:ServerAzureADAdministrator":
 		r = &ServerAzureADAdministrator{}
 	case "azure-native:sql/v20140401:ServerCommunicationLink":

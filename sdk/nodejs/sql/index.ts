@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./backupShortTermRetentionPolicy";
 export * from "./dataMaskingPolicy";
 export * from "./database";
+export * from "./databaseAdvisor";
 export * from "./databaseBlobAuditingPolicy";
 export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
@@ -22,6 +23,7 @@ export * from "./geoBackupPolicy";
 export * from "./getBackupShortTermRetentionPolicy";
 export * from "./getDataMaskingPolicy";
 export * from "./getDatabase";
+export * from "./getDatabaseAdvisor";
 export * from "./getDatabaseBlobAuditingPolicy";
 export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
@@ -55,6 +57,7 @@ export * from "./getOutboundFirewallRule";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSensitivityLabel";
 export * from "./getServer";
+export * from "./getServerAdvisor";
 export * from "./getServerAzureADAdministrator";
 export * from "./getServerAzureADOnlyAuthentication";
 export * from "./getServerBlobAuditingPolicy";
@@ -93,6 +96,7 @@ export * from "./outboundFirewallRule";
 export * from "./privateEndpointConnection";
 export * from "./sensitivityLabel";
 export * from "./server";
+export * from "./serverAdvisor";
 export * from "./serverAzureADAdministrator";
 export * from "./serverAzureADOnlyAuthentication";
 export * from "./serverBlobAuditingPolicy";
@@ -142,6 +146,7 @@ export {
 import { BackupShortTermRetentionPolicy } from "./backupShortTermRetentionPolicy";
 import { DataMaskingPolicy } from "./dataMaskingPolicy";
 import { Database } from "./database";
+import { DatabaseAdvisor } from "./databaseAdvisor";
 import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
 import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
@@ -175,6 +180,7 @@ import { OutboundFirewallRule } from "./outboundFirewallRule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { SensitivityLabel } from "./sensitivityLabel";
 import { Server } from "./server";
+import { ServerAdvisor } from "./serverAdvisor";
 import { ServerAzureADAdministrator } from "./serverAzureADAdministrator";
 import { ServerAzureADOnlyAuthentication } from "./serverAzureADOnlyAuthentication";
 import { ServerBlobAuditingPolicy } from "./serverBlobAuditingPolicy";
@@ -202,6 +208,8 @@ const _module = {
                 return new DataMaskingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:sql:DatabaseAdvisor":
+                return new DatabaseAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseBlobAuditingPolicy":
                 return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql:DatabaseSecurityAlertPolicy":
@@ -268,6 +276,8 @@ const _module = {
                 return new SensitivityLabel(name, <any>undefined, { urn })
             case "azure-native:sql:Server":
                 return new Server(name, <any>undefined, { urn })
+            case "azure-native:sql:ServerAdvisor":
+                return new ServerAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql:ServerAzureADAdministrator":
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
             case "azure-native:sql:ServerAzureADOnlyAuthentication":

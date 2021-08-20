@@ -8,11 +8,15 @@ CHANGELOG
 - `dataprotection.ResourceGuard`
 - `powerbi.PowerBIResource`
 - `powerbi.PrivateEndpointConnection`
+- `sql.DatabaseAdvisor`
+- `sql.ServerAdvisor`
 
 #### New functions:
 
 - `dataprotection.getResourceGuard`
 - `powerbi.getPrivateEndpointConnection`
+- `sql.getDatabaseAdvisor`
+- `sql.getServerAdvisor`
 
 #### Bug Fixes
 

@@ -11,6 +11,17 @@ export const AdministratorType = {
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
+export const AutoExecuteStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    Default: "Default",
+} as const;
+
+/**
+ * Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+ */
+export type AutoExecuteStatus = (typeof AutoExecuteStatus)[keyof typeof AutoExecuteStatus];
+
 export const BlobAuditingPolicyState = {
     Enabled: "Enabled",
     Disabled: "Disabled",

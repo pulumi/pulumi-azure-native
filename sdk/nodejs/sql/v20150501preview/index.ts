@@ -5,14 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./databaseAdvisor";
 export * from "./databaseBlobAuditingPolicy";
 export * from "./failoverGroup";
 export * from "./firewallRule";
+export * from "./getDatabaseAdvisor";
 export * from "./getDatabaseBlobAuditingPolicy";
 export * from "./getFailoverGroup";
 export * from "./getFirewallRule";
 export * from "./getManagedInstance";
 export * from "./getServer";
+export * from "./getServerAdvisor";
 export * from "./getServerKey";
 export * from "./getSyncAgent";
 export * from "./getSyncGroup";
@@ -20,6 +23,7 @@ export * from "./getSyncMember";
 export * from "./getVirtualNetworkRule";
 export * from "./managedInstance";
 export * from "./server";
+export * from "./serverAdvisor";
 export * from "./serverKey";
 export * from "./syncAgent";
 export * from "./syncGroup";
@@ -30,11 +34,13 @@ export * from "./virtualNetworkRule";
 export * from "../../types/enums/sql/v20150501preview";
 
 // Import resources to register:
+import { DatabaseAdvisor } from "./databaseAdvisor";
 import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
 import { FailoverGroup } from "./failoverGroup";
 import { FirewallRule } from "./firewallRule";
 import { ManagedInstance } from "./managedInstance";
 import { Server } from "./server";
+import { ServerAdvisor } from "./serverAdvisor";
 import { ServerKey } from "./serverKey";
 import { SyncAgent } from "./syncAgent";
 import { SyncGroup } from "./syncGroup";
@@ -45,6 +51,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql/v20150501preview:DatabaseAdvisor":
+                return new DatabaseAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy":
                 return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:FailoverGroup":
@@ -55,6 +63,8 @@ const _module = {
                 return new ManagedInstance(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:Server":
                 return new Server(name, <any>undefined, { urn })
+            case "azure-native:sql/v20150501preview:ServerAdvisor":
+                return new ServerAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:ServerKey":
                 return new ServerKey(name, <any>undefined, { urn })
             case "azure-native:sql/v20150501preview:SyncAgent":

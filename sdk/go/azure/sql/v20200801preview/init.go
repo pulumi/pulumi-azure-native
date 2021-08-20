@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupShortTermRetentionPolicy{}
 	case "azure-native:sql/v20200801preview:Database":
 		r = &Database{}
+	case "azure-native:sql/v20200801preview:DatabaseAdvisor":
+		r = &DatabaseAdvisor{}
 	case "azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy":
 		r = &DatabaseBlobAuditingPolicy{}
 	case "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy":
@@ -85,6 +87,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SensitivityLabel{}
 	case "azure-native:sql/v20200801preview:Server":
 		r = &Server{}
+	case "azure-native:sql/v20200801preview:ServerAdvisor":
+		r = &ServerAdvisor{}
 	case "azure-native:sql/v20200801preview:ServerAzureADAdministrator":
 		r = &ServerAzureADAdministrator{}
 	case "azure-native:sql/v20200801preview:ServerAzureADOnlyAuthentication":

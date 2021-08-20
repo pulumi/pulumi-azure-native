@@ -5922,6 +5922,824 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains error information for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionErrorInfoResponse struct {
+	// Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
+	ErrorCode string `pulumi:"errorCode"`
+	// Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
+	IsRetryable string `pulumi:"isRetryable"`
+}
+
+// RecommendedActionErrorInfoResponseInput is an input type that accepts RecommendedActionErrorInfoResponseArgs and RecommendedActionErrorInfoResponseOutput values.
+// You can construct a concrete instance of `RecommendedActionErrorInfoResponseInput` via:
+//
+//          RecommendedActionErrorInfoResponseArgs{...}
+type RecommendedActionErrorInfoResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedActionErrorInfoResponseOutput() RecommendedActionErrorInfoResponseOutput
+	ToRecommendedActionErrorInfoResponseOutputWithContext(context.Context) RecommendedActionErrorInfoResponseOutput
+}
+
+// Contains error information for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionErrorInfoResponseArgs struct {
+	// Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
+	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
+	// Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
+	IsRetryable pulumi.StringInput `pulumi:"isRetryable"`
+}
+
+func (RecommendedActionErrorInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionErrorInfoResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionErrorInfoResponseArgs) ToRecommendedActionErrorInfoResponseOutput() RecommendedActionErrorInfoResponseOutput {
+	return i.ToRecommendedActionErrorInfoResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionErrorInfoResponseArgs) ToRecommendedActionErrorInfoResponseOutputWithContext(ctx context.Context) RecommendedActionErrorInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionErrorInfoResponseOutput)
+}
+
+// Contains error information for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionErrorInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionErrorInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionErrorInfoResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionErrorInfoResponseOutput) ToRecommendedActionErrorInfoResponseOutput() RecommendedActionErrorInfoResponseOutput {
+	return o
+}
+
+func (o RecommendedActionErrorInfoResponseOutput) ToRecommendedActionErrorInfoResponseOutputWithContext(ctx context.Context) RecommendedActionErrorInfoResponseOutput {
+	return o
+}
+
+// Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
+func (o RecommendedActionErrorInfoResponseOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionErrorInfoResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
+func (o RecommendedActionErrorInfoResponseOutput) IsRetryable() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionErrorInfoResponse) string { return v.IsRetryable }).(pulumi.StringOutput)
+}
+
+// Contains information of estimated or observed impact on various metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionImpactRecordResponse struct {
+	// Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
+	AbsoluteValue float64 `pulumi:"absoluteValue"`
+	// Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
+	ChangeValueAbsolute float64 `pulumi:"changeValueAbsolute"`
+	// Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
+	ChangeValueRelative float64 `pulumi:"changeValueRelative"`
+	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+	DimensionName string `pulumi:"dimensionName"`
+	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+	Unit string `pulumi:"unit"`
+}
+
+// RecommendedActionImpactRecordResponseInput is an input type that accepts RecommendedActionImpactRecordResponseArgs and RecommendedActionImpactRecordResponseOutput values.
+// You can construct a concrete instance of `RecommendedActionImpactRecordResponseInput` via:
+//
+//          RecommendedActionImpactRecordResponseArgs{...}
+type RecommendedActionImpactRecordResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedActionImpactRecordResponseOutput() RecommendedActionImpactRecordResponseOutput
+	ToRecommendedActionImpactRecordResponseOutputWithContext(context.Context) RecommendedActionImpactRecordResponseOutput
+}
+
+// Contains information of estimated or observed impact on various metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionImpactRecordResponseArgs struct {
+	// Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
+	AbsoluteValue pulumi.Float64Input `pulumi:"absoluteValue"`
+	// Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
+	ChangeValueAbsolute pulumi.Float64Input `pulumi:"changeValueAbsolute"`
+	// Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
+	ChangeValueRelative pulumi.Float64Input `pulumi:"changeValueRelative"`
+	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
+	// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (RecommendedActionImpactRecordResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionImpactRecordResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionImpactRecordResponseArgs) ToRecommendedActionImpactRecordResponseOutput() RecommendedActionImpactRecordResponseOutput {
+	return i.ToRecommendedActionImpactRecordResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionImpactRecordResponseArgs) ToRecommendedActionImpactRecordResponseOutputWithContext(ctx context.Context) RecommendedActionImpactRecordResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionImpactRecordResponseOutput)
+}
+
+// RecommendedActionImpactRecordResponseArrayInput is an input type that accepts RecommendedActionImpactRecordResponseArray and RecommendedActionImpactRecordResponseArrayOutput values.
+// You can construct a concrete instance of `RecommendedActionImpactRecordResponseArrayInput` via:
+//
+//          RecommendedActionImpactRecordResponseArray{ RecommendedActionImpactRecordResponseArgs{...} }
+type RecommendedActionImpactRecordResponseArrayInput interface {
+	pulumi.Input
+
+	ToRecommendedActionImpactRecordResponseArrayOutput() RecommendedActionImpactRecordResponseArrayOutput
+	ToRecommendedActionImpactRecordResponseArrayOutputWithContext(context.Context) RecommendedActionImpactRecordResponseArrayOutput
+}
+
+type RecommendedActionImpactRecordResponseArray []RecommendedActionImpactRecordResponseInput
+
+func (RecommendedActionImpactRecordResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedActionImpactRecordResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionImpactRecordResponseArray) ToRecommendedActionImpactRecordResponseArrayOutput() RecommendedActionImpactRecordResponseArrayOutput {
+	return i.ToRecommendedActionImpactRecordResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionImpactRecordResponseArray) ToRecommendedActionImpactRecordResponseArrayOutputWithContext(ctx context.Context) RecommendedActionImpactRecordResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionImpactRecordResponseArrayOutput)
+}
+
+// Contains information of estimated or observed impact on various metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionImpactRecordResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionImpactRecordResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionImpactRecordResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionImpactRecordResponseOutput) ToRecommendedActionImpactRecordResponseOutput() RecommendedActionImpactRecordResponseOutput {
+	return o
+}
+
+func (o RecommendedActionImpactRecordResponseOutput) ToRecommendedActionImpactRecordResponseOutputWithContext(ctx context.Context) RecommendedActionImpactRecordResponseOutput {
+	return o
+}
+
+// Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
+func (o RecommendedActionImpactRecordResponseOutput) AbsoluteValue() pulumi.Float64Output {
+	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) float64 { return v.AbsoluteValue }).(pulumi.Float64Output)
+}
+
+// Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
+func (o RecommendedActionImpactRecordResponseOutput) ChangeValueAbsolute() pulumi.Float64Output {
+	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) float64 { return v.ChangeValueAbsolute }).(pulumi.Float64Output)
+}
+
+// Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
+func (o RecommendedActionImpactRecordResponseOutput) ChangeValueRelative() pulumi.Float64Output {
+	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) float64 { return v.ChangeValueRelative }).(pulumi.Float64Output)
+}
+
+// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+func (o RecommendedActionImpactRecordResponseOutput) DimensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) string { return v.DimensionName }).(pulumi.StringOutput)
+}
+
+// Gets the name of the impact dimension. e.g., CPUChange, DiskSpaceChange, NumberOfQueriesAffected.
+func (o RecommendedActionImpactRecordResponseOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionImpactRecordResponse) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type RecommendedActionImpactRecordResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionImpactRecordResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedActionImpactRecordResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionImpactRecordResponseArrayOutput) ToRecommendedActionImpactRecordResponseArrayOutput() RecommendedActionImpactRecordResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedActionImpactRecordResponseArrayOutput) ToRecommendedActionImpactRecordResponseArrayOutputWithContext(ctx context.Context) RecommendedActionImpactRecordResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedActionImpactRecordResponseArrayOutput) Index(i pulumi.IntInput) RecommendedActionImpactRecordResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendedActionImpactRecordResponse {
+		return vs[0].([]RecommendedActionImpactRecordResponse)[vs[1].(int)]
+	}).(RecommendedActionImpactRecordResponseOutput)
+}
+
+// Contains information for manual implementation for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionImplementationInfoResponse struct {
+	// Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
+	Method string `pulumi:"method"`
+	// Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
+	Script string `pulumi:"script"`
+}
+
+// RecommendedActionImplementationInfoResponseInput is an input type that accepts RecommendedActionImplementationInfoResponseArgs and RecommendedActionImplementationInfoResponseOutput values.
+// You can construct a concrete instance of `RecommendedActionImplementationInfoResponseInput` via:
+//
+//          RecommendedActionImplementationInfoResponseArgs{...}
+type RecommendedActionImplementationInfoResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedActionImplementationInfoResponseOutput() RecommendedActionImplementationInfoResponseOutput
+	ToRecommendedActionImplementationInfoResponseOutputWithContext(context.Context) RecommendedActionImplementationInfoResponseOutput
+}
+
+// Contains information for manual implementation for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionImplementationInfoResponseArgs struct {
+	// Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
+	Method pulumi.StringInput `pulumi:"method"`
+	// Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
+	Script pulumi.StringInput `pulumi:"script"`
+}
+
+func (RecommendedActionImplementationInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionImplementationInfoResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionImplementationInfoResponseArgs) ToRecommendedActionImplementationInfoResponseOutput() RecommendedActionImplementationInfoResponseOutput {
+	return i.ToRecommendedActionImplementationInfoResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionImplementationInfoResponseArgs) ToRecommendedActionImplementationInfoResponseOutputWithContext(ctx context.Context) RecommendedActionImplementationInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionImplementationInfoResponseOutput)
+}
+
+// Contains information for manual implementation for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionImplementationInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionImplementationInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionImplementationInfoResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionImplementationInfoResponseOutput) ToRecommendedActionImplementationInfoResponseOutput() RecommendedActionImplementationInfoResponseOutput {
+	return o
+}
+
+func (o RecommendedActionImplementationInfoResponseOutput) ToRecommendedActionImplementationInfoResponseOutputWithContext(ctx context.Context) RecommendedActionImplementationInfoResponseOutput {
+	return o
+}
+
+// Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
+func (o RecommendedActionImplementationInfoResponseOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionImplementationInfoResponse) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
+func (o RecommendedActionImplementationInfoResponseOutput) Script() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionImplementationInfoResponse) string { return v.Script }).(pulumi.StringOutput)
+}
+
+// Contains time series of various impacted metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionMetricInfoResponse struct {
+	// Gets the name of the metric. e.g., CPU, Number of Queries.
+	MetricName string `pulumi:"metricName"`
+	// Gets the start time of time interval given by this MetricInfo.
+	StartTime string `pulumi:"startTime"`
+	// Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
+	TimeGrain string `pulumi:"timeGrain"`
+	// Gets the unit in which metric is measured. e.g., DTU, Frequency
+	Unit string `pulumi:"unit"`
+	// Gets the value of the metric in the time interval given by this MetricInfo.
+	Value float64 `pulumi:"value"`
+}
+
+// RecommendedActionMetricInfoResponseInput is an input type that accepts RecommendedActionMetricInfoResponseArgs and RecommendedActionMetricInfoResponseOutput values.
+// You can construct a concrete instance of `RecommendedActionMetricInfoResponseInput` via:
+//
+//          RecommendedActionMetricInfoResponseArgs{...}
+type RecommendedActionMetricInfoResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedActionMetricInfoResponseOutput() RecommendedActionMetricInfoResponseOutput
+	ToRecommendedActionMetricInfoResponseOutputWithContext(context.Context) RecommendedActionMetricInfoResponseOutput
+}
+
+// Contains time series of various impacted metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionMetricInfoResponseArgs struct {
+	// Gets the name of the metric. e.g., CPU, Number of Queries.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Gets the start time of time interval given by this MetricInfo.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
+	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
+	// Gets the unit in which metric is measured. e.g., DTU, Frequency
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Gets the value of the metric in the time interval given by this MetricInfo.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (RecommendedActionMetricInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionMetricInfoResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionMetricInfoResponseArgs) ToRecommendedActionMetricInfoResponseOutput() RecommendedActionMetricInfoResponseOutput {
+	return i.ToRecommendedActionMetricInfoResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionMetricInfoResponseArgs) ToRecommendedActionMetricInfoResponseOutputWithContext(ctx context.Context) RecommendedActionMetricInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionMetricInfoResponseOutput)
+}
+
+// RecommendedActionMetricInfoResponseArrayInput is an input type that accepts RecommendedActionMetricInfoResponseArray and RecommendedActionMetricInfoResponseArrayOutput values.
+// You can construct a concrete instance of `RecommendedActionMetricInfoResponseArrayInput` via:
+//
+//          RecommendedActionMetricInfoResponseArray{ RecommendedActionMetricInfoResponseArgs{...} }
+type RecommendedActionMetricInfoResponseArrayInput interface {
+	pulumi.Input
+
+	ToRecommendedActionMetricInfoResponseArrayOutput() RecommendedActionMetricInfoResponseArrayOutput
+	ToRecommendedActionMetricInfoResponseArrayOutputWithContext(context.Context) RecommendedActionMetricInfoResponseArrayOutput
+}
+
+type RecommendedActionMetricInfoResponseArray []RecommendedActionMetricInfoResponseInput
+
+func (RecommendedActionMetricInfoResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedActionMetricInfoResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionMetricInfoResponseArray) ToRecommendedActionMetricInfoResponseArrayOutput() RecommendedActionMetricInfoResponseArrayOutput {
+	return i.ToRecommendedActionMetricInfoResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionMetricInfoResponseArray) ToRecommendedActionMetricInfoResponseArrayOutputWithContext(ctx context.Context) RecommendedActionMetricInfoResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionMetricInfoResponseArrayOutput)
+}
+
+// Contains time series of various impacted metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionMetricInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionMetricInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionMetricInfoResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionMetricInfoResponseOutput) ToRecommendedActionMetricInfoResponseOutput() RecommendedActionMetricInfoResponseOutput {
+	return o
+}
+
+func (o RecommendedActionMetricInfoResponseOutput) ToRecommendedActionMetricInfoResponseOutputWithContext(ctx context.Context) RecommendedActionMetricInfoResponseOutput {
+	return o
+}
+
+// Gets the name of the metric. e.g., CPU, Number of Queries.
+func (o RecommendedActionMetricInfoResponseOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// Gets the start time of time interval given by this MetricInfo.
+func (o RecommendedActionMetricInfoResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
+func (o RecommendedActionMetricInfoResponseOutput) TimeGrain() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.TimeGrain }).(pulumi.StringOutput)
+}
+
+// Gets the unit in which metric is measured. e.g., DTU, Frequency
+func (o RecommendedActionMetricInfoResponseOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Gets the value of the metric in the time interval given by this MetricInfo.
+func (o RecommendedActionMetricInfoResponseOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v RecommendedActionMetricInfoResponse) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type RecommendedActionMetricInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionMetricInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedActionMetricInfoResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionMetricInfoResponseArrayOutput) ToRecommendedActionMetricInfoResponseArrayOutput() RecommendedActionMetricInfoResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedActionMetricInfoResponseArrayOutput) ToRecommendedActionMetricInfoResponseArrayOutputWithContext(ctx context.Context) RecommendedActionMetricInfoResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedActionMetricInfoResponseArrayOutput) Index(i pulumi.IntInput) RecommendedActionMetricInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendedActionMetricInfoResponse {
+		return vs[0].([]RecommendedActionMetricInfoResponse)[vs[1].(int)]
+	}).(RecommendedActionMetricInfoResponseOutput)
+}
+
+// Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionResponse struct {
+	// Gets additional details specific to this recommended action.
+	Details map[string]interface{} `pulumi:"details"`
+	// Gets the error details if and why this recommended action is put to error state.
+	ErrorDetails RecommendedActionErrorInfoResponse `pulumi:"errorDetails"`
+	// Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
+	EstimatedImpact []RecommendedActionImpactRecordResponse `pulumi:"estimatedImpact"`
+	// Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
+	ExecuteActionDuration string `pulumi:"executeActionDuration"`
+	// Gets if approval for applying this recommended action was given by user/system.
+	ExecuteActionInitiatedBy string `pulumi:"executeActionInitiatedBy"`
+	// Gets the time when this recommended action was approved for execution.
+	ExecuteActionInitiatedTime string `pulumi:"executeActionInitiatedTime"`
+	// Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
+	ExecuteActionStartTime string `pulumi:"executeActionStartTime"`
+	// Resource ID.
+	Id string `pulumi:"id"`
+	// Gets the implementation details of this recommended action for user to apply it manually.
+	ImplementationDetails RecommendedActionImplementationInfoResponse `pulumi:"implementationDetails"`
+	// Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
+	IsArchivedAction bool `pulumi:"isArchivedAction"`
+	// Gets if this recommended action is actionable by user
+	IsExecutableAction bool `pulumi:"isExecutableAction"`
+	// Gets if changes applied by this recommended action can be reverted by user
+	IsRevertableAction bool `pulumi:"isRevertableAction"`
+	// Resource kind.
+	Kind string `pulumi:"kind"`
+	// Gets time when this recommended action was last refreshed.
+	LastRefresh string `pulumi:"lastRefresh"`
+	// Gets the linked objects, if any.
+	LinkedObjects []string `pulumi:"linkedObjects"`
+	// Resource location.
+	Location string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
+	ObservedImpact []RecommendedActionImpactRecordResponse `pulumi:"observedImpact"`
+	// Gets the reason for recommending this action. e.g., DuplicateIndex
+	RecommendationReason string `pulumi:"recommendationReason"`
+	// Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
+	RevertActionDuration string `pulumi:"revertActionDuration"`
+	// Gets if approval for reverting this recommended action was given by user/system.
+	RevertActionInitiatedBy string `pulumi:"revertActionInitiatedBy"`
+	// Gets the time when this recommended action was approved for revert.
+	RevertActionInitiatedTime string `pulumi:"revertActionInitiatedTime"`
+	// Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
+	RevertActionStartTime string `pulumi:"revertActionStartTime"`
+	// Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
+	Score int `pulumi:"score"`
+	// Gets the info of the current state the recommended action is in.
+	State RecommendedActionStateInfoResponse `pulumi:"state"`
+	// Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
+	TimeSeries []RecommendedActionMetricInfoResponse `pulumi:"timeSeries"`
+	// Resource type.
+	Type string `pulumi:"type"`
+	// Gets the time since when this recommended action is valid.
+	ValidSince string `pulumi:"validSince"`
+}
+
+// RecommendedActionResponseInput is an input type that accepts RecommendedActionResponseArgs and RecommendedActionResponseOutput values.
+// You can construct a concrete instance of `RecommendedActionResponseInput` via:
+//
+//          RecommendedActionResponseArgs{...}
+type RecommendedActionResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedActionResponseOutput() RecommendedActionResponseOutput
+	ToRecommendedActionResponseOutputWithContext(context.Context) RecommendedActionResponseOutput
+}
+
+// Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionResponseArgs struct {
+	// Gets additional details specific to this recommended action.
+	Details pulumi.MapInput `pulumi:"details"`
+	// Gets the error details if and why this recommended action is put to error state.
+	ErrorDetails RecommendedActionErrorInfoResponseInput `pulumi:"errorDetails"`
+	// Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
+	EstimatedImpact RecommendedActionImpactRecordResponseArrayInput `pulumi:"estimatedImpact"`
+	// Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
+	ExecuteActionDuration pulumi.StringInput `pulumi:"executeActionDuration"`
+	// Gets if approval for applying this recommended action was given by user/system.
+	ExecuteActionInitiatedBy pulumi.StringInput `pulumi:"executeActionInitiatedBy"`
+	// Gets the time when this recommended action was approved for execution.
+	ExecuteActionInitiatedTime pulumi.StringInput `pulumi:"executeActionInitiatedTime"`
+	// Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
+	ExecuteActionStartTime pulumi.StringInput `pulumi:"executeActionStartTime"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Gets the implementation details of this recommended action for user to apply it manually.
+	ImplementationDetails RecommendedActionImplementationInfoResponseInput `pulumi:"implementationDetails"`
+	// Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
+	IsArchivedAction pulumi.BoolInput `pulumi:"isArchivedAction"`
+	// Gets if this recommended action is actionable by user
+	IsExecutableAction pulumi.BoolInput `pulumi:"isExecutableAction"`
+	// Gets if changes applied by this recommended action can be reverted by user
+	IsRevertableAction pulumi.BoolInput `pulumi:"isRevertableAction"`
+	// Resource kind.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Gets time when this recommended action was last refreshed.
+	LastRefresh pulumi.StringInput `pulumi:"lastRefresh"`
+	// Gets the linked objects, if any.
+	LinkedObjects pulumi.StringArrayInput `pulumi:"linkedObjects"`
+	// Resource location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
+	ObservedImpact RecommendedActionImpactRecordResponseArrayInput `pulumi:"observedImpact"`
+	// Gets the reason for recommending this action. e.g., DuplicateIndex
+	RecommendationReason pulumi.StringInput `pulumi:"recommendationReason"`
+	// Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
+	RevertActionDuration pulumi.StringInput `pulumi:"revertActionDuration"`
+	// Gets if approval for reverting this recommended action was given by user/system.
+	RevertActionInitiatedBy pulumi.StringInput `pulumi:"revertActionInitiatedBy"`
+	// Gets the time when this recommended action was approved for revert.
+	RevertActionInitiatedTime pulumi.StringInput `pulumi:"revertActionInitiatedTime"`
+	// Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
+	RevertActionStartTime pulumi.StringInput `pulumi:"revertActionStartTime"`
+	// Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
+	Score pulumi.IntInput `pulumi:"score"`
+	// Gets the info of the current state the recommended action is in.
+	State RecommendedActionStateInfoResponseInput `pulumi:"state"`
+	// Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
+	TimeSeries RecommendedActionMetricInfoResponseArrayInput `pulumi:"timeSeries"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Gets the time since when this recommended action is valid.
+	ValidSince pulumi.StringInput `pulumi:"validSince"`
+}
+
+func (RecommendedActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionResponseArgs) ToRecommendedActionResponseOutput() RecommendedActionResponseOutput {
+	return i.ToRecommendedActionResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionResponseArgs) ToRecommendedActionResponseOutputWithContext(ctx context.Context) RecommendedActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionResponseOutput)
+}
+
+// RecommendedActionResponseArrayInput is an input type that accepts RecommendedActionResponseArray and RecommendedActionResponseArrayOutput values.
+// You can construct a concrete instance of `RecommendedActionResponseArrayInput` via:
+//
+//          RecommendedActionResponseArray{ RecommendedActionResponseArgs{...} }
+type RecommendedActionResponseArrayInput interface {
+	pulumi.Input
+
+	ToRecommendedActionResponseArrayOutput() RecommendedActionResponseArrayOutput
+	ToRecommendedActionResponseArrayOutputWithContext(context.Context) RecommendedActionResponseArrayOutput
+}
+
+type RecommendedActionResponseArray []RecommendedActionResponseInput
+
+func (RecommendedActionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedActionResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionResponseArray) ToRecommendedActionResponseArrayOutput() RecommendedActionResponseArrayOutput {
+	return i.ToRecommendedActionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionResponseArray) ToRecommendedActionResponseArrayOutputWithContext(ctx context.Context) RecommendedActionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionResponseArrayOutput)
+}
+
+// Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionResponseOutput) ToRecommendedActionResponseOutput() RecommendedActionResponseOutput {
+	return o
+}
+
+func (o RecommendedActionResponseOutput) ToRecommendedActionResponseOutputWithContext(ctx context.Context) RecommendedActionResponseOutput {
+	return o
+}
+
+// Gets additional details specific to this recommended action.
+func (o RecommendedActionResponseOutput) Details() pulumi.MapOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) map[string]interface{} { return v.Details }).(pulumi.MapOutput)
+}
+
+// Gets the error details if and why this recommended action is put to error state.
+func (o RecommendedActionResponseOutput) ErrorDetails() RecommendedActionErrorInfoResponseOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) RecommendedActionErrorInfoResponse { return v.ErrorDetails }).(RecommendedActionErrorInfoResponseOutput)
+}
+
+// Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
+func (o RecommendedActionResponseOutput) EstimatedImpact() RecommendedActionImpactRecordResponseArrayOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) []RecommendedActionImpactRecordResponse { return v.EstimatedImpact }).(RecommendedActionImpactRecordResponseArrayOutput)
+}
+
+// Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation
+func (o RecommendedActionResponseOutput) ExecuteActionDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionDuration }).(pulumi.StringOutput)
+}
+
+// Gets if approval for applying this recommended action was given by user/system.
+func (o RecommendedActionResponseOutput) ExecuteActionInitiatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionInitiatedBy }).(pulumi.StringOutput)
+}
+
+// Gets the time when this recommended action was approved for execution.
+func (o RecommendedActionResponseOutput) ExecuteActionInitiatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionInitiatedTime }).(pulumi.StringOutput)
+}
+
+// Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time
+func (o RecommendedActionResponseOutput) ExecuteActionStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ExecuteActionStartTime }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o RecommendedActionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets the implementation details of this recommended action for user to apply it manually.
+func (o RecommendedActionResponseOutput) ImplementationDetails() RecommendedActionImplementationInfoResponseOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) RecommendedActionImplementationInfoResponse {
+		return v.ImplementationDetails
+	}).(RecommendedActionImplementationInfoResponseOutput)
+}
+
+// Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.
+func (o RecommendedActionResponseOutput) IsArchivedAction() pulumi.BoolOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) bool { return v.IsArchivedAction }).(pulumi.BoolOutput)
+}
+
+// Gets if this recommended action is actionable by user
+func (o RecommendedActionResponseOutput) IsExecutableAction() pulumi.BoolOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) bool { return v.IsExecutableAction }).(pulumi.BoolOutput)
+}
+
+// Gets if changes applied by this recommended action can be reverted by user
+func (o RecommendedActionResponseOutput) IsRevertableAction() pulumi.BoolOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) bool { return v.IsRevertableAction }).(pulumi.BoolOutput)
+}
+
+// Resource kind.
+func (o RecommendedActionResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Gets time when this recommended action was last refreshed.
+func (o RecommendedActionResponseOutput) LastRefresh() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.LastRefresh }).(pulumi.StringOutput)
+}
+
+// Gets the linked objects, if any.
+func (o RecommendedActionResponseOutput) LinkedObjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) []string { return v.LinkedObjects }).(pulumi.StringArrayOutput)
+}
+
+// Resource location.
+func (o RecommendedActionResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o RecommendedActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change
+func (o RecommendedActionResponseOutput) ObservedImpact() RecommendedActionImpactRecordResponseArrayOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) []RecommendedActionImpactRecordResponse { return v.ObservedImpact }).(RecommendedActionImpactRecordResponseArrayOutput)
+}
+
+// Gets the reason for recommending this action. e.g., DuplicateIndex
+func (o RecommendedActionResponseOutput) RecommendationReason() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RecommendationReason }).(pulumi.StringOutput)
+}
+
+// Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.
+func (o RecommendedActionResponseOutput) RevertActionDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionDuration }).(pulumi.StringOutput)
+}
+
+// Gets if approval for reverting this recommended action was given by user/system.
+func (o RecommendedActionResponseOutput) RevertActionInitiatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionInitiatedBy }).(pulumi.StringOutput)
+}
+
+// Gets the time when this recommended action was approved for revert.
+func (o RecommendedActionResponseOutput) RevertActionInitiatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionInitiatedTime }).(pulumi.StringOutput)
+}
+
+// Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.
+func (o RecommendedActionResponseOutput) RevertActionStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.RevertActionStartTime }).(pulumi.StringOutput)
+}
+
+// Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact
+func (o RecommendedActionResponseOutput) Score() pulumi.IntOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) int { return v.Score }).(pulumi.IntOutput)
+}
+
+// Gets the info of the current state the recommended action is in.
+func (o RecommendedActionResponseOutput) State() RecommendedActionStateInfoResponseOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) RecommendedActionStateInfoResponse { return v.State }).(RecommendedActionStateInfoResponseOutput)
+}
+
+// Gets the time series info of metrics for this recommended action e.g., CPU consumption time series
+func (o RecommendedActionResponseOutput) TimeSeries() RecommendedActionMetricInfoResponseArrayOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) []RecommendedActionMetricInfoResponse { return v.TimeSeries }).(RecommendedActionMetricInfoResponseArrayOutput)
+}
+
+// Resource type.
+func (o RecommendedActionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets the time since when this recommended action is valid.
+func (o RecommendedActionResponseOutput) ValidSince() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionResponse) string { return v.ValidSince }).(pulumi.StringOutput)
+}
+
+type RecommendedActionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedActionResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionResponseArrayOutput) ToRecommendedActionResponseArrayOutput() RecommendedActionResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedActionResponseArrayOutput) ToRecommendedActionResponseArrayOutputWithContext(ctx context.Context) RecommendedActionResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedActionResponseArrayOutput) Index(i pulumi.IntInput) RecommendedActionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendedActionResponse {
+		return vs[0].([]RecommendedActionResponse)[vs[1].(int)]
+	}).(RecommendedActionResponseOutput)
+}
+
+// Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionStateInfoResponse struct {
+	// Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
+	ActionInitiatedBy string `pulumi:"actionInitiatedBy"`
+	// Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action.
+	CurrentValue string `pulumi:"currentValue"`
+	// Gets the time when the state was last modified
+	LastModified string `pulumi:"lastModified"`
+}
+
+// RecommendedActionStateInfoResponseInput is an input type that accepts RecommendedActionStateInfoResponseArgs and RecommendedActionStateInfoResponseOutput values.
+// You can construct a concrete instance of `RecommendedActionStateInfoResponseInput` via:
+//
+//          RecommendedActionStateInfoResponseArgs{...}
+type RecommendedActionStateInfoResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedActionStateInfoResponseOutput() RecommendedActionStateInfoResponseOutput
+	ToRecommendedActionStateInfoResponseOutputWithContext(context.Context) RecommendedActionStateInfoResponseOutput
+}
+
+// Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionStateInfoResponseArgs struct {
+	// Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
+	ActionInitiatedBy pulumi.StringInput `pulumi:"actionInitiatedBy"`
+	// Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action.
+	CurrentValue pulumi.StringInput `pulumi:"currentValue"`
+	// Gets the time when the state was last modified
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
+}
+
+func (RecommendedActionStateInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionStateInfoResponse)(nil)).Elem()
+}
+
+func (i RecommendedActionStateInfoResponseArgs) ToRecommendedActionStateInfoResponseOutput() RecommendedActionStateInfoResponseOutput {
+	return i.ToRecommendedActionStateInfoResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedActionStateInfoResponseArgs) ToRecommendedActionStateInfoResponseOutputWithContext(ctx context.Context) RecommendedActionStateInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedActionStateInfoResponseOutput)
+}
+
+// Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+type RecommendedActionStateInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedActionStateInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedActionStateInfoResponse)(nil)).Elem()
+}
+
+func (o RecommendedActionStateInfoResponseOutput) ToRecommendedActionStateInfoResponseOutput() RecommendedActionStateInfoResponseOutput {
+	return o
+}
+
+func (o RecommendedActionStateInfoResponseOutput) ToRecommendedActionStateInfoResponseOutputWithContext(ctx context.Context) RecommendedActionStateInfoResponseOutput {
+	return o
+}
+
+// Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
+func (o RecommendedActionStateInfoResponseOutput) ActionInitiatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionStateInfoResponse) string { return v.ActionInitiatedBy }).(pulumi.StringOutput)
+}
+
+// Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action.
+func (o RecommendedActionStateInfoResponseOutput) CurrentValue() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionStateInfoResponse) string { return v.CurrentValue }).(pulumi.StringOutput)
+}
+
+// Gets the time when the state was last modified
+func (o RecommendedActionStateInfoResponseOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedActionStateInfoResponse) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
 // Azure Active Directory identity configuration for a resource.
 type ResourceIdentity struct {
 	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -8425,6 +9243,15 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(RecommendedActionErrorInfoResponseOutput{})
+	pulumi.RegisterOutputType(RecommendedActionImpactRecordResponseOutput{})
+	pulumi.RegisterOutputType(RecommendedActionImpactRecordResponseArrayOutput{})
+	pulumi.RegisterOutputType(RecommendedActionImplementationInfoResponseOutput{})
+	pulumi.RegisterOutputType(RecommendedActionMetricInfoResponseOutput{})
+	pulumi.RegisterOutputType(RecommendedActionMetricInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(RecommendedActionResponseOutput{})
+	pulumi.RegisterOutputType(RecommendedActionResponseArrayOutput{})
+	pulumi.RegisterOutputType(RecommendedActionStateInfoResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})

@@ -9,6 +9,7 @@ from ._enums import *
 from .backup_short_term_retention_policy import *
 from .data_masking_policy import *
 from .database import *
+from .database_advisor import *
 from .database_blob_auditing_policy import *
 from .database_security_alert_policy import *
 from .database_vulnerability_assessment import *
@@ -23,6 +24,7 @@ from .geo_backup_policy import *
 from .get_backup_short_term_retention_policy import *
 from .get_data_masking_policy import *
 from .get_database import *
+from .get_database_advisor import *
 from .get_database_blob_auditing_policy import *
 from .get_database_security_alert_policy import *
 from .get_database_vulnerability_assessment import *
@@ -56,6 +58,7 @@ from .get_outbound_firewall_rule import *
 from .get_private_endpoint_connection import *
 from .get_sensitivity_label import *
 from .get_server import *
+from .get_server_advisor import *
 from .get_server_azure_ad_administrator import *
 from .get_server_azure_ad_only_authentication import *
 from .get_server_blob_auditing_policy import *
@@ -94,6 +97,7 @@ from .outbound_firewall_rule import *
 from .private_endpoint_connection import *
 from .sensitivity_label import *
 from .server import *
+from .server_advisor import *
 from .server_azure_ad_administrator import *
 from .server_azure_ad_only_authentication import *
 from .server_blob_auditing_policy import *

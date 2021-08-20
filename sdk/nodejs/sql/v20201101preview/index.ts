@@ -7,6 +7,7 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./backupShortTermRetentionPolicy";
 export * from "./database";
+export * from "./databaseAdvisor";
 export * from "./databaseBlobAuditingPolicy";
 export * from "./databaseSecurityAlertPolicy";
 export * from "./databaseVulnerabilityAssessment";
@@ -18,6 +19,7 @@ export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getBackupShortTermRetentionPolicy";
 export * from "./getDatabase";
+export * from "./getDatabaseAdvisor";
 export * from "./getDatabaseBlobAuditingPolicy";
 export * from "./getDatabaseSecurityAlertPolicy";
 export * from "./getDatabaseVulnerabilityAssessment";
@@ -48,6 +50,7 @@ export * from "./getManagedInstanceVulnerabilityAssessment";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSensitivityLabel";
 export * from "./getServer";
+export * from "./getServerAdvisor";
 export * from "./getServerAzureADAdministrator";
 export * from "./getServerAzureADOnlyAuthentication";
 export * from "./getServerBlobAuditingPolicy";
@@ -84,6 +87,7 @@ export * from "./managedInstanceVulnerabilityAssessment";
 export * from "./privateEndpointConnection";
 export * from "./sensitivityLabel";
 export * from "./server";
+export * from "./serverAdvisor";
 export * from "./serverAzureADAdministrator";
 export * from "./serverAzureADOnlyAuthentication";
 export * from "./serverBlobAuditingPolicy";
@@ -106,6 +110,7 @@ export * from "../../types/enums/sql/v20201101preview";
 // Import resources to register:
 import { BackupShortTermRetentionPolicy } from "./backupShortTermRetentionPolicy";
 import { Database } from "./database";
+import { DatabaseAdvisor } from "./databaseAdvisor";
 import { DatabaseBlobAuditingPolicy } from "./databaseBlobAuditingPolicy";
 import { DatabaseSecurityAlertPolicy } from "./databaseSecurityAlertPolicy";
 import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
@@ -136,6 +141,7 @@ import { ManagedInstanceVulnerabilityAssessment } from "./managedInstanceVulnera
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { SensitivityLabel } from "./sensitivityLabel";
 import { Server } from "./server";
+import { ServerAdvisor } from "./serverAdvisor";
 import { ServerAzureADAdministrator } from "./serverAzureADAdministrator";
 import { ServerAzureADOnlyAuthentication } from "./serverAzureADOnlyAuthentication";
 import { ServerBlobAuditingPolicy } from "./serverBlobAuditingPolicy";
@@ -160,6 +166,8 @@ const _module = {
                 return new BackupShortTermRetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:sql/v20201101preview:DatabaseAdvisor":
+                return new DatabaseAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy":
                 return new DatabaseBlobAuditingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy":
@@ -220,6 +228,8 @@ const _module = {
                 return new SensitivityLabel(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:Server":
                 return new Server(name, <any>undefined, { urn })
+            case "azure-native:sql/v20201101preview:ServerAdvisor":
+                return new ServerAdvisor(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:ServerAzureADAdministrator":
                 return new ServerAzureADAdministrator(name, <any>undefined, { urn })
             case "azure-native:sql/v20201101preview:ServerAzureADOnlyAuthentication":
