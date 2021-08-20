@@ -38,6 +38,38 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
     }
 
     /// <summary>
+    /// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoExecuteStatus : IEquatable<AutoExecuteStatus>
+    {
+        private readonly string _value;
+
+        private AutoExecuteStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoExecuteStatus Enabled { get; } = new AutoExecuteStatus("Enabled");
+        public static AutoExecuteStatus Disabled { get; } = new AutoExecuteStatus("Disabled");
+        public static AutoExecuteStatus Default { get; } = new AutoExecuteStatus("Default");
+
+        public static bool operator ==(AutoExecuteStatus left, AutoExecuteStatus right) => left.Equals(right);
+        public static bool operator !=(AutoExecuteStatus left, AutoExecuteStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AutoExecuteStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoExecuteStatus other && Equals(other);
+        public bool Equals(AutoExecuteStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
     /// </summary>
     [EnumType]
