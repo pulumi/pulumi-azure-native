@@ -89,6 +89,12 @@ new sql.TransparentDataEncryption("current", {
     status: sql.TransparentDataEncryptionStatus.Enabled,
 });
 
+new sql.ServerAdvisor("ForceLastGoodPlan", {
+    resourceGroupName: resourceGroup.name,
+    serverName: sqlServer.name,
+    autoExecuteStatus: sql.AutoExecuteStatus.Enabled,
+})
+
 const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
     serverFarmId: appServicePlan.id,
