@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Domain ownership Identifier.
- * API Version: 2021-02-01.
+ * API Version: 2020-10-01.
  */
 export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -48,6 +49,10 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      */
     public readonly ownershipId!: pulumi.Output<string | undefined>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.domainregistration.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -74,11 +79,13 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ownershipId"] = args ? args.ownershipId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownershipId"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

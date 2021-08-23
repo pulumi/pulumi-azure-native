@@ -21,14 +21,6 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource move details for backup vault
-        /// </summary>
-        public readonly Outputs.ResourceMoveDetailsResponse ResourceMoveDetails;
-        /// <summary>
-        /// Resource move state for backup vault
-        /// </summary>
-        public readonly string ResourceMoveState;
-        /// <summary>
         /// Storage Settings
         /// </summary>
         public readonly ImmutableArray<Outputs.StorageSettingResponse> StorageSettings;
@@ -37,15 +29,9 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         private BackupVaultResponse(
             string provisioningState,
 
-            Outputs.ResourceMoveDetailsResponse resourceMoveDetails,
-
-            string resourceMoveState,
-
             ImmutableArray<Outputs.StorageSettingResponse> storageSettings)
         {
             ProvisioningState = provisioningState;
-            ResourceMoveDetails = resourceMoveDetails;
-            ResourceMoveState = resourceMoveState;
             StorageSettings = storageSettings;
         }
     }

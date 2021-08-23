@@ -144,7 +144,7 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupVaultResult:
     """
     Backup Vault Resource
-    API Version: 2021-07-01.
+    API Version: 2021-01-01.
 
 
     :param str resource_group_name: The name of the resource group where the backup vault is present.

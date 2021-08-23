@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         public Input<Inputs.DatasourceSetArgs>? DataSourceSetInfo { get; set; }
 
         /// <summary>
-        /// Credentials to use to authenticate with data source provider.
-        /// </summary>
-        [Input("datasourceAuthCredentials")]
-        public Input<Inputs.SecretStoreBasedAuthCredentialsArgs>? DatasourceAuthCredentials { get; set; }
-
-        /// <summary>
         /// Gets or sets the Backup Instance friendly name.
         /// </summary>
         [Input("friendlyName")]

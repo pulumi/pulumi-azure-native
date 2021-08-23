@@ -64,16 +64,6 @@ export const Month = {
 
 export type Month = (typeof Month)[keyof typeof Month];
 
-export const SecretStoreType = {
-    Invalid: "Invalid",
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * Gets or sets the type of secret store
- */
-export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
-
 export const StorageSettingStoreTypes = {
     ArchiveStore: "ArchiveStore",
     SnapshotStore: "SnapshotStore",

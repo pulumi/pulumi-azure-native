@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     {
         /// <summary>
         /// Collection of top-level domain legal agreements.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListTopLevelDomainAgreementsResult> InvokeAsync(ListTopLevelDomainAgreementsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithVersion());

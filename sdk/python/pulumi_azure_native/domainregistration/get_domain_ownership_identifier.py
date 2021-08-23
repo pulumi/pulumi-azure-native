@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetDomainOwnershipIdentifierResult',
@@ -19,7 +20,7 @@ class GetDomainOwnershipIdentifierResult:
     """
     Domain ownership Identifier.
     """
-    def __init__(__self__, id=None, kind=None, name=None, ownership_id=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, ownership_id=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +33,9 @@ class GetDomainOwnershipIdentifierResult:
         if ownership_id and not isinstance(ownership_id, str):
             raise TypeError("Expected argument 'ownership_id' to be a str")
         pulumi.set(__self__, "ownership_id", ownership_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -69,6 +73,14 @@ class GetDomainOwnershipIdentifierResult:
         return pulumi.get(self, "ownership_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -87,6 +99,7 @@ class AwaitableGetDomainOwnershipIdentifierResult(GetDomainOwnershipIdentifierRe
             kind=self.kind,
             name=self.name,
             ownership_id=self.ownership_id,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -96,7 +109,7 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainOwnershipIdentifierResult:
     """
     Domain ownership Identifier.
-    API Version: 2021-02-01.
+    API Version: 2020-10-01.
 
 
     :param str domain_name: Name of domain.
@@ -118,4 +131,5 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         ownership_id=__ret__.ownership_id,
+        system_data=__ret__.system_data,
         type=__ret__.type)

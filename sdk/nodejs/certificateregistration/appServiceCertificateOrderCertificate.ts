@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
- * API Version: 2021-02-01.
+ * API Version: 2020-10-01.
  */
 export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource {
     /**
@@ -60,6 +61,10 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.certificateregistration.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -94,6 +99,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["keyVaultId"] = undefined /*out*/;
@@ -102,6 +108,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DomainRegistration
 {
     /// <summary>
     /// Domain ownership Identifier.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         [Output("ownershipId")]
         public Output<string?> OwnershipId { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

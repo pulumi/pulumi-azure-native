@@ -12,7 +12,7 @@ import (
 )
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
-// API Version: 2021-02-01.
+// API Version: 2020-10-01.
 type AppServiceCertificateOrderCertificate struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,8 @@ type AppServiceCertificateOrderCertificate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the Key Vault secret.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.

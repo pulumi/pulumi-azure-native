@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DomainRegistration
 {
     /// <summary>
     /// Information about a domain.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration:Domain")]
     public partial class Domain : Pulumi.CustomResource
@@ -115,6 +115,12 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         [Output("registrationStatus")]
         public Output<string> RegistrationStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

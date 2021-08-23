@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection
     {
         /// <summary>
         /// BaseBackupPolicy resource
-        /// API Version: 2021-07-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());

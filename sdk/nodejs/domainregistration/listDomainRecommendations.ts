@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Collection of domain name identifiers.
- * API Version: 2021-02-01.
+ * API Version: 2020-10-01.
  */
 export function listDomainRecommendations(args?: ListDomainRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainRecommendationsResult> {
     args = args || {};

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * BackupInstance Resource
- * API Version: 2021-07-01.
+ * API Version: 2021-01-01.
  */
 export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupInstanceResult> {
     if (!opts) {

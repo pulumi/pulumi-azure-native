@@ -8,7 +8,7 @@ import (
 )
 
 // SSL certificate purchase order.
-// API Version: 2021-02-01.
+// API Version: 2020-10-01.
 func LookupAppServiceCertificateOrder(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderResult, error) {
 	var rv LookupAppServiceCertificateOrderResult
 	err := ctx.Invoke("azure-native:certificateregistration:getAppServiceCertificateOrder", args, &rv, opts...)
@@ -33,8 +33,6 @@ type LookupAppServiceCertificateOrderResult struct {
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
 	Certificates map[string]AppServiceCertificateResponse `pulumi:"certificates"`
-	// Contact info
-	Contact CertificateOrderContactResponse `pulumi:"contact"`
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -73,10 +71,12 @@ type LookupAppServiceCertificateOrderResult struct {
 	SignedCertificate CertificateDetailsResponse `pulumi:"signedCertificate"`
 	// Current order status.
 	Status string `pulumi:"status"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
-	// Duration in years (must be 1).
+	// Duration in years (must be between 1 and 3).
 	ValidityInYears *int `pulumi:"validityInYears"`
 }

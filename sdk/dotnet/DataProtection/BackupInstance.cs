@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// BackupInstance Resource
-    /// API Version: 2021-07-01.
+    /// API Version: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupInstance")]
     public partial class BackupInstance : Pulumi.CustomResource

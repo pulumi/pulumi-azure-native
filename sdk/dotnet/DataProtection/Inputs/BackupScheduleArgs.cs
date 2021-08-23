@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
             set => _repeatingTimeIntervals = value;
         }
 
-        /// <summary>
-        /// Time zone for a schedule. Example: Pacific Standard Time
-        /// </summary>
-        [Input("timeZone")]
-        public Input<string>? TimeZone { get; set; }
-
         public BackupScheduleArgs()
         {
         }

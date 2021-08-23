@@ -293,7 +293,7 @@ class Domain(pulumi.CustomResource):
                  __props__=None):
         """
         Information about a domain.
-        API Version: 2021-02-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,7 +321,7 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about a domain.
-        API Version: 2021-02-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -406,6 +406,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["ready_for_dns_record_management"] = None
             __props__.__dict__["registration_status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:domainregistration:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201001:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201001:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20201201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210101:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20210101:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210115:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20210115:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210201:Domain"), pulumi.Alias(type_="azure-nextgen:domainregistration/v20210201:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -448,6 +449,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["ready_for_dns_record_management"] = None
         __props__.__dict__["registration_status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_dns_type"] = None
         __props__.__dict__["type"] = None
@@ -586,6 +588,14 @@ class Domain(pulumi.CustomResource):
         Domain registration status.
         """
         return pulumi.get(self, "registration_status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

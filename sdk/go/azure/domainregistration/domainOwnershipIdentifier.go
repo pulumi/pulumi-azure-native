@@ -12,7 +12,7 @@ import (
 )
 
 // Domain ownership Identifier.
-// API Version: 2021-02-01.
+// API Version: 2020-10-01.
 type DomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type DomainOwnershipIdentifier struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Ownership Id.
 	OwnershipId pulumi.StringPtrOutput `pulumi:"ownershipId"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }

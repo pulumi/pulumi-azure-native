@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
 {
     /// <summary>
     /// SSL certificate purchase order.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : Pulumi.CustomResource
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// </summary>
         [Output("certificates")]
         public Output<ImmutableDictionary<string, Outputs.AppServiceCertificateResponse>?> Certificates { get; private set; } = null!;
-
-        /// <summary>
-        /// Contact info
-        /// </summary>
-        [Output("contact")]
-        public Output<Outputs.CertificateOrderContactResponse> Contact { get; private set; } = null!;
 
         /// <summary>
         /// Last CSR that was created for this order.
@@ -149,6 +143,12 @@ namespace Pulumi.AzureNative.CertificateRegistration
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Duration in years (must be 1).
+        /// Duration in years (must be between 1 and 3).
         /// </summary>
         [Output("validityInYears")]
         public Output<int?> ValidityInYears { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
         }
 
         /// <summary>
-        /// Duration in years (must be 1).
+        /// Duration in years (must be between 1 and 3).
         /// </summary>
         [Input("validityInYears")]
         public Input<int>? ValidityInYears { get; set; }

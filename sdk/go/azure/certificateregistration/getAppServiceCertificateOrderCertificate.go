@@ -8,7 +8,7 @@ import (
 )
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
-// API Version: 2021-02-01.
+// API Version: 2020-10-01.
 func LookupAppServiceCertificateOrderCertificate(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderCertificateArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderCertificateResult, error) {
 	var rv LookupAppServiceCertificateOrderCertificateResult
 	err := ctx.Invoke("azure-native:certificateregistration:getAppServiceCertificateOrderCertificate", args, &rv, opts...)
@@ -43,6 +43,8 @@ type LookupAppServiceCertificateOrderCertificateResult struct {
 	Name string `pulumi:"name"`
 	// Status of the Key Vault secret.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

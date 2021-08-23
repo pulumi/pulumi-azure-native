@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
     {
         /// <summary>
         /// SSL certificate purchase order.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderResult> InvokeAsync(GetAppServiceCertificateOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderArgs(), options.WithVersion());
@@ -55,10 +55,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// State of the Key Vault secret.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.AppServiceCertificateResponse>? Certificates;
-        /// <summary>
-        /// Contact info
-        /// </summary>
-        public readonly Outputs.CertificateOrderContactResponse Contact;
         /// <summary>
         /// Last CSR that was created for this order.
         /// </summary>
@@ -136,6 +132,10 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Duration in years (must be 1).
+        /// Duration in years (must be between 1 and 3).
         /// </summary>
         public readonly int? ValidityInYears;
 
@@ -155,8 +155,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
             bool? autoRenew,
 
             ImmutableDictionary<string, Outputs.AppServiceCertificateResponse>? certificates,
-
-            Outputs.CertificateOrderContactResponse contact,
 
             string? csr,
 
@@ -196,6 +194,8 @@ namespace Pulumi.AzureNative.CertificateRegistration
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -205,7 +205,6 @@ namespace Pulumi.AzureNative.CertificateRegistration
             AppServiceCertificateNotRenewableReasons = appServiceCertificateNotRenewableReasons;
             AutoRenew = autoRenew;
             Certificates = certificates;
-            Contact = contact;
             Csr = csr;
             DistinguishedName = distinguishedName;
             DomainVerificationToken = domainVerificationToken;
@@ -225,6 +224,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
             SerialNumber = serialNumber;
             SignedCertificate = signedCertificate;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             ValidityInYears = validityInYears;

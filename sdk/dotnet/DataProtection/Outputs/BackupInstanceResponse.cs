@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly Outputs.DatasourceSetResponse? DataSourceSetInfo;
         /// <summary>
-        /// Credentials to use to authenticate with data source provider.
-        /// </summary>
-        public readonly Outputs.SecretStoreBasedAuthCredentialsResponse? DatasourceAuthCredentials;
-        /// <summary>
         /// Gets or sets the Backup Instance friendly name.
         /// </summary>
         public readonly string? FriendlyName;
@@ -62,8 +58,6 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             Outputs.DatasourceSetResponse? dataSourceSetInfo,
 
-            Outputs.SecretStoreBasedAuthCredentialsResponse? datasourceAuthCredentials,
-
             string? friendlyName,
 
             string objectType,
@@ -79,7 +73,6 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
             CurrentProtectionState = currentProtectionState;
             DataSourceInfo = dataSourceInfo;
             DataSourceSetInfo = dataSourceSetInfo;
-            DatasourceAuthCredentials = datasourceAuthCredentials;
             FriendlyName = friendlyName;
             ObjectType = objectType;
             PolicyInfo = policyInfo;

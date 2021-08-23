@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     {
         /// <summary>
         /// Information about a domain.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:domainregistration:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
@@ -114,6 +114,10 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         public readonly string RegistrationStatus;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.DomainRegistration
 
             string registrationStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? targetDnsType,
@@ -188,6 +194,7 @@ namespace Pulumi.AzureNative.DomainRegistration
             ProvisioningState = provisioningState;
             ReadyForDnsRecordManagement = readyForDnsRecordManagement;
             RegistrationStatus = registrationStatus;
+            SystemData = systemData;
             Tags = tags;
             TargetDnsType = targetDnsType;
             Type = type;

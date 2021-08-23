@@ -41,7 +41,7 @@ class AppServiceCertificateOrderArgs:
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[int] validity_in_years: Duration in years (must be 1).
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3).
         """
         pulumi.set(__self__, "product_type", product_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -208,7 +208,7 @@ class AppServiceCertificateOrderArgs:
     @pulumi.getter(name="validityInYears")
     def validity_in_years(self) -> Optional[pulumi.Input[int]]:
         """
-        Duration in years (must be 1).
+        Duration in years (must be between 1 and 3).
         """
         return pulumi.get(self, "validity_in_years")
 
@@ -237,7 +237,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  __props__=None):
         """
         SSL certificate purchase order.
-        API Version: 2021-02-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,7 +252,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         :param pulumi.Input['CertificateProductType'] product_type: Certificate product type.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[int] validity_in_years: Duration in years (must be 1).
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3).
         """
         ...
     @overload
@@ -262,7 +262,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SSL certificate purchase order.
-        API Version: 2021-02-01.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderArgs args: The arguments to use to populate this resource's properties.
@@ -326,7 +326,6 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                 validity_in_years = 1
             __props__.__dict__["validity_in_years"] = validity_in_years
             __props__.__dict__["app_service_certificate_not_renewable_reasons"] = None
-            __props__.__dict__["contact"] = None
             __props__.__dict__["domain_verification_token"] = None
             __props__.__dict__["expiration_time"] = None
             __props__.__dict__["intermediate"] = None
@@ -339,6 +338,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__.__dict__["serial_number"] = None
             __props__.__dict__["signed_certificate"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:certificateregistration:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20201201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20201201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210101:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20210101:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20210115:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-nextgen:certificateregistration/v20210201:AppServiceCertificateOrder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -367,7 +367,6 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         __props__.__dict__["app_service_certificate_not_renewable_reasons"] = None
         __props__.__dict__["auto_renew"] = None
         __props__.__dict__["certificates"] = None
-        __props__.__dict__["contact"] = None
         __props__.__dict__["csr"] = None
         __props__.__dict__["distinguished_name"] = None
         __props__.__dict__["domain_verification_token"] = None
@@ -386,6 +385,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         __props__.__dict__["serial_number"] = None
         __props__.__dict__["signed_certificate"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["validity_in_years"] = None
@@ -414,14 +414,6 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         State of the Key Vault secret.
         """
         return pulumi.get(self, "certificates")
-
-    @property
-    @pulumi.getter
-    def contact(self) -> pulumi.Output['outputs.CertificateOrderContactResponse']:
-        """
-        Contact info
-        """
-        return pulumi.get(self, "contact")
 
     @property
     @pulumi.getter
@@ -568,6 +560,14 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -587,7 +587,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
     @pulumi.getter(name="validityInYears")
     def validity_in_years(self) -> pulumi.Output[Optional[int]]:
         """
-        Duration in years (must be 1).
+        Duration in years (must be between 1 and 3).
         """
         return pulumi.get(self, "validity_in_years")
 

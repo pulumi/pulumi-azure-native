@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * SSL certificate purchase order.
- * API Version: 2021-02-01.
+ * API Version: 2020-10-01.
  */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
     if (!opts) {
@@ -50,10 +50,6 @@ export interface GetAppServiceCertificateOrderResult {
      * State of the Key Vault secret.
      */
     readonly certificates?: {[key: string]: outputs.certificateregistration.AppServiceCertificateResponse};
-    /**
-     * Contact info
-     */
-    readonly contact: outputs.certificateregistration.CertificateOrderContactResponse;
     /**
      * Last CSR that was created for this order.
      */
@@ -131,6 +127,10 @@ export interface GetAppServiceCertificateOrderResult {
      */
     readonly status: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.certificateregistration.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -139,7 +139,7 @@ export interface GetAppServiceCertificateOrderResult {
      */
     readonly type: string;
     /**
-     * Duration in years (must be 1).
+     * Duration in years (must be between 1 and 3).
      */
     readonly validityInYears?: number;
 }

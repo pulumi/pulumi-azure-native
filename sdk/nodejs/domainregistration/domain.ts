@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a domain.
- * API Version: 2021-02-01.
+ * API Version: 2020-10-01.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -103,6 +103,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly registrationStatus!: pulumi.Output<string>;
     /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.domainregistration.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -170,6 +174,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["readyForDnsRecordManagement"] = undefined /*out*/;
             inputs["registrationStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["authCode"] = undefined /*out*/;
@@ -189,6 +194,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["readyForDnsRecordManagement"] = undefined /*out*/;
             inputs["registrationStatus"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["targetDnsType"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

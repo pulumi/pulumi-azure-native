@@ -34,8 +34,6 @@ __all__ = [
     'RetentionTagArgs',
     'ScheduleBasedBackupCriteriaArgs',
     'ScheduleBasedTriggerContextArgs',
-    'SecretStoreBasedAuthCredentialsArgs',
-    'SecretStoreResourceArgs',
     'SourceLifeCycleArgs',
     'StorageSettingArgs',
     'TaggingCriteriaArgs',
@@ -390,14 +388,12 @@ class BackupInstanceArgs:
                  object_type: pulumi.Input[str],
                  policy_info: pulumi.Input['PolicyInfoArgs'],
                  data_source_set_info: Optional[pulumi.Input['DatasourceSetArgs']] = None,
-                 datasource_auth_credentials: Optional[pulumi.Input['SecretStoreBasedAuthCredentialsArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None):
         """
         Backup Instance
         :param pulumi.Input['DatasourceArgs'] data_source_info: Gets or sets the data source information.
         :param pulumi.Input['PolicyInfoArgs'] policy_info: Gets or sets the policy information.
         :param pulumi.Input['DatasourceSetArgs'] data_source_set_info: Gets or sets the data source set information.
-        :param pulumi.Input['SecretStoreBasedAuthCredentialsArgs'] datasource_auth_credentials: Credentials to use to authenticate with data source provider.
         :param pulumi.Input[str] friendly_name: Gets or sets the Backup Instance friendly name.
         """
         pulumi.set(__self__, "data_source_info", data_source_info)
@@ -405,8 +401,6 @@ class BackupInstanceArgs:
         pulumi.set(__self__, "policy_info", policy_info)
         if data_source_set_info is not None:
             pulumi.set(__self__, "data_source_set_info", data_source_set_info)
-        if datasource_auth_credentials is not None:
-            pulumi.set(__self__, "datasource_auth_credentials", datasource_auth_credentials)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
 
@@ -454,18 +448,6 @@ class BackupInstanceArgs:
     @data_source_set_info.setter
     def data_source_set_info(self, value: Optional[pulumi.Input['DatasourceSetArgs']]):
         pulumi.set(self, "data_source_set_info", value)
-
-    @property
-    @pulumi.getter(name="datasourceAuthCredentials")
-    def datasource_auth_credentials(self) -> Optional[pulumi.Input['SecretStoreBasedAuthCredentialsArgs']]:
-        """
-        Credentials to use to authenticate with data source provider.
-        """
-        return pulumi.get(self, "datasource_auth_credentials")
-
-    @datasource_auth_credentials.setter
-    def datasource_auth_credentials(self, value: Optional[pulumi.Input['SecretStoreBasedAuthCredentialsArgs']]):
-        pulumi.set(self, "datasource_auth_credentials", value)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -538,16 +520,12 @@ class BackupPolicyArgs:
 @pulumi.input_type
 class BackupScheduleArgs:
     def __init__(__self__, *,
-                 repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 time_zone: Optional[pulumi.Input[str]] = None):
+                 repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Schedule for backup
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repeating_time_intervals: ISO 8601 repeating time interval format
-        :param pulumi.Input[str] time_zone: Time zone for a schedule. Example: Pacific Standard Time
         """
         pulumi.set(__self__, "repeating_time_intervals", repeating_time_intervals)
-        if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="repeatingTimeIntervals")
@@ -560,18 +538,6 @@ class BackupScheduleArgs:
     @repeating_time_intervals.setter
     def repeating_time_intervals(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "repeating_time_intervals", value)
-
-    @property
-    @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        Time zone for a schedule. Example: Pacific Standard Time
-        """
-        return pulumi.get(self, "time_zone")
-
-    @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type
@@ -1286,86 +1252,6 @@ class ScheduleBasedTriggerContextArgs:
     @tagging_criteria.setter
     def tagging_criteria(self, value: pulumi.Input[Sequence[pulumi.Input['TaggingCriteriaArgs']]]):
         pulumi.set(self, "tagging_criteria", value)
-
-
-@pulumi.input_type
-class SecretStoreBasedAuthCredentialsArgs:
-    def __init__(__self__, *,
-                 object_type: pulumi.Input[str],
-                 secret_store_resource: Optional[pulumi.Input['SecretStoreResourceArgs']] = None):
-        """
-        Secret store based authentication credentials.
-        :param pulumi.Input[str] object_type: Type of the specific object - used for deserializing
-               Expected value is 'SecretStoreBasedAuthCredentials'.
-        :param pulumi.Input['SecretStoreResourceArgs'] secret_store_resource: Secret store resource
-        """
-        pulumi.set(__self__, "object_type", 'SecretStoreBasedAuthCredentials')
-        if secret_store_resource is not None:
-            pulumi.set(__self__, "secret_store_resource", secret_store_resource)
-
-    @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Input[str]:
-        """
-        Type of the specific object - used for deserializing
-        Expected value is 'SecretStoreBasedAuthCredentials'.
-        """
-        return pulumi.get(self, "object_type")
-
-    @object_type.setter
-    def object_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "object_type", value)
-
-    @property
-    @pulumi.getter(name="secretStoreResource")
-    def secret_store_resource(self) -> Optional[pulumi.Input['SecretStoreResourceArgs']]:
-        """
-        Secret store resource
-        """
-        return pulumi.get(self, "secret_store_resource")
-
-    @secret_store_resource.setter
-    def secret_store_resource(self, value: Optional[pulumi.Input['SecretStoreResourceArgs']]):
-        pulumi.set(self, "secret_store_resource", value)
-
-
-@pulumi.input_type
-class SecretStoreResourceArgs:
-    def __init__(__self__, *,
-                 secret_store_type: pulumi.Input[Union[str, 'SecretStoreType']],
-                 uri: Optional[pulumi.Input[str]] = None):
-        """
-        Class representing a secret store resource.
-        :param pulumi.Input[Union[str, 'SecretStoreType']] secret_store_type: Gets or sets the type of secret store
-        :param pulumi.Input[str] uri: Uri to get to the resource
-        """
-        pulumi.set(__self__, "secret_store_type", secret_store_type)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter(name="secretStoreType")
-    def secret_store_type(self) -> pulumi.Input[Union[str, 'SecretStoreType']]:
-        """
-        Gets or sets the type of secret store
-        """
-        return pulumi.get(self, "secret_store_type")
-
-    @secret_store_type.setter
-    def secret_store_type(self, value: pulumi.Input[Union[str, 'SecretStoreType']]):
-        pulumi.set(self, "secret_store_type", value)
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Uri to get to the resource
-        """
-        return pulumi.get(self, "uri")
-
-    @uri.setter
-    def uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "uri", value)
 
 
 @pulumi.input_type

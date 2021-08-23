@@ -95,7 +95,7 @@ class BackupInstance(pulumi.CustomResource):
                  __props__=None):
         """
         BackupInstance Resource
-        API Version: 2021-07-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class BackupInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         BackupInstance Resource
-        API Version: 2021-07-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceInitArgs args: The arguments to use to populate this resource's properties.

@@ -20,7 +20,7 @@ class GetAppServiceCertificateOrderResult:
     """
     SSL certificate purchase order.
     """
-    def __init__(__self__, app_service_certificate_not_renewable_reasons=None, auto_renew=None, certificates=None, contact=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate=None, is_private_key_external=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, next_auto_renewal_time_stamp=None, product_type=None, provisioning_state=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None):
+    def __init__(__self__, app_service_certificate_not_renewable_reasons=None, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate=None, is_private_key_external=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, next_auto_renewal_time_stamp=None, product_type=None, provisioning_state=None, root=None, serial_number=None, signed_certificate=None, status=None, system_data=None, tags=None, type=None, validity_in_years=None):
         if app_service_certificate_not_renewable_reasons and not isinstance(app_service_certificate_not_renewable_reasons, list):
             raise TypeError("Expected argument 'app_service_certificate_not_renewable_reasons' to be a list")
         pulumi.set(__self__, "app_service_certificate_not_renewable_reasons", app_service_certificate_not_renewable_reasons)
@@ -30,9 +30,6 @@ class GetAppServiceCertificateOrderResult:
         if certificates and not isinstance(certificates, dict):
             raise TypeError("Expected argument 'certificates' to be a dict")
         pulumi.set(__self__, "certificates", certificates)
-        if contact and not isinstance(contact, dict):
-            raise TypeError("Expected argument 'contact' to be a dict")
-        pulumi.set(__self__, "contact", contact)
         if csr and not isinstance(csr, str):
             raise TypeError("Expected argument 'csr' to be a str")
         pulumi.set(__self__, "csr", csr)
@@ -90,6 +87,9 @@ class GetAppServiceCertificateOrderResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -123,14 +123,6 @@ class GetAppServiceCertificateOrderResult:
         State of the Key Vault secret.
         """
         return pulumi.get(self, "certificates")
-
-    @property
-    @pulumi.getter
-    def contact(self) -> 'outputs.CertificateOrderContactResponse':
-        """
-        Contact info
-        """
-        return pulumi.get(self, "contact")
 
     @property
     @pulumi.getter
@@ -285,6 +277,14 @@ class GetAppServiceCertificateOrderResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -304,7 +304,7 @@ class GetAppServiceCertificateOrderResult:
     @pulumi.getter(name="validityInYears")
     def validity_in_years(self) -> Optional[int]:
         """
-        Duration in years (must be 1).
+        Duration in years (must be between 1 and 3).
         """
         return pulumi.get(self, "validity_in_years")
 
@@ -318,7 +318,6 @@ class AwaitableGetAppServiceCertificateOrderResult(GetAppServiceCertificateOrder
             app_service_certificate_not_renewable_reasons=self.app_service_certificate_not_renewable_reasons,
             auto_renew=self.auto_renew,
             certificates=self.certificates,
-            contact=self.contact,
             csr=self.csr,
             distinguished_name=self.distinguished_name,
             domain_verification_token=self.domain_verification_token,
@@ -338,6 +337,7 @@ class AwaitableGetAppServiceCertificateOrderResult(GetAppServiceCertificateOrder
             serial_number=self.serial_number,
             signed_certificate=self.signed_certificate,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             validity_in_years=self.validity_in_years)
@@ -348,7 +348,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderResult:
     """
     SSL certificate purchase order.
-    API Version: 2021-02-01.
+    API Version: 2020-10-01.
 
 
     :param str certificate_order_name: Name of the certificate order..
@@ -367,7 +367,6 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
         app_service_certificate_not_renewable_reasons=__ret__.app_service_certificate_not_renewable_reasons,
         auto_renew=__ret__.auto_renew,
         certificates=__ret__.certificates,
-        contact=__ret__.contact,
         csr=__ret__.csr,
         distinguished_name=__ret__.distinguished_name,
         domain_verification_token=__ret__.domain_verification_token,
@@ -387,6 +386,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
         serial_number=__ret__.serial_number,
         signed_certificate=__ret__.signed_certificate,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         validity_in_years=__ret__.validity_in_years)

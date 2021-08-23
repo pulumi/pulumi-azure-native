@@ -8,7 +8,7 @@ import (
 )
 
 // Collection of top-level domain legal agreements.
-// API Version: 2021-02-01.
+// API Version: 2020-10-01.
 func ListTopLevelDomainAgreements(ctx *pulumi.Context, args *ListTopLevelDomainAgreementsArgs, opts ...pulumi.InvokeOption) (*ListTopLevelDomainAgreementsResult, error) {
 	var rv ListTopLevelDomainAgreementsResult
 	err := ctx.Invoke("azure-native:domainregistration:listTopLevelDomainAgreements", args, &rv, opts...)

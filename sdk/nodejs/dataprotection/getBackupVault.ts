@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup Vault Resource
- * API Version: 2021-07-01.
+ * API Version: 2021-01-01.
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
     if (!opts) {

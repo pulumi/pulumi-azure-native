@@ -9,7 +9,6 @@ __all__ = [
     'DataStoreTypes',
     'DayOfWeek',
     'Month',
-    'SecretStoreType',
     'StorageSettingStoreTypes',
     'StorageSettingTypes',
     'WeekNumber',
@@ -56,14 +55,6 @@ class Month(str, Enum):
     NOVEMBER = "November"
     OCTOBER = "October"
     SEPTEMBER = "September"
-
-
-class SecretStoreType(str, Enum):
-    """
-    Gets or sets the type of secret store
-    """
-    INVALID = "Invalid"
-    AZURE_KEY_VAULT = "AzureKeyVault"
 
 
 class StorageSettingStoreTypes(str, Enum):

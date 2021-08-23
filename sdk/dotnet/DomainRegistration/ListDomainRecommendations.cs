@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     {
         /// <summary>
         /// Collection of domain name identifiers.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     {
         /// <summary>
         /// Domain ownership Identifier.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithVersion());
@@ -66,6 +66,10 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         public readonly string? OwnershipId;
         /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -80,12 +84,15 @@ namespace Pulumi.AzureNative.DomainRegistration
 
             string? ownershipId,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
             OwnershipId = ownershipId;
+            SystemData = systemData;
             Type = type;
         }
     }
