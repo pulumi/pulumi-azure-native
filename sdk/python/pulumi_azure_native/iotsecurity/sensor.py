@@ -112,7 +112,7 @@ class Sensor(pulumi.CustomResource):
                  __props__=None):
         """
         IoT sensor model
-        API Version: 2021-09-01-preview.
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class Sensor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT sensor model
-        API Version: 2021-09-01-preview.
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SensorArgs args: The arguments to use to populate this resource's properties.

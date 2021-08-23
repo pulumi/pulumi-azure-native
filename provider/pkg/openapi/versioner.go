@@ -114,6 +114,7 @@ var cutoffProviderVersions = map[string]string{
 	"hybridcompute":           "v20210325preview",
 	"hybridnetwork":           "v20200101preview",
 	"insights":                "v20201020",
+	"iotsecurity":             "v20210201preview",
 	"kubernetesconfiguration": "v20210301",
 	"machinelearningservices": "v20210101",
 	"management":              "v20200501",

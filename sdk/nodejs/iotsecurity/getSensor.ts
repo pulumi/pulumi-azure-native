@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT sensor model
- * API Version: 2021-09-01-preview.
+ * API Version: 2021-02-01-preview.
  */
 export function getSensor(args: GetSensorArgs, opts?: pulumi.InvokeOptions): Promise<GetSensorResult> {
     if (!opts) {

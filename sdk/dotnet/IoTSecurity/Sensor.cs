@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTSecurity
 {
     /// <summary>
     /// IoT sensor model
-    /// API Version: 2021-09-01-preview.
+    /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity:Sensor")]
     public partial class Sensor : Pulumi.CustomResource

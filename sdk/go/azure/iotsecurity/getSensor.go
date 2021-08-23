@@ -8,7 +8,7 @@ import (
 )
 
 // IoT sensor model
-// API Version: 2021-09-01-preview.
+// API Version: 2021-02-01-preview.
 func LookupSensor(ctx *pulumi.Context, args *LookupSensorArgs, opts ...pulumi.InvokeOption) (*LookupSensorResult, error) {
 	var rv LookupSensorResult
 	err := ctx.Invoke("azure-native:iotsecurity:getSensor", args, &rv, opts...)

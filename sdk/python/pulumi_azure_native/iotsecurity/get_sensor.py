@@ -204,7 +204,7 @@ def get_sensor(scope: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSensorResult:
     """
     IoT sensor model
-    API Version: 2021-09-01-preview.
+    API Version: 2021-02-01-preview.
 
 
     :param str scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)

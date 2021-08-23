@@ -12,7 +12,7 @@ import (
 )
 
 // IoT site model
-// API Version: 2021-09-01-preview.
+// API Version: 2021-02-01-preview.
 type Site struct {
 	pulumi.CustomResourceState
 

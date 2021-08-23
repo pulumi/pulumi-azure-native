@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     {
         /// <summary>
         /// IoT site model
-        /// API Version: 2021-09-01-preview.
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:iotsecurity:getSite", args ?? new GetSiteArgs(), options.WithVersion());

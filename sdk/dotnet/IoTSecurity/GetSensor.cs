@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTSecurity
     {
         /// <summary>
         /// IoT sensor model
-        /// API Version: 2021-09-01-preview.
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetSensorResult> InvokeAsync(GetSensorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSensorResult>("azure-native:iotsecurity:getSensor", args ?? new GetSensorArgs(), options.WithVersion());

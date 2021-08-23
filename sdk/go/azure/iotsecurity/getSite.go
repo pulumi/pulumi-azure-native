@@ -8,7 +8,7 @@ import (
 )
 
 // IoT site model
-// API Version: 2021-09-01-preview.
+// API Version: 2021-02-01-preview.
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	var rv LookupSiteResult
 	err := ctx.Invoke("azure-native:iotsecurity:getSite", args, &rv, opts...)

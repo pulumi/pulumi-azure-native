@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT site model
- * API Version: 2021-09-01-preview.
+ * API Version: 2021-02-01-preview.
  */
 export class Site extends pulumi.CustomResource {
     /**
