@@ -71,20 +71,13 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.synapse.v20190601preview as __v20190601preview
-    v20190601preview = __v20190601preview
-    import pulumi_azure_native.synapse.v20200401preview as __v20200401preview
-    v20200401preview = __v20200401preview
-    import pulumi_azure_native.synapse.v20201201 as __v20201201
-    v20201201 = __v20201201
-    import pulumi_azure_native.synapse.v20210301 as __v20210301
-    v20210301 = __v20210301
-    import pulumi_azure_native.synapse.v20210401preview as __v20210401preview
-    v20210401preview = __v20210401preview
-    import pulumi_azure_native.synapse.v20210501 as __v20210501
-    v20210501 = __v20210501
-    import pulumi_azure_native.synapse.v20210601preview as __v20210601preview
-    v20210601preview = __v20210601preview
+    import pulumi_azure_native.synapse.v20190601preview as v20190601preview
+    import pulumi_azure_native.synapse.v20200401preview as v20200401preview
+    import pulumi_azure_native.synapse.v20201201 as v20201201
+    import pulumi_azure_native.synapse.v20210301 as v20210301
+    import pulumi_azure_native.synapse.v20210401preview as v20210401preview
+    import pulumi_azure_native.synapse.v20210501 as v20210501
+    import pulumi_azure_native.synapse.v20210601preview as v20210601preview
 else:
     v20190601preview = _utilities.lazy_import('pulumi_azure_native.synapse.v20190601preview')
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.synapse.v20200401preview')

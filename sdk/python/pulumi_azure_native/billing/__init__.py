@@ -16,10 +16,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.billing.v20191001preview as __v20191001preview
-    v20191001preview = __v20191001preview
-    import pulumi_azure_native.billing.v20200501 as __v20200501
-    v20200501 = __v20200501
+    import pulumi_azure_native.billing.v20191001preview as v20191001preview
+    import pulumi_azure_native.billing.v20200501 as v20200501
 else:
     v20191001preview = _utilities.lazy_import('pulumi_azure_native.billing.v20191001preview')
     v20200501 = _utilities.lazy_import('pulumi_azure_native.billing.v20200501')

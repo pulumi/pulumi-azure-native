@@ -14,18 +14,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.databox.v20180101 as __v20180101
-    v20180101 = __v20180101
-    import pulumi_azure_native.databox.v20190901 as __v20190901
-    v20190901 = __v20190901
-    import pulumi_azure_native.databox.v20200401 as __v20200401
-    v20200401 = __v20200401
-    import pulumi_azure_native.databox.v20201101 as __v20201101
-    v20201101 = __v20201101
-    import pulumi_azure_native.databox.v20210301 as __v20210301
-    v20210301 = __v20210301
-    import pulumi_azure_native.databox.v20210501 as __v20210501
-    v20210501 = __v20210501
+    import pulumi_azure_native.databox.v20180101 as v20180101
+    import pulumi_azure_native.databox.v20190901 as v20190901
+    import pulumi_azure_native.databox.v20200401 as v20200401
+    import pulumi_azure_native.databox.v20201101 as v20201101
+    import pulumi_azure_native.databox.v20210301 as v20210301
+    import pulumi_azure_native.databox.v20210501 as v20210501
 else:
     v20180101 = _utilities.lazy_import('pulumi_azure_native.databox.v20180101')
     v20190901 = _utilities.lazy_import('pulumi_azure_native.databox.v20190901')

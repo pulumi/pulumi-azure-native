@@ -13,8 +13,7 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.agfoodplatform.v20200512preview as __v20200512preview
-    v20200512preview = __v20200512preview
+    import pulumi_azure_native.agfoodplatform.v20200512preview as v20200512preview
 else:
     v20200512preview = _utilities.lazy_import('pulumi_azure_native.agfoodplatform.v20200512preview')
 

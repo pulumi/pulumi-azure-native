@@ -23,10 +23,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.deploymentmanager.v20180901preview as __v20180901preview
-    v20180901preview = __v20180901preview
-    import pulumi_azure_native.deploymentmanager.v20191101preview as __v20191101preview
-    v20191101preview = __v20191101preview
+    import pulumi_azure_native.deploymentmanager.v20180901preview as v20180901preview
+    import pulumi_azure_native.deploymentmanager.v20191101preview as v20191101preview
 else:
     v20180901preview = _utilities.lazy_import('pulumi_azure_native.deploymentmanager.v20180901preview')
     v20191101preview = _utilities.lazy_import('pulumi_azure_native.deploymentmanager.v20191101preview')

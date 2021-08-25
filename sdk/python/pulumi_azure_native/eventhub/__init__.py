@@ -36,18 +36,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.eventhub.v20140901 as __v20140901
-    v20140901 = __v20140901
-    import pulumi_azure_native.eventhub.v20150801 as __v20150801
-    v20150801 = __v20150801
-    import pulumi_azure_native.eventhub.v20170401 as __v20170401
-    v20170401 = __v20170401
-    import pulumi_azure_native.eventhub.v20180101preview as __v20180101preview
-    v20180101preview = __v20180101preview
-    import pulumi_azure_native.eventhub.v20210101preview as __v20210101preview
-    v20210101preview = __v20210101preview
-    import pulumi_azure_native.eventhub.v20210601preview as __v20210601preview
-    v20210601preview = __v20210601preview
+    import pulumi_azure_native.eventhub.v20140901 as v20140901
+    import pulumi_azure_native.eventhub.v20150801 as v20150801
+    import pulumi_azure_native.eventhub.v20170401 as v20170401
+    import pulumi_azure_native.eventhub.v20180101preview as v20180101preview
+    import pulumi_azure_native.eventhub.v20210101preview as v20210101preview
+    import pulumi_azure_native.eventhub.v20210601preview as v20210601preview
 else:
     v20140901 = _utilities.lazy_import('pulumi_azure_native.eventhub.v20140901')
     v20150801 = _utilities.lazy_import('pulumi_azure_native.eventhub.v20150801')

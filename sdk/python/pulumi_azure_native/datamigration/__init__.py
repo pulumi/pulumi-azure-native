@@ -19,18 +19,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datamigration.v20171115preview as __v20171115preview
-    v20171115preview = __v20171115preview
-    import pulumi_azure_native.datamigration.v20180315preview as __v20180315preview
-    v20180315preview = __v20180315preview
-    import pulumi_azure_native.datamigration.v20180331preview as __v20180331preview
-    v20180331preview = __v20180331preview
-    import pulumi_azure_native.datamigration.v20180419 as __v20180419
-    v20180419 = __v20180419
-    import pulumi_azure_native.datamigration.v20180715preview as __v20180715preview
-    v20180715preview = __v20180715preview
-    import pulumi_azure_native.datamigration.v20210630 as __v20210630
-    v20210630 = __v20210630
+    import pulumi_azure_native.datamigration.v20171115preview as v20171115preview
+    import pulumi_azure_native.datamigration.v20180315preview as v20180315preview
+    import pulumi_azure_native.datamigration.v20180331preview as v20180331preview
+    import pulumi_azure_native.datamigration.v20180419 as v20180419
+    import pulumi_azure_native.datamigration.v20180715preview as v20180715preview
+    import pulumi_azure_native.datamigration.v20210630 as v20210630
 else:
     v20171115preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20171115preview')
     v20180315preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180315preview')

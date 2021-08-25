@@ -22,30 +22,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.batch.v20151201 as __v20151201
-    v20151201 = __v20151201
-    import pulumi_azure_native.batch.v20170101 as __v20170101
-    v20170101 = __v20170101
-    import pulumi_azure_native.batch.v20170501 as __v20170501
-    v20170501 = __v20170501
-    import pulumi_azure_native.batch.v20170901 as __v20170901
-    v20170901 = __v20170901
-    import pulumi_azure_native.batch.v20181201 as __v20181201
-    v20181201 = __v20181201
-    import pulumi_azure_native.batch.v20190401 as __v20190401
-    v20190401 = __v20190401
-    import pulumi_azure_native.batch.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.batch.v20200301 as __v20200301
-    v20200301 = __v20200301
-    import pulumi_azure_native.batch.v20200501 as __v20200501
-    v20200501 = __v20200501
-    import pulumi_azure_native.batch.v20200901 as __v20200901
-    v20200901 = __v20200901
-    import pulumi_azure_native.batch.v20210101 as __v20210101
-    v20210101 = __v20210101
-    import pulumi_azure_native.batch.v20210601 as __v20210601
-    v20210601 = __v20210601
+    import pulumi_azure_native.batch.v20151201 as v20151201
+    import pulumi_azure_native.batch.v20170101 as v20170101
+    import pulumi_azure_native.batch.v20170501 as v20170501
+    import pulumi_azure_native.batch.v20170901 as v20170901
+    import pulumi_azure_native.batch.v20181201 as v20181201
+    import pulumi_azure_native.batch.v20190401 as v20190401
+    import pulumi_azure_native.batch.v20190801 as v20190801
+    import pulumi_azure_native.batch.v20200301 as v20200301
+    import pulumi_azure_native.batch.v20200501 as v20200501
+    import pulumi_azure_native.batch.v20200901 as v20200901
+    import pulumi_azure_native.batch.v20210101 as v20210101
+    import pulumi_azure_native.batch.v20210601 as v20210601
 else:
     v20151201 = _utilities.lazy_import('pulumi_azure_native.batch.v20151201')
     v20170101 = _utilities.lazy_import('pulumi_azure_native.batch.v20170101')

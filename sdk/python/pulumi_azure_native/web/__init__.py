@@ -156,38 +156,22 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.web.v20150801 as __v20150801
-    v20150801 = __v20150801
-    import pulumi_azure_native.web.v20150801preview as __v20150801preview
-    v20150801preview = __v20150801preview
-    import pulumi_azure_native.web.v20160301 as __v20160301
-    v20160301 = __v20160301
-    import pulumi_azure_native.web.v20160601 as __v20160601
-    v20160601 = __v20160601
-    import pulumi_azure_native.web.v20160801 as __v20160801
-    v20160801 = __v20160801
-    import pulumi_azure_native.web.v20160901 as __v20160901
-    v20160901 = __v20160901
-    import pulumi_azure_native.web.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.web.v20181101 as __v20181101
-    v20181101 = __v20181101
-    import pulumi_azure_native.web.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.web.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.web.v20200901 as __v20200901
-    v20200901 = __v20200901
-    import pulumi_azure_native.web.v20201001 as __v20201001
-    v20201001 = __v20201001
-    import pulumi_azure_native.web.v20201201 as __v20201201
-    v20201201 = __v20201201
-    import pulumi_azure_native.web.v20210101 as __v20210101
-    v20210101 = __v20210101
-    import pulumi_azure_native.web.v20210115 as __v20210115
-    v20210115 = __v20210115
-    import pulumi_azure_native.web.v20210201 as __v20210201
-    v20210201 = __v20210201
+    import pulumi_azure_native.web.v20150801 as v20150801
+    import pulumi_azure_native.web.v20150801preview as v20150801preview
+    import pulumi_azure_native.web.v20160301 as v20160301
+    import pulumi_azure_native.web.v20160601 as v20160601
+    import pulumi_azure_native.web.v20160801 as v20160801
+    import pulumi_azure_native.web.v20160901 as v20160901
+    import pulumi_azure_native.web.v20180201 as v20180201
+    import pulumi_azure_native.web.v20181101 as v20181101
+    import pulumi_azure_native.web.v20190801 as v20190801
+    import pulumi_azure_native.web.v20200601 as v20200601
+    import pulumi_azure_native.web.v20200901 as v20200901
+    import pulumi_azure_native.web.v20201001 as v20201001
+    import pulumi_azure_native.web.v20201201 as v20201201
+    import pulumi_azure_native.web.v20210101 as v20210101
+    import pulumi_azure_native.web.v20210115 as v20210115
+    import pulumi_azure_native.web.v20210201 as v20210201
 else:
     v20150801 = _utilities.lazy_import('pulumi_azure_native.web.v20150801')
     v20150801preview = _utilities.lazy_import('pulumi_azure_native.web.v20150801preview')

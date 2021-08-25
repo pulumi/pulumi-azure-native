@@ -15,8 +15,7 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.saas.v20180301beta as __v20180301beta
-    v20180301beta = __v20180301beta
+    import pulumi_azure_native.saas.v20180301beta as v20180301beta
 else:
     v20180301beta = _utilities.lazy_import('pulumi_azure_native.saas.v20180301beta')
 

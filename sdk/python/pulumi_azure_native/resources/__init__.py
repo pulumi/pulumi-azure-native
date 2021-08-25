@@ -37,50 +37,28 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.resources.v20151101 as __v20151101
-    v20151101 = __v20151101
-    import pulumi_azure_native.resources.v20160201 as __v20160201
-    v20160201 = __v20160201
-    import pulumi_azure_native.resources.v20160701 as __v20160701
-    v20160701 = __v20160701
-    import pulumi_azure_native.resources.v20160901 as __v20160901
-    v20160901 = __v20160901
-    import pulumi_azure_native.resources.v20170510 as __v20170510
-    v20170510 = __v20170510
-    import pulumi_azure_native.resources.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.resources.v20180501 as __v20180501
-    v20180501 = __v20180501
-    import pulumi_azure_native.resources.v20190301 as __v20190301
-    v20190301 = __v20190301
-    import pulumi_azure_native.resources.v20190501 as __v20190501
-    v20190501 = __v20190501
-    import pulumi_azure_native.resources.v20190510 as __v20190510
-    v20190510 = __v20190510
-    import pulumi_azure_native.resources.v20190601preview as __v20190601preview
-    v20190601preview = __v20190601preview
-    import pulumi_azure_native.resources.v20190701 as __v20190701
-    v20190701 = __v20190701
-    import pulumi_azure_native.resources.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.resources.v20191001 as __v20191001
-    v20191001 = __v20191001
-    import pulumi_azure_native.resources.v20191001preview as __v20191001preview
-    v20191001preview = __v20191001preview
-    import pulumi_azure_native.resources.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.resources.v20200801 as __v20200801
-    v20200801 = __v20200801
-    import pulumi_azure_native.resources.v20201001 as __v20201001
-    v20201001 = __v20201001
-    import pulumi_azure_native.resources.v20210101 as __v20210101
-    v20210101 = __v20210101
-    import pulumi_azure_native.resources.v20210301preview as __v20210301preview
-    v20210301preview = __v20210301preview
-    import pulumi_azure_native.resources.v20210401 as __v20210401
-    v20210401 = __v20210401
-    import pulumi_azure_native.resources.v20210501 as __v20210501
-    v20210501 = __v20210501
+    import pulumi_azure_native.resources.v20151101 as v20151101
+    import pulumi_azure_native.resources.v20160201 as v20160201
+    import pulumi_azure_native.resources.v20160701 as v20160701
+    import pulumi_azure_native.resources.v20160901 as v20160901
+    import pulumi_azure_native.resources.v20170510 as v20170510
+    import pulumi_azure_native.resources.v20180201 as v20180201
+    import pulumi_azure_native.resources.v20180501 as v20180501
+    import pulumi_azure_native.resources.v20190301 as v20190301
+    import pulumi_azure_native.resources.v20190501 as v20190501
+    import pulumi_azure_native.resources.v20190510 as v20190510
+    import pulumi_azure_native.resources.v20190601preview as v20190601preview
+    import pulumi_azure_native.resources.v20190701 as v20190701
+    import pulumi_azure_native.resources.v20190801 as v20190801
+    import pulumi_azure_native.resources.v20191001 as v20191001
+    import pulumi_azure_native.resources.v20191001preview as v20191001preview
+    import pulumi_azure_native.resources.v20200601 as v20200601
+    import pulumi_azure_native.resources.v20200801 as v20200801
+    import pulumi_azure_native.resources.v20201001 as v20201001
+    import pulumi_azure_native.resources.v20210101 as v20210101
+    import pulumi_azure_native.resources.v20210301preview as v20210301preview
+    import pulumi_azure_native.resources.v20210401 as v20210401
+    import pulumi_azure_native.resources.v20210501 as v20210501
 else:
     v20151101 = _utilities.lazy_import('pulumi_azure_native.resources.v20151101')
     v20160201 = _utilities.lazy_import('pulumi_azure_native.resources.v20160201')

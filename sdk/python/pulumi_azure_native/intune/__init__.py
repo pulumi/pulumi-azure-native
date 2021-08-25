@@ -12,10 +12,8 @@ from .io_mam_policy_by_name import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.intune.v20150114preview as __v20150114preview
-    v20150114preview = __v20150114preview
-    import pulumi_azure_native.intune.v20150114privatepreview as __v20150114privatepreview
-    v20150114privatepreview = __v20150114privatepreview
+    import pulumi_azure_native.intune.v20150114preview as v20150114preview
+    import pulumi_azure_native.intune.v20150114privatepreview as v20150114privatepreview
 else:
     v20150114preview = _utilities.lazy_import('pulumi_azure_native.intune.v20150114preview')
     v20150114privatepreview = _utilities.lazy_import('pulumi_azure_native.intune.v20150114privatepreview')

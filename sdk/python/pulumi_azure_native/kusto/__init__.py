@@ -40,26 +40,16 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.kusto.v20170907privatepreview as __v20170907privatepreview
-    v20170907privatepreview = __v20170907privatepreview
-    import pulumi_azure_native.kusto.v20180907preview as __v20180907preview
-    v20180907preview = __v20180907preview
-    import pulumi_azure_native.kusto.v20190121 as __v20190121
-    v20190121 = __v20190121
-    import pulumi_azure_native.kusto.v20190515 as __v20190515
-    v20190515 = __v20190515
-    import pulumi_azure_native.kusto.v20190907 as __v20190907
-    v20190907 = __v20190907
-    import pulumi_azure_native.kusto.v20191109 as __v20191109
-    v20191109 = __v20191109
-    import pulumi_azure_native.kusto.v20200215 as __v20200215
-    v20200215 = __v20200215
-    import pulumi_azure_native.kusto.v20200614 as __v20200614
-    v20200614 = __v20200614
-    import pulumi_azure_native.kusto.v20200918 as __v20200918
-    v20200918 = __v20200918
-    import pulumi_azure_native.kusto.v20210101 as __v20210101
-    v20210101 = __v20210101
+    import pulumi_azure_native.kusto.v20170907privatepreview as v20170907privatepreview
+    import pulumi_azure_native.kusto.v20180907preview as v20180907preview
+    import pulumi_azure_native.kusto.v20190121 as v20190121
+    import pulumi_azure_native.kusto.v20190515 as v20190515
+    import pulumi_azure_native.kusto.v20190907 as v20190907
+    import pulumi_azure_native.kusto.v20191109 as v20191109
+    import pulumi_azure_native.kusto.v20200215 as v20200215
+    import pulumi_azure_native.kusto.v20200614 as v20200614
+    import pulumi_azure_native.kusto.v20200918 as v20200918
+    import pulumi_azure_native.kusto.v20210101 as v20210101
 else:
     v20170907privatepreview = _utilities.lazy_import('pulumi_azure_native.kusto.v20170907privatepreview')
     v20180907preview = _utilities.lazy_import('pulumi_azure_native.kusto.v20180907preview')

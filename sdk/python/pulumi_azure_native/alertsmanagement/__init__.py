@@ -17,18 +17,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.alertsmanagement.v20181102privatepreview as __v20181102privatepreview
-    v20181102privatepreview = __v20181102privatepreview
-    import pulumi_azure_native.alertsmanagement.v20190301 as __v20190301
-    v20190301 = __v20190301
-    import pulumi_azure_native.alertsmanagement.v20190505preview as __v20190505preview
-    v20190505preview = __v20190505preview
-    import pulumi_azure_native.alertsmanagement.v20190601 as __v20190601
-    v20190601 = __v20190601
-    import pulumi_azure_native.alertsmanagement.v20200804preview as __v20200804preview
-    v20200804preview = __v20200804preview
-    import pulumi_azure_native.alertsmanagement.v20210401 as __v20210401
-    v20210401 = __v20210401
+    import pulumi_azure_native.alertsmanagement.v20181102privatepreview as v20181102privatepreview
+    import pulumi_azure_native.alertsmanagement.v20190301 as v20190301
+    import pulumi_azure_native.alertsmanagement.v20190505preview as v20190505preview
+    import pulumi_azure_native.alertsmanagement.v20190601 as v20190601
+    import pulumi_azure_native.alertsmanagement.v20200804preview as v20200804preview
+    import pulumi_azure_native.alertsmanagement.v20210401 as v20210401
 else:
     v20181102privatepreview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20181102privatepreview')
     v20190301 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20190301')

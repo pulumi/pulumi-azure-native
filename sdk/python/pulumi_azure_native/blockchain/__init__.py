@@ -18,8 +18,7 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.blockchain.v20180601preview as __v20180601preview
-    v20180601preview = __v20180601preview
+    import pulumi_azure_native.blockchain.v20180601preview as v20180601preview
 else:
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.blockchain.v20180601preview')
 

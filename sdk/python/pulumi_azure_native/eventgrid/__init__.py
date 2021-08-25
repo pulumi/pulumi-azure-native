@@ -42,32 +42,19 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.eventgrid.v20170615preview as __v20170615preview
-    v20170615preview = __v20170615preview
-    import pulumi_azure_native.eventgrid.v20170915preview as __v20170915preview
-    v20170915preview = __v20170915preview
-    import pulumi_azure_native.eventgrid.v20180101 as __v20180101
-    v20180101 = __v20180101
-    import pulumi_azure_native.eventgrid.v20180501preview as __v20180501preview
-    v20180501preview = __v20180501preview
-    import pulumi_azure_native.eventgrid.v20180915preview as __v20180915preview
-    v20180915preview = __v20180915preview
-    import pulumi_azure_native.eventgrid.v20190101 as __v20190101
-    v20190101 = __v20190101
-    import pulumi_azure_native.eventgrid.v20190201preview as __v20190201preview
-    v20190201preview = __v20190201preview
-    import pulumi_azure_native.eventgrid.v20190601 as __v20190601
-    v20190601 = __v20190601
-    import pulumi_azure_native.eventgrid.v20200101preview as __v20200101preview
-    v20200101preview = __v20200101preview
-    import pulumi_azure_native.eventgrid.v20200401preview as __v20200401preview
-    v20200401preview = __v20200401preview
-    import pulumi_azure_native.eventgrid.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.eventgrid.v20201015preview as __v20201015preview
-    v20201015preview = __v20201015preview
-    import pulumi_azure_native.eventgrid.v20210601preview as __v20210601preview
-    v20210601preview = __v20210601preview
+    import pulumi_azure_native.eventgrid.v20170615preview as v20170615preview
+    import pulumi_azure_native.eventgrid.v20170915preview as v20170915preview
+    import pulumi_azure_native.eventgrid.v20180101 as v20180101
+    import pulumi_azure_native.eventgrid.v20180501preview as v20180501preview
+    import pulumi_azure_native.eventgrid.v20180915preview as v20180915preview
+    import pulumi_azure_native.eventgrid.v20190101 as v20190101
+    import pulumi_azure_native.eventgrid.v20190201preview as v20190201preview
+    import pulumi_azure_native.eventgrid.v20190601 as v20190601
+    import pulumi_azure_native.eventgrid.v20200101preview as v20200101preview
+    import pulumi_azure_native.eventgrid.v20200401preview as v20200401preview
+    import pulumi_azure_native.eventgrid.v20200601 as v20200601
+    import pulumi_azure_native.eventgrid.v20201015preview as v20201015preview
+    import pulumi_azure_native.eventgrid.v20210601preview as v20210601preview
 else:
     v20170615preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20170615preview')
     v20170915preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20170915preview')

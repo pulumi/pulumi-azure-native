@@ -25,46 +25,26 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.netapp.v20170815 as __v20170815
-    v20170815 = __v20170815
-    import pulumi_azure_native.netapp.v20190501 as __v20190501
-    v20190501 = __v20190501
-    import pulumi_azure_native.netapp.v20190601 as __v20190601
-    v20190601 = __v20190601
-    import pulumi_azure_native.netapp.v20190701 as __v20190701
-    v20190701 = __v20190701
-    import pulumi_azure_native.netapp.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.netapp.v20191001 as __v20191001
-    v20191001 = __v20191001
-    import pulumi_azure_native.netapp.v20191101 as __v20191101
-    v20191101 = __v20191101
-    import pulumi_azure_native.netapp.v20200201 as __v20200201
-    v20200201 = __v20200201
-    import pulumi_azure_native.netapp.v20200301 as __v20200301
-    v20200301 = __v20200301
-    import pulumi_azure_native.netapp.v20200501 as __v20200501
-    v20200501 = __v20200501
-    import pulumi_azure_native.netapp.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.netapp.v20200701 as __v20200701
-    v20200701 = __v20200701
-    import pulumi_azure_native.netapp.v20200801 as __v20200801
-    v20200801 = __v20200801
-    import pulumi_azure_native.netapp.v20200901 as __v20200901
-    v20200901 = __v20200901
-    import pulumi_azure_native.netapp.v20201101 as __v20201101
-    v20201101 = __v20201101
-    import pulumi_azure_native.netapp.v20201201 as __v20201201
-    v20201201 = __v20201201
-    import pulumi_azure_native.netapp.v20210201 as __v20210201
-    v20210201 = __v20210201
-    import pulumi_azure_native.netapp.v20210401 as __v20210401
-    v20210401 = __v20210401
-    import pulumi_azure_native.netapp.v20210401preview as __v20210401preview
-    v20210401preview = __v20210401preview
-    import pulumi_azure_native.netapp.v20210601 as __v20210601
-    v20210601 = __v20210601
+    import pulumi_azure_native.netapp.v20170815 as v20170815
+    import pulumi_azure_native.netapp.v20190501 as v20190501
+    import pulumi_azure_native.netapp.v20190601 as v20190601
+    import pulumi_azure_native.netapp.v20190701 as v20190701
+    import pulumi_azure_native.netapp.v20190801 as v20190801
+    import pulumi_azure_native.netapp.v20191001 as v20191001
+    import pulumi_azure_native.netapp.v20191101 as v20191101
+    import pulumi_azure_native.netapp.v20200201 as v20200201
+    import pulumi_azure_native.netapp.v20200301 as v20200301
+    import pulumi_azure_native.netapp.v20200501 as v20200501
+    import pulumi_azure_native.netapp.v20200601 as v20200601
+    import pulumi_azure_native.netapp.v20200701 as v20200701
+    import pulumi_azure_native.netapp.v20200801 as v20200801
+    import pulumi_azure_native.netapp.v20200901 as v20200901
+    import pulumi_azure_native.netapp.v20201101 as v20201101
+    import pulumi_azure_native.netapp.v20201201 as v20201201
+    import pulumi_azure_native.netapp.v20210201 as v20210201
+    import pulumi_azure_native.netapp.v20210401 as v20210401
+    import pulumi_azure_native.netapp.v20210401preview as v20210401preview
+    import pulumi_azure_native.netapp.v20210601 as v20210601
 else:
     v20170815 = _utilities.lazy_import('pulumi_azure_native.netapp.v20170815')
     v20190501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20190501')
