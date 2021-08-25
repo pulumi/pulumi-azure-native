@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// A logic app receiver.
-    /// </summary>
     [OutputType]
     public sealed class LogicAppReceiverResponse
     {

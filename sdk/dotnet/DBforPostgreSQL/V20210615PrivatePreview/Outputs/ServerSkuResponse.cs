@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Sku information related properties of a server.
-    /// </summary>
     [OutputType]
     public sealed class ServerSkuResponse
     {

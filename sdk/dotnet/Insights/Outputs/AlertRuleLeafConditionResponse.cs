@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// An Activity Log Alert rule condition that is met by comparing the field and value of an Activity Log event.
-    /// This condition must contain 'field' and either 'equals' or 'containsAny'.
-    /// </summary>
     [OutputType]
     public sealed class AlertRuleLeafConditionResponse
     {

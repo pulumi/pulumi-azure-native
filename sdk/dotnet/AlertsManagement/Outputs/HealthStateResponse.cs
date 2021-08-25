@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.Outputs
 {
 
-    /// <summary>
-    /// Specifies the health state to alert on and the corresponding severity
-    /// </summary>
     [OutputType]
     public sealed class HealthStateResponse
     {

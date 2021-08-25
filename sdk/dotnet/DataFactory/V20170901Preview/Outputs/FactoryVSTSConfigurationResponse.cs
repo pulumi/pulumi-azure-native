@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Factory's VSTS repo information.
-    /// </summary>
     [OutputType]
     public sealed class FactoryVSTSConfigurationResponse
     {

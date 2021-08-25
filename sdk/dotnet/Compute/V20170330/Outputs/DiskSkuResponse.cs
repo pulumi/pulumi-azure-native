@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20170330.Outputs
 {
 
-    /// <summary>
-    /// The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
-    /// </summary>
     [OutputType]
     public sealed class DiskSkuResponse
     {

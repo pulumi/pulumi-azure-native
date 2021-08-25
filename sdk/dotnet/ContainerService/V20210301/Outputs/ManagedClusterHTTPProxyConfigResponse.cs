@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Configurations for provisioning the cluster with HTTP proxy servers.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterHTTPProxyConfigResponse
     {

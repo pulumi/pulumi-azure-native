@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Azure Data Explorer command activity.
-    /// </summary>
     [OutputType]
     public sealed class AzureDataExplorerCommandActivityResponse
     {

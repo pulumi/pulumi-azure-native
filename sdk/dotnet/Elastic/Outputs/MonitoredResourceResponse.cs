@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Elastic.Outputs
 {
 
-    /// <summary>
-    /// The properties of a resource currently being monitored by the Elastic monitor resource.
-    /// </summary>
     [OutputType]
     public sealed class MonitoredResourceResponse
     {

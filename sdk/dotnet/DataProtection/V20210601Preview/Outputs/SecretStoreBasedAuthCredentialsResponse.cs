@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Secret store based authentication credentials.
-    /// </summary>
     [OutputType]
     public sealed class SecretStoreBasedAuthCredentialsResponse
     {

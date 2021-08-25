@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Outputs
 {
 
-    /// <summary>
-    /// The properties of the source code repository.
-    /// </summary>
     [OutputType]
     public sealed class SourcePropertiesResponse
     {

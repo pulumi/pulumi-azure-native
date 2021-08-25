@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
-    /// <summary>
-    /// Represents the status of an operation that used the batch API.
-    /// </summary>
     [OutputType]
     public sealed class OperationBatchStatusResponseItemResponse
     {

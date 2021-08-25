@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Alerts data type for data connectors.
-    /// </summary>
     [OutputType]
     public sealed class AlertsDataTypeOfDataConnectorResponse
     {

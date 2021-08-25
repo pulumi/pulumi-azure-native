@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Properties of the revoked VPN client certificate of VpnServerConfiguration.
-    /// </summary>
     [OutputType]
     public sealed class VpnServerConfigVpnClientRevokedCertificateResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20191201.Outputs
 {
 
-    /// <summary>
-    /// Contains encryption settings for an OS disk image.
-    /// </summary>
     [OutputType]
     public sealed class OSDiskImageEncryptionResponse
     {

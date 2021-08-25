@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Service principal for uploading billing, metrics and logs.
-    /// </summary>
     [OutputType]
     public sealed class UploadServicePrincipalResponse
     {

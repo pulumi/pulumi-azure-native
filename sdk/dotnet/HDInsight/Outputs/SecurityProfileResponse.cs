@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
-    /// <summary>
-    /// The security profile which contains Ssh public key for the HDInsight cluster.
-    /// </summary>
     [OutputType]
     public sealed class SecurityProfileResponse
     {

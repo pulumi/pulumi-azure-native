@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210201.Outputs
 {
 
-    /// <summary>
-    /// Configuration of an App Service app.
-    /// </summary>
     [OutputType]
     public sealed class SiteConfigResponse
     {

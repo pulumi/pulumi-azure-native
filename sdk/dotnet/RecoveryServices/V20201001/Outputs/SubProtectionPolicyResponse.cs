@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201001.Outputs
 {
 
-    /// <summary>
-    /// Sub-protection policy which includes schedule and retention
-    /// </summary>
     [OutputType]
     public sealed class SubProtectionPolicyResponse
     {

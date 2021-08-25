@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
-    /// <summary>
-    /// The resource management error additional info.
-    /// </summary>
     [OutputType]
     public sealed class ErrorAdditionalInfoResponse
     {

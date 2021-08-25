@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the properties of a video overlay.
-    /// </summary>
     [OutputType]
     public sealed class VideoOverlayResponse
     {

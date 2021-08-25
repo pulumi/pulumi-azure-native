@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Compute Instance properties
-    /// </summary>
     [OutputType]
     public sealed class ComputeInstanceResponseProperties
     {

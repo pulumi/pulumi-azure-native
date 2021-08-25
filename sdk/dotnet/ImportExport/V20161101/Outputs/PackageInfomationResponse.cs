@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.V20161101.Outputs
 {
 
-    /// <summary>
-    /// Contains information about the package being shipped by the customer to the Microsoft data center.
-    /// </summary>
     [OutputType]
     public sealed class PackageInfomationResponse
     {

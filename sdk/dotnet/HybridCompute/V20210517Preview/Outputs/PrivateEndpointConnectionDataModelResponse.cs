@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210517Preview.Outputs
 {
 
-    /// <summary>
-    /// The Data Model for a Private Endpoint Connection associated with a Private Link Scope
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionDataModelResponse
     {

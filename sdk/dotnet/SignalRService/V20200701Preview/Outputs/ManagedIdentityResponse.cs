@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Outputs
 {
 
-    /// <summary>
-    /// A class represent managed identities used for request and response
-    /// </summary>
     [OutputType]
     public sealed class ManagedIdentityResponse
     {

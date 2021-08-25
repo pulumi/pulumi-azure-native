@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// Data used when creating a disk.
-    /// </summary>
     [OutputType]
     public sealed class CreationDataResponse
     {

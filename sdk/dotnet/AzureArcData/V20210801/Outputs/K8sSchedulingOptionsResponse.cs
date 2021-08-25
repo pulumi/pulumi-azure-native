@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210801.Outputs
 {
 
-    /// <summary>
-    /// The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
-    /// </summary>
     [OutputType]
     public sealed class K8sSchedulingOptionsResponse
     {

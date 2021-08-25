@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
-    /// <summary>
-    /// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlMISyncTaskInputResponse
     {

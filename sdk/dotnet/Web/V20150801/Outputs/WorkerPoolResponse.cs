@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
-    /// <summary>
-    /// Worker pool of a hostingEnvironment (App Service Environment)
-    /// </summary>
     [OutputType]
     public sealed class WorkerPoolResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties of a subnet.
-    /// </summary>
     [OutputType]
     public sealed class SubnetPropertiesResponse
     {

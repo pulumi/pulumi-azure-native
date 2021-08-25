@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
-    /// <summary>
-    /// The JSON object that contains the properties to send health probes to origin.
-    /// </summary>
     [OutputType]
     public sealed class HealthProbeParametersResponse
     {

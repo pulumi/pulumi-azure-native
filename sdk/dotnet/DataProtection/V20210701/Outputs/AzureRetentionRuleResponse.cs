@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Azure retention rule
-    /// </summary>
     [OutputType]
     public sealed class AzureRetentionRuleResponse
     {

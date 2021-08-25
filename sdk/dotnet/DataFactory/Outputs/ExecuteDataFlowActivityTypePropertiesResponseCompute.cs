@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Compute properties for data flow activity.
-    /// </summary>
     [OutputType]
     public sealed class ExecuteDataFlowActivityTypePropertiesResponseCompute
     {

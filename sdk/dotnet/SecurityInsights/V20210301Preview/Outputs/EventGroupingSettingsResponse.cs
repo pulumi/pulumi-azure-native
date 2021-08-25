@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Event grouping settings property bag.
-    /// </summary>
     [OutputType]
     public sealed class EventGroupingSettingsResponse
     {

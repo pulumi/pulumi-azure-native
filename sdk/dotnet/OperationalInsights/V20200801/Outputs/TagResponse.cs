@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.V20200801.Outputs
 {
 
-    /// <summary>
-    /// A tag of a saved search.
-    /// </summary>
     [OutputType]
     public sealed class TagResponse
     {

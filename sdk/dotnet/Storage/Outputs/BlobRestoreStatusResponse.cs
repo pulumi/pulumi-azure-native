@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
-    /// <summary>
-    /// Blob restore status.
-    /// </summary>
     [OutputType]
     public sealed class BlobRestoreStatusResponse
     {

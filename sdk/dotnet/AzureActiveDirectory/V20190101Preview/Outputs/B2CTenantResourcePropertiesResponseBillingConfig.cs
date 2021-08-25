@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.Outputs
 {
 
-    /// <summary>
-    /// The billing configuration for the tenant.
-    /// </summary>
     [OutputType]
     public sealed class B2CTenantResourcePropertiesResponseBillingConfig
     {

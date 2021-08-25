@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties for access validation based on JSON Web Tokens (JWT).
-    /// </summary>
     [OutputType]
     public sealed class JwtAuthenticationResponse
     {

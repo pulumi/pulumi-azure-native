@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Ssis Package.
-    /// </summary>
     [OutputType]
     public sealed class SsisPackageResponse
     {

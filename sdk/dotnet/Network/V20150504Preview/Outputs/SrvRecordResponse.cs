@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20150504Preview.Outputs
 {
 
-    /// <summary>
-    /// An SRV record.
-    /// </summary>
     [OutputType]
     public sealed class SrvRecordResponse
     {

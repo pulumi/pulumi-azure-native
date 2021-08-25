@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200901.Outputs
 {
 
-    /// <summary>
-    /// settings for security policy patterns to match
-    /// </summary>
     [OutputType]
     public sealed class SecurityPolicyWebApplicationFirewallAssociationResponse
     {

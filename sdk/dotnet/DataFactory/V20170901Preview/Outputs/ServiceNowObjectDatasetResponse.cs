@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// ServiceNow server dataset.
-    /// </summary>
     [OutputType]
     public sealed class ServiceNowObjectDatasetResponse
     {

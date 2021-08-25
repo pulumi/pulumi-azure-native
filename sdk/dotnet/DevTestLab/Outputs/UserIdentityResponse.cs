@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
-    /// <summary>
-    /// Identity attributes of a lab user.
-    /// </summary>
     [OutputType]
     public sealed class UserIdentityResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20200401Preview.Outputs
 {
 
-    /// <summary>
-    /// The information about the user identity.
-    /// </summary>
     [OutputType]
     public sealed class UserIdentityPropertiesResponse
     {

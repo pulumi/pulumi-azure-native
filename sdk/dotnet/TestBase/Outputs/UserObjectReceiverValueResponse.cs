@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.Outputs
 {
 
-    /// <summary>
-    /// The user object receiver value.
-    /// </summary>
     [OutputType]
     public sealed class UserObjectReceiverValueResponse
     {

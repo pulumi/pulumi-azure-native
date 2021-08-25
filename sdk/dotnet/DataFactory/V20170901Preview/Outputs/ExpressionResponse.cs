@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Azure Data Factory expression definition.
-    /// </summary>
     [OutputType]
     public sealed class ExpressionResponse
     {

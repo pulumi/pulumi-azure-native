@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Properties of managed integration runtime operation result.
-    /// </summary>
     [OutputType]
     public sealed class ManagedIntegrationRuntimeOperationResultResponse
     {

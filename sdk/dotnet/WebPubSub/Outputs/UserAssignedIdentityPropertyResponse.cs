@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.Outputs
 {
 
-    /// <summary>
-    /// Properties of user assigned identity.
-    /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityPropertyResponse
     {

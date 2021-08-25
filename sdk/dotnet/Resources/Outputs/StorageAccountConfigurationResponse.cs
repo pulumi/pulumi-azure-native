@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.Outputs
 {
 
-    /// <summary>
-    /// Settings to use an existing storage account. Valid storage account kinds are: Storage, StorageV2 and FileStorage
-    /// </summary>
     [OutputType]
     public sealed class StorageAccountConfigurationResponse
     {

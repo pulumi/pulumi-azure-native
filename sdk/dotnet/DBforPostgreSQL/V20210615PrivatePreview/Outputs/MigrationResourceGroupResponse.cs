@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Migration resource group.
-    /// </summary>
     [OutputType]
     public sealed class MigrationResourceGroupResponse
     {

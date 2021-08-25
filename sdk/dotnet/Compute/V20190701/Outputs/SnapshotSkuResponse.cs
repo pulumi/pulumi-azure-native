@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
-    /// <summary>
-    /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-    /// </summary>
     [OutputType]
     public sealed class SnapshotSkuResponse
     {

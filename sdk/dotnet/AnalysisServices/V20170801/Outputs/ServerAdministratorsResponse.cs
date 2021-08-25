@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AnalysisServices.V20170801.Outputs
 {
 
-    /// <summary>
-    /// An array of administrator user identities.
-    /// </summary>
     [OutputType]
     public sealed class ServerAdministratorsResponse
     {

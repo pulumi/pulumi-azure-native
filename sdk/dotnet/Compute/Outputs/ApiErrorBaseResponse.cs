@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// Api error base.
-    /// </summary>
     [OutputType]
     public sealed class ApiErrorBaseResponse
     {

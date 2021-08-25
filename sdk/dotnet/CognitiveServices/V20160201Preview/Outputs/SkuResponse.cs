@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview.Outputs
 {
 
-    /// <summary>
-    /// The SKU of the cognitive services account.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

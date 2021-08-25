@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20170601.Outputs
 {
 
-    /// <summary>
-    /// A common class for general resource information
-    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkGatewayResponse
     {

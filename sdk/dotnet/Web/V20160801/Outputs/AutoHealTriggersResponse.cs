@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160801.Outputs
 {
 
-    /// <summary>
-    /// Triggers for auto-heal.
-    /// </summary>
     [OutputType]
     public sealed class AutoHealTriggersResponse
     {

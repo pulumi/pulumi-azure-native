@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The location of http server.
-    /// </summary>
     [OutputType]
     public sealed class HttpServerLocationResponse
     {

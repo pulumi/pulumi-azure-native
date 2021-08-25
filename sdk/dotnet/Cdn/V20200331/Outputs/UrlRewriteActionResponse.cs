@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200331.Outputs
 {
 
-    /// <summary>
-    /// Defines the url rewrite action for the delivery rule.
-    /// </summary>
     [OutputType]
     public sealed class UrlRewriteActionResponse
     {

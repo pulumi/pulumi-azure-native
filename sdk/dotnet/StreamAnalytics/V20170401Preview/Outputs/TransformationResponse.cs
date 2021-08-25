@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
-    /// <summary>
-    /// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
-    /// </summary>
     [OutputType]
     public sealed class TransformationResponse
     {

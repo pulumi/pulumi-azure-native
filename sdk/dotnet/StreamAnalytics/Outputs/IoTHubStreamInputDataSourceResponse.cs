@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
-    /// <summary>
-    /// Describes an IoT Hub input data source that contains stream data.
-    /// </summary>
     [OutputType]
     public sealed class IoTHubStreamInputDataSourceResponse
     {

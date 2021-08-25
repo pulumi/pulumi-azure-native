@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20170601.Outputs
 {
 
-    /// <summary>
-    /// The schedule for bandwidth setting.
-    /// </summary>
     [OutputType]
     public sealed class BandwidthScheduleResponse
     {

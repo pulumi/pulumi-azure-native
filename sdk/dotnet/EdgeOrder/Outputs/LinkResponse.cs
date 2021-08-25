@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
-    /// <summary>
-    /// Returns link related to the product
-    /// </summary>
     [OutputType]
     public sealed class LinkResponse
     {

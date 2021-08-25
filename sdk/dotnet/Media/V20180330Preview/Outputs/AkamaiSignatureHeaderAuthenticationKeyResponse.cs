@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
 {
 
-    /// <summary>
-    /// Akamai Signature Header authentication key.
-    /// </summary>
     [OutputType]
     public sealed class AkamaiSignatureHeaderAuthenticationKeyResponse
     {

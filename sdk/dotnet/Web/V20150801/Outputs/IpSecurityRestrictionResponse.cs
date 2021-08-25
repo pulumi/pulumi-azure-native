@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
-    /// <summary>
-    /// Represents an ip security restriction on a web app.
-    /// </summary>
     [OutputType]
     public sealed class IpSecurityRestrictionResponse
     {

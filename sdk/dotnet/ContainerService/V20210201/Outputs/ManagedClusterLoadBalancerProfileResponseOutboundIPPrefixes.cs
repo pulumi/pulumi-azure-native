@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210201.Outputs
 {
 
-    /// <summary>
-    /// Desired outbound IP Prefix resources for the cluster load balancer.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20201001Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines a single ADLS Gen2 storage account path.
-    /// </summary>
     [OutputType]
     public sealed class ADLSGen2StorageAccountPathResponse
     {

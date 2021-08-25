@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200701.Outputs
 {
 
-    /// <summary>
-    /// IpGroups associated with azure firewall.
-    /// </summary>
     [OutputType]
     public sealed class AzureFirewallIpGroupsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210115.Outputs
 {
 
-    /// <summary>
-    /// Template Options for the static site.
-    /// </summary>
     [OutputType]
     public sealed class StaticSiteTemplateOptionsResponse
     {

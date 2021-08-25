@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Outputs
 {
 
-    /// <summary>
-    /// Identity properties of the Api Management service resource.
-    /// </summary>
     [OutputType]
     public sealed class ApiManagementServiceIdentityResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210101Preview.Outputs
 {
 
-    /// <summary>
-    /// An iSCSI volume from Microsoft.StoragePool provider
-    /// </summary>
     [OutputType]
     public sealed class DiskPoolVolumeResponse
     {

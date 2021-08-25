@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 {
 
-    /// <summary>
-    /// Schema for MSIX Package Application properties.
-    /// </summary>
     [OutputType]
     public sealed class MsixPackageApplicationsResponse
     {

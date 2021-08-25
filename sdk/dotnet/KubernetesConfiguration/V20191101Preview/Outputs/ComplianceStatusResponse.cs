@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview.Outputs
 {
 
-    /// <summary>
-    /// Compliance Status details
-    /// </summary>
     [OutputType]
     public sealed class ComplianceStatusResponse
     {

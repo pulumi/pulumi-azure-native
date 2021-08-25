@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20180501.Outputs
 {
 
-    /// <summary>
-    /// The resource group properties.
-    /// </summary>
     [OutputType]
     public sealed class ResourceGroupPropertiesResponse
     {

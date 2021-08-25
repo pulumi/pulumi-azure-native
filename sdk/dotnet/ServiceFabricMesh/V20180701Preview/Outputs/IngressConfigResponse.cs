@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes public connectivity configuration for the network.
-    /// </summary>
     [OutputType]
     public sealed class IngressConfigResponse
     {

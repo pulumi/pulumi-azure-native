@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
-    /// <summary>
-    /// Ssis project.
-    /// </summary>
     [OutputType]
     public sealed class SsisProjectResponse
     {

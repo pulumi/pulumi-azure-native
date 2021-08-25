@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Holds device secret either as a KeyVault reference or as an encrypted value.
-    /// </summary>
     [OutputType]
     public sealed class SecretResponse
     {

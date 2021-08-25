@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Reference to better Dataset or a Definition
-    /// </summary>
     [OutputType]
     public sealed class DatasetStateResponseDeprecatedBy
     {

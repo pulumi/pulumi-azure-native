@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.V20210601.Outputs
 {
 
-    /// <summary>
-    /// The list of Log Analytics workspaces associated with the cluster.
-    /// </summary>
     [OutputType]
     public sealed class AssociatedWorkspaceResponse
     {

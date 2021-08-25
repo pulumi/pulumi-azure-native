@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.Outputs
 {
 
-    /// <summary>
-    /// Authentication configuration information
-    /// </summary>
     [OutputType]
     public sealed class FhirServiceAuthenticationConfigurationResponse
     {

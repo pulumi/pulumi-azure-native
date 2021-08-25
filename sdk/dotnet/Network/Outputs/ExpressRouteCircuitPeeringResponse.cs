@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Peering in an ExpressRouteCircuit resource.
-    /// </summary>
     [OutputType]
     public sealed class ExpressRouteCircuitPeeringResponse
     {

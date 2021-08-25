@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
-    /// <summary>
-    /// Describes the basic properties for generating thumbnails from the input video
-    /// </summary>
     [OutputType]
     public sealed class ImageResponse
     {

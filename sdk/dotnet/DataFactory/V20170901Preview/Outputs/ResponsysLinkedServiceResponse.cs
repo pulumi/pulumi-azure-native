@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Responsys linked service.
-    /// </summary>
     [OutputType]
     public sealed class ResponsysLinkedServiceResponse
     {

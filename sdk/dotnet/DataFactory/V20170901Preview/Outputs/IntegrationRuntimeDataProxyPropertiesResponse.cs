@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Data proxy properties for a managed dedicated integration runtime.
-    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeDataProxyPropertiesResponse
     {

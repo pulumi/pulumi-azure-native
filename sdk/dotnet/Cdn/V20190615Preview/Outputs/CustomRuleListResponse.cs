@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines contents of custom rules
-    /// </summary>
     [OutputType]
     public sealed class CustomRuleListResponse
     {

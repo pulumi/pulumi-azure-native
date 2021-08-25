@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
 {
 
-    /// <summary>
-    /// For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterAADProfileResponse
     {

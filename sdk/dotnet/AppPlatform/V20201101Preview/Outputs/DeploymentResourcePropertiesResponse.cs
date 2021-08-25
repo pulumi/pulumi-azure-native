@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Outputs
 {
 
-    /// <summary>
-    /// Deployment resource properties payload
-    /// </summary>
     [OutputType]
     public sealed class DeploymentResourcePropertiesResponse
     {

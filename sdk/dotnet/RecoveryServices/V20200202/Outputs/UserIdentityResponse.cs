@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20200202.Outputs
 {
 
-    /// <summary>
-    /// A resource identity that is managed by the user of the service.
-    /// </summary>
     [OutputType]
     public sealed class UserIdentityResponse
     {

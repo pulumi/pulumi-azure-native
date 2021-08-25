@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210115.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings of a forward proxy used to make the requests.
-    /// </summary>
     [OutputType]
     public sealed class ForwardProxyResponse
     {

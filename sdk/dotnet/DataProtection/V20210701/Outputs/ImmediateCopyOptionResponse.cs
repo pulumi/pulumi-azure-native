@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Immediate copy Option
-    /// </summary>
     [OutputType]
     public sealed class ImmediateCopyOptionResponse
     {

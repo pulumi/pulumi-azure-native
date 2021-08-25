@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.Outputs
 {
 
-    /// <summary>
-    /// The object that contains details of encryption used on the workspace.
-    /// </summary>
     [OutputType]
     public sealed class WorkspaceEncryptionParameterResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160810.Outputs
 {
 
-    /// <summary>
-    /// Fabric properties.
-    /// </summary>
     [OutputType]
     public sealed class FabricPropertiesResponse
     {

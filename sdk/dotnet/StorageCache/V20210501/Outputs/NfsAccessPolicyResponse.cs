@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210501.Outputs
 {
 
-    /// <summary>
-    /// A set of rules describing access policies applied to NFSv3 clients of the cache.
-    /// </summary>
     [OutputType]
     public sealed class NfsAccessPolicyResponse
     {

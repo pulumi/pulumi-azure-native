@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20190101Preview.Outputs
 {
 
-    /// <summary>
-    /// The result of the assessment
-    /// </summary>
     [OutputType]
     public sealed class AssessmentStatusResponse
     {

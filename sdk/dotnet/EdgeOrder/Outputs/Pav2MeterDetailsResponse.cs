@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
-    /// <summary>
-    /// Billing type PAV2 meter details
-    /// </summary>
     [OutputType]
     public sealed class Pav2MeterDetailsResponse
     {

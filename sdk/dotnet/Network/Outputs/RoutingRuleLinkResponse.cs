@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Defines the Resource ID for a Routing Rule.
-    /// </summary>
     [OutputType]
     public sealed class RoutingRuleLinkResponse
     {

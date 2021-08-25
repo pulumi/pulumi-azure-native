@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190801.Outputs
 {
 
-    /// <summary>
-    /// VirtualNetworkGatewayConnection properties.
-    /// </summary>
     [OutputType]
     public sealed class TunnelConnectionHealthResponse
     {

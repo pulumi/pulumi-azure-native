@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the delta health policies for the cluster upgrade.
-    /// </summary>
     [OutputType]
     public sealed class ClusterUpgradeDeltaHealthPolicyResponse
     {

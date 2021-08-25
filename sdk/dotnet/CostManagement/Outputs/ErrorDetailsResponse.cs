@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
-    /// <summary>
-    /// The details of the error.
-    /// </summary>
     [OutputType]
     public sealed class ErrorDetailsResponse
     {

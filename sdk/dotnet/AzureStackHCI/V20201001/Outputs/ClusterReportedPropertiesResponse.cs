@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.V20201001.Outputs
 {
 
-    /// <summary>
-    /// Properties reported by cluster agent.
-    /// </summary>
     [OutputType]
     public sealed class ClusterReportedPropertiesResponse
     {

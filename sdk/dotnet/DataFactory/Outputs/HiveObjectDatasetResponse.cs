@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Hive Server dataset.
-    /// </summary>
     [OutputType]
     public sealed class HiveObjectDatasetResponse
     {

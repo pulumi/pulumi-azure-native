@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20170601.Outputs
 {
 
-    /// <summary>
-    /// The metadata of a volume that has valid cloud snapshot.
-    /// </summary>
     [OutputType]
     public sealed class VolumeFailoverMetadataResponse
     {

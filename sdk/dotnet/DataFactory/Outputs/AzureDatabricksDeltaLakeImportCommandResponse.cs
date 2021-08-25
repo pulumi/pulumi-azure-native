@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Azure Databricks Delta Lake import command settings.
-    /// </summary>
     [OutputType]
     public sealed class AzureDatabricksDeltaLakeImportCommandResponse
     {

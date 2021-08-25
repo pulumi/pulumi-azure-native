@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20150501Preview.Outputs
 {
 
-    /// <summary>
-    /// The custom domain assigned to this storage account. This can be set via Update.
-    /// </summary>
     [OutputType]
     public sealed class CustomDomainResponse
     {

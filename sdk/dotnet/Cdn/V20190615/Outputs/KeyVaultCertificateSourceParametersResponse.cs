@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615.Outputs
 {
 
-    /// <summary>
-    /// Describes the parameters for using a user's KeyVault certificate for securing custom domain.
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultCertificateSourceParametersResponse
     {

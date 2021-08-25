@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview.Outputs
 {
 
-    /// <summary>
-    /// The SKU of a container registry.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

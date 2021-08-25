@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Outputs
 {
 
-    /// <summary>
-    /// Database level result for Sql Server to Sql MI migration.
-    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190601.Outputs
 {
 
-    /// <summary>
-    /// Virtual Network Tap resource.
-    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkTapResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210801.Outputs
 {
 
-    /// <summary>
-    /// The kubernetes resource limits and requests used to restrict or reserve resource usage.
-    /// </summary>
     [OutputType]
     public sealed class K8sResourceRequirementsResponse
     {

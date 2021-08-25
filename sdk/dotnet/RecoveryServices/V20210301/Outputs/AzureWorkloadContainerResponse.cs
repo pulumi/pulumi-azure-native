@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Container for the workloads running inside Azure Compute or Classic Compute.
-    /// </summary>
     [OutputType]
     public sealed class AzureWorkloadContainerResponse
     {

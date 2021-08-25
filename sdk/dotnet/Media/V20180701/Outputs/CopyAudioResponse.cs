@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
-    /// <summary>
-    /// A codec flag, which tells the encoder to copy the input audio bitstream.
-    /// </summary>
     [OutputType]
     public sealed class CopyAudioResponse
     {

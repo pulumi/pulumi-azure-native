@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
-    /// <summary>
-    /// Status information about a virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class ComputeVmInstanceViewStatusResponse
     {

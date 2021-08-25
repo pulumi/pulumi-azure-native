@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210101.Outputs
 {
 
-    /// <summary>
-    /// Identifies the Azure key vault associated with a Batch account.
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultReferenceResponse
     {

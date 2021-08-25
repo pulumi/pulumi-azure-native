@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
-    /// <summary>
-    /// Describes the average load trigger used for auto scaling.
-    /// </summary>
     [OutputType]
     public sealed class AverageLoadScalingTriggerResponse
     {

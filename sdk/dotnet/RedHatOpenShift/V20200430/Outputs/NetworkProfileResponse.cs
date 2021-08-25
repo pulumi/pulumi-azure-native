@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RedHatOpenShift.V20200430.Outputs
 {
 
-    /// <summary>
-    /// NetworkProfile represents a network profile.
-    /// </summary>
     [OutputType]
     public sealed class NetworkProfileResponse
     {

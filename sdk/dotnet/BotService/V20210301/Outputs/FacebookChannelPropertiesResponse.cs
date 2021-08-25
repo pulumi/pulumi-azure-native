@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 {
 
-    /// <summary>
-    /// The parameters to provide for the Facebook channel.
-    /// </summary>
     [OutputType]
     public sealed class FacebookChannelPropertiesResponse
     {

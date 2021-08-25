@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Outputs
 {
 
-    /// <summary>
-    /// Database backup settings.
-    /// </summary>
     [OutputType]
     public sealed class DatabaseBackupSettingResponse
     {

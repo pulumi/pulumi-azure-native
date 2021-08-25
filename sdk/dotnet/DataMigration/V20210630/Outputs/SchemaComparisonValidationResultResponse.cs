@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Results for schema comparison between the source and target
-    /// </summary>
     [OutputType]
     public sealed class SchemaComparisonValidationResultResponse
     {

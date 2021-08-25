@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
-    /// <summary>
-    /// The quota properties for the cluster.
-    /// </summary>
     [OutputType]
     public sealed class QuotaInfoResponse
     {

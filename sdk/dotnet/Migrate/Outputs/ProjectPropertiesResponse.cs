@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
-    /// <summary>
-    /// Properties of a project.
-    /// </summary>
     [OutputType]
     public sealed class ProjectPropertiesResponse
     {

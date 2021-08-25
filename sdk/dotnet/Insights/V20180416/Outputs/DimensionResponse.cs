@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180416.Outputs
 {
 
-    /// <summary>
-    /// Specifies the criteria for converting log to metric.
-    /// </summary>
     [OutputType]
     public sealed class DimensionResponse
     {

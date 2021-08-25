@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20180401.Outputs
 {
 
-    /// <summary>
-    /// SKU for the resource.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

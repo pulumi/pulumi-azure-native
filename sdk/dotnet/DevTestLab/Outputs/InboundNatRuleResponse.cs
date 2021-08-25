@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
-    /// <summary>
-    /// A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
-    /// </summary>
     [OutputType]
     public sealed class InboundNatRuleResponse
     {

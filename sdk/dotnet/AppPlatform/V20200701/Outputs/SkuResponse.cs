@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20200701.Outputs
 {
 
-    /// <summary>
-    /// Sku of Azure Spring Cloud
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

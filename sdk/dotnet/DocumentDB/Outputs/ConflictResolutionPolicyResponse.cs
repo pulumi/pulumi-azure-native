@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.Outputs
 {
 
-    /// <summary>
-    /// The conflict resolution policy for the container.
-    /// </summary>
     [OutputType]
     public sealed class ConflictResolutionPolicyResponse
     {

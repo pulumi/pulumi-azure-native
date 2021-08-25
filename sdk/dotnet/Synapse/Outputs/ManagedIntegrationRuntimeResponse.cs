@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
-    /// <summary>
-    /// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-    /// </summary>
     [OutputType]
     public sealed class ManagedIntegrationRuntimeResponse
     {

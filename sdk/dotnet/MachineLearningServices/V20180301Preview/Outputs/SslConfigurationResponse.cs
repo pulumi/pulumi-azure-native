@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Outputs
 {
 
-    /// <summary>
-    /// The SSL configuration for scoring
-    /// </summary>
     [OutputType]
     public sealed class SslConfigurationResponse
     {

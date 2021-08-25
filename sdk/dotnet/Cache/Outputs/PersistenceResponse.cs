@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.Outputs
 {
 
-    /// <summary>
-    /// Persistence-related configuration for the RedisEnterprise database
-    /// </summary>
     [OutputType]
     public sealed class PersistenceResponse
     {

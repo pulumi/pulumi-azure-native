@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBIDedicated.V20171001.Outputs
 {
 
-    /// <summary>
-    /// Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
-    /// </summary>
     [OutputType]
     public sealed class ResourceSkuResponse
     {

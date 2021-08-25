@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Xero Service dataset.
-    /// </summary>
     [OutputType]
     public sealed class XeroObjectDatasetResponse
     {

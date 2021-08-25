@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210520.Outputs
 {
 
-    /// <summary>
-    /// Properties that define a Azure Arc PrivateLinkScope resource.
-    /// </summary>
     [OutputType]
     public sealed class HybridComputePrivateLinkScopePropertiesResponse
     {

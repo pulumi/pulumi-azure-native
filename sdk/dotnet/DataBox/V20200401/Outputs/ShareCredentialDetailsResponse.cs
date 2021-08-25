@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20200401.Outputs
 {
 
-    /// <summary>
-    /// Credential details of the shares in account.
-    /// </summary>
     [OutputType]
     public sealed class ShareCredentialDetailsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20181101.Outputs
 {
 
-    /// <summary>
-    /// Directory for virtual application.
-    /// </summary>
     [OutputType]
     public sealed class VirtualDirectoryResponse
     {

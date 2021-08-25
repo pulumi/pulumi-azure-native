@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Application Gateway autoscale bounds on number of Application Gateway instance.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayAutoscaleBoundsResponse
     {

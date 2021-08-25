@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Reference to an asset via its ARM resource ID.
-    /// </summary>
     [OutputType]
     public sealed class IdAssetReferenceResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// A copy activity Amazon Marketplace Web Service source.
-    /// </summary>
     [OutputType]
     public sealed class AmazonMWSSourceResponse
     {

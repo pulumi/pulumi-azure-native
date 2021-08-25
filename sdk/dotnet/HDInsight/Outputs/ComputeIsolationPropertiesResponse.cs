@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
-    /// <summary>
-    /// The compute isolation properties.
-    /// </summary>
     [OutputType]
     public sealed class ComputeIsolationPropertiesResponse
     {

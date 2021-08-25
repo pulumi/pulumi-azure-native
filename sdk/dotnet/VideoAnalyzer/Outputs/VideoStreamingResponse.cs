@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 {
 
-    /// <summary>
-    /// Video streaming holds information about video streaming URLs.
-    /// </summary>
     [OutputType]
     public sealed class VideoStreamingResponse
     {

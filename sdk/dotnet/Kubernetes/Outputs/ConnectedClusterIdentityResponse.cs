@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kubernetes.Outputs
 {
 
-    /// <summary>
-    /// Identity for the connected cluster.
-    /// </summary>
     [OutputType]
     public sealed class ConnectedClusterIdentityResponse
     {

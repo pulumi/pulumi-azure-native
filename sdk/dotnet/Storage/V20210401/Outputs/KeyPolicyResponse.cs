@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Outputs
 {
 
-    /// <summary>
-    /// KeyPolicy assigned to the storage account.
-    /// </summary>
     [OutputType]
     public sealed class KeyPolicyResponse
     {

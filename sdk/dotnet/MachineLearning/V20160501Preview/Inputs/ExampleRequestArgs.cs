@@ -28,14 +28,14 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Inputs
         }
 
         [Input("inputs")]
-        private InputMap<ImmutableArray<ImmutableArray<object>>>? _inputs;
+        private InputMap<ImmutableArray<InputList<object>>>? _inputs;
 
         /// <summary>
         /// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         /// </summary>
-        public InputMap<ImmutableArray<ImmutableArray<object>>> Inputs
+        public InputMap<ImmutableArray<InputList<object>>> Inputs
         {
-            get => _inputs ?? (_inputs = new InputMap<ImmutableArray<ImmutableArray<object>>>());
+            get => _inputs ?? (_inputs = new InputMap<ImmutableArray<InputList<object>>>());
             set => _inputs = value;
         }
 

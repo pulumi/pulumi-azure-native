@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
 {
 
-    /// <summary>
-    /// The configuration of the modify properties automation rule action
-    /// </summary>
     [OutputType]
     public sealed class AutomationRuleModifyPropertiesActionResponseActionConfiguration
     {

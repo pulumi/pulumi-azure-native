@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridData.Outputs
 {
 
-    /// <summary>
-    /// Schedule for the job run.
-    /// </summary>
     [OutputType]
     public sealed class ScheduleResponse
     {

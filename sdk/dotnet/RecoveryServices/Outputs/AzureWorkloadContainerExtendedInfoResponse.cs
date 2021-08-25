@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Extended information of the container.
-    /// </summary>
     [OutputType]
     public sealed class AzureWorkloadContainerExtendedInfoResponse
     {

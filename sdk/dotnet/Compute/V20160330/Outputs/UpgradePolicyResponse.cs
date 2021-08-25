@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20160330.Outputs
 {
 
-    /// <summary>
-    /// Describes an upgrade policy - automatic or manual.
-    /// </summary>
     [OutputType]
     public sealed class UpgradePolicyResponse
     {

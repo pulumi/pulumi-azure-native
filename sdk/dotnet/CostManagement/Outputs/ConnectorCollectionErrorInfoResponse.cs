@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
-    /// <summary>
-    /// Details of any error encountered on last collection attempt
-    /// </summary>
     [OutputType]
     public sealed class ConnectorCollectionErrorInfoResponse
     {

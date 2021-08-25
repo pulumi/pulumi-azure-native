@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20190322.Outputs
 {
 
-    /// <summary>
-    /// Information about the SKU of the IoT hub.
-    /// </summary>
     [OutputType]
     public sealed class IotHubSkuInfoResponse
     {

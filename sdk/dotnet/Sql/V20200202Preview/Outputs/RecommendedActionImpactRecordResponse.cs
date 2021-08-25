@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20200202Preview.Outputs
 {
 
-    /// <summary>
-    /// Contains information of estimated or observed impact on various metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
-    /// </summary>
     [OutputType]
     public sealed class RecommendedActionImpactRecordResponse
     {

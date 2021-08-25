@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// DatasourceSet details of datasource to be backed up
-    /// </summary>
     [OutputType]
     public sealed class DatasourceSetResponse
     {

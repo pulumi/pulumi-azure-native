@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
-    /// <summary>
-    /// A private IP address bound to the availability group listener.
-    /// </summary>
     [OutputType]
     public sealed class PrivateIPAddressResponse
     {

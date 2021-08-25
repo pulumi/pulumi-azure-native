@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001.Outputs
 {
 
-    /// <summary>
-    /// Response for checking user's role for Logz.io account.
-    /// </summary>
     [OutputType]
     public sealed class UserRoleResponseResponse
     {

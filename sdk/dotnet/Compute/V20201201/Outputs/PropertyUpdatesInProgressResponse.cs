@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Properties of the disk for which update is pending.
-    /// </summary>
     [OutputType]
     public sealed class PropertyUpdatesInProgressResponse
     {

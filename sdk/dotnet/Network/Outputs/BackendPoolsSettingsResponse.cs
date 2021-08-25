@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Settings that apply to all backend pools.
-    /// </summary>
     [OutputType]
     public sealed class BackendPoolsSettingsResponse
     {

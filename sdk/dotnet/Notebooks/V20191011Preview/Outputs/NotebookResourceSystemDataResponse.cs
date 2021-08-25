@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Notebooks.V20191011Preview.Outputs
 {
 
-    /// <summary>
-    /// System data for notebook resource
-    /// </summary>
     [OutputType]
     public sealed class NotebookResourceSystemDataResponse
     {

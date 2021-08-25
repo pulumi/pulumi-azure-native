@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160601.Outputs
 {
 
-    /// <summary>
-    /// API connection properties
-    /// </summary>
     [OutputType]
     public sealed class ApiConnectionTestLinkResponse
     {

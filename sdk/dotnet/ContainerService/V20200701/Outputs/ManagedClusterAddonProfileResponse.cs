@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200701.Outputs
 {
 
-    /// <summary>
-    /// A Kubernetes add-on profile for a managed cluster.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterAddonProfileResponse
     {

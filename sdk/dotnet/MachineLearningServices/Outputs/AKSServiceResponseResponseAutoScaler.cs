@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// The auto scaler properties.
-    /// </summary>
     [OutputType]
     public sealed class AKSServiceResponseResponseAutoScaler
     {

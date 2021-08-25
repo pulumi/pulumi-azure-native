@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes how input data is compressed
-    /// </summary>
     [OutputType]
     public sealed class CompressionResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.Outputs
 {
 
-    /// <summary>
-    /// High-level information about a Template Spec version.
-    /// </summary>
     [OutputType]
     public sealed class TemplateSpecVersionInfoResponse
     {

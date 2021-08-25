@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20190801.Outputs
 {
 
-    /// <summary>
-    /// File source details.
-    /// </summary>
     [OutputType]
     public sealed class FileSourceInfoResponse
     {

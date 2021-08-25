@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStack.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// Product compatibility
-    /// </summary>
     [OutputType]
     public sealed class CompatibilityResponse
     {

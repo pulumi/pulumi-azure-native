@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Input for the task that gets the list of tables for a provided list of PostgreSQL databases.
-    /// </summary>
     [OutputType]
     public sealed class GetUserTablesPostgreSqlTaskInputResponse
     {

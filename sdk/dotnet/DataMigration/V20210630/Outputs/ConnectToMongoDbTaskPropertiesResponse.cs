@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Properties for the task that validates the connection to and provides information about a MongoDB server
-    /// </summary>
     [OutputType]
     public sealed class ConnectToMongoDbTaskPropertiesResponse
     {

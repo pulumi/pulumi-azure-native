@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
     public sealed class EventHandlerSettingsArgs : Pulumi.ResourceArgs
     {
         [Input("items")]
-        private InputMap<ImmutableArray<Inputs.EventHandlerTemplateArgs>>? _items;
+        private InputMap<ImmutableArray<Input<Inputs.EventHandlerTemplateArgs>>>? _items;
 
         /// <summary>
         /// Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
         /// </summary>
-        public InputMap<ImmutableArray<Inputs.EventHandlerTemplateArgs>> Items
+        public InputMap<ImmutableArray<Input<Inputs.EventHandlerTemplateArgs>>> Items
         {
-            get => _items ?? (_items = new InputMap<ImmutableArray<Inputs.EventHandlerTemplateArgs>>());
+            get => _items ?? (_items = new InputMap<ImmutableArray<Input<Inputs.EventHandlerTemplateArgs>>>());
             set => _items = value;
         }
 

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.Outputs
 {
 
-    /// <summary>
-    /// SKU parameters supplied to the create Redis operation.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

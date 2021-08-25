@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20200101Preview.Outputs
 {
 
-    /// <summary>
-    /// The contact detail class.
-    /// </summary>
     [OutputType]
     public sealed class ContactDetailResponse
     {

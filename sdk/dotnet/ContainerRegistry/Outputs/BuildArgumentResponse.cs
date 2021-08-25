@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
-    /// <summary>
-    /// Properties of a build argument.
-    /// </summary>
     [OutputType]
     public sealed class BuildArgumentResponse
     {

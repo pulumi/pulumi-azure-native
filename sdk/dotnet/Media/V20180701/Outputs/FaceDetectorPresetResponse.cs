@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Describes all the settings to be used when analyzing a video in order to detect all the faces present.
-    /// </summary>
     [OutputType]
     public sealed class FaceDetectorPresetResponse
     {

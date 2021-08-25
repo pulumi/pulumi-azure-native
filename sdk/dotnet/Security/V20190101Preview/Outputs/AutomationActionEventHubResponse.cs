@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20190101Preview.Outputs
 {
 
-    /// <summary>
-    /// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
-    /// </summary>
     [OutputType]
     public sealed class AutomationActionEventHubResponse
     {

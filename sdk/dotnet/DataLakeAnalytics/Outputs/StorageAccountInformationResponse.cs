@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeAnalytics.Outputs
 {
 
-    /// <summary>
-    /// Azure Storage account information.
-    /// </summary>
     [OutputType]
     public sealed class StorageAccountInformationResponse
     {

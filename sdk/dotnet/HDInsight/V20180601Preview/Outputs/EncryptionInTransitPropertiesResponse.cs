@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
-    /// <summary>
-    /// The encryption-in-transit properties.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionInTransitPropertiesResponse
     {

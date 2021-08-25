@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20160301.Outputs
 {
 
-    /// <summary>
-    /// A rule condition based on a metric crossing a threshold.
-    /// </summary>
     [OutputType]
     public sealed class ThresholdRuleConditionResponse
     {

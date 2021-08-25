@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Specifies the hardware settings for the virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class HardwareProfileResponse
     {

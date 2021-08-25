@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview.Outputs
 {
 
-    /// <summary>
-    /// The related metadata items for the function.
-    /// </summary>
     [OutputType]
     public sealed class LogAnalyticsQueryPackQueryPropertiesResponseRelated
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Delimited text dataset.
-    /// </summary>
     [OutputType]
     public sealed class DelimitedTextDatasetResponse
     {

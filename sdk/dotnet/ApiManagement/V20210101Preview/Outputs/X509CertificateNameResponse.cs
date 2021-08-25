@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties of server X509Names.
-    /// </summary>
     [OutputType]
     public sealed class X509CertificateNameResponse
     {

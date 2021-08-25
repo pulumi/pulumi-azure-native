@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// The number of instances that can be used during this profile.
-    /// </summary>
     [OutputType]
     public sealed class ScaleCapacityResponse
     {

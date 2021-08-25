@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615.Outputs
 {
 
-    /// <summary>
-    /// Defines the certificate source parameters using user's keyvault certificate for enabling SSL.
-    /// </summary>
     [OutputType]
     public sealed class UserManagedHttpsParametersResponse
     {

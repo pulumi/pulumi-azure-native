@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
-    /// </summary>
     [OutputType]
     public sealed class CacheConfigurationResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Reference to an asset via its path in a job output.
-    /// </summary>
     [OutputType]
     public sealed class OutputPathAssetReferenceResponse
     {

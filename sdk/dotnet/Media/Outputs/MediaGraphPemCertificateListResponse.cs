@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// A list of PEM formatted certificates.
-    /// </summary>
     [OutputType]
     public sealed class MediaGraphPemCertificateListResponse
     {

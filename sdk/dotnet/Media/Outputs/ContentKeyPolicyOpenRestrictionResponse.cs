@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// Represents an open restriction. License or key will be delivered on every request.
-    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyOpenRestrictionResponse
     {

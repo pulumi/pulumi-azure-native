@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
-    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlMISyncTaskPropertiesResponse
     {

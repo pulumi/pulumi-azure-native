@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20190301.Outputs
 {
 
-    /// <summary>
-    /// Represents the health policy used to evaluate the health of services belonging to a service type.
-    /// </summary>
     [OutputType]
     public sealed class ArmServiceTypeHealthPolicyResponse
     {

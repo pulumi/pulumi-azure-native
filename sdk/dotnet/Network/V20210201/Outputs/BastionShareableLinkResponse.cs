@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
-    /// <summary>
-    /// Bastion Shareable Link.
-    /// </summary>
     [OutputType]
     public sealed class BastionShareableLinkResponse
     {

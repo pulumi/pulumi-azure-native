@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppConfiguration.V20190201Preview.Outputs
 {
 
-    /// <summary>
-    /// An API key used for authenticating with a configuration store endpoint.
-    /// </summary>
     [OutputType]
     public sealed class ApiKeyResponse
     {

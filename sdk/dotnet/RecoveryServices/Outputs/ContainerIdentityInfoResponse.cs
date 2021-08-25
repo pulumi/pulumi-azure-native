@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Container identity information
-    /// </summary>
     [OutputType]
     public sealed class ContainerIdentityInfoResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210601.Outputs
 {
 
-    /// <summary>
-    /// a plain text value execution parameter
-    /// </summary>
     [OutputType]
     public sealed class ScriptSecureStringExecutionParameterResponse
     {

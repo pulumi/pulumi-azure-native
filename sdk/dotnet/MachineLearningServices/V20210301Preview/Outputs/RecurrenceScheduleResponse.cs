@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// The recurrence schedule
-    /// </summary>
     [OutputType]
     public sealed class RecurrenceScheduleResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20200801Preview.Outputs
 {
 
-    /// <summary>
-    /// The service properties for soft delete.
-    /// </summary>
     [OutputType]
     public sealed class DeleteRetentionPolicyResponse
     {

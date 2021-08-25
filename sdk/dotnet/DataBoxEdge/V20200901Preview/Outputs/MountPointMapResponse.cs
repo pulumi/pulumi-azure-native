@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// The share mount point.
-    /// </summary>
     [OutputType]
     public sealed class MountPointMapResponse
     {

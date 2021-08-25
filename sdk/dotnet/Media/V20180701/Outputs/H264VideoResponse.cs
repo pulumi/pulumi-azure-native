@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Describes all the properties for encoding a video with the H.264 codec.
-    /// </summary>
     [OutputType]
     public sealed class H264VideoResponse
     {

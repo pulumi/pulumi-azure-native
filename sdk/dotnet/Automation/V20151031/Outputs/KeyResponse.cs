@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20151031.Outputs
 {
 
-    /// <summary>
-    /// Automation key which is used to register a DSC Node
-    /// </summary>
     [OutputType]
     public sealed class KeyResponse
     {

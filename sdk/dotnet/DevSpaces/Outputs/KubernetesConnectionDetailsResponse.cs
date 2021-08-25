@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevSpaces.Outputs
 {
 
-    /// <summary>
-    /// Contains information used to connect to a Kubernetes cluster
-    /// </summary>
     [OutputType]
     public sealed class KubernetesConnectionDetailsResponse
     {

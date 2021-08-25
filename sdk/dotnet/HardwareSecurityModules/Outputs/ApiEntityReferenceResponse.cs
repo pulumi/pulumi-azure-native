@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HardwareSecurityModules.Outputs
 {
 
-    /// <summary>
-    /// The API entity reference.
-    /// </summary>
     [OutputType]
     public sealed class ApiEntityReferenceResponse
     {

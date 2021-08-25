@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
-    /// <summary>
-    /// Represents the OpenShift networking configuration
-    /// </summary>
     [OutputType]
     public sealed class NetworkProfileResponse
     {

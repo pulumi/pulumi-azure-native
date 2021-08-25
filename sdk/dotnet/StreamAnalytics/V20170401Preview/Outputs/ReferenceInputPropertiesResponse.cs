@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
-    /// <summary>
-    /// The properties that are associated with an input containing reference data.
-    /// </summary>
     [OutputType]
     public sealed class ReferenceInputPropertiesResponse
     {

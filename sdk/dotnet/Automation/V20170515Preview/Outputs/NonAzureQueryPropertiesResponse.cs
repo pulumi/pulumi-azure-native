@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20170515Preview.Outputs
 {
 
-    /// <summary>
-    /// Non Azure query for the update configuration.
-    /// </summary>
     [OutputType]
     public sealed class NonAzureQueryPropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
-    /// <summary>
-    /// Describes the connection monitor endpoint filter.
-    /// </summary>
     [OutputType]
     public sealed class ConnectionMonitorEndpointFilterResponse
     {

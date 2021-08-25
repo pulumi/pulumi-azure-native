@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceBus.Outputs
 {
 
-    /// <summary>
-    /// Message Count Details.
-    /// </summary>
     [OutputType]
     public sealed class MessageCountDetailsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Database specific information for MySQL to Azure Database for MySQL migration task inputs
-    /// </summary>
     [OutputType]
     public sealed class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse
     {

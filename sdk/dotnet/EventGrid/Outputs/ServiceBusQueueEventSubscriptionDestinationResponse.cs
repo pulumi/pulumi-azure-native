@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
-    /// <summary>
-    /// Information about the service bus destination for an event subscription.
-    /// </summary>
     [OutputType]
     public sealed class ServiceBusQueueEventSubscriptionDestinationResponse
     {

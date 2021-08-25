@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Specifies a configuration for Widevine licenses.
-    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyWidevineConfigurationResponse
     {

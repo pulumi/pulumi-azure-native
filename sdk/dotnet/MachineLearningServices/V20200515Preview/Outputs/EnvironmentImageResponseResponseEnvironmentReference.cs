@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Outputs
 {
 
-    /// <summary>
-    /// The unique identifying details of the AZURE ML environment.
-    /// </summary>
     [OutputType]
     public sealed class EnvironmentImageResponseResponseEnvironmentReference
     {

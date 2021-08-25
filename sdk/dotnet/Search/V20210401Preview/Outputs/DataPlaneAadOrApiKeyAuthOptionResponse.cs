@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
-    /// </summary>
     [OutputType]
     public sealed class DataPlaneAadOrApiKeyAuthOptionResponse
     {

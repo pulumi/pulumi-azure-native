@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20201001.Outputs
 {
 
-    /// <summary>
-    /// Cache identity properties.
-    /// </summary>
     [OutputType]
     public sealed class CacheIdentityResponse
     {

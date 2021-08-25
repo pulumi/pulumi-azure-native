@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.Outputs
 {
 
-    /// <summary>
-    /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

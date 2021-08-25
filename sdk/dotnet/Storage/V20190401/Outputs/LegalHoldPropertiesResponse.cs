@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20190401.Outputs
 {
 
-    /// <summary>
-    /// The LegalHold property of a blob container.
-    /// </summary>
     [OutputType]
     public sealed class LegalHoldPropertiesResponse
     {

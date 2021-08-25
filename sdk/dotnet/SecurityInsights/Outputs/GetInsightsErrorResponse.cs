@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
-    /// <summary>
-    /// GetInsights Query Errors.
-    /// </summary>
     [OutputType]
     public sealed class GetInsightsErrorResponse
     {

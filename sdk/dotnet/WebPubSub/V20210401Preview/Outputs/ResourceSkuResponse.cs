@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// The billing information of the resource.
-    /// </summary>
     [OutputType]
     public sealed class ResourceSkuResponse
     {

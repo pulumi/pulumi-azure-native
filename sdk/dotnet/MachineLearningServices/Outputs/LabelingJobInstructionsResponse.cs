@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Instructions for a labeling job.
-    /// </summary>
     [OutputType]
     public sealed class LabelingJobInstructionsResponse
     {

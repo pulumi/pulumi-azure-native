@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Outputs
 {
 
-    /// <summary>
-    /// BoolEquals Advanced Filter.
-    /// </summary>
     [OutputType]
     public sealed class BoolEqualsAdvancedFilterResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20170801Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties of the solution's user defined resources.
-    /// </summary>
     [OutputType]
     public sealed class UserDefinedResourcesPropertiesResponse
     {

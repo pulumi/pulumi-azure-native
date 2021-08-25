@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Select audio tracks from the input by specifying an attribute and an attribute filter.
-    /// </summary>
     [OutputType]
     public sealed class SelectAudioTrackByAttributeResponse
     {

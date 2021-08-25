@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200901.Outputs
 {
 
-    /// <summary>
-    /// A reference to an Azure resource.
-    /// </summary>
     [OutputType]
     public sealed class ResourceReferenceResponse
     {

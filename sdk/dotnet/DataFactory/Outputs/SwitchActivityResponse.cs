@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// This activity evaluates an expression and executes activities under the cases property that correspond to the expression evaluation expected in the equals property.
-    /// </summary>
     [OutputType]
     public sealed class SwitchActivityResponse
     {

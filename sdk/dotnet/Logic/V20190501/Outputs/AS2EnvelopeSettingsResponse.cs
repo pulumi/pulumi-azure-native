@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 {
 
-    /// <summary>
-    /// The AS2 agreement envelope settings.
-    /// </summary>
     [OutputType]
     public sealed class AS2EnvelopeSettingsResponse
     {

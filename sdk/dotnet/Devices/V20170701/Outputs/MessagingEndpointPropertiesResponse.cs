@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20170701.Outputs
 {
 
-    /// <summary>
-    /// The properties of the messaging endpoints used by this IoT hub.
-    /// </summary>
     [OutputType]
     public sealed class MessagingEndpointPropertiesResponse
     {

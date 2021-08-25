@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20190701.Outputs
 {
 
-    /// <summary>
-    /// Periodic timer event source.
-    /// </summary>
     [OutputType]
     public sealed class PeriodicTimerSourceInfoResponse
     {

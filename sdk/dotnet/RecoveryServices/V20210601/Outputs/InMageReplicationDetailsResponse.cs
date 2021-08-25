@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
-    /// <summary>
-    /// InMage provider specific settings.
-    /// </summary>
     [OutputType]
     public sealed class InMageReplicationDetailsResponse
     {

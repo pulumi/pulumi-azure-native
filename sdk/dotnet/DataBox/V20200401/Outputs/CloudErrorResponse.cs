@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20200401.Outputs
 {
 
-    /// <summary>
-    /// Cloud error.
-    /// </summary>
     [OutputType]
     public sealed class CloudErrorResponse
     {

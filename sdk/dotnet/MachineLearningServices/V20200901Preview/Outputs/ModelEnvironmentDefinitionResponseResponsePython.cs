@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// Settings for a Python environment.
-    /// </summary>
     [OutputType]
     public sealed class ModelEnvironmentDefinitionResponseResponsePython
     {

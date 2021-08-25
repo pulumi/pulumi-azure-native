@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.V20190916.Outputs
 {
 
-    /// <summary>
-    /// Export operation configuration information
-    /// </summary>
     [OutputType]
     public sealed class ServiceExportConfigurationInfoResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180110.Outputs
 {
 
-    /// <summary>
-    /// Disk details for E2A provider.
-    /// </summary>
     [OutputType]
     public sealed class AzureVmDiskDetailsResponse
     {

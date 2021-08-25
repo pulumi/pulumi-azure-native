@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
-    /// </summary>
     [OutputType]
     public sealed class CencDrmConfigurationResponse
     {

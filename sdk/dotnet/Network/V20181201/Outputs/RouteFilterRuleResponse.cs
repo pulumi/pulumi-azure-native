@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181201.Outputs
 {
 
-    /// <summary>
-    /// Route Filter Rule Resource
-    /// </summary>
     [OutputType]
     public sealed class RouteFilterRuleResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20170330.Outputs
 {
 
-    /// <summary>
-    /// Describes a virtual machine scale set virtual machine profile.
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetVMProfileResponse
     {

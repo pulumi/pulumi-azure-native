@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OffAzure.V20200707.Outputs
 {
 
-    /// <summary>
-    /// Class for site agent properties.
-    /// </summary>
     [OutputType]
     public sealed class SiteAgentPropertiesResponse
     {

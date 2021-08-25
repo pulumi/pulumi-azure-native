@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Class for CommonEncryptionCbcs encryption scheme
-    /// </summary>
     [OutputType]
     public sealed class CommonEncryptionCbcsResponse
     {

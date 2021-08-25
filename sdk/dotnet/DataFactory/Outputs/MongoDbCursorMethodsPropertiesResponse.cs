@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Cursor methods for Mongodb query
-    /// </summary>
     [OutputType]
     public sealed class MongoDbCursorMethodsPropertiesResponse
     {

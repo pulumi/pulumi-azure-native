@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 {
 
-    /// <summary>
-    /// Gets the workflow trigger callback URL query parameters.
-    /// </summary>
     [OutputType]
     public sealed class WorkflowTriggerListCallbackUrlQueriesResponse
     {

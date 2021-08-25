@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
-    /// <summary>
-    /// Specifies the network interfaces or the networking configuration of the virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class NetworkProfileResponse
     {

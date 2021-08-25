@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.V20180712.Outputs
 {
 
-    /// <summary>
-    /// Kik channel definition
-    /// </summary>
     [OutputType]
     public sealed class KikChannelResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Service End point policy resource.
-    /// </summary>
     [OutputType]
     public sealed class ServiceEndpointPolicyResponse
     {

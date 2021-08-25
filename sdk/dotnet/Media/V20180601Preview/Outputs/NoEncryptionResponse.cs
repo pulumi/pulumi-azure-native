@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
 {
 
-    /// <summary>
-    /// Class for NoEncryption scheme
-    /// </summary>
     [OutputType]
     public sealed class NoEncryptionResponse
     {

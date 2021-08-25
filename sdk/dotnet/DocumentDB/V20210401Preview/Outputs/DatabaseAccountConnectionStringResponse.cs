@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Connection string for the Cosmos DB account
-    /// </summary>
     [OutputType]
     public sealed class DatabaseAccountConnectionStringResponse
     {

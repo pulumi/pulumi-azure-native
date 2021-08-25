@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
-    /// <summary>
-    /// Configuration of Azure web site
-    /// </summary>
     [OutputType]
     public sealed class SiteConfigResponse
     {

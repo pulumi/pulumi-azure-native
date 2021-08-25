@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Azure Active Directory Application
-    /// </summary>
     [OutputType]
     public sealed class AzureActiveDirectoryAppResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200801.Outputs
 {
 
-    /// <summary>
-    /// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
-    /// </summary>
     [OutputType]
     public sealed class FallbackRoutePropertiesResponse
     {

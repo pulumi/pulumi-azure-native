@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200801.Outputs
 {
 
-    /// <summary>
-    /// Describes the connection monitor endpoint scope item.
-    /// </summary>
     [OutputType]
     public sealed class ConnectionMonitorEndpointScopeItemResponse
     {

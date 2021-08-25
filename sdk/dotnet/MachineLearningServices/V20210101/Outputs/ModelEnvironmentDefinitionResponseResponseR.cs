@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Outputs
 {
 
-    /// <summary>
-    /// Settings for a R environment.
-    /// </summary>
     [OutputType]
     public sealed class ModelEnvironmentDefinitionResponseResponseR
     {

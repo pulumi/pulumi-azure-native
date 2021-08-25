@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview.Outputs
 {
 
-    /// <summary>
-    /// Specifies the health alert criteria to alert on.
-    /// </summary>
     [OutputType]
     public sealed class VmGuestHealthAlertCriterionResponse
     {

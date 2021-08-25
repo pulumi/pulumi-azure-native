@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// This activity verifies that an external resource exists.
-    /// </summary>
     [OutputType]
     public sealed class ValidationActivityResponse
     {

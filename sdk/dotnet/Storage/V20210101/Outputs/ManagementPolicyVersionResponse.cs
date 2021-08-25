@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210101.Outputs
 {
 
-    /// <summary>
-    /// Management policy action for blob version.
-    /// </summary>
     [OutputType]
     public sealed class ManagementPolicyVersionResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Elastic.V20200701.Outputs
 {
 
-    /// <summary>
-    /// Details of the user's elastic account.
-    /// </summary>
     [OutputType]
     public sealed class ElasticCloudUserResponse
     {

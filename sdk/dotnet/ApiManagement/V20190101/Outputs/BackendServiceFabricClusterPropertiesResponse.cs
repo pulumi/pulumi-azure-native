@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20190101.Outputs
 {
 
-    /// <summary>
-    /// Properties of the Service Fabric Type Backend.
-    /// </summary>
     [OutputType]
     public sealed class BackendServiceFabricClusterPropertiesResponse
     {

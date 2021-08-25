@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The Tar archive method used on a dataset.
-    /// </summary>
     [OutputType]
     public sealed class DatasetTarCompressionResponse
     {

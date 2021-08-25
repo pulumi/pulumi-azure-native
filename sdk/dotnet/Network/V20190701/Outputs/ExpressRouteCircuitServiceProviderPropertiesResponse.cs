@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190701.Outputs
 {
 
-    /// <summary>
-    /// Contains ServiceProviderProperties in an ExpressRouteCircuit.
-    /// </summary>
     [OutputType]
     public sealed class ExpressRouteCircuitServiceProviderPropertiesResponse
     {

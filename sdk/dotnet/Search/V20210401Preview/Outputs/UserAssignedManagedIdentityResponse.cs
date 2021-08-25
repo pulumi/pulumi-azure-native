@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// The details of the user assigned managed identity assigned to the search service.
-    /// </summary>
     [OutputType]
     public sealed class UserAssignedManagedIdentityResponse
     {

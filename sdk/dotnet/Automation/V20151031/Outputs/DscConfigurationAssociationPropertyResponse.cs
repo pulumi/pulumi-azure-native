@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20151031.Outputs
 {
 
-    /// <summary>
-    /// The Dsc configuration property associated with the entity.
-    /// </summary>
     [OutputType]
     public sealed class DscConfigurationAssociationPropertyResponse
     {

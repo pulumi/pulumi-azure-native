@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201101.Outputs
 {
 
-    /// <summary>
-    /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterServicePrincipalProfileResponse
     {

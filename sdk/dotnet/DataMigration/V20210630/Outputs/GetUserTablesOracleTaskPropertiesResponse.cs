@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Properties for the task that collects user tables for the given list of Oracle schemas
-    /// </summary>
     [OutputType]
     public sealed class GetUserTablesOracleTaskPropertiesResponse
     {

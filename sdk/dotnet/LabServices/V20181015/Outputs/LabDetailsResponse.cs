@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.V20181015.Outputs
 {
 
-    /// <summary>
-    /// This represents the details about a lab that the User is in, and its state.
-    /// </summary>
     [OutputType]
     public sealed class LabDetailsResponse
     {

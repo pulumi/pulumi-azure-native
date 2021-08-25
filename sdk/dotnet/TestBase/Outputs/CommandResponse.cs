@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.Outputs
 {
 
-    /// <summary>
-    /// The command used in the test
-    /// </summary>
     [OutputType]
     public sealed class CommandResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210601.Outputs
 {
 
-    /// <summary>
-    /// The list of associated user identities.
-    /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentitiesResponse
     {

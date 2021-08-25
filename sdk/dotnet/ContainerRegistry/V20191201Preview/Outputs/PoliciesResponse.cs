@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview.Outputs
 {
 
-    /// <summary>
-    /// The policies for a container registry.
-    /// </summary>
     [OutputType]
     public sealed class PoliciesResponse
     {

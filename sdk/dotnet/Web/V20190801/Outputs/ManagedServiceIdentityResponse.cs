@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20190801.Outputs
 {
 
-    /// <summary>
-    /// Managed service identity.
-    /// </summary>
     [OutputType]
     public sealed class ManagedServiceIdentityResponse
     {

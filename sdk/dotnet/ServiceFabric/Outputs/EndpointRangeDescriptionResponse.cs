@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
-    /// <summary>
-    /// Port range details
-    /// </summary>
     [OutputType]
     public sealed class EndpointRangeDescriptionResponse
     {

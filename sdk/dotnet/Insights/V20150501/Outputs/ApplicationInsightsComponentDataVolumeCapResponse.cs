@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20150501.Outputs
 {
 
-    /// <summary>
-    /// An Application Insights component daily data volume cap
-    /// </summary>
     [OutputType]
     public sealed class ApplicationInsightsComponentDataVolumeCapResponse
     {

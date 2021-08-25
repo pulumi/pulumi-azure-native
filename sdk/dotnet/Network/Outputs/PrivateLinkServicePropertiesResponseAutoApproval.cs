@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// The auto-approval list of the private link service.
-    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServicePropertiesResponseAutoApproval
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Qos Traffic Profiler IP Range properties.
-    /// </summary>
     [OutputType]
     public sealed class QosIpRangeResponse
     {

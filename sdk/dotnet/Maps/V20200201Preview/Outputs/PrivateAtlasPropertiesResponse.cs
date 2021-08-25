@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maps.V20200201Preview.Outputs
 {
 
-    /// <summary>
-    /// Private Atlas resource properties
-    /// </summary>
     [OutputType]
     public sealed class PrivateAtlasPropertiesResponse
     {

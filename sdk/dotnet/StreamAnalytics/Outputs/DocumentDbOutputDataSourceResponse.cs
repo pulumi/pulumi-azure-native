@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
-    /// <summary>
-    /// Describes a DocumentDB output data source.
-    /// </summary>
     [OutputType]
     public sealed class DocumentDbOutputDataSourceResponse
     {

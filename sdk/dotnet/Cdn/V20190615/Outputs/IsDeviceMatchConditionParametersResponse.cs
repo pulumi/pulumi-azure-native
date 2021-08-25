@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615.Outputs
 {
 
-    /// <summary>
-    /// Defines the parameters for IsDevice match conditions
-    /// </summary>
     [OutputType]
     public sealed class IsDeviceMatchConditionParametersResponse
     {

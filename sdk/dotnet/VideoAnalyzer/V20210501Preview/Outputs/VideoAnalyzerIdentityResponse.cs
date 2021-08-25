@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Outputs
 {
 
-    /// <summary>
-    /// The managed identity for the Video Analyzer resource.
-    /// </summary>
     [OutputType]
     public sealed class VideoAnalyzerIdentityResponse
     {

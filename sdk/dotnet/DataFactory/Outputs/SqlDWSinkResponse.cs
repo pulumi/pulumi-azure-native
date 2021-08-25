@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// A copy activity SQL Data Warehouse sink.
-    /// </summary>
     [OutputType]
     public sealed class SqlDWSinkResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Details of JobOutput errors.
-    /// </summary>
     [OutputType]
     public sealed class JobErrorDetailResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
-    /// <summary>
-    /// Allocation configuration used by Batch Service to provision the nodes.
-    /// </summary>
     [OutputType]
     public sealed class NodePlacementConfigurationResponse
     {

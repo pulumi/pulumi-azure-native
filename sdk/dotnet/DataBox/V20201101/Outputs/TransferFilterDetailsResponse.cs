@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20201101.Outputs
 {
 
-    /// <summary>
-    /// Details of the filtering the transfer of data.
-    /// </summary>
     [OutputType]
     public sealed class TransferFilterDetailsResponse
     {

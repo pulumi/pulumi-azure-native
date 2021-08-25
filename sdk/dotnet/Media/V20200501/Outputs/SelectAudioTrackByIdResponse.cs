@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
-    /// <summary>
-    /// Select audio tracks from the input by specifying a track identifier.
-    /// </summary>
     [OutputType]
     public sealed class SelectAudioTrackByIdResponse
     {

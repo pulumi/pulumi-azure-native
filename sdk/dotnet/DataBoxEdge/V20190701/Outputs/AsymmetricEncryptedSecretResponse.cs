@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20190701.Outputs
 {
 
-    /// <summary>
-    /// Represent the secrets intended for encryption with asymmetric key pair.
-    /// </summary>
     [OutputType]
     public sealed class AsymmetricEncryptedSecretResponse
     {

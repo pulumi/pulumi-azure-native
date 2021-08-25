@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.Outputs
 {
 
-    /// <summary>
-    /// Deployment on error behavior with additional details.
-    /// </summary>
     [OutputType]
     public sealed class OnErrorDeploymentExtendedResponse
     {

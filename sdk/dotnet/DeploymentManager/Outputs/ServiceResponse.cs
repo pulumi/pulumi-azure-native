@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.Outputs
 {
 
-    /// <summary>
-    /// Defines a service.
-    /// </summary>
     [OutputType]
     public sealed class ServiceResponse
     {

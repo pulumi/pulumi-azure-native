@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Container with items backed up using MAB backup engine.
-    /// </summary>
     [OutputType]
     public sealed class MabContainerResponse
     {

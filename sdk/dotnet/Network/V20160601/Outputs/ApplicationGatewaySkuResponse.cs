@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160601.Outputs
 {
 
-    /// <summary>
-    /// SKU of application gateway
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewaySkuResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// The workflow trigger recurrence for ComputeStartStop schedule type.
-    /// </summary>
     [OutputType]
     public sealed class RecurrenceResponse
     {

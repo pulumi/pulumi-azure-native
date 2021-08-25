@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210301.Outputs
 {
 
-    /// <summary>
-    /// An indication of Cache health. Gives more information about health than just that related to provisioning.
-    /// </summary>
     [OutputType]
     public sealed class CacheHealthResponse
     {

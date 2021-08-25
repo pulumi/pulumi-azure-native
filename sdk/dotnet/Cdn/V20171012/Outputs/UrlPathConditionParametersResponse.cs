@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20171012.Outputs
 {
 
-    /// <summary>
-    /// Defines the parameters for the URL path condition.
-    /// </summary>
     [OutputType]
     public sealed class UrlPathConditionParametersResponse
     {

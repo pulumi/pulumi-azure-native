@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Amazon S3 read settings.
-    /// </summary>
     [OutputType]
     public sealed class AmazonS3ReadSettingsResponse
     {

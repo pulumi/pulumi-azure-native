@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.V20170101.Outputs
 {
 
-    /// <summary>
-    /// Metadata for a Link's property mapping.
-    /// </summary>
     [OutputType]
     public sealed class TypePropertiesMappingResponse
     {

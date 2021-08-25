@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210701.Outputs
 {
 
-    /// <summary>
-    /// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterPodIdentityProfileResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
-    /// </summary>
     [OutputType]
     public sealed class TruncationSelectionPolicyResponse
     {

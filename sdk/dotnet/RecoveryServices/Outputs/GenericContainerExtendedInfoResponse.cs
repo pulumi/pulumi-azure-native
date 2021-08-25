@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Container extended information
-    /// </summary>
     [OutputType]
     public sealed class GenericContainerExtendedInfoResponse
     {

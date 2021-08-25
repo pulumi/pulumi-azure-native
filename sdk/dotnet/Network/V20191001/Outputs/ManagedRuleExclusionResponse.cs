@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191001.Outputs
 {
 
-    /// <summary>
-    /// Exclude variables from managed rule evaluation.
-    /// </summary>
     [OutputType]
     public sealed class ManagedRuleExclusionResponse
     {

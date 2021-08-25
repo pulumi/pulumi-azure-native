@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180710.Outputs
 {
 
-    /// <summary>
-    /// Base class for the policies of providers using InMage replication.
-    /// </summary>
     [OutputType]
     public sealed class InMageBasePolicyDetailsResponse
     {

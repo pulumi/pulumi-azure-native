@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Info for certificate to be exported for TDE enabled databases.
-    /// </summary>
     [OutputType]
     public sealed class SelectedCertificateInputResponse
     {

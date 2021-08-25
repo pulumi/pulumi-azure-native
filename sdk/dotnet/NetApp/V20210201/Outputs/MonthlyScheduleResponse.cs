@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20210201.Outputs
 {
 
-    /// <summary>
-    /// Monthly Schedule properties
-    /// </summary>
     [OutputType]
     public sealed class MonthlyScheduleResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview.Outputs
 {
 
-    /// <summary>
-    /// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
-    /// </summary>
     [OutputType]
     public sealed class B2CResourceSKUResponse
     {

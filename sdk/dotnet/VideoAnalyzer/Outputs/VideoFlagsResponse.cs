@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 {
 
-    /// <summary>
-    /// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
-    /// </summary>
     [OutputType]
     public sealed class VideoFlagsResponse
     {

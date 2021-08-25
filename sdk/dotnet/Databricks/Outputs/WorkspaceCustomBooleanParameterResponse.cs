@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.Outputs
 {
 
-    /// <summary>
-    /// The value which should be used for this field.
-    /// </summary>
     [OutputType]
     public sealed class WorkspaceCustomBooleanParameterResponse
     {

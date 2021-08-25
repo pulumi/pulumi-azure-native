@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.V20201216Preview.Outputs
 {
 
-    /// <summary>
-    /// The subscription role receiver value.
-    /// </summary>
     [OutputType]
     public sealed class SubscriptionReceiverValueResponse
     {

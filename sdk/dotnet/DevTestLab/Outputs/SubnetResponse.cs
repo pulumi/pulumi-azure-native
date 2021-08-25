@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
-    /// <summary>
-    /// Subnet information.
-    /// </summary>
     [OutputType]
     public sealed class SubnetResponse
     {

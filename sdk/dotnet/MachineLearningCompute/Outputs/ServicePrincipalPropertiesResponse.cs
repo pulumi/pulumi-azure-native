@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
-    /// <summary>
-    /// The Azure service principal used by Kubernetes for configuring load balancers
-    /// </summary>
     [OutputType]
     public sealed class ServicePrincipalPropertiesResponse
     {

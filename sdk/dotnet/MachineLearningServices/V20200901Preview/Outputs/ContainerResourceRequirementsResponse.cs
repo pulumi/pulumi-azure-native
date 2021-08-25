@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// The resource requirements for the container (cpu and memory).
-    /// </summary>
     [OutputType]
     public sealed class ContainerResourceRequirementsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160810.Outputs
 {
 
-    /// <summary>
-    /// VMware Cbt specific policy details.
-    /// </summary>
     [OutputType]
     public sealed class VmwareCbtPolicyDetailsResponse
     {

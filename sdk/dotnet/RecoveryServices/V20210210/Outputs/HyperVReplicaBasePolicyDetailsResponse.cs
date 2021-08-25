@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
-    /// <summary>
-    /// Base class for HyperVReplica policy details.
-    /// </summary>
     [OutputType]
     public sealed class HyperVReplicaBasePolicyDetailsResponse
     {

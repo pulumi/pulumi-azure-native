@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201.Outputs
 {
 
-    /// <summary>
-    /// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
-    /// </summary>
     [OutputType]
     public sealed class IoTEdgeAgentInfoResponse
     {

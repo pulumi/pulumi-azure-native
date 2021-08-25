@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Describes a virtual machines network configuration's DNS settings.
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponse
     {

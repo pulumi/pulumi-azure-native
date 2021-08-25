@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200101.Outputs
 {
 
-    /// <summary>
-    /// Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
-    /// </summary>
     [OutputType]
     public sealed class RulesEngineRuleResponse
     {

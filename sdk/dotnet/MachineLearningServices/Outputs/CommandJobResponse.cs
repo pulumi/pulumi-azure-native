@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Command job definition.
-    /// </summary>
     [OutputType]
     public sealed class CommandJobResponse
     {

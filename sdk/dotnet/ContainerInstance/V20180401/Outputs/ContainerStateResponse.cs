@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20180401.Outputs
 {
 
-    /// <summary>
-    /// The container instance state.
-    /// </summary>
     [OutputType]
     public sealed class ContainerStateResponse
     {

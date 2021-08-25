@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the settings for producing JPEG thumbnails.
-    /// </summary>
     [OutputType]
     public sealed class JpgFormatResponse
     {

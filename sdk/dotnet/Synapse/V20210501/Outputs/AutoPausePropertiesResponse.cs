@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
 {
 
-    /// <summary>
-    /// Auto-pausing properties of a Big Data pool powered by Apache Spark
-    /// </summary>
     [OutputType]
     public sealed class AutoPausePropertiesResponse
     {

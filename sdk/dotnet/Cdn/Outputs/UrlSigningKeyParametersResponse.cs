@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
-    /// <summary>
-    /// Url signing key parameters
-    /// </summary>
     [OutputType]
     public sealed class UrlSigningKeyParametersResponse
     {

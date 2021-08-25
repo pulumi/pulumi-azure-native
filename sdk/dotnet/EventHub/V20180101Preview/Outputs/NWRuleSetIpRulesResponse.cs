@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20180101Preview.Outputs
 {
 
-    /// <summary>
-    /// The response from the List namespace operation.
-    /// </summary>
     [OutputType]
     public sealed class NWRuleSetIpRulesResponse
     {

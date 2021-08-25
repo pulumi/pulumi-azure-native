@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
-    /// </summary>
     [OutputType]
     public sealed class TemplateSpecTemplateArtifactResponse
     {

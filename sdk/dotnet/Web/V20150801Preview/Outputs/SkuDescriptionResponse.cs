@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes a sku for a scalable resource
-    /// </summary>
     [OutputType]
     public sealed class SkuDescriptionResponse
     {

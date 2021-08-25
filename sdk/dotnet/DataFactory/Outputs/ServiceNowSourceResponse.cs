@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// A copy activity ServiceNow server source.
-    /// </summary>
     [OutputType]
     public sealed class ServiceNowSourceResponse
     {

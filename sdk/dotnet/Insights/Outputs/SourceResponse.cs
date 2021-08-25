@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// Specifies the log search query.
-    /// </summary>
     [OutputType]
     public sealed class SourceResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes an Event Hub input data source that contains stream data.
-    /// </summary>
     [OutputType]
     public sealed class EventHubV2StreamInputDataSourceResponse
     {

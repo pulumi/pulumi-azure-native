@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Outputs
 {
 
-    /// <summary>
-    /// The status of the blueprint. This field is readonly.
-    /// </summary>
     [OutputType]
     public sealed class BlueprintStatusResponse
     {

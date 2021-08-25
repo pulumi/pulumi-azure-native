@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Describes the public IP Sku
-    /// </summary>
     [OutputType]
     public sealed class PublicIPAddressSkuResponse
     {

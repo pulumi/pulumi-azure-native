@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20200101.Outputs
 {
 
-    /// <summary>
-    /// Logs data type.
-    /// </summary>
     [OutputType]
     public sealed class AwsCloudTrailDataConnectorDataTypesResponseLogs
     {

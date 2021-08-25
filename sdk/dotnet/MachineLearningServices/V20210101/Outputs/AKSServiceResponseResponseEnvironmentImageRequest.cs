@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Outputs
 {
 
-    /// <summary>
-    /// The Environment, models and assets used for inferencing.
-    /// </summary>
     [OutputType]
     public sealed class AKSServiceResponseResponseEnvironmentImageRequest
     {

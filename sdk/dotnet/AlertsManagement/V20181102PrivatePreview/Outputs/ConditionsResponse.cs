@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-    /// </summary>
     [OutputType]
     public sealed class ConditionsResponse
     {

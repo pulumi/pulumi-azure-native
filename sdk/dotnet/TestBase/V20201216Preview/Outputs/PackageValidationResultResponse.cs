@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.V20201216Preview.Outputs
 {
 
-    /// <summary>
-    /// The validation results. There's validation on package when it's created or updated.
-    /// </summary>
     [OutputType]
     public sealed class PackageValidationResultResponse
     {

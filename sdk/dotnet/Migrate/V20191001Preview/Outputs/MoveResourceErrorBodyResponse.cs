@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001Preview.Outputs
 {
 
-    /// <summary>
-    /// An error response from the Azure Migrate service.
-    /// </summary>
     [OutputType]
     public sealed class MoveResourceErrorBodyResponse
     {

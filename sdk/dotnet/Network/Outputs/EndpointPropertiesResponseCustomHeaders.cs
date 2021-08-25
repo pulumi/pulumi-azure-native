@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Custom header name and value.
-    /// </summary>
     [OutputType]
     public sealed class EndpointPropertiesResponseCustomHeaders
     {
