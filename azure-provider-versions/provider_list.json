@@ -55523,6 +55523,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
@@ -55573,6 +55574,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
@@ -55623,6 +55625,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview"
         ],
@@ -55672,6 +55675,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview"
         ],
@@ -55721,6 +55725,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview"
         ],
@@ -55770,6 +55775,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview"
         ],
@@ -55819,6 +55825,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
@@ -55869,6 +55876,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
@@ -55919,6 +55927,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
@@ -55969,6 +55978,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-preview",
           "2021-05-01",
           "2021-01-01-preview",
           "2020-01-01-preview"
@@ -88005,6 +88015,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
