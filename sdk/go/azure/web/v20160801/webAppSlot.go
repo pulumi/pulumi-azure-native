@@ -361,7 +361,9 @@ func (i *WebAppSlot) ToWebAppSlotOutputWithContext(ctx context.Context) WebAppSl
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotOutput)
 }
 
-type WebAppSlotOutput struct{ *pulumi.OutputState }
+type WebAppSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSlot)(nil))

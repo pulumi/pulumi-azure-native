@@ -160,7 +160,9 @@ func (i *VirtualNetworkGatewayNatRule) ToVirtualNetworkGatewayNatRuleOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayNatRuleOutput)
 }
 
-type VirtualNetworkGatewayNatRuleOutput struct{ *pulumi.OutputState }
+type VirtualNetworkGatewayNatRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualNetworkGatewayNatRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkGatewayNatRule)(nil))

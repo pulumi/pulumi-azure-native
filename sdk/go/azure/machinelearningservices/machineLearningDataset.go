@@ -156,7 +156,9 @@ func (i *MachineLearningDataset) ToMachineLearningDatasetOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningDatasetOutput)
 }
 
-type MachineLearningDatasetOutput struct{ *pulumi.OutputState }
+type MachineLearningDatasetOutput struct {
+	*pulumi.OutputState
+}
 
 func (MachineLearningDatasetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningDataset)(nil))

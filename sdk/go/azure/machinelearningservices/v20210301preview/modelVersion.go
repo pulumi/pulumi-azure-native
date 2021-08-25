@@ -137,7 +137,9 @@ func (i *ModelVersion) ToModelVersionOutputWithContext(ctx context.Context) Mode
 	return pulumi.ToOutputWithContext(ctx, i).(ModelVersionOutput)
 }
 
-type ModelVersionOutput struct{ *pulumi.OutputState }
+type ModelVersionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ModelVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelVersion)(nil))

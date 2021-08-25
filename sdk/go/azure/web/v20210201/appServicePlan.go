@@ -327,7 +327,9 @@ func (i *AppServicePlan) ToAppServicePlanOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanOutput)
 }
 
-type AppServicePlanOutput struct{ *pulumi.OutputState }
+type AppServicePlanOutput struct {
+	*pulumi.OutputState
+}
 
 func (AppServicePlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServicePlan)(nil))

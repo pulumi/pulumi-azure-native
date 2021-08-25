@@ -131,7 +131,9 @@ func (i *ReportConfig) ToReportConfigOutputWithContext(ctx context.Context) Repo
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigOutput)
 }
 
-type ReportConfigOutput struct{ *pulumi.OutputState }
+type ReportConfigOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReportConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportConfig)(nil))

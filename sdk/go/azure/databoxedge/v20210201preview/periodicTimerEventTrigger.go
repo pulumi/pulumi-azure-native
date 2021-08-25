@@ -206,7 +206,9 @@ func (i *PeriodicTimerEventTrigger) ToPeriodicTimerEventTriggerOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PeriodicTimerEventTriggerOutput)
 }
 
-type PeriodicTimerEventTriggerOutput struct{ *pulumi.OutputState }
+type PeriodicTimerEventTriggerOutput struct {
+	*pulumi.OutputState
+}
 
 func (PeriodicTimerEventTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeriodicTimerEventTrigger)(nil))

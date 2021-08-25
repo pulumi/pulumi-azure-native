@@ -210,7 +210,9 @@ func (i *Budget) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetOutput)
 }
 
-type BudgetOutput struct{ *pulumi.OutputState }
+type BudgetOutput struct {
+	*pulumi.OutputState
+}
 
 func (BudgetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Budget)(nil))

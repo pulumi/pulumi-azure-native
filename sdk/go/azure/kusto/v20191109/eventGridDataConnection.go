@@ -238,7 +238,9 @@ func (i *EventGridDataConnection) ToEventGridDataConnectionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionOutput)
 }
 
-type EventGridDataConnectionOutput struct{ *pulumi.OutputState }
+type EventGridDataConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (EventGridDataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventGridDataConnection)(nil))

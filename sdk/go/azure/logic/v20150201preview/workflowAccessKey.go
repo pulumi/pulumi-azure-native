@@ -134,7 +134,9 @@ func (i *WorkflowAccessKey) ToWorkflowAccessKeyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessKeyOutput)
 }
 
-type WorkflowAccessKeyOutput struct{ *pulumi.OutputState }
+type WorkflowAccessKeyOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkflowAccessKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkflowAccessKey)(nil))

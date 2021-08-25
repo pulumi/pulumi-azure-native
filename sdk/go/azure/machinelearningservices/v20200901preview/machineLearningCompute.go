@@ -251,7 +251,9 @@ func (i *MachineLearningCompute) ToMachineLearningComputeOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningComputeOutput)
 }
 
-type MachineLearningComputeOutput struct{ *pulumi.OutputState }
+type MachineLearningComputeOutput struct {
+	*pulumi.OutputState
+}
 
 func (MachineLearningComputeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningCompute)(nil))

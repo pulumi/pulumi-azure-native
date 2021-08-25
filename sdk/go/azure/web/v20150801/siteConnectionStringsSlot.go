@@ -220,7 +220,9 @@ func (i *SiteConnectionStringsSlot) ToSiteConnectionStringsSlotOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SiteConnectionStringsSlotOutput)
 }
 
-type SiteConnectionStringsSlotOutput struct{ *pulumi.OutputState }
+type SiteConnectionStringsSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteConnectionStringsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteConnectionStringsSlot)(nil))

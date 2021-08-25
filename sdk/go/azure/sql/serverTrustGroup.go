@@ -156,7 +156,9 @@ func (i *ServerTrustGroup) ToServerTrustGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTrustGroupOutput)
 }
 
-type ServerTrustGroupOutput struct{ *pulumi.OutputState }
+type ServerTrustGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerTrustGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerTrustGroup)(nil))

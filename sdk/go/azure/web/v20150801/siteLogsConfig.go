@@ -231,7 +231,9 @@ func (i *SiteLogsConfig) ToSiteLogsConfigOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLogsConfigOutput)
 }
 
-type SiteLogsConfigOutput struct{ *pulumi.OutputState }
+type SiteLogsConfigOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteLogsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteLogsConfig)(nil))

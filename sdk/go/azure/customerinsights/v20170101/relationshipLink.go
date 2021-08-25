@@ -187,7 +187,9 @@ func (i *RelationshipLink) ToRelationshipLinkOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkOutput)
 }
 
-type RelationshipLinkOutput struct{ *pulumi.OutputState }
+type RelationshipLinkOutput struct {
+	*pulumi.OutputState
+}
 
 func (RelationshipLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RelationshipLink)(nil))

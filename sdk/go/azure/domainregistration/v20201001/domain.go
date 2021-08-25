@@ -199,7 +199,7 @@ type domainArgs struct {
 	// Technical contact.
 	ContactTech Contact `pulumi:"contactTech"`
 	// Current DNS type
-	DnsType *DnsType `pulumi:"dnsType"`
+	DnsType *string `pulumi:"dnsType"`
 	// Azure DNS Zone to use
 	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// Name of the domain.
@@ -215,7 +215,7 @@ type domainArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Target DNS type (would be used for migration)
-	TargetDnsType *DnsType `pulumi:"targetDnsType"`
+	TargetDnsType *string `pulumi:"targetDnsType"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -234,7 +234,7 @@ type DomainArgs struct {
 	// Technical contact.
 	ContactTech ContactInput
 	// Current DNS type
-	DnsType DnsTypePtrInput
+	DnsType *DnsType
 	// Azure DNS Zone to use
 	DnsZoneId pulumi.StringPtrInput
 	// Name of the domain.
@@ -250,7 +250,7 @@ type DomainArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Target DNS type (would be used for migration)
-	TargetDnsType DnsTypePtrInput
+	TargetDnsType *DnsType
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -276,7 +276,9 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
-type DomainOutput struct{ *pulumi.OutputState }
+type DomainOutput struct {
+	*pulumi.OutputState
+}
 
 func (DomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Domain)(nil))

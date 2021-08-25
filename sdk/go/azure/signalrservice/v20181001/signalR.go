@@ -190,7 +190,9 @@ func (i *SignalR) ToSignalROutputWithContext(ctx context.Context) SignalROutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SignalROutput)
 }
 
-type SignalROutput struct{ *pulumi.OutputState }
+type SignalROutput struct {
+	*pulumi.OutputState
+}
 
 func (SignalROutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalR)(nil))

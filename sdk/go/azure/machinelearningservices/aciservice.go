@@ -243,7 +243,9 @@ func (i *ACIService) ToACIServiceOutputWithContext(ctx context.Context) ACIServi
 	return pulumi.ToOutputWithContext(ctx, i).(ACIServiceOutput)
 }
 
-type ACIServiceOutput struct{ *pulumi.OutputState }
+type ACIServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ACIServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ACIService)(nil))

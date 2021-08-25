@@ -267,7 +267,7 @@ func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewPtrOut
 }
 
 func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceView) *MachineExtensionInstanceView {
+	return o.ApplyT(func(v MachineExtensionInstanceView) *MachineExtensionInstanceView {
 		return &v
 	}).(MachineExtensionInstanceViewPtrOutput)
 }
@@ -307,13 +307,7 @@ func (o MachineExtensionInstanceViewPtrOutput) ToMachineExtensionInstanceViewPtr
 }
 
 func (o MachineExtensionInstanceViewPtrOutput) Elem() MachineExtensionInstanceViewOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceView) MachineExtensionInstanceView {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceView
-		return ret
-	}).(MachineExtensionInstanceViewOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceView) MachineExtensionInstanceView { return *v }).(MachineExtensionInstanceViewOutput)
 }
 
 // The machine extension name.
@@ -509,7 +503,7 @@ func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceVi
 }
 
 func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceViewResponsePtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponse) *MachineExtensionInstanceViewResponse {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *MachineExtensionInstanceViewResponse {
 		return &v
 	}).(MachineExtensionInstanceViewResponsePtrOutput)
 }
@@ -551,13 +545,7 @@ func (o MachineExtensionInstanceViewResponsePtrOutput) ToMachineExtensionInstanc
 }
 
 func (o MachineExtensionInstanceViewResponsePtrOutput) Elem() MachineExtensionInstanceViewResponseOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewResponse) MachineExtensionInstanceViewResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceViewResponse
-		return ret
-	}).(MachineExtensionInstanceViewResponseOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponse) MachineExtensionInstanceViewResponse { return *v }).(MachineExtensionInstanceViewResponseOutput)
 }
 
 // The machine extension name.
@@ -732,7 +720,7 @@ func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInst
 }
 
 func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
 		return &v
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
@@ -778,11 +766,7 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) ToMachineExtensionI
 
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Elem() MachineExtensionInstanceViewResponseStatusOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) MachineExtensionInstanceViewResponseStatus {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceViewResponseStatus
-		return ret
+		return *v
 	}).(MachineExtensionInstanceViewResponseStatusOutput)
 }
 
@@ -843,7 +827,7 @@ type MachineExtensionInstanceViewStatus struct {
 	// The short localizable label for the status.
 	DisplayStatus *string `pulumi:"displayStatus"`
 	// The level code.
-	Level *StatusLevelTypes `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message *string `pulumi:"message"`
 	// The time of the status.
@@ -868,7 +852,7 @@ type MachineExtensionInstanceViewStatusArgs struct {
 	// The short localizable label for the status.
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
 	// The level code.
-	Level StatusLevelTypesPtrInput `pulumi:"level"`
+	Level *StatusLevelTypes `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// The time of the status.
@@ -948,7 +932,7 @@ func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceView
 }
 
 func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
 		return &v
 	}).(MachineExtensionInstanceViewStatusPtrOutput)
 }
@@ -964,8 +948,8 @@ func (o MachineExtensionInstanceViewStatusOutput) DisplayStatus() pulumi.StringP
 }
 
 // The level code.
-func (o MachineExtensionInstanceViewStatusOutput) Level() StatusLevelTypesPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *StatusLevelTypes { return v.Level }).(StatusLevelTypesPtrOutput)
+func (o MachineExtensionInstanceViewStatusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // The detailed status message, including for alerts and error messages.
@@ -993,13 +977,7 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceV
 }
 
 func (o MachineExtensionInstanceViewStatusPtrOutput) Elem() MachineExtensionInstanceViewStatusOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceViewStatus
-		return ret
-	}).(MachineExtensionInstanceViewStatusOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus { return *v }).(MachineExtensionInstanceViewStatusOutput)
 }
 
 // The status code.
@@ -1023,13 +1001,13 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) DisplayStatus() pulumi.Stri
 }
 
 // The level code.
-func (o MachineExtensionInstanceViewStatusPtrOutput) Level() StatusLevelTypesPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *StatusLevelTypes {
+func (o MachineExtensionInstanceViewStatusPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(StatusLevelTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The detailed status message, including for alerts and error messages.
@@ -1148,7 +1126,7 @@ func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutput() OSProfileRespons
 }
 
 func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponse) *OSProfileResponse {
+	return o.ApplyT(func(v OSProfileResponse) *OSProfileResponse {
 		return &v
 	}).(OSProfileResponsePtrOutput)
 }
@@ -1173,13 +1151,7 @@ func (o OSProfileResponsePtrOutput) ToOSProfileResponsePtrOutputWithContext(ctx 
 }
 
 func (o OSProfileResponsePtrOutput) Elem() OSProfileResponseOutput {
-	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileResponse
-		return ret
-	}).(OSProfileResponseOutput)
+	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse { return *v }).(OSProfileResponseOutput)
 }
 
 // Specifies the host OS name of the hybrid machine.

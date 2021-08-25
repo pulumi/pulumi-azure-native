@@ -153,7 +153,9 @@ func (i *BatchEndpoint) ToBatchEndpointOutputWithContext(ctx context.Context) Ba
 	return pulumi.ToOutputWithContext(ctx, i).(BatchEndpointOutput)
 }
 
-type BatchEndpointOutput struct{ *pulumi.OutputState }
+type BatchEndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (BatchEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchEndpoint)(nil))

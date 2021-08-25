@@ -230,7 +230,9 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
 }
 
-type EventSubscriptionOutput struct{ *pulumi.OutputState }
+type EventSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscription)(nil))

@@ -106,7 +106,7 @@ func (o ControllerDetailsTypeOutput) ToControllerDetailsTypePtrOutput() Controll
 }
 
 func (o ControllerDetailsTypeOutput) ToControllerDetailsTypePtrOutputWithContext(ctx context.Context) ControllerDetailsTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ControllerDetailsType) *ControllerDetailsType {
+	return o.ApplyT(func(v ControllerDetailsType) *ControllerDetailsType {
 		return &v
 	}).(ControllerDetailsTypePtrOutput)
 }
@@ -131,13 +131,7 @@ func (o ControllerDetailsTypePtrOutput) ToControllerDetailsTypePtrOutputWithCont
 }
 
 func (o ControllerDetailsTypePtrOutput) Elem() ControllerDetailsTypeOutput {
-	return o.ApplyT(func(v *ControllerDetailsType) ControllerDetailsType {
-		if v != nil {
-			return *v
-		}
-		var ret ControllerDetailsType
-		return ret
-	}).(ControllerDetailsTypeOutput)
+	return o.ApplyT(func(v *ControllerDetailsType) ControllerDetailsType { return *v }).(ControllerDetailsTypeOutput)
 }
 
 // controller arm resource id
@@ -246,7 +240,7 @@ func (o ControllerDetailsResponseOutput) ToControllerDetailsResponsePtrOutput() 
 }
 
 func (o ControllerDetailsResponseOutput) ToControllerDetailsResponsePtrOutputWithContext(ctx context.Context) ControllerDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ControllerDetailsResponse) *ControllerDetailsResponse {
+	return o.ApplyT(func(v ControllerDetailsResponse) *ControllerDetailsResponse {
 		return &v
 	}).(ControllerDetailsResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o ControllerDetailsResponsePtrOutput) ToControllerDetailsResponsePtrOutput
 }
 
 func (o ControllerDetailsResponsePtrOutput) Elem() ControllerDetailsResponseOutput {
-	return o.ApplyT(func(v *ControllerDetailsResponse) ControllerDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ControllerDetailsResponse
-		return ret
-	}).(ControllerDetailsResponseOutput)
+	return o.ApplyT(func(v *ControllerDetailsResponse) ControllerDetailsResponse { return *v }).(ControllerDetailsResponseOutput)
 }
 
 // controller arm resource id
@@ -292,7 +280,7 @@ func (o ControllerDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 
 type OrchestratorIdentity struct {
 	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // OrchestratorIdentityInput is an input type that accepts OrchestratorIdentityArgs and OrchestratorIdentityOutput values.
@@ -308,7 +296,7 @@ type OrchestratorIdentityInput interface {
 
 type OrchestratorIdentityArgs struct {
 	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (OrchestratorIdentityArgs) ElementType() reflect.Type {
@@ -383,14 +371,14 @@ func (o OrchestratorIdentityOutput) ToOrchestratorIdentityPtrOutput() Orchestrat
 }
 
 func (o OrchestratorIdentityOutput) ToOrchestratorIdentityPtrOutputWithContext(ctx context.Context) OrchestratorIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratorIdentity) *OrchestratorIdentity {
+	return o.ApplyT(func(v OrchestratorIdentity) *OrchestratorIdentity {
 		return &v
 	}).(OrchestratorIdentityPtrOutput)
 }
 
 // The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-func (o OrchestratorIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v OrchestratorIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o OrchestratorIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratorIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type OrchestratorIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -408,23 +396,17 @@ func (o OrchestratorIdentityPtrOutput) ToOrchestratorIdentityPtrOutputWithContex
 }
 
 func (o OrchestratorIdentityPtrOutput) Elem() OrchestratorIdentityOutput {
-	return o.ApplyT(func(v *OrchestratorIdentity) OrchestratorIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret OrchestratorIdentity
-		return ret
-	}).(OrchestratorIdentityOutput)
+	return o.ApplyT(func(v *OrchestratorIdentity) OrchestratorIdentity { return *v }).(OrchestratorIdentityOutput)
 }
 
 // The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-func (o OrchestratorIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *OrchestratorIdentity) *ResourceIdentityType {
+func (o OrchestratorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type OrchestratorIdentityResponse struct {
@@ -528,7 +510,7 @@ func (o OrchestratorIdentityResponseOutput) ToOrchestratorIdentityResponsePtrOut
 }
 
 func (o OrchestratorIdentityResponseOutput) ToOrchestratorIdentityResponsePtrOutputWithContext(ctx context.Context) OrchestratorIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratorIdentityResponse) *OrchestratorIdentityResponse {
+	return o.ApplyT(func(v OrchestratorIdentityResponse) *OrchestratorIdentityResponse {
 		return &v
 	}).(OrchestratorIdentityResponsePtrOutput)
 }
@@ -563,13 +545,7 @@ func (o OrchestratorIdentityResponsePtrOutput) ToOrchestratorIdentityResponsePtr
 }
 
 func (o OrchestratorIdentityResponsePtrOutput) Elem() OrchestratorIdentityResponseOutput {
-	return o.ApplyT(func(v *OrchestratorIdentityResponse) OrchestratorIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OrchestratorIdentityResponse
-		return ret
-	}).(OrchestratorIdentityResponseOutput)
+	return o.ApplyT(func(v *OrchestratorIdentityResponse) OrchestratorIdentityResponse { return *v }).(OrchestratorIdentityResponseOutput)
 }
 
 // The principal id of the system assigned identity which is used by orchestrator.
@@ -698,7 +674,7 @@ func (o SubnetDetailsOutput) ToSubnetDetailsPtrOutput() SubnetDetailsPtrOutput {
 }
 
 func (o SubnetDetailsOutput) ToSubnetDetailsPtrOutputWithContext(ctx context.Context) SubnetDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetDetails) *SubnetDetails {
+	return o.ApplyT(func(v SubnetDetails) *SubnetDetails {
 		return &v
 	}).(SubnetDetailsPtrOutput)
 }
@@ -723,13 +699,7 @@ func (o SubnetDetailsPtrOutput) ToSubnetDetailsPtrOutputWithContext(ctx context.
 }
 
 func (o SubnetDetailsPtrOutput) Elem() SubnetDetailsOutput {
-	return o.ApplyT(func(v *SubnetDetails) SubnetDetails {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetDetails
-		return ret
-	}).(SubnetDetailsOutput)
+	return o.ApplyT(func(v *SubnetDetails) SubnetDetails { return *v }).(SubnetDetailsOutput)
 }
 
 // subnet arm resource id
@@ -838,7 +808,7 @@ func (o SubnetDetailsResponseOutput) ToSubnetDetailsResponsePtrOutput() SubnetDe
 }
 
 func (o SubnetDetailsResponseOutput) ToSubnetDetailsResponsePtrOutputWithContext(ctx context.Context) SubnetDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetDetailsResponse) *SubnetDetailsResponse {
+	return o.ApplyT(func(v SubnetDetailsResponse) *SubnetDetailsResponse {
 		return &v
 	}).(SubnetDetailsResponsePtrOutput)
 }
@@ -863,13 +833,7 @@ func (o SubnetDetailsResponsePtrOutput) ToSubnetDetailsResponsePtrOutputWithCont
 }
 
 func (o SubnetDetailsResponsePtrOutput) Elem() SubnetDetailsResponseOutput {
-	return o.ApplyT(func(v *SubnetDetailsResponse) SubnetDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetDetailsResponse
-		return ret
-	}).(SubnetDetailsResponseOutput)
+	return o.ApplyT(func(v *SubnetDetailsResponse) SubnetDetailsResponse { return *v }).(SubnetDetailsResponseOutput)
 }
 
 // subnet arm resource id

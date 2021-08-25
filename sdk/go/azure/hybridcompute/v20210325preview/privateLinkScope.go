@@ -168,7 +168,9 @@ func (i *PrivateLinkScope) ToPrivateLinkScopeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopeOutput)
 }
 
-type PrivateLinkScopeOutput struct{ *pulumi.OutputState }
+type PrivateLinkScopeOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateLinkScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkScope)(nil))

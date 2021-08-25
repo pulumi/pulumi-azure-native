@@ -134,7 +134,9 @@ func (i *AccessPolicy) ToAccessPolicyOutputWithContext(ctx context.Context) Acce
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
 }
 
-type AccessPolicyOutput struct{ *pulumi.OutputState }
+type AccessPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (AccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessPolicy)(nil))

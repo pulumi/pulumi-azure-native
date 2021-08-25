@@ -250,7 +250,9 @@ func (i *DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraTableOutput)
 }
 
-type DatabaseAccountCassandraTableOutput struct{ *pulumi.OutputState }
+type DatabaseAccountCassandraTableOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountCassandraTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil))

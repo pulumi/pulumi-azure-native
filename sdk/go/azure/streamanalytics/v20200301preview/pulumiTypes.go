@@ -240,7 +240,7 @@ func (o ClusterPropertiesResponseOutput) ToClusterPropertiesResponsePtrOutput() 
 }
 
 func (o ClusterPropertiesResponseOutput) ToClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPropertiesResponse) *ClusterPropertiesResponse {
+	return o.ApplyT(func(v ClusterPropertiesResponse) *ClusterPropertiesResponse {
 		return &v
 	}).(ClusterPropertiesResponsePtrOutput)
 }
@@ -285,13 +285,7 @@ func (o ClusterPropertiesResponsePtrOutput) ToClusterPropertiesResponsePtrOutput
 }
 
 func (o ClusterPropertiesResponsePtrOutput) Elem() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v *ClusterPropertiesResponse) ClusterPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterPropertiesResponse
-		return ret
-	}).(ClusterPropertiesResponseOutput)
+	return o.ApplyT(func(v *ClusterPropertiesResponse) ClusterPropertiesResponse { return *v }).(ClusterPropertiesResponseOutput)
 }
 
 // Represents the number of streaming units currently being used on the cluster.
@@ -444,7 +438,7 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 }
 
 func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
+	return o.ApplyT(func(v ClusterSku) *ClusterSku {
 		return &v
 	}).(ClusterSkuPtrOutput)
 }
@@ -474,13 +468,7 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func(v *ClusterSku) ClusterSku {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterSku
-		return ret
-	}).(ClusterSkuOutput)
+	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
 }
 
 // Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
@@ -603,7 +591,7 @@ func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutput() ClusterSkuResp
 }
 
 func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSkuResponse) *ClusterSkuResponse {
+	return o.ApplyT(func(v ClusterSkuResponse) *ClusterSkuResponse {
 		return &v
 	}).(ClusterSkuResponsePtrOutput)
 }
@@ -633,13 +621,7 @@ func (o ClusterSkuResponsePtrOutput) ToClusterSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
-	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterSkuResponse
-		return ret
-	}).(ClusterSkuResponseOutput)
+	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse { return *v }).(ClusterSkuResponseOutput)
 }
 
 // Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
@@ -758,7 +740,7 @@ func (o PrivateEndpointPropertiesOutput) ToPrivateEndpointPropertiesPtrOutput() 
 }
 
 func (o PrivateEndpointPropertiesOutput) ToPrivateEndpointPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointProperties) *PrivateEndpointProperties {
+	return o.ApplyT(func(v PrivateEndpointProperties) *PrivateEndpointProperties {
 		return &v
 	}).(PrivateEndpointPropertiesPtrOutput)
 }
@@ -785,13 +767,7 @@ func (o PrivateEndpointPropertiesPtrOutput) ToPrivateEndpointPropertiesPtrOutput
 }
 
 func (o PrivateEndpointPropertiesPtrOutput) Elem() PrivateEndpointPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointProperties) PrivateEndpointProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointProperties
-		return ret
-	}).(PrivateEndpointPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointProperties) PrivateEndpointProperties { return *v }).(PrivateEndpointPropertiesOutput)
 }
 
 // A list of connections to the remote resource. Immutable after it is set.
@@ -904,7 +880,7 @@ func (o PrivateEndpointPropertiesResponseOutput) ToPrivateEndpointPropertiesResp
 }
 
 func (o PrivateEndpointPropertiesResponseOutput) ToPrivateEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertiesResponse) *PrivateEndpointPropertiesResponse {
+	return o.ApplyT(func(v PrivateEndpointPropertiesResponse) *PrivateEndpointPropertiesResponse {
 		return &v
 	}).(PrivateEndpointPropertiesResponsePtrOutput)
 }
@@ -936,13 +912,7 @@ func (o PrivateEndpointPropertiesResponsePtrOutput) ToPrivateEndpointPropertiesR
 }
 
 func (o PrivateEndpointPropertiesResponsePtrOutput) Elem() PrivateEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointPropertiesResponse) PrivateEndpointPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointPropertiesResponse
-		return ret
-	}).(PrivateEndpointPropertiesResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointPropertiesResponse) PrivateEndpointPropertiesResponse { return *v }).(PrivateEndpointPropertiesResponseOutput)
 }
 
 // The date when this private endpoint was created.
@@ -1069,7 +1039,7 @@ func (o PrivateLinkConnectionStateResponseOutput) ToPrivateLinkConnectionStateRe
 }
 
 func (o PrivateLinkConnectionStateResponseOutput) ToPrivateLinkConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkConnectionStateResponse) *PrivateLinkConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkConnectionStateResponse) *PrivateLinkConnectionStateResponse {
 		return &v
 	}).(PrivateLinkConnectionStateResponsePtrOutput)
 }
@@ -1104,13 +1074,7 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) ToPrivateLinkConnectionStat
 }
 
 func (o PrivateLinkConnectionStateResponsePtrOutput) Elem() PrivateLinkConnectionStateResponseOutput {
-	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) PrivateLinkConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkConnectionStateResponse
-		return ret
-	}).(PrivateLinkConnectionStateResponseOutput)
+	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) PrivateLinkConnectionStateResponse { return *v }).(PrivateLinkConnectionStateResponseOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.

@@ -208,7 +208,9 @@ func (i *StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSi
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteOutput)
 }
 
-type StaticSiteOutput struct{ *pulumi.OutputState }
+type StaticSiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (StaticSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSite)(nil))

@@ -411,7 +411,7 @@ func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutput() Dock
 }
 
 func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DockerBuildStepResponse) *DockerBuildStepResponse {
+	return o.ApplyT(func(v DockerBuildStepResponse) *DockerBuildStepResponse {
 		return &v
 	}).(DockerBuildStepResponsePtrOutput)
 }
@@ -487,13 +487,7 @@ func (o DockerBuildStepResponsePtrOutput) ToDockerBuildStepResponsePtrOutputWith
 }
 
 func (o DockerBuildStepResponsePtrOutput) Elem() DockerBuildStepResponseOutput {
-	return o.ApplyT(func(v *DockerBuildStepResponse) DockerBuildStepResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DockerBuildStepResponse
-		return ret
-	}).(DockerBuildStepResponseOutput)
+	return o.ApplyT(func(v *DockerBuildStepResponse) DockerBuildStepResponse { return *v }).(DockerBuildStepResponseOutput)
 }
 
 // List of base image dependencies for a step.
@@ -707,7 +701,7 @@ func (o PlatformPropertiesOutput) ToPlatformPropertiesPtrOutput() PlatformProper
 }
 
 func (o PlatformPropertiesOutput) ToPlatformPropertiesPtrOutputWithContext(ctx context.Context) PlatformPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformProperties) *PlatformProperties {
+	return o.ApplyT(func(v PlatformProperties) *PlatformProperties {
 		return &v
 	}).(PlatformPropertiesPtrOutput)
 }
@@ -737,13 +731,7 @@ func (o PlatformPropertiesPtrOutput) ToPlatformPropertiesPtrOutputWithContext(ct
 }
 
 func (o PlatformPropertiesPtrOutput) Elem() PlatformPropertiesOutput {
-	return o.ApplyT(func(v *PlatformProperties) PlatformProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PlatformProperties
-		return ret
-	}).(PlatformPropertiesOutput)
+	return o.ApplyT(func(v *PlatformProperties) PlatformProperties { return *v }).(PlatformPropertiesOutput)
 }
 
 // The CPU configuration in terms of number of cores required for the build.
@@ -866,7 +854,7 @@ func (o PlatformPropertiesResponseOutput) ToPlatformPropertiesResponsePtrOutput(
 }
 
 func (o PlatformPropertiesResponseOutput) ToPlatformPropertiesResponsePtrOutputWithContext(ctx context.Context) PlatformPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformPropertiesResponse) *PlatformPropertiesResponse {
+	return o.ApplyT(func(v PlatformPropertiesResponse) *PlatformPropertiesResponse {
 		return &v
 	}).(PlatformPropertiesResponsePtrOutput)
 }
@@ -896,13 +884,7 @@ func (o PlatformPropertiesResponsePtrOutput) ToPlatformPropertiesResponsePtrOutp
 }
 
 func (o PlatformPropertiesResponsePtrOutput) Elem() PlatformPropertiesResponseOutput {
-	return o.ApplyT(func(v *PlatformPropertiesResponse) PlatformPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PlatformPropertiesResponse
-		return ret
-	}).(PlatformPropertiesResponseOutput)
+	return o.ApplyT(func(v *PlatformPropertiesResponse) PlatformPropertiesResponse { return *v }).(PlatformPropertiesResponseOutput)
 }
 
 // The CPU configuration in terms of number of cores required for the build.
@@ -1037,7 +1019,7 @@ func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoPtrOutput() SourceCo
 }
 
 func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoPtrOutputWithContext(ctx context.Context) SourceControlAuthInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlAuthInfo) *SourceControlAuthInfo {
+	return o.ApplyT(func(v SourceControlAuthInfo) *SourceControlAuthInfo {
 		return &v
 	}).(SourceControlAuthInfoPtrOutput)
 }
@@ -1082,13 +1064,7 @@ func (o SourceControlAuthInfoPtrOutput) ToSourceControlAuthInfoPtrOutputWithCont
 }
 
 func (o SourceControlAuthInfoPtrOutput) Elem() SourceControlAuthInfoOutput {
-	return o.ApplyT(func(v *SourceControlAuthInfo) SourceControlAuthInfo {
-		if v != nil {
-			return *v
-		}
-		var ret SourceControlAuthInfo
-		return ret
-	}).(SourceControlAuthInfoOutput)
+	return o.ApplyT(func(v *SourceControlAuthInfo) SourceControlAuthInfo { return *v }).(SourceControlAuthInfoOutput)
 }
 
 // Time in seconds that the token remains valid
@@ -1253,7 +1229,7 @@ func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrO
 }
 
 func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlAuthInfoResponse) *SourceControlAuthInfoResponse {
+	return o.ApplyT(func(v SourceControlAuthInfoResponse) *SourceControlAuthInfoResponse {
 		return &v
 	}).(SourceControlAuthInfoResponsePtrOutput)
 }
@@ -1298,13 +1274,7 @@ func (o SourceControlAuthInfoResponsePtrOutput) ToSourceControlAuthInfoResponseP
 }
 
 func (o SourceControlAuthInfoResponsePtrOutput) Elem() SourceControlAuthInfoResponseOutput {
-	return o.ApplyT(func(v *SourceControlAuthInfoResponse) SourceControlAuthInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SourceControlAuthInfoResponse
-		return ret
-	}).(SourceControlAuthInfoResponseOutput)
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) SourceControlAuthInfoResponse { return *v }).(SourceControlAuthInfoResponseOutput)
 }
 
 // Time in seconds that the token remains valid
@@ -1465,7 +1435,7 @@ func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesPtrOutput(
 }
 
 func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesPtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceRepositoryProperties) *SourceRepositoryProperties {
+	return o.ApplyT(func(v SourceRepositoryProperties) *SourceRepositoryProperties {
 		return &v
 	}).(SourceRepositoryPropertiesPtrOutput)
 }
@@ -1505,13 +1475,7 @@ func (o SourceRepositoryPropertiesPtrOutput) ToSourceRepositoryPropertiesPtrOutp
 }
 
 func (o SourceRepositoryPropertiesPtrOutput) Elem() SourceRepositoryPropertiesOutput {
-	return o.ApplyT(func(v *SourceRepositoryProperties) SourceRepositoryProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SourceRepositoryProperties
-		return ret
-	}).(SourceRepositoryPropertiesOutput)
+	return o.ApplyT(func(v *SourceRepositoryProperties) SourceRepositoryProperties { return *v }).(SourceRepositoryPropertiesOutput)
 }
 
 // The value of this property indicates whether the source control commit trigger is enabled or not.
@@ -1662,7 +1626,7 @@ func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesRe
 }
 
 func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesResponsePtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceRepositoryPropertiesResponse) *SourceRepositoryPropertiesResponse {
+	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) *SourceRepositoryPropertiesResponse {
 		return &v
 	}).(SourceRepositoryPropertiesResponsePtrOutput)
 }
@@ -1704,13 +1668,7 @@ func (o SourceRepositoryPropertiesResponsePtrOutput) ToSourceRepositoryPropertie
 }
 
 func (o SourceRepositoryPropertiesResponsePtrOutput) Elem() SourceRepositoryPropertiesResponseOutput {
-	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) SourceRepositoryPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SourceRepositoryPropertiesResponse
-		return ret
-	}).(SourceRepositoryPropertiesResponseOutput)
+	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) SourceRepositoryPropertiesResponse { return *v }).(SourceRepositoryPropertiesResponseOutput)
 }
 
 // The value of this property indicates whether the source control commit trigger is enabled or not.

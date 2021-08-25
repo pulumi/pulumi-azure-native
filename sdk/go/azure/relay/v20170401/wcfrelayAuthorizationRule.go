@@ -101,7 +101,7 @@ type wcfrelayAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a WCFRelayAuthorizationRule resource.
@@ -141,7 +141,9 @@ func (i *WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayAuthorizationRuleOutput)
 }
 
-type WCFRelayAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type WCFRelayAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (WCFRelayAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil))

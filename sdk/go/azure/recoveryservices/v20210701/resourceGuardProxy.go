@@ -130,7 +130,9 @@ func (i *ResourceGuardProxy) ToResourceGuardProxyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardProxyOutput)
 }
 
-type ResourceGuardProxyOutput struct{ *pulumi.OutputState }
+type ResourceGuardProxyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ResourceGuardProxyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGuardProxy)(nil))

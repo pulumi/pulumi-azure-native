@@ -150,7 +150,9 @@ func (i *TableServiceProperties) ToTableServicePropertiesOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TableServicePropertiesOutput)
 }
 
-type TableServicePropertiesOutput struct{ *pulumi.OutputState }
+type TableServicePropertiesOutput struct {
+	*pulumi.OutputState
+}
 
 func (TableServicePropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TableServiceProperties)(nil))

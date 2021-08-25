@@ -122,7 +122,7 @@ func (o AuthorizationProfileResponseOutput) ToAuthorizationProfileResponsePtrOut
 }
 
 func (o AuthorizationProfileResponseOutput) ToAuthorizationProfileResponsePtrOutputWithContext(ctx context.Context) AuthorizationProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationProfileResponse) *AuthorizationProfileResponse {
+	return o.ApplyT(func(v AuthorizationProfileResponse) *AuthorizationProfileResponse {
 		return &v
 	}).(AuthorizationProfileResponsePtrOutput)
 }
@@ -167,13 +167,7 @@ func (o AuthorizationProfileResponsePtrOutput) ToAuthorizationProfileResponsePtr
 }
 
 func (o AuthorizationProfileResponsePtrOutput) Elem() AuthorizationProfileResponseOutput {
-	return o.ApplyT(func(v *AuthorizationProfileResponse) AuthorizationProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AuthorizationProfileResponse
-		return ret
-	}).(AuthorizationProfileResponseOutput)
+	return o.ApplyT(func(v *AuthorizationProfileResponse) AuthorizationProfileResponse { return *v }).(AuthorizationProfileResponseOutput)
 }
 
 // The approved time
@@ -331,7 +325,7 @@ func (o SubscriptionFeatureRegistrationPropertiesOutput) ToSubscriptionFeatureRe
 }
 
 func (o SubscriptionFeatureRegistrationPropertiesOutput) ToSubscriptionFeatureRegistrationPropertiesPtrOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionFeatureRegistrationProperties) *SubscriptionFeatureRegistrationProperties {
+	return o.ApplyT(func(v SubscriptionFeatureRegistrationProperties) *SubscriptionFeatureRegistrationProperties {
 		return &v
 	}).(SubscriptionFeatureRegistrationPropertiesPtrOutput)
 }
@@ -372,11 +366,7 @@ func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) ToSubscriptionFeatur
 
 func (o SubscriptionFeatureRegistrationPropertiesPtrOutput) Elem() SubscriptionFeatureRegistrationPropertiesOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationProperties) SubscriptionFeatureRegistrationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionFeatureRegistrationProperties
-		return ret
+		return *v
 	}).(SubscriptionFeatureRegistrationPropertiesOutput)
 }
 
@@ -565,7 +555,7 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ToSubscriptionF
 }
 
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionFeatureRegistrationResponseProperties) *SubscriptionFeatureRegistrationResponseProperties {
+	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) *SubscriptionFeatureRegistrationResponseProperties {
 		return &v
 	}).(SubscriptionFeatureRegistrationResponsePropertiesPtrOutput)
 }
@@ -658,11 +648,7 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ToSubscripti
 
 func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Elem() SubscriptionFeatureRegistrationResponsePropertiesOutput {
 	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) SubscriptionFeatureRegistrationResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionFeatureRegistrationResponseProperties
-		return ret
+		return *v
 	}).(SubscriptionFeatureRegistrationResponsePropertiesOutput)
 }
 

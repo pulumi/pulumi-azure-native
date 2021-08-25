@@ -170,7 +170,9 @@ func (i *ReplicationvCenter) ToReplicationvCenterOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationvCenterOutput)
 }
 
-type ReplicationvCenterOutput struct{ *pulumi.OutputState }
+type ReplicationvCenterOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationvCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationvCenter)(nil))

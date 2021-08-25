@@ -225,7 +225,9 @@ func (i *SnapshotPolicy) ToSnapshotPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyOutput)
 }
 
-type SnapshotPolicyOutput struct{ *pulumi.OutputState }
+type SnapshotPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (SnapshotPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotPolicy)(nil))

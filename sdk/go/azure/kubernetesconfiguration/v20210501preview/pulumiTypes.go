@@ -118,7 +118,7 @@ func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutput() Co
 }
 
 func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutputWithContext(ctx context.Context) ComplianceStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComplianceStatusResponse) *ComplianceStatusResponse {
+	return o.ApplyT(func(v ComplianceStatusResponse) *ComplianceStatusResponse {
 		return &v
 	}).(ComplianceStatusResponsePtrOutput)
 }
@@ -158,13 +158,7 @@ func (o ComplianceStatusResponsePtrOutput) ToComplianceStatusResponsePtrOutputWi
 }
 
 func (o ComplianceStatusResponsePtrOutput) Elem() ComplianceStatusResponseOutput {
-	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComplianceStatusResponse
-		return ret
-	}).(ComplianceStatusResponseOutput)
+	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse { return *v }).(ComplianceStatusResponseOutput)
 }
 
 // The compliance state of the configuration.
@@ -453,7 +447,7 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutput() ErrorDetailR
 }
 
 func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailResponse) *ErrorDetailResponse {
+	return o.ApplyT(func(v ErrorDetailResponse) *ErrorDetailResponse {
 		return &v
 	}).(ErrorDetailResponsePtrOutput)
 }
@@ -498,13 +492,7 @@ func (o ErrorDetailResponsePtrOutput) ToErrorDetailResponsePtrOutputWithContext(
 }
 
 func (o ErrorDetailResponsePtrOutput) Elem() ErrorDetailResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorDetailResponse
-		return ret
-	}).(ErrorDetailResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse { return *v }).(ErrorDetailResponseOutput)
 }
 
 // The error additional info.
@@ -949,7 +937,7 @@ func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutput() HelmOp
 }
 
 func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorProperties) *HelmOperatorProperties {
+	return o.ApplyT(func(v HelmOperatorProperties) *HelmOperatorProperties {
 		return &v
 	}).(HelmOperatorPropertiesPtrOutput)
 }
@@ -979,13 +967,7 @@ func (o HelmOperatorPropertiesPtrOutput) ToHelmOperatorPropertiesPtrOutputWithCo
 }
 
 func (o HelmOperatorPropertiesPtrOutput) Elem() HelmOperatorPropertiesOutput {
-	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HelmOperatorProperties
-		return ret
-	}).(HelmOperatorPropertiesOutput)
+	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties { return *v }).(HelmOperatorPropertiesOutput)
 }
 
 // Values override for the operator Helm chart.
@@ -1108,7 +1090,7 @@ func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePt
 }
 
 func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
+	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
 		return &v
 	}).(HelmOperatorPropertiesResponsePtrOutput)
 }
@@ -1138,13 +1120,7 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ToHelmOperatorPropertiesRespons
 }
 
 func (o HelmOperatorPropertiesResponsePtrOutput) Elem() HelmOperatorPropertiesResponseOutput {
-	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HelmOperatorPropertiesResponse
-		return ret
-	}).(HelmOperatorPropertiesResponseOutput)
+	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse { return *v }).(HelmOperatorPropertiesResponseOutput)
 }
 
 // Values override for the operator Helm chart.
@@ -1170,7 +1146,7 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1187,7 +1163,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1263,14 +1239,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1288,23 +1264,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -1411,7 +1381,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -1446,13 +1416,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -1585,7 +1549,7 @@ func (o ScopeOutput) ToScopePtrOutput() ScopePtrOutput {
 }
 
 func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Scope) *Scope {
+	return o.ApplyT(func(v Scope) *Scope {
 		return &v
 	}).(ScopePtrOutput)
 }
@@ -1615,13 +1579,7 @@ func (o ScopePtrOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePt
 }
 
 func (o ScopePtrOutput) Elem() ScopeOutput {
-	return o.ApplyT(func(v *Scope) Scope {
-		if v != nil {
-			return *v
-		}
-		var ret Scope
-		return ret
-	}).(ScopeOutput)
+	return o.ApplyT(func(v *Scope) Scope { return *v }).(ScopeOutput)
 }
 
 // Specifies that the scope of the extension is Cluster
@@ -1740,7 +1698,7 @@ func (o ScopeClusterOutput) ToScopeClusterPtrOutput() ScopeClusterPtrOutput {
 }
 
 func (o ScopeClusterOutput) ToScopeClusterPtrOutputWithContext(ctx context.Context) ScopeClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeCluster) *ScopeCluster {
+	return o.ApplyT(func(v ScopeCluster) *ScopeCluster {
 		return &v
 	}).(ScopeClusterPtrOutput)
 }
@@ -1765,13 +1723,7 @@ func (o ScopeClusterPtrOutput) ToScopeClusterPtrOutputWithContext(ctx context.Co
 }
 
 func (o ScopeClusterPtrOutput) Elem() ScopeClusterOutput {
-	return o.ApplyT(func(v *ScopeCluster) ScopeCluster {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeCluster
-		return ret
-	}).(ScopeClusterOutput)
+	return o.ApplyT(func(v *ScopeCluster) ScopeCluster { return *v }).(ScopeClusterOutput)
 }
 
 // Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
@@ -1880,7 +1832,7 @@ func (o ScopeClusterResponseOutput) ToScopeClusterResponsePtrOutput() ScopeClust
 }
 
 func (o ScopeClusterResponseOutput) ToScopeClusterResponsePtrOutputWithContext(ctx context.Context) ScopeClusterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeClusterResponse) *ScopeClusterResponse {
+	return o.ApplyT(func(v ScopeClusterResponse) *ScopeClusterResponse {
 		return &v
 	}).(ScopeClusterResponsePtrOutput)
 }
@@ -1905,13 +1857,7 @@ func (o ScopeClusterResponsePtrOutput) ToScopeClusterResponsePtrOutputWithContex
 }
 
 func (o ScopeClusterResponsePtrOutput) Elem() ScopeClusterResponseOutput {
-	return o.ApplyT(func(v *ScopeClusterResponse) ScopeClusterResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeClusterResponse
-		return ret
-	}).(ScopeClusterResponseOutput)
+	return o.ApplyT(func(v *ScopeClusterResponse) ScopeClusterResponse { return *v }).(ScopeClusterResponseOutput)
 }
 
 // Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
@@ -2020,7 +1966,7 @@ func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutput() ScopeNamespacePtrOutpu
 }
 
 func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutputWithContext(ctx context.Context) ScopeNamespacePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeNamespace) *ScopeNamespace {
+	return o.ApplyT(func(v ScopeNamespace) *ScopeNamespace {
 		return &v
 	}).(ScopeNamespacePtrOutput)
 }
@@ -2045,13 +1991,7 @@ func (o ScopeNamespacePtrOutput) ToScopeNamespacePtrOutputWithContext(ctx contex
 }
 
 func (o ScopeNamespacePtrOutput) Elem() ScopeNamespaceOutput {
-	return o.ApplyT(func(v *ScopeNamespace) ScopeNamespace {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeNamespace
-		return ret
-	}).(ScopeNamespaceOutput)
+	return o.ApplyT(func(v *ScopeNamespace) ScopeNamespace { return *v }).(ScopeNamespaceOutput)
 }
 
 // Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
@@ -2160,7 +2100,7 @@ func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponsePtrOutput() ScopeN
 }
 
 func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponsePtrOutputWithContext(ctx context.Context) ScopeNamespaceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeNamespaceResponse) *ScopeNamespaceResponse {
+	return o.ApplyT(func(v ScopeNamespaceResponse) *ScopeNamespaceResponse {
 		return &v
 	}).(ScopeNamespaceResponsePtrOutput)
 }
@@ -2185,13 +2125,7 @@ func (o ScopeNamespaceResponsePtrOutput) ToScopeNamespaceResponsePtrOutputWithCo
 }
 
 func (o ScopeNamespaceResponsePtrOutput) Elem() ScopeNamespaceResponseOutput {
-	return o.ApplyT(func(v *ScopeNamespaceResponse) ScopeNamespaceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeNamespaceResponse
-		return ret
-	}).(ScopeNamespaceResponseOutput)
+	return o.ApplyT(func(v *ScopeNamespaceResponse) ScopeNamespaceResponse { return *v }).(ScopeNamespaceResponseOutput)
 }
 
 // Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
@@ -2304,7 +2238,7 @@ func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
 }
 
 func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeResponse) *ScopeResponse {
+	return o.ApplyT(func(v ScopeResponse) *ScopeResponse {
 		return &v
 	}).(ScopeResponsePtrOutput)
 }
@@ -2334,13 +2268,7 @@ func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
-	return o.ApplyT(func(v *ScopeResponse) ScopeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeResponse
-		return ret
-	}).(ScopeResponseOutput)
+	return o.ApplyT(func(v *ScopeResponse) ScopeResponse { return *v }).(ScopeResponseOutput)
 }
 
 // Specifies that the scope of the extension is Cluster
@@ -2479,7 +2407,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -2529,13 +2457,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

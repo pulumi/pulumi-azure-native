@@ -138,7 +138,9 @@ func (i *ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
 }
 
-type ServerKeyOutput struct{ *pulumi.OutputState }
+type ServerKeyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerKey)(nil))

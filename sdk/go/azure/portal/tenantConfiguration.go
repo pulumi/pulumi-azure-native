@@ -117,7 +117,9 @@ func (i *TenantConfiguration) ToTenantConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TenantConfigurationOutput)
 }
 
-type TenantConfigurationOutput struct{ *pulumi.OutputState }
+type TenantConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (TenantConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TenantConfiguration)(nil))

@@ -175,7 +175,9 @@ func (i *PeeringServicePrefix) ToPeeringServicePrefixOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixOutput)
 }
 
-type PeeringServicePrefixOutput struct{ *pulumi.OutputState }
+type PeeringServicePrefixOutput struct {
+	*pulumi.OutputState
+}
 
 func (PeeringServicePrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeeringServicePrefix)(nil))

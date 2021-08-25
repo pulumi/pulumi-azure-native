@@ -53,9 +53,6 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 	if args.Authorizations == nil {
 		return nil, errors.New("invalid value for required argument 'Authorizations'")
 	}
-	if args.LockLevel == nil {
-		return nil, errors.New("invalid value for required argument 'LockLevel'")
-	}
 	if args.PackageFileUri == nil {
 		return nil, errors.New("invalid value for required argument 'PackageFileUri'")
 	}
@@ -145,7 +142,7 @@ type applianceDefinitionArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The appliance lock level.
-	LockLevel ApplianceLockLevel `pulumi:"lockLevel"`
+	LockLevel string `pulumi:"lockLevel"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The appliance definition package file Uri.
@@ -175,7 +172,7 @@ type ApplianceDefinitionArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The appliance lock level.
-	LockLevel ApplianceLockLevelInput
+	LockLevel ApplianceLockLevel
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// The appliance definition package file Uri.
@@ -211,7 +208,9 @@ func (i *ApplianceDefinition) ToApplianceDefinitionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceDefinitionOutput)
 }
 
-type ApplianceDefinitionOutput struct{ *pulumi.OutputState }
+type ApplianceDefinitionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplianceDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplianceDefinition)(nil))

@@ -114,7 +114,7 @@ func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
 }
 
 func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Action) *Action {
+	return o.ApplyT(func(v Action) *Action {
 		return &v
 	}).(ActionPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) Actio
 }
 
 func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action {
-		if v != nil {
-			return *v
-		}
-		var ret Action
-		return ret
-	}).(ActionOutput)
+	return o.ApplyT(func(v *Action) Action { return *v }).(ActionOutput)
 }
 
 // This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
@@ -292,7 +286,7 @@ func (o ActionResponseOutput) ToActionResponsePtrOutput() ActionResponsePtrOutpu
 }
 
 func (o ActionResponseOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionResponse) *ActionResponse {
+	return o.ApplyT(func(v ActionResponse) *ActionResponse {
 		return &v
 	}).(ActionResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o ActionResponsePtrOutput) ToActionResponsePtrOutputWithContext(ctx contex
 }
 
 func (o ActionResponsePtrOutput) Elem() ActionResponseOutput {
-	return o.ApplyT(func(v *ActionResponse) ActionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActionResponse
-		return ret
-	}).(ActionResponseOutput)
+	return o.ApplyT(func(v *ActionResponse) ActionResponse { return *v }).(ActionResponseOutput)
 }
 
 // This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
@@ -498,7 +486,7 @@ func (o CorrelationFilterOutput) ToCorrelationFilterPtrOutput() CorrelationFilte
 }
 
 func (o CorrelationFilterOutput) ToCorrelationFilterPtrOutputWithContext(ctx context.Context) CorrelationFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorrelationFilter) *CorrelationFilter {
+	return o.ApplyT(func(v CorrelationFilter) *CorrelationFilter {
 		return &v
 	}).(CorrelationFilterPtrOutput)
 }
@@ -568,13 +556,7 @@ func (o CorrelationFilterPtrOutput) ToCorrelationFilterPtrOutputWithContext(ctx 
 }
 
 func (o CorrelationFilterPtrOutput) Elem() CorrelationFilterOutput {
-	return o.ApplyT(func(v *CorrelationFilter) CorrelationFilter {
-		if v != nil {
-			return *v
-		}
-		var ret CorrelationFilter
-		return ret
-	}).(CorrelationFilterOutput)
+	return o.ApplyT(func(v *CorrelationFilter) CorrelationFilter { return *v }).(CorrelationFilterOutput)
 }
 
 // Content type of the message.
@@ -809,7 +791,7 @@ func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponsePtrOutput() 
 }
 
 func (o CorrelationFilterResponseOutput) ToCorrelationFilterResponsePtrOutputWithContext(ctx context.Context) CorrelationFilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorrelationFilterResponse) *CorrelationFilterResponse {
+	return o.ApplyT(func(v CorrelationFilterResponse) *CorrelationFilterResponse {
 		return &v
 	}).(CorrelationFilterResponsePtrOutput)
 }
@@ -879,13 +861,7 @@ func (o CorrelationFilterResponsePtrOutput) ToCorrelationFilterResponsePtrOutput
 }
 
 func (o CorrelationFilterResponsePtrOutput) Elem() CorrelationFilterResponseOutput {
-	return o.ApplyT(func(v *CorrelationFilterResponse) CorrelationFilterResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CorrelationFilterResponse
-		return ret
-	}).(CorrelationFilterResponseOutput)
+	return o.ApplyT(func(v *CorrelationFilterResponse) CorrelationFilterResponse { return *v }).(CorrelationFilterResponseOutput)
 }
 
 // Content type of the message.
@@ -1100,7 +1076,7 @@ func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutpu
 }
 
 func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageCountDetailsResponse) *MessageCountDetailsResponse {
+	return o.ApplyT(func(v MessageCountDetailsResponse) *MessageCountDetailsResponse {
 		return &v
 	}).(MessageCountDetailsResponsePtrOutput)
 }
@@ -1145,13 +1121,7 @@ func (o MessageCountDetailsResponsePtrOutput) ToMessageCountDetailsResponsePtrOu
 }
 
 func (o MessageCountDetailsResponsePtrOutput) Elem() MessageCountDetailsResponseOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MessageCountDetailsResponse
-		return ret
-	}).(MessageCountDetailsResponseOutput)
+	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse { return *v }).(MessageCountDetailsResponseOutput)
 }
 
 // Number of active messages in the queue, topic, or subscription.
@@ -1645,9 +1615,9 @@ type SBSku struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity *int `pulumi:"capacity"`
 	// Name of this SKU.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The billing tier of this particular SKU.
-	Tier *SkuTier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // SBSkuInput is an input type that accepts SBSkuArgs and SBSkuOutput values.
@@ -1666,9 +1636,9 @@ type SBSkuArgs struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of this SKU.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// The billing tier of this particular SKU.
-	Tier SkuTierPtrInput `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (SBSkuArgs) ElementType() reflect.Type {
@@ -1744,7 +1714,7 @@ func (o SBSkuOutput) ToSBSkuPtrOutput() SBSkuPtrOutput {
 }
 
 func (o SBSkuOutput) ToSBSkuPtrOutputWithContext(ctx context.Context) SBSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SBSku) *SBSku {
+	return o.ApplyT(func(v SBSku) *SBSku {
 		return &v
 	}).(SBSkuPtrOutput)
 }
@@ -1755,13 +1725,13 @@ func (o SBSkuOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // Name of this SKU.
-func (o SBSkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v SBSku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SBSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SBSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The billing tier of this particular SKU.
-func (o SBSkuOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v SBSku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
+func (o SBSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SBSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type SBSkuPtrOutput struct{ *pulumi.OutputState }
@@ -1779,13 +1749,7 @@ func (o SBSkuPtrOutput) ToSBSkuPtrOutputWithContext(ctx context.Context) SBSkuPt
 }
 
 func (o SBSkuPtrOutput) Elem() SBSkuOutput {
-	return o.ApplyT(func(v *SBSku) SBSku {
-		if v != nil {
-			return *v
-		}
-		var ret SBSku
-		return ret
-	}).(SBSkuOutput)
+	return o.ApplyT(func(v *SBSku) SBSku { return *v }).(SBSkuOutput)
 }
 
 // The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
@@ -1799,23 +1763,23 @@ func (o SBSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // Name of this SKU.
-func (o SBSkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *SBSku) *SkuName {
+func (o SBSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SBSku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The billing tier of this particular SKU.
-func (o SBSkuPtrOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v *SBSku) *SkuTier {
+func (o SBSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SBSku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(SkuTierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU of the namespace.
@@ -1922,7 +1886,7 @@ func (o SBSkuResponseOutput) ToSBSkuResponsePtrOutput() SBSkuResponsePtrOutput {
 }
 
 func (o SBSkuResponseOutput) ToSBSkuResponsePtrOutputWithContext(ctx context.Context) SBSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SBSkuResponse) *SBSkuResponse {
+	return o.ApplyT(func(v SBSkuResponse) *SBSkuResponse {
 		return &v
 	}).(SBSkuResponsePtrOutput)
 }
@@ -1957,13 +1921,7 @@ func (o SBSkuResponsePtrOutput) ToSBSkuResponsePtrOutputWithContext(ctx context.
 }
 
 func (o SBSkuResponsePtrOutput) Elem() SBSkuResponseOutput {
-	return o.ApplyT(func(v *SBSkuResponse) SBSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SBSkuResponse
-		return ret
-	}).(SBSkuResponseOutput)
+	return o.ApplyT(func(v *SBSkuResponse) SBSkuResponse { return *v }).(SBSkuResponseOutput)
 }
 
 // The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
@@ -2100,7 +2058,7 @@ func (o SqlFilterOutput) ToSqlFilterPtrOutput() SqlFilterPtrOutput {
 }
 
 func (o SqlFilterOutput) ToSqlFilterPtrOutputWithContext(ctx context.Context) SqlFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlFilter) *SqlFilter {
+	return o.ApplyT(func(v SqlFilter) *SqlFilter {
 		return &v
 	}).(SqlFilterPtrOutput)
 }
@@ -2135,13 +2093,7 @@ func (o SqlFilterPtrOutput) ToSqlFilterPtrOutputWithContext(ctx context.Context)
 }
 
 func (o SqlFilterPtrOutput) Elem() SqlFilterOutput {
-	return o.ApplyT(func(v *SqlFilter) SqlFilter {
-		if v != nil {
-			return *v
-		}
-		var ret SqlFilter
-		return ret
-	}).(SqlFilterOutput)
+	return o.ApplyT(func(v *SqlFilter) SqlFilter { return *v }).(SqlFilterOutput)
 }
 
 // This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
@@ -2278,7 +2230,7 @@ func (o SqlFilterResponseOutput) ToSqlFilterResponsePtrOutput() SqlFilterRespons
 }
 
 func (o SqlFilterResponseOutput) ToSqlFilterResponsePtrOutputWithContext(ctx context.Context) SqlFilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlFilterResponse) *SqlFilterResponse {
+	return o.ApplyT(func(v SqlFilterResponse) *SqlFilterResponse {
 		return &v
 	}).(SqlFilterResponsePtrOutput)
 }
@@ -2313,13 +2265,7 @@ func (o SqlFilterResponsePtrOutput) ToSqlFilterResponsePtrOutputWithContext(ctx 
 }
 
 func (o SqlFilterResponsePtrOutput) Elem() SqlFilterResponseOutput {
-	return o.ApplyT(func(v *SqlFilterResponse) SqlFilterResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SqlFilterResponse
-		return ret
-	}).(SqlFilterResponseOutput)
+	return o.ApplyT(func(v *SqlFilterResponse) SqlFilterResponse { return *v }).(SqlFilterResponseOutput)
 }
 
 // This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
@@ -2448,7 +2394,7 @@ func (o SubnetOutput) ToSubnetPtrOutput() SubnetPtrOutput {
 }
 
 func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Subnet) *Subnet {
+	return o.ApplyT(func(v Subnet) *Subnet {
 		return &v
 	}).(SubnetPtrOutput)
 }
@@ -2473,13 +2419,7 @@ func (o SubnetPtrOutput) ToSubnetPtrOutputWithContext(ctx context.Context) Subne
 }
 
 func (o SubnetPtrOutput) Elem() SubnetOutput {
-	return o.ApplyT(func(v *Subnet) Subnet {
-		if v != nil {
-			return *v
-		}
-		var ret Subnet
-		return ret
-	}).(SubnetOutput)
+	return o.ApplyT(func(v *Subnet) Subnet { return *v }).(SubnetOutput)
 }
 
 // Resource ID of Virtual Network Subnet
@@ -2588,7 +2528,7 @@ func (o SubnetResponseOutput) ToSubnetResponsePtrOutput() SubnetResponsePtrOutpu
 }
 
 func (o SubnetResponseOutput) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetResponse) *SubnetResponse {
+	return o.ApplyT(func(v SubnetResponse) *SubnetResponse {
 		return &v
 	}).(SubnetResponsePtrOutput)
 }
@@ -2613,13 +2553,7 @@ func (o SubnetResponsePtrOutput) ToSubnetResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SubnetResponsePtrOutput) Elem() SubnetResponseOutput {
-	return o.ApplyT(func(v *SubnetResponse) SubnetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetResponse
-		return ret
-	}).(SubnetResponseOutput)
+	return o.ApplyT(func(v *SubnetResponse) SubnetResponse { return *v }).(SubnetResponseOutput)
 }
 
 // Resource ID of Virtual Network Subnet

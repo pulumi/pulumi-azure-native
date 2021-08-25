@@ -215,7 +215,9 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-type RoleAssignmentOutput struct{ *pulumi.OutputState }
+type RoleAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignment)(nil))

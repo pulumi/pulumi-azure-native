@@ -118,7 +118,7 @@ func (ReferenceDataSetState) ElementType() reflect.Type {
 
 type referenceDataSetArgs struct {
 	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior *DataStringComparisonBehavior `pulumi:"dataStringComparisonBehavior"`
+	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
 	// The list of key properties for the reference data set.
@@ -136,7 +136,7 @@ type referenceDataSetArgs struct {
 // The set of arguments for constructing a ReferenceDataSet resource.
 type ReferenceDataSetArgs struct {
 	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior DataStringComparisonBehaviorPtrInput
+	DataStringComparisonBehavior *DataStringComparisonBehavior
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
 	// The list of key properties for the reference data set.
@@ -174,7 +174,9 @@ func (i *ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetOutput)
 }
 
-type ReferenceDataSetOutput struct{ *pulumi.OutputState }
+type ReferenceDataSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReferenceDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReferenceDataSet)(nil))

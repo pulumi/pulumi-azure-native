@@ -158,7 +158,9 @@ func (i *NetworkManager) ToNetworkManagerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerOutput)
 }
 
-type NetworkManagerOutput struct{ *pulumi.OutputState }
+type NetworkManagerOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkManagerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkManager)(nil))

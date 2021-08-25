@@ -157,7 +157,9 @@ func (i *WCFRelay) ToWCFRelayOutputWithContext(ctx context.Context) WCFRelayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayOutput)
 }
 
-type WCFRelayOutput struct{ *pulumi.OutputState }
+type WCFRelayOutput struct {
+	*pulumi.OutputState
+}
 
 func (WCFRelayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WCFRelay)(nil))

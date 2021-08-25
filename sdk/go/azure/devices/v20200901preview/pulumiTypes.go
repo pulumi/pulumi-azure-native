@@ -110,7 +110,7 @@ func (o ArmIdentityOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
 }
 
 func (o ArmIdentityOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdentity) *ArmIdentity {
+	return o.ApplyT(func(v ArmIdentity) *ArmIdentity {
 		return &v
 	}).(ArmIdentityPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ArmIdentityPtrOutput) Elem() ArmIdentityOutput {
-	return o.ApplyT(func(v *ArmIdentity) ArmIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ArmIdentity
-		return ret
-	}).(ArmIdentityOutput)
+	return o.ApplyT(func(v *ArmIdentity) ArmIdentity { return *v }).(ArmIdentityOutput)
 }
 
 // Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
@@ -277,7 +271,7 @@ func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutput() ArmIdentityR
 }
 
 func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdentityResponse) *ArmIdentityResponse {
+	return o.ApplyT(func(v ArmIdentityResponse) *ArmIdentityResponse {
 		return &v
 	}).(ArmIdentityResponsePtrOutput)
 }
@@ -317,13 +311,7 @@ func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutputWithContext(
 }
 
 func (o ArmIdentityResponsePtrOutput) Elem() ArmIdentityResponseOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmIdentityResponse
-		return ret
-	}).(ArmIdentityResponseOutput)
+	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse { return *v }).(ArmIdentityResponseOutput)
 }
 
 // Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
@@ -591,7 +579,7 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
@@ -641,13 +629,7 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificatePropertiesResponse
-		return ret
-	}).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
 }
 
 // The certificate's creation date and time.
@@ -806,7 +788,7 @@ func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityPtrOutput() Encrypti
 }
 
 func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityPtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyIdentity) *EncryptionKeyIdentity {
+	return o.ApplyT(func(v EncryptionKeyIdentity) *EncryptionKeyIdentity {
 		return &v
 	}).(EncryptionKeyIdentityPtrOutput)
 }
@@ -831,13 +813,7 @@ func (o EncryptionKeyIdentityPtrOutput) ToEncryptionKeyIdentityPtrOutputWithCont
 }
 
 func (o EncryptionKeyIdentityPtrOutput) Elem() EncryptionKeyIdentityOutput {
-	return o.ApplyT(func(v *EncryptionKeyIdentity) EncryptionKeyIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionKeyIdentity
-		return ret
-	}).(EncryptionKeyIdentityOutput)
+	return o.ApplyT(func(v *EncryptionKeyIdentity) EncryptionKeyIdentity { return *v }).(EncryptionKeyIdentityOutput)
 }
 
 // The user assigned identity.
@@ -946,7 +922,7 @@ func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponsePtrO
 }
 
 func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyIdentityResponse) *EncryptionKeyIdentityResponse {
+	return o.ApplyT(func(v EncryptionKeyIdentityResponse) *EncryptionKeyIdentityResponse {
 		return &v
 	}).(EncryptionKeyIdentityResponsePtrOutput)
 }
@@ -971,13 +947,7 @@ func (o EncryptionKeyIdentityResponsePtrOutput) ToEncryptionKeyIdentityResponseP
 }
 
 func (o EncryptionKeyIdentityResponsePtrOutput) Elem() EncryptionKeyIdentityResponseOutput {
-	return o.ApplyT(func(v *EncryptionKeyIdentityResponse) EncryptionKeyIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionKeyIdentityResponse
-		return ret
-	}).(EncryptionKeyIdentityResponseOutput)
+	return o.ApplyT(func(v *EncryptionKeyIdentityResponse) EncryptionKeyIdentityResponse { return *v }).(EncryptionKeyIdentityResponseOutput)
 }
 
 // The user assigned identity.
@@ -1094,7 +1064,7 @@ func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescription
 }
 
 func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescriptionPtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPropertiesDescription) *EncryptionPropertiesDescription {
+	return o.ApplyT(func(v EncryptionPropertiesDescription) *EncryptionPropertiesDescription {
 		return &v
 	}).(EncryptionPropertiesDescriptionPtrOutput)
 }
@@ -1129,13 +1099,7 @@ func (o EncryptionPropertiesDescriptionPtrOutput) ToEncryptionPropertiesDescript
 }
 
 func (o EncryptionPropertiesDescriptionPtrOutput) Elem() EncryptionPropertiesDescriptionOutput {
-	return o.ApplyT(func(v *EncryptionPropertiesDescription) EncryptionPropertiesDescription {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionPropertiesDescription
-		return ret
-	}).(EncryptionPropertiesDescriptionOutput)
+	return o.ApplyT(func(v *EncryptionPropertiesDescription) EncryptionPropertiesDescription { return *v }).(EncryptionPropertiesDescriptionOutput)
 }
 
 // The identity used to access the encryption key in KeyVault.
@@ -1272,7 +1236,7 @@ func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDes
 }
 
 func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
 		return &v
 	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
@@ -1309,13 +1273,7 @@ func (o EncryptionPropertiesDescriptionResponsePtrOutput) ToEncryptionProperties
 }
 
 func (o EncryptionPropertiesDescriptionResponsePtrOutput) Elem() EncryptionPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) EncryptionPropertiesDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionPropertiesDescriptionResponse
-		return ret
-	}).(EncryptionPropertiesDescriptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) EncryptionPropertiesDescriptionResponse { return *v }).(EncryptionPropertiesDescriptionResponseOutput)
 }
 
 // The identity used to access the encryption key in KeyVault.
@@ -1476,7 +1434,7 @@ func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutpu
 }
 
 func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
+	return o.ApplyT(func(v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
 		return &v
 	}).(IotDpsPropertiesDescriptionPtrOutput)
 }
@@ -1543,13 +1501,7 @@ func (o IotDpsPropertiesDescriptionPtrOutput) ToIotDpsPropertiesDescriptionPtrOu
 }
 
 func (o IotDpsPropertiesDescriptionPtrOutput) Elem() IotDpsPropertiesDescriptionOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription {
-		if v != nil {
-			return *v
-		}
-		var ret IotDpsPropertiesDescription
-		return ret
-	}).(IotDpsPropertiesDescriptionOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription { return *v }).(IotDpsPropertiesDescriptionOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -1782,7 +1734,7 @@ func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescription
 }
 
 func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
 		return &v
 	}).(IotDpsPropertiesDescriptionResponsePtrOutput)
 }
@@ -1868,13 +1820,7 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ToIotDpsPropertiesDescript
 }
 
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) Elem() IotDpsPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IotDpsPropertiesDescriptionResponse
-		return ret
-	}).(IotDpsPropertiesDescriptionResponseOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse { return *v }).(IotDpsPropertiesDescriptionResponseOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -2097,7 +2043,7 @@ func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutput() IotDpsSkuInfoPtrOutput {
 }
 
 func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.Context) IotDpsSkuInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfo) *IotDpsSkuInfo {
+	return o.ApplyT(func(v IotDpsSkuInfo) *IotDpsSkuInfo {
 		return &v
 	}).(IotDpsSkuInfoPtrOutput)
 }
@@ -2127,13 +2073,7 @@ func (o IotDpsSkuInfoPtrOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotDpsSkuInfoPtrOutput) Elem() IotDpsSkuInfoOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo {
-		if v != nil {
-			return *v
-		}
-		var ret IotDpsSkuInfo
-		return ret
-	}).(IotDpsSkuInfoOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo { return *v }).(IotDpsSkuInfoOutput)
 }
 
 // The number of units to provision
@@ -2260,7 +2200,7 @@ func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutput() IotDpsSk
 }
 
 func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotDpsSkuInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
+	return o.ApplyT(func(v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
 		return &v
 	}).(IotDpsSkuInfoResponsePtrOutput)
 }
@@ -2295,13 +2235,7 @@ func (o IotDpsSkuInfoResponsePtrOutput) ToIotDpsSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotDpsSkuInfoResponsePtrOutput) Elem() IotDpsSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IotDpsSkuInfoResponse
-		return ret
-	}).(IotDpsSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse { return *v }).(IotDpsSkuInfoResponseOutput)
 }
 
 // The number of units to provision
@@ -2993,7 +2927,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -3020,13 +2954,7 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionProperties
-		return ret
-	}).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // The current state of a private endpoint connection
@@ -3139,7 +3067,7 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
@@ -3172,11 +3100,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionPropertiesResponse
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -3425,7 +3349,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -3450,13 +3374,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // The resource identifier.
@@ -3573,7 +3491,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -3608,13 +3526,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // Actions required for a private endpoint connection
@@ -3751,7 +3663,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -3787,11 +3699,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -4086,13 +3994,13 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 // The IP filter rules for a provisioning Service.
 type TargetIpFilterRule struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
+	Action string `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName string `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask string `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target *IpFilterTargetType `pulumi:"target"`
+	Target *string `pulumi:"target"`
 }
 
 // TargetIpFilterRuleInput is an input type that accepts TargetIpFilterRuleArgs and TargetIpFilterRuleOutput values.
@@ -4109,13 +4017,13 @@ type TargetIpFilterRuleInput interface {
 // The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionTypeInput `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target IpFilterTargetTypePtrInput `pulumi:"target"`
+	Target *IpFilterTargetType `pulumi:"target"`
 }
 
 func (TargetIpFilterRuleArgs) ElementType() reflect.Type {
@@ -4171,8 +4079,8 @@ func (o TargetIpFilterRuleOutput) ToTargetIpFilterRuleOutputWithContext(ctx cont
 }
 
 // The desired action for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Action() IpFilterActionTypeOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
+func (o TargetIpFilterRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The name of the IP filter rule.
@@ -4186,8 +4094,8 @@ func (o TargetIpFilterRuleOutput) IpMask() pulumi.StringOutput {
 }
 
 // Target for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Target() IpFilterTargetTypePtrOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) *IpFilterTargetType { return v.Target }).(IpFilterTargetTypePtrOutput)
+func (o TargetIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
 type TargetIpFilterRuleArrayOutput struct{ *pulumi.OutputState }

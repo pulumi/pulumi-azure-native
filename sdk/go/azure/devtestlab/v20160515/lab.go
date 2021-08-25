@@ -178,7 +178,9 @@ func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabOutput)
 }
 
-type LabOutput struct{ *pulumi.OutputState }
+type LabOutput struct {
+	*pulumi.OutputState
+}
 
 func (LabOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Lab)(nil))

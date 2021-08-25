@@ -177,7 +177,9 @@ func (i *Prefix) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixOutput)
 }
 
-type PrefixOutput struct{ *pulumi.OutputState }
+type PrefixOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Prefix)(nil))

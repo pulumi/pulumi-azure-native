@@ -221,7 +221,9 @@ func (i *ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseOutput)
 }
 
-type ManagedDatabaseOutput struct{ *pulumi.OutputState }
+type ManagedDatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDatabase)(nil))

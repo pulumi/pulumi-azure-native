@@ -168,7 +168,9 @@ func (i *ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProvi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryServicesProviderOutput)
 }
 
-type ReplicationRecoveryServicesProviderOutput struct{ *pulumi.OutputState }
+type ReplicationRecoveryServicesProviderOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationRecoveryServicesProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil))

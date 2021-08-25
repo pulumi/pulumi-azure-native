@@ -165,7 +165,7 @@ func (DiskState) ElementType() reflect.Type {
 
 type diskArgs struct {
 	// the storage account type of the disk.
-	AccountType *StorageAccountTypes `pulumi:"accountType"`
+	AccountType *string `pulumi:"accountType"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationData `pulumi:"creationData"`
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -177,7 +177,7 @@ type diskArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -187,7 +187,7 @@ type diskArgs struct {
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
 	// the storage account type of the disk.
-	AccountType StorageAccountTypesPtrInput
+	AccountType *StorageAccountTypes
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataInput
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -199,7 +199,7 @@ type DiskArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
@@ -229,7 +229,9 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct{ *pulumi.OutputState }
+type DiskOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

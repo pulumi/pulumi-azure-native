@@ -182,7 +182,9 @@ func (i *OrchestratorInstanceServiceDetails) ToOrchestratorInstanceServiceDetail
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorInstanceServiceDetailsOutput)
 }
 
-type OrchestratorInstanceServiceDetailsOutput struct{ *pulumi.OutputState }
+type OrchestratorInstanceServiceDetailsOutput struct {
+	*pulumi.OutputState
+}
 
 func (OrchestratorInstanceServiceDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrchestratorInstanceServiceDetails)(nil))

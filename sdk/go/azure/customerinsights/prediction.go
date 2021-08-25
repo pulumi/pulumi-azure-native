@@ -227,7 +227,9 @@ func (i *Prediction) ToPredictionOutputWithContext(ctx context.Context) Predicti
 	return pulumi.ToOutputWithContext(ctx, i).(PredictionOutput)
 }
 
-type PredictionOutput struct{ *pulumi.OutputState }
+type PredictionOutput struct {
+	*pulumi.OutputState
+}
 
 func (PredictionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Prediction)(nil))

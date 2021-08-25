@@ -170,7 +170,9 @@ func (i *Python2Package) ToPython2PackageOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(Python2PackageOutput)
 }
 
-type Python2PackageOutput struct{ *pulumi.OutputState }
+type Python2PackageOutput struct {
+	*pulumi.OutputState
+}
 
 func (Python2PackageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Python2Package)(nil))

@@ -177,7 +177,9 @@ func (i *TagByProduct) ToTagByProductOutputWithContext(ctx context.Context) TagB
 	return pulumi.ToOutputWithContext(ctx, i).(TagByProductOutput)
 }
 
-type TagByProductOutput struct{ *pulumi.OutputState }
+type TagByProductOutput struct {
+	*pulumi.OutputState
+}
 
 func (TagByProductOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagByProduct)(nil))

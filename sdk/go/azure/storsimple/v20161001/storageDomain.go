@@ -34,9 +34,6 @@ func NewStorageDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EncryptionStatus == nil {
-		return nil, errors.New("invalid value for required argument 'EncryptionStatus'")
-	}
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
@@ -87,7 +84,7 @@ type storageDomainArgs struct {
 	// The encryption key used to encrypt the data. This is a user secret.
 	EncryptionKey *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
 	// The encryption status "Enabled | Disabled".
-	EncryptionStatus EncryptionStatus `pulumi:"encryptionStatus"`
+	EncryptionStatus string `pulumi:"encryptionStatus"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -103,7 +100,7 @@ type StorageDomainArgs struct {
 	// The encryption key used to encrypt the data. This is a user secret.
 	EncryptionKey AsymmetricEncryptedSecretPtrInput
 	// The encryption status "Enabled | Disabled".
-	EncryptionStatus EncryptionStatusInput
+	EncryptionStatus EncryptionStatus
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
@@ -137,7 +134,9 @@ func (i *StorageDomain) ToStorageDomainOutputWithContext(ctx context.Context) St
 	return pulumi.ToOutputWithContext(ctx, i).(StorageDomainOutput)
 }
 
-type StorageDomainOutput struct{ *pulumi.OutputState }
+type StorageDomainOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageDomain)(nil))

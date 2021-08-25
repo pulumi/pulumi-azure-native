@@ -150,7 +150,9 @@ func (i *EntityAnalytics) ToEntityAnalyticsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EntityAnalyticsOutput)
 }
 
-type EntityAnalyticsOutput struct{ *pulumi.OutputState }
+type EntityAnalyticsOutput struct {
+	*pulumi.OutputState
+}
 
 func (EntityAnalyticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EntityAnalytics)(nil))

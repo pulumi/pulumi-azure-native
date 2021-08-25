@@ -110,7 +110,7 @@ func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutput() CacheHealthR
 }
 
 func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheHealthResponse) *CacheHealthResponse {
+	return o.ApplyT(func(v CacheHealthResponse) *CacheHealthResponse {
 		return &v
 	}).(CacheHealthResponsePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(
 }
 
 func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
-	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheHealthResponse
-		return ret
-	}).(CacheHealthResponseOutput)
+	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse { return *v }).(CacheHealthResponseOutput)
 }
 
 // List of cache health states.
@@ -265,7 +259,7 @@ func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPt
 }
 
 func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheResponseSku) *CacheResponseSku {
+	return o.ApplyT(func(v CacheResponseSku) *CacheResponseSku {
 		return &v
 	}).(CacheResponseSkuPtrOutput)
 }
@@ -290,13 +284,7 @@ func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx co
 }
 
 func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
-	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku {
-		if v != nil {
-			return *v
-		}
-		var ret CacheResponseSku
-		return ret
-	}).(CacheResponseSkuOutput)
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku { return *v }).(CacheResponseSkuOutput)
 }
 
 // Sku name for this cache.
@@ -405,7 +393,7 @@ func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
 }
 
 func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSku) *CacheSku {
+	return o.ApplyT(func(v CacheSku) *CacheSku {
 		return &v
 	}).(CacheSkuPtrOutput)
 }
@@ -430,13 +418,7 @@ func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) C
 }
 
 func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
-	return o.ApplyT(func(v *CacheSku) CacheSku {
-		if v != nil {
-			return *v
-		}
-		var ret CacheSku
-		return ret
-	}).(CacheSkuOutput)
+	return o.ApplyT(func(v *CacheSku) CacheSku { return *v }).(CacheSkuOutput)
 }
 
 // Sku name for this cache.
@@ -561,7 +543,7 @@ func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutput(
 }
 
 func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
+	return o.ApplyT(func(v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
 		return &v
 	}).(CacheUpgradeStatusResponsePtrOutput)
 }
@@ -606,13 +588,7 @@ func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutp
 }
 
 func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheUpgradeStatusResponse
-		return ret
-	}).(CacheUpgradeStatusResponseOutput)
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse { return *v }).(CacheUpgradeStatusResponseOutput)
 }
 
 // Version string of the firmware currently installed on this cache.
@@ -761,7 +737,7 @@ func (o ClfsTargetOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
 }
 
 func (o ClfsTargetOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTarget) *ClfsTarget {
+	return o.ApplyT(func(v ClfsTarget) *ClfsTarget {
 		return &v
 	}).(ClfsTargetPtrOutput)
 }
@@ -786,13 +762,7 @@ func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClfsTargetPtrOutput) Elem() ClfsTargetOutput {
-	return o.ApplyT(func(v *ClfsTarget) ClfsTarget {
-		if v != nil {
-			return *v
-		}
-		var ret ClfsTarget
-		return ret
-	}).(ClfsTargetOutput)
+	return o.ApplyT(func(v *ClfsTarget) ClfsTarget { return *v }).(ClfsTargetOutput)
 }
 
 // URL of storage container.
@@ -901,7 +871,7 @@ func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResp
 }
 
 func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTargetResponse) *ClfsTargetResponse {
+	return o.ApplyT(func(v ClfsTargetResponse) *ClfsTargetResponse {
 		return &v
 	}).(ClfsTargetResponsePtrOutput)
 }
@@ -926,13 +896,7 @@ func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutputWithContext(ct
 }
 
 func (o ClfsTargetResponsePtrOutput) Elem() ClfsTargetResponseOutput {
-	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClfsTargetResponse
-		return ret
-	}).(ClfsTargetResponseOutput)
+	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse { return *v }).(ClfsTargetResponseOutput)
 }
 
 // URL of storage container.
@@ -1281,7 +1245,7 @@ func (o Nfs3TargetOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
 }
 
 func (o Nfs3TargetOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3Target) *Nfs3Target {
+	return o.ApplyT(func(v Nfs3Target) *Nfs3Target {
 		return &v
 	}).(Nfs3TargetPtrOutput)
 }
@@ -1311,13 +1275,7 @@ func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o Nfs3TargetPtrOutput) Elem() Nfs3TargetOutput {
-	return o.ApplyT(func(v *Nfs3Target) Nfs3Target {
-		if v != nil {
-			return *v
-		}
-		var ret Nfs3Target
-		return ret
-	}).(Nfs3TargetOutput)
+	return o.ApplyT(func(v *Nfs3Target) Nfs3Target { return *v }).(Nfs3TargetOutput)
 }
 
 // IP or name of an NFS Storage Target host, ie: 10.0.44.44
@@ -1440,7 +1398,7 @@ func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResp
 }
 
 func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3TargetResponse) *Nfs3TargetResponse {
+	return o.ApplyT(func(v Nfs3TargetResponse) *Nfs3TargetResponse {
 		return &v
 	}).(Nfs3TargetResponsePtrOutput)
 }
@@ -1470,13 +1428,7 @@ func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutputWithContext(ct
 }
 
 func (o Nfs3TargetResponsePtrOutput) Elem() Nfs3TargetResponseOutput {
-	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret Nfs3TargetResponse
-		return ret
-	}).(Nfs3TargetResponseOutput)
+	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse { return *v }).(Nfs3TargetResponseOutput)
 }
 
 // IP or name of an NFS Storage Target host, ie: 10.0.44.44
@@ -1595,7 +1547,7 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
 }
 
 func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTarget) *UnknownTarget {
+	return o.ApplyT(func(v UnknownTarget) *UnknownTarget {
 		return &v
 	}).(UnknownTargetPtrOutput)
 }
@@ -1620,13 +1572,7 @@ func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutputWithContext(ctx context.
 }
 
 func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
-	return o.ApplyT(func(v *UnknownTarget) UnknownTarget {
-		if v != nil {
-			return *v
-		}
-		var ret UnknownTarget
-		return ret
-	}).(UnknownTargetOutput)
+	return o.ApplyT(func(v *UnknownTarget) UnknownTarget { return *v }).(UnknownTargetOutput)
 }
 
 // Dictionary of string->string pairs containing information about the StorageTarget.
@@ -1735,7 +1681,7 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutput() UnknownT
 }
 
 func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTargetResponse) *UnknownTargetResponse {
+	return o.ApplyT(func(v UnknownTargetResponse) *UnknownTargetResponse {
 		return &v
 	}).(UnknownTargetResponsePtrOutput)
 }
@@ -1760,13 +1706,7 @@ func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutputWithCont
 }
 
 func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
-	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UnknownTargetResponse
-		return ret
-	}).(UnknownTargetResponseOutput)
+	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse { return *v }).(UnknownTargetResponseOutput)
 }
 
 // Dictionary of string->string pairs containing information about the StorageTarget.

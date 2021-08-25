@@ -202,7 +202,9 @@ func (i *ArcAddon) ToArcAddonOutputWithContext(ctx context.Context) ArcAddonOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ArcAddonOutput)
 }
 
-type ArcAddonOutput struct{ *pulumi.OutputState }
+type ArcAddonOutput struct {
+	*pulumi.OutputState
+}
 
 func (ArcAddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArcAddon)(nil))

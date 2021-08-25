@@ -336,7 +336,7 @@ func (o ActivityPolicyOutput) ToActivityPolicyPtrOutput() ActivityPolicyPtrOutpu
 }
 
 func (o ActivityPolicyOutput) ToActivityPolicyPtrOutputWithContext(ctx context.Context) ActivityPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityPolicy) *ActivityPolicy {
+	return o.ApplyT(func(v ActivityPolicy) *ActivityPolicy {
 		return &v
 	}).(ActivityPolicyPtrOutput)
 }
@@ -376,13 +376,7 @@ func (o ActivityPolicyPtrOutput) ToActivityPolicyPtrOutputWithContext(ctx contex
 }
 
 func (o ActivityPolicyPtrOutput) Elem() ActivityPolicyOutput {
-	return o.ApplyT(func(v *ActivityPolicy) ActivityPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityPolicy
-		return ret
-	}).(ActivityPolicyOutput)
+	return o.ApplyT(func(v *ActivityPolicy) ActivityPolicy { return *v }).(ActivityPolicyOutput)
 }
 
 // Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -533,7 +527,7 @@ func (o ActivityPolicyResponseOutput) ToActivityPolicyResponsePtrOutput() Activi
 }
 
 func (o ActivityPolicyResponseOutput) ToActivityPolicyResponsePtrOutputWithContext(ctx context.Context) ActivityPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityPolicyResponse) *ActivityPolicyResponse {
+	return o.ApplyT(func(v ActivityPolicyResponse) *ActivityPolicyResponse {
 		return &v
 	}).(ActivityPolicyResponsePtrOutput)
 }
@@ -573,13 +567,7 @@ func (o ActivityPolicyResponsePtrOutput) ToActivityPolicyResponsePtrOutputWithCo
 }
 
 func (o ActivityPolicyResponsePtrOutput) Elem() ActivityPolicyResponseOutput {
-	return o.ApplyT(func(v *ActivityPolicyResponse) ActivityPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityPolicyResponse
-		return ret
-	}).(ActivityPolicyResponseOutput)
+	return o.ApplyT(func(v *ActivityPolicyResponse) ActivityPolicyResponse { return *v }).(ActivityPolicyResponseOutput)
 }
 
 // Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -14258,7 +14246,7 @@ func (o CustomActivityReferenceObjectOutput) ToCustomActivityReferenceObjectPtrO
 }
 
 func (o CustomActivityReferenceObjectOutput) ToCustomActivityReferenceObjectPtrOutputWithContext(ctx context.Context) CustomActivityReferenceObjectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomActivityReferenceObject) *CustomActivityReferenceObject {
+	return o.ApplyT(func(v CustomActivityReferenceObject) *CustomActivityReferenceObject {
 		return &v
 	}).(CustomActivityReferenceObjectPtrOutput)
 }
@@ -14288,13 +14276,7 @@ func (o CustomActivityReferenceObjectPtrOutput) ToCustomActivityReferenceObjectP
 }
 
 func (o CustomActivityReferenceObjectPtrOutput) Elem() CustomActivityReferenceObjectOutput {
-	return o.ApplyT(func(v *CustomActivityReferenceObject) CustomActivityReferenceObject {
-		if v != nil {
-			return *v
-		}
-		var ret CustomActivityReferenceObject
-		return ret
-	}).(CustomActivityReferenceObjectOutput)
+	return o.ApplyT(func(v *CustomActivityReferenceObject) CustomActivityReferenceObject { return *v }).(CustomActivityReferenceObjectOutput)
 }
 
 // Dataset references.
@@ -14417,7 +14399,7 @@ func (o CustomActivityReferenceObjectResponseOutput) ToCustomActivityReferenceOb
 }
 
 func (o CustomActivityReferenceObjectResponseOutput) ToCustomActivityReferenceObjectResponsePtrOutputWithContext(ctx context.Context) CustomActivityReferenceObjectResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomActivityReferenceObjectResponse) *CustomActivityReferenceObjectResponse {
+	return o.ApplyT(func(v CustomActivityReferenceObjectResponse) *CustomActivityReferenceObjectResponse {
 		return &v
 	}).(CustomActivityReferenceObjectResponsePtrOutput)
 }
@@ -14449,13 +14431,7 @@ func (o CustomActivityReferenceObjectResponsePtrOutput) ToCustomActivityReferenc
 }
 
 func (o CustomActivityReferenceObjectResponsePtrOutput) Elem() CustomActivityReferenceObjectResponseOutput {
-	return o.ApplyT(func(v *CustomActivityReferenceObjectResponse) CustomActivityReferenceObjectResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CustomActivityReferenceObjectResponse
-		return ret
-	}).(CustomActivityReferenceObjectResponseOutput)
+	return o.ApplyT(func(v *CustomActivityReferenceObjectResponse) CustomActivityReferenceObjectResponse { return *v }).(CustomActivityReferenceObjectResponseOutput)
 }
 
 // Dataset references.
@@ -16756,7 +16732,7 @@ func (o DistcpSettingsOutput) ToDistcpSettingsPtrOutput() DistcpSettingsPtrOutpu
 }
 
 func (o DistcpSettingsOutput) ToDistcpSettingsPtrOutputWithContext(ctx context.Context) DistcpSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistcpSettings) *DistcpSettings {
+	return o.ApplyT(func(v DistcpSettings) *DistcpSettings {
 		return &v
 	}).(DistcpSettingsPtrOutput)
 }
@@ -16791,13 +16767,7 @@ func (o DistcpSettingsPtrOutput) ToDistcpSettingsPtrOutputWithContext(ctx contex
 }
 
 func (o DistcpSettingsPtrOutput) Elem() DistcpSettingsOutput {
-	return o.ApplyT(func(v *DistcpSettings) DistcpSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DistcpSettings
-		return ret
-	}).(DistcpSettingsOutput)
+	return o.ApplyT(func(v *DistcpSettings) DistcpSettings { return *v }).(DistcpSettingsOutput)
 }
 
 // Specifies the Distcp options. Type: string (or Expression with resultType string).
@@ -16934,7 +16904,7 @@ func (o DistcpSettingsResponseOutput) ToDistcpSettingsResponsePtrOutput() Distcp
 }
 
 func (o DistcpSettingsResponseOutput) ToDistcpSettingsResponsePtrOutputWithContext(ctx context.Context) DistcpSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistcpSettingsResponse) *DistcpSettingsResponse {
+	return o.ApplyT(func(v DistcpSettingsResponse) *DistcpSettingsResponse {
 		return &v
 	}).(DistcpSettingsResponsePtrOutput)
 }
@@ -16969,13 +16939,7 @@ func (o DistcpSettingsResponsePtrOutput) ToDistcpSettingsResponsePtrOutputWithCo
 }
 
 func (o DistcpSettingsResponsePtrOutput) Elem() DistcpSettingsResponseOutput {
-	return o.ApplyT(func(v *DistcpSettingsResponse) DistcpSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DistcpSettingsResponse
-		return ret
-	}).(DistcpSettingsResponseOutput)
+	return o.ApplyT(func(v *DistcpSettingsResponse) DistcpSettingsResponse { return *v }).(DistcpSettingsResponseOutput)
 }
 
 // Specifies the Distcp options. Type: string (or Expression with resultType string).
@@ -19986,7 +19950,7 @@ func (o EntityReferenceOutput) ToEntityReferencePtrOutput() EntityReferencePtrOu
 }
 
 func (o EntityReferenceOutput) ToEntityReferencePtrOutputWithContext(ctx context.Context) EntityReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityReference) *EntityReference {
+	return o.ApplyT(func(v EntityReference) *EntityReference {
 		return &v
 	}).(EntityReferencePtrOutput)
 }
@@ -20016,13 +19980,7 @@ func (o EntityReferencePtrOutput) ToEntityReferencePtrOutputWithContext(ctx cont
 }
 
 func (o EntityReferencePtrOutput) Elem() EntityReferenceOutput {
-	return o.ApplyT(func(v *EntityReference) EntityReference {
-		if v != nil {
-			return *v
-		}
-		var ret EntityReference
-		return ret
-	}).(EntityReferenceOutput)
+	return o.ApplyT(func(v *EntityReference) EntityReference { return *v }).(EntityReferenceOutput)
 }
 
 // The name of this referenced entity.
@@ -20145,7 +20103,7 @@ func (o EntityReferenceResponseOutput) ToEntityReferenceResponsePtrOutput() Enti
 }
 
 func (o EntityReferenceResponseOutput) ToEntityReferenceResponsePtrOutputWithContext(ctx context.Context) EntityReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityReferenceResponse) *EntityReferenceResponse {
+	return o.ApplyT(func(v EntityReferenceResponse) *EntityReferenceResponse {
 		return &v
 	}).(EntityReferenceResponsePtrOutput)
 }
@@ -20175,13 +20133,7 @@ func (o EntityReferenceResponsePtrOutput) ToEntityReferenceResponsePtrOutputWith
 }
 
 func (o EntityReferenceResponsePtrOutput) Elem() EntityReferenceResponseOutput {
-	return o.ApplyT(func(v *EntityReferenceResponse) EntityReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EntityReferenceResponse
-		return ret
-	}).(EntityReferenceResponseOutput)
+	return o.ApplyT(func(v *EntityReferenceResponse) EntityReferenceResponse { return *v }).(EntityReferenceResponseOutput)
 }
 
 // The name of this referenced entity.
@@ -21203,7 +21155,7 @@ func (o ExpressionResponseOutput) Value() pulumi.StringOutput {
 // Identity properties of the factory resource.
 type FactoryIdentity struct {
 	// The identity type. Currently the only supported type is 'SystemAssigned'.
-	Type FactoryIdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // FactoryIdentityInput is an input type that accepts FactoryIdentityArgs and FactoryIdentityOutput values.
@@ -21220,7 +21172,7 @@ type FactoryIdentityInput interface {
 // Identity properties of the factory resource.
 type FactoryIdentityArgs struct {
 	// The identity type. Currently the only supported type is 'SystemAssigned'.
-	Type FactoryIdentityTypeInput `pulumi:"type"`
+	Type FactoryIdentityType `pulumi:"type"`
 }
 
 func (FactoryIdentityArgs) ElementType() reflect.Type {
@@ -21296,14 +21248,14 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutput() FactoryIdentityPtrOu
 }
 
 func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context.Context) FactoryIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactoryIdentity) *FactoryIdentity {
+	return o.ApplyT(func(v FactoryIdentity) *FactoryIdentity {
 		return &v
 	}).(FactoryIdentityPtrOutput)
 }
 
 // The identity type. Currently the only supported type is 'SystemAssigned'.
-func (o FactoryIdentityOutput) Type() FactoryIdentityTypeOutput {
-	return o.ApplyT(func(v FactoryIdentity) FactoryIdentityType { return v.Type }).(FactoryIdentityTypeOutput)
+func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type FactoryIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -21321,23 +21273,17 @@ func (o FactoryIdentityPtrOutput) ToFactoryIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
-	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret FactoryIdentity
-		return ret
-	}).(FactoryIdentityOutput)
+	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity { return *v }).(FactoryIdentityOutput)
 }
 
 // The identity type. Currently the only supported type is 'SystemAssigned'.
-func (o FactoryIdentityPtrOutput) Type() FactoryIdentityTypePtrOutput {
-	return o.ApplyT(func(v *FactoryIdentity) *FactoryIdentityType {
+func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(FactoryIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity properties of the factory resource.
@@ -21444,7 +21390,7 @@ func (o FactoryIdentityResponseOutput) ToFactoryIdentityResponsePtrOutput() Fact
 }
 
 func (o FactoryIdentityResponseOutput) ToFactoryIdentityResponsePtrOutputWithContext(ctx context.Context) FactoryIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactoryIdentityResponse) *FactoryIdentityResponse {
+	return o.ApplyT(func(v FactoryIdentityResponse) *FactoryIdentityResponse {
 		return &v
 	}).(FactoryIdentityResponsePtrOutput)
 }
@@ -21479,13 +21425,7 @@ func (o FactoryIdentityResponsePtrOutput) ToFactoryIdentityResponsePtrOutputWith
 }
 
 func (o FactoryIdentityResponsePtrOutput) Elem() FactoryIdentityResponseOutput {
-	return o.ApplyT(func(v *FactoryIdentityResponse) FactoryIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FactoryIdentityResponse
-		return ret
-	}).(FactoryIdentityResponseOutput)
+	return o.ApplyT(func(v *FactoryIdentityResponse) FactoryIdentityResponse { return *v }).(FactoryIdentityResponseOutput)
 }
 
 // The principal id of the identity.
@@ -21638,7 +21578,7 @@ func (o FactoryVSTSConfigurationOutput) ToFactoryVSTSConfigurationPtrOutput() Fa
 }
 
 func (o FactoryVSTSConfigurationOutput) ToFactoryVSTSConfigurationPtrOutputWithContext(ctx context.Context) FactoryVSTSConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactoryVSTSConfiguration) *FactoryVSTSConfiguration {
+	return o.ApplyT(func(v FactoryVSTSConfiguration) *FactoryVSTSConfiguration {
 		return &v
 	}).(FactoryVSTSConfigurationPtrOutput)
 }
@@ -21693,13 +21633,7 @@ func (o FactoryVSTSConfigurationPtrOutput) ToFactoryVSTSConfigurationPtrOutputWi
 }
 
 func (o FactoryVSTSConfigurationPtrOutput) Elem() FactoryVSTSConfigurationOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) FactoryVSTSConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret FactoryVSTSConfiguration
-		return ret
-	}).(FactoryVSTSConfigurationOutput)
+	return o.ApplyT(func(v *FactoryVSTSConfiguration) FactoryVSTSConfiguration { return *v }).(FactoryVSTSConfigurationOutput)
 }
 
 // VSTS account name.
@@ -21892,7 +21826,7 @@ func (o FactoryVSTSConfigurationResponseOutput) ToFactoryVSTSConfigurationRespon
 }
 
 func (o FactoryVSTSConfigurationResponseOutput) ToFactoryVSTSConfigurationResponsePtrOutputWithContext(ctx context.Context) FactoryVSTSConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FactoryVSTSConfigurationResponse) *FactoryVSTSConfigurationResponse {
+	return o.ApplyT(func(v FactoryVSTSConfigurationResponse) *FactoryVSTSConfigurationResponse {
 		return &v
 	}).(FactoryVSTSConfigurationResponsePtrOutput)
 }
@@ -21947,13 +21881,7 @@ func (o FactoryVSTSConfigurationResponsePtrOutput) ToFactoryVSTSConfigurationRes
 }
 
 func (o FactoryVSTSConfigurationResponsePtrOutput) Elem() FactoryVSTSConfigurationResponseOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfigurationResponse) FactoryVSTSConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FactoryVSTSConfigurationResponse
-		return ret
-	}).(FactoryVSTSConfigurationResponseOutput)
+	return o.ApplyT(func(v *FactoryVSTSConfigurationResponse) FactoryVSTSConfigurationResponse { return *v }).(FactoryVSTSConfigurationResponseOutput)
 }
 
 // VSTS account name.
@@ -32886,7 +32814,7 @@ func (o IntegrationRuntimeComputePropertiesOutput) ToIntegrationRuntimeComputePr
 }
 
 func (o IntegrationRuntimeComputePropertiesOutput) ToIntegrationRuntimeComputePropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeComputeProperties) *IntegrationRuntimeComputeProperties {
+	return o.ApplyT(func(v IntegrationRuntimeComputeProperties) *IntegrationRuntimeComputeProperties {
 		return &v
 	}).(IntegrationRuntimeComputePropertiesPtrOutput)
 }
@@ -32931,13 +32859,7 @@ func (o IntegrationRuntimeComputePropertiesPtrOutput) ToIntegrationRuntimeComput
 }
 
 func (o IntegrationRuntimeComputePropertiesPtrOutput) Elem() IntegrationRuntimeComputePropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) IntegrationRuntimeComputeProperties {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeComputeProperties
-		return ret
-	}).(IntegrationRuntimeComputePropertiesOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) IntegrationRuntimeComputeProperties { return *v }).(IntegrationRuntimeComputePropertiesOutput)
 }
 
 // The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
@@ -33102,7 +33024,7 @@ func (o IntegrationRuntimeComputePropertiesResponseOutput) ToIntegrationRuntimeC
 }
 
 func (o IntegrationRuntimeComputePropertiesResponseOutput) ToIntegrationRuntimeComputePropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeComputePropertiesResponse) *IntegrationRuntimeComputePropertiesResponse {
+	return o.ApplyT(func(v IntegrationRuntimeComputePropertiesResponse) *IntegrationRuntimeComputePropertiesResponse {
 		return &v
 	}).(IntegrationRuntimeComputePropertiesResponsePtrOutput)
 }
@@ -33150,11 +33072,7 @@ func (o IntegrationRuntimeComputePropertiesResponsePtrOutput) ToIntegrationRunti
 
 func (o IntegrationRuntimeComputePropertiesResponsePtrOutput) Elem() IntegrationRuntimeComputePropertiesResponseOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeComputePropertiesResponse) IntegrationRuntimeComputePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeComputePropertiesResponse
-		return ret
+		return *v
 	}).(IntegrationRuntimeComputePropertiesResponseOutput)
 }
 
@@ -33308,7 +33226,7 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) ToIntegrationRuntim
 }
 
 func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeCustomSetupScriptProperties) *IntegrationRuntimeCustomSetupScriptProperties {
+	return o.ApplyT(func(v IntegrationRuntimeCustomSetupScriptProperties) *IntegrationRuntimeCustomSetupScriptProperties {
 		return &v
 	}).(IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput)
 }
@@ -33339,11 +33257,7 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) ToIntegrationRun
 
 func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) Elem() IntegrationRuntimeCustomSetupScriptPropertiesOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeCustomSetupScriptProperties) IntegrationRuntimeCustomSetupScriptProperties {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeCustomSetupScriptProperties
-		return ret
+		return *v
 	}).(IntegrationRuntimeCustomSetupScriptPropertiesOutput)
 }
 
@@ -33467,7 +33381,7 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput) ToIntegrati
 }
 
 func (o IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeCustomSetupScriptPropertiesResponse) *IntegrationRuntimeCustomSetupScriptPropertiesResponse {
+	return o.ApplyT(func(v IntegrationRuntimeCustomSetupScriptPropertiesResponse) *IntegrationRuntimeCustomSetupScriptPropertiesResponse {
 		return &v
 	}).(IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput)
 }
@@ -33498,11 +33412,7 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput) ToIntegr
 
 func (o IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput) Elem() IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeCustomSetupScriptPropertiesResponse) IntegrationRuntimeCustomSetupScriptPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeCustomSetupScriptPropertiesResponse
-		return ret
+		return *v
 	}).(IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput)
 }
 
@@ -33630,7 +33540,7 @@ func (o IntegrationRuntimeDataProxyPropertiesOutput) ToIntegrationRuntimeDataPro
 }
 
 func (o IntegrationRuntimeDataProxyPropertiesOutput) ToIntegrationRuntimeDataProxyPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeDataProxyProperties) *IntegrationRuntimeDataProxyProperties {
+	return o.ApplyT(func(v IntegrationRuntimeDataProxyProperties) *IntegrationRuntimeDataProxyProperties {
 		return &v
 	}).(IntegrationRuntimeDataProxyPropertiesPtrOutput)
 }
@@ -33665,13 +33575,7 @@ func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) ToIntegrationRuntimeData
 }
 
 func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) Elem() IntegrationRuntimeDataProxyPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeDataProxyProperties) IntegrationRuntimeDataProxyProperties {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeDataProxyProperties
-		return ret
-	}).(IntegrationRuntimeDataProxyPropertiesOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeDataProxyProperties) IntegrationRuntimeDataProxyProperties { return *v }).(IntegrationRuntimeDataProxyPropertiesOutput)
 }
 
 // The self-hosted integration runtime reference.
@@ -33808,7 +33712,7 @@ func (o IntegrationRuntimeDataProxyPropertiesResponseOutput) ToIntegrationRuntim
 }
 
 func (o IntegrationRuntimeDataProxyPropertiesResponseOutput) ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeDataProxyPropertiesResponse) *IntegrationRuntimeDataProxyPropertiesResponse {
+	return o.ApplyT(func(v IntegrationRuntimeDataProxyPropertiesResponse) *IntegrationRuntimeDataProxyPropertiesResponse {
 		return &v
 	}).(IntegrationRuntimeDataProxyPropertiesResponsePtrOutput)
 }
@@ -33846,11 +33750,7 @@ func (o IntegrationRuntimeDataProxyPropertiesResponsePtrOutput) ToIntegrationRun
 
 func (o IntegrationRuntimeDataProxyPropertiesResponsePtrOutput) Elem() IntegrationRuntimeDataProxyPropertiesResponseOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeDataProxyPropertiesResponse) IntegrationRuntimeDataProxyPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeDataProxyPropertiesResponse
-		return ret
+		return *v
 	}).(IntegrationRuntimeDataProxyPropertiesResponseOutput)
 }
 
@@ -33988,7 +33888,7 @@ func (o IntegrationRuntimeReferenceOutput) ToIntegrationRuntimeReferencePtrOutpu
 }
 
 func (o IntegrationRuntimeReferenceOutput) ToIntegrationRuntimeReferencePtrOutputWithContext(ctx context.Context) IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeReference) *IntegrationRuntimeReference {
+	return o.ApplyT(func(v IntegrationRuntimeReference) *IntegrationRuntimeReference {
 		return &v
 	}).(IntegrationRuntimeReferencePtrOutput)
 }
@@ -34023,13 +33923,7 @@ func (o IntegrationRuntimeReferencePtrOutput) ToIntegrationRuntimeReferencePtrOu
 }
 
 func (o IntegrationRuntimeReferencePtrOutput) Elem() IntegrationRuntimeReferenceOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeReference) IntegrationRuntimeReference {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeReference
-		return ret
-	}).(IntegrationRuntimeReferenceOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeReference) IntegrationRuntimeReference { return *v }).(IntegrationRuntimeReferenceOutput)
 }
 
 // Arguments for integration runtime.
@@ -34166,7 +34060,7 @@ func (o IntegrationRuntimeReferenceResponseOutput) ToIntegrationRuntimeReference
 }
 
 func (o IntegrationRuntimeReferenceResponseOutput) ToIntegrationRuntimeReferenceResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeReferenceResponse) *IntegrationRuntimeReferenceResponse {
+	return o.ApplyT(func(v IntegrationRuntimeReferenceResponse) *IntegrationRuntimeReferenceResponse {
 		return &v
 	}).(IntegrationRuntimeReferenceResponsePtrOutput)
 }
@@ -34201,13 +34095,7 @@ func (o IntegrationRuntimeReferenceResponsePtrOutput) ToIntegrationRuntimeRefere
 }
 
 func (o IntegrationRuntimeReferenceResponsePtrOutput) Elem() IntegrationRuntimeReferenceResponseOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeReferenceResponse) IntegrationRuntimeReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeReferenceResponse
-		return ret
-	}).(IntegrationRuntimeReferenceResponseOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeReferenceResponse) IntegrationRuntimeReferenceResponse { return *v }).(IntegrationRuntimeReferenceResponseOutput)
 }
 
 // Arguments for integration runtime.
@@ -34348,7 +34236,7 @@ func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalog
 }
 
 func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisCatalogInfo) *IntegrationRuntimeSsisCatalogInfo {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *IntegrationRuntimeSsisCatalogInfo {
 		return &v
 	}).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
 }
@@ -34388,13 +34276,7 @@ func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ToIntegrationRuntimeSsisCata
 }
 
 func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) Elem() IntegrationRuntimeSsisCatalogInfoOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) IntegrationRuntimeSsisCatalogInfo {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeSsisCatalogInfo
-		return ret
-	}).(IntegrationRuntimeSsisCatalogInfoOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) IntegrationRuntimeSsisCatalogInfo { return *v }).(IntegrationRuntimeSsisCatalogInfoOutput)
 }
 
 // The password of the administrator user account of the catalog database.
@@ -34545,7 +34427,7 @@ func (o IntegrationRuntimeSsisCatalogInfoResponseOutput) ToIntegrationRuntimeSsi
 }
 
 func (o IntegrationRuntimeSsisCatalogInfoResponseOutput) ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisCatalogInfoResponse) *IntegrationRuntimeSsisCatalogInfoResponse {
+	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfoResponse) *IntegrationRuntimeSsisCatalogInfoResponse {
 		return &v
 	}).(IntegrationRuntimeSsisCatalogInfoResponsePtrOutput)
 }
@@ -34586,11 +34468,7 @@ func (o IntegrationRuntimeSsisCatalogInfoResponsePtrOutput) ToIntegrationRuntime
 
 func (o IntegrationRuntimeSsisCatalogInfoResponsePtrOutput) Elem() IntegrationRuntimeSsisCatalogInfoResponseOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfoResponse) IntegrationRuntimeSsisCatalogInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeSsisCatalogInfoResponse
-		return ret
+		return *v
 	}).(IntegrationRuntimeSsisCatalogInfoResponseOutput)
 }
 
@@ -34746,7 +34624,7 @@ func (o IntegrationRuntimeSsisPropertiesOutput) ToIntegrationRuntimeSsisProperti
 }
 
 func (o IntegrationRuntimeSsisPropertiesOutput) ToIntegrationRuntimeSsisPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisProperties) *IntegrationRuntimeSsisProperties {
+	return o.ApplyT(func(v IntegrationRuntimeSsisProperties) *IntegrationRuntimeSsisProperties {
 		return &v
 	}).(IntegrationRuntimeSsisPropertiesPtrOutput)
 }
@@ -34795,13 +34673,7 @@ func (o IntegrationRuntimeSsisPropertiesPtrOutput) ToIntegrationRuntimeSsisPrope
 }
 
 func (o IntegrationRuntimeSsisPropertiesPtrOutput) Elem() IntegrationRuntimeSsisPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) IntegrationRuntimeSsisProperties {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeSsisProperties
-		return ret
-	}).(IntegrationRuntimeSsisPropertiesOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) IntegrationRuntimeSsisProperties { return *v }).(IntegrationRuntimeSsisPropertiesOutput)
 }
 
 // Catalog information for managed dedicated integration runtime.
@@ -34966,7 +34838,7 @@ func (o IntegrationRuntimeSsisPropertiesResponseOutput) ToIntegrationRuntimeSsis
 }
 
 func (o IntegrationRuntimeSsisPropertiesResponseOutput) ToIntegrationRuntimeSsisPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisPropertiesResponse) *IntegrationRuntimeSsisPropertiesResponse {
+	return o.ApplyT(func(v IntegrationRuntimeSsisPropertiesResponse) *IntegrationRuntimeSsisPropertiesResponse {
 		return &v
 	}).(IntegrationRuntimeSsisPropertiesResponsePtrOutput)
 }
@@ -35017,13 +34889,7 @@ func (o IntegrationRuntimeSsisPropertiesResponsePtrOutput) ToIntegrationRuntimeS
 }
 
 func (o IntegrationRuntimeSsisPropertiesResponsePtrOutput) Elem() IntegrationRuntimeSsisPropertiesResponseOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisPropertiesResponse) IntegrationRuntimeSsisPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeSsisPropertiesResponse
-		return ret
-	}).(IntegrationRuntimeSsisPropertiesResponseOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeSsisPropertiesResponse) IntegrationRuntimeSsisPropertiesResponse { return *v }).(IntegrationRuntimeSsisPropertiesResponseOutput)
 }
 
 // Catalog information for managed dedicated integration runtime.
@@ -35176,7 +35042,7 @@ func (o IntegrationRuntimeVNetPropertiesOutput) ToIntegrationRuntimeVNetProperti
 }
 
 func (o IntegrationRuntimeVNetPropertiesOutput) ToIntegrationRuntimeVNetPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeVNetProperties) *IntegrationRuntimeVNetProperties {
+	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *IntegrationRuntimeVNetProperties {
 		return &v
 	}).(IntegrationRuntimeVNetPropertiesPtrOutput)
 }
@@ -35206,13 +35072,7 @@ func (o IntegrationRuntimeVNetPropertiesPtrOutput) ToIntegrationRuntimeVNetPrope
 }
 
 func (o IntegrationRuntimeVNetPropertiesPtrOutput) Elem() IntegrationRuntimeVNetPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) IntegrationRuntimeVNetProperties {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeVNetProperties
-		return ret
-	}).(IntegrationRuntimeVNetPropertiesOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) IntegrationRuntimeVNetProperties { return *v }).(IntegrationRuntimeVNetPropertiesOutput)
 }
 
 // The name of the subnet this integration runtime will join.
@@ -35335,7 +35195,7 @@ func (o IntegrationRuntimeVNetPropertiesResponseOutput) ToIntegrationRuntimeVNet
 }
 
 func (o IntegrationRuntimeVNetPropertiesResponseOutput) ToIntegrationRuntimeVNetPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeVNetPropertiesResponse) *IntegrationRuntimeVNetPropertiesResponse {
+	return o.ApplyT(func(v IntegrationRuntimeVNetPropertiesResponse) *IntegrationRuntimeVNetPropertiesResponse {
 		return &v
 	}).(IntegrationRuntimeVNetPropertiesResponsePtrOutput)
 }
@@ -35365,13 +35225,7 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) ToIntegrationRuntimeV
 }
 
 func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) Elem() IntegrationRuntimeVNetPropertiesResponseOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeVNetPropertiesResponse) IntegrationRuntimeVNetPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeVNetPropertiesResponse
-		return ret
-	}).(IntegrationRuntimeVNetPropertiesResponseOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeVNetPropertiesResponse) IntegrationRuntimeVNetPropertiesResponse { return *v }).(IntegrationRuntimeVNetPropertiesResponseOutput)
 }
 
 // The name of the subnet this integration runtime will join.
@@ -36877,7 +36731,7 @@ func (o LinkedServiceReferenceOutput) ToLinkedServiceReferencePtrOutput() Linked
 }
 
 func (o LinkedServiceReferenceOutput) ToLinkedServiceReferencePtrOutputWithContext(ctx context.Context) LinkedServiceReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceReference) *LinkedServiceReference {
+	return o.ApplyT(func(v LinkedServiceReference) *LinkedServiceReference {
 		return &v
 	}).(LinkedServiceReferencePtrOutput)
 }
@@ -36912,13 +36766,7 @@ func (o LinkedServiceReferencePtrOutput) ToLinkedServiceReferencePtrOutputWithCo
 }
 
 func (o LinkedServiceReferencePtrOutput) Elem() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v *LinkedServiceReference) LinkedServiceReference {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceReference
-		return ret
-	}).(LinkedServiceReferenceOutput)
+	return o.ApplyT(func(v *LinkedServiceReference) LinkedServiceReference { return *v }).(LinkedServiceReferenceOutput)
 }
 
 // Arguments for LinkedService.
@@ -37100,7 +36948,7 @@ func (o LinkedServiceReferenceResponseOutput) ToLinkedServiceReferenceResponsePt
 }
 
 func (o LinkedServiceReferenceResponseOutput) ToLinkedServiceReferenceResponsePtrOutputWithContext(ctx context.Context) LinkedServiceReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceReferenceResponse) *LinkedServiceReferenceResponse {
+	return o.ApplyT(func(v LinkedServiceReferenceResponse) *LinkedServiceReferenceResponse {
 		return &v
 	}).(LinkedServiceReferenceResponsePtrOutput)
 }
@@ -37135,13 +36983,7 @@ func (o LinkedServiceReferenceResponsePtrOutput) ToLinkedServiceReferenceRespons
 }
 
 func (o LinkedServiceReferenceResponsePtrOutput) Elem() LinkedServiceReferenceResponseOutput {
-	return o.ApplyT(func(v *LinkedServiceReferenceResponse) LinkedServiceReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceReferenceResponse
-		return ret
-	}).(LinkedServiceReferenceResponseOutput)
+	return o.ApplyT(func(v *LinkedServiceReferenceResponse) LinkedServiceReferenceResponse { return *v }).(LinkedServiceReferenceResponseOutput)
 }
 
 // Arguments for LinkedService.
@@ -45755,7 +45597,7 @@ func (o PipelineReferenceOutput) ToPipelineReferencePtrOutput() PipelineReferenc
 }
 
 func (o PipelineReferenceOutput) ToPipelineReferencePtrOutputWithContext(ctx context.Context) PipelineReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineReference) *PipelineReference {
+	return o.ApplyT(func(v PipelineReference) *PipelineReference {
 		return &v
 	}).(PipelineReferencePtrOutput)
 }
@@ -45790,13 +45632,7 @@ func (o PipelineReferencePtrOutput) ToPipelineReferencePtrOutputWithContext(ctx 
 }
 
 func (o PipelineReferencePtrOutput) Elem() PipelineReferenceOutput {
-	return o.ApplyT(func(v *PipelineReference) PipelineReference {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineReference
-		return ret
-	}).(PipelineReferenceOutput)
+	return o.ApplyT(func(v *PipelineReference) PipelineReference { return *v }).(PipelineReferenceOutput)
 }
 
 // Reference name.
@@ -45933,7 +45769,7 @@ func (o PipelineReferenceResponseOutput) ToPipelineReferenceResponsePtrOutput() 
 }
 
 func (o PipelineReferenceResponseOutput) ToPipelineReferenceResponsePtrOutputWithContext(ctx context.Context) PipelineReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineReferenceResponse) *PipelineReferenceResponse {
+	return o.ApplyT(func(v PipelineReferenceResponse) *PipelineReferenceResponse {
 		return &v
 	}).(PipelineReferenceResponsePtrOutput)
 }
@@ -45968,13 +45804,7 @@ func (o PipelineReferenceResponsePtrOutput) ToPipelineReferenceResponsePtrOutput
 }
 
 func (o PipelineReferenceResponsePtrOutput) Elem() PipelineReferenceResponseOutput {
-	return o.ApplyT(func(v *PipelineReferenceResponse) PipelineReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineReferenceResponse
-		return ret
-	}).(PipelineReferenceResponseOutput)
+	return o.ApplyT(func(v *PipelineReferenceResponse) PipelineReferenceResponse { return *v }).(PipelineReferenceResponseOutput)
 }
 
 // Reference name.
@@ -46115,7 +45945,7 @@ func (o PolybaseSettingsOutput) ToPolybaseSettingsPtrOutput() PolybaseSettingsPt
 }
 
 func (o PolybaseSettingsOutput) ToPolybaseSettingsPtrOutputWithContext(ctx context.Context) PolybaseSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolybaseSettings) *PolybaseSettings {
+	return o.ApplyT(func(v PolybaseSettings) *PolybaseSettings {
 		return &v
 	}).(PolybaseSettingsPtrOutput)
 }
@@ -46155,13 +45985,7 @@ func (o PolybaseSettingsPtrOutput) ToPolybaseSettingsPtrOutputWithContext(ctx co
 }
 
 func (o PolybaseSettingsPtrOutput) Elem() PolybaseSettingsOutput {
-	return o.ApplyT(func(v *PolybaseSettings) PolybaseSettings {
-		if v != nil {
-			return *v
-		}
-		var ret PolybaseSettings
-		return ret
-	}).(PolybaseSettingsOutput)
+	return o.ApplyT(func(v *PolybaseSettings) PolybaseSettings { return *v }).(PolybaseSettingsOutput)
 }
 
 // Determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -46312,7 +46136,7 @@ func (o PolybaseSettingsResponseOutput) ToPolybaseSettingsResponsePtrOutput() Po
 }
 
 func (o PolybaseSettingsResponseOutput) ToPolybaseSettingsResponsePtrOutputWithContext(ctx context.Context) PolybaseSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolybaseSettingsResponse) *PolybaseSettingsResponse {
+	return o.ApplyT(func(v PolybaseSettingsResponse) *PolybaseSettingsResponse {
 		return &v
 	}).(PolybaseSettingsResponsePtrOutput)
 }
@@ -46352,13 +46176,7 @@ func (o PolybaseSettingsResponsePtrOutput) ToPolybaseSettingsResponsePtrOutputWi
 }
 
 func (o PolybaseSettingsResponsePtrOutput) Elem() PolybaseSettingsResponseOutput {
-	return o.ApplyT(func(v *PolybaseSettingsResponse) PolybaseSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PolybaseSettingsResponse
-		return ret
-	}).(PolybaseSettingsResponseOutput)
+	return o.ApplyT(func(v *PolybaseSettingsResponse) PolybaseSettingsResponse { return *v }).(PolybaseSettingsResponseOutput)
 }
 
 // Determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -48160,7 +47978,7 @@ type RecurrenceSchedule struct {
 	// The monthly occurrences.
 	MonthlyOccurrences []RecurrenceScheduleOccurrence `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays []DaysOfWeek `pulumi:"weekDays"`
+	WeekDays []string `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -48261,7 +48079,7 @@ func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutput() RecurrenceSche
 }
 
 func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutputWithContext(ctx context.Context) RecurrenceSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceSchedule) *RecurrenceSchedule {
+	return o.ApplyT(func(v RecurrenceSchedule) *RecurrenceSchedule {
 		return &v
 	}).(RecurrenceSchedulePtrOutput)
 }
@@ -48287,8 +48105,8 @@ func (o RecurrenceScheduleOutput) MonthlyOccurrences() RecurrenceScheduleOccurre
 }
 
 // The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -48306,13 +48124,7 @@ func (o RecurrenceSchedulePtrOutput) ToRecurrenceSchedulePtrOutputWithContext(ct
 }
 
 func (o RecurrenceSchedulePtrOutput) Elem() RecurrenceScheduleOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) RecurrenceSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret RecurrenceSchedule
-		return ret
-	}).(RecurrenceScheduleOutput)
+	return o.ApplyT(func(v *RecurrenceSchedule) RecurrenceSchedule { return *v }).(RecurrenceScheduleOutput)
 }
 
 // The hours.
@@ -48356,19 +48168,19 @@ func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccu
 }
 
 // The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
+func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(DaysOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
-	Day *DayOfWeek `pulumi:"day"`
+	Day *string `pulumi:"day"`
 	// The occurrence.
 	Occurrence *int `pulumi:"occurrence"`
 }
@@ -48387,7 +48199,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day DayOfWeekPtrInput `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -48445,8 +48257,8 @@ func (o RecurrenceScheduleOccurrenceOutput) ToRecurrenceScheduleOccurrenceOutput
 }
 
 // The day of the week.
-func (o RecurrenceScheduleOccurrenceOutput) Day() DayOfWeekPtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *DayOfWeek { return v.Day }).(DayOfWeekPtrOutput)
+func (o RecurrenceScheduleOccurrenceOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
 // The occurrence.
@@ -48695,7 +48507,7 @@ func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutput(
 }
 
 func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceScheduleResponse) *RecurrenceScheduleResponse {
+	return o.ApplyT(func(v RecurrenceScheduleResponse) *RecurrenceScheduleResponse {
 		return &v
 	}).(RecurrenceScheduleResponsePtrOutput)
 }
@@ -48740,13 +48552,7 @@ func (o RecurrenceScheduleResponsePtrOutput) ToRecurrenceScheduleResponsePtrOutp
 }
 
 func (o RecurrenceScheduleResponsePtrOutput) Elem() RecurrenceScheduleResponseOutput {
-	return o.ApplyT(func(v *RecurrenceScheduleResponse) RecurrenceScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RecurrenceScheduleResponse
-		return ret
-	}).(RecurrenceScheduleResponseOutput)
+	return o.ApplyT(func(v *RecurrenceScheduleResponse) RecurrenceScheduleResponse { return *v }).(RecurrenceScheduleResponseOutput)
 }
 
 // The hours.
@@ -48899,7 +48705,7 @@ func (o RedirectIncompatibleRowSettingsOutput) ToRedirectIncompatibleRowSettings
 }
 
 func (o RedirectIncompatibleRowSettingsOutput) ToRedirectIncompatibleRowSettingsPtrOutputWithContext(ctx context.Context) RedirectIncompatibleRowSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedirectIncompatibleRowSettings) *RedirectIncompatibleRowSettings {
+	return o.ApplyT(func(v RedirectIncompatibleRowSettings) *RedirectIncompatibleRowSettings {
 		return &v
 	}).(RedirectIncompatibleRowSettingsPtrOutput)
 }
@@ -48929,13 +48735,7 @@ func (o RedirectIncompatibleRowSettingsPtrOutput) ToRedirectIncompatibleRowSetti
 }
 
 func (o RedirectIncompatibleRowSettingsPtrOutput) Elem() RedirectIncompatibleRowSettingsOutput {
-	return o.ApplyT(func(v *RedirectIncompatibleRowSettings) RedirectIncompatibleRowSettings {
-		if v != nil {
-			return *v
-		}
-		var ret RedirectIncompatibleRowSettings
-		return ret
-	}).(RedirectIncompatibleRowSettingsOutput)
+	return o.ApplyT(func(v *RedirectIncompatibleRowSettings) RedirectIncompatibleRowSettings { return *v }).(RedirectIncompatibleRowSettingsOutput)
 }
 
 // Name of the Azure Storage, Storage SAS, or Azure Data Lake Store linked service used for redirecting incompatible row. Must be specified if redirectIncompatibleRowSettings is specified. Type: string (or Expression with resultType string).
@@ -49058,7 +48858,7 @@ func (o RedirectIncompatibleRowSettingsResponseOutput) ToRedirectIncompatibleRow
 }
 
 func (o RedirectIncompatibleRowSettingsResponseOutput) ToRedirectIncompatibleRowSettingsResponsePtrOutputWithContext(ctx context.Context) RedirectIncompatibleRowSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedirectIncompatibleRowSettingsResponse) *RedirectIncompatibleRowSettingsResponse {
+	return o.ApplyT(func(v RedirectIncompatibleRowSettingsResponse) *RedirectIncompatibleRowSettingsResponse {
 		return &v
 	}).(RedirectIncompatibleRowSettingsResponsePtrOutput)
 }
@@ -49088,13 +48888,7 @@ func (o RedirectIncompatibleRowSettingsResponsePtrOutput) ToRedirectIncompatible
 }
 
 func (o RedirectIncompatibleRowSettingsResponsePtrOutput) Elem() RedirectIncompatibleRowSettingsResponseOutput {
-	return o.ApplyT(func(v *RedirectIncompatibleRowSettingsResponse) RedirectIncompatibleRowSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RedirectIncompatibleRowSettingsResponse
-		return ret
-	}).(RedirectIncompatibleRowSettingsResponseOutput)
+	return o.ApplyT(func(v *RedirectIncompatibleRowSettingsResponse) RedirectIncompatibleRowSettingsResponse { return *v }).(RedirectIncompatibleRowSettingsResponseOutput)
 }
 
 // Name of the Azure Storage, Storage SAS, or Azure Data Lake Store linked service used for redirecting incompatible row. Must be specified if redirectIncompatibleRowSettings is specified. Type: string (or Expression with resultType string).
@@ -49217,7 +49011,7 @@ func (o RedshiftUnloadSettingsOutput) ToRedshiftUnloadSettingsPtrOutput() Redshi
 }
 
 func (o RedshiftUnloadSettingsOutput) ToRedshiftUnloadSettingsPtrOutputWithContext(ctx context.Context) RedshiftUnloadSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedshiftUnloadSettings) *RedshiftUnloadSettings {
+	return o.ApplyT(func(v RedshiftUnloadSettings) *RedshiftUnloadSettings {
 		return &v
 	}).(RedshiftUnloadSettingsPtrOutput)
 }
@@ -49247,13 +49041,7 @@ func (o RedshiftUnloadSettingsPtrOutput) ToRedshiftUnloadSettingsPtrOutputWithCo
 }
 
 func (o RedshiftUnloadSettingsPtrOutput) Elem() RedshiftUnloadSettingsOutput {
-	return o.ApplyT(func(v *RedshiftUnloadSettings) RedshiftUnloadSettings {
-		if v != nil {
-			return *v
-		}
-		var ret RedshiftUnloadSettings
-		return ret
-	}).(RedshiftUnloadSettingsOutput)
+	return o.ApplyT(func(v *RedshiftUnloadSettings) RedshiftUnloadSettings { return *v }).(RedshiftUnloadSettingsOutput)
 }
 
 // The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
@@ -49376,7 +49164,7 @@ func (o RedshiftUnloadSettingsResponseOutput) ToRedshiftUnloadSettingsResponsePt
 }
 
 func (o RedshiftUnloadSettingsResponseOutput) ToRedshiftUnloadSettingsResponsePtrOutputWithContext(ctx context.Context) RedshiftUnloadSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedshiftUnloadSettingsResponse) *RedshiftUnloadSettingsResponse {
+	return o.ApplyT(func(v RedshiftUnloadSettingsResponse) *RedshiftUnloadSettingsResponse {
 		return &v
 	}).(RedshiftUnloadSettingsResponsePtrOutput)
 }
@@ -49406,13 +49194,7 @@ func (o RedshiftUnloadSettingsResponsePtrOutput) ToRedshiftUnloadSettingsRespons
 }
 
 func (o RedshiftUnloadSettingsResponsePtrOutput) Elem() RedshiftUnloadSettingsResponseOutput {
-	return o.ApplyT(func(v *RedshiftUnloadSettingsResponse) RedshiftUnloadSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RedshiftUnloadSettingsResponse
-		return ret
-	}).(RedshiftUnloadSettingsResponseOutput)
+	return o.ApplyT(func(v *RedshiftUnloadSettingsResponse) RedshiftUnloadSettingsResponse { return *v }).(RedshiftUnloadSettingsResponseOutput)
 }
 
 // The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
@@ -50619,7 +50401,7 @@ func (o RetryPolicyOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
 }
 
 func (o RetryPolicyOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicy) *RetryPolicy {
+	return o.ApplyT(func(v RetryPolicy) *RetryPolicy {
 		return &v
 	}).(RetryPolicyPtrOutput)
 }
@@ -50649,13 +50431,7 @@ func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func (o RetryPolicyPtrOutput) Elem() RetryPolicyOutput {
-	return o.ApplyT(func(v *RetryPolicy) RetryPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RetryPolicy
-		return ret
-	}).(RetryPolicyOutput)
+	return o.ApplyT(func(v *RetryPolicy) RetryPolicy { return *v }).(RetryPolicyOutput)
 }
 
 // Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -50778,7 +50554,7 @@ func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutput() RetryPolicyR
 }
 
 func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicyResponse) *RetryPolicyResponse {
+	return o.ApplyT(func(v RetryPolicyResponse) *RetryPolicyResponse {
 		return &v
 	}).(RetryPolicyResponsePtrOutput)
 }
@@ -50808,13 +50584,7 @@ func (o RetryPolicyResponsePtrOutput) ToRetryPolicyResponsePtrOutputWithContext(
 }
 
 func (o RetryPolicyResponsePtrOutput) Elem() RetryPolicyResponseOutput {
-	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RetryPolicyResponse
-		return ret
-	}).(RetryPolicyResponseOutput)
+	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse { return *v }).(RetryPolicyResponseOutput)
 }
 
 // Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -50941,7 +50711,7 @@ func (o SSISAccessCredentialOutput) ToSSISAccessCredentialPtrOutput() SSISAccess
 }
 
 func (o SSISAccessCredentialOutput) ToSSISAccessCredentialPtrOutputWithContext(ctx context.Context) SSISAccessCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SSISAccessCredential) *SSISAccessCredential {
+	return o.ApplyT(func(v SSISAccessCredential) *SSISAccessCredential {
 		return &v
 	}).(SSISAccessCredentialPtrOutput)
 }
@@ -50976,13 +50746,7 @@ func (o SSISAccessCredentialPtrOutput) ToSSISAccessCredentialPtrOutputWithContex
 }
 
 func (o SSISAccessCredentialPtrOutput) Elem() SSISAccessCredentialOutput {
-	return o.ApplyT(func(v *SSISAccessCredential) SSISAccessCredential {
-		if v != nil {
-			return *v
-		}
-		var ret SSISAccessCredential
-		return ret
-	}).(SSISAccessCredentialOutput)
+	return o.ApplyT(func(v *SSISAccessCredential) SSISAccessCredential { return *v }).(SSISAccessCredentialOutput)
 }
 
 // Domain for windows authentication.
@@ -51119,7 +50883,7 @@ func (o SSISAccessCredentialResponseOutput) ToSSISAccessCredentialResponsePtrOut
 }
 
 func (o SSISAccessCredentialResponseOutput) ToSSISAccessCredentialResponsePtrOutputWithContext(ctx context.Context) SSISAccessCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SSISAccessCredentialResponse) *SSISAccessCredentialResponse {
+	return o.ApplyT(func(v SSISAccessCredentialResponse) *SSISAccessCredentialResponse {
 		return &v
 	}).(SSISAccessCredentialResponsePtrOutput)
 }
@@ -51154,13 +50918,7 @@ func (o SSISAccessCredentialResponsePtrOutput) ToSSISAccessCredentialResponsePtr
 }
 
 func (o SSISAccessCredentialResponsePtrOutput) Elem() SSISAccessCredentialResponseOutput {
-	return o.ApplyT(func(v *SSISAccessCredentialResponse) SSISAccessCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SSISAccessCredentialResponse
-		return ret
-	}).(SSISAccessCredentialResponseOutput)
+	return o.ApplyT(func(v *SSISAccessCredentialResponse) SSISAccessCredentialResponse { return *v }).(SSISAccessCredentialResponseOutput)
 }
 
 // Domain for windows authentication.
@@ -51297,7 +51055,7 @@ func (o SSISExecutionCredentialOutput) ToSSISExecutionCredentialPtrOutput() SSIS
 }
 
 func (o SSISExecutionCredentialOutput) ToSSISExecutionCredentialPtrOutputWithContext(ctx context.Context) SSISExecutionCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SSISExecutionCredential) *SSISExecutionCredential {
+	return o.ApplyT(func(v SSISExecutionCredential) *SSISExecutionCredential {
 		return &v
 	}).(SSISExecutionCredentialPtrOutput)
 }
@@ -51332,13 +51090,7 @@ func (o SSISExecutionCredentialPtrOutput) ToSSISExecutionCredentialPtrOutputWith
 }
 
 func (o SSISExecutionCredentialPtrOutput) Elem() SSISExecutionCredentialOutput {
-	return o.ApplyT(func(v *SSISExecutionCredential) SSISExecutionCredential {
-		if v != nil {
-			return *v
-		}
-		var ret SSISExecutionCredential
-		return ret
-	}).(SSISExecutionCredentialOutput)
+	return o.ApplyT(func(v *SSISExecutionCredential) SSISExecutionCredential { return *v }).(SSISExecutionCredentialOutput)
 }
 
 // Domain for windows authentication.
@@ -51475,7 +51227,7 @@ func (o SSISExecutionCredentialResponseOutput) ToSSISExecutionCredentialResponse
 }
 
 func (o SSISExecutionCredentialResponseOutput) ToSSISExecutionCredentialResponsePtrOutputWithContext(ctx context.Context) SSISExecutionCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SSISExecutionCredentialResponse) *SSISExecutionCredentialResponse {
+	return o.ApplyT(func(v SSISExecutionCredentialResponse) *SSISExecutionCredentialResponse {
 		return &v
 	}).(SSISExecutionCredentialResponsePtrOutput)
 }
@@ -51510,13 +51262,7 @@ func (o SSISExecutionCredentialResponsePtrOutput) ToSSISExecutionCredentialRespo
 }
 
 func (o SSISExecutionCredentialResponsePtrOutput) Elem() SSISExecutionCredentialResponseOutput {
-	return o.ApplyT(func(v *SSISExecutionCredentialResponse) SSISExecutionCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SSISExecutionCredentialResponse
-		return ret
-	}).(SSISExecutionCredentialResponseOutput)
+	return o.ApplyT(func(v *SSISExecutionCredentialResponse) SSISExecutionCredentialResponse { return *v }).(SSISExecutionCredentialResponseOutput)
 }
 
 // Domain for windows authentication.
@@ -51857,7 +51603,7 @@ func (o SSISLogLocationOutput) ToSSISLogLocationPtrOutput() SSISLogLocationPtrOu
 }
 
 func (o SSISLogLocationOutput) ToSSISLogLocationPtrOutputWithContext(ctx context.Context) SSISLogLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SSISLogLocation) *SSISLogLocation {
+	return o.ApplyT(func(v SSISLogLocation) *SSISLogLocation {
 		return &v
 	}).(SSISLogLocationPtrOutput)
 }
@@ -51897,13 +51643,7 @@ func (o SSISLogLocationPtrOutput) ToSSISLogLocationPtrOutputWithContext(ctx cont
 }
 
 func (o SSISLogLocationPtrOutput) Elem() SSISLogLocationOutput {
-	return o.ApplyT(func(v *SSISLogLocation) SSISLogLocation {
-		if v != nil {
-			return *v
-		}
-		var ret SSISLogLocation
-		return ret
-	}).(SSISLogLocationOutput)
+	return o.ApplyT(func(v *SSISLogLocation) SSISLogLocation { return *v }).(SSISLogLocationOutput)
 }
 
 // The package execution log access credential.
@@ -52054,7 +51794,7 @@ func (o SSISLogLocationResponseOutput) ToSSISLogLocationResponsePtrOutput() SSIS
 }
 
 func (o SSISLogLocationResponseOutput) ToSSISLogLocationResponsePtrOutputWithContext(ctx context.Context) SSISLogLocationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SSISLogLocationResponse) *SSISLogLocationResponse {
+	return o.ApplyT(func(v SSISLogLocationResponse) *SSISLogLocationResponse {
 		return &v
 	}).(SSISLogLocationResponsePtrOutput)
 }
@@ -52094,13 +51834,7 @@ func (o SSISLogLocationResponsePtrOutput) ToSSISLogLocationResponsePtrOutputWith
 }
 
 func (o SSISLogLocationResponsePtrOutput) Elem() SSISLogLocationResponseOutput {
-	return o.ApplyT(func(v *SSISLogLocationResponse) SSISLogLocationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SSISLogLocationResponse
-		return ret
-	}).(SSISLogLocationResponseOutput)
+	return o.ApplyT(func(v *SSISLogLocationResponse) SSISLogLocationResponse { return *v }).(SSISLogLocationResponseOutput)
 }
 
 // The package execution log access credential.
@@ -56732,7 +56466,7 @@ func (o SecureStringOutput) ToSecureStringPtrOutput() SecureStringPtrOutput {
 }
 
 func (o SecureStringOutput) ToSecureStringPtrOutputWithContext(ctx context.Context) SecureStringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecureString) *SecureString {
+	return o.ApplyT(func(v SecureString) *SecureString {
 		return &v
 	}).(SecureStringPtrOutput)
 }
@@ -56763,13 +56497,7 @@ func (o SecureStringPtrOutput) ToSecureStringPtrOutputWithContext(ctx context.Co
 }
 
 func (o SecureStringPtrOutput) Elem() SecureStringOutput {
-	return o.ApplyT(func(v *SecureString) SecureString {
-		if v != nil {
-			return *v
-		}
-		var ret SecureString
-		return ret
-	}).(SecureStringOutput)
+	return o.ApplyT(func(v *SecureString) SecureString { return *v }).(SecureStringOutput)
 }
 
 // Type of the secret.
@@ -56895,7 +56623,7 @@ func (o SecureStringResponseOutput) ToSecureStringResponsePtrOutput() SecureStri
 }
 
 func (o SecureStringResponseOutput) ToSecureStringResponsePtrOutputWithContext(ctx context.Context) SecureStringResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecureStringResponse) *SecureStringResponse {
+	return o.ApplyT(func(v SecureStringResponse) *SecureStringResponse {
 		return &v
 	}).(SecureStringResponsePtrOutput)
 }
@@ -56926,13 +56654,7 @@ func (o SecureStringResponsePtrOutput) ToSecureStringResponsePtrOutputWithContex
 }
 
 func (o SecureStringResponsePtrOutput) Elem() SecureStringResponseOutput {
-	return o.ApplyT(func(v *SecureStringResponse) SecureStringResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecureStringResponse
-		return ret
-	}).(SecureStringResponseOutput)
+	return o.ApplyT(func(v *SecureStringResponse) SecureStringResponse { return *v }).(SecureStringResponseOutput)
 }
 
 // Type of the secret.
@@ -62636,7 +62358,7 @@ func (o StagingSettingsOutput) ToStagingSettingsPtrOutput() StagingSettingsPtrOu
 }
 
 func (o StagingSettingsOutput) ToStagingSettingsPtrOutputWithContext(ctx context.Context) StagingSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StagingSettings) *StagingSettings {
+	return o.ApplyT(func(v StagingSettings) *StagingSettings {
 		return &v
 	}).(StagingSettingsPtrOutput)
 }
@@ -62671,13 +62393,7 @@ func (o StagingSettingsPtrOutput) ToStagingSettingsPtrOutputWithContext(ctx cont
 }
 
 func (o StagingSettingsPtrOutput) Elem() StagingSettingsOutput {
-	return o.ApplyT(func(v *StagingSettings) StagingSettings {
-		if v != nil {
-			return *v
-		}
-		var ret StagingSettings
-		return ret
-	}).(StagingSettingsOutput)
+	return o.ApplyT(func(v *StagingSettings) StagingSettings { return *v }).(StagingSettingsOutput)
 }
 
 // Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
@@ -62814,7 +62530,7 @@ func (o StagingSettingsResponseOutput) ToStagingSettingsResponsePtrOutput() Stag
 }
 
 func (o StagingSettingsResponseOutput) ToStagingSettingsResponsePtrOutputWithContext(ctx context.Context) StagingSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StagingSettingsResponse) *StagingSettingsResponse {
+	return o.ApplyT(func(v StagingSettingsResponse) *StagingSettingsResponse {
 		return &v
 	}).(StagingSettingsResponsePtrOutput)
 }
@@ -62849,13 +62565,7 @@ func (o StagingSettingsResponsePtrOutput) ToStagingSettingsResponsePtrOutputWith
 }
 
 func (o StagingSettingsResponsePtrOutput) Elem() StagingSettingsResponseOutput {
-	return o.ApplyT(func(v *StagingSettingsResponse) StagingSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StagingSettingsResponse
-		return ret
-	}).(StagingSettingsResponseOutput)
+	return o.ApplyT(func(v *StagingSettingsResponse) StagingSettingsResponse { return *v }).(StagingSettingsResponseOutput)
 }
 
 // Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
@@ -65807,7 +65517,7 @@ func (o WebActivityAuthenticationOutput) ToWebActivityAuthenticationPtrOutput() 
 }
 
 func (o WebActivityAuthenticationOutput) ToWebActivityAuthenticationPtrOutputWithContext(ctx context.Context) WebActivityAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebActivityAuthentication) *WebActivityAuthentication {
+	return o.ApplyT(func(v WebActivityAuthentication) *WebActivityAuthentication {
 		return &v
 	}).(WebActivityAuthenticationPtrOutput)
 }
@@ -65852,13 +65562,7 @@ func (o WebActivityAuthenticationPtrOutput) ToWebActivityAuthenticationPtrOutput
 }
 
 func (o WebActivityAuthenticationPtrOutput) Elem() WebActivityAuthenticationOutput {
-	return o.ApplyT(func(v *WebActivityAuthentication) WebActivityAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret WebActivityAuthentication
-		return ret
-	}).(WebActivityAuthenticationOutput)
+	return o.ApplyT(func(v *WebActivityAuthentication) WebActivityAuthentication { return *v }).(WebActivityAuthenticationOutput)
 }
 
 // Password for the PFX file or basic authentication.
@@ -66023,7 +65727,7 @@ func (o WebActivityAuthenticationResponseOutput) ToWebActivityAuthenticationResp
 }
 
 func (o WebActivityAuthenticationResponseOutput) ToWebActivityAuthenticationResponsePtrOutputWithContext(ctx context.Context) WebActivityAuthenticationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebActivityAuthenticationResponse) *WebActivityAuthenticationResponse {
+	return o.ApplyT(func(v WebActivityAuthenticationResponse) *WebActivityAuthenticationResponse {
 		return &v
 	}).(WebActivityAuthenticationResponsePtrOutput)
 }
@@ -66068,13 +65772,7 @@ func (o WebActivityAuthenticationResponsePtrOutput) ToWebActivityAuthenticationR
 }
 
 func (o WebActivityAuthenticationResponsePtrOutput) Elem() WebActivityAuthenticationResponseOutput {
-	return o.ApplyT(func(v *WebActivityAuthenticationResponse) WebActivityAuthenticationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WebActivityAuthenticationResponse
-		return ret
-	}).(WebActivityAuthenticationResponseOutput)
+	return o.ApplyT(func(v *WebActivityAuthenticationResponse) WebActivityAuthenticationResponse { return *v }).(WebActivityAuthenticationResponseOutput)
 }
 
 // Password for the PFX file or basic authentication.
@@ -68735,6 +68433,96 @@ func (o ZohoSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ZohoSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type SSISExecutionParameterResponseArgsMapMap map[string]SSISExecutionParameterResponseArgsMapInput
+
+func (SSISExecutionParameterResponseArgsMapMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterResponseArgsMap)(nil)).Elem()
+}
+
+func (i SSISExecutionParameterResponseArgsMapMap) ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput {
+	return i.ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(context.Background())
+}
+
+func (i SSISExecutionParameterResponseArgsMapMap) ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterResponseArgsMapMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SSISExecutionParameterResponseArgsMapMapOutput)
+}
+
+type SSISExecutionParameterResponseArgsMapMapOutput struct{ *pulumi.OutputState }
+
+func (SSISExecutionParameterResponseArgsMapMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterResponseArgsMap)(nil)).Elem()
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterResponseArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterResponseArgsMapOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterResponseArgsMap {
+		return vs[0].(map[string]SSISExecutionParameterResponseArgsMap)[vs[1].(string)]
+	}).(SSISExecutionParameterResponseArgsMapOutput)
+}
+
+// SSISExecutionParameterResponseArgsMapMapInput is an input type that accepts SSISExecutionParameterResponseArgsMapMap and SSISExecutionParameterResponseArgsMapMapOutput values.
+// You can construct a concrete instance of `SSISExecutionParameterResponseArgsMapMapInput` via:
+//
+//          SSISExecutionParameterResponseArgsMapMap{ "key": SSISExecutionParameterResponseArgsMap{ "key": SSISExecutionParameterResponseArgsArgs{...} } }
+type SSISExecutionParameterResponseArgsMapMapInput interface {
+	pulumi.Input
+
+	ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput
+	ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(context.Context) SSISExecutionParameterResponseArgsMapMapOutput
+}
+
+type SSISExecutionParameterArgsMapMap map[string]SSISExecutionParameterArgsMapInput
+
+func (SSISExecutionParameterArgsMapMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterArgsMap)(nil)).Elem()
+}
+
+func (i SSISExecutionParameterArgsMapMap) ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput {
+	return i.ToSSISExecutionParameterArgsMapMapOutputWithContext(context.Background())
+}
+
+func (i SSISExecutionParameterArgsMapMap) ToSSISExecutionParameterArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterArgsMapMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SSISExecutionParameterArgsMapMapOutput)
+}
+
+type SSISExecutionParameterArgsMapMapOutput struct{ *pulumi.OutputState }
+
+func (SSISExecutionParameterArgsMapMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterArgsMap)(nil)).Elem()
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) ToSSISExecutionParameterArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterArgsMapOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterArgsMap {
+		return vs[0].(map[string]SSISExecutionParameterArgsMap)[vs[1].(string)]
+	}).(SSISExecutionParameterArgsMapOutput)
+}
+
+// SSISExecutionParameterArgsMapMapInput is an input type that accepts SSISExecutionParameterArgsMapMap and SSISExecutionParameterArgsMapMapOutput values.
+// You can construct a concrete instance of `SSISExecutionParameterArgsMapMapInput` via:
+//
+//          SSISExecutionParameterArgsMapMap{ "key": SSISExecutionParameterArgsMap{ "key": SSISExecutionParameterArgsArgs{...} } }
+type SSISExecutionParameterArgsMapMapInput interface {
+	pulumi.Input
+
+	ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput
+	ToSSISExecutionParameterArgsMapMapOutputWithContext(context.Context) SSISExecutionParameterArgsMapMapOutput
+}
+
 type SSISExecutionParameterMapMap map[string]SSISExecutionParameterMapInput
 
 func (SSISExecutionParameterMapMap) ElementType() reflect.Type {
@@ -68752,7 +68540,7 @@ func (i SSISExecutionParameterMapMap) ToSSISExecutionParameterMapMapOutputWithCo
 type SSISExecutionParameterMapMapOutput struct{ *pulumi.OutputState }
 
 func (SSISExecutionParameterMapMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SSISExecutionParameterMap)(nil)).Elem()
+	return reflect.TypeOf((*SSISExecutionParameterMap)(nil)).Elem()
 }
 
 func (o SSISExecutionParameterMapMapOutput) ToSSISExecutionParameterMapMapOutput() SSISExecutionParameterMapMapOutput {
@@ -68797,7 +68585,7 @@ func (i SSISExecutionParameterResponseMapMap) ToSSISExecutionParameterResponseMa
 type SSISExecutionParameterResponseMapMapOutput struct{ *pulumi.OutputState }
 
 func (SSISExecutionParameterResponseMapMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SSISExecutionParameterResponseMap)(nil)).Elem()
+	return reflect.TypeOf((*SSISExecutionParameterResponseMap)(nil)).Elem()
 }
 
 func (o SSISExecutionParameterResponseMapMapOutput) ToSSISExecutionParameterResponseMapMapOutput() SSISExecutionParameterResponseMapMapOutput {
@@ -69451,6 +69239,5 @@ func init() {
 	pulumi.RegisterOutputType(ZohoObjectDatasetResponseOutput{})
 	pulumi.RegisterOutputType(ZohoSourceOutput{})
 	pulumi.RegisterOutputType(ZohoSourceResponseOutput{})
-	pulumi.RegisterOutputType(SSISExecutionParameterMapMapOutput{})
 	pulumi.RegisterOutputType(SSISExecutionParameterResponseMapMapOutput{})
 }

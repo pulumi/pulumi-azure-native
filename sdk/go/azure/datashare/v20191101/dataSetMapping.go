@@ -155,7 +155,9 @@ func (i *DataSetMapping) ToDataSetMappingOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetMappingOutput)
 }
 
-type DataSetMappingOutput struct{ *pulumi.OutputState }
+type DataSetMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataSetMapping)(nil))

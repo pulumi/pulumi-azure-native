@@ -236,7 +236,9 @@ func (i *PartnerRegistration) ToPartnerRegistrationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegistrationOutput)
 }
 
-type PartnerRegistrationOutput struct{ *pulumi.OutputState }
+type PartnerRegistrationOutput struct {
+	*pulumi.OutputState
+}
 
 func (PartnerRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PartnerRegistration)(nil))

@@ -126,7 +126,9 @@ func (i *ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentLinkedStorageAccountOutput)
 }
 
-type ComponentLinkedStorageAccountOutput struct{ *pulumi.OutputState }
+type ComponentLinkedStorageAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (ComponentLinkedStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil))

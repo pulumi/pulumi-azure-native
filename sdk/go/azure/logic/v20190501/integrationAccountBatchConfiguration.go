@@ -152,7 +152,9 @@ func (i *IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationOutput)
 }
 
-type IntegrationAccountBatchConfigurationOutput struct{ *pulumi.OutputState }
+type IntegrationAccountBatchConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationAccountBatchConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountBatchConfiguration)(nil))

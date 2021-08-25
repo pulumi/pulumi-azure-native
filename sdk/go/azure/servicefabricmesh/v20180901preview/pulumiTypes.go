@@ -2490,7 +2490,7 @@ func (o ContainerStateResponseOutput) ToContainerStateResponsePtrOutput() Contai
 }
 
 func (o ContainerStateResponseOutput) ToContainerStateResponsePtrOutputWithContext(ctx context.Context) ContainerStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerStateResponse) *ContainerStateResponse {
+	return o.ApplyT(func(v ContainerStateResponse) *ContainerStateResponse {
 		return &v
 	}).(ContainerStateResponsePtrOutput)
 }
@@ -2535,13 +2535,7 @@ func (o ContainerStateResponsePtrOutput) ToContainerStateResponsePtrOutputWithCo
 }
 
 func (o ContainerStateResponsePtrOutput) Elem() ContainerStateResponseOutput {
-	return o.ApplyT(func(v *ContainerStateResponse) ContainerStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerStateResponse
-		return ret
-	}).(ContainerStateResponseOutput)
+	return o.ApplyT(func(v *ContainerStateResponse) ContainerStateResponse { return *v }).(ContainerStateResponseOutput)
 }
 
 // Human-readable status of this state.
@@ -2698,7 +2692,7 @@ func (o DiagnosticsDescriptionOutput) ToDiagnosticsDescriptionPtrOutput() Diagno
 }
 
 func (o DiagnosticsDescriptionOutput) ToDiagnosticsDescriptionPtrOutputWithContext(ctx context.Context) DiagnosticsDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsDescription) *DiagnosticsDescription {
+	return o.ApplyT(func(v DiagnosticsDescription) *DiagnosticsDescription {
 		return &v
 	}).(DiagnosticsDescriptionPtrOutput)
 }
@@ -2733,13 +2727,7 @@ func (o DiagnosticsDescriptionPtrOutput) ToDiagnosticsDescriptionPtrOutputWithCo
 }
 
 func (o DiagnosticsDescriptionPtrOutput) Elem() DiagnosticsDescriptionOutput {
-	return o.ApplyT(func(v *DiagnosticsDescription) DiagnosticsDescription {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsDescription
-		return ret
-	}).(DiagnosticsDescriptionOutput)
+	return o.ApplyT(func(v *DiagnosticsDescription) DiagnosticsDescription { return *v }).(DiagnosticsDescriptionOutput)
 }
 
 // The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
@@ -2876,7 +2864,7 @@ func (o DiagnosticsDescriptionResponseOutput) ToDiagnosticsDescriptionResponsePt
 }
 
 func (o DiagnosticsDescriptionResponseOutput) ToDiagnosticsDescriptionResponsePtrOutputWithContext(ctx context.Context) DiagnosticsDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsDescriptionResponse) *DiagnosticsDescriptionResponse {
+	return o.ApplyT(func(v DiagnosticsDescriptionResponse) *DiagnosticsDescriptionResponse {
 		return &v
 	}).(DiagnosticsDescriptionResponsePtrOutput)
 }
@@ -2913,13 +2901,7 @@ func (o DiagnosticsDescriptionResponsePtrOutput) ToDiagnosticsDescriptionRespons
 }
 
 func (o DiagnosticsDescriptionResponsePtrOutput) Elem() DiagnosticsDescriptionResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) DiagnosticsDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsDescriptionResponse
-		return ret
-	}).(DiagnosticsDescriptionResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) DiagnosticsDescriptionResponse { return *v }).(DiagnosticsDescriptionResponseOutput)
 }
 
 // The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
@@ -3052,7 +3034,7 @@ func (o DiagnosticsRefOutput) ToDiagnosticsRefPtrOutput() DiagnosticsRefPtrOutpu
 }
 
 func (o DiagnosticsRefOutput) ToDiagnosticsRefPtrOutputWithContext(ctx context.Context) DiagnosticsRefPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsRef) *DiagnosticsRef {
+	return o.ApplyT(func(v DiagnosticsRef) *DiagnosticsRef {
 		return &v
 	}).(DiagnosticsRefPtrOutput)
 }
@@ -3082,13 +3064,7 @@ func (o DiagnosticsRefPtrOutput) ToDiagnosticsRefPtrOutputWithContext(ctx contex
 }
 
 func (o DiagnosticsRefPtrOutput) Elem() DiagnosticsRefOutput {
-	return o.ApplyT(func(v *DiagnosticsRef) DiagnosticsRef {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsRef
-		return ret
-	}).(DiagnosticsRefOutput)
+	return o.ApplyT(func(v *DiagnosticsRef) DiagnosticsRef { return *v }).(DiagnosticsRefOutput)
 }
 
 // Status of whether or not sinks are enabled.
@@ -3211,7 +3187,7 @@ func (o DiagnosticsRefResponseOutput) ToDiagnosticsRefResponsePtrOutput() Diagno
 }
 
 func (o DiagnosticsRefResponseOutput) ToDiagnosticsRefResponsePtrOutputWithContext(ctx context.Context) DiagnosticsRefResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsRefResponse) *DiagnosticsRefResponse {
+	return o.ApplyT(func(v DiagnosticsRefResponse) *DiagnosticsRefResponse {
 		return &v
 	}).(DiagnosticsRefResponsePtrOutput)
 }
@@ -3241,13 +3217,7 @@ func (o DiagnosticsRefResponsePtrOutput) ToDiagnosticsRefResponsePtrOutputWithCo
 }
 
 func (o DiagnosticsRefResponsePtrOutput) Elem() DiagnosticsRefResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsRefResponse) DiagnosticsRefResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsRefResponse
-		return ret
-	}).(DiagnosticsRefResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsRefResponse) DiagnosticsRefResponse { return *v }).(DiagnosticsRefResponseOutput)
 }
 
 // Status of whether or not sinks are enabled.
@@ -5356,7 +5326,7 @@ func (o ImageRegistryCredentialOutput) ToImageRegistryCredentialPtrOutput() Imag
 }
 
 func (o ImageRegistryCredentialOutput) ToImageRegistryCredentialPtrOutputWithContext(ctx context.Context) ImageRegistryCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRegistryCredential) *ImageRegistryCredential {
+	return o.ApplyT(func(v ImageRegistryCredential) *ImageRegistryCredential {
 		return &v
 	}).(ImageRegistryCredentialPtrOutput)
 }
@@ -5391,13 +5361,7 @@ func (o ImageRegistryCredentialPtrOutput) ToImageRegistryCredentialPtrOutputWith
 }
 
 func (o ImageRegistryCredentialPtrOutput) Elem() ImageRegistryCredentialOutput {
-	return o.ApplyT(func(v *ImageRegistryCredential) ImageRegistryCredential {
-		if v != nil {
-			return *v
-		}
-		var ret ImageRegistryCredential
-		return ret
-	}).(ImageRegistryCredentialOutput)
+	return o.ApplyT(func(v *ImageRegistryCredential) ImageRegistryCredential { return *v }).(ImageRegistryCredentialOutput)
 }
 
 // The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
@@ -5534,7 +5498,7 @@ func (o ImageRegistryCredentialResponseOutput) ToImageRegistryCredentialResponse
 }
 
 func (o ImageRegistryCredentialResponseOutput) ToImageRegistryCredentialResponsePtrOutputWithContext(ctx context.Context) ImageRegistryCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRegistryCredentialResponse) *ImageRegistryCredentialResponse {
+	return o.ApplyT(func(v ImageRegistryCredentialResponse) *ImageRegistryCredentialResponse {
 		return &v
 	}).(ImageRegistryCredentialResponsePtrOutput)
 }
@@ -5569,13 +5533,7 @@ func (o ImageRegistryCredentialResponsePtrOutput) ToImageRegistryCredentialRespo
 }
 
 func (o ImageRegistryCredentialResponsePtrOutput) Elem() ImageRegistryCredentialResponseOutput {
-	return o.ApplyT(func(v *ImageRegistryCredentialResponse) ImageRegistryCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ImageRegistryCredentialResponse
-		return ret
-	}).(ImageRegistryCredentialResponseOutput)
+	return o.ApplyT(func(v *ImageRegistryCredentialResponse) ImageRegistryCredentialResponse { return *v }).(ImageRegistryCredentialResponseOutput)
 }
 
 // The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
@@ -5733,7 +5691,7 @@ func (o NetworkRefOutput) ToNetworkRefPtrOutput() NetworkRefPtrOutput {
 }
 
 func (o NetworkRefOutput) ToNetworkRefPtrOutputWithContext(ctx context.Context) NetworkRefPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRef) *NetworkRef {
+	return o.ApplyT(func(v NetworkRef) *NetworkRef {
 		return &v
 	}).(NetworkRefPtrOutput)
 }
@@ -5763,13 +5721,7 @@ func (o NetworkRefPtrOutput) ToNetworkRefPtrOutputWithContext(ctx context.Contex
 }
 
 func (o NetworkRefPtrOutput) Elem() NetworkRefOutput {
-	return o.ApplyT(func(v *NetworkRef) NetworkRef {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkRef
-		return ret
-	}).(NetworkRefOutput)
+	return o.ApplyT(func(v *NetworkRef) NetworkRef { return *v }).(NetworkRefOutput)
 }
 
 // A list of endpoints that are exposed on this network.
@@ -5937,7 +5889,7 @@ func (o NetworkRefResponseOutput) ToNetworkRefResponsePtrOutput() NetworkRefResp
 }
 
 func (o NetworkRefResponseOutput) ToNetworkRefResponsePtrOutputWithContext(ctx context.Context) NetworkRefResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRefResponse) *NetworkRefResponse {
+	return o.ApplyT(func(v NetworkRefResponse) *NetworkRefResponse {
 		return &v
 	}).(NetworkRefResponsePtrOutput)
 }
@@ -5967,13 +5919,7 @@ func (o NetworkRefResponsePtrOutput) ToNetworkRefResponsePtrOutputWithContext(ct
 }
 
 func (o NetworkRefResponsePtrOutput) Elem() NetworkRefResponseOutput {
-	return o.ApplyT(func(v *NetworkRefResponse) NetworkRefResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkRefResponse
-		return ret
-	}).(NetworkRefResponseOutput)
+	return o.ApplyT(func(v *NetworkRefResponse) NetworkRefResponse { return *v }).(NetworkRefResponseOutput)
 }
 
 // A list of endpoints that are exposed on this network.
@@ -6118,7 +6064,7 @@ func (o NetworkResourcePropertiesOutput) ToNetworkResourcePropertiesPtrOutput() 
 }
 
 func (o NetworkResourcePropertiesOutput) ToNetworkResourcePropertiesPtrOutputWithContext(ctx context.Context) NetworkResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkResourceProperties) *NetworkResourceProperties {
+	return o.ApplyT(func(v NetworkResourceProperties) *NetworkResourceProperties {
 		return &v
 	}).(NetworkResourcePropertiesPtrOutput)
 }
@@ -6149,13 +6095,7 @@ func (o NetworkResourcePropertiesPtrOutput) ToNetworkResourcePropertiesPtrOutput
 }
 
 func (o NetworkResourcePropertiesPtrOutput) Elem() NetworkResourcePropertiesOutput {
-	return o.ApplyT(func(v *NetworkResourceProperties) NetworkResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkResourceProperties
-		return ret
-	}).(NetworkResourcePropertiesOutput)
+	return o.ApplyT(func(v *NetworkResourceProperties) NetworkResourceProperties { return *v }).(NetworkResourcePropertiesOutput)
 }
 
 // User readable description of the network.
@@ -6293,7 +6233,7 @@ func (o NetworkResourcePropertiesResponseOutput) ToNetworkResourcePropertiesResp
 }
 
 func (o NetworkResourcePropertiesResponseOutput) ToNetworkResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkResourcePropertiesResponse) *NetworkResourcePropertiesResponse {
+	return o.ApplyT(func(v NetworkResourcePropertiesResponse) *NetworkResourcePropertiesResponse {
 		return &v
 	}).(NetworkResourcePropertiesResponsePtrOutput)
 }
@@ -6339,13 +6279,7 @@ func (o NetworkResourcePropertiesResponsePtrOutput) ToNetworkResourcePropertiesR
 }
 
 func (o NetworkResourcePropertiesResponsePtrOutput) Elem() NetworkResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) NetworkResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkResourcePropertiesResponse
-		return ret
-	}).(NetworkResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *NetworkResourcePropertiesResponse) NetworkResourcePropertiesResponse { return *v }).(NetworkResourcePropertiesResponseOutput)
 }
 
 // User readable description of the network.
@@ -6717,7 +6651,7 @@ func (o ResourceLimitsOutput) ToResourceLimitsPtrOutput() ResourceLimitsPtrOutpu
 }
 
 func (o ResourceLimitsOutput) ToResourceLimitsPtrOutputWithContext(ctx context.Context) ResourceLimitsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimits) *ResourceLimits {
+	return o.ApplyT(func(v ResourceLimits) *ResourceLimits {
 		return &v
 	}).(ResourceLimitsPtrOutput)
 }
@@ -6747,13 +6681,7 @@ func (o ResourceLimitsPtrOutput) ToResourceLimitsPtrOutputWithContext(ctx contex
 }
 
 func (o ResourceLimitsPtrOutput) Elem() ResourceLimitsOutput {
-	return o.ApplyT(func(v *ResourceLimits) ResourceLimits {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLimits
-		return ret
-	}).(ResourceLimitsOutput)
+	return o.ApplyT(func(v *ResourceLimits) ResourceLimits { return *v }).(ResourceLimitsOutput)
 }
 
 // CPU limits in cores. At present, only full cores are supported.
@@ -6876,7 +6804,7 @@ func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutput() Resour
 }
 
 func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimitsResponse) *ResourceLimitsResponse {
+	return o.ApplyT(func(v ResourceLimitsResponse) *ResourceLimitsResponse {
 		return &v
 	}).(ResourceLimitsResponsePtrOutput)
 }
@@ -6906,13 +6834,7 @@ func (o ResourceLimitsResponsePtrOutput) ToResourceLimitsResponsePtrOutputWithCo
 }
 
 func (o ResourceLimitsResponsePtrOutput) Elem() ResourceLimitsResponseOutput {
-	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLimitsResponse
-		return ret
-	}).(ResourceLimitsResponseOutput)
+	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse { return *v }).(ResourceLimitsResponseOutput)
 }
 
 // CPU limits in cores. At present, only full cores are supported.
@@ -7297,7 +7219,7 @@ func (o SecretResourcePropertiesOutput) ToSecretResourcePropertiesPtrOutput() Se
 }
 
 func (o SecretResourcePropertiesOutput) ToSecretResourcePropertiesPtrOutputWithContext(ctx context.Context) SecretResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretResourceProperties) *SecretResourceProperties {
+	return o.ApplyT(func(v SecretResourceProperties) *SecretResourceProperties {
 		return &v
 	}).(SecretResourcePropertiesPtrOutput)
 }
@@ -7333,13 +7255,7 @@ func (o SecretResourcePropertiesPtrOutput) ToSecretResourcePropertiesPtrOutputWi
 }
 
 func (o SecretResourcePropertiesPtrOutput) Elem() SecretResourcePropertiesOutput {
-	return o.ApplyT(func(v *SecretResourceProperties) SecretResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SecretResourceProperties
-		return ret
-	}).(SecretResourcePropertiesOutput)
+	return o.ApplyT(func(v *SecretResourceProperties) SecretResourceProperties { return *v }).(SecretResourcePropertiesOutput)
 }
 
 // The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
@@ -7491,7 +7407,7 @@ func (o SecretResourcePropertiesResponseOutput) ToSecretResourcePropertiesRespon
 }
 
 func (o SecretResourcePropertiesResponseOutput) ToSecretResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SecretResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretResourcePropertiesResponse) *SecretResourcePropertiesResponse {
+	return o.ApplyT(func(v SecretResourcePropertiesResponse) *SecretResourcePropertiesResponse {
 		return &v
 	}).(SecretResourcePropertiesResponsePtrOutput)
 }
@@ -7542,13 +7458,7 @@ func (o SecretResourcePropertiesResponsePtrOutput) ToSecretResourcePropertiesRes
 }
 
 func (o SecretResourcePropertiesResponsePtrOutput) Elem() SecretResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *SecretResourcePropertiesResponse) SecretResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecretResourcePropertiesResponse
-		return ret
-	}).(SecretResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *SecretResourcePropertiesResponse) SecretResourcePropertiesResponse { return *v }).(SecretResourcePropertiesResponseOutput)
 }
 
 // The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
@@ -8561,7 +8471,7 @@ func (o VolumeProviderParametersAzureFileOutput) ToVolumeProviderParametersAzure
 }
 
 func (o VolumeProviderParametersAzureFileOutput) ToVolumeProviderParametersAzureFilePtrOutputWithContext(ctx context.Context) VolumeProviderParametersAzureFilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeProviderParametersAzureFile) *VolumeProviderParametersAzureFile {
+	return o.ApplyT(func(v VolumeProviderParametersAzureFile) *VolumeProviderParametersAzureFile {
 		return &v
 	}).(VolumeProviderParametersAzureFilePtrOutput)
 }
@@ -8596,13 +8506,7 @@ func (o VolumeProviderParametersAzureFilePtrOutput) ToVolumeProviderParametersAz
 }
 
 func (o VolumeProviderParametersAzureFilePtrOutput) Elem() VolumeProviderParametersAzureFileOutput {
-	return o.ApplyT(func(v *VolumeProviderParametersAzureFile) VolumeProviderParametersAzureFile {
-		if v != nil {
-			return *v
-		}
-		var ret VolumeProviderParametersAzureFile
-		return ret
-	}).(VolumeProviderParametersAzureFileOutput)
+	return o.ApplyT(func(v *VolumeProviderParametersAzureFile) VolumeProviderParametersAzureFile { return *v }).(VolumeProviderParametersAzureFileOutput)
 }
 
 // Access key of the Azure storage account for the File Share.
@@ -8739,7 +8643,7 @@ func (o VolumeProviderParametersAzureFileResponseOutput) ToVolumeProviderParamet
 }
 
 func (o VolumeProviderParametersAzureFileResponseOutput) ToVolumeProviderParametersAzureFileResponsePtrOutputWithContext(ctx context.Context) VolumeProviderParametersAzureFileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeProviderParametersAzureFileResponse) *VolumeProviderParametersAzureFileResponse {
+	return o.ApplyT(func(v VolumeProviderParametersAzureFileResponse) *VolumeProviderParametersAzureFileResponse {
 		return &v
 	}).(VolumeProviderParametersAzureFileResponsePtrOutput)
 }
@@ -8775,11 +8679,7 @@ func (o VolumeProviderParametersAzureFileResponsePtrOutput) ToVolumeProviderPara
 
 func (o VolumeProviderParametersAzureFileResponsePtrOutput) Elem() VolumeProviderParametersAzureFileResponseOutput {
 	return o.ApplyT(func(v *VolumeProviderParametersAzureFileResponse) VolumeProviderParametersAzureFileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VolumeProviderParametersAzureFileResponse
-		return ret
+		return *v
 	}).(VolumeProviderParametersAzureFileResponseOutput)
 }
 

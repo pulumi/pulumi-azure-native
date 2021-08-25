@@ -205,7 +205,9 @@ func (i *Origin) ToOriginOutputWithContext(ctx context.Context) OriginOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginOutput)
 }
 
-type OriginOutput struct{ *pulumi.OutputState }
+type OriginOutput struct {
+	*pulumi.OutputState
+}
 
 func (OriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Origin)(nil))

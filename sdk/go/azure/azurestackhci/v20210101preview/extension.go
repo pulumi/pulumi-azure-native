@@ -208,7 +208,9 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
 }
 
-type ExtensionOutput struct{ *pulumi.OutputState }
+type ExtensionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Extension)(nil))

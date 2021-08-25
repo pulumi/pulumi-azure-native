@@ -209,7 +209,9 @@ func (i *WebAppRelayServiceConnection) ToWebAppRelayServiceConnectionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionOutput)
 }
 
-type WebAppRelayServiceConnectionOutput struct{ *pulumi.OutputState }
+type WebAppRelayServiceConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppRelayServiceConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppRelayServiceConnection)(nil))

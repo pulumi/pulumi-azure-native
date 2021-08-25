@@ -270,7 +270,9 @@ func (i *BigDataPool) ToBigDataPoolOutputWithContext(ctx context.Context) BigDat
 	return pulumi.ToOutputWithContext(ctx, i).(BigDataPoolOutput)
 }
 
-type BigDataPoolOutput struct{ *pulumi.OutputState }
+type BigDataPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (BigDataPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BigDataPool)(nil))

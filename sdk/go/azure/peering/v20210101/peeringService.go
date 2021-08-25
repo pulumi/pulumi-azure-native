@@ -192,7 +192,9 @@ func (i *PeeringService) ToPeeringServiceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceOutput)
 }
 
-type PeeringServiceOutput struct{ *pulumi.OutputState }
+type PeeringServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (PeeringServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeeringService)(nil))

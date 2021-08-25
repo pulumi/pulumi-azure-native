@@ -141,7 +141,9 @@ func (i *PrivateEndpointConnectionsComp) ToPrivateEndpointConnectionsCompOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionsCompOutput)
 }
 
-type PrivateEndpointConnectionsCompOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionsCompOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateEndpointConnectionsCompOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionsComp)(nil))

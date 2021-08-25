@@ -118,7 +118,7 @@ func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationPtrOutput(
 }
 
 func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationPtrOutputWithContext(ctx context.Context) DeliveryPackageInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryPackageInformation) *DeliveryPackageInformation {
+	return o.ApplyT(func(v DeliveryPackageInformation) *DeliveryPackageInformation {
 		return &v
 	}).(DeliveryPackageInformationPtrOutput)
 }
@@ -158,13 +158,7 @@ func (o DeliveryPackageInformationPtrOutput) ToDeliveryPackageInformationPtrOutp
 }
 
 func (o DeliveryPackageInformationPtrOutput) Elem() DeliveryPackageInformationOutput {
-	return o.ApplyT(func(v *DeliveryPackageInformation) DeliveryPackageInformation {
-		if v != nil {
-			return *v
-		}
-		var ret DeliveryPackageInformation
-		return ret
-	}).(DeliveryPackageInformationOutput)
+	return o.ApplyT(func(v *DeliveryPackageInformation) DeliveryPackageInformation { return *v }).(DeliveryPackageInformationOutput)
 }
 
 // The name of the carrier that is used to ship the import or export drives.
@@ -315,7 +309,7 @@ func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationRe
 }
 
 func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationResponsePtrOutputWithContext(ctx context.Context) DeliveryPackageInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryPackageInformationResponse) *DeliveryPackageInformationResponse {
+	return o.ApplyT(func(v DeliveryPackageInformationResponse) *DeliveryPackageInformationResponse {
 		return &v
 	}).(DeliveryPackageInformationResponsePtrOutput)
 }
@@ -355,13 +349,7 @@ func (o DeliveryPackageInformationResponsePtrOutput) ToDeliveryPackageInformatio
 }
 
 func (o DeliveryPackageInformationResponsePtrOutput) Elem() DeliveryPackageInformationResponseOutput {
-	return o.ApplyT(func(v *DeliveryPackageInformationResponse) DeliveryPackageInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DeliveryPackageInformationResponse
-		return ret
-	}).(DeliveryPackageInformationResponseOutput)
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) DeliveryPackageInformationResponse { return *v }).(DeliveryPackageInformationResponseOutput)
 }
 
 // The name of the carrier that is used to ship the import or export drives.
@@ -1015,7 +1003,7 @@ func (o EncryptionKeyDetailsOutput) ToEncryptionKeyDetailsPtrOutput() Encryption
 }
 
 func (o EncryptionKeyDetailsOutput) ToEncryptionKeyDetailsPtrOutputWithContext(ctx context.Context) EncryptionKeyDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyDetails) *EncryptionKeyDetails {
+	return o.ApplyT(func(v EncryptionKeyDetails) *EncryptionKeyDetails {
 		return &v
 	}).(EncryptionKeyDetailsPtrOutput)
 }
@@ -1050,13 +1038,7 @@ func (o EncryptionKeyDetailsPtrOutput) ToEncryptionKeyDetailsPtrOutputWithContex
 }
 
 func (o EncryptionKeyDetailsPtrOutput) Elem() EncryptionKeyDetailsOutput {
-	return o.ApplyT(func(v *EncryptionKeyDetails) EncryptionKeyDetails {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionKeyDetails
-		return ret
-	}).(EncryptionKeyDetailsOutput)
+	return o.ApplyT(func(v *EncryptionKeyDetails) EncryptionKeyDetails { return *v }).(EncryptionKeyDetailsOutput)
 }
 
 // The type of kek encryption key
@@ -1193,7 +1175,7 @@ func (o EncryptionKeyDetailsResponseOutput) ToEncryptionKeyDetailsResponsePtrOut
 }
 
 func (o EncryptionKeyDetailsResponseOutput) ToEncryptionKeyDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyDetailsResponse) *EncryptionKeyDetailsResponse {
+	return o.ApplyT(func(v EncryptionKeyDetailsResponse) *EncryptionKeyDetailsResponse {
 		return &v
 	}).(EncryptionKeyDetailsResponsePtrOutput)
 }
@@ -1228,13 +1210,7 @@ func (o EncryptionKeyDetailsResponsePtrOutput) ToEncryptionKeyDetailsResponsePtr
 }
 
 func (o EncryptionKeyDetailsResponsePtrOutput) Elem() EncryptionKeyDetailsResponseOutput {
-	return o.ApplyT(func(v *EncryptionKeyDetailsResponse) EncryptionKeyDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionKeyDetailsResponse
-		return ret
-	}).(EncryptionKeyDetailsResponseOutput)
+	return o.ApplyT(func(v *EncryptionKeyDetailsResponse) EncryptionKeyDetailsResponse { return *v }).(EncryptionKeyDetailsResponseOutput)
 }
 
 // The type of kek encryption key
@@ -1371,7 +1347,7 @@ func (o ExportOutput) ToExportPtrOutput() ExportPtrOutput {
 }
 
 func (o ExportOutput) ToExportPtrOutputWithContext(ctx context.Context) ExportPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Export) *Export {
+	return o.ApplyT(func(v Export) *Export {
 		return &v
 	}).(ExportPtrOutput)
 }
@@ -1406,13 +1382,7 @@ func (o ExportPtrOutput) ToExportPtrOutputWithContext(ctx context.Context) Expor
 }
 
 func (o ExportPtrOutput) Elem() ExportOutput {
-	return o.ApplyT(func(v *Export) Export {
-		if v != nil {
-			return *v
-		}
-		var ret Export
-		return ret
-	}).(ExportOutput)
+	return o.ApplyT(func(v *Export) Export { return *v }).(ExportOutput)
 }
 
 // The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
@@ -1549,7 +1519,7 @@ func (o ExportResponseOutput) ToExportResponsePtrOutput() ExportResponsePtrOutpu
 }
 
 func (o ExportResponseOutput) ToExportResponsePtrOutputWithContext(ctx context.Context) ExportResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportResponse) *ExportResponse {
+	return o.ApplyT(func(v ExportResponse) *ExportResponse {
 		return &v
 	}).(ExportResponsePtrOutput)
 }
@@ -1584,13 +1554,7 @@ func (o ExportResponsePtrOutput) ToExportResponsePtrOutputWithContext(ctx contex
 }
 
 func (o ExportResponsePtrOutput) Elem() ExportResponseOutput {
-	return o.ApplyT(func(v *ExportResponse) ExportResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportResponse
-		return ret
-	}).(ExportResponseOutput)
+	return o.ApplyT(func(v *ExportResponse) ExportResponse { return *v }).(ExportResponseOutput)
 }
 
 // The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
@@ -1727,7 +1691,7 @@ func (o IdentityDetailsResponseOutput) ToIdentityDetailsResponsePtrOutput() Iden
 }
 
 func (o IdentityDetailsResponseOutput) ToIdentityDetailsResponsePtrOutputWithContext(ctx context.Context) IdentityDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityDetailsResponse) *IdentityDetailsResponse {
+	return o.ApplyT(func(v IdentityDetailsResponse) *IdentityDetailsResponse {
 		return &v
 	}).(IdentityDetailsResponsePtrOutput)
 }
@@ -1762,13 +1726,7 @@ func (o IdentityDetailsResponsePtrOutput) ToIdentityDetailsResponsePtrOutputWith
 }
 
 func (o IdentityDetailsResponsePtrOutput) Elem() IdentityDetailsResponseOutput {
-	return o.ApplyT(func(v *IdentityDetailsResponse) IdentityDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityDetailsResponse
-		return ret
-	}).(IdentityDetailsResponseOutput)
+	return o.ApplyT(func(v *IdentityDetailsResponse) IdentityDetailsResponse { return *v }).(IdentityDetailsResponseOutput)
 }
 
 // Specifies the principal id for the identity for the job.
@@ -1965,7 +1923,7 @@ func (o JobDetailsOutput) ToJobDetailsPtrOutput() JobDetailsPtrOutput {
 }
 
 func (o JobDetailsOutput) ToJobDetailsPtrOutputWithContext(ctx context.Context) JobDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDetails) *JobDetails {
+	return o.ApplyT(func(v JobDetails) *JobDetails {
 		return &v
 	}).(JobDetailsPtrOutput)
 }
@@ -2075,13 +2033,7 @@ func (o JobDetailsPtrOutput) ToJobDetailsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o JobDetailsPtrOutput) Elem() JobDetailsOutput {
-	return o.ApplyT(func(v *JobDetails) JobDetails {
-		if v != nil {
-			return *v
-		}
-		var ret JobDetails
-		return ret
-	}).(JobDetailsOutput)
+	return o.ApplyT(func(v *JobDetails) JobDetails { return *v }).(JobDetailsOutput)
 }
 
 // Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
@@ -2428,7 +2380,7 @@ func (o JobDetailsResponseOutput) ToJobDetailsResponsePtrOutput() JobDetailsResp
 }
 
 func (o JobDetailsResponseOutput) ToJobDetailsResponsePtrOutputWithContext(ctx context.Context) JobDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDetailsResponse) *JobDetailsResponse {
+	return o.ApplyT(func(v JobDetailsResponse) *JobDetailsResponse {
 		return &v
 	}).(JobDetailsResponsePtrOutput)
 }
@@ -2538,13 +2490,7 @@ func (o JobDetailsResponsePtrOutput) ToJobDetailsResponsePtrOutputWithContext(ct
 }
 
 func (o JobDetailsResponsePtrOutput) Elem() JobDetailsResponseOutput {
-	return o.ApplyT(func(v *JobDetailsResponse) JobDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobDetailsResponse
-		return ret
-	}).(JobDetailsResponseOutput)
+	return o.ApplyT(func(v *JobDetailsResponse) JobDetailsResponse { return *v }).(JobDetailsResponseOutput)
 }
 
 // Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
@@ -2835,7 +2781,7 @@ func (o PackageInfomationOutput) ToPackageInfomationPtrOutput() PackageInfomatio
 }
 
 func (o PackageInfomationOutput) ToPackageInfomationPtrOutputWithContext(ctx context.Context) PackageInfomationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageInfomation) *PackageInfomation {
+	return o.ApplyT(func(v PackageInfomation) *PackageInfomation {
 		return &v
 	}).(PackageInfomationPtrOutput)
 }
@@ -2875,13 +2821,7 @@ func (o PackageInfomationPtrOutput) ToPackageInfomationPtrOutputWithContext(ctx 
 }
 
 func (o PackageInfomationPtrOutput) Elem() PackageInfomationOutput {
-	return o.ApplyT(func(v *PackageInfomation) PackageInfomation {
-		if v != nil {
-			return *v
-		}
-		var ret PackageInfomation
-		return ret
-	}).(PackageInfomationOutput)
+	return o.ApplyT(func(v *PackageInfomation) PackageInfomation { return *v }).(PackageInfomationOutput)
 }
 
 // The name of the carrier that is used to ship the import or export drives.
@@ -3032,7 +2972,7 @@ func (o PackageInfomationResponseOutput) ToPackageInfomationResponsePtrOutput() 
 }
 
 func (o PackageInfomationResponseOutput) ToPackageInfomationResponsePtrOutputWithContext(ctx context.Context) PackageInfomationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageInfomationResponse) *PackageInfomationResponse {
+	return o.ApplyT(func(v PackageInfomationResponse) *PackageInfomationResponse {
 		return &v
 	}).(PackageInfomationResponsePtrOutput)
 }
@@ -3072,13 +3012,7 @@ func (o PackageInfomationResponsePtrOutput) ToPackageInfomationResponsePtrOutput
 }
 
 func (o PackageInfomationResponsePtrOutput) Elem() PackageInfomationResponseOutput {
-	return o.ApplyT(func(v *PackageInfomationResponse) PackageInfomationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PackageInfomationResponse
-		return ret
-	}).(PackageInfomationResponseOutput)
+	return o.ApplyT(func(v *PackageInfomationResponse) PackageInfomationResponse { return *v }).(PackageInfomationResponseOutput)
 }
 
 // The name of the carrier that is used to ship the import or export drives.
@@ -3249,7 +3183,7 @@ func (o ReturnAddressOutput) ToReturnAddressPtrOutput() ReturnAddressPtrOutput {
 }
 
 func (o ReturnAddressOutput) ToReturnAddressPtrOutputWithContext(ctx context.Context) ReturnAddressPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnAddress) *ReturnAddress {
+	return o.ApplyT(func(v ReturnAddress) *ReturnAddress {
 		return &v
 	}).(ReturnAddressPtrOutput)
 }
@@ -3314,13 +3248,7 @@ func (o ReturnAddressPtrOutput) ToReturnAddressPtrOutputWithContext(ctx context.
 }
 
 func (o ReturnAddressPtrOutput) Elem() ReturnAddressOutput {
-	return o.ApplyT(func(v *ReturnAddress) ReturnAddress {
-		if v != nil {
-			return *v
-		}
-		var ret ReturnAddress
-		return ret
-	}).(ReturnAddressOutput)
+	return o.ApplyT(func(v *ReturnAddress) ReturnAddress { return *v }).(ReturnAddressOutput)
 }
 
 // The city name to use when returning the drives.
@@ -3541,7 +3469,7 @@ func (o ReturnAddressResponseOutput) ToReturnAddressResponsePtrOutput() ReturnAd
 }
 
 func (o ReturnAddressResponseOutput) ToReturnAddressResponsePtrOutputWithContext(ctx context.Context) ReturnAddressResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnAddressResponse) *ReturnAddressResponse {
+	return o.ApplyT(func(v ReturnAddressResponse) *ReturnAddressResponse {
 		return &v
 	}).(ReturnAddressResponsePtrOutput)
 }
@@ -3606,13 +3534,7 @@ func (o ReturnAddressResponsePtrOutput) ToReturnAddressResponsePtrOutputWithCont
 }
 
 func (o ReturnAddressResponsePtrOutput) Elem() ReturnAddressResponseOutput {
-	return o.ApplyT(func(v *ReturnAddressResponse) ReturnAddressResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReturnAddressResponse
-		return ret
-	}).(ReturnAddressResponseOutput)
+	return o.ApplyT(func(v *ReturnAddressResponse) ReturnAddressResponse { return *v }).(ReturnAddressResponseOutput)
 }
 
 // The city name to use when returning the drives.
@@ -3805,7 +3727,7 @@ func (o ReturnShippingOutput) ToReturnShippingPtrOutput() ReturnShippingPtrOutpu
 }
 
 func (o ReturnShippingOutput) ToReturnShippingPtrOutputWithContext(ctx context.Context) ReturnShippingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnShipping) *ReturnShipping {
+	return o.ApplyT(func(v ReturnShipping) *ReturnShipping {
 		return &v
 	}).(ReturnShippingPtrOutput)
 }
@@ -3835,13 +3757,7 @@ func (o ReturnShippingPtrOutput) ToReturnShippingPtrOutputWithContext(ctx contex
 }
 
 func (o ReturnShippingPtrOutput) Elem() ReturnShippingOutput {
-	return o.ApplyT(func(v *ReturnShipping) ReturnShipping {
-		if v != nil {
-			return *v
-		}
-		var ret ReturnShipping
-		return ret
-	}).(ReturnShippingOutput)
+	return o.ApplyT(func(v *ReturnShipping) ReturnShipping { return *v }).(ReturnShippingOutput)
 }
 
 // The customer's account number with the carrier.
@@ -3964,7 +3880,7 @@ func (o ReturnShippingResponseOutput) ToReturnShippingResponsePtrOutput() Return
 }
 
 func (o ReturnShippingResponseOutput) ToReturnShippingResponsePtrOutputWithContext(ctx context.Context) ReturnShippingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnShippingResponse) *ReturnShippingResponse {
+	return o.ApplyT(func(v ReturnShippingResponse) *ReturnShippingResponse {
 		return &v
 	}).(ReturnShippingResponsePtrOutput)
 }
@@ -3994,13 +3910,7 @@ func (o ReturnShippingResponsePtrOutput) ToReturnShippingResponsePtrOutputWithCo
 }
 
 func (o ReturnShippingResponsePtrOutput) Elem() ReturnShippingResponseOutput {
-	return o.ApplyT(func(v *ReturnShippingResponse) ReturnShippingResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReturnShippingResponse
-		return ret
-	}).(ReturnShippingResponseOutput)
+	return o.ApplyT(func(v *ReturnShippingResponse) ReturnShippingResponse { return *v }).(ReturnShippingResponseOutput)
 }
 
 // The customer's account number with the carrier.
@@ -4147,7 +4057,7 @@ func (o ShippingInformationOutput) ToShippingInformationPtrOutput() ShippingInfo
 }
 
 func (o ShippingInformationOutput) ToShippingInformationPtrOutputWithContext(ctx context.Context) ShippingInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingInformation) *ShippingInformation {
+	return o.ApplyT(func(v ShippingInformation) *ShippingInformation {
 		return &v
 	}).(ShippingInformationPtrOutput)
 }
@@ -4207,13 +4117,7 @@ func (o ShippingInformationPtrOutput) ToShippingInformationPtrOutputWithContext(
 }
 
 func (o ShippingInformationPtrOutput) Elem() ShippingInformationOutput {
-	return o.ApplyT(func(v *ShippingInformation) ShippingInformation {
-		if v != nil {
-			return *v
-		}
-		var ret ShippingInformation
-		return ret
-	}).(ShippingInformationOutput)
+	return o.ApplyT(func(v *ShippingInformation) ShippingInformation { return *v }).(ShippingInformationOutput)
 }
 
 // The city name to use when returning the drives.
@@ -4424,7 +4328,7 @@ func (o ShippingInformationResponseOutput) ToShippingInformationResponsePtrOutpu
 }
 
 func (o ShippingInformationResponseOutput) ToShippingInformationResponsePtrOutputWithContext(ctx context.Context) ShippingInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingInformationResponse) *ShippingInformationResponse {
+	return o.ApplyT(func(v ShippingInformationResponse) *ShippingInformationResponse {
 		return &v
 	}).(ShippingInformationResponsePtrOutput)
 }
@@ -4489,13 +4393,7 @@ func (o ShippingInformationResponsePtrOutput) ToShippingInformationResponsePtrOu
 }
 
 func (o ShippingInformationResponsePtrOutput) Elem() ShippingInformationResponseOutput {
-	return o.ApplyT(func(v *ShippingInformationResponse) ShippingInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ShippingInformationResponse
-		return ret
-	}).(ShippingInformationResponseOutput)
+	return o.ApplyT(func(v *ShippingInformationResponse) ShippingInformationResponse { return *v }).(ShippingInformationResponseOutput)
 }
 
 // Additional shipping information for customer, specific to datacenter to which customer should send their disks.
@@ -4704,7 +4602,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -4754,13 +4652,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

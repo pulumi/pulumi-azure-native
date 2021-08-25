@@ -141,7 +141,9 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
-type LinkedServiceOutput struct{ *pulumi.OutputState }
+type LinkedServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))

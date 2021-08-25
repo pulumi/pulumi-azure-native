@@ -257,7 +257,9 @@ func (i *ServerFarm) ToServerFarmOutputWithContext(ctx context.Context) ServerFa
 	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmOutput)
 }
 
-type ServerFarmOutput struct{ *pulumi.OutputState }
+type ServerFarmOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerFarmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerFarm)(nil))

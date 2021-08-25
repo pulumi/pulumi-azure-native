@@ -48,7 +48,8 @@ func NewZone(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.ZoneType == nil {
-		args.ZoneType = ZoneType("Public")
+		e := ZoneType("Public")
+		args.ZoneType = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -135,7 +136,7 @@ type zoneArgs struct {
 	// The name of the DNS zone (without a terminating dot).
 	ZoneName *string `pulumi:"zoneName"`
 	// The type of this DNS zone (Public or Private).
-	ZoneType *ZoneType `pulumi:"zoneType"`
+	ZoneType *string `pulumi:"zoneType"`
 }
 
 // The set of arguments for constructing a Zone resource.
@@ -151,7 +152,7 @@ type ZoneArgs struct {
 	// The name of the DNS zone (without a terminating dot).
 	ZoneName pulumi.StringPtrInput
 	// The type of this DNS zone (Public or Private).
-	ZoneType ZoneTypePtrInput
+	ZoneType *ZoneType
 }
 
 func (ZoneArgs) ElementType() reflect.Type {
@@ -177,7 +178,9 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneOutput)
 }
 
-type ZoneOutput struct{ *pulumi.OutputState }
+type ZoneOutput struct {
+	*pulumi.OutputState
+}
 
 func (ZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Zone)(nil))

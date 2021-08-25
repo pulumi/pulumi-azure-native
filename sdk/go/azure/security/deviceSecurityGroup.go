@@ -143,7 +143,9 @@ func (i *DeviceSecurityGroup) ToDeviceSecurityGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupOutput)
 }
 
-type DeviceSecurityGroupOutput struct{ *pulumi.OutputState }
+type DeviceSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (DeviceSecurityGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeviceSecurityGroup)(nil))

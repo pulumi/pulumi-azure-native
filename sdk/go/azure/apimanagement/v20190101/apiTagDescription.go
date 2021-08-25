@@ -194,7 +194,9 @@ func (i *ApiTagDescription) ToApiTagDescriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagDescriptionOutput)
 }
 
-type ApiTagDescriptionOutput struct{ *pulumi.OutputState }
+type ApiTagDescriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiTagDescriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiTagDescription)(nil))

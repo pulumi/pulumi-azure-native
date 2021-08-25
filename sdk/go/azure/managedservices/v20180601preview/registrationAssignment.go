@@ -142,7 +142,9 @@ func (i *RegistrationAssignment) ToRegistrationAssignmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentOutput)
 }
 
-type RegistrationAssignmentOutput struct{ *pulumi.OutputState }
+type RegistrationAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (RegistrationAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistrationAssignment)(nil))

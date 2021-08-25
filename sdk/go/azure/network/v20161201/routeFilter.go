@@ -326,7 +326,9 @@ func (i *RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteF
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterOutput)
 }
 
-type RouteFilterOutput struct{ *pulumi.OutputState }
+type RouteFilterOutput struct {
+	*pulumi.OutputState
+}
 
 func (RouteFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteFilter)(nil))

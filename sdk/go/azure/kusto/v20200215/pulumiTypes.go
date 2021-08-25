@@ -114,7 +114,7 @@ func (o AzureSkuOutput) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
 }
 
 func (o AzureSkuOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSku) *AzureSku {
+	return o.ApplyT(func(v AzureSku) *AzureSku {
 		return &v
 	}).(AzureSkuPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o AzureSkuPtrOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) A
 }
 
 func (o AzureSkuPtrOutput) Elem() AzureSkuOutput {
-	return o.ApplyT(func(v *AzureSku) AzureSku {
-		if v != nil {
-			return *v
-		}
-		var ret AzureSku
-		return ret
-	}).(AzureSkuOutput)
+	return o.ApplyT(func(v *AzureSku) AzureSku { return *v }).(AzureSkuOutput)
 }
 
 // The number of instances of the cluster.
@@ -292,7 +286,7 @@ func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePt
 }
 
 func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuResponse) *AzureSkuResponse {
+	return o.ApplyT(func(v AzureSkuResponse) *AzureSkuResponse {
 		return &v
 	}).(AzureSkuResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o AzureSkuResponsePtrOutput) ToAzureSkuResponsePtrOutputWithContext(ctx co
 }
 
 func (o AzureSkuResponsePtrOutput) Elem() AzureSkuResponseOutput {
-	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureSkuResponse
-		return ret
-	}).(AzureSkuResponseOutput)
+	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse { return *v }).(AzureSkuResponseOutput)
 }
 
 // The number of instances of the cluster.
@@ -616,7 +604,7 @@ func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutput(
 }
 
 func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutputWithContext(ctx context.Context) DatabaseStatisticsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseStatisticsResponse) *DatabaseStatisticsResponse {
+	return o.ApplyT(func(v DatabaseStatisticsResponse) *DatabaseStatisticsResponse {
 		return &v
 	}).(DatabaseStatisticsResponsePtrOutput)
 }
@@ -641,13 +629,7 @@ func (o DatabaseStatisticsResponsePtrOutput) ToDatabaseStatisticsResponsePtrOutp
 }
 
 func (o DatabaseStatisticsResponsePtrOutput) Elem() DatabaseStatisticsResponseOutput {
-	return o.ApplyT(func(v *DatabaseStatisticsResponse) DatabaseStatisticsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DatabaseStatisticsResponse
-		return ret
-	}).(DatabaseStatisticsResponseOutput)
+	return o.ApplyT(func(v *DatabaseStatisticsResponse) DatabaseStatisticsResponse { return *v }).(DatabaseStatisticsResponseOutput)
 }
 
 // The database size - the total size of compressed data and index in bytes.
@@ -781,7 +763,7 @@ func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) 
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -800,7 +782,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityTypeInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -878,14 +860,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() IdentityTypeOutput {
-	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
+func (o IdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -908,23 +890,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *IdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(IdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -1045,7 +1021,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -1087,13 +1063,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -1346,7 +1316,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -1381,13 +1351,7 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultProperties
-		return ret
-	}).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
 }
 
 // The name of the key vault key.
@@ -1524,7 +1488,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -1559,13 +1523,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultPropertiesResponse
-		return ret
-	}).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
 }
 
 // The name of the key vault key.
@@ -1894,7 +1852,7 @@ func (o LanguageExtensionsListOutput) ToLanguageExtensionsListPtrOutput() Langua
 }
 
 func (o LanguageExtensionsListOutput) ToLanguageExtensionsListPtrOutputWithContext(ctx context.Context) LanguageExtensionsListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LanguageExtensionsList) *LanguageExtensionsList {
+	return o.ApplyT(func(v LanguageExtensionsList) *LanguageExtensionsList {
 		return &v
 	}).(LanguageExtensionsListPtrOutput)
 }
@@ -1919,13 +1877,7 @@ func (o LanguageExtensionsListPtrOutput) ToLanguageExtensionsListPtrOutputWithCo
 }
 
 func (o LanguageExtensionsListPtrOutput) Elem() LanguageExtensionsListOutput {
-	return o.ApplyT(func(v *LanguageExtensionsList) LanguageExtensionsList {
-		if v != nil {
-			return *v
-		}
-		var ret LanguageExtensionsList
-		return ret
-	}).(LanguageExtensionsListOutput)
+	return o.ApplyT(func(v *LanguageExtensionsList) LanguageExtensionsList { return *v }).(LanguageExtensionsListOutput)
 }
 
 // The list of language extensions.
@@ -2034,7 +1986,7 @@ func (o LanguageExtensionsListResponseOutput) ToLanguageExtensionsListResponsePt
 }
 
 func (o LanguageExtensionsListResponseOutput) ToLanguageExtensionsListResponsePtrOutputWithContext(ctx context.Context) LanguageExtensionsListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LanguageExtensionsListResponse) *LanguageExtensionsListResponse {
+	return o.ApplyT(func(v LanguageExtensionsListResponse) *LanguageExtensionsListResponse {
 		return &v
 	}).(LanguageExtensionsListResponsePtrOutput)
 }
@@ -2059,13 +2011,7 @@ func (o LanguageExtensionsListResponsePtrOutput) ToLanguageExtensionsListRespons
 }
 
 func (o LanguageExtensionsListResponsePtrOutput) Elem() LanguageExtensionsListResponseOutput {
-	return o.ApplyT(func(v *LanguageExtensionsListResponse) LanguageExtensionsListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LanguageExtensionsListResponse
-		return ret
-	}).(LanguageExtensionsListResponseOutput)
+	return o.ApplyT(func(v *LanguageExtensionsListResponse) LanguageExtensionsListResponse { return *v }).(LanguageExtensionsListResponseOutput)
 }
 
 // The list of language extensions.
@@ -2186,7 +2132,7 @@ func (o OptimizedAutoscaleOutput) ToOptimizedAutoscalePtrOutput() OptimizedAutos
 }
 
 func (o OptimizedAutoscaleOutput) ToOptimizedAutoscalePtrOutputWithContext(ctx context.Context) OptimizedAutoscalePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptimizedAutoscale) *OptimizedAutoscale {
+	return o.ApplyT(func(v OptimizedAutoscale) *OptimizedAutoscale {
 		return &v
 	}).(OptimizedAutoscalePtrOutput)
 }
@@ -2226,13 +2172,7 @@ func (o OptimizedAutoscalePtrOutput) ToOptimizedAutoscalePtrOutputWithContext(ct
 }
 
 func (o OptimizedAutoscalePtrOutput) Elem() OptimizedAutoscaleOutput {
-	return o.ApplyT(func(v *OptimizedAutoscale) OptimizedAutoscale {
-		if v != nil {
-			return *v
-		}
-		var ret OptimizedAutoscale
-		return ret
-	}).(OptimizedAutoscaleOutput)
+	return o.ApplyT(func(v *OptimizedAutoscale) OptimizedAutoscale { return *v }).(OptimizedAutoscaleOutput)
 }
 
 // A boolean value that indicate if the optimized autoscale feature is enabled or not.
@@ -2383,7 +2323,7 @@ func (o OptimizedAutoscaleResponseOutput) ToOptimizedAutoscaleResponsePtrOutput(
 }
 
 func (o OptimizedAutoscaleResponseOutput) ToOptimizedAutoscaleResponsePtrOutputWithContext(ctx context.Context) OptimizedAutoscaleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptimizedAutoscaleResponse) *OptimizedAutoscaleResponse {
+	return o.ApplyT(func(v OptimizedAutoscaleResponse) *OptimizedAutoscaleResponse {
 		return &v
 	}).(OptimizedAutoscaleResponsePtrOutput)
 }
@@ -2423,13 +2363,7 @@ func (o OptimizedAutoscaleResponsePtrOutput) ToOptimizedAutoscaleResponsePtrOutp
 }
 
 func (o OptimizedAutoscaleResponsePtrOutput) Elem() OptimizedAutoscaleResponseOutput {
-	return o.ApplyT(func(v *OptimizedAutoscaleResponse) OptimizedAutoscaleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OptimizedAutoscaleResponse
-		return ret
-	}).(OptimizedAutoscaleResponseOutput)
+	return o.ApplyT(func(v *OptimizedAutoscaleResponse) OptimizedAutoscaleResponse { return *v }).(OptimizedAutoscaleResponseOutput)
 }
 
 // A boolean value that indicate if the optimized autoscale feature is enabled or not.
@@ -2776,7 +2710,7 @@ func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutpu
 }
 
 func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
+	return o.ApplyT(func(v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
 		return &v
 	}).(VirtualNetworkConfigurationPtrOutput)
 }
@@ -2811,13 +2745,7 @@ func (o VirtualNetworkConfigurationPtrOutput) ToVirtualNetworkConfigurationPtrOu
 }
 
 func (o VirtualNetworkConfigurationPtrOutput) Elem() VirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfiguration
-		return ret
-	}).(VirtualNetworkConfigurationOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration { return *v }).(VirtualNetworkConfigurationOutput)
 }
 
 // Data management's service public IP address resource id.
@@ -2954,7 +2882,7 @@ func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfiguration
 }
 
 func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
+	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
 		return &v
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
@@ -2989,13 +2917,7 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) ToVirtualNetworkConfigurat
 }
 
 func (o VirtualNetworkConfigurationResponsePtrOutput) Elem() VirtualNetworkConfigurationResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfigurationResponse
-		return ret
-	}).(VirtualNetworkConfigurationResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse { return *v }).(VirtualNetworkConfigurationResponseOutput)
 }
 
 // Data management's service public IP address resource id.

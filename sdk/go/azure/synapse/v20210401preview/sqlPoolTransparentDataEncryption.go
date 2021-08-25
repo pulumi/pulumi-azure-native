@@ -164,7 +164,9 @@ func (i *SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOut
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolTransparentDataEncryptionOutput)
 }
 
-type SqlPoolTransparentDataEncryptionOutput struct{ *pulumi.OutputState }
+type SqlPoolTransparentDataEncryptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolTransparentDataEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil))

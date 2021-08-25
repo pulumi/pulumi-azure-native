@@ -151,7 +151,9 @@ func (i *DataController) ToDataControllerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataControllerOutput)
 }
 
-type DataControllerOutput struct{ *pulumi.OutputState }
+type DataControllerOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataControllerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataController)(nil))

@@ -71,6 +71,9 @@ func NewComponent(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ApplicationType == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationType'")
+	}
 	if args.Kind == nil {
 		return nil, errors.New("invalid value for required argument 'Kind'")
 	}
@@ -239,7 +242,9 @@ func (i *Component) ToComponentOutputWithContext(ctx context.Context) ComponentO
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentOutput)
 }
 
-type ComponentOutput struct{ *pulumi.OutputState }
+type ComponentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ComponentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Component)(nil))

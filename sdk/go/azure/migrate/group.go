@@ -135,7 +135,9 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
 }
 
-type GroupOutput struct{ *pulumi.OutputState }
+type GroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (GroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Group)(nil))

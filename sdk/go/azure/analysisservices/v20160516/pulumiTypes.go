@@ -114,7 +114,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
+	return o.ApplyT(func(v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSku
-		return ret
-	}).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
 }
 
 // The number of instances in the read only query pool.
@@ -292,7 +286,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSkuResponse
-		return ret
-	}).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
 }
 
 // The number of instances in the read only query pool.
@@ -462,7 +450,7 @@ func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutput() ServerAdmi
 }
 
 func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutputWithContext(ctx context.Context) ServerAdministratorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministrators) *ServerAdministrators {
+	return o.ApplyT(func(v ServerAdministrators) *ServerAdministrators {
 		return &v
 	}).(ServerAdministratorsPtrOutput)
 }
@@ -487,13 +475,7 @@ func (o ServerAdministratorsPtrOutput) ToServerAdministratorsPtrOutputWithContex
 }
 
 func (o ServerAdministratorsPtrOutput) Elem() ServerAdministratorsOutput {
-	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators {
-		if v != nil {
-			return *v
-		}
-		var ret ServerAdministrators
-		return ret
-	}).(ServerAdministratorsOutput)
+	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators { return *v }).(ServerAdministratorsOutput)
 }
 
 // An array of administrator user identities.
@@ -602,7 +584,7 @@ func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOut
 }
 
 func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministratorsResponse) *ServerAdministratorsResponse {
+	return o.ApplyT(func(v ServerAdministratorsResponse) *ServerAdministratorsResponse {
 		return &v
 	}).(ServerAdministratorsResponsePtrOutput)
 }
@@ -627,13 +609,7 @@ func (o ServerAdministratorsResponsePtrOutput) ToServerAdministratorsResponsePtr
 }
 
 func (o ServerAdministratorsResponsePtrOutput) Elem() ServerAdministratorsResponseOutput {
-	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerAdministratorsResponse
-		return ret
-	}).(ServerAdministratorsResponseOutput)
+	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse { return *v }).(ServerAdministratorsResponseOutput)
 }
 
 // An array of administrator user identities.

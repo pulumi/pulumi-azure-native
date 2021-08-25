@@ -204,7 +204,9 @@ func (i *Gen2Environment) ToGen2EnvironmentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(Gen2EnvironmentOutput)
 }
 
-type Gen2EnvironmentOutput struct{ *pulumi.OutputState }
+type Gen2EnvironmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (Gen2EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Gen2Environment)(nil))

@@ -154,7 +154,9 @@ func (i *AutoScaleVCore) ToAutoScaleVCoreOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleVCoreOutput)
 }
 
-type AutoScaleVCoreOutput struct{ *pulumi.OutputState }
+type AutoScaleVCoreOutput struct {
+	*pulumi.OutputState
+}
 
 func (AutoScaleVCoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoScaleVCore)(nil))

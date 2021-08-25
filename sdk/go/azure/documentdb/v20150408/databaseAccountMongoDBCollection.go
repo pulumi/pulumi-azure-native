@@ -250,7 +250,9 @@ func (i *DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOut
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongoDBCollectionOutput)
 }
 
-type DatabaseAccountMongoDBCollectionOutput struct{ *pulumi.OutputState }
+type DatabaseAccountMongoDBCollectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountMongoDBCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil))

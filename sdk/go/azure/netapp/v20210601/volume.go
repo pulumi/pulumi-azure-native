@@ -110,6 +110,9 @@ func NewVolume(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	if args.UsageThreshold == nil {
+		return nil, errors.New("invalid value for required argument 'UsageThreshold'")
+	}
 	if args.AvsDataStore == nil {
 		args.AvsDataStore = pulumi.StringPtr("Disabled")
 	}
@@ -465,7 +468,9 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct{ *pulumi.OutputState }
+type VolumeOutput struct {
+	*pulumi.OutputState
+}
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

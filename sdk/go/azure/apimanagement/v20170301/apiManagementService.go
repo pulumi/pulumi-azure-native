@@ -282,7 +282,9 @@ func (i *ApiManagementService) ToApiManagementServiceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceOutput)
 }
 
-type ApiManagementServiceOutput struct{ *pulumi.OutputState }
+type ApiManagementServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiManagementServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiManagementService)(nil))

@@ -155,7 +155,9 @@ func (i *RemediationAtManagementGroup) ToRemediationAtManagementGroupOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtManagementGroupOutput)
 }
 
-type RemediationAtManagementGroupOutput struct{ *pulumi.OutputState }
+type RemediationAtManagementGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (RemediationAtManagementGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RemediationAtManagementGroup)(nil))

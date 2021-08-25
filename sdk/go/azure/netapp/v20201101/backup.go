@@ -217,7 +217,9 @@ func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput)
 }
 
-type BackupOutput struct{ *pulumi.OutputState }
+type BackupOutput struct {
+	*pulumi.OutputState
+}
 
 func (BackupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Backup)(nil))

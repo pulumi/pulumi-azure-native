@@ -110,7 +110,7 @@ func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectPtrOutput() ActiveDi
 }
 
 func (o ActiveDirectoryObjectOutput) ToActiveDirectoryObjectPtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryObject) *ActiveDirectoryObject {
+	return o.ApplyT(func(v ActiveDirectoryObject) *ActiveDirectoryObject {
 		return &v
 	}).(ActiveDirectoryObjectPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o ActiveDirectoryObjectPtrOutput) ToActiveDirectoryObjectPtrOutputWithCont
 }
 
 func (o ActiveDirectoryObjectPtrOutput) Elem() ActiveDirectoryObjectOutput {
-	return o.ApplyT(func(v *ActiveDirectoryObject) ActiveDirectoryObject {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveDirectoryObject
-		return ret
-	}).(ActiveDirectoryObjectOutput)
+	return o.ApplyT(func(v *ActiveDirectoryObject) ActiveDirectoryObject { return *v }).(ActiveDirectoryObjectOutput)
 }
 
 // The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
@@ -269,7 +263,7 @@ func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrO
 }
 
 func (o ActiveDirectoryObjectResponseOutput) ToActiveDirectoryObjectResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryObjectResponse) *ActiveDirectoryObjectResponse {
+	return o.ApplyT(func(v ActiveDirectoryObjectResponse) *ActiveDirectoryObjectResponse {
 		return &v
 	}).(ActiveDirectoryObjectResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o ActiveDirectoryObjectResponsePtrOutput) ToActiveDirectoryObjectResponseP
 }
 
 func (o ActiveDirectoryObjectResponsePtrOutput) Elem() ActiveDirectoryObjectResponseOutput {
-	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) ActiveDirectoryObjectResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActiveDirectoryObjectResponse
-		return ret
-	}).(ActiveDirectoryObjectResponseOutput)
+	return o.ApplyT(func(v *ActiveDirectoryObjectResponse) ActiveDirectoryObjectResponse { return *v }).(ActiveDirectoryObjectResponseOutput)
 }
 
 // The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
@@ -444,7 +432,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -494,13 +482,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -911,7 +893,7 @@ func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesPtrOutput(
 }
 
 func (o TokenCredentialsPropertiesOutput) ToTokenCredentialsPropertiesPtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenCredentialsProperties) *TokenCredentialsProperties {
+	return o.ApplyT(func(v TokenCredentialsProperties) *TokenCredentialsProperties {
 		return &v
 	}).(TokenCredentialsPropertiesPtrOutput)
 }
@@ -944,13 +926,7 @@ func (o TokenCredentialsPropertiesPtrOutput) ToTokenCredentialsPropertiesPtrOutp
 }
 
 func (o TokenCredentialsPropertiesPtrOutput) Elem() TokenCredentialsPropertiesOutput {
-	return o.ApplyT(func(v *TokenCredentialsProperties) TokenCredentialsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret TokenCredentialsProperties
-		return ret
-	}).(TokenCredentialsPropertiesOutput)
+	return o.ApplyT(func(v *TokenCredentialsProperties) TokenCredentialsProperties { return *v }).(TokenCredentialsPropertiesOutput)
 }
 
 // The Active Directory Object that will be used for authenticating the token of a container registry.
@@ -1081,7 +1057,7 @@ func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesRe
 }
 
 func (o TokenCredentialsPropertiesResponseOutput) ToTokenCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) TokenCredentialsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenCredentialsPropertiesResponse) *TokenCredentialsPropertiesResponse {
+	return o.ApplyT(func(v TokenCredentialsPropertiesResponse) *TokenCredentialsPropertiesResponse {
 		return &v
 	}).(TokenCredentialsPropertiesResponsePtrOutput)
 }
@@ -1116,13 +1092,7 @@ func (o TokenCredentialsPropertiesResponsePtrOutput) ToTokenCredentialsPropertie
 }
 
 func (o TokenCredentialsPropertiesResponsePtrOutput) Elem() TokenCredentialsPropertiesResponseOutput {
-	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) TokenCredentialsPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TokenCredentialsPropertiesResponse
-		return ret
-	}).(TokenCredentialsPropertiesResponseOutput)
+	return o.ApplyT(func(v *TokenCredentialsPropertiesResponse) TokenCredentialsPropertiesResponse { return *v }).(TokenCredentialsPropertiesResponseOutput)
 }
 
 // The Active Directory Object that will be used for authenticating the token of a container registry.

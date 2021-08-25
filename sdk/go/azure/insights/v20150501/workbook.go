@@ -62,6 +62,9 @@ func NewWorkbook(ctx *pulumi.Context,
 	if args.SerializedData == nil {
 		return nil, errors.New("invalid value for required argument 'SerializedData'")
 	}
+	if args.SharedTypeKind == nil {
+		return nil, errors.New("invalid value for required argument 'SharedTypeKind'")
+	}
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
@@ -214,7 +217,9 @@ func (i *Workbook) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookOutput)
 }
 
-type WorkbookOutput struct{ *pulumi.OutputState }
+type WorkbookOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkbookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workbook)(nil))

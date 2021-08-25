@@ -145,7 +145,9 @@ func (i *BackupInstance) ToBackupInstanceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceOutput)
 }
 
-type BackupInstanceOutput struct{ *pulumi.OutputState }
+type BackupInstanceOutput struct {
+	*pulumi.OutputState
+}
 
 func (BackupInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupInstance)(nil))

@@ -224,7 +224,9 @@ func (i *RecordSet) ToRecordSetOutputWithContext(ctx context.Context) RecordSetO
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetOutput)
 }
 
-type RecordSetOutput struct{ *pulumi.OutputState }
+type RecordSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (RecordSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RecordSet)(nil))

@@ -106,7 +106,7 @@ func (o AdmCredentialOutput) ToAdmCredentialPtrOutput() AdmCredentialPtrOutput {
 }
 
 func (o AdmCredentialOutput) ToAdmCredentialPtrOutputWithContext(ctx context.Context) AdmCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredential) *AdmCredential {
+	return o.ApplyT(func(v AdmCredential) *AdmCredential {
 		return &v
 	}).(AdmCredentialPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o AdmCredentialPtrOutput) ToAdmCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o AdmCredentialPtrOutput) Elem() AdmCredentialOutput {
-	return o.ApplyT(func(v *AdmCredential) AdmCredential {
-		if v != nil {
-			return *v
-		}
-		var ret AdmCredential
-		return ret
-	}).(AdmCredentialOutput)
+	return o.ApplyT(func(v *AdmCredential) AdmCredential { return *v }).(AdmCredentialOutput)
 }
 
 // Gets or sets properties of NotificationHub AdmCredential.
@@ -254,7 +248,7 @@ func (o AdmCredentialPropertiesOutput) ToAdmCredentialPropertiesPtrOutput() AdmC
 }
 
 func (o AdmCredentialPropertiesOutput) ToAdmCredentialPropertiesPtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialProperties) *AdmCredentialProperties {
+	return o.ApplyT(func(v AdmCredentialProperties) *AdmCredentialProperties {
 		return &v
 	}).(AdmCredentialPropertiesPtrOutput)
 }
@@ -289,13 +283,7 @@ func (o AdmCredentialPropertiesPtrOutput) ToAdmCredentialPropertiesPtrOutputWith
 }
 
 func (o AdmCredentialPropertiesPtrOutput) Elem() AdmCredentialPropertiesOutput {
-	return o.ApplyT(func(v *AdmCredentialProperties) AdmCredentialProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AdmCredentialProperties
-		return ret
-	}).(AdmCredentialPropertiesOutput)
+	return o.ApplyT(func(v *AdmCredentialProperties) AdmCredentialProperties { return *v }).(AdmCredentialPropertiesOutput)
 }
 
 // Gets or sets the URL of the authorization token.
@@ -432,7 +420,7 @@ func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponse
 }
 
 func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialPropertiesResponse) *AdmCredentialPropertiesResponse {
+	return o.ApplyT(func(v AdmCredentialPropertiesResponse) *AdmCredentialPropertiesResponse {
 		return &v
 	}).(AdmCredentialPropertiesResponsePtrOutput)
 }
@@ -467,13 +455,7 @@ func (o AdmCredentialPropertiesResponsePtrOutput) ToAdmCredentialPropertiesRespo
 }
 
 func (o AdmCredentialPropertiesResponsePtrOutput) Elem() AdmCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *AdmCredentialPropertiesResponse) AdmCredentialPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AdmCredentialPropertiesResponse
-		return ret
-	}).(AdmCredentialPropertiesResponseOutput)
+	return o.ApplyT(func(v *AdmCredentialPropertiesResponse) AdmCredentialPropertiesResponse { return *v }).(AdmCredentialPropertiesResponseOutput)
 }
 
 // Gets or sets the URL of the authorization token.
@@ -602,7 +584,7 @@ func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutput() AdmCrede
 }
 
 func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialResponse) *AdmCredentialResponse {
+	return o.ApplyT(func(v AdmCredentialResponse) *AdmCredentialResponse {
 		return &v
 	}).(AdmCredentialResponsePtrOutput)
 }
@@ -627,13 +609,7 @@ func (o AdmCredentialResponsePtrOutput) ToAdmCredentialResponsePtrOutputWithCont
 }
 
 func (o AdmCredentialResponsePtrOutput) Elem() AdmCredentialResponseOutput {
-	return o.ApplyT(func(v *AdmCredentialResponse) AdmCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AdmCredentialResponse
-		return ret
-	}).(AdmCredentialResponseOutput)
+	return o.ApplyT(func(v *AdmCredentialResponse) AdmCredentialResponse { return *v }).(AdmCredentialResponseOutput)
 }
 
 // Gets or sets properties of NotificationHub AdmCredential.
@@ -742,7 +718,7 @@ func (o ApnsCredentialOutput) ToApnsCredentialPtrOutput() ApnsCredentialPtrOutpu
 }
 
 func (o ApnsCredentialOutput) ToApnsCredentialPtrOutputWithContext(ctx context.Context) ApnsCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredential) *ApnsCredential {
+	return o.ApplyT(func(v ApnsCredential) *ApnsCredential {
 		return &v
 	}).(ApnsCredentialPtrOutput)
 }
@@ -767,13 +743,7 @@ func (o ApnsCredentialPtrOutput) ToApnsCredentialPtrOutputWithContext(ctx contex
 }
 
 func (o ApnsCredentialPtrOutput) Elem() ApnsCredentialOutput {
-	return o.ApplyT(func(v *ApnsCredential) ApnsCredential {
-		if v != nil {
-			return *v
-		}
-		var ret ApnsCredential
-		return ret
-	}).(ApnsCredentialOutput)
+	return o.ApplyT(func(v *ApnsCredential) ApnsCredential { return *v }).(ApnsCredentialOutput)
 }
 
 // Gets or sets properties of NotificationHub ApnsCredential.
@@ -894,7 +864,7 @@ func (o ApnsCredentialPropertiesOutput) ToApnsCredentialPropertiesPtrOutput() Ap
 }
 
 func (o ApnsCredentialPropertiesOutput) ToApnsCredentialPropertiesPtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialProperties) *ApnsCredentialProperties {
+	return o.ApplyT(func(v ApnsCredentialProperties) *ApnsCredentialProperties {
 		return &v
 	}).(ApnsCredentialPropertiesPtrOutput)
 }
@@ -934,13 +904,7 @@ func (o ApnsCredentialPropertiesPtrOutput) ToApnsCredentialPropertiesPtrOutputWi
 }
 
 func (o ApnsCredentialPropertiesPtrOutput) Elem() ApnsCredentialPropertiesOutput {
-	return o.ApplyT(func(v *ApnsCredentialProperties) ApnsCredentialProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ApnsCredentialProperties
-		return ret
-	}).(ApnsCredentialPropertiesOutput)
+	return o.ApplyT(func(v *ApnsCredentialProperties) ApnsCredentialProperties { return *v }).(ApnsCredentialPropertiesOutput)
 }
 
 // Gets or sets the APNS certificate.
@@ -1091,7 +1055,7 @@ func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesRespon
 }
 
 func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialPropertiesResponse) *ApnsCredentialPropertiesResponse {
+	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *ApnsCredentialPropertiesResponse {
 		return &v
 	}).(ApnsCredentialPropertiesResponsePtrOutput)
 }
@@ -1131,13 +1095,7 @@ func (o ApnsCredentialPropertiesResponsePtrOutput) ToApnsCredentialPropertiesRes
 }
 
 func (o ApnsCredentialPropertiesResponsePtrOutput) Elem() ApnsCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) ApnsCredentialPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApnsCredentialPropertiesResponse
-		return ret
-	}).(ApnsCredentialPropertiesResponseOutput)
+	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) ApnsCredentialPropertiesResponse { return *v }).(ApnsCredentialPropertiesResponseOutput)
 }
 
 // Gets or sets the APNS certificate.
@@ -1276,7 +1234,7 @@ func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutput() ApnsCr
 }
 
 func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialResponse) *ApnsCredentialResponse {
+	return o.ApplyT(func(v ApnsCredentialResponse) *ApnsCredentialResponse {
 		return &v
 	}).(ApnsCredentialResponsePtrOutput)
 }
@@ -1301,13 +1259,7 @@ func (o ApnsCredentialResponsePtrOutput) ToApnsCredentialResponsePtrOutputWithCo
 }
 
 func (o ApnsCredentialResponsePtrOutput) Elem() ApnsCredentialResponseOutput {
-	return o.ApplyT(func(v *ApnsCredentialResponse) ApnsCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApnsCredentialResponse
-		return ret
-	}).(ApnsCredentialResponseOutput)
+	return o.ApplyT(func(v *ApnsCredentialResponse) ApnsCredentialResponse { return *v }).(ApnsCredentialResponseOutput)
 }
 
 // Gets or sets properties of NotificationHub ApnsCredential.
@@ -1416,7 +1368,7 @@ func (o BaiduCredentialOutput) ToBaiduCredentialPtrOutput() BaiduCredentialPtrOu
 }
 
 func (o BaiduCredentialOutput) ToBaiduCredentialPtrOutputWithContext(ctx context.Context) BaiduCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredential) *BaiduCredential {
+	return o.ApplyT(func(v BaiduCredential) *BaiduCredential {
 		return &v
 	}).(BaiduCredentialPtrOutput)
 }
@@ -1441,13 +1393,7 @@ func (o BaiduCredentialPtrOutput) ToBaiduCredentialPtrOutputWithContext(ctx cont
 }
 
 func (o BaiduCredentialPtrOutput) Elem() BaiduCredentialOutput {
-	return o.ApplyT(func(v *BaiduCredential) BaiduCredential {
-		if v != nil {
-			return *v
-		}
-		var ret BaiduCredential
-		return ret
-	}).(BaiduCredentialOutput)
+	return o.ApplyT(func(v *BaiduCredential) BaiduCredential { return *v }).(BaiduCredentialOutput)
 }
 
 // Gets or sets properties of NotificationHub BaiduCredential.
@@ -1564,7 +1510,7 @@ func (o BaiduCredentialPropertiesOutput) ToBaiduCredentialPropertiesPtrOutput() 
 }
 
 func (o BaiduCredentialPropertiesOutput) ToBaiduCredentialPropertiesPtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialProperties) *BaiduCredentialProperties {
+	return o.ApplyT(func(v BaiduCredentialProperties) *BaiduCredentialProperties {
 		return &v
 	}).(BaiduCredentialPropertiesPtrOutput)
 }
@@ -1599,13 +1545,7 @@ func (o BaiduCredentialPropertiesPtrOutput) ToBaiduCredentialPropertiesPtrOutput
 }
 
 func (o BaiduCredentialPropertiesPtrOutput) Elem() BaiduCredentialPropertiesOutput {
-	return o.ApplyT(func(v *BaiduCredentialProperties) BaiduCredentialProperties {
-		if v != nil {
-			return *v
-		}
-		var ret BaiduCredentialProperties
-		return ret
-	}).(BaiduCredentialPropertiesOutput)
+	return o.ApplyT(func(v *BaiduCredentialProperties) BaiduCredentialProperties { return *v }).(BaiduCredentialPropertiesOutput)
 }
 
 // Get or Set Baidu Api Key.
@@ -1742,7 +1682,7 @@ func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResp
 }
 
 func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialPropertiesResponse) *BaiduCredentialPropertiesResponse {
+	return o.ApplyT(func(v BaiduCredentialPropertiesResponse) *BaiduCredentialPropertiesResponse {
 		return &v
 	}).(BaiduCredentialPropertiesResponsePtrOutput)
 }
@@ -1777,13 +1717,7 @@ func (o BaiduCredentialPropertiesResponsePtrOutput) ToBaiduCredentialPropertiesR
 }
 
 func (o BaiduCredentialPropertiesResponsePtrOutput) Elem() BaiduCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *BaiduCredentialPropertiesResponse) BaiduCredentialPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BaiduCredentialPropertiesResponse
-		return ret
-	}).(BaiduCredentialPropertiesResponseOutput)
+	return o.ApplyT(func(v *BaiduCredentialPropertiesResponse) BaiduCredentialPropertiesResponse { return *v }).(BaiduCredentialPropertiesResponseOutput)
 }
 
 // Get or Set Baidu Api Key.
@@ -1912,7 +1846,7 @@ func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutput() Baid
 }
 
 func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialResponse) *BaiduCredentialResponse {
+	return o.ApplyT(func(v BaiduCredentialResponse) *BaiduCredentialResponse {
 		return &v
 	}).(BaiduCredentialResponsePtrOutput)
 }
@@ -1937,13 +1871,7 @@ func (o BaiduCredentialResponsePtrOutput) ToBaiduCredentialResponsePtrOutputWith
 }
 
 func (o BaiduCredentialResponsePtrOutput) Elem() BaiduCredentialResponseOutput {
-	return o.ApplyT(func(v *BaiduCredentialResponse) BaiduCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BaiduCredentialResponse
-		return ret
-	}).(BaiduCredentialResponseOutput)
+	return o.ApplyT(func(v *BaiduCredentialResponse) BaiduCredentialResponse { return *v }).(BaiduCredentialResponseOutput)
 }
 
 // Gets or sets properties of NotificationHub BaiduCredential.
@@ -2052,7 +1980,7 @@ func (o GcmCredentialOutput) ToGcmCredentialPtrOutput() GcmCredentialPtrOutput {
 }
 
 func (o GcmCredentialOutput) ToGcmCredentialPtrOutputWithContext(ctx context.Context) GcmCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredential) *GcmCredential {
+	return o.ApplyT(func(v GcmCredential) *GcmCredential {
 		return &v
 	}).(GcmCredentialPtrOutput)
 }
@@ -2077,13 +2005,7 @@ func (o GcmCredentialPtrOutput) ToGcmCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o GcmCredentialPtrOutput) Elem() GcmCredentialOutput {
-	return o.ApplyT(func(v *GcmCredential) GcmCredential {
-		if v != nil {
-			return *v
-		}
-		var ret GcmCredential
-		return ret
-	}).(GcmCredentialOutput)
+	return o.ApplyT(func(v *GcmCredential) GcmCredential { return *v }).(GcmCredentialOutput)
 }
 
 // Gets or sets properties of NotificationHub GcmCredential.
@@ -2196,7 +2118,7 @@ func (o GcmCredentialPropertiesOutput) ToGcmCredentialPropertiesPtrOutput() GcmC
 }
 
 func (o GcmCredentialPropertiesOutput) ToGcmCredentialPropertiesPtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialProperties) *GcmCredentialProperties {
+	return o.ApplyT(func(v GcmCredentialProperties) *GcmCredentialProperties {
 		return &v
 	}).(GcmCredentialPropertiesPtrOutput)
 }
@@ -2226,13 +2148,7 @@ func (o GcmCredentialPropertiesPtrOutput) ToGcmCredentialPropertiesPtrOutputWith
 }
 
 func (o GcmCredentialPropertiesPtrOutput) Elem() GcmCredentialPropertiesOutput {
-	return o.ApplyT(func(v *GcmCredentialProperties) GcmCredentialProperties {
-		if v != nil {
-			return *v
-		}
-		var ret GcmCredentialProperties
-		return ret
-	}).(GcmCredentialPropertiesOutput)
+	return o.ApplyT(func(v *GcmCredentialProperties) GcmCredentialProperties { return *v }).(GcmCredentialPropertiesOutput)
 }
 
 // Gets or sets the GCM endpoint.
@@ -2355,7 +2271,7 @@ func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponse
 }
 
 func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialPropertiesResponse) *GcmCredentialPropertiesResponse {
+	return o.ApplyT(func(v GcmCredentialPropertiesResponse) *GcmCredentialPropertiesResponse {
 		return &v
 	}).(GcmCredentialPropertiesResponsePtrOutput)
 }
@@ -2385,13 +2301,7 @@ func (o GcmCredentialPropertiesResponsePtrOutput) ToGcmCredentialPropertiesRespo
 }
 
 func (o GcmCredentialPropertiesResponsePtrOutput) Elem() GcmCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *GcmCredentialPropertiesResponse) GcmCredentialPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GcmCredentialPropertiesResponse
-		return ret
-	}).(GcmCredentialPropertiesResponseOutput)
+	return o.ApplyT(func(v *GcmCredentialPropertiesResponse) GcmCredentialPropertiesResponse { return *v }).(GcmCredentialPropertiesResponseOutput)
 }
 
 // Gets or sets the GCM endpoint.
@@ -2510,7 +2420,7 @@ func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutput() GcmCrede
 }
 
 func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialResponse) *GcmCredentialResponse {
+	return o.ApplyT(func(v GcmCredentialResponse) *GcmCredentialResponse {
 		return &v
 	}).(GcmCredentialResponsePtrOutput)
 }
@@ -2535,13 +2445,7 @@ func (o GcmCredentialResponsePtrOutput) ToGcmCredentialResponsePtrOutputWithCont
 }
 
 func (o GcmCredentialResponsePtrOutput) Elem() GcmCredentialResponseOutput {
-	return o.ApplyT(func(v *GcmCredentialResponse) GcmCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GcmCredentialResponse
-		return ret
-	}).(GcmCredentialResponseOutput)
+	return o.ApplyT(func(v *GcmCredentialResponse) GcmCredentialResponse { return *v }).(GcmCredentialResponseOutput)
 }
 
 // Gets or sets properties of NotificationHub GcmCredential.
@@ -2650,7 +2554,7 @@ func (o MpnsCredentialOutput) ToMpnsCredentialPtrOutput() MpnsCredentialPtrOutpu
 }
 
 func (o MpnsCredentialOutput) ToMpnsCredentialPtrOutputWithContext(ctx context.Context) MpnsCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredential) *MpnsCredential {
+	return o.ApplyT(func(v MpnsCredential) *MpnsCredential {
 		return &v
 	}).(MpnsCredentialPtrOutput)
 }
@@ -2675,13 +2579,7 @@ func (o MpnsCredentialPtrOutput) ToMpnsCredentialPtrOutputWithContext(ctx contex
 }
 
 func (o MpnsCredentialPtrOutput) Elem() MpnsCredentialOutput {
-	return o.ApplyT(func(v *MpnsCredential) MpnsCredential {
-		if v != nil {
-			return *v
-		}
-		var ret MpnsCredential
-		return ret
-	}).(MpnsCredentialOutput)
+	return o.ApplyT(func(v *MpnsCredential) MpnsCredential { return *v }).(MpnsCredentialOutput)
 }
 
 // Gets or sets properties of NotificationHub MpnsCredential.
@@ -2798,7 +2696,7 @@ func (o MpnsCredentialPropertiesOutput) ToMpnsCredentialPropertiesPtrOutput() Mp
 }
 
 func (o MpnsCredentialPropertiesOutput) ToMpnsCredentialPropertiesPtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialProperties) *MpnsCredentialProperties {
+	return o.ApplyT(func(v MpnsCredentialProperties) *MpnsCredentialProperties {
 		return &v
 	}).(MpnsCredentialPropertiesPtrOutput)
 }
@@ -2833,13 +2731,7 @@ func (o MpnsCredentialPropertiesPtrOutput) ToMpnsCredentialPropertiesPtrOutputWi
 }
 
 func (o MpnsCredentialPropertiesPtrOutput) Elem() MpnsCredentialPropertiesOutput {
-	return o.ApplyT(func(v *MpnsCredentialProperties) MpnsCredentialProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MpnsCredentialProperties
-		return ret
-	}).(MpnsCredentialPropertiesOutput)
+	return o.ApplyT(func(v *MpnsCredentialProperties) MpnsCredentialProperties { return *v }).(MpnsCredentialPropertiesOutput)
 }
 
 // Gets or sets the certificate key for this credential.
@@ -2976,7 +2868,7 @@ func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesRespon
 }
 
 func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialPropertiesResponse) *MpnsCredentialPropertiesResponse {
+	return o.ApplyT(func(v MpnsCredentialPropertiesResponse) *MpnsCredentialPropertiesResponse {
 		return &v
 	}).(MpnsCredentialPropertiesResponsePtrOutput)
 }
@@ -3011,13 +2903,7 @@ func (o MpnsCredentialPropertiesResponsePtrOutput) ToMpnsCredentialPropertiesRes
 }
 
 func (o MpnsCredentialPropertiesResponsePtrOutput) Elem() MpnsCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *MpnsCredentialPropertiesResponse) MpnsCredentialPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MpnsCredentialPropertiesResponse
-		return ret
-	}).(MpnsCredentialPropertiesResponseOutput)
+	return o.ApplyT(func(v *MpnsCredentialPropertiesResponse) MpnsCredentialPropertiesResponse { return *v }).(MpnsCredentialPropertiesResponseOutput)
 }
 
 // Gets or sets the certificate key for this credential.
@@ -3146,7 +3032,7 @@ func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutput() MpnsCr
 }
 
 func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialResponse) *MpnsCredentialResponse {
+	return o.ApplyT(func(v MpnsCredentialResponse) *MpnsCredentialResponse {
 		return &v
 	}).(MpnsCredentialResponsePtrOutput)
 }
@@ -3171,13 +3057,7 @@ func (o MpnsCredentialResponsePtrOutput) ToMpnsCredentialResponsePtrOutputWithCo
 }
 
 func (o MpnsCredentialResponsePtrOutput) Elem() MpnsCredentialResponseOutput {
-	return o.ApplyT(func(v *MpnsCredentialResponse) MpnsCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MpnsCredentialResponse
-		return ret
-	}).(MpnsCredentialResponseOutput)
+	return o.ApplyT(func(v *MpnsCredentialResponse) MpnsCredentialResponse { return *v }).(MpnsCredentialResponseOutput)
 }
 
 // Gets or sets properties of NotificationHub MpnsCredential.
@@ -3201,7 +3081,7 @@ type NamespaceProperties struct {
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
 	// Gets or sets the namespace type.
-	NamespaceType *NamespaceType `pulumi:"namespaceType"`
+	NamespaceType *string `pulumi:"namespaceType"`
 	// Gets or sets provisioning state of the Namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -3238,7 +3118,7 @@ type NamespacePropertiesArgs struct {
 	// The name of the namespace.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Gets or sets the namespace type.
-	NamespaceType NamespaceTypePtrInput `pulumi:"namespaceType"`
+	NamespaceType *NamespaceType `pulumi:"namespaceType"`
 	// Gets or sets provisioning state of the Namespace.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -3326,7 +3206,7 @@ func (o NamespacePropertiesOutput) ToNamespacePropertiesPtrOutput() NamespacePro
 }
 
 func (o NamespacePropertiesOutput) ToNamespacePropertiesPtrOutputWithContext(ctx context.Context) NamespacePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceProperties) *NamespaceProperties {
+	return o.ApplyT(func(v NamespaceProperties) *NamespaceProperties {
 		return &v
 	}).(NamespacePropertiesPtrOutput)
 }
@@ -3352,8 +3232,8 @@ func (o NamespacePropertiesOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the namespace type.
-func (o NamespacePropertiesOutput) NamespaceType() NamespaceTypePtrOutput {
-	return o.ApplyT(func(v NamespaceProperties) *NamespaceType { return v.NamespaceType }).(NamespaceTypePtrOutput)
+func (o NamespacePropertiesOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceProperties) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets provisioning state of the Namespace.
@@ -3401,13 +3281,7 @@ func (o NamespacePropertiesPtrOutput) ToNamespacePropertiesPtrOutputWithContext(
 }
 
 func (o NamespacePropertiesPtrOutput) Elem() NamespacePropertiesOutput {
-	return o.ApplyT(func(v *NamespaceProperties) NamespaceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret NamespaceProperties
-		return ret
-	}).(NamespacePropertiesOutput)
+	return o.ApplyT(func(v *NamespaceProperties) NamespaceProperties { return *v }).(NamespacePropertiesOutput)
 }
 
 // The time the namespace was created.
@@ -3451,13 +3325,13 @@ func (o NamespacePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the namespace type.
-func (o NamespacePropertiesPtrOutput) NamespaceType() NamespaceTypePtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *NamespaceType {
+func (o NamespacePropertiesPtrOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.NamespaceType
-	}).(NamespaceTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets provisioning state of the Namespace.
@@ -3656,7 +3530,7 @@ func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponsePtrOutpu
 }
 
 func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespacePropertiesResponse) *NamespacePropertiesResponse {
+	return o.ApplyT(func(v NamespacePropertiesResponse) *NamespacePropertiesResponse {
 		return &v
 	}).(NamespacePropertiesResponsePtrOutput)
 }
@@ -3731,13 +3605,7 @@ func (o NamespacePropertiesResponsePtrOutput) ToNamespacePropertiesResponsePtrOu
 }
 
 func (o NamespacePropertiesResponsePtrOutput) Elem() NamespacePropertiesResponseOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) NamespacePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NamespacePropertiesResponse
-		return ret
-	}).(NamespacePropertiesResponseOutput)
+	return o.ApplyT(func(v *NamespacePropertiesResponse) NamespacePropertiesResponse { return *v }).(NamespacePropertiesResponseOutput)
 }
 
 // The time the namespace was created.
@@ -3978,7 +3846,7 @@ func (o NotificationHubPropertiesOutput) ToNotificationHubPropertiesPtrOutput() 
 }
 
 func (o NotificationHubPropertiesOutput) ToNotificationHubPropertiesPtrOutputWithContext(ctx context.Context) NotificationHubPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationHubProperties) *NotificationHubProperties {
+	return o.ApplyT(func(v NotificationHubProperties) *NotificationHubProperties {
 		return &v
 	}).(NotificationHubPropertiesPtrOutput)
 }
@@ -4045,13 +3913,7 @@ func (o NotificationHubPropertiesPtrOutput) ToNotificationHubPropertiesPtrOutput
 }
 
 func (o NotificationHubPropertiesPtrOutput) Elem() NotificationHubPropertiesOutput {
-	return o.ApplyT(func(v *NotificationHubProperties) NotificationHubProperties {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationHubProperties
-		return ret
-	}).(NotificationHubPropertiesOutput)
+	return o.ApplyT(func(v *NotificationHubProperties) NotificationHubProperties { return *v }).(NotificationHubPropertiesOutput)
 }
 
 // The AdmCredential of the created NotificationHub
@@ -4272,7 +4134,7 @@ func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResp
 }
 
 func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationHubPropertiesResponse) *NotificationHubPropertiesResponse {
+	return o.ApplyT(func(v NotificationHubPropertiesResponse) *NotificationHubPropertiesResponse {
 		return &v
 	}).(NotificationHubPropertiesResponsePtrOutput)
 }
@@ -4339,13 +4201,7 @@ func (o NotificationHubPropertiesResponsePtrOutput) ToNotificationHubPropertiesR
 }
 
 func (o NotificationHubPropertiesResponsePtrOutput) Elem() NotificationHubPropertiesResponseOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) NotificationHubPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationHubPropertiesResponse
-		return ret
-	}).(NotificationHubPropertiesResponseOutput)
+	return o.ApplyT(func(v *NotificationHubPropertiesResponse) NotificationHubPropertiesResponse { return *v }).(NotificationHubPropertiesResponseOutput)
 }
 
 // The AdmCredential of the created NotificationHub
@@ -4455,7 +4311,7 @@ type SharedAccessAuthorizationRuleProperties struct {
 	// The revision number for the rule.
 	Revision *int `pulumi:"revision"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 	// The secondary key that was used.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
@@ -4581,8 +4437,8 @@ func (o SharedAccessAuthorizationRulePropertiesOutput) Revision() pulumi.IntPtrO
 }
 
 // The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() AccessRightsArrayOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []AccessRights { return v.Rights }).(AccessRightsArrayOutput)
+func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
 // The secondary key that was used.
@@ -4878,7 +4734,7 @@ func (o WnsCredentialOutput) ToWnsCredentialPtrOutput() WnsCredentialPtrOutput {
 }
 
 func (o WnsCredentialOutput) ToWnsCredentialPtrOutputWithContext(ctx context.Context) WnsCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredential) *WnsCredential {
+	return o.ApplyT(func(v WnsCredential) *WnsCredential {
 		return &v
 	}).(WnsCredentialPtrOutput)
 }
@@ -4903,13 +4759,7 @@ func (o WnsCredentialPtrOutput) ToWnsCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o WnsCredentialPtrOutput) Elem() WnsCredentialOutput {
-	return o.ApplyT(func(v *WnsCredential) WnsCredential {
-		if v != nil {
-			return *v
-		}
-		var ret WnsCredential
-		return ret
-	}).(WnsCredentialOutput)
+	return o.ApplyT(func(v *WnsCredential) WnsCredential { return *v }).(WnsCredentialOutput)
 }
 
 // Gets or sets properties of NotificationHub WnsCredential.
@@ -5026,7 +4876,7 @@ func (o WnsCredentialPropertiesOutput) ToWnsCredentialPropertiesPtrOutput() WnsC
 }
 
 func (o WnsCredentialPropertiesOutput) ToWnsCredentialPropertiesPtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialProperties) *WnsCredentialProperties {
+	return o.ApplyT(func(v WnsCredentialProperties) *WnsCredentialProperties {
 		return &v
 	}).(WnsCredentialPropertiesPtrOutput)
 }
@@ -5061,13 +4911,7 @@ func (o WnsCredentialPropertiesPtrOutput) ToWnsCredentialPropertiesPtrOutputWith
 }
 
 func (o WnsCredentialPropertiesPtrOutput) Elem() WnsCredentialPropertiesOutput {
-	return o.ApplyT(func(v *WnsCredentialProperties) WnsCredentialProperties {
-		if v != nil {
-			return *v
-		}
-		var ret WnsCredentialProperties
-		return ret
-	}).(WnsCredentialPropertiesOutput)
+	return o.ApplyT(func(v *WnsCredentialProperties) WnsCredentialProperties { return *v }).(WnsCredentialPropertiesOutput)
 }
 
 // Gets or sets the package ID for this credential.
@@ -5204,7 +5048,7 @@ func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponse
 }
 
 func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialPropertiesResponse) *WnsCredentialPropertiesResponse {
+	return o.ApplyT(func(v WnsCredentialPropertiesResponse) *WnsCredentialPropertiesResponse {
 		return &v
 	}).(WnsCredentialPropertiesResponsePtrOutput)
 }
@@ -5239,13 +5083,7 @@ func (o WnsCredentialPropertiesResponsePtrOutput) ToWnsCredentialPropertiesRespo
 }
 
 func (o WnsCredentialPropertiesResponsePtrOutput) Elem() WnsCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *WnsCredentialPropertiesResponse) WnsCredentialPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WnsCredentialPropertiesResponse
-		return ret
-	}).(WnsCredentialPropertiesResponseOutput)
+	return o.ApplyT(func(v *WnsCredentialPropertiesResponse) WnsCredentialPropertiesResponse { return *v }).(WnsCredentialPropertiesResponseOutput)
 }
 
 // Gets or sets the package ID for this credential.
@@ -5374,7 +5212,7 @@ func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutput() WnsCrede
 }
 
 func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialResponse) *WnsCredentialResponse {
+	return o.ApplyT(func(v WnsCredentialResponse) *WnsCredentialResponse {
 		return &v
 	}).(WnsCredentialResponsePtrOutput)
 }
@@ -5399,13 +5237,7 @@ func (o WnsCredentialResponsePtrOutput) ToWnsCredentialResponsePtrOutputWithCont
 }
 
 func (o WnsCredentialResponsePtrOutput) Elem() WnsCredentialResponseOutput {
-	return o.ApplyT(func(v *WnsCredentialResponse) WnsCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WnsCredentialResponse
-		return ret
-	}).(WnsCredentialResponseOutput)
+	return o.ApplyT(func(v *WnsCredentialResponse) WnsCredentialResponse { return *v }).(WnsCredentialResponseOutput)
 }
 
 // Gets or sets properties of NotificationHub WnsCredential.

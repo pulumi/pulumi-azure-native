@@ -91,7 +91,7 @@ type bandwidthSettingArgs struct {
 	// The bandwidth setting name.
 	BandwidthSettingName *string `pulumi:"bandwidthSettingName"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -105,7 +105,7 @@ type BandwidthSettingArgs struct {
 	// The bandwidth setting name.
 	BandwidthSettingName pulumi.StringPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
@@ -137,7 +137,9 @@ func (i *BandwidthSetting) ToBandwidthSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BandwidthSettingOutput)
 }
 
-type BandwidthSettingOutput struct{ *pulumi.OutputState }
+type BandwidthSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (BandwidthSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BandwidthSetting)(nil))

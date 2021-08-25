@@ -263,7 +263,9 @@ func (i *ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupOutput)
 }
 
-type ApplicationGroupOutput struct{ *pulumi.OutputState }
+type ApplicationGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplicationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGroup)(nil))

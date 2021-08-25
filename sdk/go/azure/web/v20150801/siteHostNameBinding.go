@@ -165,15 +165,15 @@ type siteHostNameBindingArgs struct {
 	// Azure resource name
 	AzureResourceName *string `pulumi:"azureResourceName"`
 	// Azure resource type
-	AzureResourceType *AzureResourceType `pulumi:"azureResourceType"`
+	AzureResourceType *string `pulumi:"azureResourceType"`
 	// Custom DNS record type
-	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType `pulumi:"customHostNameDnsRecordType"`
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
 	// Fully qualified ARM domain resource URI
 	DomainId *string `pulumi:"domainId"`
 	// Name of host
 	HostName *string `pulumi:"hostName"`
 	// Host name type
-	HostNameType *HostNameType `pulumi:"hostNameType"`
+	HostNameType *string `pulumi:"hostNameType"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -197,15 +197,15 @@ type SiteHostNameBindingArgs struct {
 	// Azure resource name
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type
-	AzureResourceType AzureResourceTypePtrInput
+	AzureResourceType *AzureResourceType
 	// Custom DNS record type
-	CustomHostNameDnsRecordType CustomHostNameDnsRecordTypePtrInput
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI
 	DomainId pulumi.StringPtrInput
 	// Name of host
 	HostName pulumi.StringPtrInput
 	// Host name type
-	HostNameType HostNameTypePtrInput
+	HostNameType *HostNameType
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource
@@ -247,7 +247,9 @@ func (i *SiteHostNameBinding) ToSiteHostNameBindingOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteHostNameBindingOutput)
 }
 
-type SiteHostNameBindingOutput struct{ *pulumi.OutputState }
+type SiteHostNameBindingOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteHostNameBindingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteHostNameBinding)(nil))

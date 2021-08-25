@@ -156,7 +156,9 @@ func (i *EyesOn) ToEyesOnOutputWithContext(ctx context.Context) EyesOnOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EyesOnOutput)
 }
 
-type EyesOnOutput struct{ *pulumi.OutputState }
+type EyesOnOutput struct {
+	*pulumi.OutputState
+}
 
 func (EyesOnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EyesOn)(nil))

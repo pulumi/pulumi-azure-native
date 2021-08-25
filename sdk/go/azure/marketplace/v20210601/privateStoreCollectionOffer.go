@@ -163,7 +163,9 @@ func (i *PrivateStoreCollectionOffer) ToPrivateStoreCollectionOfferOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateStoreCollectionOfferOutput)
 }
 
-type PrivateStoreCollectionOfferOutput struct{ *pulumi.OutputState }
+type PrivateStoreCollectionOfferOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateStoreCollectionOfferOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateStoreCollectionOffer)(nil))

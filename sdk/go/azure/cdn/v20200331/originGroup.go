@@ -175,7 +175,9 @@ func (i *OriginGroup) ToOriginGroupOutputWithContext(ctx context.Context) Origin
 	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOutput)
 }
 
-type OriginGroupOutput struct{ *pulumi.OutputState }
+type OriginGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (OriginGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OriginGroup)(nil))

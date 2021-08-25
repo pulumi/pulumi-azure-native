@@ -189,7 +189,9 @@ func (i *WebAppAzureStorageAccountsSlot) ToWebAppAzureStorageAccountsSlotOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppAzureStorageAccountsSlotOutput)
 }
 
-type WebAppAzureStorageAccountsSlotOutput struct{ *pulumi.OutputState }
+type WebAppAzureStorageAccountsSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppAzureStorageAccountsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppAzureStorageAccountsSlot)(nil))

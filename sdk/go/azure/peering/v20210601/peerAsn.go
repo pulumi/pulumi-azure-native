@@ -162,7 +162,9 @@ func (i *PeerAsn) ToPeerAsnOutputWithContext(ctx context.Context) PeerAsnOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnOutput)
 }
 
-type PeerAsnOutput struct{ *pulumi.OutputState }
+type PeerAsnOutput struct {
+	*pulumi.OutputState
+}
 
 func (PeerAsnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeerAsn)(nil))

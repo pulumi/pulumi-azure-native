@@ -110,7 +110,7 @@ func (o FluidRelayEndpointsResponseOutput) ToFluidRelayEndpointsResponsePtrOutpu
 }
 
 func (o FluidRelayEndpointsResponseOutput) ToFluidRelayEndpointsResponsePtrOutputWithContext(ctx context.Context) FluidRelayEndpointsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluidRelayEndpointsResponse) *FluidRelayEndpointsResponse {
+	return o.ApplyT(func(v FluidRelayEndpointsResponse) *FluidRelayEndpointsResponse {
 		return &v
 	}).(FluidRelayEndpointsResponsePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o FluidRelayEndpointsResponsePtrOutput) ToFluidRelayEndpointsResponsePtrOu
 }
 
 func (o FluidRelayEndpointsResponsePtrOutput) Elem() FluidRelayEndpointsResponseOutput {
-	return o.ApplyT(func(v *FluidRelayEndpointsResponse) FluidRelayEndpointsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FluidRelayEndpointsResponse
-		return ret
-	}).(FluidRelayEndpointsResponseOutput)
+	return o.ApplyT(func(v *FluidRelayEndpointsResponse) FluidRelayEndpointsResponse { return *v }).(FluidRelayEndpointsResponseOutput)
 }
 
 // The Fluid Relay Orderer endpoints.
@@ -265,7 +259,7 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
@@ -290,13 +284,7 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
@@ -413,7 +401,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -448,13 +436,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -603,7 +585,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -653,13 +635,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

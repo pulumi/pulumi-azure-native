@@ -145,7 +145,9 @@ func (i *ReportByDepartment) ToReportByDepartmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReportByDepartmentOutput)
 }
 
-type ReportByDepartmentOutput struct{ *pulumi.OutputState }
+type ReportByDepartmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReportByDepartmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportByDepartment)(nil))

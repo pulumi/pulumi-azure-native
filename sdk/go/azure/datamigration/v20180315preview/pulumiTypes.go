@@ -106,7 +106,7 @@ func (o BlobShareOutput) ToBlobSharePtrOutput() BlobSharePtrOutput {
 }
 
 func (o BlobShareOutput) ToBlobSharePtrOutputWithContext(ctx context.Context) BlobSharePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobShare) *BlobShare {
+	return o.ApplyT(func(v BlobShare) *BlobShare {
 		return &v
 	}).(BlobSharePtrOutput)
 }
@@ -131,13 +131,7 @@ func (o BlobSharePtrOutput) ToBlobSharePtrOutputWithContext(ctx context.Context)
 }
 
 func (o BlobSharePtrOutput) Elem() BlobShareOutput {
-	return o.ApplyT(func(v *BlobShare) BlobShare {
-		if v != nil {
-			return *v
-		}
-		var ret BlobShare
-		return ret
-	}).(BlobShareOutput)
+	return o.ApplyT(func(v *BlobShare) BlobShare { return *v }).(BlobShareOutput)
 }
 
 // SAS URI of Azure Storage Account Container.
@@ -246,7 +240,7 @@ func (o BlobShareResponseOutput) ToBlobShareResponsePtrOutput() BlobShareRespons
 }
 
 func (o BlobShareResponseOutput) ToBlobShareResponsePtrOutputWithContext(ctx context.Context) BlobShareResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobShareResponse) *BlobShareResponse {
+	return o.ApplyT(func(v BlobShareResponse) *BlobShareResponse {
 		return &v
 	}).(BlobShareResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o BlobShareResponsePtrOutput) ToBlobShareResponsePtrOutputWithContext(ctx 
 }
 
 func (o BlobShareResponsePtrOutput) Elem() BlobShareResponseOutput {
-	return o.ApplyT(func(v *BlobShareResponse) BlobShareResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BlobShareResponse
-		return ret
-	}).(BlobShareResponseOutput)
+	return o.ApplyT(func(v *BlobShareResponse) BlobShareResponse { return *v }).(BlobShareResponseOutput)
 }
 
 // SAS URI of Azure Storage Account Container.
@@ -390,7 +378,7 @@ func (o ConnectToSourceSqlServerTaskInputOutput) ToConnectToSourceSqlServerTaskI
 }
 
 func (o ConnectToSourceSqlServerTaskInputOutput) ToConnectToSourceSqlServerTaskInputPtrOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectToSourceSqlServerTaskInput) *ConnectToSourceSqlServerTaskInput {
+	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) *ConnectToSourceSqlServerTaskInput {
 		return &v
 	}).(ConnectToSourceSqlServerTaskInputPtrOutput)
 }
@@ -420,13 +408,7 @@ func (o ConnectToSourceSqlServerTaskInputPtrOutput) ToConnectToSourceSqlServerTa
 }
 
 func (o ConnectToSourceSqlServerTaskInputPtrOutput) Elem() ConnectToSourceSqlServerTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) ConnectToSourceSqlServerTaskInput {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectToSourceSqlServerTaskInput
-		return ret
-	}).(ConnectToSourceSqlServerTaskInputOutput)
+	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) ConnectToSourceSqlServerTaskInput { return *v }).(ConnectToSourceSqlServerTaskInputOutput)
 }
 
 // Permission group for validations
@@ -549,7 +531,7 @@ func (o ConnectToSourceSqlServerTaskInputResponseOutput) ToConnectToSourceSqlSer
 }
 
 func (o ConnectToSourceSqlServerTaskInputResponseOutput) ToConnectToSourceSqlServerTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectToSourceSqlServerTaskInputResponse) *ConnectToSourceSqlServerTaskInputResponse {
+	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInputResponse) *ConnectToSourceSqlServerTaskInputResponse {
 		return &v
 	}).(ConnectToSourceSqlServerTaskInputResponsePtrOutput)
 }
@@ -582,11 +564,7 @@ func (o ConnectToSourceSqlServerTaskInputResponsePtrOutput) ToConnectToSourceSql
 
 func (o ConnectToSourceSqlServerTaskInputResponsePtrOutput) Elem() ConnectToSourceSqlServerTaskInputResponseOutput {
 	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInputResponse) ConnectToSourceSqlServerTaskInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectToSourceSqlServerTaskInputResponse
-		return ret
+		return *v
 	}).(ConnectToSourceSqlServerTaskInputResponseOutput)
 }
 
@@ -1088,7 +1066,7 @@ func (o ConnectToTargetSqlDbTaskInputOutput) ToConnectToTargetSqlDbTaskInputPtrO
 }
 
 func (o ConnectToTargetSqlDbTaskInputOutput) ToConnectToTargetSqlDbTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectToTargetSqlDbTaskInput) *ConnectToTargetSqlDbTaskInput {
+	return o.ApplyT(func(v ConnectToTargetSqlDbTaskInput) *ConnectToTargetSqlDbTaskInput {
 		return &v
 	}).(ConnectToTargetSqlDbTaskInputPtrOutput)
 }
@@ -1113,13 +1091,7 @@ func (o ConnectToTargetSqlDbTaskInputPtrOutput) ToConnectToTargetSqlDbTaskInputP
 }
 
 func (o ConnectToTargetSqlDbTaskInputPtrOutput) Elem() ConnectToTargetSqlDbTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlDbTaskInput) ConnectToTargetSqlDbTaskInput {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectToTargetSqlDbTaskInput
-		return ret
-	}).(ConnectToTargetSqlDbTaskInputOutput)
+	return o.ApplyT(func(v *ConnectToTargetSqlDbTaskInput) ConnectToTargetSqlDbTaskInput { return *v }).(ConnectToTargetSqlDbTaskInputOutput)
 }
 
 // Connection information for target SQL DB
@@ -1228,7 +1200,7 @@ func (o ConnectToTargetSqlDbTaskInputResponseOutput) ToConnectToTargetSqlDbTaskI
 }
 
 func (o ConnectToTargetSqlDbTaskInputResponseOutput) ToConnectToTargetSqlDbTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectToTargetSqlDbTaskInputResponse) *ConnectToTargetSqlDbTaskInputResponse {
+	return o.ApplyT(func(v ConnectToTargetSqlDbTaskInputResponse) *ConnectToTargetSqlDbTaskInputResponse {
 		return &v
 	}).(ConnectToTargetSqlDbTaskInputResponsePtrOutput)
 }
@@ -1253,13 +1225,7 @@ func (o ConnectToTargetSqlDbTaskInputResponsePtrOutput) ToConnectToTargetSqlDbTa
 }
 
 func (o ConnectToTargetSqlDbTaskInputResponsePtrOutput) Elem() ConnectToTargetSqlDbTaskInputResponseOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlDbTaskInputResponse) ConnectToTargetSqlDbTaskInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectToTargetSqlDbTaskInputResponse
-		return ret
-	}).(ConnectToTargetSqlDbTaskInputResponseOutput)
+	return o.ApplyT(func(v *ConnectToTargetSqlDbTaskInputResponse) ConnectToTargetSqlDbTaskInputResponse { return *v }).(ConnectToTargetSqlDbTaskInputResponseOutput)
 }
 
 // Connection information for target SQL DB
@@ -1660,7 +1626,7 @@ func (o ConnectToTargetSqlMITaskInputOutput) ToConnectToTargetSqlMITaskInputPtrO
 }
 
 func (o ConnectToTargetSqlMITaskInputOutput) ToConnectToTargetSqlMITaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectToTargetSqlMITaskInput) *ConnectToTargetSqlMITaskInput {
+	return o.ApplyT(func(v ConnectToTargetSqlMITaskInput) *ConnectToTargetSqlMITaskInput {
 		return &v
 	}).(ConnectToTargetSqlMITaskInputPtrOutput)
 }
@@ -1685,13 +1651,7 @@ func (o ConnectToTargetSqlMITaskInputPtrOutput) ToConnectToTargetSqlMITaskInputP
 }
 
 func (o ConnectToTargetSqlMITaskInputPtrOutput) Elem() ConnectToTargetSqlMITaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlMITaskInput) ConnectToTargetSqlMITaskInput {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectToTargetSqlMITaskInput
-		return ret
-	}).(ConnectToTargetSqlMITaskInputOutput)
+	return o.ApplyT(func(v *ConnectToTargetSqlMITaskInput) ConnectToTargetSqlMITaskInput { return *v }).(ConnectToTargetSqlMITaskInputOutput)
 }
 
 // Connection information for target SQL Server
@@ -1800,7 +1760,7 @@ func (o ConnectToTargetSqlMITaskInputResponseOutput) ToConnectToTargetSqlMITaskI
 }
 
 func (o ConnectToTargetSqlMITaskInputResponseOutput) ToConnectToTargetSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectToTargetSqlMITaskInputResponse) *ConnectToTargetSqlMITaskInputResponse {
+	return o.ApplyT(func(v ConnectToTargetSqlMITaskInputResponse) *ConnectToTargetSqlMITaskInputResponse {
 		return &v
 	}).(ConnectToTargetSqlMITaskInputResponsePtrOutput)
 }
@@ -1825,13 +1785,7 @@ func (o ConnectToTargetSqlMITaskInputResponsePtrOutput) ToConnectToTargetSqlMITa
 }
 
 func (o ConnectToTargetSqlMITaskInputResponsePtrOutput) Elem() ConnectToTargetSqlMITaskInputResponseOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlMITaskInputResponse) ConnectToTargetSqlMITaskInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectToTargetSqlMITaskInputResponse
-		return ret
-	}).(ConnectToTargetSqlMITaskInputResponseOutput)
+	return o.ApplyT(func(v *ConnectToTargetSqlMITaskInputResponse) ConnectToTargetSqlMITaskInputResponse { return *v }).(ConnectToTargetSqlMITaskInputResponseOutput)
 }
 
 // Connection information for target SQL Server
@@ -3058,7 +3012,7 @@ func (o FileShareOutput) ToFileSharePtrOutput() FileSharePtrOutput {
 }
 
 func (o FileShareOutput) ToFileSharePtrOutputWithContext(ctx context.Context) FileSharePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileShare) *FileShare {
+	return o.ApplyT(func(v FileShare) *FileShare {
 		return &v
 	}).(FileSharePtrOutput)
 }
@@ -3093,13 +3047,7 @@ func (o FileSharePtrOutput) ToFileSharePtrOutputWithContext(ctx context.Context)
 }
 
 func (o FileSharePtrOutput) Elem() FileShareOutput {
-	return o.ApplyT(func(v *FileShare) FileShare {
-		if v != nil {
-			return *v
-		}
-		var ret FileShare
-		return ret
-	}).(FileShareOutput)
+	return o.ApplyT(func(v *FileShare) FileShare { return *v }).(FileShareOutput)
 }
 
 // Password credential used to connect to the share location.
@@ -3236,7 +3184,7 @@ func (o FileShareResponseOutput) ToFileShareResponsePtrOutput() FileShareRespons
 }
 
 func (o FileShareResponseOutput) ToFileShareResponsePtrOutputWithContext(ctx context.Context) FileShareResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileShareResponse) *FileShareResponse {
+	return o.ApplyT(func(v FileShareResponse) *FileShareResponse {
 		return &v
 	}).(FileShareResponsePtrOutput)
 }
@@ -3271,13 +3219,7 @@ func (o FileShareResponsePtrOutput) ToFileShareResponsePtrOutputWithContext(ctx 
 }
 
 func (o FileShareResponsePtrOutput) Elem() FileShareResponseOutput {
-	return o.ApplyT(func(v *FileShareResponse) FileShareResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FileShareResponse
-		return ret
-	}).(FileShareResponseOutput)
+	return o.ApplyT(func(v *FileShareResponse) FileShareResponse { return *v }).(FileShareResponseOutput)
 }
 
 // Password credential used to connect to the share location.
@@ -3410,7 +3352,7 @@ func (o GetUserTablesSqlTaskInputOutput) ToGetUserTablesSqlTaskInputPtrOutput() 
 }
 
 func (o GetUserTablesSqlTaskInputOutput) ToGetUserTablesSqlTaskInputPtrOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserTablesSqlTaskInput) *GetUserTablesSqlTaskInput {
+	return o.ApplyT(func(v GetUserTablesSqlTaskInput) *GetUserTablesSqlTaskInput {
 		return &v
 	}).(GetUserTablesSqlTaskInputPtrOutput)
 }
@@ -3440,13 +3382,7 @@ func (o GetUserTablesSqlTaskInputPtrOutput) ToGetUserTablesSqlTaskInputPtrOutput
 }
 
 func (o GetUserTablesSqlTaskInputPtrOutput) Elem() GetUserTablesSqlTaskInputOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlTaskInput) GetUserTablesSqlTaskInput {
-		if v != nil {
-			return *v
-		}
-		var ret GetUserTablesSqlTaskInput
-		return ret
-	}).(GetUserTablesSqlTaskInputOutput)
+	return o.ApplyT(func(v *GetUserTablesSqlTaskInput) GetUserTablesSqlTaskInput { return *v }).(GetUserTablesSqlTaskInputOutput)
 }
 
 // Connection information for SQL Server
@@ -3569,7 +3505,7 @@ func (o GetUserTablesSqlTaskInputResponseOutput) ToGetUserTablesSqlTaskInputResp
 }
 
 func (o GetUserTablesSqlTaskInputResponseOutput) ToGetUserTablesSqlTaskInputResponsePtrOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserTablesSqlTaskInputResponse) *GetUserTablesSqlTaskInputResponse {
+	return o.ApplyT(func(v GetUserTablesSqlTaskInputResponse) *GetUserTablesSqlTaskInputResponse {
 		return &v
 	}).(GetUserTablesSqlTaskInputResponsePtrOutput)
 }
@@ -3599,13 +3535,7 @@ func (o GetUserTablesSqlTaskInputResponsePtrOutput) ToGetUserTablesSqlTaskInputR
 }
 
 func (o GetUserTablesSqlTaskInputResponsePtrOutput) Elem() GetUserTablesSqlTaskInputResponseOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlTaskInputResponse) GetUserTablesSqlTaskInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GetUserTablesSqlTaskInputResponse
-		return ret
-	}).(GetUserTablesSqlTaskInputResponseOutput)
+	return o.ApplyT(func(v *GetUserTablesSqlTaskInputResponse) GetUserTablesSqlTaskInputResponse { return *v }).(GetUserTablesSqlTaskInputResponseOutput)
 }
 
 // Connection information for SQL Server
@@ -4275,7 +4205,7 @@ func (o MigrateSqlServerSqlDbTaskInputOutput) ToMigrateSqlServerSqlDbTaskInputPt
 }
 
 func (o MigrateSqlServerSqlDbTaskInputOutput) ToMigrateSqlServerSqlDbTaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateSqlServerSqlDbTaskInput) *MigrateSqlServerSqlDbTaskInput {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskInput) *MigrateSqlServerSqlDbTaskInput {
 		return &v
 	}).(MigrateSqlServerSqlDbTaskInputPtrOutput)
 }
@@ -4319,13 +4249,7 @@ func (o MigrateSqlServerSqlDbTaskInputPtrOutput) ToMigrateSqlServerSqlDbTaskInpu
 }
 
 func (o MigrateSqlServerSqlDbTaskInputPtrOutput) Elem() MigrateSqlServerSqlDbTaskInputOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInput) MigrateSqlServerSqlDbTaskInput {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateSqlServerSqlDbTaskInput
-		return ret
-	}).(MigrateSqlServerSqlDbTaskInputOutput)
+	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInput) MigrateSqlServerSqlDbTaskInput { return *v }).(MigrateSqlServerSqlDbTaskInputOutput)
 }
 
 // Databases to migrate
@@ -4482,7 +4406,7 @@ func (o MigrateSqlServerSqlDbTaskInputResponseOutput) ToMigrateSqlServerSqlDbTas
 }
 
 func (o MigrateSqlServerSqlDbTaskInputResponseOutput) ToMigrateSqlServerSqlDbTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateSqlServerSqlDbTaskInputResponse) *MigrateSqlServerSqlDbTaskInputResponse {
+	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskInputResponse) *MigrateSqlServerSqlDbTaskInputResponse {
 		return &v
 	}).(MigrateSqlServerSqlDbTaskInputResponsePtrOutput)
 }
@@ -4532,13 +4456,7 @@ func (o MigrateSqlServerSqlDbTaskInputResponsePtrOutput) ToMigrateSqlServerSqlDb
 }
 
 func (o MigrateSqlServerSqlDbTaskInputResponsePtrOutput) Elem() MigrateSqlServerSqlDbTaskInputResponseOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInputResponse) MigrateSqlServerSqlDbTaskInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateSqlServerSqlDbTaskInputResponse
-		return ret
-	}).(MigrateSqlServerSqlDbTaskInputResponseOutput)
+	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInputResponse) MigrateSqlServerSqlDbTaskInputResponse { return *v }).(MigrateSqlServerSqlDbTaskInputResponseOutput)
 }
 
 // Databases to migrate
@@ -5856,7 +5774,7 @@ func (o MigrateSqlServerSqlMITaskInputOutput) ToMigrateSqlServerSqlMITaskInputPt
 }
 
 func (o MigrateSqlServerSqlMITaskInputOutput) ToMigrateSqlServerSqlMITaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateSqlServerSqlMITaskInput) *MigrateSqlServerSqlMITaskInput {
+	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) *MigrateSqlServerSqlMITaskInput {
 		return &v
 	}).(MigrateSqlServerSqlMITaskInputPtrOutput)
 }
@@ -5903,13 +5821,7 @@ func (o MigrateSqlServerSqlMITaskInputPtrOutput) ToMigrateSqlServerSqlMITaskInpu
 }
 
 func (o MigrateSqlServerSqlMITaskInputPtrOutput) Elem() MigrateSqlServerSqlMITaskInputOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) MigrateSqlServerSqlMITaskInput {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateSqlServerSqlMITaskInput
-		return ret
-	}).(MigrateSqlServerSqlMITaskInputOutput)
+	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) MigrateSqlServerSqlMITaskInput { return *v }).(MigrateSqlServerSqlMITaskInputOutput)
 }
 
 // SAS URI of Azure Storage Account Container to be used for storing backup files.
@@ -6074,7 +5986,7 @@ func (o MigrateSqlServerSqlMITaskInputResponseOutput) ToMigrateSqlServerSqlMITas
 }
 
 func (o MigrateSqlServerSqlMITaskInputResponseOutput) ToMigrateSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateSqlServerSqlMITaskInputResponse) *MigrateSqlServerSqlMITaskInputResponse {
+	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInputResponse) *MigrateSqlServerSqlMITaskInputResponse {
 		return &v
 	}).(MigrateSqlServerSqlMITaskInputResponsePtrOutput)
 }
@@ -6125,13 +6037,7 @@ func (o MigrateSqlServerSqlMITaskInputResponsePtrOutput) ToMigrateSqlServerSqlMI
 }
 
 func (o MigrateSqlServerSqlMITaskInputResponsePtrOutput) Elem() MigrateSqlServerSqlMITaskInputResponseOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInputResponse) MigrateSqlServerSqlMITaskInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateSqlServerSqlMITaskInputResponse
-		return ret
-	}).(MigrateSqlServerSqlMITaskInputResponseOutput)
+	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInputResponse) MigrateSqlServerSqlMITaskInputResponse { return *v }).(MigrateSqlServerSqlMITaskInputResponseOutput)
 }
 
 // SAS URI of Azure Storage Account Container to be used for storing backup files.
@@ -6827,7 +6733,7 @@ func (o MigrationReportResultResponseOutput) ToMigrationReportResultResponsePtrO
 }
 
 func (o MigrationReportResultResponseOutput) ToMigrationReportResultResponsePtrOutputWithContext(ctx context.Context) MigrationReportResultResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationReportResultResponse) *MigrationReportResultResponse {
+	return o.ApplyT(func(v MigrationReportResultResponse) *MigrationReportResultResponse {
 		return &v
 	}).(MigrationReportResultResponsePtrOutput)
 }
@@ -6857,13 +6763,7 @@ func (o MigrationReportResultResponsePtrOutput) ToMigrationReportResultResponseP
 }
 
 func (o MigrationReportResultResponsePtrOutput) Elem() MigrationReportResultResponseOutput {
-	return o.ApplyT(func(v *MigrationReportResultResponse) MigrationReportResultResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationReportResultResponse
-		return ret
-	}).(MigrationReportResultResponseOutput)
+	return o.ApplyT(func(v *MigrationReportResultResponse) MigrationReportResultResponse { return *v }).(MigrationReportResultResponseOutput)
 }
 
 // Migration validation result identifier
@@ -6990,7 +6890,7 @@ func (o MigrationValidationOptionsOutput) ToMigrationValidationOptionsPtrOutput(
 }
 
 func (o MigrationValidationOptionsOutput) ToMigrationValidationOptionsPtrOutputWithContext(ctx context.Context) MigrationValidationOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationValidationOptions) *MigrationValidationOptions {
+	return o.ApplyT(func(v MigrationValidationOptions) *MigrationValidationOptions {
 		return &v
 	}).(MigrationValidationOptionsPtrOutput)
 }
@@ -7025,13 +6925,7 @@ func (o MigrationValidationOptionsPtrOutput) ToMigrationValidationOptionsPtrOutp
 }
 
 func (o MigrationValidationOptionsPtrOutput) Elem() MigrationValidationOptionsOutput {
-	return o.ApplyT(func(v *MigrationValidationOptions) MigrationValidationOptions {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationValidationOptions
-		return ret
-	}).(MigrationValidationOptionsOutput)
+	return o.ApplyT(func(v *MigrationValidationOptions) MigrationValidationOptions { return *v }).(MigrationValidationOptionsOutput)
 }
 
 // Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
@@ -7168,7 +7062,7 @@ func (o MigrationValidationOptionsResponseOutput) ToMigrationValidationOptionsRe
 }
 
 func (o MigrationValidationOptionsResponseOutput) ToMigrationValidationOptionsResponsePtrOutputWithContext(ctx context.Context) MigrationValidationOptionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationValidationOptionsResponse) *MigrationValidationOptionsResponse {
+	return o.ApplyT(func(v MigrationValidationOptionsResponse) *MigrationValidationOptionsResponse {
 		return &v
 	}).(MigrationValidationOptionsResponsePtrOutput)
 }
@@ -7203,13 +7097,7 @@ func (o MigrationValidationOptionsResponsePtrOutput) ToMigrationValidationOption
 }
 
 func (o MigrationValidationOptionsResponsePtrOutput) Elem() MigrationValidationOptionsResponseOutput {
-	return o.ApplyT(func(v *MigrationValidationOptionsResponse) MigrationValidationOptionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationValidationOptionsResponse
-		return ret
-	}).(MigrationValidationOptionsResponseOutput)
+	return o.ApplyT(func(v *MigrationValidationOptionsResponse) MigrationValidationOptionsResponse { return *v }).(MigrationValidationOptionsResponseOutput)
 }
 
 // Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
@@ -7608,7 +7496,7 @@ func (o ServiceSkuOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
 }
 
 func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSku) *ServiceSku {
+	return o.ApplyT(func(v ServiceSku) *ServiceSku {
 		return &v
 	}).(ServiceSkuPtrOutput)
 }
@@ -7653,13 +7541,7 @@ func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
-	return o.ApplyT(func(v *ServiceSku) ServiceSku {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceSku
-		return ret
-	}).(ServiceSkuOutput)
+	return o.ApplyT(func(v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
 }
 
 // The capacity of the SKU, if it supports scaling
@@ -7824,7 +7706,7 @@ func (o ServiceSkuResponseOutput) ToServiceSkuResponsePtrOutput() ServiceSkuResp
 }
 
 func (o ServiceSkuResponseOutput) ToServiceSkuResponsePtrOutputWithContext(ctx context.Context) ServiceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSkuResponse) *ServiceSkuResponse {
+	return o.ApplyT(func(v ServiceSkuResponse) *ServiceSkuResponse {
 		return &v
 	}).(ServiceSkuResponsePtrOutput)
 }
@@ -7869,13 +7751,7 @@ func (o ServiceSkuResponsePtrOutput) ToServiceSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ServiceSkuResponsePtrOutput) Elem() ServiceSkuResponseOutput {
-	return o.ApplyT(func(v *ServiceSkuResponse) ServiceSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceSkuResponse
-		return ret
-	}).(ServiceSkuResponseOutput)
+	return o.ApplyT(func(v *ServiceSkuResponse) ServiceSkuResponse { return *v }).(ServiceSkuResponseOutput)
 }
 
 // The capacity of the SKU, if it supports scaling
@@ -8054,7 +7930,7 @@ func (o SqlConnectionInfoOutput) ToSqlConnectionInfoPtrOutput() SqlConnectionInf
 }
 
 func (o SqlConnectionInfoOutput) ToSqlConnectionInfoPtrOutputWithContext(ctx context.Context) SqlConnectionInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlConnectionInfo) *SqlConnectionInfo {
+	return o.ApplyT(func(v SqlConnectionInfo) *SqlConnectionInfo {
 		return &v
 	}).(SqlConnectionInfoPtrOutput)
 }
@@ -8115,13 +7991,7 @@ func (o SqlConnectionInfoPtrOutput) ToSqlConnectionInfoPtrOutputWithContext(ctx 
 }
 
 func (o SqlConnectionInfoPtrOutput) Elem() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) SqlConnectionInfo {
-		if v != nil {
-			return *v
-		}
-		var ret SqlConnectionInfo
-		return ret
-	}).(SqlConnectionInfoOutput)
+	return o.ApplyT(func(v *SqlConnectionInfo) SqlConnectionInfo { return *v }).(SqlConnectionInfoOutput)
 }
 
 // Additional connection settings
@@ -8331,7 +8201,7 @@ func (o SqlConnectionInfoResponseOutput) ToSqlConnectionInfoResponsePtrOutput() 
 }
 
 func (o SqlConnectionInfoResponseOutput) ToSqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) SqlConnectionInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlConnectionInfoResponse) *SqlConnectionInfoResponse {
+	return o.ApplyT(func(v SqlConnectionInfoResponse) *SqlConnectionInfoResponse {
 		return &v
 	}).(SqlConnectionInfoResponsePtrOutput)
 }
@@ -8392,13 +8262,7 @@ func (o SqlConnectionInfoResponsePtrOutput) ToSqlConnectionInfoResponsePtrOutput
 }
 
 func (o SqlConnectionInfoResponsePtrOutput) Elem() SqlConnectionInfoResponseOutput {
-	return o.ApplyT(func(v *SqlConnectionInfoResponse) SqlConnectionInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SqlConnectionInfoResponse
-		return ret
-	}).(SqlConnectionInfoResponseOutput)
+	return o.ApplyT(func(v *SqlConnectionInfoResponse) SqlConnectionInfoResponse { return *v }).(SqlConnectionInfoResponseOutput)
 }
 
 // Additional connection settings
@@ -8590,7 +8454,7 @@ func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) ToValidateMigration
 }
 
 func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) ToValidateMigrationInputSqlServerSqlMITaskInputPtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ValidateMigrationInputSqlServerSqlMITaskInput) *ValidateMigrationInputSqlServerSqlMITaskInput {
+	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) *ValidateMigrationInputSqlServerSqlMITaskInput {
 		return &v
 	}).(ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput)
 }
@@ -8633,11 +8497,7 @@ func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) ToValidateMigrat
 
 func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) Elem() ValidateMigrationInputSqlServerSqlMITaskInputOutput {
 	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) ValidateMigrationInputSqlServerSqlMITaskInput {
-		if v != nil {
-			return *v
-		}
-		var ret ValidateMigrationInputSqlServerSqlMITaskInput
-		return ret
+		return *v
 	}).(ValidateMigrationInputSqlServerSqlMITaskInputOutput)
 }
 
@@ -8789,7 +8649,7 @@ func (o ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput) ToValidateM
 }
 
 func (o ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput) ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ValidateMigrationInputSqlServerSqlMITaskInputResponse) *ValidateMigrationInputSqlServerSqlMITaskInputResponse {
+	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInputResponse) *ValidateMigrationInputSqlServerSqlMITaskInputResponse {
 		return &v
 	}).(ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput)
 }
@@ -8838,11 +8698,7 @@ func (o ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput) ToValida
 
 func (o ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput) Elem() ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput {
 	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInputResponse) ValidateMigrationInputSqlServerSqlMITaskInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ValidateMigrationInputSqlServerSqlMITaskInputResponse
-		return ret
+		return *v
 	}).(ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput)
 }
 
@@ -9208,6 +9064,51 @@ func (o ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput) TaskTy
 	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse) string { return v.TaskType }).(pulumi.StringOutput)
 }
 
+type DatabaseTableResponseArgsArrayMap map[string]DatabaseTableResponseArgsArrayInput
+
+func (DatabaseTableResponseArgsArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArgsArray)(nil)).Elem()
+}
+
+func (i DatabaseTableResponseArgsArrayMap) ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput {
+	return i.ToDatabaseTableResponseArgsArrayMapOutputWithContext(context.Background())
+}
+
+func (i DatabaseTableResponseArgsArrayMap) ToDatabaseTableResponseArgsArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArgsArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTableResponseArgsArrayMapOutput)
+}
+
+type DatabaseTableResponseArgsArrayMapOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTableResponseArgsArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArgsArray)(nil)).Elem()
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) ToDatabaseTableResponseArgsArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArgsArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) MapIndex(k pulumi.StringInput) DatabaseTableResponseArgsArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseTableResponseArgsArray {
+		return vs[0].(map[string]DatabaseTableResponseArgsArray)[vs[1].(string)]
+	}).(DatabaseTableResponseArgsArrayOutput)
+}
+
+// DatabaseTableResponseArgsArrayMapInput is an input type that accepts DatabaseTableResponseArgsArrayMap and DatabaseTableResponseArgsArrayMapOutput values.
+// You can construct a concrete instance of `DatabaseTableResponseArgsArrayMapInput` via:
+//
+//          DatabaseTableResponseArgsArrayMap{ "key": DatabaseTableResponseArgsArray{ DatabaseTableResponseArgsArgs{...} } }
+type DatabaseTableResponseArgsArrayMapInput interface {
+	pulumi.Input
+
+	ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput
+	ToDatabaseTableResponseArgsArrayMapOutputWithContext(context.Context) DatabaseTableResponseArgsArrayMapOutput
+}
+
 type DatabaseTableResponseArrayMap map[string]DatabaseTableResponseArrayInput
 
 func (DatabaseTableResponseArrayMap) ElementType() reflect.Type {
@@ -9225,7 +9126,7 @@ func (i DatabaseTableResponseArrayMap) ToDatabaseTableResponseArrayMapOutputWith
 type DatabaseTableResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (DatabaseTableResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatabaseTableResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*DatabaseTableResponseArray)(nil)).Elem()
 }
 
 func (o DatabaseTableResponseArrayMapOutput) ToDatabaseTableResponseArrayMapOutput() DatabaseTableResponseArrayMapOutput {

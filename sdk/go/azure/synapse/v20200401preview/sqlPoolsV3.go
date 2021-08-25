@@ -203,7 +203,9 @@ func (i *SqlPoolsV3) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPools
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolsV3Output)
 }
 
-type SqlPoolsV3Output struct{ *pulumi.OutputState }
+type SqlPoolsV3Output struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolsV3Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolsV3)(nil))

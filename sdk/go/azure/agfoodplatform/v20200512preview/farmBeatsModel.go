@@ -130,7 +130,9 @@ func (i *FarmBeatsModel) ToFarmBeatsModelOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FarmBeatsModelOutput)
 }
 
-type FarmBeatsModelOutput struct{ *pulumi.OutputState }
+type FarmBeatsModelOutput struct {
+	*pulumi.OutputState
+}
 
 func (FarmBeatsModelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FarmBeatsModel)(nil))

@@ -155,7 +155,9 @@ func (i *LinkedSubscription) ToLinkedSubscriptionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedSubscriptionOutput)
 }
 
-type LinkedSubscriptionOutput struct{ *pulumi.OutputState }
+type LinkedSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (LinkedSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedSubscription)(nil))

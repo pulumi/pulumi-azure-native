@@ -165,7 +165,9 @@ func (i *CodelessUiDataConnector) ToCodelessUiDataConnectorOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CodelessUiDataConnectorOutput)
 }
 
-type CodelessUiDataConnectorOutput struct{ *pulumi.OutputState }
+type CodelessUiDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (CodelessUiDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodelessUiDataConnector)(nil))

@@ -153,7 +153,9 @@ func (i *FileServer) ToFileServerOutputWithContext(ctx context.Context) FileServ
 	return pulumi.ToOutputWithContext(ctx, i).(FileServerOutput)
 }
 
-type FileServerOutput struct{ *pulumi.OutputState }
+type FileServerOutput struct {
+	*pulumi.OutputState
+}
 
 func (FileServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileServer)(nil))

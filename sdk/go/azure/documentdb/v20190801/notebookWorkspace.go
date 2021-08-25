@@ -195,7 +195,9 @@ func (i *NotebookWorkspace) ToNotebookWorkspaceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceOutput)
 }
 
-type NotebookWorkspaceOutput struct{ *pulumi.OutputState }
+type NotebookWorkspaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (NotebookWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotebookWorkspace)(nil))

@@ -120,7 +120,9 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
 }
 
-type AliasOutput struct{ *pulumi.OutputState }
+type AliasOutput struct {
+	*pulumi.OutputState
+}
 
 func (AliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Alias)(nil))

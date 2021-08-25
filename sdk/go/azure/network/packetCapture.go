@@ -365,7 +365,9 @@ func (i *PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureOutput)
 }
 
-type PacketCaptureOutput struct{ *pulumi.OutputState }
+type PacketCaptureOutput struct {
+	*pulumi.OutputState
+}
 
 func (PacketCaptureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCapture)(nil))

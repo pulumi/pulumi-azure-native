@@ -433,7 +433,7 @@ func (o ApiContactInformationOutput) ToApiContactInformationPtrOutput() ApiConta
 }
 
 func (o ApiContactInformationOutput) ToApiContactInformationPtrOutputWithContext(ctx context.Context) ApiContactInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiContactInformation) *ApiContactInformation {
+	return o.ApplyT(func(v ApiContactInformation) *ApiContactInformation {
 		return &v
 	}).(ApiContactInformationPtrOutput)
 }
@@ -468,13 +468,7 @@ func (o ApiContactInformationPtrOutput) ToApiContactInformationPtrOutputWithCont
 }
 
 func (o ApiContactInformationPtrOutput) Elem() ApiContactInformationOutput {
-	return o.ApplyT(func(v *ApiContactInformation) ApiContactInformation {
-		if v != nil {
-			return *v
-		}
-		var ret ApiContactInformation
-		return ret
-	}).(ApiContactInformationOutput)
+	return o.ApplyT(func(v *ApiContactInformation) ApiContactInformation { return *v }).(ApiContactInformationOutput)
 }
 
 // The email address of the contact person/organization. MUST be in the format of an email address
@@ -611,7 +605,7 @@ func (o ApiContactInformationResponseOutput) ToApiContactInformationResponsePtrO
 }
 
 func (o ApiContactInformationResponseOutput) ToApiContactInformationResponsePtrOutputWithContext(ctx context.Context) ApiContactInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiContactInformationResponse) *ApiContactInformationResponse {
+	return o.ApplyT(func(v ApiContactInformationResponse) *ApiContactInformationResponse {
 		return &v
 	}).(ApiContactInformationResponsePtrOutput)
 }
@@ -646,13 +640,7 @@ func (o ApiContactInformationResponsePtrOutput) ToApiContactInformationResponseP
 }
 
 func (o ApiContactInformationResponsePtrOutput) Elem() ApiContactInformationResponseOutput {
-	return o.ApplyT(func(v *ApiContactInformationResponse) ApiContactInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiContactInformationResponse
-		return ret
-	}).(ApiContactInformationResponseOutput)
+	return o.ApplyT(func(v *ApiContactInformationResponse) ApiContactInformationResponse { return *v }).(ApiContactInformationResponseOutput)
 }
 
 // The email address of the contact person/organization. MUST be in the format of an email address
@@ -785,7 +773,7 @@ func (o ApiCreateOrUpdatePropertiesWsdlSelectorOutput) ToApiCreateOrUpdateProper
 }
 
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorOutput) ToApiCreateOrUpdatePropertiesWsdlSelectorPtrOutputWithContext(ctx context.Context) ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiCreateOrUpdatePropertiesWsdlSelector) *ApiCreateOrUpdatePropertiesWsdlSelector {
+	return o.ApplyT(func(v ApiCreateOrUpdatePropertiesWsdlSelector) *ApiCreateOrUpdatePropertiesWsdlSelector {
 		return &v
 	}).(ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput)
 }
@@ -815,13 +803,7 @@ func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) ToApiCreateOrUpdatePro
 }
 
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) Elem() ApiCreateOrUpdatePropertiesWsdlSelectorOutput {
-	return o.ApplyT(func(v *ApiCreateOrUpdatePropertiesWsdlSelector) ApiCreateOrUpdatePropertiesWsdlSelector {
-		if v != nil {
-			return *v
-		}
-		var ret ApiCreateOrUpdatePropertiesWsdlSelector
-		return ret
-	}).(ApiCreateOrUpdatePropertiesWsdlSelectorOutput)
+	return o.ApplyT(func(v *ApiCreateOrUpdatePropertiesWsdlSelector) ApiCreateOrUpdatePropertiesWsdlSelector { return *v }).(ApiCreateOrUpdatePropertiesWsdlSelectorOutput)
 }
 
 // Name of endpoint(port) to import from WSDL
@@ -944,7 +926,7 @@ func (o ApiLicenseInformationOutput) ToApiLicenseInformationPtrOutput() ApiLicen
 }
 
 func (o ApiLicenseInformationOutput) ToApiLicenseInformationPtrOutputWithContext(ctx context.Context) ApiLicenseInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiLicenseInformation) *ApiLicenseInformation {
+	return o.ApplyT(func(v ApiLicenseInformation) *ApiLicenseInformation {
 		return &v
 	}).(ApiLicenseInformationPtrOutput)
 }
@@ -974,13 +956,7 @@ func (o ApiLicenseInformationPtrOutput) ToApiLicenseInformationPtrOutputWithCont
 }
 
 func (o ApiLicenseInformationPtrOutput) Elem() ApiLicenseInformationOutput {
-	return o.ApplyT(func(v *ApiLicenseInformation) ApiLicenseInformation {
-		if v != nil {
-			return *v
-		}
-		var ret ApiLicenseInformation
-		return ret
-	}).(ApiLicenseInformationOutput)
+	return o.ApplyT(func(v *ApiLicenseInformation) ApiLicenseInformation { return *v }).(ApiLicenseInformationOutput)
 }
 
 // The license name used for the API
@@ -1103,7 +1079,7 @@ func (o ApiLicenseInformationResponseOutput) ToApiLicenseInformationResponsePtrO
 }
 
 func (o ApiLicenseInformationResponseOutput) ToApiLicenseInformationResponsePtrOutputWithContext(ctx context.Context) ApiLicenseInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiLicenseInformationResponse) *ApiLicenseInformationResponse {
+	return o.ApplyT(func(v ApiLicenseInformationResponse) *ApiLicenseInformationResponse {
 		return &v
 	}).(ApiLicenseInformationResponsePtrOutput)
 }
@@ -1133,13 +1109,7 @@ func (o ApiLicenseInformationResponsePtrOutput) ToApiLicenseInformationResponseP
 }
 
 func (o ApiLicenseInformationResponsePtrOutput) Elem() ApiLicenseInformationResponseOutput {
-	return o.ApplyT(func(v *ApiLicenseInformationResponse) ApiLicenseInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiLicenseInformationResponse
-		return ret
-	}).(ApiLicenseInformationResponseOutput)
+	return o.ApplyT(func(v *ApiLicenseInformationResponse) ApiLicenseInformationResponse { return *v }).(ApiLicenseInformationResponseOutput)
 }
 
 // The license name used for the API
@@ -1268,7 +1238,7 @@ func (o ApiManagementServiceIdentityOutput) ToApiManagementServiceIdentityPtrOut
 }
 
 func (o ApiManagementServiceIdentityOutput) ToApiManagementServiceIdentityPtrOutputWithContext(ctx context.Context) ApiManagementServiceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceIdentity) *ApiManagementServiceIdentity {
+	return o.ApplyT(func(v ApiManagementServiceIdentity) *ApiManagementServiceIdentity {
 		return &v
 	}).(ApiManagementServiceIdentityPtrOutput)
 }
@@ -1303,13 +1273,7 @@ func (o ApiManagementServiceIdentityPtrOutput) ToApiManagementServiceIdentityPtr
 }
 
 func (o ApiManagementServiceIdentityPtrOutput) Elem() ApiManagementServiceIdentityOutput {
-	return o.ApplyT(func(v *ApiManagementServiceIdentity) ApiManagementServiceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementServiceIdentity
-		return ret
-	}).(ApiManagementServiceIdentityOutput)
+	return o.ApplyT(func(v *ApiManagementServiceIdentity) ApiManagementServiceIdentity { return *v }).(ApiManagementServiceIdentityOutput)
 }
 
 // The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
@@ -1449,7 +1413,7 @@ func (o ApiManagementServiceIdentityResponseOutput) ToApiManagementServiceIdenti
 }
 
 func (o ApiManagementServiceIdentityResponseOutput) ToApiManagementServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceIdentityResponse) *ApiManagementServiceIdentityResponse {
+	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) *ApiManagementServiceIdentityResponse {
 		return &v
 	}).(ApiManagementServiceIdentityResponsePtrOutput)
 }
@@ -1494,13 +1458,7 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) ToApiManagementServiceIde
 }
 
 func (o ApiManagementServiceIdentityResponsePtrOutput) Elem() ApiManagementServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) ApiManagementServiceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementServiceIdentityResponse
-		return ret
-	}).(ApiManagementServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) ApiManagementServiceIdentityResponse { return *v }).(ApiManagementServiceIdentityResponseOutput)
 }
 
 // The principal id of the identity.
@@ -1646,7 +1604,7 @@ func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuProper
 }
 
 func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties {
+	return o.ApplyT(func(v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties {
 		return &v
 	}).(ApiManagementServiceSkuPropertiesPtrOutput)
 }
@@ -1676,13 +1634,7 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) ToApiManagementServiceSkuPro
 }
 
 func (o ApiManagementServiceSkuPropertiesPtrOutput) Elem() ApiManagementServiceSkuPropertiesOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementServiceSkuProperties
-		return ret
-	}).(ApiManagementServiceSkuPropertiesOutput)
+	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties { return *v }).(ApiManagementServiceSkuPropertiesOutput)
 }
 
 // Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
@@ -1805,7 +1757,7 @@ func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceS
 }
 
 func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuPropertiesResponse) *ApiManagementServiceSkuPropertiesResponse {
+	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesResponse) *ApiManagementServiceSkuPropertiesResponse {
 		return &v
 	}).(ApiManagementServiceSkuPropertiesResponsePtrOutput)
 }
@@ -1836,11 +1788,7 @@ func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) ToApiManagementServi
 
 func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Elem() ApiManagementServiceSkuPropertiesResponseOutput {
 	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) ApiManagementServiceSkuPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementServiceSkuPropertiesResponse
-		return ret
+		return *v
 	}).(ApiManagementServiceSkuPropertiesResponseOutput)
 }
 
@@ -1960,7 +1908,7 @@ func (o ApiVersionConstraintOutput) ToApiVersionConstraintPtrOutput() ApiVersion
 }
 
 func (o ApiVersionConstraintOutput) ToApiVersionConstraintPtrOutputWithContext(ctx context.Context) ApiVersionConstraintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionConstraint) *ApiVersionConstraint {
+	return o.ApplyT(func(v ApiVersionConstraint) *ApiVersionConstraint {
 		return &v
 	}).(ApiVersionConstraintPtrOutput)
 }
@@ -1985,13 +1933,7 @@ func (o ApiVersionConstraintPtrOutput) ToApiVersionConstraintPtrOutputWithContex
 }
 
 func (o ApiVersionConstraintPtrOutput) Elem() ApiVersionConstraintOutput {
-	return o.ApplyT(func(v *ApiVersionConstraint) ApiVersionConstraint {
-		if v != nil {
-			return *v
-		}
-		var ret ApiVersionConstraint
-		return ret
-	}).(ApiVersionConstraintOutput)
+	return o.ApplyT(func(v *ApiVersionConstraint) ApiVersionConstraint { return *v }).(ApiVersionConstraintOutput)
 }
 
 // Limit control plane API calls to API Management service with version equal to or newer than this value.
@@ -2100,7 +2042,7 @@ func (o ApiVersionConstraintResponseOutput) ToApiVersionConstraintResponsePtrOut
 }
 
 func (o ApiVersionConstraintResponseOutput) ToApiVersionConstraintResponsePtrOutputWithContext(ctx context.Context) ApiVersionConstraintResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionConstraintResponse) *ApiVersionConstraintResponse {
+	return o.ApplyT(func(v ApiVersionConstraintResponse) *ApiVersionConstraintResponse {
 		return &v
 	}).(ApiVersionConstraintResponsePtrOutput)
 }
@@ -2125,13 +2067,7 @@ func (o ApiVersionConstraintResponsePtrOutput) ToApiVersionConstraintResponsePtr
 }
 
 func (o ApiVersionConstraintResponsePtrOutput) Elem() ApiVersionConstraintResponseOutput {
-	return o.ApplyT(func(v *ApiVersionConstraintResponse) ApiVersionConstraintResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiVersionConstraintResponse
-		return ret
-	}).(ApiVersionConstraintResponseOutput)
+	return o.ApplyT(func(v *ApiVersionConstraintResponse) ApiVersionConstraintResponse { return *v }).(ApiVersionConstraintResponseOutput)
 }
 
 // Limit control plane API calls to API Management service with version equal to or newer than this value.
@@ -2260,7 +2196,7 @@ func (o ApiVersionSetContractDetailsOutput) ToApiVersionSetContractDetailsPtrOut
 }
 
 func (o ApiVersionSetContractDetailsOutput) ToApiVersionSetContractDetailsPtrOutputWithContext(ctx context.Context) ApiVersionSetContractDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionSetContractDetails) *ApiVersionSetContractDetails {
+	return o.ApplyT(func(v ApiVersionSetContractDetails) *ApiVersionSetContractDetails {
 		return &v
 	}).(ApiVersionSetContractDetailsPtrOutput)
 }
@@ -2310,13 +2246,7 @@ func (o ApiVersionSetContractDetailsPtrOutput) ToApiVersionSetContractDetailsPtr
 }
 
 func (o ApiVersionSetContractDetailsPtrOutput) Elem() ApiVersionSetContractDetailsOutput {
-	return o.ApplyT(func(v *ApiVersionSetContractDetails) ApiVersionSetContractDetails {
-		if v != nil {
-			return *v
-		}
-		var ret ApiVersionSetContractDetails
-		return ret
-	}).(ApiVersionSetContractDetailsOutput)
+	return o.ApplyT(func(v *ApiVersionSetContractDetails) ApiVersionSetContractDetails { return *v }).(ApiVersionSetContractDetailsOutput)
 }
 
 // Description of API Version Set.
@@ -2495,7 +2425,7 @@ func (o ApiVersionSetContractDetailsResponseOutput) ToApiVersionSetContractDetai
 }
 
 func (o ApiVersionSetContractDetailsResponseOutput) ToApiVersionSetContractDetailsResponsePtrOutputWithContext(ctx context.Context) ApiVersionSetContractDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionSetContractDetailsResponse) *ApiVersionSetContractDetailsResponse {
+	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *ApiVersionSetContractDetailsResponse {
 		return &v
 	}).(ApiVersionSetContractDetailsResponsePtrOutput)
 }
@@ -2545,13 +2475,7 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) ToApiVersionSetContractDe
 }
 
 func (o ApiVersionSetContractDetailsResponsePtrOutput) Elem() ApiVersionSetContractDetailsResponseOutput {
-	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) ApiVersionSetContractDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiVersionSetContractDetailsResponse
-		return ret
-	}).(ApiVersionSetContractDetailsResponseOutput)
+	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) ApiVersionSetContractDetailsResponse { return *v }).(ApiVersionSetContractDetailsResponseOutput)
 }
 
 // Description of API Version Set.
@@ -2714,7 +2638,7 @@ func (o AuthenticationSettingsContractOutput) ToAuthenticationSettingsContractPt
 }
 
 func (o AuthenticationSettingsContractOutput) ToAuthenticationSettingsContractPtrOutputWithContext(ctx context.Context) AuthenticationSettingsContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationSettingsContract) *AuthenticationSettingsContract {
+	return o.ApplyT(func(v AuthenticationSettingsContract) *AuthenticationSettingsContract {
 		return &v
 	}).(AuthenticationSettingsContractPtrOutput)
 }
@@ -2744,13 +2668,7 @@ func (o AuthenticationSettingsContractPtrOutput) ToAuthenticationSettingsContrac
 }
 
 func (o AuthenticationSettingsContractPtrOutput) Elem() AuthenticationSettingsContractOutput {
-	return o.ApplyT(func(v *AuthenticationSettingsContract) AuthenticationSettingsContract {
-		if v != nil {
-			return *v
-		}
-		var ret AuthenticationSettingsContract
-		return ret
-	}).(AuthenticationSettingsContractOutput)
+	return o.ApplyT(func(v *AuthenticationSettingsContract) AuthenticationSettingsContract { return *v }).(AuthenticationSettingsContractOutput)
 }
 
 // OAuth2 Authentication settings
@@ -2873,7 +2791,7 @@ func (o AuthenticationSettingsContractResponseOutput) ToAuthenticationSettingsCo
 }
 
 func (o AuthenticationSettingsContractResponseOutput) ToAuthenticationSettingsContractResponsePtrOutputWithContext(ctx context.Context) AuthenticationSettingsContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationSettingsContractResponse) *AuthenticationSettingsContractResponse {
+	return o.ApplyT(func(v AuthenticationSettingsContractResponse) *AuthenticationSettingsContractResponse {
 		return &v
 	}).(AuthenticationSettingsContractResponsePtrOutput)
 }
@@ -2907,13 +2825,7 @@ func (o AuthenticationSettingsContractResponsePtrOutput) ToAuthenticationSetting
 }
 
 func (o AuthenticationSettingsContractResponsePtrOutput) Elem() AuthenticationSettingsContractResponseOutput {
-	return o.ApplyT(func(v *AuthenticationSettingsContractResponse) AuthenticationSettingsContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AuthenticationSettingsContractResponse
-		return ret
-	}).(AuthenticationSettingsContractResponseOutput)
+	return o.ApplyT(func(v *AuthenticationSettingsContractResponse) AuthenticationSettingsContractResponse { return *v }).(AuthenticationSettingsContractResponseOutput)
 }
 
 // OAuth2 Authentication settings
@@ -3036,7 +2948,7 @@ func (o BackendAuthorizationHeaderCredentialsOutput) ToBackendAuthorizationHeade
 }
 
 func (o BackendAuthorizationHeaderCredentialsOutput) ToBackendAuthorizationHeaderCredentialsPtrOutputWithContext(ctx context.Context) BackendAuthorizationHeaderCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendAuthorizationHeaderCredentials) *BackendAuthorizationHeaderCredentials {
+	return o.ApplyT(func(v BackendAuthorizationHeaderCredentials) *BackendAuthorizationHeaderCredentials {
 		return &v
 	}).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
@@ -3066,13 +2978,7 @@ func (o BackendAuthorizationHeaderCredentialsPtrOutput) ToBackendAuthorizationHe
 }
 
 func (o BackendAuthorizationHeaderCredentialsPtrOutput) Elem() BackendAuthorizationHeaderCredentialsOutput {
-	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentials) BackendAuthorizationHeaderCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret BackendAuthorizationHeaderCredentials
-		return ret
-	}).(BackendAuthorizationHeaderCredentialsOutput)
+	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentials) BackendAuthorizationHeaderCredentials { return *v }).(BackendAuthorizationHeaderCredentialsOutput)
 }
 
 // Authentication Parameter value.
@@ -3195,7 +3101,7 @@ func (o BackendAuthorizationHeaderCredentialsResponseOutput) ToBackendAuthorizat
 }
 
 func (o BackendAuthorizationHeaderCredentialsResponseOutput) ToBackendAuthorizationHeaderCredentialsResponsePtrOutputWithContext(ctx context.Context) BackendAuthorizationHeaderCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendAuthorizationHeaderCredentialsResponse) *BackendAuthorizationHeaderCredentialsResponse {
+	return o.ApplyT(func(v BackendAuthorizationHeaderCredentialsResponse) *BackendAuthorizationHeaderCredentialsResponse {
 		return &v
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
@@ -3226,11 +3132,7 @@ func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) ToBackendAuthori
 
 func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Elem() BackendAuthorizationHeaderCredentialsResponseOutput {
 	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentialsResponse) BackendAuthorizationHeaderCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackendAuthorizationHeaderCredentialsResponse
-		return ret
+		return *v
 	}).(BackendAuthorizationHeaderCredentialsResponseOutput)
 }
 
@@ -3366,7 +3268,7 @@ func (o BackendCredentialsContractOutput) ToBackendCredentialsContractPtrOutput(
 }
 
 func (o BackendCredentialsContractOutput) ToBackendCredentialsContractPtrOutputWithContext(ctx context.Context) BackendCredentialsContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCredentialsContract) *BackendCredentialsContract {
+	return o.ApplyT(func(v BackendCredentialsContract) *BackendCredentialsContract {
 		return &v
 	}).(BackendCredentialsContractPtrOutput)
 }
@@ -3411,13 +3313,7 @@ func (o BackendCredentialsContractPtrOutput) ToBackendCredentialsContractPtrOutp
 }
 
 func (o BackendCredentialsContractPtrOutput) Elem() BackendCredentialsContractOutput {
-	return o.ApplyT(func(v *BackendCredentialsContract) BackendCredentialsContract {
-		if v != nil {
-			return *v
-		}
-		var ret BackendCredentialsContract
-		return ret
-	}).(BackendCredentialsContractOutput)
+	return o.ApplyT(func(v *BackendCredentialsContract) BackendCredentialsContract { return *v }).(BackendCredentialsContractOutput)
 }
 
 // Authorization header authentication
@@ -3582,7 +3478,7 @@ func (o BackendCredentialsContractResponseOutput) ToBackendCredentialsContractRe
 }
 
 func (o BackendCredentialsContractResponseOutput) ToBackendCredentialsContractResponsePtrOutputWithContext(ctx context.Context) BackendCredentialsContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCredentialsContractResponse) *BackendCredentialsContractResponse {
+	return o.ApplyT(func(v BackendCredentialsContractResponse) *BackendCredentialsContractResponse {
 		return &v
 	}).(BackendCredentialsContractResponsePtrOutput)
 }
@@ -3629,13 +3525,7 @@ func (o BackendCredentialsContractResponsePtrOutput) ToBackendCredentialsContrac
 }
 
 func (o BackendCredentialsContractResponsePtrOutput) Elem() BackendCredentialsContractResponseOutput {
-	return o.ApplyT(func(v *BackendCredentialsContractResponse) BackendCredentialsContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackendCredentialsContractResponse
-		return ret
-	}).(BackendCredentialsContractResponseOutput)
+	return o.ApplyT(func(v *BackendCredentialsContractResponse) BackendCredentialsContractResponse { return *v }).(BackendCredentialsContractResponseOutput)
 }
 
 // Authorization header authentication
@@ -3784,7 +3674,7 @@ func (o BackendPropertiesOutput) ToBackendPropertiesPtrOutput() BackendPropertie
 }
 
 func (o BackendPropertiesOutput) ToBackendPropertiesPtrOutputWithContext(ctx context.Context) BackendPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProperties) *BackendProperties {
+	return o.ApplyT(func(v BackendProperties) *BackendProperties {
 		return &v
 	}).(BackendPropertiesPtrOutput)
 }
@@ -3809,13 +3699,7 @@ func (o BackendPropertiesPtrOutput) ToBackendPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o BackendPropertiesPtrOutput) Elem() BackendPropertiesOutput {
-	return o.ApplyT(func(v *BackendProperties) BackendProperties {
-		if v != nil {
-			return *v
-		}
-		var ret BackendProperties
-		return ret
-	}).(BackendPropertiesOutput)
+	return o.ApplyT(func(v *BackendProperties) BackendProperties { return *v }).(BackendPropertiesOutput)
 }
 
 // Backend Service Fabric Cluster Properties
@@ -3924,7 +3808,7 @@ func (o BackendPropertiesResponseOutput) ToBackendPropertiesResponsePtrOutput() 
 }
 
 func (o BackendPropertiesResponseOutput) ToBackendPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendPropertiesResponse) *BackendPropertiesResponse {
+	return o.ApplyT(func(v BackendPropertiesResponse) *BackendPropertiesResponse {
 		return &v
 	}).(BackendPropertiesResponsePtrOutput)
 }
@@ -3951,13 +3835,7 @@ func (o BackendPropertiesResponsePtrOutput) ToBackendPropertiesResponsePtrOutput
 }
 
 func (o BackendPropertiesResponsePtrOutput) Elem() BackendPropertiesResponseOutput {
-	return o.ApplyT(func(v *BackendPropertiesResponse) BackendPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackendPropertiesResponse
-		return ret
-	}).(BackendPropertiesResponseOutput)
+	return o.ApplyT(func(v *BackendPropertiesResponse) BackendPropertiesResponse { return *v }).(BackendPropertiesResponseOutput)
 }
 
 // Backend Service Fabric Cluster Properties
@@ -4074,7 +3952,7 @@ func (o BackendProxyContractOutput) ToBackendProxyContractPtrOutput() BackendPro
 }
 
 func (o BackendProxyContractOutput) ToBackendProxyContractPtrOutputWithContext(ctx context.Context) BackendProxyContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProxyContract) *BackendProxyContract {
+	return o.ApplyT(func(v BackendProxyContract) *BackendProxyContract {
 		return &v
 	}).(BackendProxyContractPtrOutput)
 }
@@ -4109,13 +3987,7 @@ func (o BackendProxyContractPtrOutput) ToBackendProxyContractPtrOutputWithContex
 }
 
 func (o BackendProxyContractPtrOutput) Elem() BackendProxyContractOutput {
-	return o.ApplyT(func(v *BackendProxyContract) BackendProxyContract {
-		if v != nil {
-			return *v
-		}
-		var ret BackendProxyContract
-		return ret
-	}).(BackendProxyContractOutput)
+	return o.ApplyT(func(v *BackendProxyContract) BackendProxyContract { return *v }).(BackendProxyContractOutput)
 }
 
 // Password to connect to the WebProxy Server
@@ -4252,7 +4124,7 @@ func (o BackendProxyContractResponseOutput) ToBackendProxyContractResponsePtrOut
 }
 
 func (o BackendProxyContractResponseOutput) ToBackendProxyContractResponsePtrOutputWithContext(ctx context.Context) BackendProxyContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProxyContractResponse) *BackendProxyContractResponse {
+	return o.ApplyT(func(v BackendProxyContractResponse) *BackendProxyContractResponse {
 		return &v
 	}).(BackendProxyContractResponsePtrOutput)
 }
@@ -4287,13 +4159,7 @@ func (o BackendProxyContractResponsePtrOutput) ToBackendProxyContractResponsePtr
 }
 
 func (o BackendProxyContractResponsePtrOutput) Elem() BackendProxyContractResponseOutput {
-	return o.ApplyT(func(v *BackendProxyContractResponse) BackendProxyContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackendProxyContractResponse
-		return ret
-	}).(BackendProxyContractResponseOutput)
+	return o.ApplyT(func(v *BackendProxyContractResponse) BackendProxyContractResponse { return *v }).(BackendProxyContractResponseOutput)
 }
 
 // Password to connect to the WebProxy Server
@@ -4442,7 +4308,7 @@ func (o BackendServiceFabricClusterPropertiesOutput) ToBackendServiceFabricClust
 }
 
 func (o BackendServiceFabricClusterPropertiesOutput) ToBackendServiceFabricClusterPropertiesPtrOutputWithContext(ctx context.Context) BackendServiceFabricClusterPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceFabricClusterProperties) *BackendServiceFabricClusterProperties {
+	return o.ApplyT(func(v BackendServiceFabricClusterProperties) *BackendServiceFabricClusterProperties {
 		return &v
 	}).(BackendServiceFabricClusterPropertiesPtrOutput)
 }
@@ -4492,13 +4358,7 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ToBackendServiceFabricCl
 }
 
 func (o BackendServiceFabricClusterPropertiesPtrOutput) Elem() BackendServiceFabricClusterPropertiesOutput {
-	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) BackendServiceFabricClusterProperties {
-		if v != nil {
-			return *v
-		}
-		var ret BackendServiceFabricClusterProperties
-		return ret
-	}).(BackendServiceFabricClusterPropertiesOutput)
+	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) BackendServiceFabricClusterProperties { return *v }).(BackendServiceFabricClusterPropertiesOutput)
 }
 
 // The client certificate id for the management endpoint.
@@ -4677,7 +4537,7 @@ func (o BackendServiceFabricClusterPropertiesResponseOutput) ToBackendServiceFab
 }
 
 func (o BackendServiceFabricClusterPropertiesResponseOutput) ToBackendServiceFabricClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendServiceFabricClusterPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceFabricClusterPropertiesResponse) *BackendServiceFabricClusterPropertiesResponse {
+	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) *BackendServiceFabricClusterPropertiesResponse {
 		return &v
 	}).(BackendServiceFabricClusterPropertiesResponsePtrOutput)
 }
@@ -4730,11 +4590,7 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ToBackendService
 
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) Elem() BackendServiceFabricClusterPropertiesResponseOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) BackendServiceFabricClusterPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackendServiceFabricClusterPropertiesResponse
-		return ret
+		return *v
 	}).(BackendServiceFabricClusterPropertiesResponseOutput)
 }
 
@@ -4898,7 +4754,7 @@ func (o BackendTlsPropertiesOutput) ToBackendTlsPropertiesPtrOutput() BackendTls
 }
 
 func (o BackendTlsPropertiesOutput) ToBackendTlsPropertiesPtrOutputWithContext(ctx context.Context) BackendTlsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendTlsProperties) *BackendTlsProperties {
+	return o.ApplyT(func(v BackendTlsProperties) *BackendTlsProperties {
 		return &v
 	}).(BackendTlsPropertiesPtrOutput)
 }
@@ -4928,13 +4784,7 @@ func (o BackendTlsPropertiesPtrOutput) ToBackendTlsPropertiesPtrOutputWithContex
 }
 
 func (o BackendTlsPropertiesPtrOutput) Elem() BackendTlsPropertiesOutput {
-	return o.ApplyT(func(v *BackendTlsProperties) BackendTlsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret BackendTlsProperties
-		return ret
-	}).(BackendTlsPropertiesOutput)
+	return o.ApplyT(func(v *BackendTlsProperties) BackendTlsProperties { return *v }).(BackendTlsPropertiesOutput)
 }
 
 // Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
@@ -5057,7 +4907,7 @@ func (o BackendTlsPropertiesResponseOutput) ToBackendTlsPropertiesResponsePtrOut
 }
 
 func (o BackendTlsPropertiesResponseOutput) ToBackendTlsPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendTlsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendTlsPropertiesResponse) *BackendTlsPropertiesResponse {
+	return o.ApplyT(func(v BackendTlsPropertiesResponse) *BackendTlsPropertiesResponse {
 		return &v
 	}).(BackendTlsPropertiesResponsePtrOutput)
 }
@@ -5087,13 +4937,7 @@ func (o BackendTlsPropertiesResponsePtrOutput) ToBackendTlsPropertiesResponsePtr
 }
 
 func (o BackendTlsPropertiesResponsePtrOutput) Elem() BackendTlsPropertiesResponseOutput {
-	return o.ApplyT(func(v *BackendTlsPropertiesResponse) BackendTlsPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackendTlsPropertiesResponse
-		return ret
-	}).(BackendTlsPropertiesResponseOutput)
+	return o.ApplyT(func(v *BackendTlsPropertiesResponse) BackendTlsPropertiesResponse { return *v }).(BackendTlsPropertiesResponseOutput)
 }
 
 // Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
@@ -5212,7 +5056,7 @@ func (o BodyDiagnosticSettingsOutput) ToBodyDiagnosticSettingsPtrOutput() BodyDi
 }
 
 func (o BodyDiagnosticSettingsOutput) ToBodyDiagnosticSettingsPtrOutputWithContext(ctx context.Context) BodyDiagnosticSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BodyDiagnosticSettings) *BodyDiagnosticSettings {
+	return o.ApplyT(func(v BodyDiagnosticSettings) *BodyDiagnosticSettings {
 		return &v
 	}).(BodyDiagnosticSettingsPtrOutput)
 }
@@ -5237,13 +5081,7 @@ func (o BodyDiagnosticSettingsPtrOutput) ToBodyDiagnosticSettingsPtrOutputWithCo
 }
 
 func (o BodyDiagnosticSettingsPtrOutput) Elem() BodyDiagnosticSettingsOutput {
-	return o.ApplyT(func(v *BodyDiagnosticSettings) BodyDiagnosticSettings {
-		if v != nil {
-			return *v
-		}
-		var ret BodyDiagnosticSettings
-		return ret
-	}).(BodyDiagnosticSettingsOutput)
+	return o.ApplyT(func(v *BodyDiagnosticSettings) BodyDiagnosticSettings { return *v }).(BodyDiagnosticSettingsOutput)
 }
 
 // Number of request body bytes to log.
@@ -5352,7 +5190,7 @@ func (o BodyDiagnosticSettingsResponseOutput) ToBodyDiagnosticSettingsResponsePt
 }
 
 func (o BodyDiagnosticSettingsResponseOutput) ToBodyDiagnosticSettingsResponsePtrOutputWithContext(ctx context.Context) BodyDiagnosticSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BodyDiagnosticSettingsResponse) *BodyDiagnosticSettingsResponse {
+	return o.ApplyT(func(v BodyDiagnosticSettingsResponse) *BodyDiagnosticSettingsResponse {
 		return &v
 	}).(BodyDiagnosticSettingsResponsePtrOutput)
 }
@@ -5377,13 +5215,7 @@ func (o BodyDiagnosticSettingsResponsePtrOutput) ToBodyDiagnosticSettingsRespons
 }
 
 func (o BodyDiagnosticSettingsResponsePtrOutput) Elem() BodyDiagnosticSettingsResponseOutput {
-	return o.ApplyT(func(v *BodyDiagnosticSettingsResponse) BodyDiagnosticSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BodyDiagnosticSettingsResponse
-		return ret
-	}).(BodyDiagnosticSettingsResponseOutput)
+	return o.ApplyT(func(v *BodyDiagnosticSettingsResponse) BodyDiagnosticSettingsResponse { return *v }).(BodyDiagnosticSettingsResponseOutput)
 }
 
 // Number of request body bytes to log.
@@ -5754,7 +5586,7 @@ func (o CertificateInformationOutput) ToCertificateInformationPtrOutput() Certif
 }
 
 func (o CertificateInformationOutput) ToCertificateInformationPtrOutputWithContext(ctx context.Context) CertificateInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateInformation) *CertificateInformation {
+	return o.ApplyT(func(v CertificateInformation) *CertificateInformation {
 		return &v
 	}).(CertificateInformationPtrOutput)
 }
@@ -5789,13 +5621,7 @@ func (o CertificateInformationPtrOutput) ToCertificateInformationPtrOutputWithCo
 }
 
 func (o CertificateInformationPtrOutput) Elem() CertificateInformationOutput {
-	return o.ApplyT(func(v *CertificateInformation) CertificateInformation {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateInformation
-		return ret
-	}).(CertificateInformationOutput)
+	return o.ApplyT(func(v *CertificateInformation) CertificateInformation { return *v }).(CertificateInformationOutput)
 }
 
 // Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -5932,7 +5758,7 @@ func (o CertificateInformationResponseOutput) ToCertificateInformationResponsePt
 }
 
 func (o CertificateInformationResponseOutput) ToCertificateInformationResponsePtrOutputWithContext(ctx context.Context) CertificateInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateInformationResponse) *CertificateInformationResponse {
+	return o.ApplyT(func(v CertificateInformationResponse) *CertificateInformationResponse {
 		return &v
 	}).(CertificateInformationResponsePtrOutput)
 }
@@ -5967,13 +5793,7 @@ func (o CertificateInformationResponsePtrOutput) ToCertificateInformationRespons
 }
 
 func (o CertificateInformationResponsePtrOutput) Elem() CertificateInformationResponseOutput {
-	return o.ApplyT(func(v *CertificateInformationResponse) CertificateInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateInformationResponse
-		return ret
-	}).(CertificateInformationResponseOutput)
+	return o.ApplyT(func(v *CertificateInformationResponse) CertificateInformationResponse { return *v }).(CertificateInformationResponseOutput)
 }
 
 // Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -6103,7 +5923,7 @@ func (o DataMaskingOutput) ToDataMaskingPtrOutput() DataMaskingPtrOutput {
 }
 
 func (o DataMaskingOutput) ToDataMaskingPtrOutputWithContext(ctx context.Context) DataMaskingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataMasking) *DataMasking {
+	return o.ApplyT(func(v DataMasking) *DataMasking {
 		return &v
 	}).(DataMaskingPtrOutput)
 }
@@ -6133,13 +5953,7 @@ func (o DataMaskingPtrOutput) ToDataMaskingPtrOutputWithContext(ctx context.Cont
 }
 
 func (o DataMaskingPtrOutput) Elem() DataMaskingOutput {
-	return o.ApplyT(func(v *DataMasking) DataMasking {
-		if v != nil {
-			return *v
-		}
-		var ret DataMasking
-		return ret
-	}).(DataMaskingOutput)
+	return o.ApplyT(func(v *DataMasking) DataMasking { return *v }).(DataMaskingOutput)
 }
 
 // Masking settings for headers
@@ -6471,7 +6285,7 @@ func (o DataMaskingResponseOutput) ToDataMaskingResponsePtrOutput() DataMaskingR
 }
 
 func (o DataMaskingResponseOutput) ToDataMaskingResponsePtrOutputWithContext(ctx context.Context) DataMaskingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataMaskingResponse) *DataMaskingResponse {
+	return o.ApplyT(func(v DataMaskingResponse) *DataMaskingResponse {
 		return &v
 	}).(DataMaskingResponsePtrOutput)
 }
@@ -6501,13 +6315,7 @@ func (o DataMaskingResponsePtrOutput) ToDataMaskingResponsePtrOutputWithContext(
 }
 
 func (o DataMaskingResponsePtrOutput) Elem() DataMaskingResponseOutput {
-	return o.ApplyT(func(v *DataMaskingResponse) DataMaskingResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DataMaskingResponse
-		return ret
-	}).(DataMaskingResponseOutput)
+	return o.ApplyT(func(v *DataMaskingResponse) DataMaskingResponse { return *v }).(DataMaskingResponseOutput)
 }
 
 // Masking settings for headers
@@ -7386,7 +7194,7 @@ func (o HttpMessageDiagnosticOutput) ToHttpMessageDiagnosticPtrOutput() HttpMess
 }
 
 func (o HttpMessageDiagnosticOutput) ToHttpMessageDiagnosticPtrOutputWithContext(ctx context.Context) HttpMessageDiagnosticPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpMessageDiagnostic) *HttpMessageDiagnostic {
+	return o.ApplyT(func(v HttpMessageDiagnostic) *HttpMessageDiagnostic {
 		return &v
 	}).(HttpMessageDiagnosticPtrOutput)
 }
@@ -7421,13 +7229,7 @@ func (o HttpMessageDiagnosticPtrOutput) ToHttpMessageDiagnosticPtrOutputWithCont
 }
 
 func (o HttpMessageDiagnosticPtrOutput) Elem() HttpMessageDiagnosticOutput {
-	return o.ApplyT(func(v *HttpMessageDiagnostic) HttpMessageDiagnostic {
-		if v != nil {
-			return *v
-		}
-		var ret HttpMessageDiagnostic
-		return ret
-	}).(HttpMessageDiagnosticOutput)
+	return o.ApplyT(func(v *HttpMessageDiagnostic) HttpMessageDiagnostic { return *v }).(HttpMessageDiagnosticOutput)
 }
 
 // Body logging settings.
@@ -7564,7 +7366,7 @@ func (o HttpMessageDiagnosticResponseOutput) ToHttpMessageDiagnosticResponsePtrO
 }
 
 func (o HttpMessageDiagnosticResponseOutput) ToHttpMessageDiagnosticResponsePtrOutputWithContext(ctx context.Context) HttpMessageDiagnosticResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpMessageDiagnosticResponse) *HttpMessageDiagnosticResponse {
+	return o.ApplyT(func(v HttpMessageDiagnosticResponse) *HttpMessageDiagnosticResponse {
 		return &v
 	}).(HttpMessageDiagnosticResponsePtrOutput)
 }
@@ -7599,13 +7401,7 @@ func (o HttpMessageDiagnosticResponsePtrOutput) ToHttpMessageDiagnosticResponseP
 }
 
 func (o HttpMessageDiagnosticResponsePtrOutput) Elem() HttpMessageDiagnosticResponseOutput {
-	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) HttpMessageDiagnosticResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HttpMessageDiagnosticResponse
-		return ret
-	}).(HttpMessageDiagnosticResponseOutput)
+	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) HttpMessageDiagnosticResponse { return *v }).(HttpMessageDiagnosticResponseOutput)
 }
 
 // Body logging settings.
@@ -7738,7 +7534,7 @@ func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreateProperti
 }
 
 func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreatePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultContractCreatePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultContractCreateProperties) *KeyVaultContractCreateProperties {
+	return o.ApplyT(func(v KeyVaultContractCreateProperties) *KeyVaultContractCreateProperties {
 		return &v
 	}).(KeyVaultContractCreatePropertiesPtrOutput)
 }
@@ -7768,13 +7564,7 @@ func (o KeyVaultContractCreatePropertiesPtrOutput) ToKeyVaultContractCreatePrope
 }
 
 func (o KeyVaultContractCreatePropertiesPtrOutput) Elem() KeyVaultContractCreatePropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultContractCreateProperties) KeyVaultContractCreateProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultContractCreateProperties
-		return ret
-	}).(KeyVaultContractCreatePropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultContractCreateProperties) KeyVaultContractCreateProperties { return *v }).(KeyVaultContractCreatePropertiesOutput)
 }
 
 // SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
@@ -7901,7 +7691,7 @@ func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesRe
 }
 
 func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultContractPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultContractPropertiesResponse) *KeyVaultContractPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *KeyVaultContractPropertiesResponse {
 		return &v
 	}).(KeyVaultContractPropertiesResponsePtrOutput)
 }
@@ -7938,13 +7728,7 @@ func (o KeyVaultContractPropertiesResponsePtrOutput) ToKeyVaultContractPropertie
 }
 
 func (o KeyVaultContractPropertiesResponsePtrOutput) Elem() KeyVaultContractPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) KeyVaultContractPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultContractPropertiesResponse
-		return ret
-	}).(KeyVaultContractPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) KeyVaultContractPropertiesResponse { return *v }).(KeyVaultContractPropertiesResponseOutput)
 }
 
 // SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
@@ -8081,7 +7865,7 @@ func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) ToKeyVaultLast
 }
 
 func (o KeyVaultLastAccessStatusContractPropertiesResponseOutput) ToKeyVaultLastAccessStatusContractPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultLastAccessStatusContractPropertiesResponse) *KeyVaultLastAccessStatusContractPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultLastAccessStatusContractPropertiesResponse) *KeyVaultLastAccessStatusContractPropertiesResponse {
 		return &v
 	}).(KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput)
 }
@@ -8117,11 +7901,7 @@ func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) ToKeyVaultL
 
 func (o KeyVaultLastAccessStatusContractPropertiesResponsePtrOutput) Elem() KeyVaultLastAccessStatusContractPropertiesResponseOutput {
 	return o.ApplyT(func(v *KeyVaultLastAccessStatusContractPropertiesResponse) KeyVaultLastAccessStatusContractPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultLastAccessStatusContractPropertiesResponse
-		return ret
+		return *v
 	}).(KeyVaultLastAccessStatusContractPropertiesResponseOutput)
 }
 
@@ -8255,7 +8035,7 @@ func (o OAuth2AuthenticationSettingsContractOutput) ToOAuth2AuthenticationSettin
 }
 
 func (o OAuth2AuthenticationSettingsContractOutput) ToOAuth2AuthenticationSettingsContractPtrOutputWithContext(ctx context.Context) OAuth2AuthenticationSettingsContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract {
+	return o.ApplyT(func(v OAuth2AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract {
 		return &v
 	}).(OAuth2AuthenticationSettingsContractPtrOutput)
 }
@@ -8285,13 +8065,7 @@ func (o OAuth2AuthenticationSettingsContractPtrOutput) ToOAuth2AuthenticationSet
 }
 
 func (o OAuth2AuthenticationSettingsContractPtrOutput) Elem() OAuth2AuthenticationSettingsContractOutput {
-	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) OAuth2AuthenticationSettingsContract {
-		if v != nil {
-			return *v
-		}
-		var ret OAuth2AuthenticationSettingsContract
-		return ret
-	}).(OAuth2AuthenticationSettingsContractOutput)
+	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) OAuth2AuthenticationSettingsContract { return *v }).(OAuth2AuthenticationSettingsContractOutput)
 }
 
 // OAuth authorization server identifier.
@@ -8414,7 +8188,7 @@ func (o OAuth2AuthenticationSettingsContractResponseOutput) ToOAuth2Authenticati
 }
 
 func (o OAuth2AuthenticationSettingsContractResponseOutput) ToOAuth2AuthenticationSettingsContractResponsePtrOutputWithContext(ctx context.Context) OAuth2AuthenticationSettingsContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2AuthenticationSettingsContractResponse) *OAuth2AuthenticationSettingsContractResponse {
+	return o.ApplyT(func(v OAuth2AuthenticationSettingsContractResponse) *OAuth2AuthenticationSettingsContractResponse {
 		return &v
 	}).(OAuth2AuthenticationSettingsContractResponsePtrOutput)
 }
@@ -8445,11 +8219,7 @@ func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) ToOAuth2Authentic
 
 func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) Elem() OAuth2AuthenticationSettingsContractResponseOutput {
 	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContractResponse) OAuth2AuthenticationSettingsContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OAuth2AuthenticationSettingsContractResponse
-		return ret
+		return *v
 	}).(OAuth2AuthenticationSettingsContractResponseOutput)
 }
 
@@ -8573,7 +8343,7 @@ func (o OpenIdAuthenticationSettingsContractOutput) ToOpenIdAuthenticationSettin
 }
 
 func (o OpenIdAuthenticationSettingsContractOutput) ToOpenIdAuthenticationSettingsContractPtrOutputWithContext(ctx context.Context) OpenIdAuthenticationSettingsContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdAuthenticationSettingsContract) *OpenIdAuthenticationSettingsContract {
+	return o.ApplyT(func(v OpenIdAuthenticationSettingsContract) *OpenIdAuthenticationSettingsContract {
 		return &v
 	}).(OpenIdAuthenticationSettingsContractPtrOutput)
 }
@@ -8603,13 +8373,7 @@ func (o OpenIdAuthenticationSettingsContractPtrOutput) ToOpenIdAuthenticationSet
 }
 
 func (o OpenIdAuthenticationSettingsContractPtrOutput) Elem() OpenIdAuthenticationSettingsContractOutput {
-	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContract) OpenIdAuthenticationSettingsContract {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdAuthenticationSettingsContract
-		return ret
-	}).(OpenIdAuthenticationSettingsContractOutput)
+	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContract) OpenIdAuthenticationSettingsContract { return *v }).(OpenIdAuthenticationSettingsContractOutput)
 }
 
 // How to send token to the server.
@@ -8732,7 +8496,7 @@ func (o OpenIdAuthenticationSettingsContractResponseOutput) ToOpenIdAuthenticati
 }
 
 func (o OpenIdAuthenticationSettingsContractResponseOutput) ToOpenIdAuthenticationSettingsContractResponsePtrOutputWithContext(ctx context.Context) OpenIdAuthenticationSettingsContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdAuthenticationSettingsContractResponse) *OpenIdAuthenticationSettingsContractResponse {
+	return o.ApplyT(func(v OpenIdAuthenticationSettingsContractResponse) *OpenIdAuthenticationSettingsContractResponse {
 		return &v
 	}).(OpenIdAuthenticationSettingsContractResponsePtrOutput)
 }
@@ -8763,11 +8527,7 @@ func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) ToOpenIdAuthentic
 
 func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) Elem() OpenIdAuthenticationSettingsContractResponseOutput {
 	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContractResponse) OpenIdAuthenticationSettingsContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdAuthenticationSettingsContractResponse
-		return ret
+		return *v
 	}).(OpenIdAuthenticationSettingsContractResponseOutput)
 }
 
@@ -9489,7 +9249,7 @@ func (o PipelineDiagnosticSettingsOutput) ToPipelineDiagnosticSettingsPtrOutput(
 }
 
 func (o PipelineDiagnosticSettingsOutput) ToPipelineDiagnosticSettingsPtrOutputWithContext(ctx context.Context) PipelineDiagnosticSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineDiagnosticSettings) *PipelineDiagnosticSettings {
+	return o.ApplyT(func(v PipelineDiagnosticSettings) *PipelineDiagnosticSettings {
 		return &v
 	}).(PipelineDiagnosticSettingsPtrOutput)
 }
@@ -9519,13 +9279,7 @@ func (o PipelineDiagnosticSettingsPtrOutput) ToPipelineDiagnosticSettingsPtrOutp
 }
 
 func (o PipelineDiagnosticSettingsPtrOutput) Elem() PipelineDiagnosticSettingsOutput {
-	return o.ApplyT(func(v *PipelineDiagnosticSettings) PipelineDiagnosticSettings {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineDiagnosticSettings
-		return ret
-	}).(PipelineDiagnosticSettingsOutput)
+	return o.ApplyT(func(v *PipelineDiagnosticSettings) PipelineDiagnosticSettings { return *v }).(PipelineDiagnosticSettingsOutput)
 }
 
 // Diagnostic settings for request.
@@ -9648,7 +9402,7 @@ func (o PipelineDiagnosticSettingsResponseOutput) ToPipelineDiagnosticSettingsRe
 }
 
 func (o PipelineDiagnosticSettingsResponseOutput) ToPipelineDiagnosticSettingsResponsePtrOutputWithContext(ctx context.Context) PipelineDiagnosticSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineDiagnosticSettingsResponse) *PipelineDiagnosticSettingsResponse {
+	return o.ApplyT(func(v PipelineDiagnosticSettingsResponse) *PipelineDiagnosticSettingsResponse {
 		return &v
 	}).(PipelineDiagnosticSettingsResponsePtrOutput)
 }
@@ -9678,13 +9432,7 @@ func (o PipelineDiagnosticSettingsResponsePtrOutput) ToPipelineDiagnosticSetting
 }
 
 func (o PipelineDiagnosticSettingsResponsePtrOutput) Elem() PipelineDiagnosticSettingsResponseOutput {
-	return o.ApplyT(func(v *PipelineDiagnosticSettingsResponse) PipelineDiagnosticSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineDiagnosticSettingsResponse
-		return ret
-	}).(PipelineDiagnosticSettingsResponseOutput)
+	return o.ApplyT(func(v *PipelineDiagnosticSettingsResponse) PipelineDiagnosticSettingsResponse { return *v }).(PipelineDiagnosticSettingsResponseOutput)
 }
 
 // Diagnostic settings for request.
@@ -10069,7 +9817,7 @@ func (o RequestContractOutput) ToRequestContractPtrOutput() RequestContractPtrOu
 }
 
 func (o RequestContractOutput) ToRequestContractPtrOutputWithContext(ctx context.Context) RequestContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestContract) *RequestContract {
+	return o.ApplyT(func(v RequestContract) *RequestContract {
 		return &v
 	}).(RequestContractPtrOutput)
 }
@@ -10109,13 +9857,7 @@ func (o RequestContractPtrOutput) ToRequestContractPtrOutputWithContext(ctx cont
 }
 
 func (o RequestContractPtrOutput) Elem() RequestContractOutput {
-	return o.ApplyT(func(v *RequestContract) RequestContract {
-		if v != nil {
-			return *v
-		}
-		var ret RequestContract
-		return ret
-	}).(RequestContractOutput)
+	return o.ApplyT(func(v *RequestContract) RequestContract { return *v }).(RequestContractOutput)
 }
 
 // Operation request description.
@@ -10266,7 +10008,7 @@ func (o RequestContractResponseOutput) ToRequestContractResponsePtrOutput() Requ
 }
 
 func (o RequestContractResponseOutput) ToRequestContractResponsePtrOutputWithContext(ctx context.Context) RequestContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestContractResponse) *RequestContractResponse {
+	return o.ApplyT(func(v RequestContractResponse) *RequestContractResponse {
 		return &v
 	}).(RequestContractResponsePtrOutput)
 }
@@ -10306,13 +10048,7 @@ func (o RequestContractResponsePtrOutput) ToRequestContractResponsePtrOutputWith
 }
 
 func (o RequestContractResponsePtrOutput) Elem() RequestContractResponseOutput {
-	return o.ApplyT(func(v *RequestContractResponse) RequestContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RequestContractResponse
-		return ret
-	}).(RequestContractResponseOutput)
+	return o.ApplyT(func(v *RequestContractResponse) RequestContractResponse { return *v }).(RequestContractResponseOutput)
 }
 
 // Operation request description.
@@ -10463,7 +10199,7 @@ func (o ResourceLocationDataContractOutput) ToResourceLocationDataContractPtrOut
 }
 
 func (o ResourceLocationDataContractOutput) ToResourceLocationDataContractPtrOutputWithContext(ctx context.Context) ResourceLocationDataContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLocationDataContract) *ResourceLocationDataContract {
+	return o.ApplyT(func(v ResourceLocationDataContract) *ResourceLocationDataContract {
 		return &v
 	}).(ResourceLocationDataContractPtrOutput)
 }
@@ -10503,13 +10239,7 @@ func (o ResourceLocationDataContractPtrOutput) ToResourceLocationDataContractPtr
 }
 
 func (o ResourceLocationDataContractPtrOutput) Elem() ResourceLocationDataContractOutput {
-	return o.ApplyT(func(v *ResourceLocationDataContract) ResourceLocationDataContract {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLocationDataContract
-		return ret
-	}).(ResourceLocationDataContractOutput)
+	return o.ApplyT(func(v *ResourceLocationDataContract) ResourceLocationDataContract { return *v }).(ResourceLocationDataContractOutput)
 }
 
 // The city or locality where the resource is located.
@@ -10660,7 +10390,7 @@ func (o ResourceLocationDataContractResponseOutput) ToResourceLocationDataContra
 }
 
 func (o ResourceLocationDataContractResponseOutput) ToResourceLocationDataContractResponsePtrOutputWithContext(ctx context.Context) ResourceLocationDataContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLocationDataContractResponse) *ResourceLocationDataContractResponse {
+	return o.ApplyT(func(v ResourceLocationDataContractResponse) *ResourceLocationDataContractResponse {
 		return &v
 	}).(ResourceLocationDataContractResponsePtrOutput)
 }
@@ -10700,13 +10430,7 @@ func (o ResourceLocationDataContractResponsePtrOutput) ToResourceLocationDataCon
 }
 
 func (o ResourceLocationDataContractResponsePtrOutput) Elem() ResourceLocationDataContractResponseOutput {
-	return o.ApplyT(func(v *ResourceLocationDataContractResponse) ResourceLocationDataContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLocationDataContractResponse
-		return ret
-	}).(ResourceLocationDataContractResponseOutput)
+	return o.ApplyT(func(v *ResourceLocationDataContractResponse) ResourceLocationDataContractResponse { return *v }).(ResourceLocationDataContractResponseOutput)
 }
 
 // The city or locality where the resource is located.
@@ -11103,7 +10827,7 @@ func (o SamplingSettingsOutput) ToSamplingSettingsPtrOutput() SamplingSettingsPt
 }
 
 func (o SamplingSettingsOutput) ToSamplingSettingsPtrOutputWithContext(ctx context.Context) SamplingSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingSettings) *SamplingSettings {
+	return o.ApplyT(func(v SamplingSettings) *SamplingSettings {
 		return &v
 	}).(SamplingSettingsPtrOutput)
 }
@@ -11133,13 +10857,7 @@ func (o SamplingSettingsPtrOutput) ToSamplingSettingsPtrOutputWithContext(ctx co
 }
 
 func (o SamplingSettingsPtrOutput) Elem() SamplingSettingsOutput {
-	return o.ApplyT(func(v *SamplingSettings) SamplingSettings {
-		if v != nil {
-			return *v
-		}
-		var ret SamplingSettings
-		return ret
-	}).(SamplingSettingsOutput)
+	return o.ApplyT(func(v *SamplingSettings) SamplingSettings { return *v }).(SamplingSettingsOutput)
 }
 
 // Rate of sampling for fixed-rate sampling.
@@ -11262,7 +10980,7 @@ func (o SamplingSettingsResponseOutput) ToSamplingSettingsResponsePtrOutput() Sa
 }
 
 func (o SamplingSettingsResponseOutput) ToSamplingSettingsResponsePtrOutputWithContext(ctx context.Context) SamplingSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingSettingsResponse) *SamplingSettingsResponse {
+	return o.ApplyT(func(v SamplingSettingsResponse) *SamplingSettingsResponse {
 		return &v
 	}).(SamplingSettingsResponsePtrOutput)
 }
@@ -11292,13 +11010,7 @@ func (o SamplingSettingsResponsePtrOutput) ToSamplingSettingsResponsePtrOutputWi
 }
 
 func (o SamplingSettingsResponsePtrOutput) Elem() SamplingSettingsResponseOutput {
-	return o.ApplyT(func(v *SamplingSettingsResponse) SamplingSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SamplingSettingsResponse
-		return ret
-	}).(SamplingSettingsResponseOutput)
+	return o.ApplyT(func(v *SamplingSettingsResponse) SamplingSettingsResponse { return *v }).(SamplingSettingsResponseOutput)
 }
 
 // Rate of sampling for fixed-rate sampling.
@@ -11421,7 +11133,7 @@ func (o SubscriptionKeyParameterNamesContractOutput) ToSubscriptionKeyParameterN
 }
 
 func (o SubscriptionKeyParameterNamesContractOutput) ToSubscriptionKeyParameterNamesContractPtrOutputWithContext(ctx context.Context) SubscriptionKeyParameterNamesContractPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionKeyParameterNamesContract) *SubscriptionKeyParameterNamesContract {
+	return o.ApplyT(func(v SubscriptionKeyParameterNamesContract) *SubscriptionKeyParameterNamesContract {
 		return &v
 	}).(SubscriptionKeyParameterNamesContractPtrOutput)
 }
@@ -11451,13 +11163,7 @@ func (o SubscriptionKeyParameterNamesContractPtrOutput) ToSubscriptionKeyParamet
 }
 
 func (o SubscriptionKeyParameterNamesContractPtrOutput) Elem() SubscriptionKeyParameterNamesContractOutput {
-	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContract) SubscriptionKeyParameterNamesContract {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionKeyParameterNamesContract
-		return ret
-	}).(SubscriptionKeyParameterNamesContractOutput)
+	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContract) SubscriptionKeyParameterNamesContract { return *v }).(SubscriptionKeyParameterNamesContractOutput)
 }
 
 // Subscription key header name.
@@ -11580,7 +11286,7 @@ func (o SubscriptionKeyParameterNamesContractResponseOutput) ToSubscriptionKeyPa
 }
 
 func (o SubscriptionKeyParameterNamesContractResponseOutput) ToSubscriptionKeyParameterNamesContractResponsePtrOutputWithContext(ctx context.Context) SubscriptionKeyParameterNamesContractResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionKeyParameterNamesContractResponse) *SubscriptionKeyParameterNamesContractResponse {
+	return o.ApplyT(func(v SubscriptionKeyParameterNamesContractResponse) *SubscriptionKeyParameterNamesContractResponse {
 		return &v
 	}).(SubscriptionKeyParameterNamesContractResponsePtrOutput)
 }
@@ -11611,11 +11317,7 @@ func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) ToSubscriptionKe
 
 func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) Elem() SubscriptionKeyParameterNamesContractResponseOutput {
 	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContractResponse) SubscriptionKeyParameterNamesContractResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionKeyParameterNamesContractResponse
-		return ret
+		return *v
 	}).(SubscriptionKeyParameterNamesContractResponseOutput)
 }
 
@@ -12383,7 +12085,7 @@ func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutpu
 }
 
 func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
+	return o.ApplyT(func(v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
 		return &v
 	}).(VirtualNetworkConfigurationPtrOutput)
 }
@@ -12408,13 +12110,7 @@ func (o VirtualNetworkConfigurationPtrOutput) ToVirtualNetworkConfigurationPtrOu
 }
 
 func (o VirtualNetworkConfigurationPtrOutput) Elem() VirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfiguration
-		return ret
-	}).(VirtualNetworkConfigurationOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration { return *v }).(VirtualNetworkConfigurationOutput)
 }
 
 // The full resource ID of a subnet in a virtual network to deploy the API Management service in.
@@ -12531,7 +12227,7 @@ func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfiguration
 }
 
 func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
+	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
 		return &v
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
@@ -12566,13 +12262,7 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) ToVirtualNetworkConfigurat
 }
 
 func (o VirtualNetworkConfigurationResponsePtrOutput) Elem() VirtualNetworkConfigurationResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfigurationResponse
-		return ret
-	}).(VirtualNetworkConfigurationResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse { return *v }).(VirtualNetworkConfigurationResponseOutput)
 }
 
 // The full resource ID of a subnet in a virtual network to deploy the API Management service in.

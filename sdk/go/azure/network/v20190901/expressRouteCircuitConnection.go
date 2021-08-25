@@ -302,7 +302,9 @@ func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionOutput)
 }
 
-type ExpressRouteCircuitConnectionOutput struct{ *pulumi.OutputState }
+type ExpressRouteCircuitConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExpressRouteCircuitConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitConnection)(nil))

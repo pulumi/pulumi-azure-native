@@ -114,7 +114,7 @@ func (o AssignmentLockSettingsOutput) ToAssignmentLockSettingsPtrOutput() Assign
 }
 
 func (o AssignmentLockSettingsOutput) ToAssignmentLockSettingsPtrOutputWithContext(ctx context.Context) AssignmentLockSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentLockSettings) *AssignmentLockSettings {
+	return o.ApplyT(func(v AssignmentLockSettings) *AssignmentLockSettings {
 		return &v
 	}).(AssignmentLockSettingsPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o AssignmentLockSettingsPtrOutput) ToAssignmentLockSettingsPtrOutputWithCo
 }
 
 func (o AssignmentLockSettingsPtrOutput) Elem() AssignmentLockSettingsOutput {
-	return o.ApplyT(func(v *AssignmentLockSettings) AssignmentLockSettings {
-		if v != nil {
-			return *v
-		}
-		var ret AssignmentLockSettings
-		return ret
-	}).(AssignmentLockSettingsOutput)
+	return o.ApplyT(func(v *AssignmentLockSettings) AssignmentLockSettings { return *v }).(AssignmentLockSettingsOutput)
 }
 
 // List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
@@ -292,7 +286,7 @@ func (o AssignmentLockSettingsResponseOutput) ToAssignmentLockSettingsResponsePt
 }
 
 func (o AssignmentLockSettingsResponseOutput) ToAssignmentLockSettingsResponsePtrOutputWithContext(ctx context.Context) AssignmentLockSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentLockSettingsResponse) *AssignmentLockSettingsResponse {
+	return o.ApplyT(func(v AssignmentLockSettingsResponse) *AssignmentLockSettingsResponse {
 		return &v
 	}).(AssignmentLockSettingsResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o AssignmentLockSettingsResponsePtrOutput) ToAssignmentLockSettingsRespons
 }
 
 func (o AssignmentLockSettingsResponsePtrOutput) Elem() AssignmentLockSettingsResponseOutput {
-	return o.ApplyT(func(v *AssignmentLockSettingsResponse) AssignmentLockSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AssignmentLockSettingsResponse
-		return ret
-	}).(AssignmentLockSettingsResponseOutput)
+	return o.ApplyT(func(v *AssignmentLockSettingsResponse) AssignmentLockSettingsResponse { return *v }).(AssignmentLockSettingsResponseOutput)
 }
 
 // List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
@@ -470,7 +458,7 @@ func (o AssignmentStatusResponseOutput) ToAssignmentStatusResponsePtrOutput() As
 }
 
 func (o AssignmentStatusResponseOutput) ToAssignmentStatusResponsePtrOutputWithContext(ctx context.Context) AssignmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentStatusResponse) *AssignmentStatusResponse {
+	return o.ApplyT(func(v AssignmentStatusResponse) *AssignmentStatusResponse {
 		return &v
 	}).(AssignmentStatusResponsePtrOutput)
 }
@@ -505,13 +493,7 @@ func (o AssignmentStatusResponsePtrOutput) ToAssignmentStatusResponsePtrOutputWi
 }
 
 func (o AssignmentStatusResponsePtrOutput) Elem() AssignmentStatusResponseOutput {
-	return o.ApplyT(func(v *AssignmentStatusResponse) AssignmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AssignmentStatusResponse
-		return ret
-	}).(AssignmentStatusResponseOutput)
+	return o.ApplyT(func(v *AssignmentStatusResponse) AssignmentStatusResponse { return *v }).(AssignmentStatusResponseOutput)
 }
 
 // Last modified time of this blueprint definition.
@@ -644,7 +626,7 @@ func (o BlueprintStatusResponseOutput) ToBlueprintStatusResponsePtrOutput() Blue
 }
 
 func (o BlueprintStatusResponseOutput) ToBlueprintStatusResponsePtrOutputWithContext(ctx context.Context) BlueprintStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlueprintStatusResponse) *BlueprintStatusResponse {
+	return o.ApplyT(func(v BlueprintStatusResponse) *BlueprintStatusResponse {
 		return &v
 	}).(BlueprintStatusResponsePtrOutput)
 }
@@ -674,13 +656,7 @@ func (o BlueprintStatusResponsePtrOutput) ToBlueprintStatusResponsePtrOutputWith
 }
 
 func (o BlueprintStatusResponsePtrOutput) Elem() BlueprintStatusResponseOutput {
-	return o.ApplyT(func(v *BlueprintStatusResponse) BlueprintStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BlueprintStatusResponse
-		return ret
-	}).(BlueprintStatusResponseOutput)
+	return o.ApplyT(func(v *BlueprintStatusResponse) BlueprintStatusResponse { return *v }).(BlueprintStatusResponseOutput)
 }
 
 // Last modified time of this blueprint definition.
@@ -799,7 +775,7 @@ func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferenc
 }
 
 func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReference) *KeyVaultReference {
+	return o.ApplyT(func(v KeyVaultReference) *KeyVaultReference {
 		return &v
 	}).(KeyVaultReferencePtrOutput)
 }
@@ -824,13 +800,7 @@ func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutputWithContext(ctx 
 }
 
 func (o KeyVaultReferencePtrOutput) Elem() KeyVaultReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultReference
-		return ret
-	}).(KeyVaultReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference { return *v }).(KeyVaultReferenceOutput)
 }
 
 // Azure resource ID of the Key Vault.
@@ -939,7 +909,7 @@ func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutput() 
 }
 
 func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
+	return o.ApplyT(func(v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
 		return &v
 	}).(KeyVaultReferenceResponsePtrOutput)
 }
@@ -964,13 +934,7 @@ func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutput
 }
 
 func (o KeyVaultReferenceResponsePtrOutput) Elem() KeyVaultReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultReferenceResponse
-		return ret
-	}).(KeyVaultReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse { return *v }).(KeyVaultReferenceResponseOutput)
 }
 
 // Azure resource ID of the Key Vault.
@@ -1091,7 +1055,7 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
@@ -1131,13 +1095,7 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedServiceIdentity
-		return ret
-	}).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
 }
 
 // Azure Active Directory principal ID associated with this Identity.
@@ -1288,7 +1246,7 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
@@ -1330,13 +1288,7 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedServiceIdentityResponse
-		return ret
-	}).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
 }
 
 // Azure Active Directory principal ID associated with this Identity.
@@ -2517,7 +2469,7 @@ func (o SecretValueReferenceOutput) ToSecretValueReferencePtrOutput() SecretValu
 }
 
 func (o SecretValueReferenceOutput) ToSecretValueReferencePtrOutputWithContext(ctx context.Context) SecretValueReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretValueReference) *SecretValueReference {
+	return o.ApplyT(func(v SecretValueReference) *SecretValueReference {
 		return &v
 	}).(SecretValueReferencePtrOutput)
 }
@@ -2552,13 +2504,7 @@ func (o SecretValueReferencePtrOutput) ToSecretValueReferencePtrOutputWithContex
 }
 
 func (o SecretValueReferencePtrOutput) Elem() SecretValueReferenceOutput {
-	return o.ApplyT(func(v *SecretValueReference) SecretValueReference {
-		if v != nil {
-			return *v
-		}
-		var ret SecretValueReference
-		return ret
-	}).(SecretValueReferenceOutput)
+	return o.ApplyT(func(v *SecretValueReference) SecretValueReference { return *v }).(SecretValueReferenceOutput)
 }
 
 // Specifies the reference to a given Azure Key Vault.
@@ -2695,7 +2641,7 @@ func (o SecretValueReferenceResponseOutput) ToSecretValueReferenceResponsePtrOut
 }
 
 func (o SecretValueReferenceResponseOutput) ToSecretValueReferenceResponsePtrOutputWithContext(ctx context.Context) SecretValueReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretValueReferenceResponse) *SecretValueReferenceResponse {
+	return o.ApplyT(func(v SecretValueReferenceResponse) *SecretValueReferenceResponse {
 		return &v
 	}).(SecretValueReferenceResponsePtrOutput)
 }
@@ -2730,13 +2676,7 @@ func (o SecretValueReferenceResponsePtrOutput) ToSecretValueReferenceResponsePtr
 }
 
 func (o SecretValueReferenceResponsePtrOutput) Elem() SecretValueReferenceResponseOutput {
-	return o.ApplyT(func(v *SecretValueReferenceResponse) SecretValueReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecretValueReferenceResponse
-		return ret
-	}).(SecretValueReferenceResponseOutput)
+	return o.ApplyT(func(v *SecretValueReferenceResponse) SecretValueReferenceResponse { return *v }).(SecretValueReferenceResponseOutput)
 }
 
 // Specifies the reference to a given Azure Key Vault.

@@ -176,7 +176,9 @@ func (i *TemplateSpecVersion) ToTemplateSpecVersionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionOutput)
 }
 
-type TemplateSpecVersionOutput struct{ *pulumi.OutputState }
+type TemplateSpecVersionOutput struct {
+	*pulumi.OutputState
+}
 
 func (TemplateSpecVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemplateSpecVersion)(nil))

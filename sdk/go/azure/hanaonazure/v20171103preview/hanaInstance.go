@@ -160,7 +160,9 @@ func (i *HanaInstance) ToHanaInstanceOutputWithContext(ctx context.Context) Hana
 	return pulumi.ToOutputWithContext(ctx, i).(HanaInstanceOutput)
 }
 
-type HanaInstanceOutput struct{ *pulumi.OutputState }
+type HanaInstanceOutput struct {
+	*pulumi.OutputState
+}
 
 func (HanaInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HanaInstance)(nil))

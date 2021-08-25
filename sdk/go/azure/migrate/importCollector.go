@@ -123,7 +123,9 @@ func (i *ImportCollector) ToImportCollectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ImportCollectorOutput)
 }
 
-type ImportCollectorOutput struct{ *pulumi.OutputState }
+type ImportCollectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (ImportCollectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImportCollector)(nil))

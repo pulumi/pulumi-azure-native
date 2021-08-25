@@ -213,7 +213,9 @@ func (i *SiteMetadata) ToSiteMetadataOutputWithContext(ctx context.Context) Site
 	return pulumi.ToOutputWithContext(ctx, i).(SiteMetadataOutput)
 }
 
-type SiteMetadataOutput struct{ *pulumi.OutputState }
+type SiteMetadataOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteMetadata)(nil))

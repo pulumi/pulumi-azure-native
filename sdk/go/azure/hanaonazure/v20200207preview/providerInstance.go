@@ -137,7 +137,9 @@ func (i *ProviderInstance) ToProviderInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderInstanceOutput)
 }
 
-type ProviderInstanceOutput struct{ *pulumi.OutputState }
+type ProviderInstanceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ProviderInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProviderInstance)(nil))

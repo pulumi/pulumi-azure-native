@@ -136,7 +136,9 @@ func (i *WorkloadNetworkPublicIP) ToWorkloadNetworkPublicIPOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkPublicIPOutput)
 }
 
-type WorkloadNetworkPublicIPOutput struct{ *pulumi.OutputState }
+type WorkloadNetworkPublicIPOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadNetworkPublicIPOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkPublicIP)(nil))

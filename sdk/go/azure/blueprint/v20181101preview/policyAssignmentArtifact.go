@@ -174,7 +174,9 @@ func (i *PolicyAssignmentArtifact) ToPolicyAssignmentArtifactOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentArtifactOutput)
 }
 
-type PolicyAssignmentArtifactOutput struct{ *pulumi.OutputState }
+type PolicyAssignmentArtifactOutput struct {
+	*pulumi.OutputState
+}
 
 func (PolicyAssignmentArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAssignmentArtifact)(nil))

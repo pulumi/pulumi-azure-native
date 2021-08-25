@@ -201,7 +201,9 @@ func (i *Package) ToPackageOutputWithContext(ctx context.Context) PackageOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PackageOutput)
 }
 
-type PackageOutput struct{ *pulumi.OutputState }
+type PackageOutput struct {
+	*pulumi.OutputState
+}
 
 func (PackageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Package)(nil))

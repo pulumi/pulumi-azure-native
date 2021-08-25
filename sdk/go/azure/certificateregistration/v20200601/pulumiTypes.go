@@ -365,7 +365,7 @@ func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutput(
 }
 
 func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDetailsResponse) *CertificateDetailsResponse {
+	return o.ApplyT(func(v CertificateDetailsResponse) *CertificateDetailsResponse {
 		return &v
 	}).(CertificateDetailsResponsePtrOutput)
 }
@@ -430,13 +430,7 @@ func (o CertificateDetailsResponsePtrOutput) ToCertificateDetailsResponsePtrOutp
 }
 
 func (o CertificateDetailsResponsePtrOutput) Elem() CertificateDetailsResponseOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateDetailsResponse
-		return ret
-	}).(CertificateDetailsResponseOutput)
+	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse { return *v }).(CertificateDetailsResponseOutput)
 }
 
 // Certificate Issuer.

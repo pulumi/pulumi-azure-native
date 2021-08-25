@@ -921,7 +921,7 @@ func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOut
 }
 
 func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
+	return o.ApplyT(func(v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
 		return &v
 	}).(VolumePropertiesExportPolicyPtrOutput)
 }
@@ -946,13 +946,7 @@ func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtr
 }
 
 func (o VolumePropertiesExportPolicyPtrOutput) Elem() VolumePropertiesExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret VolumePropertiesExportPolicy
-		return ret
-	}).(VolumePropertiesExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy { return *v }).(VolumePropertiesExportPolicyOutput)
 }
 
 // Export policy rule
@@ -1061,7 +1055,7 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 }
 
 func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
+	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
 		return &v
 	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
@@ -1086,13 +1080,7 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesRespons
 }
 
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret VolumePropertiesResponseExportPolicy
-		return ret
-	}).(VolumePropertiesResponseExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
 }
 
 // Export policy rule

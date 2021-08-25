@@ -554,7 +554,7 @@ func (o BackendPoolsSettingsOutput) ToBackendPoolsSettingsPtrOutput() BackendPoo
 }
 
 func (o BackendPoolsSettingsOutput) ToBackendPoolsSettingsPtrOutputWithContext(ctx context.Context) BackendPoolsSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendPoolsSettings) *BackendPoolsSettings {
+	return o.ApplyT(func(v BackendPoolsSettings) *BackendPoolsSettings {
 		return &v
 	}).(BackendPoolsSettingsPtrOutput)
 }
@@ -584,13 +584,7 @@ func (o BackendPoolsSettingsPtrOutput) ToBackendPoolsSettingsPtrOutputWithContex
 }
 
 func (o BackendPoolsSettingsPtrOutput) Elem() BackendPoolsSettingsOutput {
-	return o.ApplyT(func(v *BackendPoolsSettings) BackendPoolsSettings {
-		if v != nil {
-			return *v
-		}
-		var ret BackendPoolsSettings
-		return ret
-	}).(BackendPoolsSettingsOutput)
+	return o.ApplyT(func(v *BackendPoolsSettings) BackendPoolsSettings { return *v }).(BackendPoolsSettingsOutput)
 }
 
 // Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
@@ -713,7 +707,7 @@ func (o BackendPoolsSettingsResponseOutput) ToBackendPoolsSettingsResponsePtrOut
 }
 
 func (o BackendPoolsSettingsResponseOutput) ToBackendPoolsSettingsResponsePtrOutputWithContext(ctx context.Context) BackendPoolsSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendPoolsSettingsResponse) *BackendPoolsSettingsResponse {
+	return o.ApplyT(func(v BackendPoolsSettingsResponse) *BackendPoolsSettingsResponse {
 		return &v
 	}).(BackendPoolsSettingsResponsePtrOutput)
 }
@@ -743,13 +737,7 @@ func (o BackendPoolsSettingsResponsePtrOutput) ToBackendPoolsSettingsResponsePtr
 }
 
 func (o BackendPoolsSettingsResponsePtrOutput) Elem() BackendPoolsSettingsResponseOutput {
-	return o.ApplyT(func(v *BackendPoolsSettingsResponse) BackendPoolsSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackendPoolsSettingsResponse
-		return ret
-	}).(BackendPoolsSettingsResponseOutput)
+	return o.ApplyT(func(v *BackendPoolsSettingsResponse) BackendPoolsSettingsResponse { return *v }).(BackendPoolsSettingsResponseOutput)
 }
 
 // Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
@@ -1026,7 +1014,7 @@ func (o CacheConfigurationOutput) ToCacheConfigurationPtrOutput() CacheConfigura
 }
 
 func (o CacheConfigurationOutput) ToCacheConfigurationPtrOutputWithContext(ctx context.Context) CacheConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheConfiguration) *CacheConfiguration {
+	return o.ApplyT(func(v CacheConfiguration) *CacheConfiguration {
 		return &v
 	}).(CacheConfigurationPtrOutput)
 }
@@ -1056,13 +1044,7 @@ func (o CacheConfigurationPtrOutput) ToCacheConfigurationPtrOutputWithContext(ct
 }
 
 func (o CacheConfigurationPtrOutput) Elem() CacheConfigurationOutput {
-	return o.ApplyT(func(v *CacheConfiguration) CacheConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret CacheConfiguration
-		return ret
-	}).(CacheConfigurationOutput)
+	return o.ApplyT(func(v *CacheConfiguration) CacheConfiguration { return *v }).(CacheConfigurationOutput)
 }
 
 // Whether to use dynamic compression for cached content
@@ -1185,7 +1167,7 @@ func (o CacheConfigurationResponseOutput) ToCacheConfigurationResponsePtrOutput(
 }
 
 func (o CacheConfigurationResponseOutput) ToCacheConfigurationResponsePtrOutputWithContext(ctx context.Context) CacheConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheConfigurationResponse) *CacheConfigurationResponse {
+	return o.ApplyT(func(v CacheConfigurationResponse) *CacheConfigurationResponse {
 		return &v
 	}).(CacheConfigurationResponsePtrOutput)
 }
@@ -1215,13 +1197,7 @@ func (o CacheConfigurationResponsePtrOutput) ToCacheConfigurationResponsePtrOutp
 }
 
 func (o CacheConfigurationResponsePtrOutput) Elem() CacheConfigurationResponseOutput {
-	return o.ApplyT(func(v *CacheConfigurationResponse) CacheConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheConfigurationResponse
-		return ret
-	}).(CacheConfigurationResponseOutput)
+	return o.ApplyT(func(v *CacheConfigurationResponse) CacheConfigurationResponse { return *v }).(CacheConfigurationResponseOutput)
 }
 
 // Whether to use dynamic compression for cached content
@@ -1972,7 +1948,7 @@ func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
 }
 
 func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
+	return o.ApplyT(func(v FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		return &v
 	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
@@ -1998,11 +1974,7 @@ func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
 
 func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) Elem() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
 	return o.ApplyT(func(v *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
-		if v != nil {
-			return *v
-		}
-		var ret FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink
-		return ret
+		return *v
 	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput)
 }
 
@@ -2112,7 +2084,7 @@ func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) 
 }
 
 func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
+	return o.ApplyT(func(v FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
 		return &v
 	}).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput)
 }
@@ -2138,11 +2110,7 @@ func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutpu
 
 func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) Elem() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput {
 	return o.ApplyT(func(v *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
-		if v != nil {
-			return *v
-		}
-		var ret FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink
-		return ret
+		return *v
 	}).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput)
 }
 
@@ -2578,7 +2546,7 @@ func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertif
 }
 
 func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCertificateSourceParametersResponseVault) *KeyVaultCertificateSourceParametersResponseVault {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponseVault) *KeyVaultCertificateSourceParametersResponseVault {
 		return &v
 	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
@@ -2604,11 +2572,7 @@ func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) ToKeyVaultCer
 
 func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) Elem() KeyVaultCertificateSourceParametersResponseVaultOutput {
 	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponseVault) KeyVaultCertificateSourceParametersResponseVault {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultCertificateSourceParametersResponseVault
-		return ret
+		return *v
 	}).(KeyVaultCertificateSourceParametersResponseVaultOutput)
 }
 
@@ -3577,7 +3541,7 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
+	return o.ApplyT(func(v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
@@ -3602,13 +3566,7 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource {
-		if v != nil {
-			return *v
-		}
-		var ret SubResource
-		return ret
-	}).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
 }
 
 // Resource ID.
@@ -3762,7 +3720,7 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
@@ -3787,13 +3745,7 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubResourceResponse
-		return ret
-	}).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
 }
 
 // Resource ID.

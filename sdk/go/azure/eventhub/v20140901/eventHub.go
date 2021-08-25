@@ -137,7 +137,7 @@ type eventHubArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of the Event Hub.
-	Status *EntityStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// ARM type of the Namespace.
 	Type *string `pulumi:"type"`
 }
@@ -159,7 +159,7 @@ type EventHubArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of the Event Hub.
-	Status EntityStatusPtrInput
+	Status *EntityStatus
 	// ARM type of the Namespace.
 	Type pulumi.StringPtrInput
 }
@@ -187,7 +187,9 @@ func (i *EventHub) ToEventHubOutputWithContext(ctx context.Context) EventHubOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutput)
 }
 
-type EventHubOutput struct{ *pulumi.OutputState }
+type EventHubOutput struct {
+	*pulumi.OutputState
+}
 
 func (EventHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHub)(nil))

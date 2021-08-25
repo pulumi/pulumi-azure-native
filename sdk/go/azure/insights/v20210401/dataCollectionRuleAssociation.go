@@ -142,7 +142,9 @@ func (i *DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationOutput)
 }
 
-type DataCollectionRuleAssociationOutput struct{ *pulumi.OutputState }
+type DataCollectionRuleAssociationOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataCollectionRuleAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil))

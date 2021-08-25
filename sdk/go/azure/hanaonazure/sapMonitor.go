@@ -161,7 +161,9 @@ func (i *SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonit
 	return pulumi.ToOutputWithContext(ctx, i).(SapMonitorOutput)
 }
 
-type SapMonitorOutput struct{ *pulumi.OutputState }
+type SapMonitorOutput struct {
+	*pulumi.OutputState
+}
 
 func (SapMonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SapMonitor)(nil))

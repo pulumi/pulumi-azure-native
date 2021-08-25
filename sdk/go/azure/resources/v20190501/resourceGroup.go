@@ -226,7 +226,9 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
 }
 
-type ResourceGroupOutput struct{ *pulumi.OutputState }
+type ResourceGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroup)(nil))

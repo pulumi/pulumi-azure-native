@@ -206,7 +206,9 @@ func (i *BatchAccount) ToBatchAccountOutputWithContext(ctx context.Context) Batc
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountOutput)
 }
 
-type BatchAccountOutput struct{ *pulumi.OutputState }
+type BatchAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (BatchAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchAccount)(nil))

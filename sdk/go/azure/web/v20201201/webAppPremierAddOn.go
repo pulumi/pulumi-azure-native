@@ -233,7 +233,9 @@ func (i *WebAppPremierAddOn) ToWebAppPremierAddOnOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnOutput)
 }
 
-type WebAppPremierAddOnOutput struct{ *pulumi.OutputState }
+type WebAppPremierAddOnOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppPremierAddOnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppPremierAddOn)(nil))

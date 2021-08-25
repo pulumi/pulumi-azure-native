@@ -123,7 +123,9 @@ func (i *WorkspaceSetting) ToWorkspaceSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSettingOutput)
 }
 
-type WorkspaceSettingOutput struct{ *pulumi.OutputState }
+type WorkspaceSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkspaceSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceSetting)(nil))

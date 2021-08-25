@@ -151,7 +151,9 @@ func (i *Suppression) ToSuppressionOutputWithContext(ctx context.Context) Suppre
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionOutput)
 }
 
-type SuppressionOutput struct{ *pulumi.OutputState }
+type SuppressionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SuppressionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Suppression)(nil))

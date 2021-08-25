@@ -126,7 +126,9 @@ func (i *IntegrationServiceEnvironmentManagedApi) ToIntegrationServiceEnvironmen
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiOutput)
 }
 
-type IntegrationServiceEnvironmentManagedApiOutput struct{ *pulumi.OutputState }
+type IntegrationServiceEnvironmentManagedApiOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationServiceEnvironmentManagedApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApi)(nil))

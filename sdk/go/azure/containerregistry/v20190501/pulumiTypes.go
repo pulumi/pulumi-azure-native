@@ -106,7 +106,7 @@ func (o ActorResponseOutput) ToActorResponsePtrOutput() ActorResponsePtrOutput {
 }
 
 func (o ActorResponseOutput) ToActorResponsePtrOutputWithContext(ctx context.Context) ActorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActorResponse) *ActorResponse {
+	return o.ApplyT(func(v ActorResponse) *ActorResponse {
 		return &v
 	}).(ActorResponsePtrOutput)
 }
@@ -131,13 +131,7 @@ func (o ActorResponsePtrOutput) ToActorResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ActorResponsePtrOutput) Elem() ActorResponseOutput {
-	return o.ApplyT(func(v *ActorResponse) ActorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActorResponse
-		return ret
-	}).(ActorResponseOutput)
+	return o.ApplyT(func(v *ActorResponse) ActorResponse { return *v }).(ActorResponseOutput)
 }
 
 // The subject or username associated with the request context that generated the event.
@@ -270,7 +264,7 @@ func (o EventContentResponseOutput) ToEventContentResponsePtrOutput() EventConte
 }
 
 func (o EventContentResponseOutput) ToEventContentResponsePtrOutputWithContext(ctx context.Context) EventContentResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventContentResponse) *EventContentResponse {
+	return o.ApplyT(func(v EventContentResponse) *EventContentResponse {
 		return &v
 	}).(EventContentResponsePtrOutput)
 }
@@ -325,13 +319,7 @@ func (o EventContentResponsePtrOutput) ToEventContentResponsePtrOutputWithContex
 }
 
 func (o EventContentResponsePtrOutput) Elem() EventContentResponseOutput {
-	return o.ApplyT(func(v *EventContentResponse) EventContentResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EventContentResponse
-		return ret
-	}).(EventContentResponseOutput)
+	return o.ApplyT(func(v *EventContentResponse) EventContentResponse { return *v }).(EventContentResponseOutput)
 }
 
 // The action that encompasses the provided event.
@@ -516,7 +504,7 @@ func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponsePtrOutpu
 }
 
 func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventRequestMessageResponse) *EventRequestMessageResponse {
+	return o.ApplyT(func(v EventRequestMessageResponse) *EventRequestMessageResponse {
 		return &v
 	}).(EventRequestMessageResponsePtrOutput)
 }
@@ -561,13 +549,7 @@ func (o EventRequestMessageResponsePtrOutput) ToEventRequestMessageResponsePtrOu
 }
 
 func (o EventRequestMessageResponsePtrOutput) Elem() EventRequestMessageResponseOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) EventRequestMessageResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EventRequestMessageResponse
-		return ret
-	}).(EventRequestMessageResponseOutput)
+	return o.ApplyT(func(v *EventRequestMessageResponse) EventRequestMessageResponse { return *v }).(EventRequestMessageResponseOutput)
 }
 
 // The content of the event request message.
@@ -850,7 +832,7 @@ func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponsePtrOut
 }
 
 func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventResponseMessageResponse) *EventResponseMessageResponse {
+	return o.ApplyT(func(v EventResponseMessageResponse) *EventResponseMessageResponse {
 		return &v
 	}).(EventResponseMessageResponsePtrOutput)
 }
@@ -895,13 +877,7 @@ func (o EventResponseMessageResponsePtrOutput) ToEventResponseMessageResponsePtr
 }
 
 func (o EventResponseMessageResponsePtrOutput) Elem() EventResponseMessageResponseOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) EventResponseMessageResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EventResponseMessageResponse
-		return ret
-	}).(EventResponseMessageResponseOutput)
+	return o.ApplyT(func(v *EventResponseMessageResponse) EventResponseMessageResponse { return *v }).(EventResponseMessageResponseOutput)
 }
 
 // The content of the event response message.
@@ -1276,7 +1252,7 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
@@ -1311,13 +1287,7 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkRuleSet
-		return ret
-	}).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
 }
 
 // The default action of allow or deny when no other rules match.
@@ -1454,7 +1424,7 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
@@ -1489,13 +1459,7 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkRuleSetResponse
-		return ret
-	}).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
 }
 
 // The default action of allow or deny when no other rules match.
@@ -1632,7 +1596,7 @@ func (o PoliciesOutput) ToPoliciesPtrOutput() PoliciesPtrOutput {
 }
 
 func (o PoliciesOutput) ToPoliciesPtrOutputWithContext(ctx context.Context) PoliciesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Policies) *Policies {
+	return o.ApplyT(func(v Policies) *Policies {
 		return &v
 	}).(PoliciesPtrOutput)
 }
@@ -1667,13 +1631,7 @@ func (o PoliciesPtrOutput) ToPoliciesPtrOutputWithContext(ctx context.Context) P
 }
 
 func (o PoliciesPtrOutput) Elem() PoliciesOutput {
-	return o.ApplyT(func(v *Policies) Policies {
-		if v != nil {
-			return *v
-		}
-		var ret Policies
-		return ret
-	}).(PoliciesOutput)
+	return o.ApplyT(func(v *Policies) Policies { return *v }).(PoliciesOutput)
 }
 
 // The quarantine policy for a container registry.
@@ -1810,7 +1768,7 @@ func (o PoliciesResponseOutput) ToPoliciesResponsePtrOutput() PoliciesResponsePt
 }
 
 func (o PoliciesResponseOutput) ToPoliciesResponsePtrOutputWithContext(ctx context.Context) PoliciesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoliciesResponse) *PoliciesResponse {
+	return o.ApplyT(func(v PoliciesResponse) *PoliciesResponse {
 		return &v
 	}).(PoliciesResponsePtrOutput)
 }
@@ -1845,13 +1803,7 @@ func (o PoliciesResponsePtrOutput) ToPoliciesResponsePtrOutputWithContext(ctx co
 }
 
 func (o PoliciesResponsePtrOutput) Elem() PoliciesResponseOutput {
-	return o.ApplyT(func(v *PoliciesResponse) PoliciesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PoliciesResponse
-		return ret
-	}).(PoliciesResponseOutput)
+	return o.ApplyT(func(v *PoliciesResponse) PoliciesResponse { return *v }).(PoliciesResponseOutput)
 }
 
 // The quarantine policy for a container registry.
@@ -1980,7 +1932,7 @@ func (o QuarantinePolicyOutput) ToQuarantinePolicyPtrOutput() QuarantinePolicyPt
 }
 
 func (o QuarantinePolicyOutput) ToQuarantinePolicyPtrOutputWithContext(ctx context.Context) QuarantinePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuarantinePolicy) *QuarantinePolicy {
+	return o.ApplyT(func(v QuarantinePolicy) *QuarantinePolicy {
 		return &v
 	}).(QuarantinePolicyPtrOutput)
 }
@@ -2005,13 +1957,7 @@ func (o QuarantinePolicyPtrOutput) ToQuarantinePolicyPtrOutputWithContext(ctx co
 }
 
 func (o QuarantinePolicyPtrOutput) Elem() QuarantinePolicyOutput {
-	return o.ApplyT(func(v *QuarantinePolicy) QuarantinePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret QuarantinePolicy
-		return ret
-	}).(QuarantinePolicyOutput)
+	return o.ApplyT(func(v *QuarantinePolicy) QuarantinePolicy { return *v }).(QuarantinePolicyOutput)
 }
 
 // The value that indicates whether the policy is enabled or not.
@@ -2120,7 +2066,7 @@ func (o QuarantinePolicyResponseOutput) ToQuarantinePolicyResponsePtrOutput() Qu
 }
 
 func (o QuarantinePolicyResponseOutput) ToQuarantinePolicyResponsePtrOutputWithContext(ctx context.Context) QuarantinePolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuarantinePolicyResponse) *QuarantinePolicyResponse {
+	return o.ApplyT(func(v QuarantinePolicyResponse) *QuarantinePolicyResponse {
 		return &v
 	}).(QuarantinePolicyResponsePtrOutput)
 }
@@ -2145,13 +2091,7 @@ func (o QuarantinePolicyResponsePtrOutput) ToQuarantinePolicyResponsePtrOutputWi
 }
 
 func (o QuarantinePolicyResponsePtrOutput) Elem() QuarantinePolicyResponseOutput {
-	return o.ApplyT(func(v *QuarantinePolicyResponse) QuarantinePolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret QuarantinePolicyResponse
-		return ret
-	}).(QuarantinePolicyResponseOutput)
+	return o.ApplyT(func(v *QuarantinePolicyResponse) QuarantinePolicyResponse { return *v }).(QuarantinePolicyResponseOutput)
 }
 
 // The value that indicates whether the policy is enabled or not.
@@ -2385,7 +2325,7 @@ func (o RequestResponseOutput) ToRequestResponsePtrOutput() RequestResponsePtrOu
 }
 
 func (o RequestResponseOutput) ToRequestResponsePtrOutputWithContext(ctx context.Context) RequestResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestResponse) *RequestResponse {
+	return o.ApplyT(func(v RequestResponse) *RequestResponse {
 		return &v
 	}).(RequestResponsePtrOutput)
 }
@@ -2430,13 +2370,7 @@ func (o RequestResponsePtrOutput) ToRequestResponsePtrOutputWithContext(ctx cont
 }
 
 func (o RequestResponsePtrOutput) Elem() RequestResponseOutput {
-	return o.ApplyT(func(v *RequestResponse) RequestResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RequestResponse
-		return ret
-	}).(RequestResponseOutput)
+	return o.ApplyT(func(v *RequestResponse) RequestResponse { return *v }).(RequestResponseOutput)
 }
 
 // The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
@@ -2589,7 +2523,7 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOu
 }
 
 func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicy) *RetentionPolicy {
+	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
 		return &v
 	}).(RetentionPolicyPtrOutput)
 }
@@ -2619,13 +2553,7 @@ func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionPolicy
-		return ret
-	}).(RetentionPolicyOutput)
+	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
 }
 
 // The number of days to retain an untagged manifest after which it gets purged.
@@ -2752,7 +2680,7 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() Rete
 }
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
+	return o.ApplyT(func(v RetentionPolicyResponse) *RetentionPolicyResponse {
 		return &v
 	}).(RetentionPolicyResponsePtrOutput)
 }
@@ -2787,13 +2715,7 @@ func (o RetentionPolicyResponsePtrOutput) ToRetentionPolicyResponsePtrOutputWith
 }
 
 func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionPolicyResponse
-		return ret
-	}).(RetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse { return *v }).(RetentionPolicyResponseOutput)
 }
 
 // The number of days to retain an untagged manifest after which it gets purged.
@@ -2922,7 +2844,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -2947,13 +2869,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The SKU name of the container registry. Required for registry creation.
@@ -3066,7 +2982,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -3096,13 +3012,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The SKU name of the container registry. Required for registry creation.
@@ -3225,7 +3135,7 @@ func (o SourceResponseOutput) ToSourceResponsePtrOutput() SourceResponsePtrOutpu
 }
 
 func (o SourceResponseOutput) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceResponse) *SourceResponse {
+	return o.ApplyT(func(v SourceResponse) *SourceResponse {
 		return &v
 	}).(SourceResponsePtrOutput)
 }
@@ -3255,13 +3165,7 @@ func (o SourceResponsePtrOutput) ToSourceResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SourceResponsePtrOutput) Elem() SourceResponseOutput {
-	return o.ApplyT(func(v *SourceResponse) SourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SourceResponse
-		return ret
-	}).(SourceResponseOutput)
+	return o.ApplyT(func(v *SourceResponse) SourceResponse { return *v }).(SourceResponseOutput)
 }
 
 // The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
@@ -3388,7 +3292,7 @@ func (o StatusResponseOutput) ToStatusResponsePtrOutput() StatusResponsePtrOutpu
 }
 
 func (o StatusResponseOutput) ToStatusResponsePtrOutputWithContext(ctx context.Context) StatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StatusResponse) *StatusResponse {
+	return o.ApplyT(func(v StatusResponse) *StatusResponse {
 		return &v
 	}).(StatusResponsePtrOutput)
 }
@@ -3423,13 +3327,7 @@ func (o StatusResponsePtrOutput) ToStatusResponsePtrOutputWithContext(ctx contex
 }
 
 func (o StatusResponsePtrOutput) Elem() StatusResponseOutput {
-	return o.ApplyT(func(v *StatusResponse) StatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StatusResponse
-		return ret
-	}).(StatusResponseOutput)
+	return o.ApplyT(func(v *StatusResponse) StatusResponse { return *v }).(StatusResponseOutput)
 }
 
 // The short label for the status.
@@ -3558,7 +3456,7 @@ func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutput() St
 }
 
 func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountProperties) *StorageAccountProperties {
+	return o.ApplyT(func(v StorageAccountProperties) *StorageAccountProperties {
 		return &v
 	}).(StorageAccountPropertiesPtrOutput)
 }
@@ -3583,13 +3481,7 @@ func (o StorageAccountPropertiesPtrOutput) ToStorageAccountPropertiesPtrOutputWi
 }
 
 func (o StorageAccountPropertiesPtrOutput) Elem() StorageAccountPropertiesOutput {
-	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountProperties
-		return ret
-	}).(StorageAccountPropertiesOutput)
+	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties { return *v }).(StorageAccountPropertiesOutput)
 }
 
 // The resource ID of the storage account.
@@ -3698,7 +3590,7 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
@@ -3723,13 +3615,7 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountPropertiesResponse
-		return ret
-	}).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
 }
 
 // The resource ID of the storage account.
@@ -3870,7 +3756,7 @@ func (o TargetResponseOutput) ToTargetResponsePtrOutput() TargetResponsePtrOutpu
 }
 
 func (o TargetResponseOutput) ToTargetResponsePtrOutputWithContext(ctx context.Context) TargetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetResponse) *TargetResponse {
+	return o.ApplyT(func(v TargetResponse) *TargetResponse {
 		return &v
 	}).(TargetResponsePtrOutput)
 }
@@ -3935,13 +3821,7 @@ func (o TargetResponsePtrOutput) ToTargetResponsePtrOutputWithContext(ctx contex
 }
 
 func (o TargetResponsePtrOutput) Elem() TargetResponseOutput {
-	return o.ApplyT(func(v *TargetResponse) TargetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TargetResponse
-		return ret
-	}).(TargetResponseOutput)
+	return o.ApplyT(func(v *TargetResponse) TargetResponse { return *v }).(TargetResponseOutput)
 }
 
 // The digest of the content, as defined by the Registry V2 HTTP API Specification.
@@ -4134,7 +4014,7 @@ func (o TrustPolicyOutput) ToTrustPolicyPtrOutput() TrustPolicyPtrOutput {
 }
 
 func (o TrustPolicyOutput) ToTrustPolicyPtrOutputWithContext(ctx context.Context) TrustPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustPolicy) *TrustPolicy {
+	return o.ApplyT(func(v TrustPolicy) *TrustPolicy {
 		return &v
 	}).(TrustPolicyPtrOutput)
 }
@@ -4164,13 +4044,7 @@ func (o TrustPolicyPtrOutput) ToTrustPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func (o TrustPolicyPtrOutput) Elem() TrustPolicyOutput {
-	return o.ApplyT(func(v *TrustPolicy) TrustPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret TrustPolicy
-		return ret
-	}).(TrustPolicyOutput)
+	return o.ApplyT(func(v *TrustPolicy) TrustPolicy { return *v }).(TrustPolicyOutput)
 }
 
 // The value that indicates whether the policy is enabled or not.
@@ -4293,7 +4167,7 @@ func (o TrustPolicyResponseOutput) ToTrustPolicyResponsePtrOutput() TrustPolicyR
 }
 
 func (o TrustPolicyResponseOutput) ToTrustPolicyResponsePtrOutputWithContext(ctx context.Context) TrustPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustPolicyResponse) *TrustPolicyResponse {
+	return o.ApplyT(func(v TrustPolicyResponse) *TrustPolicyResponse {
 		return &v
 	}).(TrustPolicyResponsePtrOutput)
 }
@@ -4323,13 +4197,7 @@ func (o TrustPolicyResponsePtrOutput) ToTrustPolicyResponsePtrOutputWithContext(
 }
 
 func (o TrustPolicyResponsePtrOutput) Elem() TrustPolicyResponseOutput {
-	return o.ApplyT(func(v *TrustPolicyResponse) TrustPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TrustPolicyResponse
-		return ret
-	}).(TrustPolicyResponseOutput)
+	return o.ApplyT(func(v *TrustPolicyResponse) TrustPolicyResponse { return *v }).(TrustPolicyResponseOutput)
 }
 
 // The value that indicates whether the policy is enabled or not.

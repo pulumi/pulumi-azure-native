@@ -158,7 +158,9 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
 }
 
-type TriggerOutput struct{ *pulumi.OutputState }
+type TriggerOutput struct {
+	*pulumi.OutputState
+}
 
 func (TriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Trigger)(nil))

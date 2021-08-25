@@ -138,7 +138,9 @@ func (i *ReportConfigByResourceGroupName) ToReportConfigByResourceGroupNameOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigByResourceGroupNameOutput)
 }
 
-type ReportConfigByResourceGroupNameOutput struct{ *pulumi.OutputState }
+type ReportConfigByResourceGroupNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReportConfigByResourceGroupNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportConfigByResourceGroupName)(nil))

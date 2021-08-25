@@ -193,7 +193,9 @@ func (i *FormulaResource) ToFormulaResourceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FormulaResourceOutput)
 }
 
-type FormulaResourceOutput struct{ *pulumi.OutputState }
+type FormulaResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (FormulaResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FormulaResource)(nil))

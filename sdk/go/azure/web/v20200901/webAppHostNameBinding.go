@@ -169,15 +169,15 @@ type webAppHostNameBindingArgs struct {
 	// Azure resource name.
 	AzureResourceName *string `pulumi:"azureResourceName"`
 	// Azure resource type.
-	AzureResourceType *AzureResourceType `pulumi:"azureResourceType"`
+	AzureResourceType *string `pulumi:"azureResourceType"`
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType `pulumi:"customHostNameDnsRecordType"`
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
 	// Fully qualified ARM domain resource URI.
 	DomainId *string `pulumi:"domainId"`
 	// Hostname in the hostname binding.
 	HostName *string `pulumi:"hostName"`
 	// Hostname type.
-	HostNameType *HostNameType `pulumi:"hostNameType"`
+	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of the app.
@@ -187,7 +187,7 @@ type webAppHostNameBindingArgs struct {
 	// App Service app name.
 	SiteName *string `pulumi:"siteName"`
 	// SSL type
-	SslState *SslState `pulumi:"sslState"`
+	SslState *string `pulumi:"sslState"`
 	// SSL certificate thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 }
@@ -197,15 +197,15 @@ type WebAppHostNameBindingArgs struct {
 	// Azure resource name.
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type.
-	AzureResourceType AzureResourceTypePtrInput
+	AzureResourceType *AzureResourceType
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType CustomHostNameDnsRecordTypePtrInput
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI.
 	DomainId pulumi.StringPtrInput
 	// Hostname in the hostname binding.
 	HostName pulumi.StringPtrInput
 	// Hostname type.
-	HostNameType HostNameTypePtrInput
+	HostNameType *HostNameType
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of the app.
@@ -215,7 +215,7 @@ type WebAppHostNameBindingArgs struct {
 	// App Service app name.
 	SiteName pulumi.StringPtrInput
 	// SSL type
-	SslState SslStatePtrInput
+	SslState *SslState
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrInput
 }
@@ -243,7 +243,9 @@ func (i *WebAppHostNameBinding) ToWebAppHostNameBindingOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHostNameBindingOutput)
 }
 
-type WebAppHostNameBindingOutput struct{ *pulumi.OutputState }
+type WebAppHostNameBindingOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppHostNameBindingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppHostNameBinding)(nil))

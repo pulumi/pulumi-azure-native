@@ -119,7 +119,9 @@ func (i *CostAllocationRule) ToCostAllocationRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleOutput)
 }
 
-type CostAllocationRuleOutput struct{ *pulumi.OutputState }
+type CostAllocationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (CostAllocationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CostAllocationRule)(nil))

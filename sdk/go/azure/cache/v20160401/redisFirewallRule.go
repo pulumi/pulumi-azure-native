@@ -173,7 +173,9 @@ func (i *RedisFirewallRule) ToRedisFirewallRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RedisFirewallRuleOutput)
 }
 
-type RedisFirewallRuleOutput struct{ *pulumi.OutputState }
+type RedisFirewallRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (RedisFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RedisFirewallRule)(nil))

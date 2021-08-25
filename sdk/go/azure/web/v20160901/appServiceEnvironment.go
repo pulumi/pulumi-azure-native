@@ -229,7 +229,7 @@ type appServiceEnvironmentArgs struct {
 	// Scale factor for front-ends.
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode *InternalLoadBalancingMode `pulumi:"internalLoadBalancingMode"`
+	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// Number of IP SSL addresses reserved for the App Service Environment.
 	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
 	// Kind of resource.
@@ -279,7 +279,7 @@ type AppServiceEnvironmentArgs struct {
 	// Scale factor for front-ends.
 	FrontEndScaleFactor pulumi.IntPtrInput
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode InternalLoadBalancingModePtrInput
+	InternalLoadBalancingMode *InternalLoadBalancingMode
 	// Number of IP SSL addresses reserved for the App Service Environment.
 	IpsslAddressCount pulumi.IntPtrInput
 	// Kind of resource.
@@ -338,7 +338,9 @@ func (i *AppServiceEnvironment) ToAppServiceEnvironmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentOutput)
 }
 
-type AppServiceEnvironmentOutput struct{ *pulumi.OutputState }
+type AppServiceEnvironmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (AppServiceEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceEnvironment)(nil))

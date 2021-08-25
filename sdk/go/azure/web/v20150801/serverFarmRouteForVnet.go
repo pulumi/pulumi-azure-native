@@ -248,7 +248,9 @@ func (i *ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmRouteForVnetOutput)
 }
 
-type ServerFarmRouteForVnetOutput struct{ *pulumi.OutputState }
+type ServerFarmRouteForVnetOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerFarmRouteForVnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil))

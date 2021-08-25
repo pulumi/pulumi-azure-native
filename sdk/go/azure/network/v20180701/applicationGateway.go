@@ -478,7 +478,9 @@ func (i *ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayOutput)
 }
 
-type ApplicationGatewayOutput struct{ *pulumi.OutputState }
+type ApplicationGatewayOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplicationGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGateway)(nil))

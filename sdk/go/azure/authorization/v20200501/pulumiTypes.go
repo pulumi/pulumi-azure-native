@@ -103,7 +103,7 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) ToResour
 }
 
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) ToResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutputWithContext(ctx context.Context) ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceManagementPrivateLinkEndpointConnectionsResponse) *ResourceManagementPrivateLinkEndpointConnectionsResponse {
+	return o.ApplyT(func(v ResourceManagementPrivateLinkEndpointConnectionsResponse) *ResourceManagementPrivateLinkEndpointConnectionsResponse {
 		return &v
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput)
 }
@@ -131,11 +131,7 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) ToRes
 
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Elem() ResourceManagementPrivateLinkEndpointConnectionsResponseOutput {
 	return o.ApplyT(func(v *ResourceManagementPrivateLinkEndpointConnectionsResponse) ResourceManagementPrivateLinkEndpointConnectionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceManagementPrivateLinkEndpointConnectionsResponse
-		return ret
+		return *v
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput)
 }
 

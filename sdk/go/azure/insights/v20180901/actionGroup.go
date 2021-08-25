@@ -56,6 +56,9 @@ func NewActionGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
 	if args.GroupShortName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupShortName'")
 	}
@@ -226,7 +229,9 @@ func (i *ActionGroup) ToActionGroupOutputWithContext(ctx context.Context) Action
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupOutput)
 }
 
-type ActionGroupOutput struct{ *pulumi.OutputState }
+type ActionGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ActionGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionGroup)(nil))

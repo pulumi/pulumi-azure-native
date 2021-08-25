@@ -172,15 +172,15 @@ type webAppHostNameBindingSlotArgs struct {
 	// Azure resource name.
 	AzureResourceName *string `pulumi:"azureResourceName"`
 	// Azure resource type.
-	AzureResourceType *AzureResourceType `pulumi:"azureResourceType"`
+	AzureResourceType *string `pulumi:"azureResourceType"`
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType `pulumi:"customHostNameDnsRecordType"`
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
 	// Fully qualified ARM domain resource URI.
 	DomainId *string `pulumi:"domainId"`
 	// Hostname in the hostname binding.
 	HostName *string `pulumi:"hostName"`
 	// Hostname type.
-	HostNameType *HostNameType `pulumi:"hostNameType"`
+	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of the app.
@@ -192,7 +192,7 @@ type webAppHostNameBindingSlotArgs struct {
 	// Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
 	Slot string `pulumi:"slot"`
 	// SSL type
-	SslState *SslState `pulumi:"sslState"`
+	SslState *string `pulumi:"sslState"`
 	// SSL certificate thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 }
@@ -202,15 +202,15 @@ type WebAppHostNameBindingSlotArgs struct {
 	// Azure resource name.
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type.
-	AzureResourceType AzureResourceTypePtrInput
+	AzureResourceType *AzureResourceType
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType CustomHostNameDnsRecordTypePtrInput
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI.
 	DomainId pulumi.StringPtrInput
 	// Hostname in the hostname binding.
 	HostName pulumi.StringPtrInput
 	// Hostname type.
-	HostNameType HostNameTypePtrInput
+	HostNameType *HostNameType
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of the app.
@@ -222,7 +222,7 @@ type WebAppHostNameBindingSlotArgs struct {
 	// Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
 	Slot pulumi.StringInput
 	// SSL type
-	SslState SslStatePtrInput
+	SslState *SslState
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrInput
 }
@@ -250,7 +250,9 @@ func (i *WebAppHostNameBindingSlot) ToWebAppHostNameBindingSlotOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHostNameBindingSlotOutput)
 }
 
-type WebAppHostNameBindingSlotOutput struct{ *pulumi.OutputState }
+type WebAppHostNameBindingSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppHostNameBindingSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppHostNameBindingSlot)(nil))

@@ -125,7 +125,9 @@ func (i *NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceVirtualNetworkRuleOutput)
 }
 
-type NamespaceVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
+type NamespaceVirtualNetworkRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (NamespaceVirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil))

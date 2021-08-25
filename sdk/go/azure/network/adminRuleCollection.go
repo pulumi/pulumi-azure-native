@@ -151,7 +151,9 @@ func (i *AdminRuleCollection) ToAdminRuleCollectionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRuleCollectionOutput)
 }
 
-type AdminRuleCollectionOutput struct{ *pulumi.OutputState }
+type AdminRuleCollectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (AdminRuleCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdminRuleCollection)(nil))

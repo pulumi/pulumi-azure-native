@@ -52,6 +52,9 @@ func NewAgentPool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Count == nil {
+		return nil, errors.New("invalid value for required argument 'Count'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -305,7 +308,9 @@ func (i *AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolO
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolOutput)
 }
 
-type AgentPoolOutput struct{ *pulumi.OutputState }
+type AgentPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (AgentPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AgentPool)(nil))

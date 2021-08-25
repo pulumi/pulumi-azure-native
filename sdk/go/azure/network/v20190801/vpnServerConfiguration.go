@@ -268,7 +268,9 @@ func (i *VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationOutput)
 }
 
-type VpnServerConfigurationOutput struct{ *pulumi.OutputState }
+type VpnServerConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (VpnServerConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnServerConfiguration)(nil))

@@ -134,7 +134,9 @@ func (i *MasterSite) ToMasterSiteOutputWithContext(ctx context.Context) MasterSi
 	return pulumi.ToOutputWithContext(ctx, i).(MasterSiteOutput)
 }
 
-type MasterSiteOutput struct{ *pulumi.OutputState }
+type MasterSiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (MasterSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MasterSite)(nil))

@@ -110,7 +110,7 @@ func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutput() Redi
 }
 
 func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisAccessKeysResponse) *RedisAccessKeysResponse {
+	return o.ApplyT(func(v RedisAccessKeysResponse) *RedisAccessKeysResponse {
 		return &v
 	}).(RedisAccessKeysResponsePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o RedisAccessKeysResponsePtrOutput) ToRedisAccessKeysResponsePtrOutputWith
 }
 
 func (o RedisAccessKeysResponsePtrOutput) Elem() RedisAccessKeysResponseOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RedisAccessKeysResponse
-		return ret
-	}).(RedisAccessKeysResponseOutput)
+	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse { return *v }).(RedisAccessKeysResponseOutput)
 }
 
 // The current primary key that clients can use to authenticate with Redis cache.
@@ -273,7 +267,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -308,13 +302,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
@@ -451,7 +439,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -486,13 +474,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).

@@ -110,7 +110,7 @@ func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponse
 }
 
 func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
+	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
 		return &v
 	}).(EnvironmentStateDetailsResponsePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsRespo
 }
 
 func (o EnvironmentStateDetailsResponsePtrOutput) Elem() EnvironmentStateDetailsResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentStateDetailsResponse
-		return ret
-	}).(EnvironmentStateDetailsResponseOutput)
+	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse { return *v }).(EnvironmentStateDetailsResponseOutput)
 }
 
 // Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
@@ -269,7 +263,7 @@ func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutput() 
 }
 
 func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStatusResponse) *EnvironmentStatusResponse {
+	return o.ApplyT(func(v EnvironmentStatusResponse) *EnvironmentStatusResponse {
 		return &v
 	}).(EnvironmentStatusResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutput
 }
 
 func (o EnvironmentStatusResponsePtrOutput) Elem() EnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentStatusResponse
-		return ret
-	}).(EnvironmentStatusResponseOutput)
+	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse { return *v }).(EnvironmentStatusResponseOutput)
 }
 
 // An object that represents the status of ingress on an environment.
@@ -428,7 +416,7 @@ func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusRespon
 }
 
 func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
+	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
 		return &v
 	}).(IngressEnvironmentStatusResponsePtrOutput)
 }
@@ -458,13 +446,7 @@ func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusRes
 }
 
 func (o IngressEnvironmentStatusResponsePtrOutput) Elem() IngressEnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IngressEnvironmentStatusResponse
-		return ret
-	}).(IngressEnvironmentStatusResponseOutput)
+	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse { return *v }).(IngressEnvironmentStatusResponseOutput)
 }
 
 // This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
@@ -587,7 +569,7 @@ func (o LocalTimestampOutput) ToLocalTimestampPtrOutput() LocalTimestampPtrOutpu
 }
 
 func (o LocalTimestampOutput) ToLocalTimestampPtrOutputWithContext(ctx context.Context) LocalTimestampPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalTimestamp) *LocalTimestamp {
+	return o.ApplyT(func(v LocalTimestamp) *LocalTimestamp {
 		return &v
 	}).(LocalTimestampPtrOutput)
 }
@@ -617,13 +599,7 @@ func (o LocalTimestampPtrOutput) ToLocalTimestampPtrOutputWithContext(ctx contex
 }
 
 func (o LocalTimestampPtrOutput) Elem() LocalTimestampOutput {
-	return o.ApplyT(func(v *LocalTimestamp) LocalTimestamp {
-		if v != nil {
-			return *v
-		}
-		var ret LocalTimestamp
-		return ret
-	}).(LocalTimestampOutput)
+	return o.ApplyT(func(v *LocalTimestamp) LocalTimestamp { return *v }).(LocalTimestampOutput)
 }
 
 // An enum that represents the format of the local timestamp property that needs to be set.
@@ -742,7 +718,7 @@ func (o LocalTimestampTimeZoneOffsetOutput) ToLocalTimestampTimeZoneOffsetPtrOut
 }
 
 func (o LocalTimestampTimeZoneOffsetOutput) ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampTimeZoneOffsetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalTimestampTimeZoneOffset) *LocalTimestampTimeZoneOffset {
+	return o.ApplyT(func(v LocalTimestampTimeZoneOffset) *LocalTimestampTimeZoneOffset {
 		return &v
 	}).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
@@ -767,13 +743,7 @@ func (o LocalTimestampTimeZoneOffsetPtrOutput) ToLocalTimestampTimeZoneOffsetPtr
 }
 
 func (o LocalTimestampTimeZoneOffsetPtrOutput) Elem() LocalTimestampTimeZoneOffsetOutput {
-	return o.ApplyT(func(v *LocalTimestampTimeZoneOffset) LocalTimestampTimeZoneOffset {
-		if v != nil {
-			return *v
-		}
-		var ret LocalTimestampTimeZoneOffset
-		return ret
-	}).(LocalTimestampTimeZoneOffsetOutput)
+	return o.ApplyT(func(v *LocalTimestampTimeZoneOffset) LocalTimestampTimeZoneOffset { return *v }).(LocalTimestampTimeZoneOffsetOutput)
 }
 
 // The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
@@ -886,7 +856,7 @@ func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationI
 }
 
 func (o LongTermStorageConfigurationInputOutput) ToLongTermStorageConfigurationInputPtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LongTermStorageConfigurationInput) *LongTermStorageConfigurationInput {
+	return o.ApplyT(func(v LongTermStorageConfigurationInput) *LongTermStorageConfigurationInput {
 		return &v
 	}).(LongTermStorageConfigurationInputPtrOutput)
 }
@@ -916,13 +886,7 @@ func (o LongTermStorageConfigurationInputPtrOutput) ToLongTermStorageConfigurati
 }
 
 func (o LongTermStorageConfigurationInputPtrOutput) Elem() LongTermStorageConfigurationInputOutput {
-	return o.ApplyT(func(v *LongTermStorageConfigurationInput) LongTermStorageConfigurationInput {
-		if v != nil {
-			return *v
-		}
-		var ret LongTermStorageConfigurationInput
-		return ret
-	}).(LongTermStorageConfigurationInputOutput)
+	return o.ApplyT(func(v *LongTermStorageConfigurationInput) LongTermStorageConfigurationInput { return *v }).(LongTermStorageConfigurationInputOutput)
 }
 
 // The name of the storage account that will hold the environment's long term data.
@@ -1041,7 +1005,7 @@ func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfi
 }
 
 func (o LongTermStorageConfigurationOutputResponseOutput) ToLongTermStorageConfigurationOutputResponsePtrOutputWithContext(ctx context.Context) LongTermStorageConfigurationOutputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LongTermStorageConfigurationOutputResponse) *LongTermStorageConfigurationOutputResponse {
+	return o.ApplyT(func(v LongTermStorageConfigurationOutputResponse) *LongTermStorageConfigurationOutputResponse {
 		return &v
 	}).(LongTermStorageConfigurationOutputResponsePtrOutput)
 }
@@ -1067,11 +1031,7 @@ func (o LongTermStorageConfigurationOutputResponsePtrOutput) ToLongTermStorageCo
 
 func (o LongTermStorageConfigurationOutputResponsePtrOutput) Elem() LongTermStorageConfigurationOutputResponseOutput {
 	return o.ApplyT(func(v *LongTermStorageConfigurationOutputResponse) LongTermStorageConfigurationOutputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LongTermStorageConfigurationOutputResponse
-		return ret
+		return *v
 	}).(LongTermStorageConfigurationOutputResponseOutput)
 }
 
@@ -1403,7 +1363,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1433,13 +1393,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The capacity of the sku. For standard environments, this value can be changed to support scale out of environments after they have been created.
@@ -1562,7 +1516,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1592,13 +1546,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The capacity of the sku. For standard environments, this value can be changed to support scale out of environments after they have been created.
@@ -1943,7 +1891,7 @@ func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStat
 }
 
 func (o WarmStorageEnvironmentStatusResponseOutput) ToWarmStorageEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) WarmStorageEnvironmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WarmStorageEnvironmentStatusResponse) *WarmStorageEnvironmentStatusResponse {
+	return o.ApplyT(func(v WarmStorageEnvironmentStatusResponse) *WarmStorageEnvironmentStatusResponse {
 		return &v
 	}).(WarmStorageEnvironmentStatusResponsePtrOutput)
 }
@@ -1978,13 +1926,7 @@ func (o WarmStorageEnvironmentStatusResponsePtrOutput) ToWarmStorageEnvironmentS
 }
 
 func (o WarmStorageEnvironmentStatusResponsePtrOutput) Elem() WarmStorageEnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) WarmStorageEnvironmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WarmStorageEnvironmentStatusResponse
-		return ret
-	}).(WarmStorageEnvironmentStatusResponseOutput)
+	return o.ApplyT(func(v *WarmStorageEnvironmentStatusResponse) WarmStorageEnvironmentStatusResponse { return *v }).(WarmStorageEnvironmentStatusResponseOutput)
 }
 
 // A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
@@ -2113,7 +2055,7 @@ func (o WarmStoreConfigurationPropertiesOutput) ToWarmStoreConfigurationProperti
 }
 
 func (o WarmStoreConfigurationPropertiesOutput) ToWarmStoreConfigurationPropertiesPtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WarmStoreConfigurationProperties) *WarmStoreConfigurationProperties {
+	return o.ApplyT(func(v WarmStoreConfigurationProperties) *WarmStoreConfigurationProperties {
 		return &v
 	}).(WarmStoreConfigurationPropertiesPtrOutput)
 }
@@ -2138,13 +2080,7 @@ func (o WarmStoreConfigurationPropertiesPtrOutput) ToWarmStoreConfigurationPrope
 }
 
 func (o WarmStoreConfigurationPropertiesPtrOutput) Elem() WarmStoreConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *WarmStoreConfigurationProperties) WarmStoreConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret WarmStoreConfigurationProperties
-		return ret
-	}).(WarmStoreConfigurationPropertiesOutput)
+	return o.ApplyT(func(v *WarmStoreConfigurationProperties) WarmStoreConfigurationProperties { return *v }).(WarmStoreConfigurationPropertiesOutput)
 }
 
 // ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
@@ -2253,7 +2189,7 @@ func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfiguration
 }
 
 func (o WarmStoreConfigurationPropertiesResponseOutput) ToWarmStoreConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) WarmStoreConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WarmStoreConfigurationPropertiesResponse) *WarmStoreConfigurationPropertiesResponse {
+	return o.ApplyT(func(v WarmStoreConfigurationPropertiesResponse) *WarmStoreConfigurationPropertiesResponse {
 		return &v
 	}).(WarmStoreConfigurationPropertiesResponsePtrOutput)
 }
@@ -2278,13 +2214,7 @@ func (o WarmStoreConfigurationPropertiesResponsePtrOutput) ToWarmStoreConfigurat
 }
 
 func (o WarmStoreConfigurationPropertiesResponsePtrOutput) Elem() WarmStoreConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *WarmStoreConfigurationPropertiesResponse) WarmStoreConfigurationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WarmStoreConfigurationPropertiesResponse
-		return ret
-	}).(WarmStoreConfigurationPropertiesResponseOutput)
+	return o.ApplyT(func(v *WarmStoreConfigurationPropertiesResponse) WarmStoreConfigurationPropertiesResponse { return *v }).(WarmStoreConfigurationPropertiesResponseOutput)
 }
 
 // ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.

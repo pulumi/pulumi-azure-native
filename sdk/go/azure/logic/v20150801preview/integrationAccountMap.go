@@ -126,7 +126,7 @@ type integrationAccountMapArgs struct {
 	// The integration account map name.
 	MapName *string `pulumi:"mapName"`
 	// The map type.
-	MapType *MapType `pulumi:"mapType"`
+	MapType *string `pulumi:"mapType"`
 	// The metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// The resource name.
@@ -154,7 +154,7 @@ type IntegrationAccountMapArgs struct {
 	// The integration account map name.
 	MapName pulumi.StringPtrInput
 	// The map type.
-	MapType MapTypePtrInput
+	MapType *MapType
 	// The metadata.
 	Metadata pulumi.Input
 	// The resource name.
@@ -190,7 +190,9 @@ func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
 }
 
-type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountMap)(nil))

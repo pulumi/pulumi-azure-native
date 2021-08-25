@@ -169,7 +169,9 @@ func (i *StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOut
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountManagementPoliciesOutput)
 }
 
-type StorageAccountManagementPoliciesOutput struct{ *pulumi.OutputState }
+type StorageAccountManagementPoliciesOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageAccountManagementPoliciesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil))

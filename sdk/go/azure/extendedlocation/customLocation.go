@@ -169,7 +169,9 @@ func (i *CustomLocation) ToCustomLocationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLocationOutput)
 }
 
-type CustomLocationOutput struct{ *pulumi.OutputState }
+type CustomLocationOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomLocation)(nil))

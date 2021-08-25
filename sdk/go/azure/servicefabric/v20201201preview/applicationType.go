@@ -179,7 +179,9 @@ func (i *ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
 }
 
-type ApplicationTypeOutput struct{ *pulumi.OutputState }
+type ApplicationTypeOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplicationTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationType)(nil))

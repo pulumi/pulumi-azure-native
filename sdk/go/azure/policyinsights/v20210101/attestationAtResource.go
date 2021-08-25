@@ -163,7 +163,9 @@ func (i *AttestationAtResource) ToAttestationAtResourceOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationAtResourceOutput)
 }
 
-type AttestationAtResourceOutput struct{ *pulumi.OutputState }
+type AttestationAtResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (AttestationAtResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AttestationAtResource)(nil))

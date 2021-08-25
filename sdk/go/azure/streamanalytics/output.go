@@ -152,7 +152,9 @@ func (i *Output) ToOutputOutputWithContext(ctx context.Context) OutputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputOutput)
 }
 
-type OutputOutput struct{ *pulumi.OutputState }
+type OutputOutput struct {
+	*pulumi.OutputState
+}
 
 func (OutputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Output)(nil))

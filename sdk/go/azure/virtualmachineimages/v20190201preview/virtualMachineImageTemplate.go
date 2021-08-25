@@ -171,7 +171,9 @@ func (i *VirtualMachineImageTemplate) ToVirtualMachineImageTemplateOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineImageTemplateOutput)
 }
 
-type VirtualMachineImageTemplateOutput struct{ *pulumi.OutputState }
+type VirtualMachineImageTemplateOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualMachineImageTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineImageTemplate)(nil))

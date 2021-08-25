@@ -243,7 +243,9 @@ func (i *MachineExtension) ToMachineExtensionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionOutput)
 }
 
-type MachineExtensionOutput struct{ *pulumi.OutputState }
+type MachineExtensionOutput struct {
+	*pulumi.OutputState
+}
 
 func (MachineExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineExtension)(nil))

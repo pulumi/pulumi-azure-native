@@ -272,7 +272,9 @@ func (i *InterfaceEndpoint) ToInterfaceEndpointOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(InterfaceEndpointOutput)
 }
 
-type InterfaceEndpointOutput struct{ *pulumi.OutputState }
+type InterfaceEndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (InterfaceEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InterfaceEndpoint)(nil))

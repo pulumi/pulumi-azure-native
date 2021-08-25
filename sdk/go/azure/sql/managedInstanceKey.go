@@ -163,7 +163,9 @@ func (i *ManagedInstanceKey) ToManagedInstanceKeyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceKeyOutput)
 }
 
-type ManagedInstanceKeyOutput struct{ *pulumi.OutputState }
+type ManagedInstanceKeyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedInstanceKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceKey)(nil))

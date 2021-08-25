@@ -145,7 +145,9 @@ func (i *ManagementAssociation) ToManagementAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementAssociationOutput)
 }
 
-type ManagementAssociationOutput struct{ *pulumi.OutputState }
+type ManagementAssociationOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagementAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementAssociation)(nil))

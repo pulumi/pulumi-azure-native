@@ -13,7 +13,7 @@ import (
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -30,7 +30,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -106,14 +106,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,23 +131,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -254,7 +248,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -289,13 +283,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of the resource identity.
@@ -646,7 +634,7 @@ func (o PolicySkuOutput) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
 }
 
 func (o PolicySkuOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySku) *PolicySku {
+	return o.ApplyT(func(v PolicySku) *PolicySku {
 		return &v
 	}).(PolicySkuPtrOutput)
 }
@@ -676,13 +664,7 @@ func (o PolicySkuPtrOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context)
 }
 
 func (o PolicySkuPtrOutput) Elem() PolicySkuOutput {
-	return o.ApplyT(func(v *PolicySku) PolicySku {
-		if v != nil {
-			return *v
-		}
-		var ret PolicySku
-		return ret
-	}).(PolicySkuOutput)
+	return o.ApplyT(func(v *PolicySku) PolicySku { return *v }).(PolicySkuOutput)
 }
 
 // The name of the policy sku. Possible values are A0 and A1.
@@ -805,7 +787,7 @@ func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutput() PolicySkuRespons
 }
 
 func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySkuResponse) *PolicySkuResponse {
+	return o.ApplyT(func(v PolicySkuResponse) *PolicySkuResponse {
 		return &v
 	}).(PolicySkuResponsePtrOutput)
 }
@@ -835,13 +817,7 @@ func (o PolicySkuResponsePtrOutput) ToPolicySkuResponsePtrOutputWithContext(ctx 
 }
 
 func (o PolicySkuResponsePtrOutput) Elem() PolicySkuResponseOutput {
-	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PolicySkuResponse
-		return ret
-	}).(PolicySkuResponseOutput)
+	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse { return *v }).(PolicySkuResponseOutput)
 }
 
 // The name of the policy sku. Possible values are A0 and A1.

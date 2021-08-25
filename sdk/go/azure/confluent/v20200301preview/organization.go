@@ -156,7 +156,9 @@ func (i *Organization) ToOrganizationOutputWithContext(ctx context.Context) Orga
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationOutput)
 }
 
-type OrganizationOutput struct{ *pulumi.OutputState }
+type OrganizationOutput struct {
+	*pulumi.OutputState
+}
 
 func (OrganizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Organization)(nil))

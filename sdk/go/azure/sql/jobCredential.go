@@ -167,7 +167,9 @@ func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialOutput)
 }
 
-type JobCredentialOutput struct{ *pulumi.OutputState }
+type JobCredentialOutput struct {
+	*pulumi.OutputState
+}
 
 func (JobCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobCredential)(nil))

@@ -342,7 +342,7 @@ func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutput() 
 }
 
 func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfile) *HostingEnvironmentProfile {
+	return o.ApplyT(func(v HostingEnvironmentProfile) *HostingEnvironmentProfile {
 		return &v
 	}).(HostingEnvironmentProfilePtrOutput)
 }
@@ -367,13 +367,7 @@ func (o HostingEnvironmentProfilePtrOutput) ToHostingEnvironmentProfilePtrOutput
 }
 
 func (o HostingEnvironmentProfilePtrOutput) Elem() HostingEnvironmentProfileOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile {
-		if v != nil {
-			return *v
-		}
-		var ret HostingEnvironmentProfile
-		return ret
-	}).(HostingEnvironmentProfileOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile { return *v }).(HostingEnvironmentProfileOutput)
 }
 
 // Resource ID of the App Service Environment.
@@ -490,7 +484,7 @@ func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResp
 }
 
 func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
+	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
 		return &v
 	}).(HostingEnvironmentProfileResponsePtrOutput)
 }
@@ -525,13 +519,7 @@ func (o HostingEnvironmentProfileResponsePtrOutput) ToHostingEnvironmentProfileR
 }
 
 func (o HostingEnvironmentProfileResponsePtrOutput) Elem() HostingEnvironmentProfileResponseOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HostingEnvironmentProfileResponse
-		return ret
-	}).(HostingEnvironmentProfileResponseOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse { return *v }).(HostingEnvironmentProfileResponseOutput)
 }
 
 // Resource ID of the App Service Environment.
@@ -785,7 +773,7 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 // Network access control entry.
 type NetworkAccessControlEntry struct {
 	// Action object.
-	Action *AccessControlEntryAction `pulumi:"action"`
+	Action *string `pulumi:"action"`
 	// Description of network access control entry.
 	Description *string `pulumi:"description"`
 	// Order of precedence.
@@ -808,7 +796,7 @@ type NetworkAccessControlEntryInput interface {
 // Network access control entry.
 type NetworkAccessControlEntryArgs struct {
 	// Action object.
-	Action AccessControlEntryActionPtrInput `pulumi:"action"`
+	Action *AccessControlEntryAction `pulumi:"action"`
 	// Description of network access control entry.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Order of precedence.
@@ -870,8 +858,8 @@ func (o NetworkAccessControlEntryOutput) ToNetworkAccessControlEntryOutputWithCo
 }
 
 // Action object.
-func (o NetworkAccessControlEntryOutput) Action() AccessControlEntryActionPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *AccessControlEntryAction { return v.Action }).(AccessControlEntryActionPtrOutput)
+func (o NetworkAccessControlEntryOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // Description of network access control entry.
@@ -1144,7 +1132,7 @@ func (o SkuCapacityOutput) ToSkuCapacityPtrOutput() SkuCapacityPtrOutput {
 }
 
 func (o SkuCapacityOutput) ToSkuCapacityPtrOutputWithContext(ctx context.Context) SkuCapacityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuCapacity) *SkuCapacity {
+	return o.ApplyT(func(v SkuCapacity) *SkuCapacity {
 		return &v
 	}).(SkuCapacityPtrOutput)
 }
@@ -1184,13 +1172,7 @@ func (o SkuCapacityPtrOutput) ToSkuCapacityPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuCapacityPtrOutput) Elem() SkuCapacityOutput {
-	return o.ApplyT(func(v *SkuCapacity) SkuCapacity {
-		if v != nil {
-			return *v
-		}
-		var ret SkuCapacity
-		return ret
-	}).(SkuCapacityOutput)
+	return o.ApplyT(func(v *SkuCapacity) SkuCapacity { return *v }).(SkuCapacityOutput)
 }
 
 // Default number of workers for this App Service plan SKU.
@@ -1341,7 +1323,7 @@ func (o SkuCapacityResponseOutput) ToSkuCapacityResponsePtrOutput() SkuCapacityR
 }
 
 func (o SkuCapacityResponseOutput) ToSkuCapacityResponsePtrOutputWithContext(ctx context.Context) SkuCapacityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuCapacityResponse) *SkuCapacityResponse {
+	return o.ApplyT(func(v SkuCapacityResponse) *SkuCapacityResponse {
 		return &v
 	}).(SkuCapacityResponsePtrOutput)
 }
@@ -1381,13 +1363,7 @@ func (o SkuCapacityResponsePtrOutput) ToSkuCapacityResponsePtrOutputWithContext(
 }
 
 func (o SkuCapacityResponsePtrOutput) Elem() SkuCapacityResponseOutput {
-	return o.ApplyT(func(v *SkuCapacityResponse) SkuCapacityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuCapacityResponse
-		return ret
-	}).(SkuCapacityResponseOutput)
+	return o.ApplyT(func(v *SkuCapacityResponse) SkuCapacityResponse { return *v }).(SkuCapacityResponseOutput)
 }
 
 // Default number of workers for this App Service plan SKU.
@@ -1554,7 +1530,7 @@ func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutput() SkuDescriptionPtrOutpu
 }
 
 func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutputWithContext(ctx context.Context) SkuDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescription) *SkuDescription {
+	return o.ApplyT(func(v SkuDescription) *SkuDescription {
 		return &v
 	}).(SkuDescriptionPtrOutput)
 }
@@ -1614,13 +1590,7 @@ func (o SkuDescriptionPtrOutput) ToSkuDescriptionPtrOutputWithContext(ctx contex
 }
 
 func (o SkuDescriptionPtrOutput) Elem() SkuDescriptionOutput {
-	return o.ApplyT(func(v *SkuDescription) SkuDescription {
-		if v != nil {
-			return *v
-		}
-		var ret SkuDescription
-		return ret
-	}).(SkuDescriptionOutput)
+	return o.ApplyT(func(v *SkuDescription) SkuDescription { return *v }).(SkuDescriptionOutput)
 }
 
 // Capabilities of the SKU, e.g., is traffic manager enabled?
@@ -1827,7 +1797,7 @@ func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutput() SkuDes
 }
 
 func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescriptionResponse) *SkuDescriptionResponse {
+	return o.ApplyT(func(v SkuDescriptionResponse) *SkuDescriptionResponse {
 		return &v
 	}).(SkuDescriptionResponsePtrOutput)
 }
@@ -1887,13 +1857,7 @@ func (o SkuDescriptionResponsePtrOutput) ToSkuDescriptionResponsePtrOutputWithCo
 }
 
 func (o SkuDescriptionResponsePtrOutput) Elem() SkuDescriptionResponseOutput {
-	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuDescriptionResponse
-		return ret
-	}).(SkuDescriptionResponseOutput)
+	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse { return *v }).(SkuDescriptionResponseOutput)
 }
 
 // Capabilities of the SKU, e.g., is traffic manager enabled?
@@ -2396,7 +2360,7 @@ func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutput() VirtualN
 }
 
 func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutputWithContext(ctx context.Context) VirtualNetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkProfile) *VirtualNetworkProfile {
+	return o.ApplyT(func(v VirtualNetworkProfile) *VirtualNetworkProfile {
 		return &v
 	}).(VirtualNetworkProfilePtrOutput)
 }
@@ -2426,13 +2390,7 @@ func (o VirtualNetworkProfilePtrOutput) ToVirtualNetworkProfilePtrOutputWithCont
 }
 
 func (o VirtualNetworkProfilePtrOutput) Elem() VirtualNetworkProfileOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfile) VirtualNetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkProfile
-		return ret
-	}).(VirtualNetworkProfileOutput)
+	return o.ApplyT(func(v *VirtualNetworkProfile) VirtualNetworkProfile { return *v }).(VirtualNetworkProfileOutput)
 }
 
 // Resource id of the Virtual Network.
@@ -2563,7 +2521,7 @@ func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrO
 }
 
 func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkProfileResponse) *VirtualNetworkProfileResponse {
+	return o.ApplyT(func(v VirtualNetworkProfileResponse) *VirtualNetworkProfileResponse {
 		return &v
 	}).(VirtualNetworkProfileResponsePtrOutput)
 }
@@ -2603,13 +2561,7 @@ func (o VirtualNetworkProfileResponsePtrOutput) ToVirtualNetworkProfileResponseP
 }
 
 func (o VirtualNetworkProfileResponsePtrOutput) Elem() VirtualNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfileResponse) VirtualNetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkProfileResponse
-		return ret
-	}).(VirtualNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkProfileResponse) VirtualNetworkProfileResponse { return *v }).(VirtualNetworkProfileResponseOutput)
 }
 
 // Resource id of the Virtual Network.
@@ -2655,7 +2607,7 @@ func (o VirtualNetworkProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // Worker pool of an App Service Environment.
 type WorkerPool struct {
 	// Shared or dedicated app hosting.
-	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
+	ComputeMode *string `pulumi:"computeMode"`
 	// Number of instances in the worker pool.
 	WorkerCount *int `pulumi:"workerCount"`
 	// VM size of the worker pool instances.
@@ -2678,7 +2630,7 @@ type WorkerPoolInput interface {
 // Worker pool of an App Service Environment.
 type WorkerPoolArgs struct {
 	// Shared or dedicated app hosting.
-	ComputeMode ComputeModeOptionsPtrInput `pulumi:"computeMode"`
+	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
 	// Number of instances in the worker pool.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
 	// VM size of the worker pool instances.
@@ -2740,8 +2692,8 @@ func (o WorkerPoolOutput) ToWorkerPoolOutputWithContext(ctx context.Context) Wor
 }
 
 // Shared or dedicated app hosting.
-func (o WorkerPoolOutput) ComputeMode() ComputeModeOptionsPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *ComputeModeOptions { return v.ComputeMode }).(ComputeModeOptionsPtrOutput)
+func (o WorkerPoolOutput) ComputeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the worker pool.

@@ -106,7 +106,7 @@ func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutput() Cach
 }
 
 func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettings) *CacheEncryptionSettings {
+	return o.ApplyT(func(v CacheEncryptionSettings) *CacheEncryptionSettings {
 		return &v
 	}).(CacheEncryptionSettingsPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o CacheEncryptionSettingsPtrOutput) ToCacheEncryptionSettingsPtrOutputWith
 }
 
 func (o CacheEncryptionSettingsPtrOutput) Elem() CacheEncryptionSettingsOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings {
-		if v != nil {
-			return *v
-		}
-		var ret CacheEncryptionSettings
-		return ret
-	}).(CacheEncryptionSettingsOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings { return *v }).(CacheEncryptionSettingsOutput)
 }
 
 // Specifies the location of the key encryption key in Key Vault.
@@ -246,7 +240,7 @@ func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponse
 }
 
 func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
+	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
 		return &v
 	}).(CacheEncryptionSettingsResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o CacheEncryptionSettingsResponsePtrOutput) ToCacheEncryptionSettingsRespo
 }
 
 func (o CacheEncryptionSettingsResponsePtrOutput) Elem() CacheEncryptionSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheEncryptionSettingsResponse
-		return ret
-	}).(CacheEncryptionSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse { return *v }).(CacheEncryptionSettingsResponseOutput)
 }
 
 // Specifies the location of the key encryption key in Key Vault.
@@ -390,7 +378,7 @@ func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutput() CacheHealthR
 }
 
 func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheHealthResponse) *CacheHealthResponse {
+	return o.ApplyT(func(v CacheHealthResponse) *CacheHealthResponse {
 		return &v
 	}).(CacheHealthResponsePtrOutput)
 }
@@ -420,13 +408,7 @@ func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(
 }
 
 func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
-	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheHealthResponse
-		return ret
-	}).(CacheHealthResponseOutput)
+	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse { return *v }).(CacheHealthResponseOutput)
 }
 
 // List of Cache health states.
@@ -452,7 +434,7 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 // Cache identity properties.
 type CacheIdentity struct {
 	// The type of identity used for the cache
-	Type *CacheIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
@@ -469,7 +451,7 @@ type CacheIdentityInput interface {
 // Cache identity properties.
 type CacheIdentityArgs struct {
 	// The type of identity used for the cache
-	Type CacheIdentityTypePtrInput `pulumi:"type"`
+	Type *CacheIdentityType `pulumi:"type"`
 }
 
 func (CacheIdentityArgs) ElementType() reflect.Type {
@@ -545,14 +527,14 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
 }
 
 func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
+	return o.ApplyT(func(v CacheIdentity) *CacheIdentity {
 		return &v
 	}).(CacheIdentityPtrOutput)
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
+func (o CacheIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -570,23 +552,17 @@ func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
-	return o.ApplyT(func(v *CacheIdentity) CacheIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret CacheIdentity
-		return ret
-	}).(CacheIdentityOutput)
+	return o.ApplyT(func(v *CacheIdentity) CacheIdentity { return *v }).(CacheIdentityOutput)
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
-	return o.ApplyT(func(v *CacheIdentity) *CacheIdentityType {
+func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(CacheIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cache identity properties.
@@ -693,7 +669,7 @@ func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutput() CacheIde
 }
 
 func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentityResponse) *CacheIdentityResponse {
+	return o.ApplyT(func(v CacheIdentityResponse) *CacheIdentityResponse {
 		return &v
 	}).(CacheIdentityResponsePtrOutput)
 }
@@ -728,13 +704,7 @@ func (o CacheIdentityResponsePtrOutput) ToCacheIdentityResponsePtrOutputWithCont
 }
 
 func (o CacheIdentityResponsePtrOutput) Elem() CacheIdentityResponseOutput {
-	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheIdentityResponse
-		return ret
-	}).(CacheIdentityResponseOutput)
+	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse { return *v }).(CacheIdentityResponseOutput)
 }
 
 // The principal id of the cache.
@@ -863,7 +833,7 @@ func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutput() CacheNetwo
 }
 
 func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettings) *CacheNetworkSettings {
+	return o.ApplyT(func(v CacheNetworkSettings) *CacheNetworkSettings {
 		return &v
 	}).(CacheNetworkSettingsPtrOutput)
 }
@@ -888,13 +858,7 @@ func (o CacheNetworkSettingsPtrOutput) ToCacheNetworkSettingsPtrOutputWithContex
 }
 
 func (o CacheNetworkSettingsPtrOutput) Elem() CacheNetworkSettingsOutput {
-	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings {
-		if v != nil {
-			return *v
-		}
-		var ret CacheNetworkSettings
-		return ret
-	}).(CacheNetworkSettingsOutput)
+	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings { return *v }).(CacheNetworkSettingsOutput)
 }
 
 // The IPv4 maximum transmission unit configured for the subnet.
@@ -1007,7 +971,7 @@ func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOut
 }
 
 func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
+	return o.ApplyT(func(v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
 		return &v
 	}).(CacheNetworkSettingsResponsePtrOutput)
 }
@@ -1037,13 +1001,7 @@ func (o CacheNetworkSettingsResponsePtrOutput) ToCacheNetworkSettingsResponsePtr
 }
 
 func (o CacheNetworkSettingsResponsePtrOutput) Elem() CacheNetworkSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheNetworkSettingsResponse
-		return ret
-	}).(CacheNetworkSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse { return *v }).(CacheNetworkSettingsResponseOutput)
 }
 
 // The IPv4 maximum transmission unit configured for the subnet.
@@ -1162,7 +1120,7 @@ func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPt
 }
 
 func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheResponseSku) *CacheResponseSku {
+	return o.ApplyT(func(v CacheResponseSku) *CacheResponseSku {
 		return &v
 	}).(CacheResponseSkuPtrOutput)
 }
@@ -1187,13 +1145,7 @@ func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx co
 }
 
 func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
-	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku {
-		if v != nil {
-			return *v
-		}
-		var ret CacheResponseSku
-		return ret
-	}).(CacheResponseSkuOutput)
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku { return *v }).(CacheResponseSkuOutput)
 }
 
 // SKU name for this Cache.
@@ -1302,7 +1254,7 @@ func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutput() CacheSec
 }
 
 func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettings) *CacheSecuritySettings {
+	return o.ApplyT(func(v CacheSecuritySettings) *CacheSecuritySettings {
 		return &v
 	}).(CacheSecuritySettingsPtrOutput)
 }
@@ -1327,13 +1279,7 @@ func (o CacheSecuritySettingsPtrOutput) ToCacheSecuritySettingsPtrOutputWithCont
 }
 
 func (o CacheSecuritySettingsPtrOutput) Elem() CacheSecuritySettingsOutput {
-	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings {
-		if v != nil {
-			return *v
-		}
-		var ret CacheSecuritySettings
-		return ret
-	}).(CacheSecuritySettingsOutput)
+	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings { return *v }).(CacheSecuritySettingsOutput)
 }
 
 // root squash of cache property.
@@ -1442,7 +1388,7 @@ func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrO
 }
 
 func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
+	return o.ApplyT(func(v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
 		return &v
 	}).(CacheSecuritySettingsResponsePtrOutput)
 }
@@ -1467,13 +1413,7 @@ func (o CacheSecuritySettingsResponsePtrOutput) ToCacheSecuritySettingsResponseP
 }
 
 func (o CacheSecuritySettingsResponsePtrOutput) Elem() CacheSecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheSecuritySettingsResponse
-		return ret
-	}).(CacheSecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse { return *v }).(CacheSecuritySettingsResponseOutput)
 }
 
 // root squash of cache property.
@@ -1582,7 +1522,7 @@ func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
 }
 
 func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSku) *CacheSku {
+	return o.ApplyT(func(v CacheSku) *CacheSku {
 		return &v
 	}).(CacheSkuPtrOutput)
 }
@@ -1607,13 +1547,7 @@ func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) C
 }
 
 func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
-	return o.ApplyT(func(v *CacheSku) CacheSku {
-		if v != nil {
-			return *v
-		}
-		var ret CacheSku
-		return ret
-	}).(CacheSkuOutput)
+	return o.ApplyT(func(v *CacheSku) CacheSku { return *v }).(CacheSkuOutput)
 }
 
 // SKU name for this Cache.
@@ -1738,7 +1672,7 @@ func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutput(
 }
 
 func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
+	return o.ApplyT(func(v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
 		return &v
 	}).(CacheUpgradeStatusResponsePtrOutput)
 }
@@ -1783,13 +1717,7 @@ func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutp
 }
 
 func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CacheUpgradeStatusResponse
-		return ret
-	}).(CacheUpgradeStatusResponseOutput)
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse { return *v }).(CacheUpgradeStatusResponseOutput)
 }
 
 // Version string of the firmware currently installed on this Cache.
@@ -1938,7 +1866,7 @@ func (o ClfsTargetOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
 }
 
 func (o ClfsTargetOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTarget) *ClfsTarget {
+	return o.ApplyT(func(v ClfsTarget) *ClfsTarget {
 		return &v
 	}).(ClfsTargetPtrOutput)
 }
@@ -1963,13 +1891,7 @@ func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClfsTargetPtrOutput) Elem() ClfsTargetOutput {
-	return o.ApplyT(func(v *ClfsTarget) ClfsTarget {
-		if v != nil {
-			return *v
-		}
-		var ret ClfsTarget
-		return ret
-	}).(ClfsTargetOutput)
+	return o.ApplyT(func(v *ClfsTarget) ClfsTarget { return *v }).(ClfsTargetOutput)
 }
 
 // Resource ID of storage container.
@@ -2078,7 +2000,7 @@ func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResp
 }
 
 func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTargetResponse) *ClfsTargetResponse {
+	return o.ApplyT(func(v ClfsTargetResponse) *ClfsTargetResponse {
 		return &v
 	}).(ClfsTargetResponsePtrOutput)
 }
@@ -2103,13 +2025,7 @@ func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutputWithContext(ct
 }
 
 func (o ClfsTargetResponsePtrOutput) Elem() ClfsTargetResponseOutput {
-	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClfsTargetResponse
-		return ret
-	}).(ClfsTargetResponseOutput)
+	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse { return *v }).(ClfsTargetResponseOutput)
 }
 
 // Resource ID of storage container.
@@ -2222,7 +2138,7 @@ func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKe
 }
 
 func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
+	return o.ApplyT(func(v KeyVaultKeyReference) *KeyVaultKeyReference {
 		return &v
 	}).(KeyVaultKeyReferencePtrOutput)
 }
@@ -2252,13 +2168,7 @@ func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContex
 }
 
 func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultKeyReference
-		return ret
-	}).(KeyVaultKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference { return *v }).(KeyVaultKeyReferenceOutput)
 }
 
 // The URL referencing a key encryption key in Key Vault.
@@ -2381,7 +2291,7 @@ func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOut
 }
 
 func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
 		return &v
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
@@ -2411,13 +2321,7 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtr
 }
 
 func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultKeyReferenceResponse
-		return ret
-	}).(KeyVaultKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse { return *v }).(KeyVaultKeyReferenceResponseOutput)
 }
 
 // The URL referencing a key encryption key in Key Vault.
@@ -2536,7 +2440,7 @@ func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceRes
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
@@ -2561,13 +2465,7 @@ func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) ToKeyVaultKeyReference
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultKeyReferenceResponseSourceVault
-		return ret
-	}).(KeyVaultKeyReferenceResponseSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault { return *v }).(KeyVaultKeyReferenceResponseSourceVaultOutput)
 }
 
 // Resource Id.
@@ -2676,7 +2574,7 @@ func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVault
 }
 
 func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
+	return o.ApplyT(func(v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
@@ -2701,13 +2599,7 @@ func (o KeyVaultKeyReferenceSourceVaultPtrOutput) ToKeyVaultKeyReferenceSourceVa
 }
 
 func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultKeyReferenceSourceVault
-		return ret
-	}).(KeyVaultKeyReferenceSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault { return *v }).(KeyVaultKeyReferenceSourceVaultOutput)
 }
 
 // Resource Id.
@@ -3056,7 +2948,7 @@ func (o Nfs3TargetOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
 }
 
 func (o Nfs3TargetOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3Target) *Nfs3Target {
+	return o.ApplyT(func(v Nfs3Target) *Nfs3Target {
 		return &v
 	}).(Nfs3TargetPtrOutput)
 }
@@ -3086,13 +2978,7 @@ func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o Nfs3TargetPtrOutput) Elem() Nfs3TargetOutput {
-	return o.ApplyT(func(v *Nfs3Target) Nfs3Target {
-		if v != nil {
-			return *v
-		}
-		var ret Nfs3Target
-		return ret
-	}).(Nfs3TargetOutput)
+	return o.ApplyT(func(v *Nfs3Target) Nfs3Target { return *v }).(Nfs3TargetOutput)
 }
 
 // IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
@@ -3215,7 +3101,7 @@ func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResp
 }
 
 func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3TargetResponse) *Nfs3TargetResponse {
+	return o.ApplyT(func(v Nfs3TargetResponse) *Nfs3TargetResponse {
 		return &v
 	}).(Nfs3TargetResponsePtrOutput)
 }
@@ -3245,13 +3131,7 @@ func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutputWithContext(ct
 }
 
 func (o Nfs3TargetResponsePtrOutput) Elem() Nfs3TargetResponseOutput {
-	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret Nfs3TargetResponse
-		return ret
-	}).(Nfs3TargetResponseOutput)
+	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse { return *v }).(Nfs3TargetResponseOutput)
 }
 
 // IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
@@ -3390,7 +3270,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -3440,13 +3320,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -3605,7 +3479,7 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
 }
 
 func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTarget) *UnknownTarget {
+	return o.ApplyT(func(v UnknownTarget) *UnknownTarget {
 		return &v
 	}).(UnknownTargetPtrOutput)
 }
@@ -3630,13 +3504,7 @@ func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutputWithContext(ctx context.
 }
 
 func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
-	return o.ApplyT(func(v *UnknownTarget) UnknownTarget {
-		if v != nil {
-			return *v
-		}
-		var ret UnknownTarget
-		return ret
-	}).(UnknownTargetOutput)
+	return o.ApplyT(func(v *UnknownTarget) UnknownTarget { return *v }).(UnknownTargetOutput)
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
@@ -3745,7 +3613,7 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutput() UnknownT
 }
 
 func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTargetResponse) *UnknownTargetResponse {
+	return o.ApplyT(func(v UnknownTargetResponse) *UnknownTargetResponse {
 		return &v
 	}).(UnknownTargetResponsePtrOutput)
 }
@@ -3770,13 +3638,7 @@ func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutputWithCont
 }
 
 func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
-	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UnknownTargetResponse
-		return ret
-	}).(UnknownTargetResponseOutput)
+	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse { return *v }).(UnknownTargetResponseOutput)
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.

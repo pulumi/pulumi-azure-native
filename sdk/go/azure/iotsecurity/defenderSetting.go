@@ -140,7 +140,9 @@ func (i *DefenderSetting) ToDefenderSettingOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingOutput)
 }
 
-type DefenderSettingOutput struct{ *pulumi.OutputState }
+type DefenderSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (DefenderSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefenderSetting)(nil))

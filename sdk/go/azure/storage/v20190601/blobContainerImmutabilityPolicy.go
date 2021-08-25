@@ -196,7 +196,9 @@ func (i *BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerImmutabilityPolicyOutput)
 }
 
-type BlobContainerImmutabilityPolicyOutput struct{ *pulumi.OutputState }
+type BlobContainerImmutabilityPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (BlobContainerImmutabilityPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil))

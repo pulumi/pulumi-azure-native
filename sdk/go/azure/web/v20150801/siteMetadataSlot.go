@@ -220,7 +220,9 @@ func (i *SiteMetadataSlot) ToSiteMetadataSlotOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SiteMetadataSlotOutput)
 }
 
-type SiteMetadataSlotOutput struct{ *pulumi.OutputState }
+type SiteMetadataSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteMetadataSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteMetadataSlot)(nil))

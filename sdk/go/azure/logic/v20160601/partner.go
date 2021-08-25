@@ -48,9 +48,6 @@ func NewPartner(ctx *pulumi.Context,
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
-	if args.PartnerType == nil {
-		return nil, errors.New("invalid value for required argument 'PartnerType'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -127,7 +124,7 @@ type partnerArgs struct {
 	// The integration account partner name.
 	PartnerName *string `pulumi:"partnerName"`
 	// The partner type.
-	PartnerType PartnerType `pulumi:"partnerType"`
+	PartnerType string `pulumi:"partnerType"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -147,7 +144,7 @@ type PartnerArgs struct {
 	// The integration account partner name.
 	PartnerName pulumi.StringPtrInput
 	// The partner type.
-	PartnerType PartnerTypeInput
+	PartnerType PartnerType
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
@@ -177,7 +174,9 @@ func (i *Partner) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerOutput)
 }
 
-type PartnerOutput struct{ *pulumi.OutputState }
+type PartnerOutput struct {
+	*pulumi.OutputState
+}
 
 func (PartnerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Partner)(nil))

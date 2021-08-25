@@ -280,7 +280,7 @@ func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutput() Mi
 }
 
 func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectProperties) *MigrateProjectProperties {
+	return o.ApplyT(func(v MigrateProjectProperties) *MigrateProjectProperties {
 		return &v
 	}).(MigrateProjectPropertiesPtrOutput)
 }
@@ -310,13 +310,7 @@ func (o MigrateProjectPropertiesPtrOutput) ToMigrateProjectPropertiesPtrOutputWi
 }
 
 func (o MigrateProjectPropertiesPtrOutput) Elem() MigrateProjectPropertiesOutput {
-	return o.ApplyT(func(v *MigrateProjectProperties) MigrateProjectProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateProjectProperties
-		return ret
-	}).(MigrateProjectPropertiesOutput)
+	return o.ApplyT(func(v *MigrateProjectProperties) MigrateProjectProperties { return *v }).(MigrateProjectPropertiesOutput)
 }
 
 // Provisioning state of the migrate project.
@@ -451,7 +445,7 @@ func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesRespon
 }
 
 func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectPropertiesResponse) *MigrateProjectPropertiesResponse {
+	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *MigrateProjectPropertiesResponse {
 		return &v
 	}).(MigrateProjectPropertiesResponsePtrOutput)
 }
@@ -496,13 +490,7 @@ func (o MigrateProjectPropertiesResponsePtrOutput) ToMigrateProjectPropertiesRes
 }
 
 func (o MigrateProjectPropertiesResponsePtrOutput) Elem() MigrateProjectPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) MigrateProjectPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateProjectPropertiesResponse
-		return ret
-	}).(MigrateProjectPropertiesResponseOutput)
+	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) MigrateProjectPropertiesResponse { return *v }).(MigrateProjectPropertiesResponseOutput)
 }
 
 // Gets the last time the project summary was refreshed.
@@ -649,11 +637,10 @@ func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsPtrOutput(
 }
 
 func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsPtrOutputWithContext(ctx context.Context) MigrateProjectResponseTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectResponseTags) *MigrateProjectResponseTags {
+	return o.ApplyT(func(v MigrateProjectResponseTags) *MigrateProjectResponseTags {
 		return &v
 	}).(MigrateProjectResponseTagsPtrOutput)
 }
-
 func (o MigrateProjectResponseTagsOutput) AdditionalProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectResponseTags) *string { return v.AdditionalProperties }).(pulumi.StringPtrOutput)
 }
@@ -673,13 +660,7 @@ func (o MigrateProjectResponseTagsPtrOutput) ToMigrateProjectResponseTagsPtrOutp
 }
 
 func (o MigrateProjectResponseTagsPtrOutput) Elem() MigrateProjectResponseTagsOutput {
-	return o.ApplyT(func(v *MigrateProjectResponseTags) MigrateProjectResponseTags {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateProjectResponseTags
-		return ret
-	}).(MigrateProjectResponseTagsOutput)
+	return o.ApplyT(func(v *MigrateProjectResponseTags) MigrateProjectResponseTags { return *v }).(MigrateProjectResponseTagsOutput)
 }
 
 func (o MigrateProjectResponseTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutput {
@@ -785,11 +766,10 @@ func (o MigrateProjectTagsOutput) ToMigrateProjectTagsPtrOutput() MigrateProject
 }
 
 func (o MigrateProjectTagsOutput) ToMigrateProjectTagsPtrOutputWithContext(ctx context.Context) MigrateProjectTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectTags) *MigrateProjectTags {
+	return o.ApplyT(func(v MigrateProjectTags) *MigrateProjectTags {
 		return &v
 	}).(MigrateProjectTagsPtrOutput)
 }
-
 func (o MigrateProjectTagsOutput) AdditionalProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectTags) *string { return v.AdditionalProperties }).(pulumi.StringPtrOutput)
 }
@@ -809,13 +789,7 @@ func (o MigrateProjectTagsPtrOutput) ToMigrateProjectTagsPtrOutputWithContext(ct
 }
 
 func (o MigrateProjectTagsPtrOutput) Elem() MigrateProjectTagsOutput {
-	return o.ApplyT(func(v *MigrateProjectTags) MigrateProjectTags {
-		if v != nil {
-			return *v
-		}
-		var ret MigrateProjectTags
-		return ret
-	}).(MigrateProjectTagsOutput)
+	return o.ApplyT(func(v *MigrateProjectTags) MigrateProjectTags { return *v }).(MigrateProjectTagsOutput)
 }
 
 func (o MigrateProjectTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutput {
@@ -1164,7 +1138,7 @@ func (o SolutionDetailsOutput) ToSolutionDetailsPtrOutput() SolutionDetailsPtrOu
 }
 
 func (o SolutionDetailsOutput) ToSolutionDetailsPtrOutputWithContext(ctx context.Context) SolutionDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionDetails) *SolutionDetails {
+	return o.ApplyT(func(v SolutionDetails) *SolutionDetails {
 		return &v
 	}).(SolutionDetailsPtrOutput)
 }
@@ -1199,13 +1173,7 @@ func (o SolutionDetailsPtrOutput) ToSolutionDetailsPtrOutputWithContext(ctx cont
 }
 
 func (o SolutionDetailsPtrOutput) Elem() SolutionDetailsOutput {
-	return o.ApplyT(func(v *SolutionDetails) SolutionDetails {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionDetails
-		return ret
-	}).(SolutionDetailsOutput)
+	return o.ApplyT(func(v *SolutionDetails) SolutionDetails { return *v }).(SolutionDetailsOutput)
 }
 
 // Gets or sets the count of assessments reported by the solution.
@@ -1342,7 +1310,7 @@ func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponsePtrOutput() Solu
 }
 
 func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponsePtrOutputWithContext(ctx context.Context) SolutionDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionDetailsResponse) *SolutionDetailsResponse {
+	return o.ApplyT(func(v SolutionDetailsResponse) *SolutionDetailsResponse {
 		return &v
 	}).(SolutionDetailsResponsePtrOutput)
 }
@@ -1377,13 +1345,7 @@ func (o SolutionDetailsResponsePtrOutput) ToSolutionDetailsResponsePtrOutputWith
 }
 
 func (o SolutionDetailsResponsePtrOutput) Elem() SolutionDetailsResponseOutput {
-	return o.ApplyT(func(v *SolutionDetailsResponse) SolutionDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionDetailsResponse
-		return ret
-	}).(SolutionDetailsResponseOutput)
+	return o.ApplyT(func(v *SolutionDetailsResponse) SolutionDetailsResponse { return *v }).(SolutionDetailsResponseOutput)
 }
 
 // Gets or sets the count of assessments reported by the solution.
@@ -1532,7 +1494,7 @@ func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutput() SolutionProper
 }
 
 func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionProperties) *SolutionProperties {
+	return o.ApplyT(func(v SolutionProperties) *SolutionProperties {
 		return &v
 	}).(SolutionPropertiesPtrOutput)
 }
@@ -1582,13 +1544,7 @@ func (o SolutionPropertiesPtrOutput) ToSolutionPropertiesPtrOutputWithContext(ct
 }
 
 func (o SolutionPropertiesPtrOutput) Elem() SolutionPropertiesOutput {
-	return o.ApplyT(func(v *SolutionProperties) SolutionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionProperties
-		return ret
-	}).(SolutionPropertiesOutput)
+	return o.ApplyT(func(v *SolutionProperties) SolutionProperties { return *v }).(SolutionPropertiesOutput)
 }
 
 // Gets or sets the cleanup state of the solution.
@@ -1771,7 +1727,7 @@ func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutput(
 }
 
 func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPropertiesResponse) *SolutionPropertiesResponse {
+	return o.ApplyT(func(v SolutionPropertiesResponse) *SolutionPropertiesResponse {
 		return &v
 	}).(SolutionPropertiesResponsePtrOutput)
 }
@@ -1826,13 +1782,7 @@ func (o SolutionPropertiesResponsePtrOutput) ToSolutionPropertiesResponsePtrOutp
 }
 
 func (o SolutionPropertiesResponsePtrOutput) Elem() SolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionPropertiesResponse
-		return ret
-	}).(SolutionPropertiesResponseOutput)
+	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse { return *v }).(SolutionPropertiesResponseOutput)
 }
 
 // Gets or sets the cleanup state of the solution.

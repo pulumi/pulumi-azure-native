@@ -154,7 +154,9 @@ func (i *NetworkSecurityPerimeter) ToNetworkSecurityPerimeterOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityPerimeterOutput)
 }
 
-type NetworkSecurityPerimeterOutput struct{ *pulumi.OutputState }
+type NetworkSecurityPerimeterOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkSecurityPerimeterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkSecurityPerimeter)(nil))

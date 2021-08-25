@@ -130,7 +130,9 @@ func (i *ModelContainer) ToModelContainerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerOutput)
 }
 
-type ModelContainerOutput struct{ *pulumi.OutputState }
+type ModelContainerOutput struct {
+	*pulumi.OutputState
+}
 
 func (ModelContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelContainer)(nil))

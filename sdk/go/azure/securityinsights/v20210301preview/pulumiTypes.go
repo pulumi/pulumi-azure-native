@@ -106,7 +106,7 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQ
 }
 
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityEntityQueriesPropertiesQueryDefinitions) *ActivityEntityQueriesPropertiesQueryDefinitions {
+	return o.ApplyT(func(v ActivityEntityQueriesPropertiesQueryDefinitions) *ActivityEntityQueriesPropertiesQueryDefinitions {
 		return &v
 	}).(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput)
 }
@@ -132,11 +132,7 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) ToActivityEnti
 
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Elem() ActivityEntityQueriesPropertiesQueryDefinitionsOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesQueryDefinitions) ActivityEntityQueriesPropertiesQueryDefinitions {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityEntityQueriesPropertiesQueryDefinitions
-		return ret
+		return *v
 	}).(ActivityEntityQueriesPropertiesQueryDefinitionsOutput)
 }
 
@@ -246,7 +242,7 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivit
 }
 
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *ActivityEntityQueriesPropertiesResponseQueryDefinitions {
+	return o.ApplyT(func(v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *ActivityEntityQueriesPropertiesResponseQueryDefinitions {
 		return &v
 	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput)
 }
@@ -272,11 +268,7 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) ToActi
 
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Elem() ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesResponseQueryDefinitions) ActivityEntityQueriesPropertiesResponseQueryDefinitions {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityEntityQueriesPropertiesResponseQueryDefinitions
-		return ret
+		return *v
 	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput)
 }
 
@@ -398,7 +390,7 @@ func (o AlertDetailsOverrideOutput) ToAlertDetailsOverridePtrOutput() AlertDetai
 }
 
 func (o AlertDetailsOverrideOutput) ToAlertDetailsOverridePtrOutputWithContext(ctx context.Context) AlertDetailsOverridePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertDetailsOverride) *AlertDetailsOverride {
+	return o.ApplyT(func(v AlertDetailsOverride) *AlertDetailsOverride {
 		return &v
 	}).(AlertDetailsOverridePtrOutput)
 }
@@ -438,13 +430,7 @@ func (o AlertDetailsOverridePtrOutput) ToAlertDetailsOverridePtrOutputWithContex
 }
 
 func (o AlertDetailsOverridePtrOutput) Elem() AlertDetailsOverrideOutput {
-	return o.ApplyT(func(v *AlertDetailsOverride) AlertDetailsOverride {
-		if v != nil {
-			return *v
-		}
-		var ret AlertDetailsOverride
-		return ret
-	}).(AlertDetailsOverrideOutput)
+	return o.ApplyT(func(v *AlertDetailsOverride) AlertDetailsOverride { return *v }).(AlertDetailsOverrideOutput)
 }
 
 // the format containing columns name(s) to override the alert description
@@ -595,7 +581,7 @@ func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponsePtrOut
 }
 
 func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponsePtrOutputWithContext(ctx context.Context) AlertDetailsOverrideResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertDetailsOverrideResponse) *AlertDetailsOverrideResponse {
+	return o.ApplyT(func(v AlertDetailsOverrideResponse) *AlertDetailsOverrideResponse {
 		return &v
 	}).(AlertDetailsOverrideResponsePtrOutput)
 }
@@ -635,13 +621,7 @@ func (o AlertDetailsOverrideResponsePtrOutput) ToAlertDetailsOverrideResponsePtr
 }
 
 func (o AlertDetailsOverrideResponsePtrOutput) Elem() AlertDetailsOverrideResponseOutput {
-	return o.ApplyT(func(v *AlertDetailsOverrideResponse) AlertDetailsOverrideResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AlertDetailsOverrideResponse
-		return ret
-	}).(AlertDetailsOverrideResponseOutput)
+	return o.ApplyT(func(v *AlertDetailsOverrideResponse) AlertDetailsOverrideResponse { return *v }).(AlertDetailsOverrideResponseOutput)
 }
 
 // the format containing columns name(s) to override the alert description
@@ -780,7 +760,7 @@ func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorPtrO
 }
 
 func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertsDataTypeOfDataConnector) *AlertsDataTypeOfDataConnector {
+	return o.ApplyT(func(v AlertsDataTypeOfDataConnector) *AlertsDataTypeOfDataConnector {
 		return &v
 	}).(AlertsDataTypeOfDataConnectorPtrOutput)
 }
@@ -805,13 +785,7 @@ func (o AlertsDataTypeOfDataConnectorPtrOutput) ToAlertsDataTypeOfDataConnectorP
 }
 
 func (o AlertsDataTypeOfDataConnectorPtrOutput) Elem() AlertsDataTypeOfDataConnectorOutput {
-	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) AlertsDataTypeOfDataConnector {
-		if v != nil {
-			return *v
-		}
-		var ret AlertsDataTypeOfDataConnector
-		return ret
-	}).(AlertsDataTypeOfDataConnectorOutput)
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) AlertsDataTypeOfDataConnector { return *v }).(AlertsDataTypeOfDataConnectorOutput)
 }
 
 // Alerts data type connection.
@@ -920,7 +894,7 @@ func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConne
 }
 
 func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertsDataTypeOfDataConnectorResponse) *AlertsDataTypeOfDataConnectorResponse {
+	return o.ApplyT(func(v AlertsDataTypeOfDataConnectorResponse) *AlertsDataTypeOfDataConnectorResponse {
 		return &v
 	}).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
 }
@@ -945,13 +919,7 @@ func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) ToAlertsDataTypeOfDataCo
 }
 
 func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Elem() AlertsDataTypeOfDataConnectorResponseOutput {
-	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) AlertsDataTypeOfDataConnectorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AlertsDataTypeOfDataConnectorResponse
-		return ret
-	}).(AlertsDataTypeOfDataConnectorResponseOutput)
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) AlertsDataTypeOfDataConnectorResponse { return *v }).(AlertsDataTypeOfDataConnectorResponseOutput)
 }
 
 // Alerts data type connection.
@@ -1064,7 +1032,7 @@ func (o AvailabilityOutput) ToAvailabilityPtrOutput() AvailabilityPtrOutput {
 }
 
 func (o AvailabilityOutput) ToAvailabilityPtrOutputWithContext(ctx context.Context) AvailabilityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Availability) *Availability {
+	return o.ApplyT(func(v Availability) *Availability {
 		return &v
 	}).(AvailabilityPtrOutput)
 }
@@ -1094,13 +1062,7 @@ func (o AvailabilityPtrOutput) ToAvailabilityPtrOutputWithContext(ctx context.Co
 }
 
 func (o AvailabilityPtrOutput) Elem() AvailabilityOutput {
-	return o.ApplyT(func(v *Availability) Availability {
-		if v != nil {
-			return *v
-		}
-		var ret Availability
-		return ret
-	}).(AvailabilityOutput)
+	return o.ApplyT(func(v *Availability) Availability { return *v }).(AvailabilityOutput)
 }
 
 // Set connector as preview
@@ -1223,7 +1185,7 @@ func (o AvailabilityResponseOutput) ToAvailabilityResponsePtrOutput() Availabili
 }
 
 func (o AvailabilityResponseOutput) ToAvailabilityResponsePtrOutputWithContext(ctx context.Context) AvailabilityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AvailabilityResponse) *AvailabilityResponse {
+	return o.ApplyT(func(v AvailabilityResponse) *AvailabilityResponse {
 		return &v
 	}).(AvailabilityResponsePtrOutput)
 }
@@ -1253,13 +1215,7 @@ func (o AvailabilityResponsePtrOutput) ToAvailabilityResponsePtrOutputWithContex
 }
 
 func (o AvailabilityResponsePtrOutput) Elem() AvailabilityResponseOutput {
-	return o.ApplyT(func(v *AvailabilityResponse) AvailabilityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AvailabilityResponse
-		return ret
-	}).(AvailabilityResponseOutput)
+	return o.ApplyT(func(v *AvailabilityResponse) AvailabilityResponse { return *v }).(AvailabilityResponseOutput)
 }
 
 // Set connector as preview
@@ -1378,7 +1334,7 @@ func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorD
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypes {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypes {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesPtrOutput)
 }
@@ -1403,13 +1359,7 @@ func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) ToAwsCloudTrailDataConnect
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) AwsCloudTrailDataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret AwsCloudTrailDataConnectorDataTypes
-		return ret
-	}).(AwsCloudTrailDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) AwsCloudTrailDataConnectorDataTypes { return *v }).(AwsCloudTrailDataConnectorDataTypesOutput)
 }
 
 // Logs data type.
@@ -1518,7 +1468,7 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnec
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesLogs) *AwsCloudTrailDataConnectorDataTypesLogs {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesLogs) *AwsCloudTrailDataConnectorDataTypesLogs {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
 }
@@ -1543,13 +1493,7 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) ToAwsCloudTrailDataCon
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesLogsOutput {
-	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) AwsCloudTrailDataConnectorDataTypesLogs {
-		if v != nil {
-			return *v
-		}
-		var ret AwsCloudTrailDataConnectorDataTypesLogs
-		return ret
-	}).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) AwsCloudTrailDataConnectorDataTypesLogs { return *v }).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -1658,7 +1602,7 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataCo
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponse {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponse {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
 }
@@ -1686,11 +1630,7 @@ func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) ToAwsCloudTrailDat
 
 func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesResponseOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponse) AwsCloudTrailDataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AwsCloudTrailDataConnectorDataTypesResponse
-		return ret
+		return *v
 	}).(AwsCloudTrailDataConnectorDataTypesResponseOutput)
 }
 
@@ -1800,7 +1740,7 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDa
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesResponseLogs) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
+	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponseLogs) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
 }
@@ -1826,11 +1766,7 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) ToAwsCloudTrai
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponseLogs) AwsCloudTrailDataConnectorDataTypesResponseLogs {
-		if v != nil {
-			return *v
-		}
-		var ret AwsCloudTrailDataConnectorDataTypesResponseLogs
-		return ret
+		return *v
 	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput)
 }
 
@@ -1952,7 +1888,7 @@ func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutput() ClientInfoResp
 }
 
 func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientInfoResponse) *ClientInfoResponse {
+	return o.ApplyT(func(v ClientInfoResponse) *ClientInfoResponse {
 		return &v
 	}).(ClientInfoResponsePtrOutput)
 }
@@ -1992,13 +1928,7 @@ func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutputWithContext(ct
 }
 
 func (o ClientInfoResponsePtrOutput) Elem() ClientInfoResponseOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClientInfoResponse
-		return ret
-	}).(ClientInfoResponseOutput)
+	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse { return *v }).(ClientInfoResponseOutput)
 }
 
 // The email of the client.
@@ -2181,7 +2111,7 @@ func (o CodelessUiConnectorConfigPropertiesOutput) ToCodelessUiConnectorConfigPr
 }
 
 func (o CodelessUiConnectorConfigPropertiesOutput) ToCodelessUiConnectorConfigPropertiesPtrOutputWithContext(ctx context.Context) CodelessUiConnectorConfigPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodelessUiConnectorConfigProperties) *CodelessUiConnectorConfigProperties {
+	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) *CodelessUiConnectorConfigProperties {
 		return &v
 	}).(CodelessUiConnectorConfigPropertiesPtrOutput)
 }
@@ -2271,13 +2201,7 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) ToCodelessUiConnectorConfi
 }
 
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) Elem() CodelessUiConnectorConfigPropertiesOutput {
-	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) CodelessUiConnectorConfigProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CodelessUiConnectorConfigProperties
-		return ret
-	}).(CodelessUiConnectorConfigPropertiesOutput)
+	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) CodelessUiConnectorConfigProperties { return *v }).(CodelessUiConnectorConfigPropertiesOutput)
 }
 
 // Connector Availability Status
@@ -2984,7 +2908,7 @@ func (o CodelessUiConnectorConfigPropertiesResponseOutput) ToCodelessUiConnector
 }
 
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) ToCodelessUiConnectorConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) CodelessUiConnectorConfigPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodelessUiConnectorConfigPropertiesResponse) *CodelessUiConnectorConfigPropertiesResponse {
+	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) *CodelessUiConnectorConfigPropertiesResponse {
 		return &v
 	}).(CodelessUiConnectorConfigPropertiesResponsePtrOutput)
 }
@@ -3075,11 +2999,7 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) ToCodelessUiConnec
 
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Elem() CodelessUiConnectorConfigPropertiesResponseOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) CodelessUiConnectorConfigPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CodelessUiConnectorConfigPropertiesResponse
-		return ret
+		return *v
 	}).(CodelessUiConnectorConfigPropertiesResponseOutput)
 }
 
@@ -4173,7 +4093,7 @@ func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonPtrOutpu
 }
 
 func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonPtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorDataTypeCommon) *DataConnectorDataTypeCommon {
+	return o.ApplyT(func(v DataConnectorDataTypeCommon) *DataConnectorDataTypeCommon {
 		return &v
 	}).(DataConnectorDataTypeCommonPtrOutput)
 }
@@ -4198,13 +4118,7 @@ func (o DataConnectorDataTypeCommonPtrOutput) ToDataConnectorDataTypeCommonPtrOu
 }
 
 func (o DataConnectorDataTypeCommonPtrOutput) Elem() DataConnectorDataTypeCommonOutput {
-	return o.ApplyT(func(v *DataConnectorDataTypeCommon) DataConnectorDataTypeCommon {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorDataTypeCommon
-		return ret
-	}).(DataConnectorDataTypeCommonOutput)
+	return o.ApplyT(func(v *DataConnectorDataTypeCommon) DataConnectorDataTypeCommon { return *v }).(DataConnectorDataTypeCommonOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -4313,7 +4227,7 @@ func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommon
 }
 
 func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorDataTypeCommonResponse) *DataConnectorDataTypeCommonResponse {
+	return o.ApplyT(func(v DataConnectorDataTypeCommonResponse) *DataConnectorDataTypeCommonResponse {
 		return &v
 	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
@@ -4338,13 +4252,7 @@ func (o DataConnectorDataTypeCommonResponsePtrOutput) ToDataConnectorDataTypeCom
 }
 
 func (o DataConnectorDataTypeCommonResponsePtrOutput) Elem() DataConnectorDataTypeCommonResponseOutput {
-	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) DataConnectorDataTypeCommonResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorDataTypeCommonResponse
-		return ret
-	}).(DataConnectorDataTypeCommonResponseOutput)
+	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) DataConnectorDataTypeCommonResponse { return *v }).(DataConnectorDataTypeCommonResponseOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -4453,7 +4361,7 @@ func (o Dynamics365DataConnectorDataTypesOutput) ToDynamics365DataConnectorDataT
 }
 
 func (o Dynamics365DataConnectorDataTypesOutput) ToDynamics365DataConnectorDataTypesPtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypes) *Dynamics365DataConnectorDataTypes {
+	return o.ApplyT(func(v Dynamics365DataConnectorDataTypes) *Dynamics365DataConnectorDataTypes {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesPtrOutput)
 }
@@ -4480,13 +4388,7 @@ func (o Dynamics365DataConnectorDataTypesPtrOutput) ToDynamics365DataConnectorDa
 }
 
 func (o Dynamics365DataConnectorDataTypesPtrOutput) Elem() Dynamics365DataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypes) Dynamics365DataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret Dynamics365DataConnectorDataTypes
-		return ret
-	}).(Dynamics365DataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypes) Dynamics365DataConnectorDataTypes { return *v }).(Dynamics365DataConnectorDataTypesOutput)
 }
 
 // Common Data Service data type connection.
@@ -4595,7 +4497,7 @@ func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput) ToDynam
 }
 
 func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput) ToDynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypesDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
+	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput)
 }
@@ -4621,11 +4523,7 @@ func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput) ToDy
 
 func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput) Elem() Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesDynamics365CdsActivities) Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
-		if v != nil {
-			return *v
-		}
-		var ret Dynamics365DataConnectorDataTypesDynamics365CdsActivities
-		return ret
+		return *v
 	}).(Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput)
 }
 
@@ -4735,7 +4633,7 @@ func (o Dynamics365DataConnectorDataTypesResponseOutput) ToDynamics365DataConnec
 }
 
 func (o Dynamics365DataConnectorDataTypesResponseOutput) ToDynamics365DataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypesResponse) *Dynamics365DataConnectorDataTypesResponse {
+	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesResponse) *Dynamics365DataConnectorDataTypesResponse {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesResponsePtrOutput)
 }
@@ -4763,11 +4661,7 @@ func (o Dynamics365DataConnectorDataTypesResponsePtrOutput) ToDynamics365DataCon
 
 func (o Dynamics365DataConnectorDataTypesResponsePtrOutput) Elem() Dynamics365DataConnectorDataTypesResponseOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesResponse) Dynamics365DataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret Dynamics365DataConnectorDataTypesResponse
-		return ret
+		return *v
 	}).(Dynamics365DataConnectorDataTypesResponseOutput)
 }
 
@@ -4877,7 +4771,7 @@ func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput)
 }
 
 func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput) ToDynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
+	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput)
 }
@@ -4903,11 +4797,7 @@ func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutp
 
 func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput) Elem() Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
-		if v != nil {
-			return *v
-		}
-		var ret Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities
-		return ret
+		return *v
 	}).(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput)
 }
 
@@ -5235,7 +5125,7 @@ func (o EventGroupingSettingsOutput) ToEventGroupingSettingsPtrOutput() EventGro
 }
 
 func (o EventGroupingSettingsOutput) ToEventGroupingSettingsPtrOutputWithContext(ctx context.Context) EventGroupingSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGroupingSettings) *EventGroupingSettings {
+	return o.ApplyT(func(v EventGroupingSettings) *EventGroupingSettings {
 		return &v
 	}).(EventGroupingSettingsPtrOutput)
 }
@@ -5260,13 +5150,7 @@ func (o EventGroupingSettingsPtrOutput) ToEventGroupingSettingsPtrOutputWithCont
 }
 
 func (o EventGroupingSettingsPtrOutput) Elem() EventGroupingSettingsOutput {
-	return o.ApplyT(func(v *EventGroupingSettings) EventGroupingSettings {
-		if v != nil {
-			return *v
-		}
-		var ret EventGroupingSettings
-		return ret
-	}).(EventGroupingSettingsOutput)
+	return o.ApplyT(func(v *EventGroupingSettings) EventGroupingSettings { return *v }).(EventGroupingSettingsOutput)
 }
 
 // The event grouping aggregation kinds
@@ -5375,7 +5259,7 @@ func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponsePtrO
 }
 
 func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponsePtrOutputWithContext(ctx context.Context) EventGroupingSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGroupingSettingsResponse) *EventGroupingSettingsResponse {
+	return o.ApplyT(func(v EventGroupingSettingsResponse) *EventGroupingSettingsResponse {
 		return &v
 	}).(EventGroupingSettingsResponsePtrOutput)
 }
@@ -5400,13 +5284,7 @@ func (o EventGroupingSettingsResponsePtrOutput) ToEventGroupingSettingsResponseP
 }
 
 func (o EventGroupingSettingsResponsePtrOutput) Elem() EventGroupingSettingsResponseOutput {
-	return o.ApplyT(func(v *EventGroupingSettingsResponse) EventGroupingSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EventGroupingSettingsResponse
-		return ret
-	}).(EventGroupingSettingsResponseOutput)
+	return o.ApplyT(func(v *EventGroupingSettingsResponse) EventGroupingSettingsResponse { return *v }).(EventGroupingSettingsResponseOutput)
 }
 
 // The event grouping aggregation kinds
@@ -5757,7 +5635,7 @@ func (o GroupingConfigurationOutput) ToGroupingConfigurationPtrOutput() Grouping
 }
 
 func (o GroupingConfigurationOutput) ToGroupingConfigurationPtrOutputWithContext(ctx context.Context) GroupingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupingConfiguration) *GroupingConfiguration {
+	return o.ApplyT(func(v GroupingConfiguration) *GroupingConfiguration {
 		return &v
 	}).(GroupingConfigurationPtrOutput)
 }
@@ -5812,13 +5690,7 @@ func (o GroupingConfigurationPtrOutput) ToGroupingConfigurationPtrOutputWithCont
 }
 
 func (o GroupingConfigurationPtrOutput) Elem() GroupingConfigurationOutput {
-	return o.ApplyT(func(v *GroupingConfiguration) GroupingConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret GroupingConfiguration
-		return ret
-	}).(GroupingConfigurationOutput)
+	return o.ApplyT(func(v *GroupingConfiguration) GroupingConfiguration { return *v }).(GroupingConfigurationOutput)
 }
 
 // Grouping enabled
@@ -6011,7 +5883,7 @@ func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponsePtrO
 }
 
 func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponsePtrOutputWithContext(ctx context.Context) GroupingConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupingConfigurationResponse) *GroupingConfigurationResponse {
+	return o.ApplyT(func(v GroupingConfigurationResponse) *GroupingConfigurationResponse {
 		return &v
 	}).(GroupingConfigurationResponsePtrOutput)
 }
@@ -6066,13 +5938,7 @@ func (o GroupingConfigurationResponsePtrOutput) ToGroupingConfigurationResponseP
 }
 
 func (o GroupingConfigurationResponsePtrOutput) Elem() GroupingConfigurationResponseOutput {
-	return o.ApplyT(func(v *GroupingConfigurationResponse) GroupingConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GroupingConfigurationResponse
-		return ret
-	}).(GroupingConfigurationResponseOutput)
+	return o.ApplyT(func(v *GroupingConfigurationResponse) GroupingConfigurationResponse { return *v }).(GroupingConfigurationResponseOutput)
 }
 
 // Grouping enabled
@@ -6257,7 +6123,7 @@ func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePt
 }
 
 func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
 		return &v
 	}).(IncidentAdditionalDataResponsePtrOutput)
 }
@@ -6302,13 +6168,7 @@ func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataRespons
 }
 
 func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataResponseOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentAdditionalDataResponse
-		return ret
-	}).(IncidentAdditionalDataResponseOutput)
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse { return *v }).(IncidentAdditionalDataResponseOutput)
 }
 
 // List of product names of alerts in the incident
@@ -6461,7 +6321,7 @@ func (o IncidentConfigurationOutput) ToIncidentConfigurationPtrOutput() Incident
 }
 
 func (o IncidentConfigurationOutput) ToIncidentConfigurationPtrOutputWithContext(ctx context.Context) IncidentConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentConfiguration) *IncidentConfiguration {
+	return o.ApplyT(func(v IncidentConfiguration) *IncidentConfiguration {
 		return &v
 	}).(IncidentConfigurationPtrOutput)
 }
@@ -6491,13 +6351,7 @@ func (o IncidentConfigurationPtrOutput) ToIncidentConfigurationPtrOutputWithCont
 }
 
 func (o IncidentConfigurationPtrOutput) Elem() IncidentConfigurationOutput {
-	return o.ApplyT(func(v *IncidentConfiguration) IncidentConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentConfiguration
-		return ret
-	}).(IncidentConfigurationOutput)
+	return o.ApplyT(func(v *IncidentConfiguration) IncidentConfiguration { return *v }).(IncidentConfigurationOutput)
 }
 
 // Create incidents from alerts triggered by this analytics rule
@@ -6620,7 +6474,7 @@ func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponsePtrO
 }
 
 func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponsePtrOutputWithContext(ctx context.Context) IncidentConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentConfigurationResponse) *IncidentConfigurationResponse {
+	return o.ApplyT(func(v IncidentConfigurationResponse) *IncidentConfigurationResponse {
 		return &v
 	}).(IncidentConfigurationResponsePtrOutput)
 }
@@ -6650,13 +6504,7 @@ func (o IncidentConfigurationResponsePtrOutput) ToIncidentConfigurationResponseP
 }
 
 func (o IncidentConfigurationResponsePtrOutput) Elem() IncidentConfigurationResponseOutput {
-	return o.ApplyT(func(v *IncidentConfigurationResponse) IncidentConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentConfigurationResponse
-		return ret
-	}).(IncidentConfigurationResponseOutput)
+	return o.ApplyT(func(v *IncidentConfigurationResponse) IncidentConfigurationResponse { return *v }).(IncidentConfigurationResponseOutput)
 }
 
 // Create incidents from alerts triggered by this analytics rule
@@ -6996,7 +6844,7 @@ func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInf
 }
 
 func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfo) *IncidentOwnerInfo {
+	return o.ApplyT(func(v IncidentOwnerInfo) *IncidentOwnerInfo {
 		return &v
 	}).(IncidentOwnerInfoPtrOutput)
 }
@@ -7036,13 +6884,7 @@ func (o IncidentOwnerInfoPtrOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx 
 }
 
 func (o IncidentOwnerInfoPtrOutput) Elem() IncidentOwnerInfoOutput {
-	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentOwnerInfo
-		return ret
-	}).(IncidentOwnerInfoOutput)
+	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo { return *v }).(IncidentOwnerInfoOutput)
 }
 
 // The name of the user the incident is assigned to.
@@ -7197,7 +7039,7 @@ func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutput() 
 }
 
 func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
 		return &v
 	}).(IncidentOwnerInfoResponsePtrOutput)
 }
@@ -7242,13 +7084,7 @@ func (o IncidentOwnerInfoResponsePtrOutput) ToIncidentOwnerInfoResponsePtrOutput
 }
 
 func (o IncidentOwnerInfoResponsePtrOutput) Elem() IncidentOwnerInfoResponseOutput {
-	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentOwnerInfoResponse
-		return ret
-	}).(IncidentOwnerInfoResponseOutput)
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse { return *v }).(IncidentOwnerInfoResponseOutput)
 }
 
 // The name of the user the incident is assigned to.
@@ -7613,7 +7449,7 @@ func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesPtrOutput(
 }
 
 func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MCASDataConnectorDataTypes) *MCASDataConnectorDataTypes {
+	return o.ApplyT(func(v MCASDataConnectorDataTypes) *MCASDataConnectorDataTypes {
 		return &v
 	}).(MCASDataConnectorDataTypesPtrOutput)
 }
@@ -7643,13 +7479,7 @@ func (o MCASDataConnectorDataTypesPtrOutput) ToMCASDataConnectorDataTypesPtrOutp
 }
 
 func (o MCASDataConnectorDataTypesPtrOutput) Elem() MCASDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *MCASDataConnectorDataTypes) MCASDataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret MCASDataConnectorDataTypes
-		return ret
-	}).(MCASDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *MCASDataConnectorDataTypes) MCASDataConnectorDataTypes { return *v }).(MCASDataConnectorDataTypesOutput)
 }
 
 // Alerts data type connection.
@@ -7772,7 +7602,7 @@ func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesRe
 }
 
 func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MCASDataConnectorDataTypesResponse) *MCASDataConnectorDataTypesResponse {
+	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *MCASDataConnectorDataTypesResponse {
 		return &v
 	}).(MCASDataConnectorDataTypesResponsePtrOutput)
 }
@@ -7804,13 +7634,7 @@ func (o MCASDataConnectorDataTypesResponsePtrOutput) ToMCASDataConnectorDataType
 }
 
 func (o MCASDataConnectorDataTypesResponsePtrOutput) Elem() MCASDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) MCASDataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MCASDataConnectorDataTypesResponse
-		return ret
-	}).(MCASDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) MCASDataConnectorDataTypesResponse { return *v }).(MCASDataConnectorDataTypesResponseOutput)
 }
 
 // Alerts data type connection.
@@ -7933,7 +7757,7 @@ func (o MSTIDataConnectorDataTypesOutput) ToMSTIDataConnectorDataTypesPtrOutput(
 }
 
 func (o MSTIDataConnectorDataTypesOutput) ToMSTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypes) *MSTIDataConnectorDataTypes {
+	return o.ApplyT(func(v MSTIDataConnectorDataTypes) *MSTIDataConnectorDataTypes {
 		return &v
 	}).(MSTIDataConnectorDataTypesPtrOutput)
 }
@@ -7967,13 +7791,7 @@ func (o MSTIDataConnectorDataTypesPtrOutput) ToMSTIDataConnectorDataTypesPtrOutp
 }
 
 func (o MSTIDataConnectorDataTypesPtrOutput) Elem() MSTIDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *MSTIDataConnectorDataTypes) MSTIDataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret MSTIDataConnectorDataTypes
-		return ret
-	}).(MSTIDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *MSTIDataConnectorDataTypes) MSTIDataConnectorDataTypes { return *v }).(MSTIDataConnectorDataTypesOutput)
 }
 
 // Data type for Microsoft Threat Intelligence Platforms data connector.
@@ -8096,7 +7914,7 @@ func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput) ToMSTIDataConnect
 }
 
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput) ToMSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesBingSafetyPhishingURL) *MSTIDataConnectorDataTypesBingSafetyPhishingURL {
+	return o.ApplyT(func(v MSTIDataConnectorDataTypesBingSafetyPhishingURL) *MSTIDataConnectorDataTypesBingSafetyPhishingURL {
 		return &v
 	}).(MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput)
 }
@@ -8127,11 +7945,7 @@ func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) ToMSTIDataConn
 
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) Elem() MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesBingSafetyPhishingURL) MSTIDataConnectorDataTypesBingSafetyPhishingURL {
-		if v != nil {
-			return *v
-		}
-		var ret MSTIDataConnectorDataTypesBingSafetyPhishingURL
-		return ret
+		return *v
 	}).(MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput)
 }
 
@@ -8255,7 +8069,7 @@ func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput) ToMSTIDataC
 }
 
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput) ToMSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
+	return o.ApplyT(func(v MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
 		return &v
 	}).(MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput)
 }
@@ -8286,11 +8100,7 @@ func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) ToMSTIDa
 
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) Elem() MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
-		if v != nil {
-			return *v
-		}
-		var ret MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed
-		return ret
+		return *v
 	}).(MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput)
 }
 
@@ -8414,7 +8224,7 @@ func (o MSTIDataConnectorDataTypesResponseOutput) ToMSTIDataConnectorDataTypesRe
 }
 
 func (o MSTIDataConnectorDataTypesResponseOutput) ToMSTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesResponse) *MSTIDataConnectorDataTypesResponse {
+	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponse) *MSTIDataConnectorDataTypesResponse {
 		return &v
 	}).(MSTIDataConnectorDataTypesResponsePtrOutput)
 }
@@ -8448,13 +8258,7 @@ func (o MSTIDataConnectorDataTypesResponsePtrOutput) ToMSTIDataConnectorDataType
 }
 
 func (o MSTIDataConnectorDataTypesResponsePtrOutput) Elem() MSTIDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponse) MSTIDataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MSTIDataConnectorDataTypesResponse
-		return ret
-	}).(MSTIDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponse) MSTIDataConnectorDataTypesResponse { return *v }).(MSTIDataConnectorDataTypesResponseOutput)
 }
 
 // Data type for Microsoft Threat Intelligence Platforms data connector.
@@ -8577,7 +8381,7 @@ func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput) ToMSTIDat
 }
 
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput) ToMSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
+	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
 		return &v
 	}).(MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput)
 }
@@ -8608,11 +8412,7 @@ func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) ToMSTI
 
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) Elem() MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
-		if v != nil {
-			return *v
-		}
-		var ret MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL
-		return ret
+		return *v
 	}).(MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput)
 }
 
@@ -8736,7 +8536,7 @@ func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput) ToM
 }
 
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput) ToMSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
+	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
 		return &v
 	}).(MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput)
 }
@@ -8767,11 +8567,7 @@ func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) 
 
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) Elem() MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
-		if v != nil {
-			return *v
-		}
-		var ret MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed
-		return ret
+		return *v
 	}).(MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput)
 }
 
@@ -8891,7 +8687,7 @@ func (o MTPDataConnectorDataTypesOutput) ToMTPDataConnectorDataTypesPtrOutput() 
 }
 
 func (o MTPDataConnectorDataTypesOutput) ToMTPDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypes) *MTPDataConnectorDataTypes {
+	return o.ApplyT(func(v MTPDataConnectorDataTypes) *MTPDataConnectorDataTypes {
 		return &v
 	}).(MTPDataConnectorDataTypesPtrOutput)
 }
@@ -8916,13 +8712,7 @@ func (o MTPDataConnectorDataTypesPtrOutput) ToMTPDataConnectorDataTypesPtrOutput
 }
 
 func (o MTPDataConnectorDataTypesPtrOutput) Elem() MTPDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *MTPDataConnectorDataTypes) MTPDataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret MTPDataConnectorDataTypes
-		return ret
-	}).(MTPDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *MTPDataConnectorDataTypes) MTPDataConnectorDataTypes { return *v }).(MTPDataConnectorDataTypesOutput)
 }
 
 // Data type for Microsoft Threat Protection Platforms data connector.
@@ -9031,7 +8821,7 @@ func (o MTPDataConnectorDataTypesIncidentsOutput) ToMTPDataConnectorDataTypesInc
 }
 
 func (o MTPDataConnectorDataTypesIncidentsOutput) ToMTPDataConnectorDataTypesIncidentsPtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesIncidentsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypesIncidents) *MTPDataConnectorDataTypesIncidents {
+	return o.ApplyT(func(v MTPDataConnectorDataTypesIncidents) *MTPDataConnectorDataTypesIncidents {
 		return &v
 	}).(MTPDataConnectorDataTypesIncidentsPtrOutput)
 }
@@ -9056,13 +8846,7 @@ func (o MTPDataConnectorDataTypesIncidentsPtrOutput) ToMTPDataConnectorDataTypes
 }
 
 func (o MTPDataConnectorDataTypesIncidentsPtrOutput) Elem() MTPDataConnectorDataTypesIncidentsOutput {
-	return o.ApplyT(func(v *MTPDataConnectorDataTypesIncidents) MTPDataConnectorDataTypesIncidents {
-		if v != nil {
-			return *v
-		}
-		var ret MTPDataConnectorDataTypesIncidents
-		return ret
-	}).(MTPDataConnectorDataTypesIncidentsOutput)
+	return o.ApplyT(func(v *MTPDataConnectorDataTypesIncidents) MTPDataConnectorDataTypesIncidents { return *v }).(MTPDataConnectorDataTypesIncidentsOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -9171,7 +8955,7 @@ func (o MTPDataConnectorDataTypesResponseOutput) ToMTPDataConnectorDataTypesResp
 }
 
 func (o MTPDataConnectorDataTypesResponseOutput) ToMTPDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypesResponse) *MTPDataConnectorDataTypesResponse {
+	return o.ApplyT(func(v MTPDataConnectorDataTypesResponse) *MTPDataConnectorDataTypesResponse {
 		return &v
 	}).(MTPDataConnectorDataTypesResponsePtrOutput)
 }
@@ -9198,13 +8982,7 @@ func (o MTPDataConnectorDataTypesResponsePtrOutput) ToMTPDataConnectorDataTypesR
 }
 
 func (o MTPDataConnectorDataTypesResponsePtrOutput) Elem() MTPDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponse) MTPDataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MTPDataConnectorDataTypesResponse
-		return ret
-	}).(MTPDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponse) MTPDataConnectorDataTypesResponse { return *v }).(MTPDataConnectorDataTypesResponseOutput)
 }
 
 // Data type for Microsoft Threat Protection Platforms data connector.
@@ -9313,7 +9091,7 @@ func (o MTPDataConnectorDataTypesResponseIncidentsOutput) ToMTPDataConnectorData
 }
 
 func (o MTPDataConnectorDataTypesResponseIncidentsOutput) ToMTPDataConnectorDataTypesResponseIncidentsPtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesResponseIncidentsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypesResponseIncidents) *MTPDataConnectorDataTypesResponseIncidents {
+	return o.ApplyT(func(v MTPDataConnectorDataTypesResponseIncidents) *MTPDataConnectorDataTypesResponseIncidents {
 		return &v
 	}).(MTPDataConnectorDataTypesResponseIncidentsPtrOutput)
 }
@@ -9339,11 +9117,7 @@ func (o MTPDataConnectorDataTypesResponseIncidentsPtrOutput) ToMTPDataConnectorD
 
 func (o MTPDataConnectorDataTypesResponseIncidentsPtrOutput) Elem() MTPDataConnectorDataTypesResponseIncidentsOutput {
 	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponseIncidents) MTPDataConnectorDataTypesResponseIncidents {
-		if v != nil {
-			return *v
-		}
-		var ret MTPDataConnectorDataTypesResponseIncidents
-		return ret
+		return *v
 	}).(MTPDataConnectorDataTypesResponseIncidentsOutput)
 }
 
@@ -9461,7 +9235,7 @@ func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutpu
 }
 
 func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataAuthor) *MetadataAuthor {
+	return o.ApplyT(func(v MetadataAuthor) *MetadataAuthor {
 		return &v
 	}).(MetadataAuthorPtrOutput)
 }
@@ -9496,13 +9270,7 @@ func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutputWithContext(ctx contex
 }
 
 func (o MetadataAuthorPtrOutput) Elem() MetadataAuthorOutput {
-	return o.ApplyT(func(v *MetadataAuthor) MetadataAuthor {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataAuthor
-		return ret
-	}).(MetadataAuthorOutput)
+	return o.ApplyT(func(v *MetadataAuthor) MetadataAuthor { return *v }).(MetadataAuthorOutput)
 }
 
 // Email of author contact
@@ -9639,7 +9407,7 @@ func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponsePtrOutput() Metada
 }
 
 func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponsePtrOutputWithContext(ctx context.Context) MetadataAuthorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataAuthorResponse) *MetadataAuthorResponse {
+	return o.ApplyT(func(v MetadataAuthorResponse) *MetadataAuthorResponse {
 		return &v
 	}).(MetadataAuthorResponsePtrOutput)
 }
@@ -9674,13 +9442,7 @@ func (o MetadataAuthorResponsePtrOutput) ToMetadataAuthorResponsePtrOutputWithCo
 }
 
 func (o MetadataAuthorResponsePtrOutput) Elem() MetadataAuthorResponseOutput {
-	return o.ApplyT(func(v *MetadataAuthorResponse) MetadataAuthorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataAuthorResponse
-		return ret
-	}).(MetadataAuthorResponseOutput)
+	return o.ApplyT(func(v *MetadataAuthorResponse) MetadataAuthorResponse { return *v }).(MetadataAuthorResponseOutput)
 }
 
 // Email of author contact
@@ -9854,7 +9616,7 @@ func (o MetadataDependenciesOutput) ToMetadataDependenciesPtrOutput() MetadataDe
 }
 
 func (o MetadataDependenciesOutput) ToMetadataDependenciesPtrOutputWithContext(ctx context.Context) MetadataDependenciesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataDependencies) *MetadataDependencies {
+	return o.ApplyT(func(v MetadataDependencies) *MetadataDependencies {
 		return &v
 	}).(MetadataDependenciesPtrOutput)
 }
@@ -9904,13 +9666,7 @@ func (o MetadataDependenciesPtrOutput) ToMetadataDependenciesPtrOutputWithContex
 }
 
 func (o MetadataDependenciesPtrOutput) Elem() MetadataDependenciesOutput {
-	return o.ApplyT(func(v *MetadataDependencies) MetadataDependencies {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataDependencies
-		return ret
-	}).(MetadataDependenciesOutput)
+	return o.ApplyT(func(v *MetadataDependencies) MetadataDependencies { return *v }).(MetadataDependenciesOutput)
 }
 
 // Id of the content item we depend on
@@ -10134,7 +9890,7 @@ func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponsePtrOut
 }
 
 func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponsePtrOutputWithContext(ctx context.Context) MetadataDependenciesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataDependenciesResponse) *MetadataDependenciesResponse {
+	return o.ApplyT(func(v MetadataDependenciesResponse) *MetadataDependenciesResponse {
 		return &v
 	}).(MetadataDependenciesResponsePtrOutput)
 }
@@ -10184,13 +9940,7 @@ func (o MetadataDependenciesResponsePtrOutput) ToMetadataDependenciesResponsePtr
 }
 
 func (o MetadataDependenciesResponsePtrOutput) Elem() MetadataDependenciesResponseOutput {
-	return o.ApplyT(func(v *MetadataDependenciesResponse) MetadataDependenciesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataDependenciesResponse
-		return ret
-	}).(MetadataDependenciesResponseOutput)
+	return o.ApplyT(func(v *MetadataDependenciesResponse) MetadataDependenciesResponse { return *v }).(MetadataDependenciesResponseOutput)
 }
 
 // Id of the content item we depend on
@@ -10377,7 +10127,7 @@ func (o MetadataSourceOutput) ToMetadataSourcePtrOutput() MetadataSourcePtrOutpu
 }
 
 func (o MetadataSourceOutput) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSource) *MetadataSource {
+	return o.ApplyT(func(v MetadataSource) *MetadataSource {
 		return &v
 	}).(MetadataSourcePtrOutput)
 }
@@ -10412,13 +10162,7 @@ func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutputWithContext(ctx contex
 }
 
 func (o MetadataSourcePtrOutput) Elem() MetadataSourceOutput {
-	return o.ApplyT(func(v *MetadataSource) MetadataSource {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataSource
-		return ret
-	}).(MetadataSourceOutput)
+	return o.ApplyT(func(v *MetadataSource) MetadataSource { return *v }).(MetadataSourceOutput)
 }
 
 // Source type of the content
@@ -10555,7 +10299,7 @@ func (o MetadataSourceResponseOutput) ToMetadataSourceResponsePtrOutput() Metada
 }
 
 func (o MetadataSourceResponseOutput) ToMetadataSourceResponsePtrOutputWithContext(ctx context.Context) MetadataSourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSourceResponse) *MetadataSourceResponse {
+	return o.ApplyT(func(v MetadataSourceResponse) *MetadataSourceResponse {
 		return &v
 	}).(MetadataSourceResponsePtrOutput)
 }
@@ -10590,13 +10334,7 @@ func (o MetadataSourceResponsePtrOutput) ToMetadataSourceResponsePtrOutputWithCo
 }
 
 func (o MetadataSourceResponsePtrOutput) Elem() MetadataSourceResponseOutput {
-	return o.ApplyT(func(v *MetadataSourceResponse) MetadataSourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataSourceResponse
-		return ret
-	}).(MetadataSourceResponseOutput)
+	return o.ApplyT(func(v *MetadataSourceResponse) MetadataSourceResponse { return *v }).(MetadataSourceResponseOutput)
 }
 
 // Source type of the content
@@ -10737,7 +10475,7 @@ func (o MetadataSupportOutput) ToMetadataSupportPtrOutput() MetadataSupportPtrOu
 }
 
 func (o MetadataSupportOutput) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSupport) *MetadataSupport {
+	return o.ApplyT(func(v MetadataSupport) *MetadataSupport {
 		return &v
 	}).(MetadataSupportPtrOutput)
 }
@@ -10777,13 +10515,7 @@ func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutputWithContext(ctx cont
 }
 
 func (o MetadataSupportPtrOutput) Elem() MetadataSupportOutput {
-	return o.ApplyT(func(v *MetadataSupport) MetadataSupport {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataSupport
-		return ret
-	}).(MetadataSupportOutput)
+	return o.ApplyT(func(v *MetadataSupport) MetadataSupport { return *v }).(MetadataSupportOutput)
 }
 
 // Email of support contact
@@ -10934,7 +10666,7 @@ func (o MetadataSupportResponseOutput) ToMetadataSupportResponsePtrOutput() Meta
 }
 
 func (o MetadataSupportResponseOutput) ToMetadataSupportResponsePtrOutputWithContext(ctx context.Context) MetadataSupportResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSupportResponse) *MetadataSupportResponse {
+	return o.ApplyT(func(v MetadataSupportResponse) *MetadataSupportResponse {
 		return &v
 	}).(MetadataSupportResponsePtrOutput)
 }
@@ -10974,13 +10706,7 @@ func (o MetadataSupportResponsePtrOutput) ToMetadataSupportResponsePtrOutputWith
 }
 
 func (o MetadataSupportResponsePtrOutput) Elem() MetadataSupportResponseOutput {
-	return o.ApplyT(func(v *MetadataSupportResponse) MetadataSupportResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MetadataSupportResponse
-		return ret
-	}).(MetadataSupportResponseOutput)
+	return o.ApplyT(func(v *MetadataSupportResponse) MetadataSupportResponse { return *v }).(MetadataSupportResponseOutput)
 }
 
 // Email of support contact
@@ -11127,7 +10853,7 @@ func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesPtrOut
 }
 
 func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypes {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypes {
 		return &v
 	}).(OfficeDataConnectorDataTypesPtrOutput)
 }
@@ -11162,13 +10888,7 @@ func (o OfficeDataConnectorDataTypesPtrOutput) ToOfficeDataConnectorDataTypesPtr
 }
 
 func (o OfficeDataConnectorDataTypesPtrOutput) Elem() OfficeDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypes
-		return ret
-	}).(OfficeDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypes { return *v }).(OfficeDataConnectorDataTypesOutput)
 }
 
 // Exchange data type connection.
@@ -11297,7 +11017,7 @@ func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTyp
 }
 
 func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesExchange) *OfficeDataConnectorDataTypesExchange {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesExchange) *OfficeDataConnectorDataTypesExchange {
 		return &v
 	}).(OfficeDataConnectorDataTypesExchangePtrOutput)
 }
@@ -11322,13 +11042,7 @@ func (o OfficeDataConnectorDataTypesExchangePtrOutput) ToOfficeDataConnectorData
 }
 
 func (o OfficeDataConnectorDataTypesExchangePtrOutput) Elem() OfficeDataConnectorDataTypesExchangeOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) OfficeDataConnectorDataTypesExchange {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypesExchange
-		return ret
-	}).(OfficeDataConnectorDataTypesExchangeOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) OfficeDataConnectorDataTypesExchange { return *v }).(OfficeDataConnectorDataTypesExchangeOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -11445,7 +11159,7 @@ func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTyp
 }
 
 func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponse {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponse {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponsePtrOutput)
 }
@@ -11484,13 +11198,7 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) ToOfficeDataConnectorData
 }
 
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) Elem() OfficeDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypesResponse
-		return ret
-	}).(OfficeDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponse { return *v }).(OfficeDataConnectorDataTypesResponseOutput)
 }
 
 // Exchange data type connection.
@@ -11619,7 +11327,7 @@ func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnecto
 }
 
 func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseExchange) *OfficeDataConnectorDataTypesResponseExchange {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseExchange) *OfficeDataConnectorDataTypesResponseExchange {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
@@ -11645,11 +11353,7 @@ func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) ToOfficeDataConne
 
 func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) Elem() OfficeDataConnectorDataTypesResponseExchangeOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseExchange) OfficeDataConnectorDataTypesResponseExchange {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypesResponseExchange
-		return ret
+		return *v
 	}).(OfficeDataConnectorDataTypesResponseExchangeOutput)
 }
 
@@ -11759,7 +11463,7 @@ func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnec
 }
 
 func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseSharePoint) *OfficeDataConnectorDataTypesResponseSharePoint {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseSharePoint) *OfficeDataConnectorDataTypesResponseSharePoint {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
@@ -11785,11 +11489,7 @@ func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) ToOfficeDataCon
 
 func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) Elem() OfficeDataConnectorDataTypesResponseSharePointOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseSharePoint) OfficeDataConnectorDataTypesResponseSharePoint {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypesResponseSharePoint
-		return ret
+		return *v
 	}).(OfficeDataConnectorDataTypesResponseSharePointOutput)
 }
 
@@ -11899,7 +11599,7 @@ func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDa
 }
 
 func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseTeams) *OfficeDataConnectorDataTypesResponseTeams {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseTeams) *OfficeDataConnectorDataTypesResponseTeams {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
 }
@@ -11925,11 +11625,7 @@ func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) ToOfficeDataConnecto
 
 func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) Elem() OfficeDataConnectorDataTypesResponseTeamsOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseTeams) OfficeDataConnectorDataTypesResponseTeams {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypesResponseTeams
-		return ret
+		return *v
 	}).(OfficeDataConnectorDataTypesResponseTeamsOutput)
 }
 
@@ -12039,7 +11735,7 @@ func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataT
 }
 
 func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesSharePoint) *OfficeDataConnectorDataTypesSharePoint {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesSharePoint) *OfficeDataConnectorDataTypesSharePoint {
 		return &v
 	}).(OfficeDataConnectorDataTypesSharePointPtrOutput)
 }
@@ -12064,13 +11760,7 @@ func (o OfficeDataConnectorDataTypesSharePointPtrOutput) ToOfficeDataConnectorDa
 }
 
 func (o OfficeDataConnectorDataTypesSharePointPtrOutput) Elem() OfficeDataConnectorDataTypesSharePointOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) OfficeDataConnectorDataTypesSharePoint {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypesSharePoint
-		return ret
-	}).(OfficeDataConnectorDataTypesSharePointOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) OfficeDataConnectorDataTypesSharePoint { return *v }).(OfficeDataConnectorDataTypesSharePointOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -12179,7 +11869,7 @@ func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesT
 }
 
 func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesTeams) *OfficeDataConnectorDataTypesTeams {
+	return o.ApplyT(func(v OfficeDataConnectorDataTypesTeams) *OfficeDataConnectorDataTypesTeams {
 		return &v
 	}).(OfficeDataConnectorDataTypesTeamsPtrOutput)
 }
@@ -12204,13 +11894,7 @@ func (o OfficeDataConnectorDataTypesTeamsPtrOutput) ToOfficeDataConnectorDataTyp
 }
 
 func (o OfficeDataConnectorDataTypesTeamsPtrOutput) Elem() OfficeDataConnectorDataTypesTeamsOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) OfficeDataConnectorDataTypesTeams {
-		if v != nil {
-			return *v
-		}
-		var ret OfficeDataConnectorDataTypesTeams
-		return ret
-	}).(OfficeDataConnectorDataTypesTeamsOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) OfficeDataConnectorDataTypesTeams { return *v }).(OfficeDataConnectorDataTypesTeamsOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -12323,7 +12007,7 @@ func (o PermissionsOutput) ToPermissionsPtrOutput() PermissionsPtrOutput {
 }
 
 func (o PermissionsOutput) ToPermissionsPtrOutputWithContext(ctx context.Context) PermissionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Permissions) *Permissions {
+	return o.ApplyT(func(v Permissions) *Permissions {
 		return &v
 	}).(PermissionsPtrOutput)
 }
@@ -12353,13 +12037,7 @@ func (o PermissionsPtrOutput) ToPermissionsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PermissionsPtrOutput) Elem() PermissionsOutput {
-	return o.ApplyT(func(v *Permissions) Permissions {
-		if v != nil {
-			return *v
-		}
-		var ret Permissions
-		return ret
-	}).(PermissionsOutput)
+	return o.ApplyT(func(v *Permissions) Permissions { return *v }).(PermissionsOutput)
 }
 
 // Customs permissions required for the connector
@@ -12721,7 +12399,7 @@ func (o PermissionsResponseOutput) ToPermissionsResponsePtrOutput() PermissionsR
 }
 
 func (o PermissionsResponseOutput) ToPermissionsResponsePtrOutputWithContext(ctx context.Context) PermissionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsResponse) *PermissionsResponse {
+	return o.ApplyT(func(v PermissionsResponse) *PermissionsResponse {
 		return &v
 	}).(PermissionsResponsePtrOutput)
 }
@@ -12751,13 +12429,7 @@ func (o PermissionsResponsePtrOutput) ToPermissionsResponsePtrOutputWithContext(
 }
 
 func (o PermissionsResponsePtrOutput) Elem() PermissionsResponseOutput {
-	return o.ApplyT(func(v *PermissionsResponse) PermissionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PermissionsResponse
-		return ret
-	}).(PermissionsResponseOutput)
+	return o.ApplyT(func(v *PermissionsResponse) PermissionsResponse { return *v }).(PermissionsResponseOutput)
 }
 
 // Customs permissions required for the connector
@@ -13241,7 +12913,7 @@ func (o RepositoryOutput) ToRepositoryPtrOutput() RepositoryPtrOutput {
 }
 
 func (o RepositoryOutput) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Repository) *Repository {
+	return o.ApplyT(func(v Repository) *Repository {
 		return &v
 	}).(RepositoryPtrOutput)
 }
@@ -13276,13 +12948,7 @@ func (o RepositoryPtrOutput) ToRepositoryPtrOutputWithContext(ctx context.Contex
 }
 
 func (o RepositoryPtrOutput) Elem() RepositoryOutput {
-	return o.ApplyT(func(v *Repository) Repository {
-		if v != nil {
-			return *v
-		}
-		var ret Repository
-		return ret
-	}).(RepositoryOutput)
+	return o.ApplyT(func(v *Repository) Repository { return *v }).(RepositoryOutput)
 }
 
 // Branch name of repository.
@@ -13419,7 +13085,7 @@ func (o RepositoryResponseOutput) ToRepositoryResponsePtrOutput() RepositoryResp
 }
 
 func (o RepositoryResponseOutput) ToRepositoryResponsePtrOutputWithContext(ctx context.Context) RepositoryResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryResponse) *RepositoryResponse {
+	return o.ApplyT(func(v RepositoryResponse) *RepositoryResponse {
 		return &v
 	}).(RepositoryResponsePtrOutput)
 }
@@ -13454,13 +13120,7 @@ func (o RepositoryResponsePtrOutput) ToRepositoryResponsePtrOutputWithContext(ct
 }
 
 func (o RepositoryResponsePtrOutput) Elem() RepositoryResponseOutput {
-	return o.ApplyT(func(v *RepositoryResponse) RepositoryResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RepositoryResponse
-		return ret
-	}).(RepositoryResponseOutput)
+	return o.ApplyT(func(v *RepositoryResponse) RepositoryResponse { return *v }).(RepositoryResponseOutput)
 }
 
 // Branch name of repository.
@@ -13601,7 +13261,7 @@ func (o RequiredPermissionsOutput) ToRequiredPermissionsPtrOutput() RequiredPerm
 }
 
 func (o RequiredPermissionsOutput) ToRequiredPermissionsPtrOutputWithContext(ctx context.Context) RequiredPermissionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequiredPermissions) *RequiredPermissions {
+	return o.ApplyT(func(v RequiredPermissions) *RequiredPermissions {
 		return &v
 	}).(RequiredPermissionsPtrOutput)
 }
@@ -13641,13 +13301,7 @@ func (o RequiredPermissionsPtrOutput) ToRequiredPermissionsPtrOutputWithContext(
 }
 
 func (o RequiredPermissionsPtrOutput) Elem() RequiredPermissionsOutput {
-	return o.ApplyT(func(v *RequiredPermissions) RequiredPermissions {
-		if v != nil {
-			return *v
-		}
-		var ret RequiredPermissions
-		return ret
-	}).(RequiredPermissionsOutput)
+	return o.ApplyT(func(v *RequiredPermissions) RequiredPermissions { return *v }).(RequiredPermissionsOutput)
 }
 
 // action permission
@@ -13798,7 +13452,7 @@ func (o RequiredPermissionsResponseOutput) ToRequiredPermissionsResponsePtrOutpu
 }
 
 func (o RequiredPermissionsResponseOutput) ToRequiredPermissionsResponsePtrOutputWithContext(ctx context.Context) RequiredPermissionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequiredPermissionsResponse) *RequiredPermissionsResponse {
+	return o.ApplyT(func(v RequiredPermissionsResponse) *RequiredPermissionsResponse {
 		return &v
 	}).(RequiredPermissionsResponsePtrOutput)
 }
@@ -13838,13 +13492,7 @@ func (o RequiredPermissionsResponsePtrOutput) ToRequiredPermissionsResponsePtrOu
 }
 
 func (o RequiredPermissionsResponsePtrOutput) Elem() RequiredPermissionsResponseOutput {
-	return o.ApplyT(func(v *RequiredPermissionsResponse) RequiredPermissionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RequiredPermissionsResponse
-		return ret
-	}).(RequiredPermissionsResponseOutput)
+	return o.ApplyT(func(v *RequiredPermissionsResponse) RequiredPermissionsResponse { return *v }).(RequiredPermissionsResponseOutput)
 }
 
 // action permission
@@ -14003,7 +13651,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -14053,13 +13701,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -14218,7 +13860,7 @@ func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesPtrOutput() TI
 }
 
 func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypes) *TIDataConnectorDataTypes {
+	return o.ApplyT(func(v TIDataConnectorDataTypes) *TIDataConnectorDataTypes {
 		return &v
 	}).(TIDataConnectorDataTypesPtrOutput)
 }
@@ -14243,13 +13885,7 @@ func (o TIDataConnectorDataTypesPtrOutput) ToTIDataConnectorDataTypesPtrOutputWi
 }
 
 func (o TIDataConnectorDataTypesPtrOutput) Elem() TIDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *TIDataConnectorDataTypes) TIDataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret TIDataConnectorDataTypes
-		return ret
-	}).(TIDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *TIDataConnectorDataTypes) TIDataConnectorDataTypes { return *v }).(TIDataConnectorDataTypesOutput)
 }
 
 // Data type for indicators connection.
@@ -14358,7 +13994,7 @@ func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndi
 }
 
 func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesIndicators) *TIDataConnectorDataTypesIndicators {
+	return o.ApplyT(func(v TIDataConnectorDataTypesIndicators) *TIDataConnectorDataTypesIndicators {
 		return &v
 	}).(TIDataConnectorDataTypesIndicatorsPtrOutput)
 }
@@ -14383,13 +14019,7 @@ func (o TIDataConnectorDataTypesIndicatorsPtrOutput) ToTIDataConnectorDataTypesI
 }
 
 func (o TIDataConnectorDataTypesIndicatorsPtrOutput) Elem() TIDataConnectorDataTypesIndicatorsOutput {
-	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) TIDataConnectorDataTypesIndicators {
-		if v != nil {
-			return *v
-		}
-		var ret TIDataConnectorDataTypesIndicators
-		return ret
-	}).(TIDataConnectorDataTypesIndicatorsOutput)
+	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) TIDataConnectorDataTypesIndicators { return *v }).(TIDataConnectorDataTypesIndicatorsOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -14498,7 +14128,7 @@ func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesRespon
 }
 
 func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponse {
+	return o.ApplyT(func(v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponse {
 		return &v
 	}).(TIDataConnectorDataTypesResponsePtrOutput)
 }
@@ -14525,13 +14155,7 @@ func (o TIDataConnectorDataTypesResponsePtrOutput) ToTIDataConnectorDataTypesRes
 }
 
 func (o TIDataConnectorDataTypesResponsePtrOutput) Elem() TIDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) TIDataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TIDataConnectorDataTypesResponse
-		return ret
-	}).(TIDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) TIDataConnectorDataTypesResponse { return *v }).(TIDataConnectorDataTypesResponseOutput)
 }
 
 // Data type for indicators connection.
@@ -14640,7 +14264,7 @@ func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataT
 }
 
 func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesResponseIndicators) *TIDataConnectorDataTypesResponseIndicators {
+	return o.ApplyT(func(v TIDataConnectorDataTypesResponseIndicators) *TIDataConnectorDataTypesResponseIndicators {
 		return &v
 	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
 }
@@ -14666,11 +14290,7 @@ func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) ToTIDataConnectorDa
 
 func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) Elem() TIDataConnectorDataTypesResponseIndicatorsOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesResponseIndicators) TIDataConnectorDataTypesResponseIndicators {
-		if v != nil {
-			return *v
-		}
-		var ret TIDataConnectorDataTypesResponseIndicators
-		return ret
+		return *v
 	}).(TIDataConnectorDataTypesResponseIndicatorsOutput)
 }
 
@@ -14780,7 +14400,7 @@ func (o TiTaxiiDataConnectorDataTypesOutput) ToTiTaxiiDataConnectorDataTypesPtrO
 }
 
 func (o TiTaxiiDataConnectorDataTypesOutput) ToTiTaxiiDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypes) *TiTaxiiDataConnectorDataTypes {
+	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypes) *TiTaxiiDataConnectorDataTypes {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesPtrOutput)
 }
@@ -14805,13 +14425,7 @@ func (o TiTaxiiDataConnectorDataTypesPtrOutput) ToTiTaxiiDataConnectorDataTypesP
 }
 
 func (o TiTaxiiDataConnectorDataTypesPtrOutput) Elem() TiTaxiiDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypes) TiTaxiiDataConnectorDataTypes {
-		if v != nil {
-			return *v
-		}
-		var ret TiTaxiiDataConnectorDataTypes
-		return ret
-	}).(TiTaxiiDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypes) TiTaxiiDataConnectorDataTypes { return *v }).(TiTaxiiDataConnectorDataTypesOutput)
 }
 
 // Data type for TAXII connector.
@@ -14920,7 +14534,7 @@ func (o TiTaxiiDataConnectorDataTypesResponseOutput) ToTiTaxiiDataConnectorDataT
 }
 
 func (o TiTaxiiDataConnectorDataTypesResponseOutput) ToTiTaxiiDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypesResponse) *TiTaxiiDataConnectorDataTypesResponse {
+	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesResponse) *TiTaxiiDataConnectorDataTypesResponse {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesResponsePtrOutput)
 }
@@ -14947,13 +14561,7 @@ func (o TiTaxiiDataConnectorDataTypesResponsePtrOutput) ToTiTaxiiDataConnectorDa
 }
 
 func (o TiTaxiiDataConnectorDataTypesResponsePtrOutput) Elem() TiTaxiiDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponse) TiTaxiiDataConnectorDataTypesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TiTaxiiDataConnectorDataTypesResponse
-		return ret
-	}).(TiTaxiiDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponse) TiTaxiiDataConnectorDataTypesResponse { return *v }).(TiTaxiiDataConnectorDataTypesResponseOutput)
 }
 
 // Data type for TAXII connector.
@@ -15062,7 +14670,7 @@ func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput) ToTiTaxiiDataCon
 }
 
 func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput) ToTiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypesResponseTaxiiClient) *TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
+	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesResponseTaxiiClient) *TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput)
 }
@@ -15088,11 +14696,7 @@ func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput) ToTiTaxiiData
 
 func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput) Elem() TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput {
 	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponseTaxiiClient) TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
-		if v != nil {
-			return *v
-		}
-		var ret TiTaxiiDataConnectorDataTypesResponseTaxiiClient
-		return ret
+		return *v
 	}).(TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput)
 }
 
@@ -15202,7 +14806,7 @@ func (o TiTaxiiDataConnectorDataTypesTaxiiClientOutput) ToTiTaxiiDataConnectorDa
 }
 
 func (o TiTaxiiDataConnectorDataTypesTaxiiClientOutput) ToTiTaxiiDataConnectorDataTypesTaxiiClientPtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypesTaxiiClient) *TiTaxiiDataConnectorDataTypesTaxiiClient {
+	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesTaxiiClient) *TiTaxiiDataConnectorDataTypesTaxiiClient {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput)
 }
@@ -15227,13 +14831,7 @@ func (o TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput) ToTiTaxiiDataConnecto
 }
 
 func (o TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput) Elem() TiTaxiiDataConnectorDataTypesTaxiiClientOutput {
-	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesTaxiiClient) TiTaxiiDataConnectorDataTypesTaxiiClient {
-		if v != nil {
-			return *v
-		}
-		var ret TiTaxiiDataConnectorDataTypesTaxiiClient
-		return ret
-	}).(TiTaxiiDataConnectorDataTypesTaxiiClientOutput)
+	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesTaxiiClient) TiTaxiiDataConnectorDataTypesTaxiiClient { return *v }).(TiTaxiiDataConnectorDataTypesTaxiiClientOutput)
 }
 
 // Describe whether this data type connection is enabled or not.
@@ -15342,7 +14940,7 @@ func (o WatchlistUserInfoOutput) ToWatchlistUserInfoPtrOutput() WatchlistUserInf
 }
 
 func (o WatchlistUserInfoOutput) ToWatchlistUserInfoPtrOutputWithContext(ctx context.Context) WatchlistUserInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WatchlistUserInfo) *WatchlistUserInfo {
+	return o.ApplyT(func(v WatchlistUserInfo) *WatchlistUserInfo {
 		return &v
 	}).(WatchlistUserInfoPtrOutput)
 }
@@ -15367,13 +14965,7 @@ func (o WatchlistUserInfoPtrOutput) ToWatchlistUserInfoPtrOutputWithContext(ctx 
 }
 
 func (o WatchlistUserInfoPtrOutput) Elem() WatchlistUserInfoOutput {
-	return o.ApplyT(func(v *WatchlistUserInfo) WatchlistUserInfo {
-		if v != nil {
-			return *v
-		}
-		var ret WatchlistUserInfo
-		return ret
-	}).(WatchlistUserInfoOutput)
+	return o.ApplyT(func(v *WatchlistUserInfo) WatchlistUserInfo { return *v }).(WatchlistUserInfoOutput)
 }
 
 // The object id of the user.
@@ -15490,7 +15082,7 @@ func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutput() 
 }
 
 func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutputWithContext(ctx context.Context) WatchlistUserInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WatchlistUserInfoResponse) *WatchlistUserInfoResponse {
+	return o.ApplyT(func(v WatchlistUserInfoResponse) *WatchlistUserInfoResponse {
 		return &v
 	}).(WatchlistUserInfoResponsePtrOutput)
 }
@@ -15525,13 +15117,7 @@ func (o WatchlistUserInfoResponsePtrOutput) ToWatchlistUserInfoResponsePtrOutput
 }
 
 func (o WatchlistUserInfoResponsePtrOutput) Elem() WatchlistUserInfoResponseOutput {
-	return o.ApplyT(func(v *WatchlistUserInfoResponse) WatchlistUserInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WatchlistUserInfoResponse
-		return ret
-	}).(WatchlistUserInfoResponseOutput)
+	return o.ApplyT(func(v *WatchlistUserInfoResponse) WatchlistUserInfoResponse { return *v }).(WatchlistUserInfoResponseOutput)
 }
 
 // The email of the user.

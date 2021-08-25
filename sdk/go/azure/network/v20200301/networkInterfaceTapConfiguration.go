@@ -251,7 +251,9 @@ func (i *NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOut
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceTapConfigurationOutput)
 }
 
-type NetworkInterfaceTapConfigurationOutput struct{ *pulumi.OutputState }
+type NetworkInterfaceTapConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkInterfaceTapConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil))

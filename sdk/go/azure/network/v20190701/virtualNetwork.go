@@ -406,7 +406,9 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
 }
 
-type VirtualNetworkOutput struct{ *pulumi.OutputState }
+type VirtualNetworkOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetwork)(nil))

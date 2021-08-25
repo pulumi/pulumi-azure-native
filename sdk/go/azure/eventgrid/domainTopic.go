@@ -160,7 +160,9 @@ func (i *DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) Domain
 	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicOutput)
 }
 
-type DomainTopicOutput struct{ *pulumi.OutputState }
+type DomainTopicOutput struct {
+	*pulumi.OutputState
+}
 
 func (DomainTopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainTopic)(nil))

@@ -56,9 +56,6 @@ func NewDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.State == nil {
-		return nil, errors.New("invalid value for required argument 'State'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql:DatabaseSecurityAlertPolicy"),
@@ -150,7 +147,7 @@ type databaseSecurityAlertPolicyArgs struct {
 	// The name of the  server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
-	State SecurityAlertsPolicyState `pulumi:"state"`
+	State string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -176,7 +173,7 @@ type DatabaseSecurityAlertPolicyArgs struct {
 	// The name of the  server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
-	State SecurityAlertsPolicyStateInput
+	State SecurityAlertsPolicyState
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -206,7 +203,9 @@ func (i *DatabaseSecurityAlertPolicy) ToDatabaseSecurityAlertPolicyOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseSecurityAlertPolicyOutput)
 }
 
-type DatabaseSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
+type DatabaseSecurityAlertPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseSecurityAlertPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseSecurityAlertPolicy)(nil))

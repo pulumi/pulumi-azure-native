@@ -140,7 +140,7 @@ type environmentArgs struct {
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 	Sku Sku `pulumi:"sku"`
 	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior *StorageLimitExceededBehavior `pulumi:"storageLimitExceededBehavior"`
+	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
 	// Key-value pairs of additional properties for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -160,7 +160,7 @@ type EnvironmentArgs struct {
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 	Sku SkuInput
 	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior StorageLimitExceededBehaviorPtrInput
+	StorageLimitExceededBehavior *StorageLimitExceededBehavior
 	// Key-value pairs of additional properties for the resource.
 	Tags pulumi.StringMapInput
 }
@@ -188,7 +188,9 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
-type EnvironmentOutput struct{ *pulumi.OutputState }
+type EnvironmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Environment)(nil))

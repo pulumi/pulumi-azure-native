@@ -114,7 +114,7 @@ func (o AzureSkuOutput) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
 }
 
 func (o AzureSkuOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSku) *AzureSku {
+	return o.ApplyT(func(v AzureSku) *AzureSku {
 		return &v
 	}).(AzureSkuPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o AzureSkuPtrOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) A
 }
 
 func (o AzureSkuPtrOutput) Elem() AzureSkuOutput {
-	return o.ApplyT(func(v *AzureSku) AzureSku {
-		if v != nil {
-			return *v
-		}
-		var ret AzureSku
-		return ret
-	}).(AzureSkuOutput)
+	return o.ApplyT(func(v *AzureSku) AzureSku { return *v }).(AzureSkuOutput)
 }
 
 // The number of instances of the cluster.
@@ -292,7 +286,7 @@ func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePt
 }
 
 func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuResponse) *AzureSkuResponse {
+	return o.ApplyT(func(v AzureSkuResponse) *AzureSkuResponse {
 		return &v
 	}).(AzureSkuResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o AzureSkuResponsePtrOutput) ToAzureSkuResponsePtrOutputWithContext(ctx co
 }
 
 func (o AzureSkuResponsePtrOutput) Elem() AzureSkuResponseOutput {
-	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureSkuResponse
-		return ret
-	}).(AzureSkuResponseOutput)
+	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse { return *v }).(AzureSkuResponseOutput)
 }
 
 // The number of instances of the cluster.
@@ -616,7 +604,7 @@ func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutput(
 }
 
 func (o DatabaseStatisticsResponseOutput) ToDatabaseStatisticsResponsePtrOutputWithContext(ctx context.Context) DatabaseStatisticsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseStatisticsResponse) *DatabaseStatisticsResponse {
+	return o.ApplyT(func(v DatabaseStatisticsResponse) *DatabaseStatisticsResponse {
 		return &v
 	}).(DatabaseStatisticsResponsePtrOutput)
 }
@@ -641,13 +629,7 @@ func (o DatabaseStatisticsResponsePtrOutput) ToDatabaseStatisticsResponsePtrOutp
 }
 
 func (o DatabaseStatisticsResponsePtrOutput) Elem() DatabaseStatisticsResponseOutput {
-	return o.ApplyT(func(v *DatabaseStatisticsResponse) DatabaseStatisticsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DatabaseStatisticsResponse
-		return ret
-	}).(DatabaseStatisticsResponseOutput)
+	return o.ApplyT(func(v *DatabaseStatisticsResponse) DatabaseStatisticsResponse { return *v }).(DatabaseStatisticsResponseOutput)
 }
 
 // The database size - the total size of compressed data and index in bytes.
@@ -768,7 +750,7 @@ func (o OptimizedAutoscaleOutput) ToOptimizedAutoscalePtrOutput() OptimizedAutos
 }
 
 func (o OptimizedAutoscaleOutput) ToOptimizedAutoscalePtrOutputWithContext(ctx context.Context) OptimizedAutoscalePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptimizedAutoscale) *OptimizedAutoscale {
+	return o.ApplyT(func(v OptimizedAutoscale) *OptimizedAutoscale {
 		return &v
 	}).(OptimizedAutoscalePtrOutput)
 }
@@ -808,13 +790,7 @@ func (o OptimizedAutoscalePtrOutput) ToOptimizedAutoscalePtrOutputWithContext(ct
 }
 
 func (o OptimizedAutoscalePtrOutput) Elem() OptimizedAutoscaleOutput {
-	return o.ApplyT(func(v *OptimizedAutoscale) OptimizedAutoscale {
-		if v != nil {
-			return *v
-		}
-		var ret OptimizedAutoscale
-		return ret
-	}).(OptimizedAutoscaleOutput)
+	return o.ApplyT(func(v *OptimizedAutoscale) OptimizedAutoscale { return *v }).(OptimizedAutoscaleOutput)
 }
 
 // A boolean value that indicate if the optimized autoscale feature is enabled or not.
@@ -965,7 +941,7 @@ func (o OptimizedAutoscaleResponseOutput) ToOptimizedAutoscaleResponsePtrOutput(
 }
 
 func (o OptimizedAutoscaleResponseOutput) ToOptimizedAutoscaleResponsePtrOutputWithContext(ctx context.Context) OptimizedAutoscaleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptimizedAutoscaleResponse) *OptimizedAutoscaleResponse {
+	return o.ApplyT(func(v OptimizedAutoscaleResponse) *OptimizedAutoscaleResponse {
 		return &v
 	}).(OptimizedAutoscaleResponsePtrOutput)
 }
@@ -1005,13 +981,7 @@ func (o OptimizedAutoscaleResponsePtrOutput) ToOptimizedAutoscaleResponsePtrOutp
 }
 
 func (o OptimizedAutoscaleResponsePtrOutput) Elem() OptimizedAutoscaleResponseOutput {
-	return o.ApplyT(func(v *OptimizedAutoscaleResponse) OptimizedAutoscaleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OptimizedAutoscaleResponse
-		return ret
-	}).(OptimizedAutoscaleResponseOutput)
+	return o.ApplyT(func(v *OptimizedAutoscaleResponse) OptimizedAutoscaleResponse { return *v }).(OptimizedAutoscaleResponseOutput)
 }
 
 // A boolean value that indicate if the optimized autoscale feature is enabled or not.
@@ -1358,7 +1328,7 @@ func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutpu
 }
 
 func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
+	return o.ApplyT(func(v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
 		return &v
 	}).(VirtualNetworkConfigurationPtrOutput)
 }
@@ -1393,13 +1363,7 @@ func (o VirtualNetworkConfigurationPtrOutput) ToVirtualNetworkConfigurationPtrOu
 }
 
 func (o VirtualNetworkConfigurationPtrOutput) Elem() VirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfiguration
-		return ret
-	}).(VirtualNetworkConfigurationOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration { return *v }).(VirtualNetworkConfigurationOutput)
 }
 
 // Data management's service public IP address resource id.
@@ -1536,7 +1500,7 @@ func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfiguration
 }
 
 func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
+	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
 		return &v
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
@@ -1571,13 +1535,7 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) ToVirtualNetworkConfigurat
 }
 
 func (o VirtualNetworkConfigurationResponsePtrOutput) Elem() VirtualNetworkConfigurationResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfigurationResponse
-		return ret
-	}).(VirtualNetworkConfigurationResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse { return *v }).(VirtualNetworkConfigurationResponseOutput)
 }
 
 // Data management's service public IP address resource id.

@@ -202,7 +202,9 @@ func (i *RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RosettaNetProcessConfigurationOutput)
 }
 
-type RosettaNetProcessConfigurationOutput struct{ *pulumi.OutputState }
+type RosettaNetProcessConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (RosettaNetProcessConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RosettaNetProcessConfiguration)(nil))

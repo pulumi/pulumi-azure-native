@@ -110,7 +110,7 @@ func (o CredentialsPropertiesOutput) ToCredentialsPropertiesPtrOutput() Credenti
 }
 
 func (o CredentialsPropertiesOutput) ToCredentialsPropertiesPtrOutputWithContext(ctx context.Context) CredentialsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CredentialsProperties) *CredentialsProperties {
+	return o.ApplyT(func(v CredentialsProperties) *CredentialsProperties {
 		return &v
 	}).(CredentialsPropertiesPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o CredentialsPropertiesPtrOutput) ToCredentialsPropertiesPtrOutputWithCont
 }
 
 func (o CredentialsPropertiesPtrOutput) Elem() CredentialsPropertiesOutput {
-	return o.ApplyT(func(v *CredentialsProperties) CredentialsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CredentialsProperties
-		return ret
-	}).(CredentialsPropertiesOutput)
+	return o.ApplyT(func(v *CredentialsProperties) CredentialsProperties { return *v }).(CredentialsPropertiesOutput)
 }
 
 // The domain admin credentials.
@@ -269,7 +263,7 @@ func (o CredentialsPropertiesResponseOutput) ToCredentialsPropertiesResponsePtrO
 }
 
 func (o CredentialsPropertiesResponseOutput) ToCredentialsPropertiesResponsePtrOutputWithContext(ctx context.Context) CredentialsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CredentialsPropertiesResponse) *CredentialsPropertiesResponse {
+	return o.ApplyT(func(v CredentialsPropertiesResponse) *CredentialsPropertiesResponse {
 		return &v
 	}).(CredentialsPropertiesResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o CredentialsPropertiesResponsePtrOutput) ToCredentialsPropertiesResponseP
 }
 
 func (o CredentialsPropertiesResponsePtrOutput) Elem() CredentialsPropertiesResponseOutput {
-	return o.ApplyT(func(v *CredentialsPropertiesResponse) CredentialsPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CredentialsPropertiesResponse
-		return ret
-	}).(CredentialsPropertiesResponseOutput)
+	return o.ApplyT(func(v *CredentialsPropertiesResponse) CredentialsPropertiesResponse { return *v }).(CredentialsPropertiesResponseOutput)
 }
 
 // The domain admin credentials.
@@ -436,7 +424,7 @@ func (o DomainInfoPropertiesOutput) ToDomainInfoPropertiesPtrOutput() DomainInfo
 }
 
 func (o DomainInfoPropertiesOutput) ToDomainInfoPropertiesPtrOutputWithContext(ctx context.Context) DomainInfoPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInfoProperties) *DomainInfoProperties {
+	return o.ApplyT(func(v DomainInfoProperties) *DomainInfoProperties {
 		return &v
 	}).(DomainInfoPropertiesPtrOutput)
 }
@@ -476,13 +464,7 @@ func (o DomainInfoPropertiesPtrOutput) ToDomainInfoPropertiesPtrOutputWithContex
 }
 
 func (o DomainInfoPropertiesPtrOutput) Elem() DomainInfoPropertiesOutput {
-	return o.ApplyT(func(v *DomainInfoProperties) DomainInfoProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DomainInfoProperties
-		return ret
-	}).(DomainInfoPropertiesOutput)
+	return o.ApplyT(func(v *DomainInfoProperties) DomainInfoProperties { return *v }).(DomainInfoPropertiesOutput)
 }
 
 // Credentials needed to create the virtual machine.
@@ -633,7 +615,7 @@ func (o DomainInfoPropertiesResponseOutput) ToDomainInfoPropertiesResponsePtrOut
 }
 
 func (o DomainInfoPropertiesResponseOutput) ToDomainInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) DomainInfoPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInfoPropertiesResponse) *DomainInfoPropertiesResponse {
+	return o.ApplyT(func(v DomainInfoPropertiesResponse) *DomainInfoPropertiesResponse {
 		return &v
 	}).(DomainInfoPropertiesResponsePtrOutput)
 }
@@ -673,13 +655,7 @@ func (o DomainInfoPropertiesResponsePtrOutput) ToDomainInfoPropertiesResponsePtr
 }
 
 func (o DomainInfoPropertiesResponsePtrOutput) Elem() DomainInfoPropertiesResponseOutput {
-	return o.ApplyT(func(v *DomainInfoPropertiesResponse) DomainInfoPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DomainInfoPropertiesResponse
-		return ret
-	}).(DomainInfoPropertiesResponseOutput)
+	return o.ApplyT(func(v *DomainInfoPropertiesResponse) DomainInfoPropertiesResponse { return *v }).(DomainInfoPropertiesResponseOutput)
 }
 
 // Credentials needed to create the virtual machine.
@@ -830,7 +806,7 @@ func (o ImageInfoPropertiesOutput) ToImageInfoPropertiesPtrOutput() ImageInfoPro
 }
 
 func (o ImageInfoPropertiesOutput) ToImageInfoPropertiesPtrOutputWithContext(ctx context.Context) ImageInfoPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageInfoProperties) *ImageInfoProperties {
+	return o.ApplyT(func(v ImageInfoProperties) *ImageInfoProperties {
 		return &v
 	}).(ImageInfoPropertiesPtrOutput)
 }
@@ -870,13 +846,7 @@ func (o ImageInfoPropertiesPtrOutput) ToImageInfoPropertiesPtrOutputWithContext(
 }
 
 func (o ImageInfoPropertiesPtrOutput) Elem() ImageInfoPropertiesOutput {
-	return o.ApplyT(func(v *ImageInfoProperties) ImageInfoProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ImageInfoProperties
-		return ret
-	}).(ImageInfoPropertiesOutput)
+	return o.ApplyT(func(v *ImageInfoProperties) ImageInfoProperties { return *v }).(ImageInfoPropertiesOutput)
 }
 
 // The resource id of the custom image or shared image. Image type must be CustomImage.
@@ -1027,7 +997,7 @@ func (o ImageInfoPropertiesResponseOutput) ToImageInfoPropertiesResponsePtrOutpu
 }
 
 func (o ImageInfoPropertiesResponseOutput) ToImageInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) ImageInfoPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageInfoPropertiesResponse) *ImageInfoPropertiesResponse {
+	return o.ApplyT(func(v ImageInfoPropertiesResponse) *ImageInfoPropertiesResponse {
 		return &v
 	}).(ImageInfoPropertiesResponsePtrOutput)
 }
@@ -1067,13 +1037,7 @@ func (o ImageInfoPropertiesResponsePtrOutput) ToImageInfoPropertiesResponsePtrOu
 }
 
 func (o ImageInfoPropertiesResponsePtrOutput) Elem() ImageInfoPropertiesResponseOutput {
-	return o.ApplyT(func(v *ImageInfoPropertiesResponse) ImageInfoPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ImageInfoPropertiesResponse
-		return ret
-	}).(ImageInfoPropertiesResponseOutput)
+	return o.ApplyT(func(v *ImageInfoPropertiesResponse) ImageInfoPropertiesResponse { return *v }).(ImageInfoPropertiesResponseOutput)
 }
 
 // The resource id of the custom image or shared image. Image type must be CustomImage.
@@ -1220,7 +1184,7 @@ func (o KeyVaultCredentialPropertiesOutput) ToKeyVaultCredentialPropertiesPtrOut
 }
 
 func (o KeyVaultCredentialPropertiesOutput) ToKeyVaultCredentialPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCredentialProperties) *KeyVaultCredentialProperties {
+	return o.ApplyT(func(v KeyVaultCredentialProperties) *KeyVaultCredentialProperties {
 		return &v
 	}).(KeyVaultCredentialPropertiesPtrOutput)
 }
@@ -1255,13 +1219,7 @@ func (o KeyVaultCredentialPropertiesPtrOutput) ToKeyVaultCredentialPropertiesPtr
 }
 
 func (o KeyVaultCredentialPropertiesPtrOutput) Elem() KeyVaultCredentialPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultCredentialProperties) KeyVaultCredentialProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultCredentialProperties
-		return ret
-	}).(KeyVaultCredentialPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultCredentialProperties) KeyVaultCredentialProperties { return *v }).(KeyVaultCredentialPropertiesOutput)
 }
 
 // The keyvault resource id to the keyvault secrets.
@@ -1398,7 +1356,7 @@ func (o KeyVaultCredentialPropertiesResponseOutput) ToKeyVaultCredentialProperti
 }
 
 func (o KeyVaultCredentialPropertiesResponseOutput) ToKeyVaultCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultCredentialPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultCredentialPropertiesResponse) *KeyVaultCredentialPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultCredentialPropertiesResponse) *KeyVaultCredentialPropertiesResponse {
 		return &v
 	}).(KeyVaultCredentialPropertiesResponsePtrOutput)
 }
@@ -1433,13 +1391,7 @@ func (o KeyVaultCredentialPropertiesResponsePtrOutput) ToKeyVaultCredentialPrope
 }
 
 func (o KeyVaultCredentialPropertiesResponsePtrOutput) Elem() KeyVaultCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultCredentialPropertiesResponse) KeyVaultCredentialPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultCredentialPropertiesResponse
-		return ret
-	}).(KeyVaultCredentialPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultCredentialPropertiesResponse) KeyVaultCredentialPropertiesResponse { return *v }).(KeyVaultCredentialPropertiesResponseOutput)
 }
 
 // The keyvault resource id to the keyvault secrets.
@@ -1475,7 +1427,7 @@ func (o KeyVaultCredentialPropertiesResponsePtrOutput) UserName() pulumi.StringP
 // Maintenance window starting hour and day of week.
 type MaintenanceWindowProperties struct {
 	// Day of the week.
-	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek *string `pulumi:"dayOfWeek"`
 	// The update start hour of the day. (0 - 23)
 	Hour *int `pulumi:"hour"`
 }
@@ -1494,7 +1446,7 @@ type MaintenanceWindowPropertiesInput interface {
 // Maintenance window starting hour and day of week.
 type MaintenanceWindowPropertiesArgs struct {
 	// Day of the week.
-	DayOfWeek DayOfWeekPtrInput `pulumi:"dayOfWeek"`
+	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
 	// The update start hour of the day. (0 - 23)
 	Hour pulumi.IntPtrInput `pulumi:"hour"`
 }
@@ -1572,14 +1524,14 @@ func (o MaintenanceWindowPropertiesOutput) ToMaintenanceWindowPropertiesPtrOutpu
 }
 
 func (o MaintenanceWindowPropertiesOutput) ToMaintenanceWindowPropertiesPtrOutputWithContext(ctx context.Context) MaintenanceWindowPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowProperties) *MaintenanceWindowProperties {
+	return o.ApplyT(func(v MaintenanceWindowProperties) *MaintenanceWindowProperties {
 		return &v
 	}).(MaintenanceWindowPropertiesPtrOutput)
 }
 
 // Day of the week.
-func (o MaintenanceWindowPropertiesOutput) DayOfWeek() DayOfWeekPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowProperties) *DayOfWeek { return v.DayOfWeek }).(DayOfWeekPtrOutput)
+func (o MaintenanceWindowPropertiesOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowProperties) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
 
 // The update start hour of the day. (0 - 23)
@@ -1602,23 +1554,17 @@ func (o MaintenanceWindowPropertiesPtrOutput) ToMaintenanceWindowPropertiesPtrOu
 }
 
 func (o MaintenanceWindowPropertiesPtrOutput) Elem() MaintenanceWindowPropertiesOutput {
-	return o.ApplyT(func(v *MaintenanceWindowProperties) MaintenanceWindowProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MaintenanceWindowProperties
-		return ret
-	}).(MaintenanceWindowPropertiesOutput)
+	return o.ApplyT(func(v *MaintenanceWindowProperties) MaintenanceWindowProperties { return *v }).(MaintenanceWindowPropertiesOutput)
 }
 
 // Day of the week.
-func (o MaintenanceWindowPropertiesPtrOutput) DayOfWeek() DayOfWeekPtrOutput {
-	return o.ApplyT(func(v *MaintenanceWindowProperties) *DayOfWeek {
+func (o MaintenanceWindowPropertiesPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.DayOfWeek
-	}).(DayOfWeekPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The update start hour of the day. (0 - 23)
@@ -1731,7 +1677,7 @@ func (o MaintenanceWindowPropertiesResponseOutput) ToMaintenanceWindowProperties
 }
 
 func (o MaintenanceWindowPropertiesResponseOutput) ToMaintenanceWindowPropertiesResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowPropertiesResponse) *MaintenanceWindowPropertiesResponse {
+	return o.ApplyT(func(v MaintenanceWindowPropertiesResponse) *MaintenanceWindowPropertiesResponse {
 		return &v
 	}).(MaintenanceWindowPropertiesResponsePtrOutput)
 }
@@ -1761,13 +1707,7 @@ func (o MaintenanceWindowPropertiesResponsePtrOutput) ToMaintenanceWindowPropert
 }
 
 func (o MaintenanceWindowPropertiesResponsePtrOutput) Elem() MaintenanceWindowPropertiesResponseOutput {
-	return o.ApplyT(func(v *MaintenanceWindowPropertiesResponse) MaintenanceWindowPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MaintenanceWindowPropertiesResponse
-		return ret
-	}).(MaintenanceWindowPropertiesResponseOutput)
+	return o.ApplyT(func(v *MaintenanceWindowPropertiesResponse) MaintenanceWindowPropertiesResponse { return *v }).(MaintenanceWindowPropertiesResponseOutput)
 }
 
 // Day of the week.
@@ -1898,7 +1838,7 @@ func (o MarketPlaceInfoPropertiesOutput) ToMarketPlaceInfoPropertiesPtrOutput() 
 }
 
 func (o MarketPlaceInfoPropertiesOutput) ToMarketPlaceInfoPropertiesPtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarketPlaceInfoProperties) *MarketPlaceInfoProperties {
+	return o.ApplyT(func(v MarketPlaceInfoProperties) *MarketPlaceInfoProperties {
 		return &v
 	}).(MarketPlaceInfoPropertiesPtrOutput)
 }
@@ -1938,13 +1878,7 @@ func (o MarketPlaceInfoPropertiesPtrOutput) ToMarketPlaceInfoPropertiesPtrOutput
 }
 
 func (o MarketPlaceInfoPropertiesPtrOutput) Elem() MarketPlaceInfoPropertiesOutput {
-	return o.ApplyT(func(v *MarketPlaceInfoProperties) MarketPlaceInfoProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MarketPlaceInfoProperties
-		return ret
-	}).(MarketPlaceInfoPropertiesOutput)
+	return o.ApplyT(func(v *MarketPlaceInfoProperties) MarketPlaceInfoProperties { return *v }).(MarketPlaceInfoPropertiesOutput)
 }
 
 // The exact version of the image.
@@ -2095,7 +2029,7 @@ func (o MarketPlaceInfoPropertiesResponseOutput) ToMarketPlaceInfoPropertiesResp
 }
 
 func (o MarketPlaceInfoPropertiesResponseOutput) ToMarketPlaceInfoPropertiesResponsePtrOutputWithContext(ctx context.Context) MarketPlaceInfoPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarketPlaceInfoPropertiesResponse) *MarketPlaceInfoPropertiesResponse {
+	return o.ApplyT(func(v MarketPlaceInfoPropertiesResponse) *MarketPlaceInfoPropertiesResponse {
 		return &v
 	}).(MarketPlaceInfoPropertiesResponsePtrOutput)
 }
@@ -2135,13 +2069,7 @@ func (o MarketPlaceInfoPropertiesResponsePtrOutput) ToMarketPlaceInfoPropertiesR
 }
 
 func (o MarketPlaceInfoPropertiesResponsePtrOutput) Elem() MarketPlaceInfoPropertiesResponseOutput {
-	return o.ApplyT(func(v *MarketPlaceInfoPropertiesResponse) MarketPlaceInfoPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MarketPlaceInfoPropertiesResponse
-		return ret
-	}).(MarketPlaceInfoPropertiesResponseOutput)
+	return o.ApplyT(func(v *MarketPlaceInfoPropertiesResponse) MarketPlaceInfoPropertiesResponse { return *v }).(MarketPlaceInfoPropertiesResponseOutput)
 }
 
 // The exact version of the image.
@@ -2284,7 +2212,7 @@ func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesPtrOutput(
 }
 
 func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesPtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationRequestProperties) *MigrationRequestProperties {
+	return o.ApplyT(func(v MigrationRequestProperties) *MigrationRequestProperties {
 		return &v
 	}).(MigrationRequestPropertiesPtrOutput)
 }
@@ -2314,13 +2242,7 @@ func (o MigrationRequestPropertiesPtrOutput) ToMigrationRequestPropertiesPtrOutp
 }
 
 func (o MigrationRequestPropertiesPtrOutput) Elem() MigrationRequestPropertiesOutput {
-	return o.ApplyT(func(v *MigrationRequestProperties) MigrationRequestProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationRequestProperties
-		return ret
-	}).(MigrationRequestPropertiesOutput)
+	return o.ApplyT(func(v *MigrationRequestProperties) MigrationRequestProperties { return *v }).(MigrationRequestPropertiesOutput)
 }
 
 // The path to the legacy object to migrate.
@@ -2443,7 +2365,7 @@ func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesRe
 }
 
 func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationRequestPropertiesResponse) *MigrationRequestPropertiesResponse {
+	return o.ApplyT(func(v MigrationRequestPropertiesResponse) *MigrationRequestPropertiesResponse {
 		return &v
 	}).(MigrationRequestPropertiesResponsePtrOutput)
 }
@@ -2473,13 +2395,7 @@ func (o MigrationRequestPropertiesResponsePtrOutput) ToMigrationRequestPropertie
 }
 
 func (o MigrationRequestPropertiesResponsePtrOutput) Elem() MigrationRequestPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) MigrationRequestPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationRequestPropertiesResponse
-		return ret
-	}).(MigrationRequestPropertiesResponseOutput)
+	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) MigrationRequestPropertiesResponse { return *v }).(MigrationRequestPropertiesResponseOutput)
 }
 
 // The path to the legacy object to migrate.
@@ -3142,7 +3058,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -3167,13 +3083,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -3290,7 +3200,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -3325,13 +3235,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -3468,7 +3372,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -3504,11 +3408,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -3646,7 +3546,7 @@ func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutput() RegistrationInfoPt
 }
 
 func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutputWithContext(ctx context.Context) RegistrationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfo) *RegistrationInfo {
+	return o.ApplyT(func(v RegistrationInfo) *RegistrationInfo {
 		return &v
 	}).(RegistrationInfoPtrOutput)
 }
@@ -3681,13 +3581,7 @@ func (o RegistrationInfoPtrOutput) ToRegistrationInfoPtrOutputWithContext(ctx co
 }
 
 func (o RegistrationInfoPtrOutput) Elem() RegistrationInfoOutput {
-	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret RegistrationInfo
-		return ret
-	}).(RegistrationInfoOutput)
+	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo { return *v }).(RegistrationInfoOutput)
 }
 
 // Expiration time of registration token.
@@ -3824,7 +3718,7 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutput() Re
 }
 
 func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfoResponse) *RegistrationInfoResponse {
+	return o.ApplyT(func(v RegistrationInfoResponse) *RegistrationInfoResponse {
 		return &v
 	}).(RegistrationInfoResponsePtrOutput)
 }
@@ -3859,13 +3753,7 @@ func (o RegistrationInfoResponsePtrOutput) ToRegistrationInfoResponsePtrOutputWi
 }
 
 func (o RegistrationInfoResponsePtrOutput) Elem() RegistrationInfoResponseOutput {
-	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RegistrationInfoResponse
-		return ret
-	}).(RegistrationInfoResponseOutput)
+	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse { return *v }).(RegistrationInfoResponseOutput)
 }
 
 // Expiration time of registration token.
@@ -3900,7 +3788,7 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 
 type ResourceModelWithAllowedPropertySetIdentity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ResourceModelWithAllowedPropertySetIdentityInput is an input type that accepts ResourceModelWithAllowedPropertySetIdentityArgs and ResourceModelWithAllowedPropertySetIdentityOutput values.
@@ -3916,7 +3804,7 @@ type ResourceModelWithAllowedPropertySetIdentityInput interface {
 
 type ResourceModelWithAllowedPropertySetIdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (ResourceModelWithAllowedPropertySetIdentityArgs) ElementType() reflect.Type {
@@ -3991,14 +3879,14 @@ func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAl
 }
 
 func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetIdentity) *ResourceModelWithAllowedPropertySetIdentity {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *ResourceModelWithAllowedPropertySetIdentity {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetIdentityPtrOutput)
 }
 
 // The identity type.
-func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -4017,22 +3905,18 @@ func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) ToResourceModelWit
 
 func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Elem() ResourceModelWithAllowedPropertySetIdentityOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) ResourceModelWithAllowedPropertySetIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetIdentity
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetIdentityOutput)
 }
 
 // The identity type.
-func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType {
+func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetPlan struct {
@@ -4144,7 +4028,7 @@ func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowe
 }
 
 func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetPlan) *ResourceModelWithAllowedPropertySetPlan {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) *ResourceModelWithAllowedPropertySetPlan {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetPlanPtrOutput)
 }
@@ -4189,13 +4073,7 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) ToResourceModelWithAll
 }
 
 func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Elem() ResourceModelWithAllowedPropertySetPlanOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) ResourceModelWithAllowedPropertySetPlan {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetPlan
-		return ret
-	}).(ResourceModelWithAllowedPropertySetPlanOutput)
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) ResourceModelWithAllowedPropertySetPlan { return *v }).(ResourceModelWithAllowedPropertySetPlanOutput)
 }
 
 // A user defined name of the 3rd Party Artifact that is being procured.
@@ -4349,7 +4227,7 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceMod
 }
 
 func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetResponseIdentity) *ResourceModelWithAllowedPropertySetResponseIdentity {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) *ResourceModelWithAllowedPropertySetResponseIdentity {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
 }
@@ -4385,11 +4263,7 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) ToResource
 
 func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponseIdentityOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) ResourceModelWithAllowedPropertySetResponseIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetResponseIdentity
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetResponseIdentityOutput)
 }
 
@@ -4532,7 +4406,7 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWi
 }
 
 func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetResponsePlan) *ResourceModelWithAllowedPropertySetResponsePlan {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) *ResourceModelWithAllowedPropertySetResponsePlan {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
 }
@@ -4578,11 +4452,7 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) ToResourceMode
 
 func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponsePlanOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) ResourceModelWithAllowedPropertySetResponsePlan {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetResponsePlan
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetResponsePlanOutput)
 }
 
@@ -4745,7 +4615,7 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWit
 }
 
 func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetResponseSku) *ResourceModelWithAllowedPropertySetResponseSku {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *ResourceModelWithAllowedPropertySetResponseSku {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
 }
@@ -4791,11 +4661,7 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) ToResourceModel
 
 func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponseSkuOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) ResourceModelWithAllowedPropertySetResponseSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetResponseSku
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetResponseSkuOutput)
 }
 
@@ -4859,7 +4725,7 @@ type ResourceModelWithAllowedPropertySetSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *SkuTier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // ResourceModelWithAllowedPropertySetSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs and ResourceModelWithAllowedPropertySetSkuOutput values.
@@ -4883,7 +4749,7 @@ type ResourceModelWithAllowedPropertySetSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier SkuTierPtrInput `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (ResourceModelWithAllowedPropertySetSkuArgs) ElementType() reflect.Type {
@@ -4958,7 +4824,7 @@ func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowed
 }
 
 func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetSku) *ResourceModelWithAllowedPropertySetSku {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *ResourceModelWithAllowedPropertySetSku {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetSkuPtrOutput)
 }
@@ -4984,8 +4850,8 @@ func (o ResourceModelWithAllowedPropertySetSkuOutput) Size() pulumi.StringPtrOut
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetSkuPtrOutput struct{ *pulumi.OutputState }
@@ -5003,13 +4869,7 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) ToResourceModelWithAllo
 }
 
 func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Elem() ResourceModelWithAllowedPropertySetSkuOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) ResourceModelWithAllowedPropertySetSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetSku
-		return ret
-	}).(ResourceModelWithAllowedPropertySetSkuOutput)
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) ResourceModelWithAllowedPropertySetSku { return *v }).(ResourceModelWithAllowedPropertySetSkuOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -5053,13 +4913,13 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Size() pulumi.StringPtr
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *SkuTier {
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(SkuTierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Scaling plan reference to hostpool.
@@ -5886,7 +5746,7 @@ func (o SecondaryWindowPropertiesOutput) ToSecondaryWindowPropertiesPtrOutput() 
 }
 
 func (o SecondaryWindowPropertiesOutput) ToSecondaryWindowPropertiesPtrOutputWithContext(ctx context.Context) SecondaryWindowPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecondaryWindowProperties) *SecondaryWindowProperties {
+	return o.ApplyT(func(v SecondaryWindowProperties) *SecondaryWindowProperties {
 		return &v
 	}).(SecondaryWindowPropertiesPtrOutput)
 }
@@ -5916,13 +5776,7 @@ func (o SecondaryWindowPropertiesPtrOutput) ToSecondaryWindowPropertiesPtrOutput
 }
 
 func (o SecondaryWindowPropertiesPtrOutput) Elem() SecondaryWindowPropertiesOutput {
-	return o.ApplyT(func(v *SecondaryWindowProperties) SecondaryWindowProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SecondaryWindowProperties
-		return ret
-	}).(SecondaryWindowPropertiesOutput)
+	return o.ApplyT(func(v *SecondaryWindowProperties) SecondaryWindowProperties { return *v }).(SecondaryWindowPropertiesOutput)
 }
 
 // Set of days of the week on which this schedule is active.
@@ -6045,7 +5899,7 @@ func (o SecondaryWindowPropertiesResponseOutput) ToSecondaryWindowPropertiesResp
 }
 
 func (o SecondaryWindowPropertiesResponseOutput) ToSecondaryWindowPropertiesResponsePtrOutputWithContext(ctx context.Context) SecondaryWindowPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecondaryWindowPropertiesResponse) *SecondaryWindowPropertiesResponse {
+	return o.ApplyT(func(v SecondaryWindowPropertiesResponse) *SecondaryWindowPropertiesResponse {
 		return &v
 	}).(SecondaryWindowPropertiesResponsePtrOutput)
 }
@@ -6075,13 +5929,7 @@ func (o SecondaryWindowPropertiesResponsePtrOutput) ToSecondaryWindowPropertiesR
 }
 
 func (o SecondaryWindowPropertiesResponsePtrOutput) Elem() SecondaryWindowPropertiesResponseOutput {
-	return o.ApplyT(func(v *SecondaryWindowPropertiesResponse) SecondaryWindowPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecondaryWindowPropertiesResponse
-		return ret
-	}).(SecondaryWindowPropertiesResponseOutput)
+	return o.ApplyT(func(v *SecondaryWindowPropertiesResponse) SecondaryWindowPropertiesResponse { return *v }).(SecondaryWindowPropertiesResponseOutput)
 }
 
 // Set of days of the week on which this schedule is active.
@@ -6216,7 +6064,7 @@ func (o SessionHostComponentUpdateConfigurationPropertiesOutput) ToSessionHostCo
 }
 
 func (o SessionHostComponentUpdateConfigurationPropertiesOutput) ToSessionHostComponentUpdateConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SessionHostComponentUpdateConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionHostComponentUpdateConfigurationProperties) *SessionHostComponentUpdateConfigurationProperties {
+	return o.ApplyT(func(v SessionHostComponentUpdateConfigurationProperties) *SessionHostComponentUpdateConfigurationProperties {
 		return &v
 	}).(SessionHostComponentUpdateConfigurationPropertiesPtrOutput)
 }
@@ -6266,11 +6114,7 @@ func (o SessionHostComponentUpdateConfigurationPropertiesPtrOutput) ToSessionHos
 
 func (o SessionHostComponentUpdateConfigurationPropertiesPtrOutput) Elem() SessionHostComponentUpdateConfigurationPropertiesOutput {
 	return o.ApplyT(func(v *SessionHostComponentUpdateConfigurationProperties) SessionHostComponentUpdateConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SessionHostComponentUpdateConfigurationProperties
-		return ret
+		return *v
 	}).(SessionHostComponentUpdateConfigurationPropertiesOutput)
 }
 
@@ -6436,7 +6280,7 @@ func (o SessionHostComponentUpdateConfigurationPropertiesResponseOutput) ToSessi
 }
 
 func (o SessionHostComponentUpdateConfigurationPropertiesResponseOutput) ToSessionHostComponentUpdateConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) SessionHostComponentUpdateConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionHostComponentUpdateConfigurationPropertiesResponse) *SessionHostComponentUpdateConfigurationPropertiesResponse {
+	return o.ApplyT(func(v SessionHostComponentUpdateConfigurationPropertiesResponse) *SessionHostComponentUpdateConfigurationPropertiesResponse {
 		return &v
 	}).(SessionHostComponentUpdateConfigurationPropertiesResponsePtrOutput)
 }
@@ -6490,11 +6334,7 @@ func (o SessionHostComponentUpdateConfigurationPropertiesResponsePtrOutput) ToSe
 
 func (o SessionHostComponentUpdateConfigurationPropertiesResponsePtrOutput) Elem() SessionHostComponentUpdateConfigurationPropertiesResponseOutput {
 	return o.ApplyT(func(v *SessionHostComponentUpdateConfigurationPropertiesResponse) SessionHostComponentUpdateConfigurationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SessionHostComponentUpdateConfigurationPropertiesResponse
-		return ret
+		return *v
 	}).(SessionHostComponentUpdateConfigurationPropertiesResponseOutput)
 }
 
@@ -6664,7 +6504,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -6714,13 +6554,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

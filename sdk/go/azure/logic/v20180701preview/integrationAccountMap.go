@@ -188,7 +188,9 @@ func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
 }
 
-type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountMap)(nil))

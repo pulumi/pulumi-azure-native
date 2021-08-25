@@ -187,7 +187,9 @@ func (i *ThreatIntelligenceAlertRule) ToThreatIntelligenceAlertRuleOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceAlertRuleOutput)
 }
 
-type ThreatIntelligenceAlertRuleOutput struct{ *pulumi.OutputState }
+type ThreatIntelligenceAlertRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (ThreatIntelligenceAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreatIntelligenceAlertRule)(nil))

@@ -247,7 +247,9 @@ func (i *GremlinResourceGremlinDatabase) ToGremlinResourceGremlinDatabaseOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinDatabaseOutput)
 }
 
-type GremlinResourceGremlinDatabaseOutput struct{ *pulumi.OutputState }
+type GremlinResourceGremlinDatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (GremlinResourceGremlinDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinResourceGremlinDatabase)(nil))

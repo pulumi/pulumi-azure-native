@@ -308,11 +308,10 @@ func (o DefaultRolloutPropertiesOutput) ToDefaultRolloutPropertiesPtrOutput() De
 }
 
 func (o DefaultRolloutPropertiesOutput) ToDefaultRolloutPropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutProperties) *DefaultRolloutProperties {
+	return o.ApplyT(func(v DefaultRolloutProperties) *DefaultRolloutProperties {
 		return &v
 	}).(DefaultRolloutPropertiesPtrOutput)
 }
-
 func (o DefaultRolloutPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRolloutProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -340,13 +339,7 @@ func (o DefaultRolloutPropertiesPtrOutput) ToDefaultRolloutPropertiesPtrOutputWi
 }
 
 func (o DefaultRolloutPropertiesPtrOutput) Elem() DefaultRolloutPropertiesOutput {
-	return o.ApplyT(func(v *DefaultRolloutProperties) DefaultRolloutProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutProperties
-		return ret
-	}).(DefaultRolloutPropertiesOutput)
+	return o.ApplyT(func(v *DefaultRolloutProperties) DefaultRolloutProperties { return *v }).(DefaultRolloutPropertiesOutput)
 }
 
 func (o DefaultRolloutPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
@@ -481,11 +474,10 @@ func (o DefaultRolloutPropertiesResponseSpecificationOutput) ToDefaultRolloutPro
 }
 
 func (o DefaultRolloutPropertiesResponseSpecificationOutput) ToDefaultRolloutPropertiesResponseSpecificationPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesResponseSpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutPropertiesResponseSpecification) *DefaultRolloutPropertiesResponseSpecification {
+	return o.ApplyT(func(v DefaultRolloutPropertiesResponseSpecification) *DefaultRolloutPropertiesResponseSpecification {
 		return &v
 	}).(DefaultRolloutPropertiesResponseSpecificationPtrOutput)
 }
-
 func (o DefaultRolloutPropertiesResponseSpecificationOutput) Canary() DefaultRolloutSpecificationResponseCanaryPtrOutput {
 	return o.ApplyT(func(v DefaultRolloutPropertiesResponseSpecification) *DefaultRolloutSpecificationResponseCanary {
 		return v.Canary
@@ -550,11 +542,7 @@ func (o DefaultRolloutPropertiesResponseSpecificationPtrOutput) ToDefaultRollout
 
 func (o DefaultRolloutPropertiesResponseSpecificationPtrOutput) Elem() DefaultRolloutPropertiesResponseSpecificationOutput {
 	return o.ApplyT(func(v *DefaultRolloutPropertiesResponseSpecification) DefaultRolloutPropertiesResponseSpecification {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutPropertiesResponseSpecification
-		return ret
+		return *v
 	}).(DefaultRolloutPropertiesResponseSpecificationOutput)
 }
 
@@ -729,11 +717,10 @@ func (o DefaultRolloutPropertiesResponseStatusOutput) ToDefaultRolloutProperties
 }
 
 func (o DefaultRolloutPropertiesResponseStatusOutput) ToDefaultRolloutPropertiesResponseStatusPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesResponseStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutPropertiesResponseStatus) *DefaultRolloutPropertiesResponseStatus {
+	return o.ApplyT(func(v DefaultRolloutPropertiesResponseStatus) *DefaultRolloutPropertiesResponseStatus {
 		return &v
 	}).(DefaultRolloutPropertiesResponseStatusPtrOutput)
 }
-
 func (o DefaultRolloutPropertiesResponseStatusOutput) CompletedRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutPropertiesResponseStatus) []string { return v.CompletedRegions }).(pulumi.StringArrayOutput)
 }
@@ -771,13 +758,7 @@ func (o DefaultRolloutPropertiesResponseStatusPtrOutput) ToDefaultRolloutPropert
 }
 
 func (o DefaultRolloutPropertiesResponseStatusPtrOutput) Elem() DefaultRolloutPropertiesResponseStatusOutput {
-	return o.ApplyT(func(v *DefaultRolloutPropertiesResponseStatus) DefaultRolloutPropertiesResponseStatus {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutPropertiesResponseStatus
-		return ret
-	}).(DefaultRolloutPropertiesResponseStatusOutput)
+	return o.ApplyT(func(v *DefaultRolloutPropertiesResponseStatus) DefaultRolloutPropertiesResponseStatus { return *v }).(DefaultRolloutPropertiesResponseStatusOutput)
 }
 
 func (o DefaultRolloutPropertiesResponseStatusPtrOutput) CompletedRegions() pulumi.StringArrayOutput {
@@ -930,11 +911,10 @@ func (o DefaultRolloutPropertiesSpecificationOutput) ToDefaultRolloutPropertiesS
 }
 
 func (o DefaultRolloutPropertiesSpecificationOutput) ToDefaultRolloutPropertiesSpecificationPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesSpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutPropertiesSpecification) *DefaultRolloutPropertiesSpecification {
+	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutPropertiesSpecification {
 		return &v
 	}).(DefaultRolloutPropertiesSpecificationPtrOutput)
 }
-
 func (o DefaultRolloutPropertiesSpecificationOutput) Canary() DefaultRolloutSpecificationCanaryPtrOutput {
 	return o.ApplyT(func(v DefaultRolloutPropertiesSpecification) *DefaultRolloutSpecificationCanary { return v.Canary }).(DefaultRolloutSpecificationCanaryPtrOutput)
 }
@@ -996,13 +976,7 @@ func (o DefaultRolloutPropertiesSpecificationPtrOutput) ToDefaultRolloutProperti
 }
 
 func (o DefaultRolloutPropertiesSpecificationPtrOutput) Elem() DefaultRolloutPropertiesSpecificationOutput {
-	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) DefaultRolloutPropertiesSpecification {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutPropertiesSpecification
-		return ret
-	}).(DefaultRolloutPropertiesSpecificationOutput)
+	return o.ApplyT(func(v *DefaultRolloutPropertiesSpecification) DefaultRolloutPropertiesSpecification { return *v }).(DefaultRolloutPropertiesSpecificationOutput)
 }
 
 func (o DefaultRolloutPropertiesSpecificationPtrOutput) Canary() DefaultRolloutSpecificationCanaryPtrOutput {
@@ -1176,11 +1150,10 @@ func (o DefaultRolloutPropertiesStatusOutput) ToDefaultRolloutPropertiesStatusPt
 }
 
 func (o DefaultRolloutPropertiesStatusOutput) ToDefaultRolloutPropertiesStatusPtrOutputWithContext(ctx context.Context) DefaultRolloutPropertiesStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutPropertiesStatus) *DefaultRolloutPropertiesStatus {
+	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) *DefaultRolloutPropertiesStatus {
 		return &v
 	}).(DefaultRolloutPropertiesStatusPtrOutput)
 }
-
 func (o DefaultRolloutPropertiesStatusOutput) CompletedRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutPropertiesStatus) []string { return v.CompletedRegions }).(pulumi.StringArrayOutput)
 }
@@ -1216,13 +1189,7 @@ func (o DefaultRolloutPropertiesStatusPtrOutput) ToDefaultRolloutPropertiesStatu
 }
 
 func (o DefaultRolloutPropertiesStatusPtrOutput) Elem() DefaultRolloutPropertiesStatusOutput {
-	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) DefaultRolloutPropertiesStatus {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutPropertiesStatus
-		return ret
-	}).(DefaultRolloutPropertiesStatusOutput)
+	return o.ApplyT(func(v *DefaultRolloutPropertiesStatus) DefaultRolloutPropertiesStatus { return *v }).(DefaultRolloutPropertiesStatusOutput)
 }
 
 func (o DefaultRolloutPropertiesStatusPtrOutput) CompletedRegions() pulumi.StringArrayOutput {
@@ -1368,11 +1335,10 @@ func (o DefaultRolloutResponsePropertiesOutput) ToDefaultRolloutResponseProperti
 }
 
 func (o DefaultRolloutResponsePropertiesOutput) ToDefaultRolloutResponsePropertiesPtrOutputWithContext(ctx context.Context) DefaultRolloutResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutResponseProperties) *DefaultRolloutResponseProperties {
+	return o.ApplyT(func(v DefaultRolloutResponseProperties) *DefaultRolloutResponseProperties {
 		return &v
 	}).(DefaultRolloutResponsePropertiesPtrOutput)
 }
-
 func (o DefaultRolloutResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRolloutResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -1402,13 +1368,7 @@ func (o DefaultRolloutResponsePropertiesPtrOutput) ToDefaultRolloutResponsePrope
 }
 
 func (o DefaultRolloutResponsePropertiesPtrOutput) Elem() DefaultRolloutResponsePropertiesOutput {
-	return o.ApplyT(func(v *DefaultRolloutResponseProperties) DefaultRolloutResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutResponseProperties
-		return ret
-	}).(DefaultRolloutResponsePropertiesOutput)
+	return o.ApplyT(func(v *DefaultRolloutResponseProperties) DefaultRolloutResponseProperties { return *v }).(DefaultRolloutResponsePropertiesOutput)
 }
 
 func (o DefaultRolloutResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
@@ -1531,11 +1491,10 @@ func (o DefaultRolloutSpecificationCanaryOutput) ToDefaultRolloutSpecificationCa
 }
 
 func (o DefaultRolloutSpecificationCanaryOutput) ToDefaultRolloutSpecificationCanaryPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationCanaryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationCanary) *DefaultRolloutSpecificationCanary {
+	return o.ApplyT(func(v DefaultRolloutSpecificationCanary) *DefaultRolloutSpecificationCanary {
 		return &v
 	}).(DefaultRolloutSpecificationCanaryPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationCanaryOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationCanary) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -1559,13 +1518,7 @@ func (o DefaultRolloutSpecificationCanaryPtrOutput) ToDefaultRolloutSpecificatio
 }
 
 func (o DefaultRolloutSpecificationCanaryPtrOutput) Elem() DefaultRolloutSpecificationCanaryOutput {
-	return o.ApplyT(func(v *DefaultRolloutSpecificationCanary) DefaultRolloutSpecificationCanary {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationCanary
-		return ret
-	}).(DefaultRolloutSpecificationCanaryOutput)
+	return o.ApplyT(func(v *DefaultRolloutSpecificationCanary) DefaultRolloutSpecificationCanary { return *v }).(DefaultRolloutSpecificationCanaryOutput)
 }
 
 func (o DefaultRolloutSpecificationCanaryPtrOutput) Regions() pulumi.StringArrayOutput {
@@ -1679,11 +1632,10 @@ func (o DefaultRolloutSpecificationHighTrafficOutput) ToDefaultRolloutSpecificat
 }
 
 func (o DefaultRolloutSpecificationHighTrafficOutput) ToDefaultRolloutSpecificationHighTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationHighTrafficPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationHighTraffic) *DefaultRolloutSpecificationHighTraffic {
+	return o.ApplyT(func(v DefaultRolloutSpecificationHighTraffic) *DefaultRolloutSpecificationHighTraffic {
 		return &v
 	}).(DefaultRolloutSpecificationHighTrafficPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationHighTrafficOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationHighTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -1707,13 +1659,7 @@ func (o DefaultRolloutSpecificationHighTrafficPtrOutput) ToDefaultRolloutSpecifi
 }
 
 func (o DefaultRolloutSpecificationHighTrafficPtrOutput) Elem() DefaultRolloutSpecificationHighTrafficOutput {
-	return o.ApplyT(func(v *DefaultRolloutSpecificationHighTraffic) DefaultRolloutSpecificationHighTraffic {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationHighTraffic
-		return ret
-	}).(DefaultRolloutSpecificationHighTrafficOutput)
+	return o.ApplyT(func(v *DefaultRolloutSpecificationHighTraffic) DefaultRolloutSpecificationHighTraffic { return *v }).(DefaultRolloutSpecificationHighTrafficOutput)
 }
 
 func (o DefaultRolloutSpecificationHighTrafficPtrOutput) Regions() pulumi.StringArrayOutput {
@@ -1827,11 +1773,10 @@ func (o DefaultRolloutSpecificationLowTrafficOutput) ToDefaultRolloutSpecificati
 }
 
 func (o DefaultRolloutSpecificationLowTrafficOutput) ToDefaultRolloutSpecificationLowTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationLowTrafficPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationLowTraffic) *DefaultRolloutSpecificationLowTraffic {
+	return o.ApplyT(func(v DefaultRolloutSpecificationLowTraffic) *DefaultRolloutSpecificationLowTraffic {
 		return &v
 	}).(DefaultRolloutSpecificationLowTrafficPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationLowTrafficOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationLowTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -1855,13 +1800,7 @@ func (o DefaultRolloutSpecificationLowTrafficPtrOutput) ToDefaultRolloutSpecific
 }
 
 func (o DefaultRolloutSpecificationLowTrafficPtrOutput) Elem() DefaultRolloutSpecificationLowTrafficOutput {
-	return o.ApplyT(func(v *DefaultRolloutSpecificationLowTraffic) DefaultRolloutSpecificationLowTraffic {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationLowTraffic
-		return ret
-	}).(DefaultRolloutSpecificationLowTrafficOutput)
+	return o.ApplyT(func(v *DefaultRolloutSpecificationLowTraffic) DefaultRolloutSpecificationLowTraffic { return *v }).(DefaultRolloutSpecificationLowTrafficOutput)
 }
 
 func (o DefaultRolloutSpecificationLowTrafficPtrOutput) Regions() pulumi.StringArrayOutput {
@@ -1975,11 +1914,10 @@ func (o DefaultRolloutSpecificationMediumTrafficOutput) ToDefaultRolloutSpecific
 }
 
 func (o DefaultRolloutSpecificationMediumTrafficOutput) ToDefaultRolloutSpecificationMediumTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationMediumTrafficPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationMediumTraffic) *DefaultRolloutSpecificationMediumTraffic {
+	return o.ApplyT(func(v DefaultRolloutSpecificationMediumTraffic) *DefaultRolloutSpecificationMediumTraffic {
 		return &v
 	}).(DefaultRolloutSpecificationMediumTrafficPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationMediumTrafficOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationMediumTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -2003,13 +1941,7 @@ func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) ToDefaultRolloutSpeci
 }
 
 func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) Elem() DefaultRolloutSpecificationMediumTrafficOutput {
-	return o.ApplyT(func(v *DefaultRolloutSpecificationMediumTraffic) DefaultRolloutSpecificationMediumTraffic {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationMediumTraffic
-		return ret
-	}).(DefaultRolloutSpecificationMediumTrafficOutput)
+	return o.ApplyT(func(v *DefaultRolloutSpecificationMediumTraffic) DefaultRolloutSpecificationMediumTraffic { return *v }).(DefaultRolloutSpecificationMediumTrafficOutput)
 }
 
 func (o DefaultRolloutSpecificationMediumTrafficPtrOutput) Regions() pulumi.StringArrayOutput {
@@ -2121,11 +2053,10 @@ func (o DefaultRolloutSpecificationProviderRegistrationOutput) ToDefaultRolloutS
 }
 
 func (o DefaultRolloutSpecificationProviderRegistrationOutput) ToDefaultRolloutSpecificationProviderRegistrationPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationProviderRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationProviderRegistration) *DefaultRolloutSpecificationProviderRegistration {
+	return o.ApplyT(func(v DefaultRolloutSpecificationProviderRegistration) *DefaultRolloutSpecificationProviderRegistration {
 		return &v
 	}).(DefaultRolloutSpecificationProviderRegistrationPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationProviderRegistrationOutput) Properties() ProviderRegistrationPropertiesPtrOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationProviderRegistration) *ProviderRegistrationProperties {
 		return v.Properties
@@ -2148,11 +2079,7 @@ func (o DefaultRolloutSpecificationProviderRegistrationPtrOutput) ToDefaultRollo
 
 func (o DefaultRolloutSpecificationProviderRegistrationPtrOutput) Elem() DefaultRolloutSpecificationProviderRegistrationOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationProviderRegistration) DefaultRolloutSpecificationProviderRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationProviderRegistration
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationProviderRegistrationOutput)
 }
 
@@ -2258,11 +2185,10 @@ func (o DefaultRolloutSpecificationResponseCanaryOutput) ToDefaultRolloutSpecifi
 }
 
 func (o DefaultRolloutSpecificationResponseCanaryOutput) ToDefaultRolloutSpecificationResponseCanaryPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationResponseCanaryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationResponseCanary) *DefaultRolloutSpecificationResponseCanary {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseCanary) *DefaultRolloutSpecificationResponseCanary {
 		return &v
 	}).(DefaultRolloutSpecificationResponseCanaryPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationResponseCanaryOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseCanary) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -2287,11 +2213,7 @@ func (o DefaultRolloutSpecificationResponseCanaryPtrOutput) ToDefaultRolloutSpec
 
 func (o DefaultRolloutSpecificationResponseCanaryPtrOutput) Elem() DefaultRolloutSpecificationResponseCanaryOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseCanary) DefaultRolloutSpecificationResponseCanary {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationResponseCanary
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationResponseCanaryOutput)
 }
 
@@ -2406,11 +2328,10 @@ func (o DefaultRolloutSpecificationResponseHighTrafficOutput) ToDefaultRolloutSp
 }
 
 func (o DefaultRolloutSpecificationResponseHighTrafficOutput) ToDefaultRolloutSpecificationResponseHighTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationResponseHighTrafficPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationResponseHighTraffic) *DefaultRolloutSpecificationResponseHighTraffic {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseHighTraffic) *DefaultRolloutSpecificationResponseHighTraffic {
 		return &v
 	}).(DefaultRolloutSpecificationResponseHighTrafficPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationResponseHighTrafficOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseHighTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -2435,11 +2356,7 @@ func (o DefaultRolloutSpecificationResponseHighTrafficPtrOutput) ToDefaultRollou
 
 func (o DefaultRolloutSpecificationResponseHighTrafficPtrOutput) Elem() DefaultRolloutSpecificationResponseHighTrafficOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseHighTraffic) DefaultRolloutSpecificationResponseHighTraffic {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationResponseHighTraffic
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationResponseHighTrafficOutput)
 }
 
@@ -2554,11 +2471,10 @@ func (o DefaultRolloutSpecificationResponseLowTrafficOutput) ToDefaultRolloutSpe
 }
 
 func (o DefaultRolloutSpecificationResponseLowTrafficOutput) ToDefaultRolloutSpecificationResponseLowTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationResponseLowTrafficPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationResponseLowTraffic) *DefaultRolloutSpecificationResponseLowTraffic {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseLowTraffic) *DefaultRolloutSpecificationResponseLowTraffic {
 		return &v
 	}).(DefaultRolloutSpecificationResponseLowTrafficPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationResponseLowTrafficOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseLowTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -2583,11 +2499,7 @@ func (o DefaultRolloutSpecificationResponseLowTrafficPtrOutput) ToDefaultRollout
 
 func (o DefaultRolloutSpecificationResponseLowTrafficPtrOutput) Elem() DefaultRolloutSpecificationResponseLowTrafficOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseLowTraffic) DefaultRolloutSpecificationResponseLowTraffic {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationResponseLowTraffic
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationResponseLowTrafficOutput)
 }
 
@@ -2702,11 +2614,10 @@ func (o DefaultRolloutSpecificationResponseMediumTrafficOutput) ToDefaultRollout
 }
 
 func (o DefaultRolloutSpecificationResponseMediumTrafficOutput) ToDefaultRolloutSpecificationResponseMediumTrafficPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationResponseMediumTrafficPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationResponseMediumTraffic) *DefaultRolloutSpecificationResponseMediumTraffic {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseMediumTraffic) *DefaultRolloutSpecificationResponseMediumTraffic {
 		return &v
 	}).(DefaultRolloutSpecificationResponseMediumTrafficPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationResponseMediumTrafficOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseMediumTraffic) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -2731,11 +2642,7 @@ func (o DefaultRolloutSpecificationResponseMediumTrafficPtrOutput) ToDefaultRoll
 
 func (o DefaultRolloutSpecificationResponseMediumTrafficPtrOutput) Elem() DefaultRolloutSpecificationResponseMediumTrafficOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseMediumTraffic) DefaultRolloutSpecificationResponseMediumTraffic {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationResponseMediumTraffic
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationResponseMediumTrafficOutput)
 }
 
@@ -2860,7 +2767,7 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) ToDefault
 }
 
 func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) ToDefaultRolloutSpecificationResponseProviderRegistrationPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationResponseProviderRegistration) *DefaultRolloutSpecificationResponseProviderRegistration {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseProviderRegistration) *DefaultRolloutSpecificationResponseProviderRegistration {
 		return &v
 	}).(DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput)
 }
@@ -2902,11 +2809,7 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) ToDefa
 
 func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Elem() DefaultRolloutSpecificationResponseProviderRegistrationOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseProviderRegistration) DefaultRolloutSpecificationResponseProviderRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationResponseProviderRegistration
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationResponseProviderRegistrationOutput)
 }
 
@@ -3042,11 +2945,10 @@ func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupOneOutput) ToDefau
 }
 
 func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupOneOutput) ToDefaultRolloutSpecificationResponseRestOfTheWorldGroupOnePtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationResponseRestOfTheWorldGroupOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne) *DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne) *DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne {
 		return &v
 	}).(DefaultRolloutSpecificationResponseRestOfTheWorldGroupOnePtrOutput)
 }
-
 func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupOneOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -3071,11 +2973,7 @@ func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupOnePtrOutput) ToDe
 
 func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupOnePtrOutput) Elem() DefaultRolloutSpecificationResponseRestOfTheWorldGroupOneOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne) DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationResponseRestOfTheWorldGroupOne
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationResponseRestOfTheWorldGroupOneOutput)
 }
 
@@ -3190,11 +3088,10 @@ func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoOutput) ToDefau
 }
 
 func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoOutput) ToDefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo) *DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo) *DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo {
 		return &v
 	}).(DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -3219,11 +3116,7 @@ func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoPtrOutput) ToDe
 
 func (o DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoPtrOutput) Elem() DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo) DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwoOutput)
 }
 
@@ -3338,11 +3231,10 @@ func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) ToDefaultRollou
 }
 
 func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationRestOfTheWorldGroupOne) *DefaultRolloutSpecificationRestOfTheWorldGroupOne {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupOne) *DefaultRolloutSpecificationRestOfTheWorldGroupOne {
 		return &v
 	}).(DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput)
 }
-
 func (o DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupOne) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -3367,11 +3259,7 @@ func (o DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) ToDefaultRol
 
 func (o DefaultRolloutSpecificationRestOfTheWorldGroupOnePtrOutput) Elem() DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupOne) DefaultRolloutSpecificationRestOfTheWorldGroupOne {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationRestOfTheWorldGroupOne
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationRestOfTheWorldGroupOneOutput)
 }
 
@@ -3486,11 +3374,10 @@ func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) ToDefaultRollou
 }
 
 func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) ToDefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutputWithContext(ctx context.Context) DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRolloutSpecificationRestOfTheWorldGroupTwo) *DefaultRolloutSpecificationRestOfTheWorldGroupTwo {
+	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupTwo) *DefaultRolloutSpecificationRestOfTheWorldGroupTwo {
 		return &v
 	}).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput)
 }
-
 func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationRestOfTheWorldGroupTwo) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -3515,11 +3402,7 @@ func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) ToDefaultRol
 
 func (o DefaultRolloutSpecificationRestOfTheWorldGroupTwoPtrOutput) Elem() DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput {
 	return o.ApplyT(func(v *DefaultRolloutSpecificationRestOfTheWorldGroupTwo) DefaultRolloutSpecificationRestOfTheWorldGroupTwo {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultRolloutSpecificationRestOfTheWorldGroupTwo
-		return ret
+		return *v
 	}).(DefaultRolloutSpecificationRestOfTheWorldGroupTwoOutput)
 }
 
@@ -4708,11 +4591,10 @@ func (o LoggingRuleHiddenPropertyPathsOutput) ToLoggingRuleHiddenPropertyPathsPt
 }
 
 func (o LoggingRuleHiddenPropertyPathsOutput) ToLoggingRuleHiddenPropertyPathsPtrOutputWithContext(ctx context.Context) LoggingRuleHiddenPropertyPathsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingRuleHiddenPropertyPaths) *LoggingRuleHiddenPropertyPaths {
+	return o.ApplyT(func(v LoggingRuleHiddenPropertyPaths) *LoggingRuleHiddenPropertyPaths {
 		return &v
 	}).(LoggingRuleHiddenPropertyPathsPtrOutput)
 }
-
 func (o LoggingRuleHiddenPropertyPathsOutput) HiddenPathsOnRequest() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoggingRuleHiddenPropertyPaths) []string { return v.HiddenPathsOnRequest }).(pulumi.StringArrayOutput)
 }
@@ -4736,13 +4618,7 @@ func (o LoggingRuleHiddenPropertyPathsPtrOutput) ToLoggingRuleHiddenPropertyPath
 }
 
 func (o LoggingRuleHiddenPropertyPathsPtrOutput) Elem() LoggingRuleHiddenPropertyPathsOutput {
-	return o.ApplyT(func(v *LoggingRuleHiddenPropertyPaths) LoggingRuleHiddenPropertyPaths {
-		if v != nil {
-			return *v
-		}
-		var ret LoggingRuleHiddenPropertyPaths
-		return ret
-	}).(LoggingRuleHiddenPropertyPathsOutput)
+	return o.ApplyT(func(v *LoggingRuleHiddenPropertyPaths) LoggingRuleHiddenPropertyPaths { return *v }).(LoggingRuleHiddenPropertyPathsOutput)
 }
 
 func (o LoggingRuleHiddenPropertyPathsPtrOutput) HiddenPathsOnRequest() pulumi.StringArrayOutput {
@@ -4968,11 +4844,10 @@ func (o LoggingRuleResponseHiddenPropertyPathsOutput) ToLoggingRuleResponseHidde
 }
 
 func (o LoggingRuleResponseHiddenPropertyPathsOutput) ToLoggingRuleResponseHiddenPropertyPathsPtrOutputWithContext(ctx context.Context) LoggingRuleResponseHiddenPropertyPathsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingRuleResponseHiddenPropertyPaths) *LoggingRuleResponseHiddenPropertyPaths {
+	return o.ApplyT(func(v LoggingRuleResponseHiddenPropertyPaths) *LoggingRuleResponseHiddenPropertyPaths {
 		return &v
 	}).(LoggingRuleResponseHiddenPropertyPathsPtrOutput)
 }
-
 func (o LoggingRuleResponseHiddenPropertyPathsOutput) HiddenPathsOnRequest() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoggingRuleResponseHiddenPropertyPaths) []string { return v.HiddenPathsOnRequest }).(pulumi.StringArrayOutput)
 }
@@ -4996,13 +4871,7 @@ func (o LoggingRuleResponseHiddenPropertyPathsPtrOutput) ToLoggingRuleResponseHi
 }
 
 func (o LoggingRuleResponseHiddenPropertyPathsPtrOutput) Elem() LoggingRuleResponseHiddenPropertyPathsOutput {
-	return o.ApplyT(func(v *LoggingRuleResponseHiddenPropertyPaths) LoggingRuleResponseHiddenPropertyPaths {
-		if v != nil {
-			return *v
-		}
-		var ret LoggingRuleResponseHiddenPropertyPaths
-		return ret
-	}).(LoggingRuleResponseHiddenPropertyPathsOutput)
+	return o.ApplyT(func(v *LoggingRuleResponseHiddenPropertyPaths) LoggingRuleResponseHiddenPropertyPaths { return *v }).(LoggingRuleResponseHiddenPropertyPathsOutput)
 }
 
 func (o LoggingRuleResponseHiddenPropertyPathsPtrOutput) HiddenPathsOnRequest() pulumi.StringArrayOutput {
@@ -5322,11 +5191,10 @@ func (o NotificationRegistrationPropertiesOutput) ToNotificationRegistrationProp
 }
 
 func (o NotificationRegistrationPropertiesOutput) ToNotificationRegistrationPropertiesPtrOutputWithContext(ctx context.Context) NotificationRegistrationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationRegistrationProperties) *NotificationRegistrationProperties {
+	return o.ApplyT(func(v NotificationRegistrationProperties) *NotificationRegistrationProperties {
 		return &v
 	}).(NotificationRegistrationPropertiesPtrOutput)
 }
-
 func (o NotificationRegistrationPropertiesOutput) IncludedEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationRegistrationProperties) []string { return v.IncludedEvents }).(pulumi.StringArrayOutput)
 }
@@ -5362,13 +5230,7 @@ func (o NotificationRegistrationPropertiesPtrOutput) ToNotificationRegistrationP
 }
 
 func (o NotificationRegistrationPropertiesPtrOutput) Elem() NotificationRegistrationPropertiesOutput {
-	return o.ApplyT(func(v *NotificationRegistrationProperties) NotificationRegistrationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationRegistrationProperties
-		return ret
-	}).(NotificationRegistrationPropertiesOutput)
+	return o.ApplyT(func(v *NotificationRegistrationProperties) NotificationRegistrationProperties { return *v }).(NotificationRegistrationPropertiesOutput)
 }
 
 func (o NotificationRegistrationPropertiesPtrOutput) IncludedEvents() pulumi.StringArrayOutput {
@@ -5515,11 +5377,10 @@ func (o NotificationRegistrationResponsePropertiesOutput) ToNotificationRegistra
 }
 
 func (o NotificationRegistrationResponsePropertiesOutput) ToNotificationRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) NotificationRegistrationResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationRegistrationResponseProperties) *NotificationRegistrationResponseProperties {
+	return o.ApplyT(func(v NotificationRegistrationResponseProperties) *NotificationRegistrationResponseProperties {
 		return &v
 	}).(NotificationRegistrationResponsePropertiesPtrOutput)
 }
-
 func (o NotificationRegistrationResponsePropertiesOutput) IncludedEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NotificationRegistrationResponseProperties) []string { return v.IncludedEvents }).(pulumi.StringArrayOutput)
 }
@@ -5558,11 +5419,7 @@ func (o NotificationRegistrationResponsePropertiesPtrOutput) ToNotificationRegis
 
 func (o NotificationRegistrationResponsePropertiesPtrOutput) Elem() NotificationRegistrationResponsePropertiesOutput {
 	return o.ApplyT(func(v *NotificationRegistrationResponseProperties) NotificationRegistrationResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationRegistrationResponseProperties
-		return ret
+		return *v
 	}).(NotificationRegistrationResponsePropertiesOutput)
 }
 
@@ -5917,11 +5774,10 @@ func (o OperationsDefinitionResponseDisplayOutput) ToOperationsDefinitionRespons
 }
 
 func (o OperationsDefinitionResponseDisplayOutput) ToOperationsDefinitionResponseDisplayPtrOutputWithContext(ctx context.Context) OperationsDefinitionResponseDisplayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OperationsDefinitionResponseDisplay) *OperationsDefinitionResponseDisplay {
+	return o.ApplyT(func(v OperationsDefinitionResponseDisplay) *OperationsDefinitionResponseDisplay {
 		return &v
 	}).(OperationsDefinitionResponseDisplayPtrOutput)
 }
-
 func (o OperationsDefinitionResponseDisplayOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v OperationsDefinitionResponseDisplay) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -5953,13 +5809,7 @@ func (o OperationsDefinitionResponseDisplayPtrOutput) ToOperationsDefinitionResp
 }
 
 func (o OperationsDefinitionResponseDisplayPtrOutput) Elem() OperationsDefinitionResponseDisplayOutput {
-	return o.ApplyT(func(v *OperationsDefinitionResponseDisplay) OperationsDefinitionResponseDisplay {
-		if v != nil {
-			return *v
-		}
-		var ret OperationsDefinitionResponseDisplay
-		return ret
-	}).(OperationsDefinitionResponseDisplayOutput)
+	return o.ApplyT(func(v *OperationsDefinitionResponseDisplay) OperationsDefinitionResponseDisplay { return *v }).(OperationsDefinitionResponseDisplayOutput)
 }
 
 func (o OperationsDefinitionResponseDisplayPtrOutput) Description() pulumi.StringPtrOutput {
@@ -6089,11 +5939,10 @@ func (o ProviderHubMetadataProviderAuthenticationOutput) ToProviderHubMetadataPr
 }
 
 func (o ProviderHubMetadataProviderAuthenticationOutput) ToProviderHubMetadataProviderAuthenticationPtrOutputWithContext(ctx context.Context) ProviderHubMetadataProviderAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderHubMetadataProviderAuthentication) *ProviderHubMetadataProviderAuthentication {
+	return o.ApplyT(func(v ProviderHubMetadataProviderAuthentication) *ProviderHubMetadataProviderAuthentication {
 		return &v
 	}).(ProviderHubMetadataProviderAuthenticationPtrOutput)
 }
-
 func (o ProviderHubMetadataProviderAuthenticationOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderHubMetadataProviderAuthentication) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
@@ -6114,11 +5963,7 @@ func (o ProviderHubMetadataProviderAuthenticationPtrOutput) ToProviderHubMetadat
 
 func (o ProviderHubMetadataProviderAuthenticationPtrOutput) Elem() ProviderHubMetadataProviderAuthenticationOutput {
 	return o.ApplyT(func(v *ProviderHubMetadataProviderAuthentication) ProviderHubMetadataProviderAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderHubMetadataProviderAuthentication
-		return ret
+		return *v
 	}).(ProviderHubMetadataProviderAuthenticationOutput)
 }
 
@@ -6222,11 +6067,10 @@ func (o ProviderHubMetadataResponseProviderAuthenticationOutput) ToProviderHubMe
 }
 
 func (o ProviderHubMetadataResponseProviderAuthenticationOutput) ToProviderHubMetadataResponseProviderAuthenticationPtrOutputWithContext(ctx context.Context) ProviderHubMetadataResponseProviderAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderHubMetadataResponseProviderAuthentication) *ProviderHubMetadataResponseProviderAuthentication {
+	return o.ApplyT(func(v ProviderHubMetadataResponseProviderAuthentication) *ProviderHubMetadataResponseProviderAuthentication {
 		return &v
 	}).(ProviderHubMetadataResponseProviderAuthenticationPtrOutput)
 }
-
 func (o ProviderHubMetadataResponseProviderAuthenticationOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderHubMetadataResponseProviderAuthentication) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
@@ -6247,11 +6091,7 @@ func (o ProviderHubMetadataResponseProviderAuthenticationPtrOutput) ToProviderHu
 
 func (o ProviderHubMetadataResponseProviderAuthenticationPtrOutput) Elem() ProviderHubMetadataResponseProviderAuthenticationOutput {
 	return o.ApplyT(func(v *ProviderHubMetadataResponseProviderAuthentication) ProviderHubMetadataResponseProviderAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderHubMetadataResponseProviderAuthentication
-		return ret
+		return *v
 	}).(ProviderHubMetadataResponseProviderAuthenticationOutput)
 }
 
@@ -6357,11 +6197,10 @@ func (o ProviderHubMetadataResponseThirdPartyProviderAuthorizationOutput) ToProv
 }
 
 func (o ProviderHubMetadataResponseThirdPartyProviderAuthorizationOutput) ToProviderHubMetadataResponseThirdPartyProviderAuthorizationPtrOutputWithContext(ctx context.Context) ProviderHubMetadataResponseThirdPartyProviderAuthorizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderHubMetadataResponseThirdPartyProviderAuthorization) *ProviderHubMetadataResponseThirdPartyProviderAuthorization {
+	return o.ApplyT(func(v ProviderHubMetadataResponseThirdPartyProviderAuthorization) *ProviderHubMetadataResponseThirdPartyProviderAuthorization {
 		return &v
 	}).(ProviderHubMetadataResponseThirdPartyProviderAuthorizationPtrOutput)
 }
-
 func (o ProviderHubMetadataResponseThirdPartyProviderAuthorizationOutput) Authorizations() LightHouseAuthorizationResponseArrayOutput {
 	return o.ApplyT(func(v ProviderHubMetadataResponseThirdPartyProviderAuthorization) []LightHouseAuthorizationResponse {
 		return v.Authorizations
@@ -6388,11 +6227,7 @@ func (o ProviderHubMetadataResponseThirdPartyProviderAuthorizationPtrOutput) ToP
 
 func (o ProviderHubMetadataResponseThirdPartyProviderAuthorizationPtrOutput) Elem() ProviderHubMetadataResponseThirdPartyProviderAuthorizationOutput {
 	return o.ApplyT(func(v *ProviderHubMetadataResponseThirdPartyProviderAuthorization) ProviderHubMetadataResponseThirdPartyProviderAuthorization {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderHubMetadataResponseThirdPartyProviderAuthorization
-		return ret
+		return *v
 	}).(ProviderHubMetadataResponseThirdPartyProviderAuthorizationOutput)
 }
 
@@ -6507,11 +6342,10 @@ func (o ProviderHubMetadataThirdPartyProviderAuthorizationOutput) ToProviderHubM
 }
 
 func (o ProviderHubMetadataThirdPartyProviderAuthorizationOutput) ToProviderHubMetadataThirdPartyProviderAuthorizationPtrOutputWithContext(ctx context.Context) ProviderHubMetadataThirdPartyProviderAuthorizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderHubMetadataThirdPartyProviderAuthorization) *ProviderHubMetadataThirdPartyProviderAuthorization {
+	return o.ApplyT(func(v ProviderHubMetadataThirdPartyProviderAuthorization) *ProviderHubMetadataThirdPartyProviderAuthorization {
 		return &v
 	}).(ProviderHubMetadataThirdPartyProviderAuthorizationPtrOutput)
 }
-
 func (o ProviderHubMetadataThirdPartyProviderAuthorizationOutput) Authorizations() LightHouseAuthorizationArrayOutput {
 	return o.ApplyT(func(v ProviderHubMetadataThirdPartyProviderAuthorization) []LightHouseAuthorization {
 		return v.Authorizations
@@ -6538,11 +6372,7 @@ func (o ProviderHubMetadataThirdPartyProviderAuthorizationPtrOutput) ToProviderH
 
 func (o ProviderHubMetadataThirdPartyProviderAuthorizationPtrOutput) Elem() ProviderHubMetadataThirdPartyProviderAuthorizationOutput {
 	return o.ApplyT(func(v *ProviderHubMetadataThirdPartyProviderAuthorization) ProviderHubMetadataThirdPartyProviderAuthorization {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderHubMetadataThirdPartyProviderAuthorization
-		return ret
+		return *v
 	}).(ProviderHubMetadataThirdPartyProviderAuthorizationOutput)
 }
 
@@ -6683,11 +6513,10 @@ func (o ProviderRegistrationPropertiesOutput) ToProviderRegistrationPropertiesPt
 }
 
 func (o ProviderRegistrationPropertiesOutput) ToProviderRegistrationPropertiesPtrOutputWithContext(ctx context.Context) ProviderRegistrationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderRegistrationProperties) *ProviderRegistrationProperties {
+	return o.ApplyT(func(v ProviderRegistrationProperties) *ProviderRegistrationProperties {
 		return &v
 	}).(ProviderRegistrationPropertiesPtrOutput)
 }
-
 func (o ProviderRegistrationPropertiesOutput) Capabilities() ResourceProviderCapabilitiesArrayOutput {
 	return o.ApplyT(func(v ProviderRegistrationProperties) []ResourceProviderCapabilities { return v.Capabilities }).(ResourceProviderCapabilitiesArrayOutput)
 }
@@ -6779,13 +6608,7 @@ func (o ProviderRegistrationPropertiesPtrOutput) ToProviderRegistrationPropertie
 }
 
 func (o ProviderRegistrationPropertiesPtrOutput) Elem() ProviderRegistrationPropertiesOutput {
-	return o.ApplyT(func(v *ProviderRegistrationProperties) ProviderRegistrationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderRegistrationProperties
-		return ret
-	}).(ProviderRegistrationPropertiesOutput)
+	return o.ApplyT(func(v *ProviderRegistrationProperties) ProviderRegistrationProperties { return *v }).(ProviderRegistrationPropertiesOutput)
 }
 
 func (o ProviderRegistrationPropertiesPtrOutput) Capabilities() ResourceProviderCapabilitiesArrayOutput {
@@ -7018,11 +6841,10 @@ func (o ProviderRegistrationPropertiesProviderHubMetadataOutput) ToProviderRegis
 }
 
 func (o ProviderRegistrationPropertiesProviderHubMetadataOutput) ToProviderRegistrationPropertiesProviderHubMetadataPtrOutputWithContext(ctx context.Context) ProviderRegistrationPropertiesProviderHubMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderRegistrationPropertiesProviderHubMetadata) *ProviderRegistrationPropertiesProviderHubMetadata {
+	return o.ApplyT(func(v ProviderRegistrationPropertiesProviderHubMetadata) *ProviderRegistrationPropertiesProviderHubMetadata {
 		return &v
 	}).(ProviderRegistrationPropertiesProviderHubMetadataPtrOutput)
 }
-
 func (o ProviderRegistrationPropertiesProviderHubMetadataOutput) ProviderAuthentication() ProviderHubMetadataProviderAuthenticationPtrOutput {
 	return o.ApplyT(func(v ProviderRegistrationPropertiesProviderHubMetadata) *ProviderHubMetadataProviderAuthentication {
 		return v.ProviderAuthentication
@@ -7057,11 +6879,7 @@ func (o ProviderRegistrationPropertiesProviderHubMetadataPtrOutput) ToProviderRe
 
 func (o ProviderRegistrationPropertiesProviderHubMetadataPtrOutput) Elem() ProviderRegistrationPropertiesProviderHubMetadataOutput {
 	return o.ApplyT(func(v *ProviderRegistrationPropertiesProviderHubMetadata) ProviderRegistrationPropertiesProviderHubMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderRegistrationPropertiesProviderHubMetadata
-		return ret
+		return *v
 	}).(ProviderRegistrationPropertiesProviderHubMetadataOutput)
 }
 
@@ -7187,11 +7005,10 @@ func (o ProviderRegistrationPropertiesResponseProviderHubMetadataOutput) ToProvi
 }
 
 func (o ProviderRegistrationPropertiesResponseProviderHubMetadataOutput) ToProviderRegistrationPropertiesResponseProviderHubMetadataPtrOutputWithContext(ctx context.Context) ProviderRegistrationPropertiesResponseProviderHubMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderRegistrationPropertiesResponseProviderHubMetadata) *ProviderRegistrationPropertiesResponseProviderHubMetadata {
+	return o.ApplyT(func(v ProviderRegistrationPropertiesResponseProviderHubMetadata) *ProviderRegistrationPropertiesResponseProviderHubMetadata {
 		return &v
 	}).(ProviderRegistrationPropertiesResponseProviderHubMetadataPtrOutput)
 }
-
 func (o ProviderRegistrationPropertiesResponseProviderHubMetadataOutput) ProviderAuthentication() ProviderHubMetadataResponseProviderAuthenticationPtrOutput {
 	return o.ApplyT(func(v ProviderRegistrationPropertiesResponseProviderHubMetadata) *ProviderHubMetadataResponseProviderAuthentication {
 		return v.ProviderAuthentication
@@ -7226,11 +7043,7 @@ func (o ProviderRegistrationPropertiesResponseProviderHubMetadataPtrOutput) ToPr
 
 func (o ProviderRegistrationPropertiesResponseProviderHubMetadataPtrOutput) Elem() ProviderRegistrationPropertiesResponseProviderHubMetadataOutput {
 	return o.ApplyT(func(v *ProviderRegistrationPropertiesResponseProviderHubMetadata) ProviderRegistrationPropertiesResponseProviderHubMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderRegistrationPropertiesResponseProviderHubMetadata
-		return ret
+		return *v
 	}).(ProviderRegistrationPropertiesResponseProviderHubMetadataOutput)
 }
 
@@ -7354,11 +7167,10 @@ func (o ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationS
 }
 
 func (o ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput) ToProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutputWithContext(ctx context.Context) ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) *ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
+	return o.ApplyT(func(v ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) *ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
 		return &v
 	}).(ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutput)
 }
-
 func (o ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput) SoftDeleteTTL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) *string {
 		return v.SoftDeleteTTL
@@ -7387,11 +7199,7 @@ func (o ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationS
 
 func (o ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutput) Elem() ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput {
 	return o.ApplyT(func(v *ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications
-		return ret
+		return *v
 	}).(ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput)
 }
 
@@ -7506,11 +7314,10 @@ func (o ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifica
 }
 
 func (o ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput) ToProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutputWithContext(ctx context.Context) ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) *ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications {
+	return o.ApplyT(func(v ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) *ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications {
 		return &v
 	}).(ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutput)
 }
-
 func (o ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput) SoftDeleteTTL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) *string {
 		return v.SoftDeleteTTL
@@ -7539,11 +7346,7 @@ func (o ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifica
 
 func (o ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutput) Elem() ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput {
 	return o.ApplyT(func(v *ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications
-		return ret
+		return *v
 	}).(ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput)
 }
 
@@ -7684,11 +7487,10 @@ func (o ProviderRegistrationResponsePropertiesOutput) ToProviderRegistrationResp
 }
 
 func (o ProviderRegistrationResponsePropertiesOutput) ToProviderRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) ProviderRegistrationResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderRegistrationResponseProperties) *ProviderRegistrationResponseProperties {
+	return o.ApplyT(func(v ProviderRegistrationResponseProperties) *ProviderRegistrationResponseProperties {
 		return &v
 	}).(ProviderRegistrationResponsePropertiesPtrOutput)
 }
-
 func (o ProviderRegistrationResponsePropertiesOutput) Capabilities() ResourceProviderCapabilitiesResponseArrayOutput {
 	return o.ApplyT(func(v ProviderRegistrationResponseProperties) []ResourceProviderCapabilitiesResponse {
 		return v.Capabilities
@@ -7782,13 +7584,7 @@ func (o ProviderRegistrationResponsePropertiesPtrOutput) ToProviderRegistrationR
 }
 
 func (o ProviderRegistrationResponsePropertiesPtrOutput) Elem() ProviderRegistrationResponsePropertiesOutput {
-	return o.ApplyT(func(v *ProviderRegistrationResponseProperties) ProviderRegistrationResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderRegistrationResponseProperties
-		return ret
-	}).(ProviderRegistrationResponsePropertiesOutput)
+	return o.ApplyT(func(v *ProviderRegistrationResponseProperties) ProviderRegistrationResponseProperties { return *v }).(ProviderRegistrationResponsePropertiesOutput)
 }
 
 func (o ProviderRegistrationResponsePropertiesPtrOutput) Capabilities() ResourceProviderCapabilitiesResponseArrayOutput {
@@ -8441,11 +8237,10 @@ func (o ResourceProviderManifestPropertiesFeaturesRuleOutput) ToResourceProvider
 }
 
 func (o ResourceProviderManifestPropertiesFeaturesRuleOutput) ToResourceProviderManifestPropertiesFeaturesRulePtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesFeaturesRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesFeaturesRule) *ResourceProviderManifestPropertiesFeaturesRule {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesFeaturesRule) *ResourceProviderManifestPropertiesFeaturesRule {
 		return &v
 	}).(ResourceProviderManifestPropertiesFeaturesRulePtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesFeaturesRuleOutput) RequiredFeaturesPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesFeaturesRule) string { return v.RequiredFeaturesPolicy }).(pulumi.StringOutput)
 }
@@ -8466,11 +8261,7 @@ func (o ResourceProviderManifestPropertiesFeaturesRulePtrOutput) ToResourceProvi
 
 func (o ResourceProviderManifestPropertiesFeaturesRulePtrOutput) Elem() ResourceProviderManifestPropertiesFeaturesRuleOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesFeaturesRule) ResourceProviderManifestPropertiesFeaturesRule {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesFeaturesRule
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesFeaturesRuleOutput)
 }
 
@@ -8588,11 +8379,10 @@ func (o ResourceProviderManifestPropertiesManagementOutput) ToResourceProviderMa
 }
 
 func (o ResourceProviderManifestPropertiesManagementOutput) ToResourceProviderManifestPropertiesManagementPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesManagementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesManagement) *ResourceProviderManifestPropertiesManagement {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesManagement) *ResourceProviderManifestPropertiesManagement {
 		return &v
 	}).(ResourceProviderManifestPropertiesManagementPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesManagementOutput) IncidentContactEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesManagement) *string { return v.IncidentContactEmail }).(pulumi.StringPtrOutput)
 }
@@ -8641,11 +8431,7 @@ func (o ResourceProviderManifestPropertiesManagementPtrOutput) ToResourceProvide
 
 func (o ResourceProviderManifestPropertiesManagementPtrOutput) Elem() ResourceProviderManifestPropertiesManagementOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesManagement) ResourceProviderManifestPropertiesManagement {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesManagement
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesManagementOutput)
 }
 
@@ -8812,11 +8598,10 @@ func (o ResourceProviderManifestPropertiesProviderAuthenticationOutput) ToResour
 }
 
 func (o ResourceProviderManifestPropertiesProviderAuthenticationOutput) ToResourceProviderManifestPropertiesProviderAuthenticationPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesProviderAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesProviderAuthentication) *ResourceProviderManifestPropertiesProviderAuthentication {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesProviderAuthentication) *ResourceProviderManifestPropertiesProviderAuthentication {
 		return &v
 	}).(ResourceProviderManifestPropertiesProviderAuthenticationPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesProviderAuthenticationOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesProviderAuthentication) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
@@ -8837,11 +8622,7 @@ func (o ResourceProviderManifestPropertiesProviderAuthenticationPtrOutput) ToRes
 
 func (o ResourceProviderManifestPropertiesProviderAuthenticationPtrOutput) Elem() ResourceProviderManifestPropertiesProviderAuthenticationOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesProviderAuthentication) ResourceProviderManifestPropertiesProviderAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesProviderAuthentication
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesProviderAuthenticationOutput)
 }
 
@@ -8945,11 +8726,10 @@ func (o ResourceProviderManifestPropertiesRequestHeaderOptionsOutput) ToResource
 }
 
 func (o ResourceProviderManifestPropertiesRequestHeaderOptionsOutput) ToResourceProviderManifestPropertiesRequestHeaderOptionsPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesRequestHeaderOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesRequestHeaderOptions) *ResourceProviderManifestPropertiesRequestHeaderOptions {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesRequestHeaderOptions) *ResourceProviderManifestPropertiesRequestHeaderOptions {
 		return &v
 	}).(ResourceProviderManifestPropertiesRequestHeaderOptionsPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesRequestHeaderOptionsOutput) OptInHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesRequestHeaderOptions) *string { return v.OptInHeaders }).(pulumi.StringPtrOutput)
 }
@@ -8970,11 +8750,7 @@ func (o ResourceProviderManifestPropertiesRequestHeaderOptionsPtrOutput) ToResou
 
 func (o ResourceProviderManifestPropertiesRequestHeaderOptionsPtrOutput) Elem() ResourceProviderManifestPropertiesRequestHeaderOptionsOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesRequestHeaderOptions) ResourceProviderManifestPropertiesRequestHeaderOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesRequestHeaderOptions
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesRequestHeaderOptionsOutput)
 }
 
@@ -9078,11 +8854,10 @@ func (o ResourceProviderManifestPropertiesResponseFeaturesRuleOutput) ToResource
 }
 
 func (o ResourceProviderManifestPropertiesResponseFeaturesRuleOutput) ToResourceProviderManifestPropertiesResponseFeaturesRulePtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesResponseFeaturesRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesResponseFeaturesRule) *ResourceProviderManifestPropertiesResponseFeaturesRule {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseFeaturesRule) *ResourceProviderManifestPropertiesResponseFeaturesRule {
 		return &v
 	}).(ResourceProviderManifestPropertiesResponseFeaturesRulePtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesResponseFeaturesRuleOutput) RequiredFeaturesPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseFeaturesRule) string { return v.RequiredFeaturesPolicy }).(pulumi.StringOutput)
 }
@@ -9103,11 +8878,7 @@ func (o ResourceProviderManifestPropertiesResponseFeaturesRulePtrOutput) ToResou
 
 func (o ResourceProviderManifestPropertiesResponseFeaturesRulePtrOutput) Elem() ResourceProviderManifestPropertiesResponseFeaturesRuleOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesResponseFeaturesRule) ResourceProviderManifestPropertiesResponseFeaturesRule {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesResponseFeaturesRule
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesResponseFeaturesRuleOutput)
 }
 
@@ -9225,11 +8996,10 @@ func (o ResourceProviderManifestPropertiesResponseManagementOutput) ToResourcePr
 }
 
 func (o ResourceProviderManifestPropertiesResponseManagementOutput) ToResourceProviderManifestPropertiesResponseManagementPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesResponseManagementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesResponseManagement) *ResourceProviderManifestPropertiesResponseManagement {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseManagement) *ResourceProviderManifestPropertiesResponseManagement {
 		return &v
 	}).(ResourceProviderManifestPropertiesResponseManagementPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesResponseManagementOutput) IncidentContactEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseManagement) *string { return v.IncidentContactEmail }).(pulumi.StringPtrOutput)
 }
@@ -9282,11 +9052,7 @@ func (o ResourceProviderManifestPropertiesResponseManagementPtrOutput) ToResourc
 
 func (o ResourceProviderManifestPropertiesResponseManagementPtrOutput) Elem() ResourceProviderManifestPropertiesResponseManagementOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesResponseManagement) ResourceProviderManifestPropertiesResponseManagement {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesResponseManagement
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesResponseManagementOutput)
 }
 
@@ -9453,11 +9219,10 @@ func (o ResourceProviderManifestPropertiesResponseProviderAuthenticationOutput) 
 }
 
 func (o ResourceProviderManifestPropertiesResponseProviderAuthenticationOutput) ToResourceProviderManifestPropertiesResponseProviderAuthenticationPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesResponseProviderAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesResponseProviderAuthentication) *ResourceProviderManifestPropertiesResponseProviderAuthentication {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseProviderAuthentication) *ResourceProviderManifestPropertiesResponseProviderAuthentication {
 		return &v
 	}).(ResourceProviderManifestPropertiesResponseProviderAuthenticationPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesResponseProviderAuthenticationOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseProviderAuthentication) []string {
 		return v.AllowedAudiences
@@ -9480,11 +9245,7 @@ func (o ResourceProviderManifestPropertiesResponseProviderAuthenticationPtrOutpu
 
 func (o ResourceProviderManifestPropertiesResponseProviderAuthenticationPtrOutput) Elem() ResourceProviderManifestPropertiesResponseProviderAuthenticationOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesResponseProviderAuthentication) ResourceProviderManifestPropertiesResponseProviderAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesResponseProviderAuthentication
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesResponseProviderAuthenticationOutput)
 }
 
@@ -9588,11 +9349,10 @@ func (o ResourceProviderManifestPropertiesResponseRequestHeaderOptionsOutput) To
 }
 
 func (o ResourceProviderManifestPropertiesResponseRequestHeaderOptionsOutput) ToResourceProviderManifestPropertiesResponseRequestHeaderOptionsPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesResponseRequestHeaderOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesResponseRequestHeaderOptions) *ResourceProviderManifestPropertiesResponseRequestHeaderOptions {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseRequestHeaderOptions) *ResourceProviderManifestPropertiesResponseRequestHeaderOptions {
 		return &v
 	}).(ResourceProviderManifestPropertiesResponseRequestHeaderOptionsPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesResponseRequestHeaderOptionsOutput) OptInHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseRequestHeaderOptions) *string { return v.OptInHeaders }).(pulumi.StringPtrOutput)
 }
@@ -9613,11 +9373,7 @@ func (o ResourceProviderManifestPropertiesResponseRequestHeaderOptionsPtrOutput)
 
 func (o ResourceProviderManifestPropertiesResponseRequestHeaderOptionsPtrOutput) Elem() ResourceProviderManifestPropertiesResponseRequestHeaderOptionsOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesResponseRequestHeaderOptions) ResourceProviderManifestPropertiesResponseRequestHeaderOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesResponseRequestHeaderOptions
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesResponseRequestHeaderOptionsOutput)
 }
 
@@ -9723,11 +9479,10 @@ func (o ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsOutpu
 }
 
 func (o ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsOutput) ToResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions) *ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions) *ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions {
 		return &v
 	}).(ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsOutput) PreflightOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions) []string {
 		return v.PreflightOptions
@@ -9756,11 +9511,7 @@ func (o ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsPtrOu
 
 func (o ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsPtrOutput) Elem() ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions) ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesResponseTemplateDeploymentOptionsOutput)
 }
 
@@ -9875,11 +9626,10 @@ func (o ResourceProviderManifestPropertiesTemplateDeploymentOptionsOutput) ToRes
 }
 
 func (o ResourceProviderManifestPropertiesTemplateDeploymentOptionsOutput) ToResourceProviderManifestPropertiesTemplateDeploymentOptionsPtrOutputWithContext(ctx context.Context) ResourceProviderManifestPropertiesTemplateDeploymentOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceProviderManifestPropertiesTemplateDeploymentOptions) *ResourceProviderManifestPropertiesTemplateDeploymentOptions {
+	return o.ApplyT(func(v ResourceProviderManifestPropertiesTemplateDeploymentOptions) *ResourceProviderManifestPropertiesTemplateDeploymentOptions {
 		return &v
 	}).(ResourceProviderManifestPropertiesTemplateDeploymentOptionsPtrOutput)
 }
-
 func (o ResourceProviderManifestPropertiesTemplateDeploymentOptionsOutput) PreflightOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceProviderManifestPropertiesTemplateDeploymentOptions) []string {
 		return v.PreflightOptions
@@ -9906,11 +9656,7 @@ func (o ResourceProviderManifestPropertiesTemplateDeploymentOptionsPtrOutput) To
 
 func (o ResourceProviderManifestPropertiesTemplateDeploymentOptionsPtrOutput) Elem() ResourceProviderManifestPropertiesTemplateDeploymentOptionsOutput {
 	return o.ApplyT(func(v *ResourceProviderManifestPropertiesTemplateDeploymentOptions) ResourceProviderManifestPropertiesTemplateDeploymentOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceProviderManifestPropertiesTemplateDeploymentOptions
-		return ret
+		return *v
 	}).(ResourceProviderManifestPropertiesTemplateDeploymentOptionsOutput)
 }
 
@@ -10153,11 +9899,10 @@ func (o ResourceTypeEndpointFeaturesRuleOutput) ToResourceTypeEndpointFeaturesRu
 }
 
 func (o ResourceTypeEndpointFeaturesRuleOutput) ToResourceTypeEndpointFeaturesRulePtrOutputWithContext(ctx context.Context) ResourceTypeEndpointFeaturesRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeEndpointFeaturesRule) *ResourceTypeEndpointFeaturesRule {
+	return o.ApplyT(func(v ResourceTypeEndpointFeaturesRule) *ResourceTypeEndpointFeaturesRule {
 		return &v
 	}).(ResourceTypeEndpointFeaturesRulePtrOutput)
 }
-
 func (o ResourceTypeEndpointFeaturesRuleOutput) RequiredFeaturesPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeEndpointFeaturesRule) string { return v.RequiredFeaturesPolicy }).(pulumi.StringOutput)
 }
@@ -10177,13 +9922,7 @@ func (o ResourceTypeEndpointFeaturesRulePtrOutput) ToResourceTypeEndpointFeature
 }
 
 func (o ResourceTypeEndpointFeaturesRulePtrOutput) Elem() ResourceTypeEndpointFeaturesRuleOutput {
-	return o.ApplyT(func(v *ResourceTypeEndpointFeaturesRule) ResourceTypeEndpointFeaturesRule {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeEndpointFeaturesRule
-		return ret
-	}).(ResourceTypeEndpointFeaturesRuleOutput)
+	return o.ApplyT(func(v *ResourceTypeEndpointFeaturesRule) ResourceTypeEndpointFeaturesRule { return *v }).(ResourceTypeEndpointFeaturesRuleOutput)
 }
 
 func (o ResourceTypeEndpointFeaturesRulePtrOutput) RequiredFeaturesPolicy() pulumi.StringPtrOutput {
@@ -10416,11 +10155,10 @@ func (o ResourceTypeEndpointResponseFeaturesRuleOutput) ToResourceTypeEndpointRe
 }
 
 func (o ResourceTypeEndpointResponseFeaturesRuleOutput) ToResourceTypeEndpointResponseFeaturesRulePtrOutputWithContext(ctx context.Context) ResourceTypeEndpointResponseFeaturesRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeEndpointResponseFeaturesRule) *ResourceTypeEndpointResponseFeaturesRule {
+	return o.ApplyT(func(v ResourceTypeEndpointResponseFeaturesRule) *ResourceTypeEndpointResponseFeaturesRule {
 		return &v
 	}).(ResourceTypeEndpointResponseFeaturesRulePtrOutput)
 }
-
 func (o ResourceTypeEndpointResponseFeaturesRuleOutput) RequiredFeaturesPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeEndpointResponseFeaturesRule) string { return v.RequiredFeaturesPolicy }).(pulumi.StringOutput)
 }
@@ -10440,13 +10178,7 @@ func (o ResourceTypeEndpointResponseFeaturesRulePtrOutput) ToResourceTypeEndpoin
 }
 
 func (o ResourceTypeEndpointResponseFeaturesRulePtrOutput) Elem() ResourceTypeEndpointResponseFeaturesRuleOutput {
-	return o.ApplyT(func(v *ResourceTypeEndpointResponseFeaturesRule) ResourceTypeEndpointResponseFeaturesRule {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeEndpointResponseFeaturesRule
-		return ret
-	}).(ResourceTypeEndpointResponseFeaturesRuleOutput)
+	return o.ApplyT(func(v *ResourceTypeEndpointResponseFeaturesRule) ResourceTypeEndpointResponseFeaturesRule { return *v }).(ResourceTypeEndpointResponseFeaturesRuleOutput)
 }
 
 func (o ResourceTypeEndpointResponseFeaturesRulePtrOutput) RequiredFeaturesPolicy() pulumi.StringPtrOutput {
@@ -10657,11 +10389,10 @@ func (o ResourceTypeExtensionOptionsResourceCreationBeginOutput) ToResourceTypeE
 }
 
 func (o ResourceTypeExtensionOptionsResourceCreationBeginOutput) ToResourceTypeExtensionOptionsResourceCreationBeginPtrOutputWithContext(ctx context.Context) ResourceTypeExtensionOptionsResourceCreationBeginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeExtensionOptionsResourceCreationBegin) *ResourceTypeExtensionOptionsResourceCreationBegin {
+	return o.ApplyT(func(v ResourceTypeExtensionOptionsResourceCreationBegin) *ResourceTypeExtensionOptionsResourceCreationBegin {
 		return &v
 	}).(ResourceTypeExtensionOptionsResourceCreationBeginPtrOutput)
 }
-
 func (o ResourceTypeExtensionOptionsResourceCreationBeginOutput) Request() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceTypeExtensionOptionsResourceCreationBegin) []string { return v.Request }).(pulumi.StringArrayOutput)
 }
@@ -10686,11 +10417,7 @@ func (o ResourceTypeExtensionOptionsResourceCreationBeginPtrOutput) ToResourceTy
 
 func (o ResourceTypeExtensionOptionsResourceCreationBeginPtrOutput) Elem() ResourceTypeExtensionOptionsResourceCreationBeginOutput {
 	return o.ApplyT(func(v *ResourceTypeExtensionOptionsResourceCreationBegin) ResourceTypeExtensionOptionsResourceCreationBegin {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeExtensionOptionsResourceCreationBegin
-		return ret
+		return *v
 	}).(ResourceTypeExtensionOptionsResourceCreationBeginOutput)
 }
 
@@ -10805,11 +10532,10 @@ func (o ResourceTypeExtensionOptionsResponseResourceCreationBeginOutput) ToResou
 }
 
 func (o ResourceTypeExtensionOptionsResponseResourceCreationBeginOutput) ToResourceTypeExtensionOptionsResponseResourceCreationBeginPtrOutputWithContext(ctx context.Context) ResourceTypeExtensionOptionsResponseResourceCreationBeginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeExtensionOptionsResponseResourceCreationBegin) *ResourceTypeExtensionOptionsResponseResourceCreationBegin {
+	return o.ApplyT(func(v ResourceTypeExtensionOptionsResponseResourceCreationBegin) *ResourceTypeExtensionOptionsResponseResourceCreationBegin {
 		return &v
 	}).(ResourceTypeExtensionOptionsResponseResourceCreationBeginPtrOutput)
 }
-
 func (o ResourceTypeExtensionOptionsResponseResourceCreationBeginOutput) Request() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceTypeExtensionOptionsResponseResourceCreationBegin) []string { return v.Request }).(pulumi.StringArrayOutput)
 }
@@ -10834,11 +10560,7 @@ func (o ResourceTypeExtensionOptionsResponseResourceCreationBeginPtrOutput) ToRe
 
 func (o ResourceTypeExtensionOptionsResponseResourceCreationBeginPtrOutput) Elem() ResourceTypeExtensionOptionsResponseResourceCreationBeginOutput {
 	return o.ApplyT(func(v *ResourceTypeExtensionOptionsResponseResourceCreationBegin) ResourceTypeExtensionOptionsResponseResourceCreationBegin {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeExtensionOptionsResponseResourceCreationBegin
-		return ret
+		return *v
 	}).(ResourceTypeExtensionOptionsResponseResourceCreationBeginOutput)
 }
 
@@ -11207,11 +10929,10 @@ func (o ResourceTypeRegistrationPropertiesOutput) ToResourceTypeRegistrationProp
 }
 
 func (o ResourceTypeRegistrationPropertiesOutput) ToResourceTypeRegistrationPropertiesPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationProperties) *ResourceTypeRegistrationProperties {
+	return o.ApplyT(func(v ResourceTypeRegistrationProperties) *ResourceTypeRegistrationProperties {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesOutput) AllowedUnauthorizedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationProperties) []string { return v.AllowedUnauthorizedActions }).(pulumi.StringArrayOutput)
 }
@@ -11361,13 +11082,7 @@ func (o ResourceTypeRegistrationPropertiesPtrOutput) ToResourceTypeRegistrationP
 }
 
 func (o ResourceTypeRegistrationPropertiesPtrOutput) Elem() ResourceTypeRegistrationPropertiesOutput {
-	return o.ApplyT(func(v *ResourceTypeRegistrationProperties) ResourceTypeRegistrationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationProperties
-		return ret
-	}).(ResourceTypeRegistrationPropertiesOutput)
+	return o.ApplyT(func(v *ResourceTypeRegistrationProperties) ResourceTypeRegistrationProperties { return *v }).(ResourceTypeRegistrationPropertiesOutput)
 }
 
 func (o ResourceTypeRegistrationPropertiesPtrOutput) AllowedUnauthorizedActions() pulumi.StringArrayOutput {
@@ -11724,11 +11439,10 @@ func (o ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsOut
 }
 
 func (o ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsOutput) ToResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications) *ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications) *ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsOutput) EnableDefaultValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications) *bool {
 		return v.EnableDefaultValidation
@@ -11757,11 +11471,7 @@ func (o ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsPtr
 
 func (o ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsPtrOutput) Elem() ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications) ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecifications
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsOutput)
 }
 
@@ -11874,11 +11584,10 @@ func (o ResourceTypeRegistrationPropertiesExtensionOptionsOutput) ToResourceType
 }
 
 func (o ResourceTypeRegistrationPropertiesExtensionOptionsOutput) ToResourceTypeRegistrationPropertiesExtensionOptionsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesExtensionOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesExtensionOptions) *ResourceTypeRegistrationPropertiesExtensionOptions {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesExtensionOptions) *ResourceTypeRegistrationPropertiesExtensionOptions {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesExtensionOptionsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesExtensionOptionsOutput) ResourceCreationBegin() ResourceTypeExtensionOptionsResourceCreationBeginPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesExtensionOptions) *ResourceTypeExtensionOptionsResourceCreationBegin {
 		return v.ResourceCreationBegin
@@ -11901,11 +11610,7 @@ func (o ResourceTypeRegistrationPropertiesExtensionOptionsPtrOutput) ToResourceT
 
 func (o ResourceTypeRegistrationPropertiesExtensionOptionsPtrOutput) Elem() ResourceTypeRegistrationPropertiesExtensionOptionsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesExtensionOptions) ResourceTypeRegistrationPropertiesExtensionOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesExtensionOptions
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesExtensionOptionsOutput)
 }
 
@@ -12009,11 +11714,10 @@ func (o ResourceTypeRegistrationPropertiesFeaturesRuleOutput) ToResourceTypeRegi
 }
 
 func (o ResourceTypeRegistrationPropertiesFeaturesRuleOutput) ToResourceTypeRegistrationPropertiesFeaturesRulePtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesFeaturesRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesFeaturesRule) *ResourceTypeRegistrationPropertiesFeaturesRule {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesFeaturesRule) *ResourceTypeRegistrationPropertiesFeaturesRule {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesFeaturesRulePtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesFeaturesRuleOutput) RequiredFeaturesPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesFeaturesRule) string { return v.RequiredFeaturesPolicy }).(pulumi.StringOutput)
 }
@@ -12034,11 +11738,7 @@ func (o ResourceTypeRegistrationPropertiesFeaturesRulePtrOutput) ToResourceTypeR
 
 func (o ResourceTypeRegistrationPropertiesFeaturesRulePtrOutput) Elem() ResourceTypeRegistrationPropertiesFeaturesRuleOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesFeaturesRule) ResourceTypeRegistrationPropertiesFeaturesRule {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesFeaturesRule
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesFeaturesRuleOutput)
 }
 
@@ -12144,11 +11844,10 @@ func (o ResourceTypeRegistrationPropertiesIdentityManagementOutput) ToResourceTy
 }
 
 func (o ResourceTypeRegistrationPropertiesIdentityManagementOutput) ToResourceTypeRegistrationPropertiesIdentityManagementPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesIdentityManagementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesIdentityManagement) *ResourceTypeRegistrationPropertiesIdentityManagement {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesIdentityManagement) *ResourceTypeRegistrationPropertiesIdentityManagement {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesIdentityManagementPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesIdentityManagementOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesIdentityManagement) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -12173,11 +11872,7 @@ func (o ResourceTypeRegistrationPropertiesIdentityManagementPtrOutput) ToResourc
 
 func (o ResourceTypeRegistrationPropertiesIdentityManagementPtrOutput) Elem() ResourceTypeRegistrationPropertiesIdentityManagementOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesIdentityManagement) ResourceTypeRegistrationPropertiesIdentityManagement {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesIdentityManagement
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesIdentityManagementOutput)
 }
 
@@ -12290,11 +11985,10 @@ func (o ResourceTypeRegistrationPropertiesRequestHeaderOptionsOutput) ToResource
 }
 
 func (o ResourceTypeRegistrationPropertiesRequestHeaderOptionsOutput) ToResourceTypeRegistrationPropertiesRequestHeaderOptionsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesRequestHeaderOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesRequestHeaderOptions) *ResourceTypeRegistrationPropertiesRequestHeaderOptions {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesRequestHeaderOptions) *ResourceTypeRegistrationPropertiesRequestHeaderOptions {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesRequestHeaderOptionsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesRequestHeaderOptionsOutput) OptInHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesRequestHeaderOptions) *string { return v.OptInHeaders }).(pulumi.StringPtrOutput)
 }
@@ -12315,11 +12009,7 @@ func (o ResourceTypeRegistrationPropertiesRequestHeaderOptionsPtrOutput) ToResou
 
 func (o ResourceTypeRegistrationPropertiesRequestHeaderOptionsPtrOutput) Elem() ResourceTypeRegistrationPropertiesRequestHeaderOptionsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesRequestHeaderOptions) ResourceTypeRegistrationPropertiesRequestHeaderOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesRequestHeaderOptions
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesRequestHeaderOptionsOutput)
 }
 
@@ -12427,11 +12117,10 @@ func (o ResourceTypeRegistrationPropertiesResourceMovePolicyOutput) ToResourceTy
 }
 
 func (o ResourceTypeRegistrationPropertiesResourceMovePolicyOutput) ToResourceTypeRegistrationPropertiesResourceMovePolicyPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResourceMovePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResourceMovePolicy) *ResourceTypeRegistrationPropertiesResourceMovePolicy {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResourceMovePolicy) *ResourceTypeRegistrationPropertiesResourceMovePolicy {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResourceMovePolicyPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResourceMovePolicyOutput) CrossResourceGroupMoveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResourceMovePolicy) *bool {
 		return v.CrossResourceGroupMoveEnabled
@@ -12464,11 +12153,7 @@ func (o ResourceTypeRegistrationPropertiesResourceMovePolicyPtrOutput) ToResourc
 
 func (o ResourceTypeRegistrationPropertiesResourceMovePolicyPtrOutput) Elem() ResourceTypeRegistrationPropertiesResourceMovePolicyOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResourceMovePolicy) ResourceTypeRegistrationPropertiesResourceMovePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResourceMovePolicy
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResourceMovePolicyOutput)
 }
 
@@ -12592,11 +12277,10 @@ func (o ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifica
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsOutput) ToResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications) *ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications) *ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsOutput) EnableDefaultValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications) *bool {
 		return v.EnableDefaultValidation
@@ -12625,11 +12309,7 @@ func (o ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifica
 
 func (o ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsPtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications) ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecificationsOutput)
 }
 
@@ -12742,11 +12422,10 @@ func (o ResourceTypeRegistrationPropertiesResponseExtensionOptionsOutput) ToReso
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseExtensionOptionsOutput) ToResourceTypeRegistrationPropertiesResponseExtensionOptionsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseExtensionOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseExtensionOptions) *ResourceTypeRegistrationPropertiesResponseExtensionOptions {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseExtensionOptions) *ResourceTypeRegistrationPropertiesResponseExtensionOptions {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseExtensionOptionsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseExtensionOptionsOutput) ResourceCreationBegin() ResourceTypeExtensionOptionsResponseResourceCreationBeginPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseExtensionOptions) *ResourceTypeExtensionOptionsResponseResourceCreationBegin {
 		return v.ResourceCreationBegin
@@ -12769,11 +12448,7 @@ func (o ResourceTypeRegistrationPropertiesResponseExtensionOptionsPtrOutput) ToR
 
 func (o ResourceTypeRegistrationPropertiesResponseExtensionOptionsPtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseExtensionOptionsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseExtensionOptions) ResourceTypeRegistrationPropertiesResponseExtensionOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseExtensionOptions
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseExtensionOptionsOutput)
 }
 
@@ -12877,11 +12552,10 @@ func (o ResourceTypeRegistrationPropertiesResponseFeaturesRuleOutput) ToResource
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseFeaturesRuleOutput) ToResourceTypeRegistrationPropertiesResponseFeaturesRulePtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseFeaturesRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseFeaturesRule) *ResourceTypeRegistrationPropertiesResponseFeaturesRule {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseFeaturesRule) *ResourceTypeRegistrationPropertiesResponseFeaturesRule {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseFeaturesRulePtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseFeaturesRuleOutput) RequiredFeaturesPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseFeaturesRule) string { return v.RequiredFeaturesPolicy }).(pulumi.StringOutput)
 }
@@ -12902,11 +12576,7 @@ func (o ResourceTypeRegistrationPropertiesResponseFeaturesRulePtrOutput) ToResou
 
 func (o ResourceTypeRegistrationPropertiesResponseFeaturesRulePtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseFeaturesRuleOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseFeaturesRule) ResourceTypeRegistrationPropertiesResponseFeaturesRule {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseFeaturesRule
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseFeaturesRuleOutput)
 }
 
@@ -13012,11 +12682,10 @@ func (o ResourceTypeRegistrationPropertiesResponseIdentityManagementOutput) ToRe
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseIdentityManagementOutput) ToResourceTypeRegistrationPropertiesResponseIdentityManagementPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseIdentityManagementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseIdentityManagement) *ResourceTypeRegistrationPropertiesResponseIdentityManagement {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseIdentityManagement) *ResourceTypeRegistrationPropertiesResponseIdentityManagement {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseIdentityManagementPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseIdentityManagementOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseIdentityManagement) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -13041,11 +12710,7 @@ func (o ResourceTypeRegistrationPropertiesResponseIdentityManagementPtrOutput) T
 
 func (o ResourceTypeRegistrationPropertiesResponseIdentityManagementPtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseIdentityManagementOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseIdentityManagement) ResourceTypeRegistrationPropertiesResponseIdentityManagement {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseIdentityManagement
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseIdentityManagementOutput)
 }
 
@@ -13158,11 +12823,10 @@ func (o ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsOutput) To
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsOutput) ToResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions) *ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions) *ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsOutput) OptInHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions) *string { return v.OptInHeaders }).(pulumi.StringPtrOutput)
 }
@@ -13183,11 +12847,7 @@ func (o ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsPtrOutput)
 
 func (o ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsPtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions) ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseRequestHeaderOptionsOutput)
 }
 
@@ -13295,11 +12955,10 @@ func (o ResourceTypeRegistrationPropertiesResponseResourceMovePolicyOutput) ToRe
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseResourceMovePolicyOutput) ToResourceTypeRegistrationPropertiesResponseResourceMovePolicyPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseResourceMovePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseResourceMovePolicy) *ResourceTypeRegistrationPropertiesResponseResourceMovePolicy {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseResourceMovePolicy) *ResourceTypeRegistrationPropertiesResponseResourceMovePolicy {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseResourceMovePolicyPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseResourceMovePolicyOutput) CrossResourceGroupMoveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseResourceMovePolicy) *bool {
 		return v.CrossResourceGroupMoveEnabled
@@ -13334,11 +12993,7 @@ func (o ResourceTypeRegistrationPropertiesResponseResourceMovePolicyPtrOutput) T
 
 func (o ResourceTypeRegistrationPropertiesResponseResourceMovePolicyPtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseResourceMovePolicyOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseResourceMovePolicy) ResourceTypeRegistrationPropertiesResponseResourceMovePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseResourceMovePolicy
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseResourceMovePolicyOutput)
 }
 
@@ -13462,11 +13117,10 @@ func (o ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificat
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput) ToResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) *ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) *ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput) SoftDeleteTTL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) *string {
 		return v.SoftDeleteTTL
@@ -13495,11 +13149,7 @@ func (o ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificat
 
 func (o ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsPtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications) ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecificationsOutput)
 }
 
@@ -13614,11 +13264,10 @@ func (o ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsOutpu
 }
 
 func (o ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsOutput) ToResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions) *ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions) *ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsOutput) PreflightOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions) []string {
 		return v.PreflightOptions
@@ -13647,11 +13296,7 @@ func (o ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsPtrOu
 
 func (o ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsPtrOutput) Elem() ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions) ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptionsOutput)
 }
 
@@ -13766,11 +13411,10 @@ func (o ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpeci
 }
 
 func (o ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput) ToResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) *ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) *ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput) SoftDeleteTTL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) *string {
 		return v.SoftDeleteTTL
@@ -13799,11 +13443,7 @@ func (o ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpeci
 
 func (o ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsPtrOutput) Elem() ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications) ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifications
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsOutput)
 }
 
@@ -13918,11 +13558,10 @@ func (o ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsOutput) ToRes
 }
 
 func (o ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsOutput) ToResourceTypeRegistrationPropertiesTemplateDeploymentOptionsPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationPropertiesTemplateDeploymentOptions) *ResourceTypeRegistrationPropertiesTemplateDeploymentOptions {
+	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesTemplateDeploymentOptions) *ResourceTypeRegistrationPropertiesTemplateDeploymentOptions {
 		return &v
 	}).(ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsPtrOutput)
 }
-
 func (o ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsOutput) PreflightOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationPropertiesTemplateDeploymentOptions) []string {
 		return v.PreflightOptions
@@ -13949,11 +13588,7 @@ func (o ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsPtrOutput) To
 
 func (o ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsPtrOutput) Elem() ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationPropertiesTemplateDeploymentOptions) ResourceTypeRegistrationPropertiesTemplateDeploymentOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationPropertiesTemplateDeploymentOptions
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsOutput)
 }
 
@@ -14245,11 +13880,10 @@ func (o ResourceTypeRegistrationResponsePropertiesOutput) ToResourceTypeRegistra
 }
 
 func (o ResourceTypeRegistrationResponsePropertiesOutput) ToResourceTypeRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) ResourceTypeRegistrationResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRegistrationResponseProperties) *ResourceTypeRegistrationResponseProperties {
+	return o.ApplyT(func(v ResourceTypeRegistrationResponseProperties) *ResourceTypeRegistrationResponseProperties {
 		return &v
 	}).(ResourceTypeRegistrationResponsePropertiesPtrOutput)
 }
-
 func (o ResourceTypeRegistrationResponsePropertiesOutput) AllowedUnauthorizedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationResponseProperties) []string { return v.AllowedUnauthorizedActions }).(pulumi.StringArrayOutput)
 }
@@ -14410,11 +14044,7 @@ func (o ResourceTypeRegistrationResponsePropertiesPtrOutput) ToResourceTypeRegis
 
 func (o ResourceTypeRegistrationResponsePropertiesPtrOutput) Elem() ResourceTypeRegistrationResponsePropertiesOutput {
 	return o.ApplyT(func(v *ResourceTypeRegistrationResponseProperties) ResourceTypeRegistrationResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceTypeRegistrationResponseProperties
-		return ret
+		return *v
 	}).(ResourceTypeRegistrationResponsePropertiesOutput)
 }
 
@@ -15620,11 +15250,10 @@ func (o SkuResourcePropertiesOutput) ToSkuResourcePropertiesPtrOutput() SkuResou
 }
 
 func (o SkuResourcePropertiesOutput) ToSkuResourcePropertiesPtrOutputWithContext(ctx context.Context) SkuResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResourceProperties) *SkuResourceProperties {
+	return o.ApplyT(func(v SkuResourceProperties) *SkuResourceProperties {
 		return &v
 	}).(SkuResourcePropertiesPtrOutput)
 }
-
 func (o SkuResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -15648,13 +15277,7 @@ func (o SkuResourcePropertiesPtrOutput) ToSkuResourcePropertiesPtrOutputWithCont
 }
 
 func (o SkuResourcePropertiesPtrOutput) Elem() SkuResourcePropertiesOutput {
-	return o.ApplyT(func(v *SkuResourceProperties) SkuResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResourceProperties
-		return ret
-	}).(SkuResourcePropertiesOutput)
+	return o.ApplyT(func(v *SkuResourceProperties) SkuResourceProperties { return *v }).(SkuResourcePropertiesOutput)
 }
 
 func (o SkuResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
@@ -15768,11 +15391,10 @@ func (o SkuResourceResponsePropertiesOutput) ToSkuResourceResponsePropertiesPtrO
 }
 
 func (o SkuResourceResponsePropertiesOutput) ToSkuResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) SkuResourceResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResourceResponseProperties) *SkuResourceResponseProperties {
+	return o.ApplyT(func(v SkuResourceResponseProperties) *SkuResourceResponseProperties {
 		return &v
 	}).(SkuResourceResponsePropertiesPtrOutput)
 }
-
 func (o SkuResourceResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResourceResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -15796,13 +15418,7 @@ func (o SkuResourceResponsePropertiesPtrOutput) ToSkuResourceResponsePropertiesP
 }
 
 func (o SkuResourceResponsePropertiesPtrOutput) Elem() SkuResourceResponsePropertiesOutput {
-	return o.ApplyT(func(v *SkuResourceResponseProperties) SkuResourceResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResourceResponseProperties
-		return ret
-	}).(SkuResourceResponsePropertiesOutput)
+	return o.ApplyT(func(v *SkuResourceResponseProperties) SkuResourceResponseProperties { return *v }).(SkuResourceResponsePropertiesOutput)
 }
 
 func (o SkuResourceResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
@@ -16080,11 +15696,10 @@ func (o SkuSettingCapacityOutput) ToSkuSettingCapacityPtrOutput() SkuSettingCapa
 }
 
 func (o SkuSettingCapacityOutput) ToSkuSettingCapacityPtrOutputWithContext(ctx context.Context) SkuSettingCapacityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuSettingCapacity) *SkuSettingCapacity {
+	return o.ApplyT(func(v SkuSettingCapacity) *SkuSettingCapacity {
 		return &v
 	}).(SkuSettingCapacityPtrOutput)
 }
-
 func (o SkuSettingCapacityOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuSettingCapacity) *int { return v.Default }).(pulumi.IntPtrOutput)
 }
@@ -16116,13 +15731,7 @@ func (o SkuSettingCapacityPtrOutput) ToSkuSettingCapacityPtrOutputWithContext(ct
 }
 
 func (o SkuSettingCapacityPtrOutput) Elem() SkuSettingCapacityOutput {
-	return o.ApplyT(func(v *SkuSettingCapacity) SkuSettingCapacity {
-		if v != nil {
-			return *v
-		}
-		var ret SkuSettingCapacity
-		return ret
-	}).(SkuSettingCapacityOutput)
+	return o.ApplyT(func(v *SkuSettingCapacity) SkuSettingCapacity { return *v }).(SkuSettingCapacityOutput)
 }
 
 func (o SkuSettingCapacityPtrOutput) Default() pulumi.IntPtrOutput {
@@ -16418,11 +16027,10 @@ func (o SkuSettingResponseCapacityOutput) ToSkuSettingResponseCapacityPtrOutput(
 }
 
 func (o SkuSettingResponseCapacityOutput) ToSkuSettingResponseCapacityPtrOutputWithContext(ctx context.Context) SkuSettingResponseCapacityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuSettingResponseCapacity) *SkuSettingResponseCapacity {
+	return o.ApplyT(func(v SkuSettingResponseCapacity) *SkuSettingResponseCapacity {
 		return &v
 	}).(SkuSettingResponseCapacityPtrOutput)
 }
-
 func (o SkuSettingResponseCapacityOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuSettingResponseCapacity) *int { return v.Default }).(pulumi.IntPtrOutput)
 }
@@ -16454,13 +16062,7 @@ func (o SkuSettingResponseCapacityPtrOutput) ToSkuSettingResponseCapacityPtrOutp
 }
 
 func (o SkuSettingResponseCapacityPtrOutput) Elem() SkuSettingResponseCapacityOutput {
-	return o.ApplyT(func(v *SkuSettingResponseCapacity) SkuSettingResponseCapacity {
-		if v != nil {
-			return *v
-		}
-		var ret SkuSettingResponseCapacity
-		return ret
-	}).(SkuSettingResponseCapacityOutput)
+	return o.ApplyT(func(v *SkuSettingResponseCapacity) SkuSettingResponseCapacity { return *v }).(SkuSettingResponseCapacityOutput)
 }
 
 func (o SkuSettingResponseCapacityPtrOutput) Default() pulumi.IntPtrOutput {

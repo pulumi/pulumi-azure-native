@@ -163,7 +163,7 @@ type groupArgs struct {
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Group type.
-	Type *GroupType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -181,7 +181,7 @@ type GroupArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Group type.
-	Type GroupTypePtrInput
+	Type *GroupType
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -207,7 +207,9 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
 }
 
-type GroupOutput struct{ *pulumi.OutputState }
+type GroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (GroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Group)(nil))

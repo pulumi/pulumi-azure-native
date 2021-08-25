@@ -141,7 +141,9 @@ func (i *AddressByName) ToAddressByNameOutputWithContext(ctx context.Context) Ad
 	return pulumi.ToOutputWithContext(ctx, i).(AddressByNameOutput)
 }
 
-type AddressByNameOutput struct{ *pulumi.OutputState }
+type AddressByNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (AddressByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AddressByName)(nil))

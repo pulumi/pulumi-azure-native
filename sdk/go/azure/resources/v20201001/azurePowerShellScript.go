@@ -241,7 +241,9 @@ func (i *AzurePowerShellScript) ToAzurePowerShellScriptOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AzurePowerShellScriptOutput)
 }
 
-type AzurePowerShellScriptOutput struct{ *pulumi.OutputState }
+type AzurePowerShellScriptOutput struct {
+	*pulumi.OutputState
+}
 
 func (AzurePowerShellScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzurePowerShellScript)(nil))

@@ -118,7 +118,7 @@ func (o CloudTieringCachePerformanceResponseOutput) ToCloudTieringCachePerforman
 }
 
 func (o CloudTieringCachePerformanceResponseOutput) ToCloudTieringCachePerformanceResponsePtrOutputWithContext(ctx context.Context) CloudTieringCachePerformanceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudTieringCachePerformanceResponse) *CloudTieringCachePerformanceResponse {
+	return o.ApplyT(func(v CloudTieringCachePerformanceResponse) *CloudTieringCachePerformanceResponse {
 		return &v
 	}).(CloudTieringCachePerformanceResponsePtrOutput)
 }
@@ -158,13 +158,7 @@ func (o CloudTieringCachePerformanceResponsePtrOutput) ToCloudTieringCachePerfor
 }
 
 func (o CloudTieringCachePerformanceResponsePtrOutput) Elem() CloudTieringCachePerformanceResponseOutput {
-	return o.ApplyT(func(v *CloudTieringCachePerformanceResponse) CloudTieringCachePerformanceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudTieringCachePerformanceResponse
-		return ret
-	}).(CloudTieringCachePerformanceResponseOutput)
+	return o.ApplyT(func(v *CloudTieringCachePerformanceResponse) CloudTieringCachePerformanceResponse { return *v }).(CloudTieringCachePerformanceResponseOutput)
 }
 
 // Count of bytes that were served from the local server
@@ -307,7 +301,7 @@ func (o CloudTieringDatePolicyStatusResponseOutput) ToCloudTieringDatePolicyStat
 }
 
 func (o CloudTieringDatePolicyStatusResponseOutput) ToCloudTieringDatePolicyStatusResponsePtrOutputWithContext(ctx context.Context) CloudTieringDatePolicyStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudTieringDatePolicyStatusResponse) *CloudTieringDatePolicyStatusResponse {
+	return o.ApplyT(func(v CloudTieringDatePolicyStatusResponse) *CloudTieringDatePolicyStatusResponse {
 		return &v
 	}).(CloudTieringDatePolicyStatusResponsePtrOutput)
 }
@@ -337,13 +331,7 @@ func (o CloudTieringDatePolicyStatusResponsePtrOutput) ToCloudTieringDatePolicyS
 }
 
 func (o CloudTieringDatePolicyStatusResponsePtrOutput) Elem() CloudTieringDatePolicyStatusResponseOutput {
-	return o.ApplyT(func(v *CloudTieringDatePolicyStatusResponse) CloudTieringDatePolicyStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudTieringDatePolicyStatusResponse
-		return ret
-	}).(CloudTieringDatePolicyStatusResponseOutput)
+	return o.ApplyT(func(v *CloudTieringDatePolicyStatusResponse) CloudTieringDatePolicyStatusResponse { return *v }).(CloudTieringDatePolicyStatusResponseOutput)
 }
 
 // Last updated timestamp
@@ -470,7 +458,7 @@ func (o CloudTieringFilesNotTieringResponseOutput) ToCloudTieringFilesNotTiering
 }
 
 func (o CloudTieringFilesNotTieringResponseOutput) ToCloudTieringFilesNotTieringResponsePtrOutputWithContext(ctx context.Context) CloudTieringFilesNotTieringResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudTieringFilesNotTieringResponse) *CloudTieringFilesNotTieringResponse {
+	return o.ApplyT(func(v CloudTieringFilesNotTieringResponse) *CloudTieringFilesNotTieringResponse {
 		return &v
 	}).(CloudTieringFilesNotTieringResponsePtrOutput)
 }
@@ -505,13 +493,7 @@ func (o CloudTieringFilesNotTieringResponsePtrOutput) ToCloudTieringFilesNotTier
 }
 
 func (o CloudTieringFilesNotTieringResponsePtrOutput) Elem() CloudTieringFilesNotTieringResponseOutput {
-	return o.ApplyT(func(v *CloudTieringFilesNotTieringResponse) CloudTieringFilesNotTieringResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudTieringFilesNotTieringResponse
-		return ret
-	}).(CloudTieringFilesNotTieringResponseOutput)
+	return o.ApplyT(func(v *CloudTieringFilesNotTieringResponse) CloudTieringFilesNotTieringResponse { return *v }).(CloudTieringFilesNotTieringResponseOutput)
 }
 
 // Array of tiering errors
@@ -660,7 +642,7 @@ func (o CloudTieringSpaceSavingsResponseOutput) ToCloudTieringSpaceSavingsRespon
 }
 
 func (o CloudTieringSpaceSavingsResponseOutput) ToCloudTieringSpaceSavingsResponsePtrOutputWithContext(ctx context.Context) CloudTieringSpaceSavingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudTieringSpaceSavingsResponse) *CloudTieringSpaceSavingsResponse {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsResponse) *CloudTieringSpaceSavingsResponse {
 		return &v
 	}).(CloudTieringSpaceSavingsResponsePtrOutput)
 }
@@ -710,13 +692,7 @@ func (o CloudTieringSpaceSavingsResponsePtrOutput) ToCloudTieringSpaceSavingsRes
 }
 
 func (o CloudTieringSpaceSavingsResponsePtrOutput) Elem() CloudTieringSpaceSavingsResponseOutput {
-	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) CloudTieringSpaceSavingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudTieringSpaceSavingsResponse
-		return ret
-	}).(CloudTieringSpaceSavingsResponseOutput)
+	return o.ApplyT(func(v *CloudTieringSpaceSavingsResponse) CloudTieringSpaceSavingsResponse { return *v }).(CloudTieringSpaceSavingsResponseOutput)
 }
 
 // Cached content size on the server
@@ -883,7 +859,7 @@ func (o CloudTieringVolumeFreeSpacePolicyStatusResponseOutput) ToCloudTieringVol
 }
 
 func (o CloudTieringVolumeFreeSpacePolicyStatusResponseOutput) ToCloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutputWithContext(ctx context.Context) CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudTieringVolumeFreeSpacePolicyStatusResponse) *CloudTieringVolumeFreeSpacePolicyStatusResponse {
+	return o.ApplyT(func(v CloudTieringVolumeFreeSpacePolicyStatusResponse) *CloudTieringVolumeFreeSpacePolicyStatusResponse {
 		return &v
 	}).(CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput)
 }
@@ -919,11 +895,7 @@ func (o CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput) ToCloudTiering
 
 func (o CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput) Elem() CloudTieringVolumeFreeSpacePolicyStatusResponseOutput {
 	return o.ApplyT(func(v *CloudTieringVolumeFreeSpacePolicyStatusResponse) CloudTieringVolumeFreeSpacePolicyStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudTieringVolumeFreeSpacePolicyStatusResponse
-		return ret
+		return *v
 	}).(CloudTieringVolumeFreeSpacePolicyStatusResponseOutput)
 }
 
@@ -1198,7 +1170,7 @@ func (o ServerEndpointCloudTieringStatusResponseOutput) ToServerEndpointCloudTie
 }
 
 func (o ServerEndpointCloudTieringStatusResponseOutput) ToServerEndpointCloudTieringStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointCloudTieringStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointCloudTieringStatusResponse) *ServerEndpointCloudTieringStatusResponse {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusResponse) *ServerEndpointCloudTieringStatusResponse {
 		return &v
 	}).(ServerEndpointCloudTieringStatusResponsePtrOutput)
 }
@@ -1278,13 +1250,7 @@ func (o ServerEndpointCloudTieringStatusResponsePtrOutput) ToServerEndpointCloud
 }
 
 func (o ServerEndpointCloudTieringStatusResponsePtrOutput) Elem() ServerEndpointCloudTieringStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointCloudTieringStatusResponse) ServerEndpointCloudTieringStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerEndpointCloudTieringStatusResponse
-		return ret
-	}).(ServerEndpointCloudTieringStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointCloudTieringStatusResponse) ServerEndpointCloudTieringStatusResponse { return *v }).(ServerEndpointCloudTieringStatusResponseOutput)
 }
 
 // Information regarding how well the local cache on the server is performing.
@@ -1718,7 +1684,7 @@ func (o ServerEndpointRecallStatusResponseOutput) ToServerEndpointRecallStatusRe
 }
 
 func (o ServerEndpointRecallStatusResponseOutput) ToServerEndpointRecallStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointRecallStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointRecallStatusResponse) *ServerEndpointRecallStatusResponse {
+	return o.ApplyT(func(v ServerEndpointRecallStatusResponse) *ServerEndpointRecallStatusResponse {
 		return &v
 	}).(ServerEndpointRecallStatusResponsePtrOutput)
 }
@@ -1753,13 +1719,7 @@ func (o ServerEndpointRecallStatusResponsePtrOutput) ToServerEndpointRecallStatu
 }
 
 func (o ServerEndpointRecallStatusResponsePtrOutput) Elem() ServerEndpointRecallStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointRecallStatusResponse) ServerEndpointRecallStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerEndpointRecallStatusResponse
-		return ret
-	}).(ServerEndpointRecallStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointRecallStatusResponse) ServerEndpointRecallStatusResponse { return *v }).(ServerEndpointRecallStatusResponseOutput)
 }
 
 // Last updated timestamp
@@ -1928,7 +1888,7 @@ func (o ServerEndpointSyncStatusResponseOutput) ToServerEndpointSyncStatusRespon
 }
 
 func (o ServerEndpointSyncStatusResponseOutput) ToServerEndpointSyncStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointSyncStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointSyncStatusResponse) *ServerEndpointSyncStatusResponse {
+	return o.ApplyT(func(v ServerEndpointSyncStatusResponse) *ServerEndpointSyncStatusResponse {
 		return &v
 	}).(ServerEndpointSyncStatusResponsePtrOutput)
 }
@@ -2003,13 +1963,7 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) ToServerEndpointSyncStatusRes
 }
 
 func (o ServerEndpointSyncStatusResponsePtrOutput) Elem() ServerEndpointSyncStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) ServerEndpointSyncStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerEndpointSyncStatusResponse
-		return ret
-	}).(ServerEndpointSyncStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) ServerEndpointSyncStatusResponse { return *v }).(ServerEndpointSyncStatusResponseOutput)
 }
 
 // Combined Health Status.
@@ -2238,7 +2192,7 @@ func (o SyncActivityStatusResponseOutput) ToSyncActivityStatusResponsePtrOutput(
 }
 
 func (o SyncActivityStatusResponseOutput) ToSyncActivityStatusResponsePtrOutputWithContext(ctx context.Context) SyncActivityStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncActivityStatusResponse) *SyncActivityStatusResponse {
+	return o.ApplyT(func(v SyncActivityStatusResponse) *SyncActivityStatusResponse {
 		return &v
 	}).(SyncActivityStatusResponsePtrOutput)
 }
@@ -2288,13 +2242,7 @@ func (o SyncActivityStatusResponsePtrOutput) ToSyncActivityStatusResponsePtrOutp
 }
 
 func (o SyncActivityStatusResponsePtrOutput) Elem() SyncActivityStatusResponseOutput {
-	return o.ApplyT(func(v *SyncActivityStatusResponse) SyncActivityStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SyncActivityStatusResponse
-		return ret
-	}).(SyncActivityStatusResponseOutput)
+	return o.ApplyT(func(v *SyncActivityStatusResponse) SyncActivityStatusResponse { return *v }).(SyncActivityStatusResponseOutput)
 }
 
 // Applied bytes
@@ -2477,7 +2425,7 @@ func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutput() 
 }
 
 func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutputWithContext(ctx context.Context) SyncSessionStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncSessionStatusResponse) *SyncSessionStatusResponse {
+	return o.ApplyT(func(v SyncSessionStatusResponse) *SyncSessionStatusResponse {
 		return &v
 	}).(SyncSessionStatusResponsePtrOutput)
 }
@@ -2534,13 +2482,7 @@ func (o SyncSessionStatusResponsePtrOutput) ToSyncSessionStatusResponsePtrOutput
 }
 
 func (o SyncSessionStatusResponsePtrOutput) Elem() SyncSessionStatusResponseOutput {
-	return o.ApplyT(func(v *SyncSessionStatusResponse) SyncSessionStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SyncSessionStatusResponse
-		return ret
-	}).(SyncSessionStatusResponseOutput)
+	return o.ApplyT(func(v *SyncSessionStatusResponse) SyncSessionStatusResponse { return *v }).(SyncSessionStatusResponseOutput)
 }
 
 // Array of per-item errors coming from the last sync session.

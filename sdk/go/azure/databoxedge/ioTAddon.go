@@ -192,7 +192,9 @@ func (i *IoTAddon) ToIoTAddonOutputWithContext(ctx context.Context) IoTAddonOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IoTAddonOutput)
 }
 
-type IoTAddonOutput struct{ *pulumi.OutputState }
+type IoTAddonOutput struct {
+	*pulumi.OutputState
+}
 
 func (IoTAddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoTAddon)(nil))

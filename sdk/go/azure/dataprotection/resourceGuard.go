@@ -140,7 +140,9 @@ func (i *ResourceGuard) ToResourceGuardOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOutput)
 }
 
-type ResourceGuardOutput struct{ *pulumi.OutputState }
+type ResourceGuardOutput struct {
+	*pulumi.OutputState
+}
 
 func (ResourceGuardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGuard)(nil))

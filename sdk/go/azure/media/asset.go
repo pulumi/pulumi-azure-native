@@ -178,7 +178,9 @@ func (i *Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetOutput)
 }
 
-type AssetOutput struct{ *pulumi.OutputState }
+type AssetOutput struct {
+	*pulumi.OutputState
+}
 
 func (AssetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Asset)(nil))

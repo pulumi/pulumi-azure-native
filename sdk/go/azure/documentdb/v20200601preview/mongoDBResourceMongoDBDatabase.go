@@ -255,7 +255,9 @@ func (i *MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBDatabaseOutput)
 }
 
-type MongoDBResourceMongoDBDatabaseOutput struct{ *pulumi.OutputState }
+type MongoDBResourceMongoDBDatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (MongoDBResourceMongoDBDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil))

@@ -218,7 +218,9 @@ func (i *SyncMember) ToSyncMemberOutputWithContext(ctx context.Context) SyncMemb
 	return pulumi.ToOutputWithContext(ctx, i).(SyncMemberOutput)
 }
 
-type SyncMemberOutput struct{ *pulumi.OutputState }
+type SyncMemberOutput struct {
+	*pulumi.OutputState
+}
 
 func (SyncMemberOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncMember)(nil))

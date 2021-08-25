@@ -118,7 +118,7 @@ func (o PutAliasRequestPropertiesOutput) ToPutAliasRequestPropertiesPtrOutput() 
 }
 
 func (o PutAliasRequestPropertiesOutput) ToPutAliasRequestPropertiesPtrOutputWithContext(ctx context.Context) PutAliasRequestPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PutAliasRequestProperties) *PutAliasRequestProperties {
+	return o.ApplyT(func(v PutAliasRequestProperties) *PutAliasRequestProperties {
 		return &v
 	}).(PutAliasRequestPropertiesPtrOutput)
 }
@@ -158,13 +158,7 @@ func (o PutAliasRequestPropertiesPtrOutput) ToPutAliasRequestPropertiesPtrOutput
 }
 
 func (o PutAliasRequestPropertiesPtrOutput) Elem() PutAliasRequestPropertiesOutput {
-	return o.ApplyT(func(v *PutAliasRequestProperties) PutAliasRequestProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PutAliasRequestProperties
-		return ret
-	}).(PutAliasRequestPropertiesOutput)
+	return o.ApplyT(func(v *PutAliasRequestProperties) PutAliasRequestProperties { return *v }).(PutAliasRequestPropertiesOutput)
 }
 
 // Determines whether subscription is fieldLed, partnerLed or LegacyEA
@@ -307,7 +301,7 @@ func (o PutAliasResponsePropertiesResponseOutput) ToPutAliasResponsePropertiesRe
 }
 
 func (o PutAliasResponsePropertiesResponseOutput) ToPutAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) PutAliasResponsePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PutAliasResponsePropertiesResponse) *PutAliasResponsePropertiesResponse {
+	return o.ApplyT(func(v PutAliasResponsePropertiesResponse) *PutAliasResponsePropertiesResponse {
 		return &v
 	}).(PutAliasResponsePropertiesResponsePtrOutput)
 }
@@ -337,13 +331,7 @@ func (o PutAliasResponsePropertiesResponsePtrOutput) ToPutAliasResponsePropertie
 }
 
 func (o PutAliasResponsePropertiesResponsePtrOutput) Elem() PutAliasResponsePropertiesResponseOutput {
-	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) PutAliasResponsePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PutAliasResponsePropertiesResponse
-		return ret
-	}).(PutAliasResponsePropertiesResponseOutput)
+	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) PutAliasResponsePropertiesResponse { return *v }).(PutAliasResponsePropertiesResponseOutput)
 }
 
 // The provisioning state of the resource.

@@ -257,7 +257,9 @@ func (i *SiteVNETConnectionSlot) ToSiteVNETConnectionSlotOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SiteVNETConnectionSlotOutput)
 }
 
-type SiteVNETConnectionSlotOutput struct{ *pulumi.OutputState }
+type SiteVNETConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteVNETConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteVNETConnectionSlot)(nil))

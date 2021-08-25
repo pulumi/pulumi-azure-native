@@ -143,7 +143,9 @@ func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDat
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
 }
 
-type SqlDatabaseOutput struct{ *pulumi.OutputState }
+type SqlDatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDatabase)(nil))

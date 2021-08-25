@@ -159,7 +159,9 @@ func (i *SyncAgent) ToSyncAgentOutputWithContext(ctx context.Context) SyncAgentO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncAgentOutput)
 }
 
-type SyncAgentOutput struct{ *pulumi.OutputState }
+type SyncAgentOutput struct {
+	*pulumi.OutputState
+}
 
 func (SyncAgentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncAgent)(nil))

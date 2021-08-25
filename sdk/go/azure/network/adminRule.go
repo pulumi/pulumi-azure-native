@@ -149,7 +149,9 @@ func (i *AdminRule) ToAdminRuleOutputWithContext(ctx context.Context) AdminRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRuleOutput)
 }
 
-type AdminRuleOutput struct{ *pulumi.OutputState }
+type AdminRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (AdminRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdminRule)(nil))

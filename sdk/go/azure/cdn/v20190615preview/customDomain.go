@@ -213,7 +213,9 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
 }
 
-type CustomDomainOutput struct{ *pulumi.OutputState }
+type CustomDomainOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDomain)(nil))

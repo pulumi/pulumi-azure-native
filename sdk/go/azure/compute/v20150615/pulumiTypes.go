@@ -13,13 +13,13 @@ import (
 // Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContent struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-	ComponentName *ComponentNames `pulumi:"componentName"`
+	ComponentName *string `pulumi:"componentName"`
 	// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
 	Content *string `pulumi:"content"`
 	// The pass name. Currently, the only allowable value is OobeSystem.
-	PassName *PassNames `pulumi:"passName"`
+	PassName *string `pulumi:"passName"`
 	// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-	SettingName *SettingNames `pulumi:"settingName"`
+	SettingName *string `pulumi:"settingName"`
 }
 
 // AdditionalUnattendContentInput is an input type that accepts AdditionalUnattendContentArgs and AdditionalUnattendContentOutput values.
@@ -36,13 +36,13 @@ type AdditionalUnattendContentInput interface {
 // Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContentArgs struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-	ComponentName ComponentNamesPtrInput `pulumi:"componentName"`
+	ComponentName *ComponentNames `pulumi:"componentName"`
 	// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
 	Content pulumi.StringPtrInput `pulumi:"content"`
 	// The pass name. Currently, the only allowable value is OobeSystem.
-	PassName PassNamesPtrInput `pulumi:"passName"`
+	PassName *PassNames `pulumi:"passName"`
 	// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-	SettingName SettingNamesPtrInput `pulumi:"settingName"`
+	SettingName *SettingNames `pulumi:"settingName"`
 }
 
 func (AdditionalUnattendContentArgs) ElementType() reflect.Type {
@@ -98,8 +98,8 @@ func (o AdditionalUnattendContentOutput) ToAdditionalUnattendContentOutputWithCo
 }
 
 // The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-func (o AdditionalUnattendContentOutput) ComponentName() ComponentNamesPtrOutput {
-	return o.ApplyT(func(v AdditionalUnattendContent) *ComponentNames { return v.ComponentName }).(ComponentNamesPtrOutput)
+func (o AdditionalUnattendContentOutput) ComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalUnattendContent) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
@@ -108,13 +108,13 @@ func (o AdditionalUnattendContentOutput) Content() pulumi.StringPtrOutput {
 }
 
 // The pass name. Currently, the only allowable value is OobeSystem.
-func (o AdditionalUnattendContentOutput) PassName() PassNamesPtrOutput {
-	return o.ApplyT(func(v AdditionalUnattendContent) *PassNames { return v.PassName }).(PassNamesPtrOutput)
+func (o AdditionalUnattendContentOutput) PassName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalUnattendContent) *string { return v.PassName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-func (o AdditionalUnattendContentOutput) SettingName() SettingNamesPtrOutput {
-	return o.ApplyT(func(v AdditionalUnattendContent) *SettingNames { return v.SettingName }).(SettingNamesPtrOutput)
+func (o AdditionalUnattendContentOutput) SettingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalUnattendContent) *string { return v.SettingName }).(pulumi.StringPtrOutput)
 }
 
 type AdditionalUnattendContentArrayOutput struct{ *pulumi.OutputState }
@@ -474,7 +474,7 @@ func (o BootDiagnosticsOutput) ToBootDiagnosticsPtrOutput() BootDiagnosticsPtrOu
 }
 
 func (o BootDiagnosticsOutput) ToBootDiagnosticsPtrOutputWithContext(ctx context.Context) BootDiagnosticsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootDiagnostics) *BootDiagnostics {
+	return o.ApplyT(func(v BootDiagnostics) *BootDiagnostics {
 		return &v
 	}).(BootDiagnosticsPtrOutput)
 }
@@ -504,13 +504,7 @@ func (o BootDiagnosticsPtrOutput) ToBootDiagnosticsPtrOutputWithContext(ctx cont
 }
 
 func (o BootDiagnosticsPtrOutput) Elem() BootDiagnosticsOutput {
-	return o.ApplyT(func(v *BootDiagnostics) BootDiagnostics {
-		if v != nil {
-			return *v
-		}
-		var ret BootDiagnostics
-		return ret
-	}).(BootDiagnosticsOutput)
+	return o.ApplyT(func(v *BootDiagnostics) BootDiagnostics { return *v }).(BootDiagnosticsOutput)
 }
 
 // Whether boot diagnostics should be enabled on the Virtual Machine.
@@ -633,7 +627,7 @@ func (o BootDiagnosticsInstanceViewResponseOutput) ToBootDiagnosticsInstanceView
 }
 
 func (o BootDiagnosticsInstanceViewResponseOutput) ToBootDiagnosticsInstanceViewResponsePtrOutputWithContext(ctx context.Context) BootDiagnosticsInstanceViewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootDiagnosticsInstanceViewResponse) *BootDiagnosticsInstanceViewResponse {
+	return o.ApplyT(func(v BootDiagnosticsInstanceViewResponse) *BootDiagnosticsInstanceViewResponse {
 		return &v
 	}).(BootDiagnosticsInstanceViewResponsePtrOutput)
 }
@@ -663,13 +657,7 @@ func (o BootDiagnosticsInstanceViewResponsePtrOutput) ToBootDiagnosticsInstanceV
 }
 
 func (o BootDiagnosticsInstanceViewResponsePtrOutput) Elem() BootDiagnosticsInstanceViewResponseOutput {
-	return o.ApplyT(func(v *BootDiagnosticsInstanceViewResponse) BootDiagnosticsInstanceViewResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BootDiagnosticsInstanceViewResponse
-		return ret
-	}).(BootDiagnosticsInstanceViewResponseOutput)
+	return o.ApplyT(func(v *BootDiagnosticsInstanceViewResponse) BootDiagnosticsInstanceViewResponse { return *v }).(BootDiagnosticsInstanceViewResponseOutput)
 }
 
 // The console screenshot blob URI.
@@ -792,7 +780,7 @@ func (o BootDiagnosticsResponseOutput) ToBootDiagnosticsResponsePtrOutput() Boot
 }
 
 func (o BootDiagnosticsResponseOutput) ToBootDiagnosticsResponsePtrOutputWithContext(ctx context.Context) BootDiagnosticsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootDiagnosticsResponse) *BootDiagnosticsResponse {
+	return o.ApplyT(func(v BootDiagnosticsResponse) *BootDiagnosticsResponse {
 		return &v
 	}).(BootDiagnosticsResponsePtrOutput)
 }
@@ -822,13 +810,7 @@ func (o BootDiagnosticsResponsePtrOutput) ToBootDiagnosticsResponsePtrOutputWith
 }
 
 func (o BootDiagnosticsResponsePtrOutput) Elem() BootDiagnosticsResponseOutput {
-	return o.ApplyT(func(v *BootDiagnosticsResponse) BootDiagnosticsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BootDiagnosticsResponse
-		return ret
-	}).(BootDiagnosticsResponseOutput)
+	return o.ApplyT(func(v *BootDiagnosticsResponse) BootDiagnosticsResponse { return *v }).(BootDiagnosticsResponseOutput)
 }
 
 // Whether boot diagnostics should be enabled on the Virtual Machine.
@@ -854,9 +836,9 @@ func (o BootDiagnosticsResponsePtrOutput) StorageUri() pulumi.StringPtrOutput {
 // Describes a data disk.
 type DataDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching *string `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
+	CreateOption string `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -883,9 +865,9 @@ type DataDiskInput interface {
 // Describes a data disk.
 type DataDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching CachingTypesPtrInput `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypesInput `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -951,13 +933,13 @@ func (o DataDiskOutput) ToDataDiskOutputWithContext(ctx context.Context) DataDis
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o DataDiskOutput) Caching() CachingTypesPtrOutput {
-	return o.ApplyT(func(v DataDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
+func (o DataDiskOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o DataDiskOutput) CreateOption() DiskCreateOptionTypesOutput {
-	return o.ApplyT(func(v DataDisk) DiskCreateOptionTypes { return v.CreateOption }).(DiskCreateOptionTypesOutput)
+func (o DataDiskOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v DataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -1255,7 +1237,7 @@ func (o DiagnosticsProfileOutput) ToDiagnosticsProfilePtrOutput() DiagnosticsPro
 }
 
 func (o DiagnosticsProfileOutput) ToDiagnosticsProfilePtrOutputWithContext(ctx context.Context) DiagnosticsProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsProfile) *DiagnosticsProfile {
+	return o.ApplyT(func(v DiagnosticsProfile) *DiagnosticsProfile {
 		return &v
 	}).(DiagnosticsProfilePtrOutput)
 }
@@ -1280,13 +1262,7 @@ func (o DiagnosticsProfilePtrOutput) ToDiagnosticsProfilePtrOutputWithContext(ct
 }
 
 func (o DiagnosticsProfilePtrOutput) Elem() DiagnosticsProfileOutput {
-	return o.ApplyT(func(v *DiagnosticsProfile) DiagnosticsProfile {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsProfile
-		return ret
-	}).(DiagnosticsProfileOutput)
+	return o.ApplyT(func(v *DiagnosticsProfile) DiagnosticsProfile { return *v }).(DiagnosticsProfileOutput)
 }
 
 // Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
@@ -1395,7 +1371,7 @@ func (o DiagnosticsProfileResponseOutput) ToDiagnosticsProfileResponsePtrOutput(
 }
 
 func (o DiagnosticsProfileResponseOutput) ToDiagnosticsProfileResponsePtrOutputWithContext(ctx context.Context) DiagnosticsProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsProfileResponse) *DiagnosticsProfileResponse {
+	return o.ApplyT(func(v DiagnosticsProfileResponse) *DiagnosticsProfileResponse {
 		return &v
 	}).(DiagnosticsProfileResponsePtrOutput)
 }
@@ -1420,13 +1396,7 @@ func (o DiagnosticsProfileResponsePtrOutput) ToDiagnosticsProfileResponsePtrOutp
 }
 
 func (o DiagnosticsProfileResponsePtrOutput) Elem() DiagnosticsProfileResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsProfileResponse) DiagnosticsProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsProfileResponse
-		return ret
-	}).(DiagnosticsProfileResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsProfileResponse) DiagnosticsProfileResponse { return *v }).(DiagnosticsProfileResponseOutput)
 }
 
 // Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
@@ -1543,7 +1513,7 @@ func (o DiskEncryptionSettingsOutput) ToDiskEncryptionSettingsPtrOutput() DiskEn
 }
 
 func (o DiskEncryptionSettingsOutput) ToDiskEncryptionSettingsPtrOutputWithContext(ctx context.Context) DiskEncryptionSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskEncryptionSettings) *DiskEncryptionSettings {
+	return o.ApplyT(func(v DiskEncryptionSettings) *DiskEncryptionSettings {
 		return &v
 	}).(DiskEncryptionSettingsPtrOutput)
 }
@@ -1578,13 +1548,7 @@ func (o DiskEncryptionSettingsPtrOutput) ToDiskEncryptionSettingsPtrOutputWithCo
 }
 
 func (o DiskEncryptionSettingsPtrOutput) Elem() DiskEncryptionSettingsOutput {
-	return o.ApplyT(func(v *DiskEncryptionSettings) DiskEncryptionSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DiskEncryptionSettings
-		return ret
-	}).(DiskEncryptionSettingsOutput)
+	return o.ApplyT(func(v *DiskEncryptionSettings) DiskEncryptionSettings { return *v }).(DiskEncryptionSettingsOutput)
 }
 
 // Specifies the location of the disk encryption key, which is a Key Vault Secret.
@@ -1721,7 +1685,7 @@ func (o DiskEncryptionSettingsResponseOutput) ToDiskEncryptionSettingsResponsePt
 }
 
 func (o DiskEncryptionSettingsResponseOutput) ToDiskEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) DiskEncryptionSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskEncryptionSettingsResponse) *DiskEncryptionSettingsResponse {
+	return o.ApplyT(func(v DiskEncryptionSettingsResponse) *DiskEncryptionSettingsResponse {
 		return &v
 	}).(DiskEncryptionSettingsResponsePtrOutput)
 }
@@ -1756,13 +1720,7 @@ func (o DiskEncryptionSettingsResponsePtrOutput) ToDiskEncryptionSettingsRespons
 }
 
 func (o DiskEncryptionSettingsResponsePtrOutput) Elem() DiskEncryptionSettingsResponseOutput {
-	return o.ApplyT(func(v *DiskEncryptionSettingsResponse) DiskEncryptionSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiskEncryptionSettingsResponse
-		return ret
-	}).(DiskEncryptionSettingsResponseOutput)
+	return o.ApplyT(func(v *DiskEncryptionSettingsResponse) DiskEncryptionSettingsResponse { return *v }).(DiskEncryptionSettingsResponseOutput)
 }
 
 // Specifies the location of the disk encryption key, which is a Key Vault Secret.
@@ -2000,7 +1958,7 @@ func (o HardwareProfileOutput) ToHardwareProfilePtrOutput() HardwareProfilePtrOu
 }
 
 func (o HardwareProfileOutput) ToHardwareProfilePtrOutputWithContext(ctx context.Context) HardwareProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HardwareProfile) *HardwareProfile {
+	return o.ApplyT(func(v HardwareProfile) *HardwareProfile {
 		return &v
 	}).(HardwareProfilePtrOutput)
 }
@@ -2025,13 +1983,7 @@ func (o HardwareProfilePtrOutput) ToHardwareProfilePtrOutputWithContext(ctx cont
 }
 
 func (o HardwareProfilePtrOutput) Elem() HardwareProfileOutput {
-	return o.ApplyT(func(v *HardwareProfile) HardwareProfile {
-		if v != nil {
-			return *v
-		}
-		var ret HardwareProfile
-		return ret
-	}).(HardwareProfileOutput)
+	return o.ApplyT(func(v *HardwareProfile) HardwareProfile { return *v }).(HardwareProfileOutput)
 }
 
 // Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
@@ -2140,7 +2092,7 @@ func (o HardwareProfileResponseOutput) ToHardwareProfileResponsePtrOutput() Hard
 }
 
 func (o HardwareProfileResponseOutput) ToHardwareProfileResponsePtrOutputWithContext(ctx context.Context) HardwareProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HardwareProfileResponse) *HardwareProfileResponse {
+	return o.ApplyT(func(v HardwareProfileResponse) *HardwareProfileResponse {
 		return &v
 	}).(HardwareProfileResponsePtrOutput)
 }
@@ -2165,13 +2117,7 @@ func (o HardwareProfileResponsePtrOutput) ToHardwareProfileResponsePtrOutputWith
 }
 
 func (o HardwareProfileResponsePtrOutput) Elem() HardwareProfileResponseOutput {
-	return o.ApplyT(func(v *HardwareProfileResponse) HardwareProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HardwareProfileResponse
-		return ret
-	}).(HardwareProfileResponseOutput)
+	return o.ApplyT(func(v *HardwareProfileResponse) HardwareProfileResponse { return *v }).(HardwareProfileResponseOutput)
 }
 
 // Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
@@ -2292,7 +2238,7 @@ func (o ImageReferenceOutput) ToImageReferencePtrOutput() ImageReferencePtrOutpu
 }
 
 func (o ImageReferenceOutput) ToImageReferencePtrOutputWithContext(ctx context.Context) ImageReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageReference) *ImageReference {
+	return o.ApplyT(func(v ImageReference) *ImageReference {
 		return &v
 	}).(ImageReferencePtrOutput)
 }
@@ -2332,13 +2278,7 @@ func (o ImageReferencePtrOutput) ToImageReferencePtrOutputWithContext(ctx contex
 }
 
 func (o ImageReferencePtrOutput) Elem() ImageReferenceOutput {
-	return o.ApplyT(func(v *ImageReference) ImageReference {
-		if v != nil {
-			return *v
-		}
-		var ret ImageReference
-		return ret
-	}).(ImageReferenceOutput)
+	return o.ApplyT(func(v *ImageReference) ImageReference { return *v }).(ImageReferenceOutput)
 }
 
 // Specifies the offer of the platform image or marketplace image used to create the virtual machine.
@@ -2489,7 +2429,7 @@ func (o ImageReferenceResponseOutput) ToImageReferenceResponsePtrOutput() ImageR
 }
 
 func (o ImageReferenceResponseOutput) ToImageReferenceResponsePtrOutputWithContext(ctx context.Context) ImageReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageReferenceResponse) *ImageReferenceResponse {
+	return o.ApplyT(func(v ImageReferenceResponse) *ImageReferenceResponse {
 		return &v
 	}).(ImageReferenceResponsePtrOutput)
 }
@@ -2529,13 +2469,7 @@ func (o ImageReferenceResponsePtrOutput) ToImageReferenceResponsePtrOutputWithCo
 }
 
 func (o ImageReferenceResponsePtrOutput) Elem() ImageReferenceResponseOutput {
-	return o.ApplyT(func(v *ImageReferenceResponse) ImageReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ImageReferenceResponse
-		return ret
-	}).(ImageReferenceResponseOutput)
+	return o.ApplyT(func(v *ImageReferenceResponse) ImageReferenceResponse { return *v }).(ImageReferenceResponseOutput)
 }
 
 // Specifies the offer of the platform image or marketplace image used to create the virtual machine.
@@ -2585,7 +2519,7 @@ type InstanceViewStatus struct {
 	// The short localizable label for the status.
 	DisplayStatus *string `pulumi:"displayStatus"`
 	// The level code.
-	Level *StatusLevelTypes `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message *string `pulumi:"message"`
 	// The time of the status.
@@ -2610,7 +2544,7 @@ type InstanceViewStatusArgs struct {
 	// The short localizable label for the status.
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
 	// The level code.
-	Level StatusLevelTypesPtrInput `pulumi:"level"`
+	Level *StatusLevelTypes `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// The time of the status.
@@ -2680,8 +2614,8 @@ func (o InstanceViewStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
 }
 
 // The level code.
-func (o InstanceViewStatusOutput) Level() StatusLevelTypesPtrOutput {
-	return o.ApplyT(func(v InstanceViewStatus) *StatusLevelTypes { return v.Level }).(StatusLevelTypesPtrOutput)
+func (o InstanceViewStatusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceViewStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // The detailed status message, including for alerts and error messages.
@@ -2851,7 +2785,7 @@ func (o InstanceViewStatusResponseOutput) ToInstanceViewStatusResponsePtrOutput(
 }
 
 func (o InstanceViewStatusResponseOutput) ToInstanceViewStatusResponsePtrOutputWithContext(ctx context.Context) InstanceViewStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceViewStatusResponse) *InstanceViewStatusResponse {
+	return o.ApplyT(func(v InstanceViewStatusResponse) *InstanceViewStatusResponse {
 		return &v
 	}).(InstanceViewStatusResponsePtrOutput)
 }
@@ -2896,13 +2830,7 @@ func (o InstanceViewStatusResponsePtrOutput) ToInstanceViewStatusResponsePtrOutp
 }
 
 func (o InstanceViewStatusResponsePtrOutput) Elem() InstanceViewStatusResponseOutput {
-	return o.ApplyT(func(v *InstanceViewStatusResponse) InstanceViewStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceViewStatusResponse
-		return ret
-	}).(InstanceViewStatusResponseOutput)
+	return o.ApplyT(func(v *InstanceViewStatusResponse) InstanceViewStatusResponse { return *v }).(InstanceViewStatusResponseOutput)
 }
 
 // The status code.
@@ -3075,7 +3003,7 @@ func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKe
 }
 
 func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
+	return o.ApplyT(func(v KeyVaultKeyReference) *KeyVaultKeyReference {
 		return &v
 	}).(KeyVaultKeyReferencePtrOutput)
 }
@@ -3105,13 +3033,7 @@ func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContex
 }
 
 func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultKeyReference
-		return ret
-	}).(KeyVaultKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference { return *v }).(KeyVaultKeyReferenceOutput)
 }
 
 // The URL referencing a key encryption key in Key Vault.
@@ -3234,7 +3156,7 @@ func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOut
 }
 
 func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
 		return &v
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
@@ -3264,13 +3186,7 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtr
 }
 
 func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultKeyReferenceResponse
-		return ret
-	}).(KeyVaultKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse { return *v }).(KeyVaultKeyReferenceResponseOutput)
 }
 
 // The URL referencing a key encryption key in Key Vault.
@@ -3393,7 +3309,7 @@ func (o KeyVaultSecretReferenceOutput) ToKeyVaultSecretReferencePtrOutput() KeyV
 }
 
 func (o KeyVaultSecretReferenceOutput) ToKeyVaultSecretReferencePtrOutputWithContext(ctx context.Context) KeyVaultSecretReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultSecretReference) *KeyVaultSecretReference {
+	return o.ApplyT(func(v KeyVaultSecretReference) *KeyVaultSecretReference {
 		return &v
 	}).(KeyVaultSecretReferencePtrOutput)
 }
@@ -3423,13 +3339,7 @@ func (o KeyVaultSecretReferencePtrOutput) ToKeyVaultSecretReferencePtrOutputWith
 }
 
 func (o KeyVaultSecretReferencePtrOutput) Elem() KeyVaultSecretReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultSecretReference) KeyVaultSecretReference {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultSecretReference
-		return ret
-	}).(KeyVaultSecretReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultSecretReference) KeyVaultSecretReference { return *v }).(KeyVaultSecretReferenceOutput)
 }
 
 // The URL referencing a secret in a Key Vault.
@@ -3552,7 +3462,7 @@ func (o KeyVaultSecretReferenceResponseOutput) ToKeyVaultSecretReferenceResponse
 }
 
 func (o KeyVaultSecretReferenceResponseOutput) ToKeyVaultSecretReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultSecretReferenceResponse) *KeyVaultSecretReferenceResponse {
+	return o.ApplyT(func(v KeyVaultSecretReferenceResponse) *KeyVaultSecretReferenceResponse {
 		return &v
 	}).(KeyVaultSecretReferenceResponsePtrOutput)
 }
@@ -3582,13 +3492,7 @@ func (o KeyVaultSecretReferenceResponsePtrOutput) ToKeyVaultSecretReferenceRespo
 }
 
 func (o KeyVaultSecretReferenceResponsePtrOutput) Elem() KeyVaultSecretReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultSecretReferenceResponse) KeyVaultSecretReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultSecretReferenceResponse
-		return ret
-	}).(KeyVaultSecretReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultSecretReferenceResponse) KeyVaultSecretReferenceResponse { return *v }).(KeyVaultSecretReferenceResponseOutput)
 }
 
 // The URL referencing a secret in a Key Vault.
@@ -3711,7 +3615,7 @@ func (o LinuxConfigurationOutput) ToLinuxConfigurationPtrOutput() LinuxConfigura
 }
 
 func (o LinuxConfigurationOutput) ToLinuxConfigurationPtrOutputWithContext(ctx context.Context) LinuxConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxConfiguration) *LinuxConfiguration {
+	return o.ApplyT(func(v LinuxConfiguration) *LinuxConfiguration {
 		return &v
 	}).(LinuxConfigurationPtrOutput)
 }
@@ -3741,13 +3645,7 @@ func (o LinuxConfigurationPtrOutput) ToLinuxConfigurationPtrOutputWithContext(ct
 }
 
 func (o LinuxConfigurationPtrOutput) Elem() LinuxConfigurationOutput {
-	return o.ApplyT(func(v *LinuxConfiguration) LinuxConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxConfiguration
-		return ret
-	}).(LinuxConfigurationOutput)
+	return o.ApplyT(func(v *LinuxConfiguration) LinuxConfiguration { return *v }).(LinuxConfigurationOutput)
 }
 
 // Specifies whether password authentication should be disabled.
@@ -3870,7 +3768,7 @@ func (o LinuxConfigurationResponseOutput) ToLinuxConfigurationResponsePtrOutput(
 }
 
 func (o LinuxConfigurationResponseOutput) ToLinuxConfigurationResponsePtrOutputWithContext(ctx context.Context) LinuxConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxConfigurationResponse) *LinuxConfigurationResponse {
+	return o.ApplyT(func(v LinuxConfigurationResponse) *LinuxConfigurationResponse {
 		return &v
 	}).(LinuxConfigurationResponsePtrOutput)
 }
@@ -3900,13 +3798,7 @@ func (o LinuxConfigurationResponsePtrOutput) ToLinuxConfigurationResponsePtrOutp
 }
 
 func (o LinuxConfigurationResponsePtrOutput) Elem() LinuxConfigurationResponseOutput {
-	return o.ApplyT(func(v *LinuxConfigurationResponse) LinuxConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxConfigurationResponse
-		return ret
-	}).(LinuxConfigurationResponseOutput)
+	return o.ApplyT(func(v *LinuxConfigurationResponse) LinuxConfigurationResponse { return *v }).(LinuxConfigurationResponseOutput)
 }
 
 // Specifies whether password authentication should be disabled.
@@ -4243,7 +4135,7 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
+	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
@@ -4268,13 +4160,7 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfile
-		return ret
-	}).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
 }
 
 // Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
@@ -4383,7 +4269,7 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
@@ -4408,13 +4294,7 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfileResponse
-		return ret
-	}).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
 }
 
 // Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
@@ -4430,9 +4310,9 @@ func (o NetworkProfileResponsePtrOutput) NetworkInterfaces() NetworkInterfaceRef
 // Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OSDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching *string `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
+	CreateOption string `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
@@ -4442,7 +4322,7 @@ type OSDisk struct {
 	// The disk name.
 	Name string `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The virtual hard disk.
 	Vhd VirtualHardDisk `pulumi:"vhd"`
 }
@@ -4461,9 +4341,9 @@ type OSDiskInput interface {
 // Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OSDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching CachingTypesPtrInput `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypesInput `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
@@ -4473,7 +4353,7 @@ type OSDiskArgs struct {
 	// The disk name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType OperatingSystemTypesPtrInput `pulumi:"osType"`
+	OsType *OperatingSystemTypes `pulumi:"osType"`
 	// The virtual hard disk.
 	Vhd VirtualHardDiskInput `pulumi:"vhd"`
 }
@@ -4551,19 +4431,19 @@ func (o OSDiskOutput) ToOSDiskPtrOutput() OSDiskPtrOutput {
 }
 
 func (o OSDiskOutput) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDisk) *OSDisk {
+	return o.ApplyT(func(v OSDisk) *OSDisk {
 		return &v
 	}).(OSDiskPtrOutput)
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o OSDiskOutput) Caching() CachingTypesPtrOutput {
-	return o.ApplyT(func(v OSDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
+func (o OSDiskOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OSDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o OSDiskOutput) CreateOption() DiskCreateOptionTypesOutput {
-	return o.ApplyT(func(v OSDisk) DiskCreateOptionTypes { return v.CreateOption }).(DiskCreateOptionTypesOutput)
+func (o OSDiskOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v OSDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -4587,8 +4467,8 @@ func (o OSDiskOutput) Name() pulumi.StringOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o OSDiskOutput) OsType() OperatingSystemTypesPtrOutput {
-	return o.ApplyT(func(v OSDisk) *OperatingSystemTypes { return v.OsType }).(OperatingSystemTypesPtrOutput)
+func (o OSDiskOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OSDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // The virtual hard disk.
@@ -4611,33 +4491,27 @@ func (o OSDiskPtrOutput) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDis
 }
 
 func (o OSDiskPtrOutput) Elem() OSDiskOutput {
-	return o.ApplyT(func(v *OSDisk) OSDisk {
-		if v != nil {
-			return *v
-		}
-		var ret OSDisk
-		return ret
-	}).(OSDiskOutput)
+	return o.ApplyT(func(v *OSDisk) OSDisk { return *v }).(OSDiskOutput)
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o OSDiskPtrOutput) Caching() CachingTypesPtrOutput {
-	return o.ApplyT(func(v *OSDisk) *CachingTypes {
+func (o OSDiskPtrOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OSDisk) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Caching
-	}).(CachingTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o OSDiskPtrOutput) CreateOption() DiskCreateOptionTypesPtrOutput {
-	return o.ApplyT(func(v *OSDisk) *DiskCreateOptionTypes {
+func (o OSDiskPtrOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OSDisk) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.CreateOption
-	}).(DiskCreateOptionTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -4681,13 +4555,13 @@ func (o OSDiskPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o OSDiskPtrOutput) OsType() OperatingSystemTypesPtrOutput {
-	return o.ApplyT(func(v *OSDisk) *OperatingSystemTypes {
+func (o OSDiskPtrOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OSDisk) *string {
 		if v == nil {
 			return nil
 		}
 		return v.OsType
-	}).(OperatingSystemTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The virtual hard disk.
@@ -4824,7 +4698,7 @@ func (o OSDiskResponseOutput) ToOSDiskResponsePtrOutput() OSDiskResponsePtrOutpu
 }
 
 func (o OSDiskResponseOutput) ToOSDiskResponsePtrOutputWithContext(ctx context.Context) OSDiskResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDiskResponse) *OSDiskResponse {
+	return o.ApplyT(func(v OSDiskResponse) *OSDiskResponse {
 		return &v
 	}).(OSDiskResponsePtrOutput)
 }
@@ -4884,13 +4758,7 @@ func (o OSDiskResponsePtrOutput) ToOSDiskResponsePtrOutputWithContext(ctx contex
 }
 
 func (o OSDiskResponsePtrOutput) Elem() OSDiskResponseOutput {
-	return o.ApplyT(func(v *OSDiskResponse) OSDiskResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSDiskResponse
-		return ret
-	}).(OSDiskResponseOutput)
+	return o.ApplyT(func(v *OSDiskResponse) OSDiskResponse { return *v }).(OSDiskResponseOutput)
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
@@ -5093,7 +4961,7 @@ func (o OSProfileOutput) ToOSProfilePtrOutput() OSProfilePtrOutput {
 }
 
 func (o OSProfileOutput) ToOSProfilePtrOutputWithContext(ctx context.Context) OSProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfile) *OSProfile {
+	return o.ApplyT(func(v OSProfile) *OSProfile {
 		return &v
 	}).(OSProfilePtrOutput)
 }
@@ -5148,13 +5016,7 @@ func (o OSProfilePtrOutput) ToOSProfilePtrOutputWithContext(ctx context.Context)
 }
 
 func (o OSProfilePtrOutput) Elem() OSProfileOutput {
-	return o.ApplyT(func(v *OSProfile) OSProfile {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfile
-		return ret
-	}).(OSProfileOutput)
+	return o.ApplyT(func(v *OSProfile) OSProfile { return *v }).(OSProfileOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
@@ -5347,7 +5209,7 @@ func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutput() OSProfileRespons
 }
 
 func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponse) *OSProfileResponse {
+	return o.ApplyT(func(v OSProfileResponse) *OSProfileResponse {
 		return &v
 	}).(OSProfileResponsePtrOutput)
 }
@@ -5402,13 +5264,7 @@ func (o OSProfileResponsePtrOutput) ToOSProfileResponsePtrOutputWithContext(ctx 
 }
 
 func (o OSProfileResponsePtrOutput) Elem() OSProfileResponseOutput {
-	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileResponse
-		return ret
-	}).(OSProfileResponseOutput)
+	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse { return *v }).(OSProfileResponseOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
@@ -5589,7 +5445,7 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
+	return o.ApplyT(func(v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
@@ -5629,13 +5485,7 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan {
-		if v != nil {
-			return *v
-		}
-		var ret Plan
-		return ret
-	}).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
 }
 
 // The plan ID.
@@ -5786,7 +5636,7 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
+	return o.ApplyT(func(v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
@@ -5826,13 +5676,7 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PlanResponse
-		return ret
-	}).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
 }
 
 // The plan ID.
@@ -5979,7 +5823,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -6014,13 +5858,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Specifies the number of virtual machines in the scale set.
@@ -6157,7 +5995,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -6192,13 +6030,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Specifies the number of virtual machines in the scale set.
@@ -6327,7 +6159,7 @@ func (o SshConfigurationOutput) ToSshConfigurationPtrOutput() SshConfigurationPt
 }
 
 func (o SshConfigurationOutput) ToSshConfigurationPtrOutputWithContext(ctx context.Context) SshConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SshConfiguration) *SshConfiguration {
+	return o.ApplyT(func(v SshConfiguration) *SshConfiguration {
 		return &v
 	}).(SshConfigurationPtrOutput)
 }
@@ -6352,13 +6184,7 @@ func (o SshConfigurationPtrOutput) ToSshConfigurationPtrOutputWithContext(ctx co
 }
 
 func (o SshConfigurationPtrOutput) Elem() SshConfigurationOutput {
-	return o.ApplyT(func(v *SshConfiguration) SshConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret SshConfiguration
-		return ret
-	}).(SshConfigurationOutput)
+	return o.ApplyT(func(v *SshConfiguration) SshConfiguration { return *v }).(SshConfigurationOutput)
 }
 
 // The list of SSH public keys used to authenticate with linux based VMs.
@@ -6467,7 +6293,7 @@ func (o SshConfigurationResponseOutput) ToSshConfigurationResponsePtrOutput() Ss
 }
 
 func (o SshConfigurationResponseOutput) ToSshConfigurationResponsePtrOutputWithContext(ctx context.Context) SshConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SshConfigurationResponse) *SshConfigurationResponse {
+	return o.ApplyT(func(v SshConfigurationResponse) *SshConfigurationResponse {
 		return &v
 	}).(SshConfigurationResponsePtrOutput)
 }
@@ -6492,13 +6318,7 @@ func (o SshConfigurationResponsePtrOutput) ToSshConfigurationResponsePtrOutputWi
 }
 
 func (o SshConfigurationResponsePtrOutput) Elem() SshConfigurationResponseOutput {
-	return o.ApplyT(func(v *SshConfigurationResponse) SshConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SshConfigurationResponse
-		return ret
-	}).(SshConfigurationResponseOutput)
+	return o.ApplyT(func(v *SshConfigurationResponse) SshConfigurationResponse { return *v }).(SshConfigurationResponseOutput)
 }
 
 // The list of SSH public keys used to authenticate with linux based VMs.
@@ -6833,7 +6653,7 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
+	return o.ApplyT(func(v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
@@ -6868,13 +6688,7 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile {
-		if v != nil {
-			return *v
-		}
-		var ret StorageProfile
-		return ret
-	}).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
 }
 
 // Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -7011,7 +6825,7 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
@@ -7046,13 +6860,7 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageProfileResponse
-		return ret
-	}).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
 }
 
 // Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -7203,7 +7011,7 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
+	return o.ApplyT(func(v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
@@ -7228,13 +7036,7 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource {
-		if v != nil {
-			return *v
-		}
-		var ret SubResource
-		return ret
-	}).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
 }
 
 // Resource Id
@@ -7385,7 +7187,7 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
@@ -7410,13 +7212,7 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubResourceResponse
-		return ret
-	}).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
 }
 
 // Resource Id
@@ -7452,7 +7248,7 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 // Describes an upgrade policy - automatic or manual.
 type UpgradePolicy struct {
 	// Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-	Mode *UpgradeMode `pulumi:"mode"`
+	Mode *string `pulumi:"mode"`
 }
 
 // UpgradePolicyInput is an input type that accepts UpgradePolicyArgs and UpgradePolicyOutput values.
@@ -7469,7 +7265,7 @@ type UpgradePolicyInput interface {
 // Describes an upgrade policy - automatic or manual.
 type UpgradePolicyArgs struct {
 	// Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-	Mode UpgradeModePtrInput `pulumi:"mode"`
+	Mode *UpgradeMode `pulumi:"mode"`
 }
 
 func (UpgradePolicyArgs) ElementType() reflect.Type {
@@ -7545,14 +7341,14 @@ func (o UpgradePolicyOutput) ToUpgradePolicyPtrOutput() UpgradePolicyPtrOutput {
 }
 
 func (o UpgradePolicyOutput) ToUpgradePolicyPtrOutputWithContext(ctx context.Context) UpgradePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpgradePolicy) *UpgradePolicy {
+	return o.ApplyT(func(v UpgradePolicy) *UpgradePolicy {
 		return &v
 	}).(UpgradePolicyPtrOutput)
 }
 
 // Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-func (o UpgradePolicyOutput) Mode() UpgradeModePtrOutput {
-	return o.ApplyT(func(v UpgradePolicy) *UpgradeMode { return v.Mode }).(UpgradeModePtrOutput)
+func (o UpgradePolicyOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpgradePolicy) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 type UpgradePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -7570,23 +7366,17 @@ func (o UpgradePolicyPtrOutput) ToUpgradePolicyPtrOutputWithContext(ctx context.
 }
 
 func (o UpgradePolicyPtrOutput) Elem() UpgradePolicyOutput {
-	return o.ApplyT(func(v *UpgradePolicy) UpgradePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret UpgradePolicy
-		return ret
-	}).(UpgradePolicyOutput)
+	return o.ApplyT(func(v *UpgradePolicy) UpgradePolicy { return *v }).(UpgradePolicyOutput)
 }
 
 // Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-func (o UpgradePolicyPtrOutput) Mode() UpgradeModePtrOutput {
-	return o.ApplyT(func(v *UpgradePolicy) *UpgradeMode {
+func (o UpgradePolicyPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradePolicy) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(UpgradeModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes an upgrade policy - automatic or manual.
@@ -7685,7 +7475,7 @@ func (o UpgradePolicyResponseOutput) ToUpgradePolicyResponsePtrOutput() UpgradeP
 }
 
 func (o UpgradePolicyResponseOutput) ToUpgradePolicyResponsePtrOutputWithContext(ctx context.Context) UpgradePolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpgradePolicyResponse) *UpgradePolicyResponse {
+	return o.ApplyT(func(v UpgradePolicyResponse) *UpgradePolicyResponse {
 		return &v
 	}).(UpgradePolicyResponsePtrOutput)
 }
@@ -7710,13 +7500,7 @@ func (o UpgradePolicyResponsePtrOutput) ToUpgradePolicyResponsePtrOutputWithCont
 }
 
 func (o UpgradePolicyResponsePtrOutput) Elem() UpgradePolicyResponseOutput {
-	return o.ApplyT(func(v *UpgradePolicyResponse) UpgradePolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UpgradePolicyResponse
-		return ret
-	}).(UpgradePolicyResponseOutput)
+	return o.ApplyT(func(v *UpgradePolicyResponse) UpgradePolicyResponse { return *v }).(UpgradePolicyResponseOutput)
 }
 
 // Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
@@ -8261,7 +8045,7 @@ func (o VirtualHardDiskOutput) ToVirtualHardDiskPtrOutput() VirtualHardDiskPtrOu
 }
 
 func (o VirtualHardDiskOutput) ToVirtualHardDiskPtrOutputWithContext(ctx context.Context) VirtualHardDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHardDisk) *VirtualHardDisk {
+	return o.ApplyT(func(v VirtualHardDisk) *VirtualHardDisk {
 		return &v
 	}).(VirtualHardDiskPtrOutput)
 }
@@ -8286,13 +8070,7 @@ func (o VirtualHardDiskPtrOutput) ToVirtualHardDiskPtrOutputWithContext(ctx cont
 }
 
 func (o VirtualHardDiskPtrOutput) Elem() VirtualHardDiskOutput {
-	return o.ApplyT(func(v *VirtualHardDisk) VirtualHardDisk {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualHardDisk
-		return ret
-	}).(VirtualHardDiskOutput)
+	return o.ApplyT(func(v *VirtualHardDisk) VirtualHardDisk { return *v }).(VirtualHardDiskOutput)
 }
 
 // Specifies the virtual hard disk's uri.
@@ -8401,7 +8179,7 @@ func (o VirtualHardDiskResponseOutput) ToVirtualHardDiskResponsePtrOutput() Virt
 }
 
 func (o VirtualHardDiskResponseOutput) ToVirtualHardDiskResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHardDiskResponse) *VirtualHardDiskResponse {
+	return o.ApplyT(func(v VirtualHardDiskResponse) *VirtualHardDiskResponse {
 		return &v
 	}).(VirtualHardDiskResponsePtrOutput)
 }
@@ -8426,13 +8204,7 @@ func (o VirtualHardDiskResponsePtrOutput) ToVirtualHardDiskResponsePtrOutputWith
 }
 
 func (o VirtualHardDiskResponsePtrOutput) Elem() VirtualHardDiskResponseOutput {
-	return o.ApplyT(func(v *VirtualHardDiskResponse) VirtualHardDiskResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualHardDiskResponse
-		return ret
-	}).(VirtualHardDiskResponseOutput)
+	return o.ApplyT(func(v *VirtualHardDiskResponse) VirtualHardDiskResponse { return *v }).(VirtualHardDiskResponseOutput)
 }
 
 // Specifies the virtual hard disk's uri.
@@ -8549,7 +8321,7 @@ func (o VirtualMachineAgentInstanceViewResponseOutput) ToVirtualMachineAgentInst
 }
 
 func (o VirtualMachineAgentInstanceViewResponseOutput) ToVirtualMachineAgentInstanceViewResponsePtrOutputWithContext(ctx context.Context) VirtualMachineAgentInstanceViewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAgentInstanceViewResponse) *VirtualMachineAgentInstanceViewResponse {
+	return o.ApplyT(func(v VirtualMachineAgentInstanceViewResponse) *VirtualMachineAgentInstanceViewResponse {
 		return &v
 	}).(VirtualMachineAgentInstanceViewResponsePtrOutput)
 }
@@ -8586,13 +8358,7 @@ func (o VirtualMachineAgentInstanceViewResponsePtrOutput) ToVirtualMachineAgentI
 }
 
 func (o VirtualMachineAgentInstanceViewResponsePtrOutput) Elem() VirtualMachineAgentInstanceViewResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineAgentInstanceViewResponse) VirtualMachineAgentInstanceViewResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineAgentInstanceViewResponse
-		return ret
-	}).(VirtualMachineAgentInstanceViewResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineAgentInstanceViewResponse) VirtualMachineAgentInstanceViewResponse { return *v }).(VirtualMachineAgentInstanceViewResponseOutput)
 }
 
 // The virtual machine extension handler instance view.
@@ -8857,7 +8623,7 @@ func (o VirtualMachineExtensionInstanceViewOutput) ToVirtualMachineExtensionInst
 }
 
 func (o VirtualMachineExtensionInstanceViewOutput) ToVirtualMachineExtensionInstanceViewPtrOutputWithContext(ctx context.Context) VirtualMachineExtensionInstanceViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineExtensionInstanceView) *VirtualMachineExtensionInstanceView {
+	return o.ApplyT(func(v VirtualMachineExtensionInstanceView) *VirtualMachineExtensionInstanceView {
 		return &v
 	}).(VirtualMachineExtensionInstanceViewPtrOutput)
 }
@@ -8902,13 +8668,7 @@ func (o VirtualMachineExtensionInstanceViewPtrOutput) ToVirtualMachineExtensionI
 }
 
 func (o VirtualMachineExtensionInstanceViewPtrOutput) Elem() VirtualMachineExtensionInstanceViewOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionInstanceView) VirtualMachineExtensionInstanceView {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineExtensionInstanceView
-		return ret
-	}).(VirtualMachineExtensionInstanceViewOutput)
+	return o.ApplyT(func(v *VirtualMachineExtensionInstanceView) VirtualMachineExtensionInstanceView { return *v }).(VirtualMachineExtensionInstanceViewOutput)
 }
 
 // The virtual machine extension name.
@@ -9098,7 +8858,7 @@ func (o VirtualMachineExtensionInstanceViewResponseOutput) ToVirtualMachineExten
 }
 
 func (o VirtualMachineExtensionInstanceViewResponseOutput) ToVirtualMachineExtensionInstanceViewResponsePtrOutputWithContext(ctx context.Context) VirtualMachineExtensionInstanceViewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineExtensionInstanceViewResponse) *VirtualMachineExtensionInstanceViewResponse {
+	return o.ApplyT(func(v VirtualMachineExtensionInstanceViewResponse) *VirtualMachineExtensionInstanceViewResponse {
 		return &v
 	}).(VirtualMachineExtensionInstanceViewResponsePtrOutput)
 }
@@ -9144,11 +8904,7 @@ func (o VirtualMachineExtensionInstanceViewResponsePtrOutput) ToVirtualMachineEx
 
 func (o VirtualMachineExtensionInstanceViewResponsePtrOutput) Elem() VirtualMachineExtensionInstanceViewResponseOutput {
 	return o.ApplyT(func(v *VirtualMachineExtensionInstanceViewResponse) VirtualMachineExtensionInstanceViewResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineExtensionInstanceViewResponse
-		return ret
+		return *v
 	}).(VirtualMachineExtensionInstanceViewResponseOutput)
 }
 
@@ -9556,7 +9312,7 @@ func (o VirtualMachineInstanceViewResponseOutput) ToVirtualMachineInstanceViewRe
 }
 
 func (o VirtualMachineInstanceViewResponseOutput) ToVirtualMachineInstanceViewResponsePtrOutputWithContext(ctx context.Context) VirtualMachineInstanceViewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineInstanceViewResponse) *VirtualMachineInstanceViewResponse {
+	return o.ApplyT(func(v VirtualMachineInstanceViewResponse) *VirtualMachineInstanceViewResponse {
 		return &v
 	}).(VirtualMachineInstanceViewResponsePtrOutput)
 }
@@ -9620,13 +9376,7 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) ToVirtualMachineInstanceVie
 }
 
 func (o VirtualMachineInstanceViewResponsePtrOutput) Elem() VirtualMachineInstanceViewResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineInstanceViewResponse) VirtualMachineInstanceViewResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineInstanceViewResponse
-		return ret
-	}).(VirtualMachineInstanceViewResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineInstanceViewResponse) VirtualMachineInstanceViewResponse { return *v }).(VirtualMachineInstanceViewResponseOutput)
 }
 
 // Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
@@ -9968,7 +9718,7 @@ func (o VirtualMachineScaleSetExtensionProfileOutput) ToVirtualMachineScaleSetEx
 }
 
 func (o VirtualMachineScaleSetExtensionProfileOutput) ToVirtualMachineScaleSetExtensionProfilePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetExtensionProfile) *VirtualMachineScaleSetExtensionProfile {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProfile) *VirtualMachineScaleSetExtensionProfile {
 		return &v
 	}).(VirtualMachineScaleSetExtensionProfilePtrOutput)
 }
@@ -9993,13 +9743,7 @@ func (o VirtualMachineScaleSetExtensionProfilePtrOutput) ToVirtualMachineScaleSe
 }
 
 func (o VirtualMachineScaleSetExtensionProfilePtrOutput) Elem() VirtualMachineScaleSetExtensionProfileOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProfile) VirtualMachineScaleSetExtensionProfile {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetExtensionProfile
-		return ret
-	}).(VirtualMachineScaleSetExtensionProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProfile) VirtualMachineScaleSetExtensionProfile { return *v }).(VirtualMachineScaleSetExtensionProfileOutput)
 }
 
 // The virtual machine scale set child extension resources.
@@ -10108,7 +9852,7 @@ func (o VirtualMachineScaleSetExtensionProfileResponseOutput) ToVirtualMachineSc
 }
 
 func (o VirtualMachineScaleSetExtensionProfileResponseOutput) ToVirtualMachineScaleSetExtensionProfileResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetExtensionProfileResponse) *VirtualMachineScaleSetExtensionProfileResponse {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProfileResponse) *VirtualMachineScaleSetExtensionProfileResponse {
 		return &v
 	}).(VirtualMachineScaleSetExtensionProfileResponsePtrOutput)
 }
@@ -10136,11 +9880,7 @@ func (o VirtualMachineScaleSetExtensionProfileResponsePtrOutput) ToVirtualMachin
 
 func (o VirtualMachineScaleSetExtensionProfileResponsePtrOutput) Elem() VirtualMachineScaleSetExtensionProfileResponseOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProfileResponse) VirtualMachineScaleSetExtensionProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetExtensionProfileResponse
-		return ret
+		return *v
 	}).(VirtualMachineScaleSetExtensionProfileResponseOutput)
 }
 
@@ -10956,7 +10696,7 @@ func (o VirtualMachineScaleSetNetworkProfileOutput) ToVirtualMachineScaleSetNetw
 }
 
 func (o VirtualMachineScaleSetNetworkProfileOutput) ToVirtualMachineScaleSetNetworkProfilePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetNetworkProfile) *VirtualMachineScaleSetNetworkProfile {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkProfile) *VirtualMachineScaleSetNetworkProfile {
 		return &v
 	}).(VirtualMachineScaleSetNetworkProfilePtrOutput)
 }
@@ -10983,13 +10723,7 @@ func (o VirtualMachineScaleSetNetworkProfilePtrOutput) ToVirtualMachineScaleSetN
 }
 
 func (o VirtualMachineScaleSetNetworkProfilePtrOutput) Elem() VirtualMachineScaleSetNetworkProfileOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkProfile) VirtualMachineScaleSetNetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetNetworkProfile
-		return ret
-	}).(VirtualMachineScaleSetNetworkProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkProfile) VirtualMachineScaleSetNetworkProfile { return *v }).(VirtualMachineScaleSetNetworkProfileOutput)
 }
 
 // The list of network configurations.
@@ -11098,7 +10832,7 @@ func (o VirtualMachineScaleSetNetworkProfileResponseOutput) ToVirtualMachineScal
 }
 
 func (o VirtualMachineScaleSetNetworkProfileResponseOutput) ToVirtualMachineScaleSetNetworkProfileResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetNetworkProfileResponse) *VirtualMachineScaleSetNetworkProfileResponse {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkProfileResponse) *VirtualMachineScaleSetNetworkProfileResponse {
 		return &v
 	}).(VirtualMachineScaleSetNetworkProfileResponsePtrOutput)
 }
@@ -11126,11 +10860,7 @@ func (o VirtualMachineScaleSetNetworkProfileResponsePtrOutput) ToVirtualMachineS
 
 func (o VirtualMachineScaleSetNetworkProfileResponsePtrOutput) Elem() VirtualMachineScaleSetNetworkProfileResponseOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkProfileResponse) VirtualMachineScaleSetNetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetNetworkProfileResponse
-		return ret
+		return *v
 	}).(VirtualMachineScaleSetNetworkProfileResponseOutput)
 }
 
@@ -11147,15 +10877,15 @@ func (o VirtualMachineScaleSetNetworkProfileResponsePtrOutput) NetworkInterfaceC
 // Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching *string `pulumi:"caching"`
 	// Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
+	CreateOption string `pulumi:"createOption"`
 	// The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
 	Image *VirtualHardDisk `pulumi:"image"`
 	// The disk name.
 	Name string `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The list of virtual hard disk container uris.
 	VhdContainers []string `pulumi:"vhdContainers"`
 }
@@ -11174,15 +10904,15 @@ type VirtualMachineScaleSetOSDiskInput interface {
 // Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching CachingTypesPtrInput `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypesInput `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
 	// The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
 	Image VirtualHardDiskPtrInput `pulumi:"image"`
 	// The disk name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType OperatingSystemTypesPtrInput `pulumi:"osType"`
+	OsType *OperatingSystemTypes `pulumi:"osType"`
 	// The list of virtual hard disk container uris.
 	VhdContainers pulumi.StringArrayInput `pulumi:"vhdContainers"`
 }
@@ -11260,19 +10990,19 @@ func (o VirtualMachineScaleSetOSDiskOutput) ToVirtualMachineScaleSetOSDiskPtrOut
 }
 
 func (o VirtualMachineScaleSetOSDiskOutput) ToVirtualMachineScaleSetOSDiskPtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetOSDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetOSDisk) *VirtualMachineScaleSetOSDisk {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *VirtualMachineScaleSetOSDisk {
 		return &v
 	}).(VirtualMachineScaleSetOSDiskPtrOutput)
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o VirtualMachineScaleSetOSDiskOutput) Caching() CachingTypesPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
+func (o VirtualMachineScaleSetOSDiskOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o VirtualMachineScaleSetOSDiskOutput) CreateOption() DiskCreateOptionTypesOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) DiskCreateOptionTypes { return v.CreateOption }).(DiskCreateOptionTypesOutput)
+func (o VirtualMachineScaleSetOSDiskOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
 // The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
@@ -11286,8 +11016,8 @@ func (o VirtualMachineScaleSetOSDiskOutput) Name() pulumi.StringOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o VirtualMachineScaleSetOSDiskOutput) OsType() OperatingSystemTypesPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *OperatingSystemTypes { return v.OsType }).(OperatingSystemTypesPtrOutput)
+func (o VirtualMachineScaleSetOSDiskOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // The list of virtual hard disk container uris.
@@ -11310,33 +11040,27 @@ func (o VirtualMachineScaleSetOSDiskPtrOutput) ToVirtualMachineScaleSetOSDiskPtr
 }
 
 func (o VirtualMachineScaleSetOSDiskPtrOutput) Elem() VirtualMachineScaleSetOSDiskOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) VirtualMachineScaleSetOSDisk {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetOSDisk
-		return ret
-	}).(VirtualMachineScaleSetOSDiskOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) VirtualMachineScaleSetOSDisk { return *v }).(VirtualMachineScaleSetOSDiskOutput)
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o VirtualMachineScaleSetOSDiskPtrOutput) Caching() CachingTypesPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *CachingTypes {
+func (o VirtualMachineScaleSetOSDiskPtrOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Caching
-	}).(CachingTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o VirtualMachineScaleSetOSDiskPtrOutput) CreateOption() DiskCreateOptionTypesPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *DiskCreateOptionTypes {
+func (o VirtualMachineScaleSetOSDiskPtrOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.CreateOption
-	}).(DiskCreateOptionTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
@@ -11360,13 +11084,13 @@ func (o VirtualMachineScaleSetOSDiskPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o VirtualMachineScaleSetOSDiskPtrOutput) OsType() OperatingSystemTypesPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *OperatingSystemTypes {
+func (o VirtualMachineScaleSetOSDiskPtrOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *string {
 		if v == nil {
 			return nil
 		}
 		return v.OsType
-	}).(OperatingSystemTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of virtual hard disk container uris.
@@ -11495,7 +11219,7 @@ func (o VirtualMachineScaleSetOSDiskResponseOutput) ToVirtualMachineScaleSetOSDi
 }
 
 func (o VirtualMachineScaleSetOSDiskResponseOutput) ToVirtualMachineScaleSetOSDiskResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetOSDiskResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetOSDiskResponse) *VirtualMachineScaleSetOSDiskResponse {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDiskResponse) *VirtualMachineScaleSetOSDiskResponse {
 		return &v
 	}).(VirtualMachineScaleSetOSDiskResponsePtrOutput)
 }
@@ -11545,13 +11269,7 @@ func (o VirtualMachineScaleSetOSDiskResponsePtrOutput) ToVirtualMachineScaleSetO
 }
 
 func (o VirtualMachineScaleSetOSDiskResponsePtrOutput) Elem() VirtualMachineScaleSetOSDiskResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDiskResponse) VirtualMachineScaleSetOSDiskResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetOSDiskResponse
-		return ret
-	}).(VirtualMachineScaleSetOSDiskResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDiskResponse) VirtualMachineScaleSetOSDiskResponse { return *v }).(VirtualMachineScaleSetOSDiskResponseOutput)
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
@@ -11734,7 +11452,7 @@ func (o VirtualMachineScaleSetOSProfileOutput) ToVirtualMachineScaleSetOSProfile
 }
 
 func (o VirtualMachineScaleSetOSProfileOutput) ToVirtualMachineScaleSetOSProfilePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetOSProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetOSProfile) *VirtualMachineScaleSetOSProfile {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSProfile) *VirtualMachineScaleSetOSProfile {
 		return &v
 	}).(VirtualMachineScaleSetOSProfilePtrOutput)
 }
@@ -11789,13 +11507,7 @@ func (o VirtualMachineScaleSetOSProfilePtrOutput) ToVirtualMachineScaleSetOSProf
 }
 
 func (o VirtualMachineScaleSetOSProfilePtrOutput) Elem() VirtualMachineScaleSetOSProfileOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSProfile) VirtualMachineScaleSetOSProfile {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetOSProfile
-		return ret
-	}).(VirtualMachineScaleSetOSProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSProfile) VirtualMachineScaleSetOSProfile { return *v }).(VirtualMachineScaleSetOSProfileOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
@@ -11988,7 +11700,7 @@ func (o VirtualMachineScaleSetOSProfileResponseOutput) ToVirtualMachineScaleSetO
 }
 
 func (o VirtualMachineScaleSetOSProfileResponseOutput) ToVirtualMachineScaleSetOSProfileResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetOSProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetOSProfileResponse) *VirtualMachineScaleSetOSProfileResponse {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSProfileResponse) *VirtualMachineScaleSetOSProfileResponse {
 		return &v
 	}).(VirtualMachineScaleSetOSProfileResponsePtrOutput)
 }
@@ -12047,13 +11759,7 @@ func (o VirtualMachineScaleSetOSProfileResponsePtrOutput) ToVirtualMachineScaleS
 }
 
 func (o VirtualMachineScaleSetOSProfileResponsePtrOutput) Elem() VirtualMachineScaleSetOSProfileResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSProfileResponse) VirtualMachineScaleSetOSProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetOSProfileResponse
-		return ret
-	}).(VirtualMachineScaleSetOSProfileResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSProfileResponse) VirtualMachineScaleSetOSProfileResponse { return *v }).(VirtualMachineScaleSetOSProfileResponseOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
@@ -12226,7 +11932,7 @@ func (o VirtualMachineScaleSetStorageProfileOutput) ToVirtualMachineScaleSetStor
 }
 
 func (o VirtualMachineScaleSetStorageProfileOutput) ToVirtualMachineScaleSetStorageProfilePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetStorageProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetStorageProfile) *VirtualMachineScaleSetStorageProfile {
+	return o.ApplyT(func(v VirtualMachineScaleSetStorageProfile) *VirtualMachineScaleSetStorageProfile {
 		return &v
 	}).(VirtualMachineScaleSetStorageProfilePtrOutput)
 }
@@ -12256,13 +11962,7 @@ func (o VirtualMachineScaleSetStorageProfilePtrOutput) ToVirtualMachineScaleSetS
 }
 
 func (o VirtualMachineScaleSetStorageProfilePtrOutput) Elem() VirtualMachineScaleSetStorageProfileOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetStorageProfile) VirtualMachineScaleSetStorageProfile {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetStorageProfile
-		return ret
-	}).(VirtualMachineScaleSetStorageProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetStorageProfile) VirtualMachineScaleSetStorageProfile { return *v }).(VirtualMachineScaleSetStorageProfileOutput)
 }
 
 // The image reference.
@@ -12385,7 +12085,7 @@ func (o VirtualMachineScaleSetStorageProfileResponseOutput) ToVirtualMachineScal
 }
 
 func (o VirtualMachineScaleSetStorageProfileResponseOutput) ToVirtualMachineScaleSetStorageProfileResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetStorageProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetStorageProfileResponse) *VirtualMachineScaleSetStorageProfileResponse {
+	return o.ApplyT(func(v VirtualMachineScaleSetStorageProfileResponse) *VirtualMachineScaleSetStorageProfileResponse {
 		return &v
 	}).(VirtualMachineScaleSetStorageProfileResponsePtrOutput)
 }
@@ -12418,11 +12118,7 @@ func (o VirtualMachineScaleSetStorageProfileResponsePtrOutput) ToVirtualMachineS
 
 func (o VirtualMachineScaleSetStorageProfileResponsePtrOutput) Elem() VirtualMachineScaleSetStorageProfileResponseOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetStorageProfileResponse) VirtualMachineScaleSetStorageProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetStorageProfileResponse
-		return ret
+		return *v
 	}).(VirtualMachineScaleSetStorageProfileResponseOutput)
 }
 
@@ -12554,7 +12250,7 @@ func (o VirtualMachineScaleSetVMProfileOutput) ToVirtualMachineScaleSetVMProfile
 }
 
 func (o VirtualMachineScaleSetVMProfileOutput) ToVirtualMachineScaleSetVMProfilePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetVMProfile) *VirtualMachineScaleSetVMProfile {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMProfile) *VirtualMachineScaleSetVMProfile {
 		return &v
 	}).(VirtualMachineScaleSetVMProfilePtrOutput)
 }
@@ -12596,13 +12292,7 @@ func (o VirtualMachineScaleSetVMProfilePtrOutput) ToVirtualMachineScaleSetVMProf
 }
 
 func (o VirtualMachineScaleSetVMProfilePtrOutput) Elem() VirtualMachineScaleSetVMProfileOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMProfile) VirtualMachineScaleSetVMProfile {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetVMProfile
-		return ret
-	}).(VirtualMachineScaleSetVMProfileOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetVMProfile) VirtualMachineScaleSetVMProfile { return *v }).(VirtualMachineScaleSetVMProfileOutput)
 }
 
 // The virtual machine scale set extension profile.
@@ -12753,7 +12443,7 @@ func (o VirtualMachineScaleSetVMProfileResponseOutput) ToVirtualMachineScaleSetV
 }
 
 func (o VirtualMachineScaleSetVMProfileResponseOutput) ToVirtualMachineScaleSetVMProfileResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineScaleSetVMProfileResponse) *VirtualMachineScaleSetVMProfileResponse {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMProfileResponse) *VirtualMachineScaleSetVMProfileResponse {
 		return &v
 	}).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
 }
@@ -12801,13 +12491,7 @@ func (o VirtualMachineScaleSetVMProfileResponsePtrOutput) ToVirtualMachineScaleS
 }
 
 func (o VirtualMachineScaleSetVMProfileResponsePtrOutput) Elem() VirtualMachineScaleSetVMProfileResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMProfileResponse) VirtualMachineScaleSetVMProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineScaleSetVMProfileResponse
-		return ret
-	}).(VirtualMachineScaleSetVMProfileResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineScaleSetVMProfileResponse) VirtualMachineScaleSetVMProfileResponse { return *v }).(VirtualMachineScaleSetVMProfileResponseOutput)
 }
 
 // The virtual machine scale set extension profile.
@@ -12946,7 +12630,7 @@ func (o WinRMConfigurationOutput) ToWinRMConfigurationPtrOutput() WinRMConfigura
 }
 
 func (o WinRMConfigurationOutput) ToWinRMConfigurationPtrOutputWithContext(ctx context.Context) WinRMConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WinRMConfiguration) *WinRMConfiguration {
+	return o.ApplyT(func(v WinRMConfiguration) *WinRMConfiguration {
 		return &v
 	}).(WinRMConfigurationPtrOutput)
 }
@@ -12971,13 +12655,7 @@ func (o WinRMConfigurationPtrOutput) ToWinRMConfigurationPtrOutputWithContext(ct
 }
 
 func (o WinRMConfigurationPtrOutput) Elem() WinRMConfigurationOutput {
-	return o.ApplyT(func(v *WinRMConfiguration) WinRMConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret WinRMConfiguration
-		return ret
-	}).(WinRMConfigurationOutput)
+	return o.ApplyT(func(v *WinRMConfiguration) WinRMConfiguration { return *v }).(WinRMConfigurationOutput)
 }
 
 // The list of Windows Remote Management listeners
@@ -13086,7 +12764,7 @@ func (o WinRMConfigurationResponseOutput) ToWinRMConfigurationResponsePtrOutput(
 }
 
 func (o WinRMConfigurationResponseOutput) ToWinRMConfigurationResponsePtrOutputWithContext(ctx context.Context) WinRMConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WinRMConfigurationResponse) *WinRMConfigurationResponse {
+	return o.ApplyT(func(v WinRMConfigurationResponse) *WinRMConfigurationResponse {
 		return &v
 	}).(WinRMConfigurationResponsePtrOutput)
 }
@@ -13111,13 +12789,7 @@ func (o WinRMConfigurationResponsePtrOutput) ToWinRMConfigurationResponsePtrOutp
 }
 
 func (o WinRMConfigurationResponsePtrOutput) Elem() WinRMConfigurationResponseOutput {
-	return o.ApplyT(func(v *WinRMConfigurationResponse) WinRMConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WinRMConfigurationResponse
-		return ret
-	}).(WinRMConfigurationResponseOutput)
+	return o.ApplyT(func(v *WinRMConfigurationResponse) WinRMConfigurationResponse { return *v }).(WinRMConfigurationResponseOutput)
 }
 
 // The list of Windows Remote Management listeners
@@ -13135,7 +12807,7 @@ type WinRMListener struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
 	CertificateUrl *string `pulumi:"certificateUrl"`
 	// Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-	Protocol *ProtocolTypes `pulumi:"protocol"`
+	Protocol *string `pulumi:"protocol"`
 }
 
 // WinRMListenerInput is an input type that accepts WinRMListenerArgs and WinRMListenerOutput values.
@@ -13154,7 +12826,7 @@ type WinRMListenerArgs struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
 	// Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-	Protocol ProtocolTypesPtrInput `pulumi:"protocol"`
+	Protocol *ProtocolTypes `pulumi:"protocol"`
 }
 
 func (WinRMListenerArgs) ElementType() reflect.Type {
@@ -13215,8 +12887,8 @@ func (o WinRMListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
 }
 
 // Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-func (o WinRMListenerOutput) Protocol() ProtocolTypesPtrOutput {
-	return o.ApplyT(func(v WinRMListener) *ProtocolTypes { return v.Protocol }).(ProtocolTypesPtrOutput)
+func (o WinRMListenerOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WinRMListener) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 type WinRMListenerArrayOutput struct{ *pulumi.OutputState }
@@ -13460,7 +13132,7 @@ func (o WindowsConfigurationOutput) ToWindowsConfigurationPtrOutput() WindowsCon
 }
 
 func (o WindowsConfigurationOutput) ToWindowsConfigurationPtrOutputWithContext(ctx context.Context) WindowsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsConfiguration) *WindowsConfiguration {
+	return o.ApplyT(func(v WindowsConfiguration) *WindowsConfiguration {
 		return &v
 	}).(WindowsConfigurationPtrOutput)
 }
@@ -13505,13 +13177,7 @@ func (o WindowsConfigurationPtrOutput) ToWindowsConfigurationPtrOutputWithContex
 }
 
 func (o WindowsConfigurationPtrOutput) Elem() WindowsConfigurationOutput {
-	return o.ApplyT(func(v *WindowsConfiguration) WindowsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsConfiguration
-		return ret
-	}).(WindowsConfigurationOutput)
+	return o.ApplyT(func(v *WindowsConfiguration) WindowsConfiguration { return *v }).(WindowsConfigurationOutput)
 }
 
 // Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
@@ -13676,7 +13342,7 @@ func (o WindowsConfigurationResponseOutput) ToWindowsConfigurationResponsePtrOut
 }
 
 func (o WindowsConfigurationResponseOutput) ToWindowsConfigurationResponsePtrOutputWithContext(ctx context.Context) WindowsConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsConfigurationResponse) *WindowsConfigurationResponse {
+	return o.ApplyT(func(v WindowsConfigurationResponse) *WindowsConfigurationResponse {
 		return &v
 	}).(WindowsConfigurationResponsePtrOutput)
 }
@@ -13723,13 +13389,7 @@ func (o WindowsConfigurationResponsePtrOutput) ToWindowsConfigurationResponsePtr
 }
 
 func (o WindowsConfigurationResponsePtrOutput) Elem() WindowsConfigurationResponseOutput {
-	return o.ApplyT(func(v *WindowsConfigurationResponse) WindowsConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsConfigurationResponse
-		return ret
-	}).(WindowsConfigurationResponseOutput)
+	return o.ApplyT(func(v *WindowsConfigurationResponse) WindowsConfigurationResponse { return *v }).(WindowsConfigurationResponseOutput)
 }
 
 // Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.

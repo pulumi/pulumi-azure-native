@@ -191,7 +191,9 @@ func (i *ServerAzureADAdministrator) ToServerAzureADAdministratorOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureADAdministratorOutput)
 }
 
-type ServerAzureADAdministratorOutput struct{ *pulumi.OutputState }
+type ServerAzureADAdministratorOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerAzureADAdministratorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerAzureADAdministrator)(nil))

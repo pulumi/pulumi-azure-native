@@ -173,7 +173,9 @@ func (i *KustoPool) ToKustoPoolOutputWithContext(ctx context.Context) KustoPoolO
 	return pulumi.ToOutputWithContext(ctx, i).(KustoPoolOutput)
 }
 
-type KustoPoolOutput struct{ *pulumi.OutputState }
+type KustoPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (KustoPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoPool)(nil))

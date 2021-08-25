@@ -238,7 +238,9 @@ func (i *IoTHubEventSource) ToIoTHubEventSourceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubEventSourceOutput)
 }
 
-type IoTHubEventSourceOutput struct{ *pulumi.OutputState }
+type IoTHubEventSourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (IoTHubEventSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoTHubEventSource)(nil))

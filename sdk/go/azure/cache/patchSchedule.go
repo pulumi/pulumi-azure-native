@@ -153,7 +153,9 @@ func (i *PatchSchedule) ToPatchScheduleOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchScheduleOutput)
 }
 
-type PatchScheduleOutput struct{ *pulumi.OutputState }
+type PatchScheduleOutput struct {
+	*pulumi.OutputState
+}
 
 func (PatchScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PatchSchedule)(nil))

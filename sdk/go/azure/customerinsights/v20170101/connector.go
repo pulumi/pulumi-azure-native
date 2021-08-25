@@ -173,7 +173,9 @@ func (i *Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput)
 }
 
-type ConnectorOutput struct{ *pulumi.OutputState }
+type ConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connector)(nil))

@@ -162,7 +162,9 @@ func (i *PolicyExemption) ToPolicyExemptionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExemptionOutput)
 }
 
-type PolicyExemptionOutput struct{ *pulumi.OutputState }
+type PolicyExemptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (PolicyExemptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyExemption)(nil))

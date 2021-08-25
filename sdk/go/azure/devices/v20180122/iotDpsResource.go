@@ -178,7 +178,9 @@ func (i *IotDpsResource) ToIotDpsResourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsResourceOutput)
 }
 
-type IotDpsResourceOutput struct{ *pulumi.OutputState }
+type IotDpsResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (IotDpsResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotDpsResource)(nil))

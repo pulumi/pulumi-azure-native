@@ -74,9 +74,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Kind == nil {
-		return nil, errors.New("invalid value for required argument 'Kind'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -224,7 +221,7 @@ func (StorageAccountState) ElementType() reflect.Type {
 
 type storageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *AccessTier `pulumi:"accessTier"`
+	AccessTier *string `pulumi:"accessTier"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName *string `pulumi:"accountName"`
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -240,7 +237,7 @@ type storageAccountArgs struct {
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Required. Indicates the type of storage account.
-	Kind Kind `pulumi:"kind"`
+	Kind string `pulumi:"kind"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
 	// Network rule set
@@ -256,7 +253,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier AccessTierPtrInput
+	AccessTier *AccessTier
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringPtrInput
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -272,7 +269,7 @@ type StorageAccountArgs struct {
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled pulumi.BoolPtrInput
 	// Required. Indicates the type of storage account.
-	Kind KindInput
+	Kind Kind
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
 	// Network rule set
@@ -308,7 +305,9 @@ func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
 }
 
-type StorageAccountOutput struct{ *pulumi.OutputState }
+type StorageAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccount)(nil))

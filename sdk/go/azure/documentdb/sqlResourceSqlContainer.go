@@ -254,7 +254,9 @@ func (i *SqlResourceSqlContainer) ToSqlResourceSqlContainerOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlContainerOutput)
 }
 
-type SqlResourceSqlContainerOutput struct{ *pulumi.OutputState }
+type SqlResourceSqlContainerOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlResourceSqlContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlContainer)(nil))

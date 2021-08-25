@@ -232,7 +232,9 @@ func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventO
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutput)
 }
 
-type LiveEventOutput struct{ *pulumi.OutputState }
+type LiveEventOutput struct {
+	*pulumi.OutputState
+}
 
 func (LiveEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveEvent)(nil))

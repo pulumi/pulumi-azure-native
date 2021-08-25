@@ -188,7 +188,9 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
-type UserOutput struct{ *pulumi.OutputState }
+type UserOutput struct {
+	*pulumi.OutputState
+}
 
 func (UserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*User)(nil))

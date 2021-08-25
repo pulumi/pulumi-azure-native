@@ -118,7 +118,7 @@ func (o AzureFileVolumeOutput) ToAzureFileVolumePtrOutput() AzureFileVolumePtrOu
 }
 
 func (o AzureFileVolumeOutput) ToAzureFileVolumePtrOutputWithContext(ctx context.Context) AzureFileVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileVolume) *AzureFileVolume {
+	return o.ApplyT(func(v AzureFileVolume) *AzureFileVolume {
 		return &v
 	}).(AzureFileVolumePtrOutput)
 }
@@ -158,13 +158,7 @@ func (o AzureFileVolumePtrOutput) ToAzureFileVolumePtrOutputWithContext(ctx cont
 }
 
 func (o AzureFileVolumePtrOutput) Elem() AzureFileVolumeOutput {
-	return o.ApplyT(func(v *AzureFileVolume) AzureFileVolume {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileVolume
-		return ret
-	}).(AzureFileVolumeOutput)
+	return o.ApplyT(func(v *AzureFileVolume) AzureFileVolume { return *v }).(AzureFileVolumeOutput)
 }
 
 // The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -315,7 +309,7 @@ func (o AzureFileVolumeResponseOutput) ToAzureFileVolumeResponsePtrOutput() Azur
 }
 
 func (o AzureFileVolumeResponseOutput) ToAzureFileVolumeResponsePtrOutputWithContext(ctx context.Context) AzureFileVolumeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileVolumeResponse) *AzureFileVolumeResponse {
+	return o.ApplyT(func(v AzureFileVolumeResponse) *AzureFileVolumeResponse {
 		return &v
 	}).(AzureFileVolumeResponsePtrOutput)
 }
@@ -355,13 +349,7 @@ func (o AzureFileVolumeResponsePtrOutput) ToAzureFileVolumeResponsePtrOutputWith
 }
 
 func (o AzureFileVolumeResponsePtrOutput) Elem() AzureFileVolumeResponseOutput {
-	return o.ApplyT(func(v *AzureFileVolumeResponse) AzureFileVolumeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileVolumeResponse
-		return ret
-	}).(AzureFileVolumeResponseOutput)
+	return o.ApplyT(func(v *AzureFileVolumeResponse) AzureFileVolumeResponse { return *v }).(AzureFileVolumeResponseOutput)
 }
 
 // The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -658,7 +646,7 @@ func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstan
 }
 
 func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupResponseInstanceView) *ContainerGroupResponseInstanceView {
+	return o.ApplyT(func(v ContainerGroupResponseInstanceView) *ContainerGroupResponseInstanceView {
 		return &v
 	}).(ContainerGroupResponseInstanceViewPtrOutput)
 }
@@ -688,13 +676,7 @@ func (o ContainerGroupResponseInstanceViewPtrOutput) ToContainerGroupResponseIns
 }
 
 func (o ContainerGroupResponseInstanceViewPtrOutput) Elem() ContainerGroupResponseInstanceViewOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) ContainerGroupResponseInstanceView {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupResponseInstanceView
-		return ret
-	}).(ContainerGroupResponseInstanceViewOutput)
+	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) ContainerGroupResponseInstanceView { return *v }).(ContainerGroupResponseInstanceViewOutput)
 }
 
 // The events of this container group.
@@ -1738,7 +1720,7 @@ func (o GitRepoVolumeOutput) ToGitRepoVolumePtrOutput() GitRepoVolumePtrOutput {
 }
 
 func (o GitRepoVolumeOutput) ToGitRepoVolumePtrOutputWithContext(ctx context.Context) GitRepoVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitRepoVolume) *GitRepoVolume {
+	return o.ApplyT(func(v GitRepoVolume) *GitRepoVolume {
 		return &v
 	}).(GitRepoVolumePtrOutput)
 }
@@ -1773,13 +1755,7 @@ func (o GitRepoVolumePtrOutput) ToGitRepoVolumePtrOutputWithContext(ctx context.
 }
 
 func (o GitRepoVolumePtrOutput) Elem() GitRepoVolumeOutput {
-	return o.ApplyT(func(v *GitRepoVolume) GitRepoVolume {
-		if v != nil {
-			return *v
-		}
-		var ret GitRepoVolume
-		return ret
-	}).(GitRepoVolumeOutput)
+	return o.ApplyT(func(v *GitRepoVolume) GitRepoVolume { return *v }).(GitRepoVolumeOutput)
 }
 
 // Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
@@ -1916,7 +1892,7 @@ func (o GitRepoVolumeResponseOutput) ToGitRepoVolumeResponsePtrOutput() GitRepoV
 }
 
 func (o GitRepoVolumeResponseOutput) ToGitRepoVolumeResponsePtrOutputWithContext(ctx context.Context) GitRepoVolumeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitRepoVolumeResponse) *GitRepoVolumeResponse {
+	return o.ApplyT(func(v GitRepoVolumeResponse) *GitRepoVolumeResponse {
 		return &v
 	}).(GitRepoVolumeResponsePtrOutput)
 }
@@ -1951,13 +1927,7 @@ func (o GitRepoVolumeResponsePtrOutput) ToGitRepoVolumeResponsePtrOutputWithCont
 }
 
 func (o GitRepoVolumeResponsePtrOutput) Elem() GitRepoVolumeResponseOutput {
-	return o.ApplyT(func(v *GitRepoVolumeResponse) GitRepoVolumeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GitRepoVolumeResponse
-		return ret
-	}).(GitRepoVolumeResponseOutput)
+	return o.ApplyT(func(v *GitRepoVolumeResponse) GitRepoVolumeResponse { return *v }).(GitRepoVolumeResponseOutput)
 }
 
 // Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
@@ -2334,7 +2304,7 @@ func (o IpAddressOutput) ToIpAddressPtrOutput() IpAddressPtrOutput {
 }
 
 func (o IpAddressOutput) ToIpAddressPtrOutputWithContext(ctx context.Context) IpAddressPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddress) *IpAddress {
+	return o.ApplyT(func(v IpAddress) *IpAddress {
 		return &v
 	}).(IpAddressPtrOutput)
 }
@@ -2374,13 +2344,7 @@ func (o IpAddressPtrOutput) ToIpAddressPtrOutputWithContext(ctx context.Context)
 }
 
 func (o IpAddressPtrOutput) Elem() IpAddressOutput {
-	return o.ApplyT(func(v *IpAddress) IpAddress {
-		if v != nil {
-			return *v
-		}
-		var ret IpAddress
-		return ret
-	}).(IpAddressOutput)
+	return o.ApplyT(func(v *IpAddress) IpAddress { return *v }).(IpAddressOutput)
 }
 
 // The Dns name label for the IP.
@@ -2535,7 +2499,7 @@ func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutput() IpAddressRespons
 }
 
 func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutputWithContext(ctx context.Context) IpAddressResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddressResponse) *IpAddressResponse {
+	return o.ApplyT(func(v IpAddressResponse) *IpAddressResponse {
 		return &v
 	}).(IpAddressResponsePtrOutput)
 }
@@ -2580,13 +2544,7 @@ func (o IpAddressResponsePtrOutput) ToIpAddressResponsePtrOutputWithContext(ctx 
 }
 
 func (o IpAddressResponsePtrOutput) Elem() IpAddressResponseOutput {
-	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IpAddressResponse
-		return ret
-	}).(IpAddressResponseOutput)
+	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse { return *v }).(IpAddressResponseOutput)
 }
 
 // The Dns name label for the IP.
@@ -2957,7 +2915,7 @@ func (o ResourceLimitsOutput) ToResourceLimitsPtrOutput() ResourceLimitsPtrOutpu
 }
 
 func (o ResourceLimitsOutput) ToResourceLimitsPtrOutputWithContext(ctx context.Context) ResourceLimitsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimits) *ResourceLimits {
+	return o.ApplyT(func(v ResourceLimits) *ResourceLimits {
 		return &v
 	}).(ResourceLimitsPtrOutput)
 }
@@ -2987,13 +2945,7 @@ func (o ResourceLimitsPtrOutput) ToResourceLimitsPtrOutputWithContext(ctx contex
 }
 
 func (o ResourceLimitsPtrOutput) Elem() ResourceLimitsOutput {
-	return o.ApplyT(func(v *ResourceLimits) ResourceLimits {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLimits
-		return ret
-	}).(ResourceLimitsOutput)
+	return o.ApplyT(func(v *ResourceLimits) ResourceLimits { return *v }).(ResourceLimitsOutput)
 }
 
 // The CPU limit of this container instance.
@@ -3116,7 +3068,7 @@ func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutput() Resour
 }
 
 func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimitsResponse) *ResourceLimitsResponse {
+	return o.ApplyT(func(v ResourceLimitsResponse) *ResourceLimitsResponse {
 		return &v
 	}).(ResourceLimitsResponsePtrOutput)
 }
@@ -3146,13 +3098,7 @@ func (o ResourceLimitsResponsePtrOutput) ToResourceLimitsResponsePtrOutputWithCo
 }
 
 func (o ResourceLimitsResponsePtrOutput) Elem() ResourceLimitsResponseOutput {
-	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLimitsResponse
-		return ret
-	}).(ResourceLimitsResponseOutput)
+	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse { return *v }).(ResourceLimitsResponseOutput)
 }
 
 // The CPU limit of this container instance.

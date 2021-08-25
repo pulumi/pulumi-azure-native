@@ -15,7 +15,7 @@ type AutoscaleNotification struct {
 	// the email notification.
 	Email *EmailNotification `pulumi:"email"`
 	// the operation associated with the notification and its value must be "scale"
-	Operation OperationType `pulumi:"operation"`
+	Operation string `pulumi:"operation"`
 	// the collection of webhook notifications.
 	Webhooks []WebhookNotification `pulumi:"webhooks"`
 }
@@ -36,7 +36,7 @@ type AutoscaleNotificationArgs struct {
 	// the email notification.
 	Email EmailNotificationPtrInput `pulumi:"email"`
 	// the operation associated with the notification and its value must be "scale"
-	Operation OperationTypeInput `pulumi:"operation"`
+	Operation OperationType `pulumi:"operation"`
 	// the collection of webhook notifications.
 	Webhooks WebhookNotificationArrayInput `pulumi:"webhooks"`
 }
@@ -99,8 +99,8 @@ func (o AutoscaleNotificationOutput) Email() EmailNotificationPtrOutput {
 }
 
 // the operation associated with the notification and its value must be "scale"
-func (o AutoscaleNotificationOutput) Operation() OperationTypeOutput {
-	return o.ApplyT(func(v AutoscaleNotification) OperationType { return v.Operation }).(OperationTypeOutput)
+func (o AutoscaleNotificationOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoscaleNotification) string { return v.Operation }).(pulumi.StringOutput)
 }
 
 // the collection of webhook notifications.
@@ -622,7 +622,7 @@ func (o EmailNotificationOutput) ToEmailNotificationPtrOutput() EmailNotificatio
 }
 
 func (o EmailNotificationOutput) ToEmailNotificationPtrOutputWithContext(ctx context.Context) EmailNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailNotification) *EmailNotification {
+	return o.ApplyT(func(v EmailNotification) *EmailNotification {
 		return &v
 	}).(EmailNotificationPtrOutput)
 }
@@ -657,13 +657,7 @@ func (o EmailNotificationPtrOutput) ToEmailNotificationPtrOutputWithContext(ctx 
 }
 
 func (o EmailNotificationPtrOutput) Elem() EmailNotificationOutput {
-	return o.ApplyT(func(v *EmailNotification) EmailNotification {
-		if v != nil {
-			return *v
-		}
-		var ret EmailNotification
-		return ret
-	}).(EmailNotificationOutput)
+	return o.ApplyT(func(v *EmailNotification) EmailNotification { return *v }).(EmailNotificationOutput)
 }
 
 // the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
@@ -800,7 +794,7 @@ func (o EmailNotificationResponseOutput) ToEmailNotificationResponsePtrOutput() 
 }
 
 func (o EmailNotificationResponseOutput) ToEmailNotificationResponsePtrOutputWithContext(ctx context.Context) EmailNotificationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailNotificationResponse) *EmailNotificationResponse {
+	return o.ApplyT(func(v EmailNotificationResponse) *EmailNotificationResponse {
 		return &v
 	}).(EmailNotificationResponsePtrOutput)
 }
@@ -835,13 +829,7 @@ func (o EmailNotificationResponsePtrOutput) ToEmailNotificationResponsePtrOutput
 }
 
 func (o EmailNotificationResponsePtrOutput) Elem() EmailNotificationResponseOutput {
-	return o.ApplyT(func(v *EmailNotificationResponse) EmailNotificationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EmailNotificationResponse
-		return ret
-	}).(EmailNotificationResponseOutput)
+	return o.ApplyT(func(v *EmailNotificationResponse) EmailNotificationResponse { return *v }).(EmailNotificationResponseOutput)
 }
 
 // the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
@@ -1047,7 +1035,7 @@ func (o LocationThresholdRuleConditionResponseOutput) WindowSize() pulumi.String
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationCondition struct {
 	// the condition operator.
-	Operator *ConditionOperator `pulumi:"operator"`
+	Operator *string `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold *float64 `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -1068,7 +1056,7 @@ type ManagementEventAggregationConditionInput interface {
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationConditionArgs struct {
 	// the condition operator.
-	Operator ConditionOperatorPtrInput `pulumi:"operator"`
+	Operator *ConditionOperator `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -1148,14 +1136,14 @@ func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationC
 }
 
 func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementEventAggregationCondition) *ManagementEventAggregationCondition {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *ManagementEventAggregationCondition {
 		return &v
 	}).(ManagementEventAggregationConditionPtrOutput)
 }
 
 // the condition operator.
-func (o ManagementEventAggregationConditionOutput) Operator() ConditionOperatorPtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *ConditionOperator { return v.Operator }).(ConditionOperatorPtrOutput)
+func (o ManagementEventAggregationConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 // The threshold value that activates the alert.
@@ -1183,23 +1171,17 @@ func (o ManagementEventAggregationConditionPtrOutput) ToManagementEventAggregati
 }
 
 func (o ManagementEventAggregationConditionPtrOutput) Elem() ManagementEventAggregationConditionOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) ManagementEventAggregationCondition {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementEventAggregationCondition
-		return ret
-	}).(ManagementEventAggregationConditionOutput)
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) ManagementEventAggregationCondition { return *v }).(ManagementEventAggregationConditionOutput)
 }
 
 // the condition operator.
-func (o ManagementEventAggregationConditionPtrOutput) Operator() ConditionOperatorPtrOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) *ConditionOperator {
+func (o ManagementEventAggregationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Operator
-	}).(ConditionOperatorPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The threshold value that activates the alert.
@@ -1326,7 +1308,7 @@ func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggr
 }
 
 func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementEventAggregationConditionResponse) *ManagementEventAggregationConditionResponse {
+	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *ManagementEventAggregationConditionResponse {
 		return &v
 	}).(ManagementEventAggregationConditionResponsePtrOutput)
 }
@@ -1362,11 +1344,7 @@ func (o ManagementEventAggregationConditionResponsePtrOutput) ToManagementEventA
 
 func (o ManagementEventAggregationConditionResponsePtrOutput) Elem() ManagementEventAggregationConditionResponseOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) ManagementEventAggregationConditionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementEventAggregationConditionResponse
-		return ret
+		return *v
 	}).(ManagementEventAggregationConditionResponseOutput)
 }
 
@@ -1569,13 +1547,13 @@ type MetricTrigger struct {
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri string `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
-	Operator ComparisonOperationType `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
 	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic MetricStatisticType `pulumi:"statistic"`
+	Statistic string `pulumi:"statistic"`
 	// the threshold of the metric that triggers the scale action.
 	Threshold float64 `pulumi:"threshold"`
 	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation TimeAggregationType `pulumi:"timeAggregation"`
+	TimeAggregation string `pulumi:"timeAggregation"`
 	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
 	TimeGrain string `pulumi:"timeGrain"`
 	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
@@ -1608,13 +1586,13 @@ type MetricTriggerArgs struct {
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
-	Operator ComparisonOperationTypeInput `pulumi:"operator"`
+	Operator ComparisonOperationType `pulumi:"operator"`
 	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic MetricStatisticTypeInput `pulumi:"statistic"`
+	Statistic MetricStatisticType `pulumi:"statistic"`
 	// the threshold of the metric that triggers the scale action.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation TimeAggregationTypeInput `pulumi:"timeAggregation"`
+	TimeAggregation TimeAggregationType `pulumi:"timeAggregation"`
 	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
 	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
 	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
@@ -1679,13 +1657,13 @@ func (o MetricTriggerOutput) MetricResourceUri() pulumi.StringOutput {
 }
 
 // the operator that is used to compare the metric data and the threshold.
-func (o MetricTriggerOutput) Operator() ComparisonOperationTypeOutput {
-	return o.ApplyT(func(v MetricTrigger) ComparisonOperationType { return v.Operator }).(ComparisonOperationTypeOutput)
+func (o MetricTriggerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 // the metric statistic type. How the metrics from multiple instances are combined.
-func (o MetricTriggerOutput) Statistic() MetricStatisticTypeOutput {
-	return o.ApplyT(func(v MetricTrigger) MetricStatisticType { return v.Statistic }).(MetricStatisticTypeOutput)
+func (o MetricTriggerOutput) Statistic() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
 }
 
 // the threshold of the metric that triggers the scale action.
@@ -1694,8 +1672,8 @@ func (o MetricTriggerOutput) Threshold() pulumi.Float64Output {
 }
 
 // time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-func (o MetricTriggerOutput) TimeAggregation() TimeAggregationTypeOutput {
-	return o.ApplyT(func(v MetricTrigger) TimeAggregationType { return v.TimeAggregation }).(TimeAggregationTypeOutput)
+func (o MetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
 // the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
@@ -1865,7 +1843,7 @@ func (o MetricTriggerResponseOutput) TimeWindow() pulumi.StringOutput {
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 type Recurrence struct {
 	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency RecurrenceFrequency `pulumi:"frequency"`
+	Frequency string `pulumi:"frequency"`
 	// the scheduling constraints for when the profile begins.
 	Schedule RecurrentSchedule `pulumi:"schedule"`
 }
@@ -1884,7 +1862,7 @@ type RecurrenceInput interface {
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 type RecurrenceArgs struct {
 	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency RecurrenceFrequencyInput `pulumi:"frequency"`
+	Frequency RecurrenceFrequency `pulumi:"frequency"`
 	// the scheduling constraints for when the profile begins.
 	Schedule RecurrentScheduleInput `pulumi:"schedule"`
 }
@@ -1962,14 +1940,14 @@ func (o RecurrenceOutput) ToRecurrencePtrOutput() RecurrencePtrOutput {
 }
 
 func (o RecurrenceOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Recurrence) *Recurrence {
+	return o.ApplyT(func(v Recurrence) *Recurrence {
 		return &v
 	}).(RecurrencePtrOutput)
 }
 
 // the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrenceOutput) Frequency() RecurrenceFrequencyOutput {
-	return o.ApplyT(func(v Recurrence) RecurrenceFrequency { return v.Frequency }).(RecurrenceFrequencyOutput)
+func (o RecurrenceOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v Recurrence) string { return v.Frequency }).(pulumi.StringOutput)
 }
 
 // the scheduling constraints for when the profile begins.
@@ -1992,23 +1970,17 @@ func (o RecurrencePtrOutput) ToRecurrencePtrOutputWithContext(ctx context.Contex
 }
 
 func (o RecurrencePtrOutput) Elem() RecurrenceOutput {
-	return o.ApplyT(func(v *Recurrence) Recurrence {
-		if v != nil {
-			return *v
-		}
-		var ret Recurrence
-		return ret
-	}).(RecurrenceOutput)
+	return o.ApplyT(func(v *Recurrence) Recurrence { return *v }).(RecurrenceOutput)
 }
 
 // the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrencePtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
-	return o.ApplyT(func(v *Recurrence) *RecurrenceFrequency {
+func (o RecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Recurrence) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Frequency
-	}).(RecurrenceFrequencyPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // the scheduling constraints for when the profile begins.
@@ -2121,7 +2093,7 @@ func (o RecurrenceResponseOutput) ToRecurrenceResponsePtrOutput() RecurrenceResp
 }
 
 func (o RecurrenceResponseOutput) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceResponse) *RecurrenceResponse {
+	return o.ApplyT(func(v RecurrenceResponse) *RecurrenceResponse {
 		return &v
 	}).(RecurrenceResponsePtrOutput)
 }
@@ -2151,13 +2123,7 @@ func (o RecurrenceResponsePtrOutput) ToRecurrenceResponsePtrOutputWithContext(ct
 }
 
 func (o RecurrenceResponsePtrOutput) Elem() RecurrenceResponseOutput {
-	return o.ApplyT(func(v *RecurrenceResponse) RecurrenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RecurrenceResponse
-		return ret
-	}).(RecurrenceResponseOutput)
+	return o.ApplyT(func(v *RecurrenceResponse) RecurrenceResponse { return *v }).(RecurrenceResponseOutput)
 }
 
 // the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
@@ -2288,7 +2254,7 @@ func (o RecurrentScheduleOutput) ToRecurrentSchedulePtrOutput() RecurrentSchedul
 }
 
 func (o RecurrentScheduleOutput) ToRecurrentSchedulePtrOutputWithContext(ctx context.Context) RecurrentSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrentSchedule) *RecurrentSchedule {
+	return o.ApplyT(func(v RecurrentSchedule) *RecurrentSchedule {
 		return &v
 	}).(RecurrentSchedulePtrOutput)
 }
@@ -2328,13 +2294,7 @@ func (o RecurrentSchedulePtrOutput) ToRecurrentSchedulePtrOutputWithContext(ctx 
 }
 
 func (o RecurrentSchedulePtrOutput) Elem() RecurrentScheduleOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) RecurrentSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret RecurrentSchedule
-		return ret
-	}).(RecurrentScheduleOutput)
+	return o.ApplyT(func(v *RecurrentSchedule) RecurrentSchedule { return *v }).(RecurrentScheduleOutput)
 }
 
 // the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
@@ -2485,7 +2445,7 @@ func (o RecurrentScheduleResponseOutput) ToRecurrentScheduleResponsePtrOutput() 
 }
 
 func (o RecurrentScheduleResponseOutput) ToRecurrentScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrentScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrentScheduleResponse) *RecurrentScheduleResponse {
+	return o.ApplyT(func(v RecurrentScheduleResponse) *RecurrentScheduleResponse {
 		return &v
 	}).(RecurrentScheduleResponsePtrOutput)
 }
@@ -2525,13 +2485,7 @@ func (o RecurrentScheduleResponsePtrOutput) ToRecurrentScheduleResponsePtrOutput
 }
 
 func (o RecurrentScheduleResponsePtrOutput) Elem() RecurrentScheduleResponseOutput {
-	return o.ApplyT(func(v *RecurrentScheduleResponse) RecurrentScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RecurrentScheduleResponse
-		return ret
-	}).(RecurrentScheduleResponseOutput)
+	return o.ApplyT(func(v *RecurrentScheduleResponse) RecurrentScheduleResponse { return *v }).(RecurrentScheduleResponseOutput)
 }
 
 // the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
@@ -2822,7 +2776,7 @@ func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDa
 }
 
 func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleManagementEventClaimsDataSource) *RuleManagementEventClaimsDataSource {
+	return o.ApplyT(func(v RuleManagementEventClaimsDataSource) *RuleManagementEventClaimsDataSource {
 		return &v
 	}).(RuleManagementEventClaimsDataSourcePtrOutput)
 }
@@ -2847,13 +2801,7 @@ func (o RuleManagementEventClaimsDataSourcePtrOutput) ToRuleManagementEventClaim
 }
 
 func (o RuleManagementEventClaimsDataSourcePtrOutput) Elem() RuleManagementEventClaimsDataSourceOutput {
-	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) RuleManagementEventClaimsDataSource {
-		if v != nil {
-			return *v
-		}
-		var ret RuleManagementEventClaimsDataSource
-		return ret
-	}).(RuleManagementEventClaimsDataSourceOutput)
+	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) RuleManagementEventClaimsDataSource { return *v }).(RuleManagementEventClaimsDataSourceOutput)
 }
 
 // the email address.
@@ -2962,7 +2910,7 @@ func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEvent
 }
 
 func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleManagementEventClaimsDataSourceResponse) *RuleManagementEventClaimsDataSourceResponse {
+	return o.ApplyT(func(v RuleManagementEventClaimsDataSourceResponse) *RuleManagementEventClaimsDataSourceResponse {
 		return &v
 	}).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
 }
@@ -2988,11 +2936,7 @@ func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) ToRuleManagementEv
 
 func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) Elem() RuleManagementEventClaimsDataSourceResponseOutput {
 	return o.ApplyT(func(v *RuleManagementEventClaimsDataSourceResponse) RuleManagementEventClaimsDataSourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RuleManagementEventClaimsDataSourceResponse
-		return ret
+		return *v
 	}).(RuleManagementEventClaimsDataSourceResponseOutput)
 }
 
@@ -3721,9 +3665,9 @@ type ScaleAction struct {
 	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 	Cooldown string `pulumi:"cooldown"`
 	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction ScaleDirection `pulumi:"direction"`
+	Direction string `pulumi:"direction"`
 	// the type of action that should occur when the scale rule fires.
-	Type ScaleType `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 	Value *string `pulumi:"value"`
 }
@@ -3744,9 +3688,9 @@ type ScaleActionArgs struct {
 	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 	Cooldown pulumi.StringInput `pulumi:"cooldown"`
 	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction ScaleDirectionInput `pulumi:"direction"`
+	Direction ScaleDirection `pulumi:"direction"`
 	// the type of action that should occur when the scale rule fires.
-	Type ScaleTypeInput `pulumi:"type"`
+	Type ScaleType `pulumi:"type"`
 	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -3784,13 +3728,13 @@ func (o ScaleActionOutput) Cooldown() pulumi.StringOutput {
 }
 
 // the scale direction. Whether the scaling action increases or decreases the number of instances.
-func (o ScaleActionOutput) Direction() ScaleDirectionOutput {
-	return o.ApplyT(func(v ScaleAction) ScaleDirection { return v.Direction }).(ScaleDirectionOutput)
+func (o ScaleActionOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v ScaleAction) string { return v.Direction }).(pulumi.StringOutput)
 }
 
 // the type of action that should occur when the scale rule fires.
-func (o ScaleActionOutput) Type() ScaleTypeOutput {
-	return o.ApplyT(func(v ScaleAction) ScaleType { return v.Type }).(ScaleTypeOutput)
+func (o ScaleActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScaleAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
@@ -4488,11 +4432,11 @@ type ThresholdRuleCondition struct {
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator ConditionOperator `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
+	TimeAggregation *string `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
 }
@@ -4516,11 +4460,11 @@ type ThresholdRuleConditionArgs struct {
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator ConditionOperatorInput `pulumi:"operator"`
+	Operator ConditionOperator `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation TimeAggregationOperatorPtrInput `pulumi:"timeAggregation"`
+	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
 }
@@ -4564,8 +4508,8 @@ func (o ThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
 }
 
 // the operator used to compare the data and the threshold.
-func (o ThresholdRuleConditionOutput) Operator() ConditionOperatorOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) ConditionOperator { return v.Operator }).(ConditionOperatorOutput)
+func (o ThresholdRuleConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 // the threshold value that activates the alert.
@@ -4574,8 +4518,8 @@ func (o ThresholdRuleConditionOutput) Threshold() pulumi.Float64Output {
 }
 
 // the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-func (o ThresholdRuleConditionOutput) TimeAggregation() TimeAggregationOperatorPtrOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) *TimeAggregationOperator { return v.TimeAggregation }).(TimeAggregationOperatorPtrOutput)
+func (o ThresholdRuleConditionOutput) TimeAggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
 }
 
 // the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -4790,7 +4734,7 @@ func (o TimeWindowOutput) ToTimeWindowPtrOutput() TimeWindowPtrOutput {
 }
 
 func (o TimeWindowOutput) ToTimeWindowPtrOutputWithContext(ctx context.Context) TimeWindowPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeWindow) *TimeWindow {
+	return o.ApplyT(func(v TimeWindow) *TimeWindow {
 		return &v
 	}).(TimeWindowPtrOutput)
 }
@@ -4825,13 +4769,7 @@ func (o TimeWindowPtrOutput) ToTimeWindowPtrOutputWithContext(ctx context.Contex
 }
 
 func (o TimeWindowPtrOutput) Elem() TimeWindowOutput {
-	return o.ApplyT(func(v *TimeWindow) TimeWindow {
-		if v != nil {
-			return *v
-		}
-		var ret TimeWindow
-		return ret
-	}).(TimeWindowOutput)
+	return o.ApplyT(func(v *TimeWindow) TimeWindow { return *v }).(TimeWindowOutput)
 }
 
 // the end time for the profile in ISO 8601 format.
@@ -4968,7 +4906,7 @@ func (o TimeWindowResponseOutput) ToTimeWindowResponsePtrOutput() TimeWindowResp
 }
 
 func (o TimeWindowResponseOutput) ToTimeWindowResponsePtrOutputWithContext(ctx context.Context) TimeWindowResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeWindowResponse) *TimeWindowResponse {
+	return o.ApplyT(func(v TimeWindowResponse) *TimeWindowResponse {
 		return &v
 	}).(TimeWindowResponsePtrOutput)
 }
@@ -5003,13 +4941,7 @@ func (o TimeWindowResponsePtrOutput) ToTimeWindowResponsePtrOutputWithContext(ct
 }
 
 func (o TimeWindowResponsePtrOutput) Elem() TimeWindowResponseOutput {
-	return o.ApplyT(func(v *TimeWindowResponse) TimeWindowResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TimeWindowResponse
-		return ret
-	}).(TimeWindowResponseOutput)
+	return o.ApplyT(func(v *TimeWindowResponse) TimeWindowResponse { return *v }).(TimeWindowResponseOutput)
 }
 
 // the end time for the profile in ISO 8601 format.

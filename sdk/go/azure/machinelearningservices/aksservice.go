@@ -254,7 +254,9 @@ func (i *AKSService) ToAKSServiceOutputWithContext(ctx context.Context) AKSServi
 	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceOutput)
 }
 
-type AKSServiceOutput struct{ *pulumi.OutputState }
+type AKSServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (AKSServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AKSService)(nil))

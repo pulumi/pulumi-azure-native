@@ -57,9 +57,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
-	if args.MonitoringStatus == nil {
-		return nil, errors.New("invalid value for required argument 'MonitoringStatus'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -68,12 +65,6 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.VolumeContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeContainerName'")
-	}
-	if args.VolumeStatus == nil {
-		return nil, errors.New("invalid value for required argument 'VolumeStatus'")
-	}
-	if args.VolumeType == nil {
-		return nil, errors.New("invalid value for required argument 'VolumeType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -124,11 +115,11 @@ type volumeArgs struct {
 	// The device name
 	DeviceName string `pulumi:"deviceName"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The monitoring status of the volume.
-	MonitoringStatus MonitoringStatus `pulumi:"monitoringStatus"`
+	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The size of the volume in bytes.
@@ -138,9 +129,9 @@ type volumeArgs struct {
 	// The volume name.
 	VolumeName *string `pulumi:"volumeName"`
 	// The volume status.
-	VolumeStatus VolumeStatus `pulumi:"volumeStatus"`
+	VolumeStatus string `pulumi:"volumeStatus"`
 	// The type of the volume.
-	VolumeType VolumeType `pulumi:"volumeType"`
+	VolumeType string `pulumi:"volumeType"`
 }
 
 // The set of arguments for constructing a Volume resource.
@@ -150,11 +141,11 @@ type VolumeArgs struct {
 	// The device name
 	DeviceName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The monitoring status of the volume.
-	MonitoringStatus MonitoringStatusInput
+	MonitoringStatus MonitoringStatus
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The size of the volume in bytes.
@@ -164,9 +155,9 @@ type VolumeArgs struct {
 	// The volume name.
 	VolumeName pulumi.StringPtrInput
 	// The volume status.
-	VolumeStatus VolumeStatusInput
+	VolumeStatus VolumeStatus
 	// The type of the volume.
-	VolumeType VolumeTypeInput
+	VolumeType VolumeType
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -192,7 +183,9 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct{ *pulumi.OutputState }
+type VolumeOutput struct {
+	*pulumi.OutputState
+}
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

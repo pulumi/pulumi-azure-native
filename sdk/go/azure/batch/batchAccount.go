@@ -187,9 +187,9 @@ type batchAccountArgs struct {
 	// The region in which to create the account.
 	Location *string `pulumi:"location"`
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode *PoolAllocationMode `pulumi:"poolAllocationMode"`
+	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// If not specified, the default value is 'enabled'.
-	PublicNetworkAccess *PublicNetworkAccessType `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The user-specified tags associated with the account.
@@ -211,9 +211,9 @@ type BatchAccountArgs struct {
 	// The region in which to create the account.
 	Location pulumi.StringPtrInput
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode PoolAllocationModePtrInput
+	PoolAllocationMode *PoolAllocationMode
 	// If not specified, the default value is 'enabled'.
-	PublicNetworkAccess PublicNetworkAccessTypePtrInput
+	PublicNetworkAccess *PublicNetworkAccessType
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 	// The user-specified tags associated with the account.
@@ -243,7 +243,9 @@ func (i *BatchAccount) ToBatchAccountOutputWithContext(ctx context.Context) Batc
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountOutput)
 }
 
-type BatchAccountOutput struct{ *pulumi.OutputState }
+type BatchAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (BatchAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchAccount)(nil))

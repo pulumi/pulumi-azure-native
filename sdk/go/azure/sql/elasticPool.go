@@ -210,7 +210,9 @@ func (i *ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) Elasti
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolOutput)
 }
 
-type ElasticPoolOutput struct{ *pulumi.OutputState }
+type ElasticPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (ElasticPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ElasticPool)(nil))

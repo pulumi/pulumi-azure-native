@@ -194,7 +194,9 @@ func (i *TagDescription) ToTagDescriptionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TagDescriptionOutput)
 }
 
-type TagDescriptionOutput struct{ *pulumi.OutputState }
+type TagDescriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (TagDescriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagDescription)(nil))

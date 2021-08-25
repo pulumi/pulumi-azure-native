@@ -157,7 +157,9 @@ func (i *RegisteredPrefix) ToRegisteredPrefixOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredPrefixOutput)
 }
 
-type RegisteredPrefixOutput struct{ *pulumi.OutputState }
+type RegisteredPrefixOutput struct {
+	*pulumi.OutputState
+}
 
 func (RegisteredPrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegisteredPrefix)(nil))

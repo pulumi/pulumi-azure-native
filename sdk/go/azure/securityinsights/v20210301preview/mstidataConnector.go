@@ -177,7 +177,9 @@ func (i *MSTIDataConnector) ToMSTIDataConnectorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorOutput)
 }
 
-type MSTIDataConnectorOutput struct{ *pulumi.OutputState }
+type MSTIDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (MSTIDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MSTIDataConnector)(nil))

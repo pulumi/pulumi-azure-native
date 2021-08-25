@@ -239,7 +239,9 @@ func (i *DatabaseAccountCassandraKeyspace) ToDatabaseAccountCassandraKeyspaceOut
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraKeyspaceOutput)
 }
 
-type DatabaseAccountCassandraKeyspaceOutput struct{ *pulumi.OutputState }
+type DatabaseAccountCassandraKeyspaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountCassandraKeyspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountCassandraKeyspace)(nil))

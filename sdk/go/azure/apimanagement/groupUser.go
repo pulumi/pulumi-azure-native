@@ -191,7 +191,9 @@ func (i *GroupUser) ToGroupUserOutputWithContext(ctx context.Context) GroupUserO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupUserOutput)
 }
 
-type GroupUserOutput struct{ *pulumi.OutputState }
+type GroupUserOutput struct {
+	*pulumi.OutputState
+}
 
 func (GroupUserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupUser)(nil))

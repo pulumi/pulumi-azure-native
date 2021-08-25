@@ -147,8 +147,8 @@ type managedDatabaseSensitivityLabelArgs struct {
 	// The label name.
 	LabelName *string `pulumi:"labelName"`
 	// The name of the managed instance.
-	ManagedInstanceName string                `pulumi:"managedInstanceName"`
-	Rank                *SensitivityLabelRank `pulumi:"rank"`
+	ManagedInstanceName string  `pulumi:"managedInstanceName"`
+	Rank                *string `pulumi:"rank"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the schema.
@@ -175,7 +175,7 @@ type ManagedDatabaseSensitivityLabelArgs struct {
 	LabelName pulumi.StringPtrInput
 	// The name of the managed instance.
 	ManagedInstanceName pulumi.StringInput
-	Rank                SensitivityLabelRankPtrInput
+	Rank                *SensitivityLabelRank
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.
@@ -209,7 +209,9 @@ func (i *ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseSensitivityLabelOutput)
 }
 
-type ManagedDatabaseSensitivityLabelOutput struct{ *pulumi.OutputState }
+type ManagedDatabaseSensitivityLabelOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedDatabaseSensitivityLabelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil))

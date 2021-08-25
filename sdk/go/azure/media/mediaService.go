@@ -186,7 +186,9 @@ func (i *MediaService) ToMediaServiceOutputWithContext(ctx context.Context) Medi
 	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceOutput)
 }
 
-type MediaServiceOutput struct{ *pulumi.OutputState }
+type MediaServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (MediaServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MediaService)(nil))

@@ -465,7 +465,7 @@ func (o HttpRequestOutput) ToHttpRequestPtrOutput() HttpRequestPtrOutput {
 }
 
 func (o HttpRequestOutput) ToHttpRequestPtrOutputWithContext(ctx context.Context) HttpRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpRequest) *HttpRequest {
+	return o.ApplyT(func(v HttpRequest) *HttpRequest {
 		return &v
 	}).(HttpRequestPtrOutput)
 }
@@ -510,13 +510,7 @@ func (o HttpRequestPtrOutput) ToHttpRequestPtrOutputWithContext(ctx context.Cont
 }
 
 func (o HttpRequestPtrOutput) Elem() HttpRequestOutput {
-	return o.ApplyT(func(v *HttpRequest) HttpRequest {
-		if v != nil {
-			return *v
-		}
-		var ret HttpRequest
-		return ret
-	}).(HttpRequestOutput)
+	return o.ApplyT(func(v *HttpRequest) HttpRequest { return *v }).(HttpRequestOutput)
 }
 
 // Gets or sets the authentication method of the request.
@@ -678,7 +672,7 @@ func (o HttpRequestResponseOutput) ToHttpRequestResponsePtrOutput() HttpRequestR
 }
 
 func (o HttpRequestResponseOutput) ToHttpRequestResponsePtrOutputWithContext(ctx context.Context) HttpRequestResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpRequestResponse) *HttpRequestResponse {
+	return o.ApplyT(func(v HttpRequestResponse) *HttpRequestResponse {
 		return &v
 	}).(HttpRequestResponsePtrOutput)
 }
@@ -723,13 +717,7 @@ func (o HttpRequestResponsePtrOutput) ToHttpRequestResponsePtrOutputWithContext(
 }
 
 func (o HttpRequestResponsePtrOutput) Elem() HttpRequestResponseOutput {
-	return o.ApplyT(func(v *HttpRequestResponse) HttpRequestResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HttpRequestResponse
-		return ret
-	}).(HttpRequestResponseOutput)
+	return o.ApplyT(func(v *HttpRequestResponse) HttpRequestResponse { return *v }).(HttpRequestResponseOutput)
 }
 
 // Gets or sets the authentication method of the request.
@@ -796,7 +784,7 @@ type JobAction struct {
 	// Gets or sets the service bus topic message.
 	ServiceBusTopicMessage *ServiceBusTopicMessage `pulumi:"serviceBusTopicMessage"`
 	// Gets or sets the job action type.
-	Type *JobActionType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // JobActionInput is an input type that accepts JobActionArgs and JobActionOutput values.
@@ -824,7 +812,7 @@ type JobActionArgs struct {
 	// Gets or sets the service bus topic message.
 	ServiceBusTopicMessage ServiceBusTopicMessagePtrInput `pulumi:"serviceBusTopicMessage"`
 	// Gets or sets the job action type.
-	Type JobActionTypePtrInput `pulumi:"type"`
+	Type *JobActionType `pulumi:"type"`
 }
 
 func (JobActionArgs) ElementType() reflect.Type {
@@ -899,7 +887,7 @@ func (o JobActionOutput) ToJobActionPtrOutput() JobActionPtrOutput {
 }
 
 func (o JobActionOutput) ToJobActionPtrOutputWithContext(ctx context.Context) JobActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAction) *JobAction {
+	return o.ApplyT(func(v JobAction) *JobAction {
 		return &v
 	}).(JobActionPtrOutput)
 }
@@ -935,8 +923,8 @@ func (o JobActionOutput) ServiceBusTopicMessage() ServiceBusTopicMessagePtrOutpu
 }
 
 // Gets or sets the job action type.
-func (o JobActionOutput) Type() JobActionTypePtrOutput {
-	return o.ApplyT(func(v JobAction) *JobActionType { return v.Type }).(JobActionTypePtrOutput)
+func (o JobActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type JobActionPtrOutput struct{ *pulumi.OutputState }
@@ -954,13 +942,7 @@ func (o JobActionPtrOutput) ToJobActionPtrOutputWithContext(ctx context.Context)
 }
 
 func (o JobActionPtrOutput) Elem() JobActionOutput {
-	return o.ApplyT(func(v *JobAction) JobAction {
-		if v != nil {
-			return *v
-		}
-		var ret JobAction
-		return ret
-	}).(JobActionOutput)
+	return o.ApplyT(func(v *JobAction) JobAction { return *v }).(JobActionOutput)
 }
 
 // Gets or sets the error action.
@@ -1024,13 +1006,13 @@ func (o JobActionPtrOutput) ServiceBusTopicMessage() ServiceBusTopicMessagePtrOu
 }
 
 // Gets or sets the job action type.
-func (o JobActionPtrOutput) Type() JobActionTypePtrOutput {
-	return o.ApplyT(func(v *JobAction) *JobActionType {
+func (o JobActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobAction) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(JobActionTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobActionResponse struct {
@@ -1150,7 +1132,7 @@ func (o JobActionResponseOutput) ToJobActionResponsePtrOutput() JobActionRespons
 }
 
 func (o JobActionResponseOutput) ToJobActionResponsePtrOutputWithContext(ctx context.Context) JobActionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobActionResponse) *JobActionResponse {
+	return o.ApplyT(func(v JobActionResponse) *JobActionResponse {
 		return &v
 	}).(JobActionResponsePtrOutput)
 }
@@ -1205,13 +1187,7 @@ func (o JobActionResponsePtrOutput) ToJobActionResponsePtrOutputWithContext(ctx 
 }
 
 func (o JobActionResponsePtrOutput) Elem() JobActionResponseOutput {
-	return o.ApplyT(func(v *JobActionResponse) JobActionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobActionResponse
-		return ret
-	}).(JobActionResponseOutput)
+	return o.ApplyT(func(v *JobActionResponse) JobActionResponse { return *v }).(JobActionResponseOutput)
 }
 
 // Gets or sets the error action.
@@ -1290,7 +1266,7 @@ type JobCollectionProperties struct {
 	// Gets or sets the SKU.
 	Sku *Sku `pulumi:"sku"`
 	// Gets or sets the state.
-	State *JobCollectionStateEnum `pulumi:"state"`
+	State *string `pulumi:"state"`
 }
 
 // JobCollectionPropertiesInput is an input type that accepts JobCollectionPropertiesArgs and JobCollectionPropertiesOutput values.
@@ -1310,7 +1286,7 @@ type JobCollectionPropertiesArgs struct {
 	// Gets or sets the SKU.
 	Sku SkuPtrInput `pulumi:"sku"`
 	// Gets or sets the state.
-	State JobCollectionStateEnumPtrInput `pulumi:"state"`
+	State *JobCollectionStateEnum `pulumi:"state"`
 }
 
 func (JobCollectionPropertiesArgs) ElementType() reflect.Type {
@@ -1385,7 +1361,7 @@ func (o JobCollectionPropertiesOutput) ToJobCollectionPropertiesPtrOutput() JobC
 }
 
 func (o JobCollectionPropertiesOutput) ToJobCollectionPropertiesPtrOutputWithContext(ctx context.Context) JobCollectionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCollectionProperties) *JobCollectionProperties {
+	return o.ApplyT(func(v JobCollectionProperties) *JobCollectionProperties {
 		return &v
 	}).(JobCollectionPropertiesPtrOutput)
 }
@@ -1401,8 +1377,8 @@ func (o JobCollectionPropertiesOutput) Sku() SkuPtrOutput {
 }
 
 // Gets or sets the state.
-func (o JobCollectionPropertiesOutput) State() JobCollectionStateEnumPtrOutput {
-	return o.ApplyT(func(v JobCollectionProperties) *JobCollectionStateEnum { return v.State }).(JobCollectionStateEnumPtrOutput)
+func (o JobCollectionPropertiesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCollectionProperties) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type JobCollectionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1420,13 +1396,7 @@ func (o JobCollectionPropertiesPtrOutput) ToJobCollectionPropertiesPtrOutputWith
 }
 
 func (o JobCollectionPropertiesPtrOutput) Elem() JobCollectionPropertiesOutput {
-	return o.ApplyT(func(v *JobCollectionProperties) JobCollectionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret JobCollectionProperties
-		return ret
-	}).(JobCollectionPropertiesOutput)
+	return o.ApplyT(func(v *JobCollectionProperties) JobCollectionProperties { return *v }).(JobCollectionPropertiesOutput)
 }
 
 // Gets or sets the job collection quota.
@@ -1450,13 +1420,13 @@ func (o JobCollectionPropertiesPtrOutput) Sku() SkuPtrOutput {
 }
 
 // Gets or sets the state.
-func (o JobCollectionPropertiesPtrOutput) State() JobCollectionStateEnumPtrOutput {
-	return o.ApplyT(func(v *JobCollectionProperties) *JobCollectionStateEnum {
+func (o JobCollectionPropertiesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCollectionProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(JobCollectionStateEnumPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobCollectionPropertiesResponse struct {
@@ -1560,7 +1530,7 @@ func (o JobCollectionPropertiesResponseOutput) ToJobCollectionPropertiesResponse
 }
 
 func (o JobCollectionPropertiesResponseOutput) ToJobCollectionPropertiesResponsePtrOutputWithContext(ctx context.Context) JobCollectionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCollectionPropertiesResponse) *JobCollectionPropertiesResponse {
+	return o.ApplyT(func(v JobCollectionPropertiesResponse) *JobCollectionPropertiesResponse {
 		return &v
 	}).(JobCollectionPropertiesResponsePtrOutput)
 }
@@ -1595,13 +1565,7 @@ func (o JobCollectionPropertiesResponsePtrOutput) ToJobCollectionPropertiesRespo
 }
 
 func (o JobCollectionPropertiesResponsePtrOutput) Elem() JobCollectionPropertiesResponseOutput {
-	return o.ApplyT(func(v *JobCollectionPropertiesResponse) JobCollectionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobCollectionPropertiesResponse
-		return ret
-	}).(JobCollectionPropertiesResponseOutput)
+	return o.ApplyT(func(v *JobCollectionPropertiesResponse) JobCollectionPropertiesResponse { return *v }).(JobCollectionPropertiesResponseOutput)
 }
 
 // Gets or sets the job collection quota.
@@ -1735,7 +1699,7 @@ func (o JobCollectionQuotaOutput) ToJobCollectionQuotaPtrOutput() JobCollectionQ
 }
 
 func (o JobCollectionQuotaOutput) ToJobCollectionQuotaPtrOutputWithContext(ctx context.Context) JobCollectionQuotaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCollectionQuota) *JobCollectionQuota {
+	return o.ApplyT(func(v JobCollectionQuota) *JobCollectionQuota {
 		return &v
 	}).(JobCollectionQuotaPtrOutput)
 }
@@ -1770,13 +1734,7 @@ func (o JobCollectionQuotaPtrOutput) ToJobCollectionQuotaPtrOutputWithContext(ct
 }
 
 func (o JobCollectionQuotaPtrOutput) Elem() JobCollectionQuotaOutput {
-	return o.ApplyT(func(v *JobCollectionQuota) JobCollectionQuota {
-		if v != nil {
-			return *v
-		}
-		var ret JobCollectionQuota
-		return ret
-	}).(JobCollectionQuotaOutput)
+	return o.ApplyT(func(v *JobCollectionQuota) JobCollectionQuota { return *v }).(JobCollectionQuotaOutput)
 }
 
 // Gets or set the maximum job count.
@@ -1910,7 +1868,7 @@ func (o JobCollectionQuotaResponseOutput) ToJobCollectionQuotaResponsePtrOutput(
 }
 
 func (o JobCollectionQuotaResponseOutput) ToJobCollectionQuotaResponsePtrOutputWithContext(ctx context.Context) JobCollectionQuotaResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCollectionQuotaResponse) *JobCollectionQuotaResponse {
+	return o.ApplyT(func(v JobCollectionQuotaResponse) *JobCollectionQuotaResponse {
 		return &v
 	}).(JobCollectionQuotaResponsePtrOutput)
 }
@@ -1945,13 +1903,7 @@ func (o JobCollectionQuotaResponsePtrOutput) ToJobCollectionQuotaResponsePtrOutp
 }
 
 func (o JobCollectionQuotaResponsePtrOutput) Elem() JobCollectionQuotaResponseOutput {
-	return o.ApplyT(func(v *JobCollectionQuotaResponse) JobCollectionQuotaResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobCollectionQuotaResponse
-		return ret
-	}).(JobCollectionQuotaResponseOutput)
+	return o.ApplyT(func(v *JobCollectionQuotaResponse) JobCollectionQuotaResponse { return *v }).(JobCollectionQuotaResponseOutput)
 }
 
 // Gets or set the maximum job count.
@@ -1996,7 +1948,7 @@ type JobErrorAction struct {
 	// Gets or sets the service bus topic message.
 	ServiceBusTopicMessage *ServiceBusTopicMessage `pulumi:"serviceBusTopicMessage"`
 	// Gets or sets the job error action type.
-	Type *JobActionType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // JobErrorActionInput is an input type that accepts JobErrorActionArgs and JobErrorActionOutput values.
@@ -2022,7 +1974,7 @@ type JobErrorActionArgs struct {
 	// Gets or sets the service bus topic message.
 	ServiceBusTopicMessage ServiceBusTopicMessagePtrInput `pulumi:"serviceBusTopicMessage"`
 	// Gets or sets the job error action type.
-	Type JobActionTypePtrInput `pulumi:"type"`
+	Type *JobActionType `pulumi:"type"`
 }
 
 func (JobErrorActionArgs) ElementType() reflect.Type {
@@ -2097,7 +2049,7 @@ func (o JobErrorActionOutput) ToJobErrorActionPtrOutput() JobErrorActionPtrOutpu
 }
 
 func (o JobErrorActionOutput) ToJobErrorActionPtrOutputWithContext(ctx context.Context) JobErrorActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobErrorAction) *JobErrorAction {
+	return o.ApplyT(func(v JobErrorAction) *JobErrorAction {
 		return &v
 	}).(JobErrorActionPtrOutput)
 }
@@ -2128,8 +2080,8 @@ func (o JobErrorActionOutput) ServiceBusTopicMessage() ServiceBusTopicMessagePtr
 }
 
 // Gets or sets the job error action type.
-func (o JobErrorActionOutput) Type() JobActionTypePtrOutput {
-	return o.ApplyT(func(v JobErrorAction) *JobActionType { return v.Type }).(JobActionTypePtrOutput)
+func (o JobErrorActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobErrorAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type JobErrorActionPtrOutput struct{ *pulumi.OutputState }
@@ -2147,13 +2099,7 @@ func (o JobErrorActionPtrOutput) ToJobErrorActionPtrOutputWithContext(ctx contex
 }
 
 func (o JobErrorActionPtrOutput) Elem() JobErrorActionOutput {
-	return o.ApplyT(func(v *JobErrorAction) JobErrorAction {
-		if v != nil {
-			return *v
-		}
-		var ret JobErrorAction
-		return ret
-	}).(JobErrorActionOutput)
+	return o.ApplyT(func(v *JobErrorAction) JobErrorAction { return *v }).(JobErrorActionOutput)
 }
 
 // Gets or sets the storage queue message.
@@ -2207,13 +2153,13 @@ func (o JobErrorActionPtrOutput) ServiceBusTopicMessage() ServiceBusTopicMessage
 }
 
 // Gets or sets the job error action type.
-func (o JobErrorActionPtrOutput) Type() JobActionTypePtrOutput {
-	return o.ApplyT(func(v *JobErrorAction) *JobActionType {
+func (o JobErrorActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobErrorAction) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(JobActionTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobErrorActionResponse struct {
@@ -2329,7 +2275,7 @@ func (o JobErrorActionResponseOutput) ToJobErrorActionResponsePtrOutput() JobErr
 }
 
 func (o JobErrorActionResponseOutput) ToJobErrorActionResponsePtrOutputWithContext(ctx context.Context) JobErrorActionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobErrorActionResponse) *JobErrorActionResponse {
+	return o.ApplyT(func(v JobErrorActionResponse) *JobErrorActionResponse {
 		return &v
 	}).(JobErrorActionResponsePtrOutput)
 }
@@ -2379,13 +2325,7 @@ func (o JobErrorActionResponsePtrOutput) ToJobErrorActionResponsePtrOutputWithCo
 }
 
 func (o JobErrorActionResponsePtrOutput) Elem() JobErrorActionResponseOutput {
-	return o.ApplyT(func(v *JobErrorActionResponse) JobErrorActionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobErrorActionResponse
-		return ret
-	}).(JobErrorActionResponseOutput)
+	return o.ApplyT(func(v *JobErrorActionResponse) JobErrorActionResponse { return *v }).(JobErrorActionResponseOutput)
 }
 
 // Gets or sets the storage queue message.
@@ -2450,7 +2390,7 @@ func (o JobErrorActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 type JobMaxRecurrence struct {
 	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-	Frequency *RecurrenceFrequency `pulumi:"frequency"`
+	Frequency *string `pulumi:"frequency"`
 	// Gets or sets the interval between retries.
 	Interval *int `pulumi:"interval"`
 }
@@ -2468,7 +2408,7 @@ type JobMaxRecurrenceInput interface {
 
 type JobMaxRecurrenceArgs struct {
 	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-	Frequency RecurrenceFrequencyPtrInput `pulumi:"frequency"`
+	Frequency *RecurrenceFrequency `pulumi:"frequency"`
 	// Gets or sets the interval between retries.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
@@ -2545,14 +2485,14 @@ func (o JobMaxRecurrenceOutput) ToJobMaxRecurrencePtrOutput() JobMaxRecurrencePt
 }
 
 func (o JobMaxRecurrenceOutput) ToJobMaxRecurrencePtrOutputWithContext(ctx context.Context) JobMaxRecurrencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobMaxRecurrence) *JobMaxRecurrence {
+	return o.ApplyT(func(v JobMaxRecurrence) *JobMaxRecurrence {
 		return &v
 	}).(JobMaxRecurrencePtrOutput)
 }
 
 // Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-func (o JobMaxRecurrenceOutput) Frequency() RecurrenceFrequencyPtrOutput {
-	return o.ApplyT(func(v JobMaxRecurrence) *RecurrenceFrequency { return v.Frequency }).(RecurrenceFrequencyPtrOutput)
+func (o JobMaxRecurrenceOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobMaxRecurrence) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the interval between retries.
@@ -2575,23 +2515,17 @@ func (o JobMaxRecurrencePtrOutput) ToJobMaxRecurrencePtrOutputWithContext(ctx co
 }
 
 func (o JobMaxRecurrencePtrOutput) Elem() JobMaxRecurrenceOutput {
-	return o.ApplyT(func(v *JobMaxRecurrence) JobMaxRecurrence {
-		if v != nil {
-			return *v
-		}
-		var ret JobMaxRecurrence
-		return ret
-	}).(JobMaxRecurrenceOutput)
+	return o.ApplyT(func(v *JobMaxRecurrence) JobMaxRecurrence { return *v }).(JobMaxRecurrenceOutput)
 }
 
 // Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-func (o JobMaxRecurrencePtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
-	return o.ApplyT(func(v *JobMaxRecurrence) *RecurrenceFrequency {
+func (o JobMaxRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobMaxRecurrence) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Frequency
-	}).(RecurrenceFrequencyPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the interval between retries.
@@ -2701,7 +2635,7 @@ func (o JobMaxRecurrenceResponseOutput) ToJobMaxRecurrenceResponsePtrOutput() Jo
 }
 
 func (o JobMaxRecurrenceResponseOutput) ToJobMaxRecurrenceResponsePtrOutputWithContext(ctx context.Context) JobMaxRecurrenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobMaxRecurrenceResponse) *JobMaxRecurrenceResponse {
+	return o.ApplyT(func(v JobMaxRecurrenceResponse) *JobMaxRecurrenceResponse {
 		return &v
 	}).(JobMaxRecurrenceResponsePtrOutput)
 }
@@ -2731,13 +2665,7 @@ func (o JobMaxRecurrenceResponsePtrOutput) ToJobMaxRecurrenceResponsePtrOutputWi
 }
 
 func (o JobMaxRecurrenceResponsePtrOutput) Elem() JobMaxRecurrenceResponseOutput {
-	return o.ApplyT(func(v *JobMaxRecurrenceResponse) JobMaxRecurrenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobMaxRecurrenceResponse
-		return ret
-	}).(JobMaxRecurrenceResponseOutput)
+	return o.ApplyT(func(v *JobMaxRecurrenceResponse) JobMaxRecurrenceResponse { return *v }).(JobMaxRecurrenceResponseOutput)
 }
 
 // Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
@@ -2768,7 +2696,7 @@ type JobProperties struct {
 	// Gets or sets the job start time.
 	StartTime *string `pulumi:"startTime"`
 	// Gets or set the job state.
-	State *JobStateEnum `pulumi:"state"`
+	State *string `pulumi:"state"`
 }
 
 // JobPropertiesInput is an input type that accepts JobPropertiesArgs and JobPropertiesOutput values.
@@ -2790,7 +2718,7 @@ type JobPropertiesArgs struct {
 	// Gets or sets the job start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Gets or set the job state.
-	State JobStateEnumPtrInput `pulumi:"state"`
+	State *JobStateEnum `pulumi:"state"`
 }
 
 func (JobPropertiesArgs) ElementType() reflect.Type {
@@ -2865,7 +2793,7 @@ func (o JobPropertiesOutput) ToJobPropertiesPtrOutput() JobPropertiesPtrOutput {
 }
 
 func (o JobPropertiesOutput) ToJobPropertiesPtrOutputWithContext(ctx context.Context) JobPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobProperties) *JobProperties {
+	return o.ApplyT(func(v JobProperties) *JobProperties {
 		return &v
 	}).(JobPropertiesPtrOutput)
 }
@@ -2886,8 +2814,8 @@ func (o JobPropertiesOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Gets or set the job state.
-func (o JobPropertiesOutput) State() JobStateEnumPtrOutput {
-	return o.ApplyT(func(v JobProperties) *JobStateEnum { return v.State }).(JobStateEnumPtrOutput)
+func (o JobPropertiesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobProperties) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type JobPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2905,13 +2833,7 @@ func (o JobPropertiesPtrOutput) ToJobPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o JobPropertiesPtrOutput) Elem() JobPropertiesOutput {
-	return o.ApplyT(func(v *JobProperties) JobProperties {
-		if v != nil {
-			return *v
-		}
-		var ret JobProperties
-		return ret
-	}).(JobPropertiesOutput)
+	return o.ApplyT(func(v *JobProperties) JobProperties { return *v }).(JobPropertiesOutput)
 }
 
 // Gets or sets the job action.
@@ -2945,13 +2867,13 @@ func (o JobPropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Gets or set the job state.
-func (o JobPropertiesPtrOutput) State() JobStateEnumPtrOutput {
-	return o.ApplyT(func(v *JobProperties) *JobStateEnum {
+func (o JobPropertiesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(JobStateEnumPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobPropertiesResponse struct {
@@ -3063,7 +2985,7 @@ func (o JobPropertiesResponseOutput) ToJobPropertiesResponsePtrOutput() JobPrope
 }
 
 func (o JobPropertiesResponseOutput) ToJobPropertiesResponsePtrOutputWithContext(ctx context.Context) JobPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobPropertiesResponse) *JobPropertiesResponse {
+	return o.ApplyT(func(v JobPropertiesResponse) *JobPropertiesResponse {
 		return &v
 	}).(JobPropertiesResponsePtrOutput)
 }
@@ -3108,13 +3030,7 @@ func (o JobPropertiesResponsePtrOutput) ToJobPropertiesResponsePtrOutputWithCont
 }
 
 func (o JobPropertiesResponsePtrOutput) Elem() JobPropertiesResponseOutput {
-	return o.ApplyT(func(v *JobPropertiesResponse) JobPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobPropertiesResponse
-		return ret
-	}).(JobPropertiesResponseOutput)
+	return o.ApplyT(func(v *JobPropertiesResponse) JobPropertiesResponse { return *v }).(JobPropertiesResponseOutput)
 }
 
 // Gets or sets the job action.
@@ -3173,7 +3089,7 @@ type JobRecurrence struct {
 	// Gets or sets the time at which the job will complete.
 	EndTime *string `pulumi:"endTime"`
 	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-	Frequency *RecurrenceFrequency `pulumi:"frequency"`
+	Frequency *string `pulumi:"frequency"`
 	// Gets or sets the interval between retries.
 	Interval *int                   `pulumi:"interval"`
 	Schedule *JobRecurrenceSchedule `pulumi:"schedule"`
@@ -3196,7 +3112,7 @@ type JobRecurrenceArgs struct {
 	// Gets or sets the time at which the job will complete.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-	Frequency RecurrenceFrequencyPtrInput `pulumi:"frequency"`
+	Frequency *RecurrenceFrequency `pulumi:"frequency"`
 	// Gets or sets the interval between retries.
 	Interval pulumi.IntPtrInput            `pulumi:"interval"`
 	Schedule JobRecurrenceSchedulePtrInput `pulumi:"schedule"`
@@ -3274,7 +3190,7 @@ func (o JobRecurrenceOutput) ToJobRecurrencePtrOutput() JobRecurrencePtrOutput {
 }
 
 func (o JobRecurrenceOutput) ToJobRecurrencePtrOutputWithContext(ctx context.Context) JobRecurrencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobRecurrence) *JobRecurrence {
+	return o.ApplyT(func(v JobRecurrence) *JobRecurrence {
 		return &v
 	}).(JobRecurrencePtrOutput)
 }
@@ -3290,8 +3206,8 @@ func (o JobRecurrenceOutput) EndTime() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-func (o JobRecurrenceOutput) Frequency() RecurrenceFrequencyPtrOutput {
-	return o.ApplyT(func(v JobRecurrence) *RecurrenceFrequency { return v.Frequency }).(RecurrenceFrequencyPtrOutput)
+func (o JobRecurrenceOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRecurrence) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the interval between retries.
@@ -3318,13 +3234,7 @@ func (o JobRecurrencePtrOutput) ToJobRecurrencePtrOutputWithContext(ctx context.
 }
 
 func (o JobRecurrencePtrOutput) Elem() JobRecurrenceOutput {
-	return o.ApplyT(func(v *JobRecurrence) JobRecurrence {
-		if v != nil {
-			return *v
-		}
-		var ret JobRecurrence
-		return ret
-	}).(JobRecurrenceOutput)
+	return o.ApplyT(func(v *JobRecurrence) JobRecurrence { return *v }).(JobRecurrenceOutput)
 }
 
 // Gets or sets the maximum number of times that the job should run.
@@ -3348,13 +3258,13 @@ func (o JobRecurrencePtrOutput) EndTime() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-func (o JobRecurrencePtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
-	return o.ApplyT(func(v *JobRecurrence) *RecurrenceFrequency {
+func (o JobRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobRecurrence) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Frequency
-	}).(RecurrenceFrequencyPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the interval between retries.
@@ -3483,7 +3393,7 @@ func (o JobRecurrenceResponseOutput) ToJobRecurrenceResponsePtrOutput() JobRecur
 }
 
 func (o JobRecurrenceResponseOutput) ToJobRecurrenceResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobRecurrenceResponse) *JobRecurrenceResponse {
+	return o.ApplyT(func(v JobRecurrenceResponse) *JobRecurrenceResponse {
 		return &v
 	}).(JobRecurrenceResponsePtrOutput)
 }
@@ -3527,13 +3437,7 @@ func (o JobRecurrenceResponsePtrOutput) ToJobRecurrenceResponsePtrOutputWithCont
 }
 
 func (o JobRecurrenceResponsePtrOutput) Elem() JobRecurrenceResponseOutput {
-	return o.ApplyT(func(v *JobRecurrenceResponse) JobRecurrenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobRecurrenceResponse
-		return ret
-	}).(JobRecurrenceResponseOutput)
+	return o.ApplyT(func(v *JobRecurrenceResponse) JobRecurrenceResponse { return *v }).(JobRecurrenceResponseOutput)
 }
 
 // Gets or sets the maximum number of times that the job should run.
@@ -3595,7 +3499,7 @@ type JobRecurrenceSchedule struct {
 	// Gets or sets the occurrences of days within a month.
 	MonthlyOccurrences []JobRecurrenceScheduleMonthlyOccurrence `pulumi:"monthlyOccurrences"`
 	// Gets or sets the days of the week that the job should execute on.
-	WeekDays []DayOfWeek `pulumi:"weekDays"`
+	WeekDays []string `pulumi:"weekDays"`
 }
 
 // JobRecurrenceScheduleInput is an input type that accepts JobRecurrenceScheduleArgs and JobRecurrenceScheduleOutput values.
@@ -3694,7 +3598,7 @@ func (o JobRecurrenceScheduleOutput) ToJobRecurrenceSchedulePtrOutput() JobRecur
 }
 
 func (o JobRecurrenceScheduleOutput) ToJobRecurrenceSchedulePtrOutputWithContext(ctx context.Context) JobRecurrenceSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobRecurrenceSchedule) *JobRecurrenceSchedule {
+	return o.ApplyT(func(v JobRecurrenceSchedule) *JobRecurrenceSchedule {
 		return &v
 	}).(JobRecurrenceSchedulePtrOutput)
 }
@@ -3720,8 +3624,8 @@ func (o JobRecurrenceScheduleOutput) MonthlyOccurrences() JobRecurrenceScheduleM
 }
 
 // Gets or sets the days of the week that the job should execute on.
-func (o JobRecurrenceScheduleOutput) WeekDays() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v JobRecurrenceSchedule) []DayOfWeek { return v.WeekDays }).(DayOfWeekArrayOutput)
+func (o JobRecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobRecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
 }
 
 type JobRecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -3739,13 +3643,7 @@ func (o JobRecurrenceSchedulePtrOutput) ToJobRecurrenceSchedulePtrOutputWithCont
 }
 
 func (o JobRecurrenceSchedulePtrOutput) Elem() JobRecurrenceScheduleOutput {
-	return o.ApplyT(func(v *JobRecurrenceSchedule) JobRecurrenceSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret JobRecurrenceSchedule
-		return ret
-	}).(JobRecurrenceScheduleOutput)
+	return o.ApplyT(func(v *JobRecurrenceSchedule) JobRecurrenceSchedule { return *v }).(JobRecurrenceScheduleOutput)
 }
 
 // Gets or sets the hours of the day that the job should execute at.
@@ -3789,18 +3687,18 @@ func (o JobRecurrenceSchedulePtrOutput) MonthlyOccurrences() JobRecurrenceSchedu
 }
 
 // Gets or sets the days of the week that the job should execute on.
-func (o JobRecurrenceSchedulePtrOutput) WeekDays() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v *JobRecurrenceSchedule) []DayOfWeek {
+func (o JobRecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobRecurrenceSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(DayOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 type JobRecurrenceScheduleMonthlyOccurrence struct {
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-	Day *JobScheduleDay `pulumi:"day"`
+	Day *string `pulumi:"day"`
 	// Gets or sets the occurrence. Must be between -5 and 5.
 	Occurrence *int `pulumi:"occurrence"`
 }
@@ -3818,7 +3716,7 @@ type JobRecurrenceScheduleMonthlyOccurrenceInput interface {
 
 type JobRecurrenceScheduleMonthlyOccurrenceArgs struct {
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-	Day JobScheduleDayPtrInput `pulumi:"day"`
+	Day *JobScheduleDay `pulumi:"day"`
 	// Gets or sets the occurrence. Must be between -5 and 5.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -3875,8 +3773,8 @@ func (o JobRecurrenceScheduleMonthlyOccurrenceOutput) ToJobRecurrenceScheduleMon
 }
 
 // Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-func (o JobRecurrenceScheduleMonthlyOccurrenceOutput) Day() JobScheduleDayPtrOutput {
-	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrence) *JobScheduleDay { return v.Day }).(JobScheduleDayPtrOutput)
+func (o JobRecurrenceScheduleMonthlyOccurrenceOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the occurrence. Must be between -5 and 5.
@@ -4119,7 +4017,7 @@ func (o JobRecurrenceScheduleResponseOutput) ToJobRecurrenceScheduleResponsePtrO
 }
 
 func (o JobRecurrenceScheduleResponseOutput) ToJobRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobRecurrenceScheduleResponse) *JobRecurrenceScheduleResponse {
+	return o.ApplyT(func(v JobRecurrenceScheduleResponse) *JobRecurrenceScheduleResponse {
 		return &v
 	}).(JobRecurrenceScheduleResponsePtrOutput)
 }
@@ -4166,13 +4064,7 @@ func (o JobRecurrenceScheduleResponsePtrOutput) ToJobRecurrenceScheduleResponseP
 }
 
 func (o JobRecurrenceScheduleResponsePtrOutput) Elem() JobRecurrenceScheduleResponseOutput {
-	return o.ApplyT(func(v *JobRecurrenceScheduleResponse) JobRecurrenceScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobRecurrenceScheduleResponse
-		return ret
-	}).(JobRecurrenceScheduleResponseOutput)
+	return o.ApplyT(func(v *JobRecurrenceScheduleResponse) JobRecurrenceScheduleResponse { return *v }).(JobRecurrenceScheduleResponseOutput)
 }
 
 // Gets or sets the hours of the day that the job should execute at.
@@ -4334,7 +4226,7 @@ func (o JobStatusResponseOutput) ToJobStatusResponsePtrOutput() JobStatusRespons
 }
 
 func (o JobStatusResponseOutput) ToJobStatusResponsePtrOutputWithContext(ctx context.Context) JobStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStatusResponse) *JobStatusResponse {
+	return o.ApplyT(func(v JobStatusResponse) *JobStatusResponse {
 		return &v
 	}).(JobStatusResponsePtrOutput)
 }
@@ -4379,13 +4271,7 @@ func (o JobStatusResponsePtrOutput) ToJobStatusResponsePtrOutputWithContext(ctx 
 }
 
 func (o JobStatusResponsePtrOutput) Elem() JobStatusResponseOutput {
-	return o.ApplyT(func(v *JobStatusResponse) JobStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobStatusResponse
-		return ret
-	}).(JobStatusResponseOutput)
+	return o.ApplyT(func(v *JobStatusResponse) JobStatusResponse { return *v }).(JobStatusResponseOutput)
 }
 
 // Gets the number of times this job has executed.
@@ -4626,7 +4512,7 @@ type RetryPolicy struct {
 	// Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
 	RetryInterval *string `pulumi:"retryInterval"`
 	// Gets or sets the retry strategy to be used.
-	RetryType *RetryType `pulumi:"retryType"`
+	RetryType *string `pulumi:"retryType"`
 }
 
 // RetryPolicyInput is an input type that accepts RetryPolicyArgs and RetryPolicyOutput values.
@@ -4646,7 +4532,7 @@ type RetryPolicyArgs struct {
 	// Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
 	RetryInterval pulumi.StringPtrInput `pulumi:"retryInterval"`
 	// Gets or sets the retry strategy to be used.
-	RetryType RetryTypePtrInput `pulumi:"retryType"`
+	RetryType *RetryType `pulumi:"retryType"`
 }
 
 func (RetryPolicyArgs) ElementType() reflect.Type {
@@ -4721,7 +4607,7 @@ func (o RetryPolicyOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
 }
 
 func (o RetryPolicyOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicy) *RetryPolicy {
+	return o.ApplyT(func(v RetryPolicy) *RetryPolicy {
 		return &v
 	}).(RetryPolicyPtrOutput)
 }
@@ -4737,8 +4623,8 @@ func (o RetryPolicyOutput) RetryInterval() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the retry strategy to be used.
-func (o RetryPolicyOutput) RetryType() RetryTypePtrOutput {
-	return o.ApplyT(func(v RetryPolicy) *RetryType { return v.RetryType }).(RetryTypePtrOutput)
+func (o RetryPolicyOutput) RetryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetryPolicy) *string { return v.RetryType }).(pulumi.StringPtrOutput)
 }
 
 type RetryPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -4756,13 +4642,7 @@ func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func (o RetryPolicyPtrOutput) Elem() RetryPolicyOutput {
-	return o.ApplyT(func(v *RetryPolicy) RetryPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RetryPolicy
-		return ret
-	}).(RetryPolicyOutput)
+	return o.ApplyT(func(v *RetryPolicy) RetryPolicy { return *v }).(RetryPolicyOutput)
 }
 
 // Gets or sets the number of times a retry should be attempted.
@@ -4786,13 +4666,13 @@ func (o RetryPolicyPtrOutput) RetryInterval() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the retry strategy to be used.
-func (o RetryPolicyPtrOutput) RetryType() RetryTypePtrOutput {
-	return o.ApplyT(func(v *RetryPolicy) *RetryType {
+func (o RetryPolicyPtrOutput) RetryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetryPolicy) *string {
 		if v == nil {
 			return nil
 		}
 		return v.RetryType
-	}).(RetryTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type RetryPolicyResponse struct {
@@ -4896,7 +4776,7 @@ func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutput() RetryPolicyR
 }
 
 func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicyResponse) *RetryPolicyResponse {
+	return o.ApplyT(func(v RetryPolicyResponse) *RetryPolicyResponse {
 		return &v
 	}).(RetryPolicyResponsePtrOutput)
 }
@@ -4931,13 +4811,7 @@ func (o RetryPolicyResponsePtrOutput) ToRetryPolicyResponsePtrOutputWithContext(
 }
 
 func (o RetryPolicyResponsePtrOutput) Elem() RetryPolicyResponseOutput {
-	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RetryPolicyResponse
-		return ret
-	}).(RetryPolicyResponseOutput)
+	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse { return *v }).(RetryPolicyResponseOutput)
 }
 
 // Gets or sets the number of times a retry should be attempted.
@@ -4976,7 +4850,7 @@ type ServiceBusAuthentication struct {
 	// Gets or sets the SAS key name.
 	SasKeyName *string `pulumi:"sasKeyName"`
 	// Gets or sets the authentication type.
-	Type *ServiceBusAuthenticationType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ServiceBusAuthenticationInput is an input type that accepts ServiceBusAuthenticationArgs and ServiceBusAuthenticationOutput values.
@@ -4996,7 +4870,7 @@ type ServiceBusAuthenticationArgs struct {
 	// Gets or sets the SAS key name.
 	SasKeyName pulumi.StringPtrInput `pulumi:"sasKeyName"`
 	// Gets or sets the authentication type.
-	Type ServiceBusAuthenticationTypePtrInput `pulumi:"type"`
+	Type *ServiceBusAuthenticationType `pulumi:"type"`
 }
 
 func (ServiceBusAuthenticationArgs) ElementType() reflect.Type {
@@ -5071,7 +4945,7 @@ func (o ServiceBusAuthenticationOutput) ToServiceBusAuthenticationPtrOutput() Se
 }
 
 func (o ServiceBusAuthenticationOutput) ToServiceBusAuthenticationPtrOutputWithContext(ctx context.Context) ServiceBusAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusAuthentication) *ServiceBusAuthentication {
+	return o.ApplyT(func(v ServiceBusAuthentication) *ServiceBusAuthentication {
 		return &v
 	}).(ServiceBusAuthenticationPtrOutput)
 }
@@ -5087,8 +4961,8 @@ func (o ServiceBusAuthenticationOutput) SasKeyName() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the authentication type.
-func (o ServiceBusAuthenticationOutput) Type() ServiceBusAuthenticationTypePtrOutput {
-	return o.ApplyT(func(v ServiceBusAuthentication) *ServiceBusAuthenticationType { return v.Type }).(ServiceBusAuthenticationTypePtrOutput)
+func (o ServiceBusAuthenticationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusAuthentication) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ServiceBusAuthenticationPtrOutput struct{ *pulumi.OutputState }
@@ -5106,13 +4980,7 @@ func (o ServiceBusAuthenticationPtrOutput) ToServiceBusAuthenticationPtrOutputWi
 }
 
 func (o ServiceBusAuthenticationPtrOutput) Elem() ServiceBusAuthenticationOutput {
-	return o.ApplyT(func(v *ServiceBusAuthentication) ServiceBusAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusAuthentication
-		return ret
-	}).(ServiceBusAuthenticationOutput)
+	return o.ApplyT(func(v *ServiceBusAuthentication) ServiceBusAuthentication { return *v }).(ServiceBusAuthenticationOutput)
 }
 
 // Gets or sets the SAS key.
@@ -5136,13 +5004,13 @@ func (o ServiceBusAuthenticationPtrOutput) SasKeyName() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the authentication type.
-func (o ServiceBusAuthenticationPtrOutput) Type() ServiceBusAuthenticationTypePtrOutput {
-	return o.ApplyT(func(v *ServiceBusAuthentication) *ServiceBusAuthenticationType {
+func (o ServiceBusAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusAuthentication) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ServiceBusAuthenticationTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceBusAuthenticationResponse struct {
@@ -5246,7 +5114,7 @@ func (o ServiceBusAuthenticationResponseOutput) ToServiceBusAuthenticationRespon
 }
 
 func (o ServiceBusAuthenticationResponseOutput) ToServiceBusAuthenticationResponsePtrOutputWithContext(ctx context.Context) ServiceBusAuthenticationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusAuthenticationResponse) *ServiceBusAuthenticationResponse {
+	return o.ApplyT(func(v ServiceBusAuthenticationResponse) *ServiceBusAuthenticationResponse {
 		return &v
 	}).(ServiceBusAuthenticationResponsePtrOutput)
 }
@@ -5281,13 +5149,7 @@ func (o ServiceBusAuthenticationResponsePtrOutput) ToServiceBusAuthenticationRes
 }
 
 func (o ServiceBusAuthenticationResponsePtrOutput) Elem() ServiceBusAuthenticationResponseOutput {
-	return o.ApplyT(func(v *ServiceBusAuthenticationResponse) ServiceBusAuthenticationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusAuthenticationResponse
-		return ret
-	}).(ServiceBusAuthenticationResponseOutput)
+	return o.ApplyT(func(v *ServiceBusAuthenticationResponse) ServiceBusAuthenticationResponse { return *v }).(ServiceBusAuthenticationResponseOutput)
 }
 
 // Gets or sets the SAS key.
@@ -5461,7 +5323,7 @@ func (o ServiceBusBrokeredMessagePropertiesOutput) ToServiceBusBrokeredMessagePr
 }
 
 func (o ServiceBusBrokeredMessagePropertiesOutput) ToServiceBusBrokeredMessagePropertiesPtrOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusBrokeredMessageProperties) *ServiceBusBrokeredMessageProperties {
+	return o.ApplyT(func(v ServiceBusBrokeredMessageProperties) *ServiceBusBrokeredMessageProperties {
 		return &v
 	}).(ServiceBusBrokeredMessagePropertiesPtrOutput)
 }
@@ -5546,13 +5408,7 @@ func (o ServiceBusBrokeredMessagePropertiesPtrOutput) ToServiceBusBrokeredMessag
 }
 
 func (o ServiceBusBrokeredMessagePropertiesPtrOutput) Elem() ServiceBusBrokeredMessagePropertiesOutput {
-	return o.ApplyT(func(v *ServiceBusBrokeredMessageProperties) ServiceBusBrokeredMessageProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusBrokeredMessageProperties
-		return ret
-	}).(ServiceBusBrokeredMessagePropertiesOutput)
+	return o.ApplyT(func(v *ServiceBusBrokeredMessageProperties) ServiceBusBrokeredMessageProperties { return *v }).(ServiceBusBrokeredMessagePropertiesOutput)
 }
 
 // Gets or sets the content type.
@@ -5826,7 +5682,7 @@ func (o ServiceBusBrokeredMessagePropertiesResponseOutput) ToServiceBusBrokeredM
 }
 
 func (o ServiceBusBrokeredMessagePropertiesResponseOutput) ToServiceBusBrokeredMessagePropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusBrokeredMessagePropertiesResponse) *ServiceBusBrokeredMessagePropertiesResponse {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesResponse) *ServiceBusBrokeredMessagePropertiesResponse {
 		return &v
 	}).(ServiceBusBrokeredMessagePropertiesResponsePtrOutput)
 }
@@ -5912,11 +5768,7 @@ func (o ServiceBusBrokeredMessagePropertiesResponsePtrOutput) ToServiceBusBroker
 
 func (o ServiceBusBrokeredMessagePropertiesResponsePtrOutput) Elem() ServiceBusBrokeredMessagePropertiesResponseOutput {
 	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesResponse) ServiceBusBrokeredMessagePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusBrokeredMessagePropertiesResponse
-		return ret
+		return *v
 	}).(ServiceBusBrokeredMessagePropertiesResponseOutput)
 }
 
@@ -6064,7 +5916,7 @@ type ServiceBusQueueMessage struct {
 	// Gets or sets the queue name.
 	QueueName *string `pulumi:"queueName"`
 	// Gets or sets the transport type.
-	TransportType *ServiceBusTransportType `pulumi:"transportType"`
+	TransportType *string `pulumi:"transportType"`
 }
 
 // ServiceBusQueueMessageInput is an input type that accepts ServiceBusQueueMessageArgs and ServiceBusQueueMessageOutput values.
@@ -6092,7 +5944,7 @@ type ServiceBusQueueMessageArgs struct {
 	// Gets or sets the queue name.
 	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
 	// Gets or sets the transport type.
-	TransportType ServiceBusTransportTypePtrInput `pulumi:"transportType"`
+	TransportType *ServiceBusTransportType `pulumi:"transportType"`
 }
 
 func (ServiceBusQueueMessageArgs) ElementType() reflect.Type {
@@ -6167,7 +6019,7 @@ func (o ServiceBusQueueMessageOutput) ToServiceBusQueueMessagePtrOutput() Servic
 }
 
 func (o ServiceBusQueueMessageOutput) ToServiceBusQueueMessagePtrOutputWithContext(ctx context.Context) ServiceBusQueueMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusQueueMessage) *ServiceBusQueueMessage {
+	return o.ApplyT(func(v ServiceBusQueueMessage) *ServiceBusQueueMessage {
 		return &v
 	}).(ServiceBusQueueMessagePtrOutput)
 }
@@ -6205,8 +6057,8 @@ func (o ServiceBusQueueMessageOutput) QueueName() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the transport type.
-func (o ServiceBusQueueMessageOutput) TransportType() ServiceBusTransportTypePtrOutput {
-	return o.ApplyT(func(v ServiceBusQueueMessage) *ServiceBusTransportType { return v.TransportType }).(ServiceBusTransportTypePtrOutput)
+func (o ServiceBusQueueMessageOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessage) *string { return v.TransportType }).(pulumi.StringPtrOutput)
 }
 
 type ServiceBusQueueMessagePtrOutput struct{ *pulumi.OutputState }
@@ -6224,13 +6076,7 @@ func (o ServiceBusQueueMessagePtrOutput) ToServiceBusQueueMessagePtrOutputWithCo
 }
 
 func (o ServiceBusQueueMessagePtrOutput) Elem() ServiceBusQueueMessageOutput {
-	return o.ApplyT(func(v *ServiceBusQueueMessage) ServiceBusQueueMessage {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusQueueMessage
-		return ret
-	}).(ServiceBusQueueMessageOutput)
+	return o.ApplyT(func(v *ServiceBusQueueMessage) ServiceBusQueueMessage { return *v }).(ServiceBusQueueMessageOutput)
 }
 
 // Gets or sets the Service Bus authentication.
@@ -6294,13 +6140,13 @@ func (o ServiceBusQueueMessagePtrOutput) QueueName() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the transport type.
-func (o ServiceBusQueueMessagePtrOutput) TransportType() ServiceBusTransportTypePtrOutput {
-	return o.ApplyT(func(v *ServiceBusQueueMessage) *ServiceBusTransportType {
+func (o ServiceBusQueueMessagePtrOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessage) *string {
 		if v == nil {
 			return nil
 		}
 		return v.TransportType
-	}).(ServiceBusTransportTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceBusQueueMessageResponse struct {
@@ -6420,7 +6266,7 @@ func (o ServiceBusQueueMessageResponseOutput) ToServiceBusQueueMessageResponsePt
 }
 
 func (o ServiceBusQueueMessageResponseOutput) ToServiceBusQueueMessageResponsePtrOutputWithContext(ctx context.Context) ServiceBusQueueMessageResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusQueueMessageResponse) *ServiceBusQueueMessageResponse {
+	return o.ApplyT(func(v ServiceBusQueueMessageResponse) *ServiceBusQueueMessageResponse {
 		return &v
 	}).(ServiceBusQueueMessageResponsePtrOutput)
 }
@@ -6477,13 +6323,7 @@ func (o ServiceBusQueueMessageResponsePtrOutput) ToServiceBusQueueMessageRespons
 }
 
 func (o ServiceBusQueueMessageResponsePtrOutput) Elem() ServiceBusQueueMessageResponseOutput {
-	return o.ApplyT(func(v *ServiceBusQueueMessageResponse) ServiceBusQueueMessageResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusQueueMessageResponse
-		return ret
-	}).(ServiceBusQueueMessageResponseOutput)
+	return o.ApplyT(func(v *ServiceBusQueueMessageResponse) ServiceBusQueueMessageResponse { return *v }).(ServiceBusQueueMessageResponseOutput)
 }
 
 // Gets or sets the Service Bus authentication.
@@ -6570,7 +6410,7 @@ type ServiceBusTopicMessage struct {
 	// Gets or sets the topic path.
 	TopicPath *string `pulumi:"topicPath"`
 	// Gets or sets the transport type.
-	TransportType *ServiceBusTransportType `pulumi:"transportType"`
+	TransportType *string `pulumi:"transportType"`
 }
 
 // ServiceBusTopicMessageInput is an input type that accepts ServiceBusTopicMessageArgs and ServiceBusTopicMessageOutput values.
@@ -6598,7 +6438,7 @@ type ServiceBusTopicMessageArgs struct {
 	// Gets or sets the topic path.
 	TopicPath pulumi.StringPtrInput `pulumi:"topicPath"`
 	// Gets or sets the transport type.
-	TransportType ServiceBusTransportTypePtrInput `pulumi:"transportType"`
+	TransportType *ServiceBusTransportType `pulumi:"transportType"`
 }
 
 func (ServiceBusTopicMessageArgs) ElementType() reflect.Type {
@@ -6673,7 +6513,7 @@ func (o ServiceBusTopicMessageOutput) ToServiceBusTopicMessagePtrOutput() Servic
 }
 
 func (o ServiceBusTopicMessageOutput) ToServiceBusTopicMessagePtrOutputWithContext(ctx context.Context) ServiceBusTopicMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusTopicMessage) *ServiceBusTopicMessage {
+	return o.ApplyT(func(v ServiceBusTopicMessage) *ServiceBusTopicMessage {
 		return &v
 	}).(ServiceBusTopicMessagePtrOutput)
 }
@@ -6711,8 +6551,8 @@ func (o ServiceBusTopicMessageOutput) TopicPath() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the transport type.
-func (o ServiceBusTopicMessageOutput) TransportType() ServiceBusTransportTypePtrOutput {
-	return o.ApplyT(func(v ServiceBusTopicMessage) *ServiceBusTransportType { return v.TransportType }).(ServiceBusTransportTypePtrOutput)
+func (o ServiceBusTopicMessageOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessage) *string { return v.TransportType }).(pulumi.StringPtrOutput)
 }
 
 type ServiceBusTopicMessagePtrOutput struct{ *pulumi.OutputState }
@@ -6730,13 +6570,7 @@ func (o ServiceBusTopicMessagePtrOutput) ToServiceBusTopicMessagePtrOutputWithCo
 }
 
 func (o ServiceBusTopicMessagePtrOutput) Elem() ServiceBusTopicMessageOutput {
-	return o.ApplyT(func(v *ServiceBusTopicMessage) ServiceBusTopicMessage {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusTopicMessage
-		return ret
-	}).(ServiceBusTopicMessageOutput)
+	return o.ApplyT(func(v *ServiceBusTopicMessage) ServiceBusTopicMessage { return *v }).(ServiceBusTopicMessageOutput)
 }
 
 // Gets or sets the Service Bus authentication.
@@ -6800,13 +6634,13 @@ func (o ServiceBusTopicMessagePtrOutput) TopicPath() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the transport type.
-func (o ServiceBusTopicMessagePtrOutput) TransportType() ServiceBusTransportTypePtrOutput {
-	return o.ApplyT(func(v *ServiceBusTopicMessage) *ServiceBusTransportType {
+func (o ServiceBusTopicMessagePtrOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessage) *string {
 		if v == nil {
 			return nil
 		}
 		return v.TransportType
-	}).(ServiceBusTransportTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceBusTopicMessageResponse struct {
@@ -6926,7 +6760,7 @@ func (o ServiceBusTopicMessageResponseOutput) ToServiceBusTopicMessageResponsePt
 }
 
 func (o ServiceBusTopicMessageResponseOutput) ToServiceBusTopicMessageResponsePtrOutputWithContext(ctx context.Context) ServiceBusTopicMessageResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBusTopicMessageResponse) *ServiceBusTopicMessageResponse {
+	return o.ApplyT(func(v ServiceBusTopicMessageResponse) *ServiceBusTopicMessageResponse {
 		return &v
 	}).(ServiceBusTopicMessageResponsePtrOutput)
 }
@@ -6983,13 +6817,7 @@ func (o ServiceBusTopicMessageResponsePtrOutput) ToServiceBusTopicMessageRespons
 }
 
 func (o ServiceBusTopicMessageResponsePtrOutput) Elem() ServiceBusTopicMessageResponseOutput {
-	return o.ApplyT(func(v *ServiceBusTopicMessageResponse) ServiceBusTopicMessageResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceBusTopicMessageResponse
-		return ret
-	}).(ServiceBusTopicMessageResponseOutput)
+	return o.ApplyT(func(v *ServiceBusTopicMessageResponse) ServiceBusTopicMessageResponse { return *v }).(ServiceBusTopicMessageResponseOutput)
 }
 
 // Gets or sets the Service Bus authentication.
@@ -7064,7 +6892,7 @@ func (o ServiceBusTopicMessageResponsePtrOutput) TransportType() pulumi.StringPt
 
 type Sku struct {
 	// Gets or set the SKU.
-	Name *SkuDefinition `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -7080,7 +6908,7 @@ type SkuInput interface {
 
 type SkuArgs struct {
 	// Gets or set the SKU.
-	Name SkuDefinitionPtrInput `pulumi:"name"`
+	Name *SkuDefinition `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -7155,14 +6983,14 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
 // Gets or set the SKU.
-func (o SkuOutput) Name() SkuDefinitionPtrOutput {
-	return o.ApplyT(func(v Sku) *SkuDefinition { return v.Name }).(SkuDefinitionPtrOutput)
+func (o SkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -7180,23 +7008,17 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Gets or set the SKU.
-func (o SkuPtrOutput) Name() SkuDefinitionPtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuDefinition {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(SkuDefinitionPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type SkuResponse struct {
@@ -7292,7 +7114,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -7317,13 +7139,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Gets or set the SKU.
@@ -7441,7 +7257,7 @@ func (o StorageQueueMessageOutput) ToStorageQueueMessagePtrOutput() StorageQueue
 }
 
 func (o StorageQueueMessageOutput) ToStorageQueueMessagePtrOutputWithContext(ctx context.Context) StorageQueueMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageQueueMessage) *StorageQueueMessage {
+	return o.ApplyT(func(v StorageQueueMessage) *StorageQueueMessage {
 		return &v
 	}).(StorageQueueMessagePtrOutput)
 }
@@ -7481,13 +7297,7 @@ func (o StorageQueueMessagePtrOutput) ToStorageQueueMessagePtrOutputWithContext(
 }
 
 func (o StorageQueueMessagePtrOutput) Elem() StorageQueueMessageOutput {
-	return o.ApplyT(func(v *StorageQueueMessage) StorageQueueMessage {
-		if v != nil {
-			return *v
-		}
-		var ret StorageQueueMessage
-		return ret
-	}).(StorageQueueMessageOutput)
+	return o.ApplyT(func(v *StorageQueueMessage) StorageQueueMessage { return *v }).(StorageQueueMessageOutput)
 }
 
 // Gets or sets the message.
@@ -7635,7 +7445,7 @@ func (o StorageQueueMessageResponseOutput) ToStorageQueueMessageResponsePtrOutpu
 }
 
 func (o StorageQueueMessageResponseOutput) ToStorageQueueMessageResponsePtrOutputWithContext(ctx context.Context) StorageQueueMessageResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageQueueMessageResponse) *StorageQueueMessageResponse {
+	return o.ApplyT(func(v StorageQueueMessageResponse) *StorageQueueMessageResponse {
 		return &v
 	}).(StorageQueueMessageResponsePtrOutput)
 }
@@ -7675,13 +7485,7 @@ func (o StorageQueueMessageResponsePtrOutput) ToStorageQueueMessageResponsePtrOu
 }
 
 func (o StorageQueueMessageResponsePtrOutput) Elem() StorageQueueMessageResponseOutput {
-	return o.ApplyT(func(v *StorageQueueMessageResponse) StorageQueueMessageResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageQueueMessageResponse
-		return ret
-	}).(StorageQueueMessageResponseOutput)
+	return o.ApplyT(func(v *StorageQueueMessageResponse) StorageQueueMessageResponse { return *v }).(StorageQueueMessageResponseOutput)
 }
 
 // Gets or sets the message.

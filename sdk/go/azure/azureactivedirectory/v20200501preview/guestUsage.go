@@ -130,7 +130,9 @@ func (i *GuestUsage) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsa
 	return pulumi.ToOutputWithContext(ctx, i).(GuestUsageOutput)
 }
 
-type GuestUsageOutput struct{ *pulumi.OutputState }
+type GuestUsageOutput struct {
+	*pulumi.OutputState
+}
 
 func (GuestUsageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestUsage)(nil))

@@ -110,7 +110,9 @@ func (i *UserSettings) ToUserSettingsOutputWithContext(ctx context.Context) User
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsOutput)
 }
 
-type UserSettingsOutput struct{ *pulumi.OutputState }
+type UserSettingsOutput struct {
+	*pulumi.OutputState
+}
 
 func (UserSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserSettings)(nil))

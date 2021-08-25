@@ -113,7 +113,9 @@ func (i *StorageAccountStaticWebsite) ToStorageAccountStaticWebsiteOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountStaticWebsiteOutput)
 }
 
-type StorageAccountStaticWebsiteOutput struct{ *pulumi.OutputState }
+type StorageAccountStaticWebsiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageAccountStaticWebsiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountStaticWebsite)(nil))

@@ -175,7 +175,9 @@ func (i *DscNodeConfiguration) ToDscNodeConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationOutput)
 }
 
-type DscNodeConfigurationOutput struct{ *pulumi.OutputState }
+type DscNodeConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (DscNodeConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DscNodeConfiguration)(nil))

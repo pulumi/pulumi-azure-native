@@ -151,7 +151,9 @@ func (i *DataManager) ToDataManagerOutputWithContext(ctx context.Context) DataMa
 	return pulumi.ToOutputWithContext(ctx, i).(DataManagerOutput)
 }
 
-type DataManagerOutput struct{ *pulumi.OutputState }
+type DataManagerOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataManagerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataManager)(nil))

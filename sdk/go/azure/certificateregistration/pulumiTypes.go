@@ -365,7 +365,7 @@ func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutput(
 }
 
 func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDetailsResponse) *CertificateDetailsResponse {
+	return o.ApplyT(func(v CertificateDetailsResponse) *CertificateDetailsResponse {
 		return &v
 	}).(CertificateDetailsResponsePtrOutput)
 }
@@ -430,13 +430,7 @@ func (o CertificateDetailsResponsePtrOutput) ToCertificateDetailsResponsePtrOutp
 }
 
 func (o CertificateDetailsResponsePtrOutput) Elem() CertificateDetailsResponseOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateDetailsResponse
-		return ret
-	}).(CertificateDetailsResponseOutput)
+	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse { return *v }).(CertificateDetailsResponseOutput)
 }
 
 // Certificate Issuer.
@@ -645,7 +639,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -695,13 +689,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

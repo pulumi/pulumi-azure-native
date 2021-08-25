@@ -11,7 +11,7 @@ import (
 )
 
 // Connectivity to internet is enabled or disabled
-type InternetEnum string
+type InternetEnum pulumi.String
 
 const (
 	InternetEnumEnabled  = InternetEnum("Enabled")
@@ -19,23 +19,7 @@ const (
 )
 
 func (InternetEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*InternetEnum)(nil)).Elem()
-}
-
-func (e InternetEnum) ToInternetEnumOutput() InternetEnumOutput {
-	return pulumi.ToOutput(e).(InternetEnumOutput)
-}
-
-func (e InternetEnum) ToInternetEnumOutputWithContext(ctx context.Context) InternetEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(InternetEnumOutput)
-}
-
-func (e InternetEnum) ToInternetEnumPtrOutput() InternetEnumPtrOutput {
-	return e.ToInternetEnumPtrOutputWithContext(context.Background())
-}
-
-func (e InternetEnum) ToInternetEnumPtrOutputWithContext(ctx context.Context) InternetEnumPtrOutput {
-	return InternetEnum(e).ToInternetEnumOutputWithContext(ctx).ToInternetEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e InternetEnum) ToStringOutput() pulumi.StringOutput {
@@ -54,129 +38,8 @@ func (e InternetEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type InternetEnumOutput struct{ *pulumi.OutputState }
-
-func (InternetEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InternetEnum)(nil)).Elem()
-}
-
-func (o InternetEnumOutput) ToInternetEnumOutput() InternetEnumOutput {
-	return o
-}
-
-func (o InternetEnumOutput) ToInternetEnumOutputWithContext(ctx context.Context) InternetEnumOutput {
-	return o
-}
-
-func (o InternetEnumOutput) ToInternetEnumPtrOutput() InternetEnumPtrOutput {
-	return o.ToInternetEnumPtrOutputWithContext(context.Background())
-}
-
-func (o InternetEnumOutput) ToInternetEnumPtrOutputWithContext(ctx context.Context) InternetEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InternetEnum) *InternetEnum {
-		return &v
-	}).(InternetEnumPtrOutput)
-}
-
-func (o InternetEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o InternetEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e InternetEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o InternetEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o InternetEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e InternetEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type InternetEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (InternetEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InternetEnum)(nil)).Elem()
-}
-
-func (o InternetEnumPtrOutput) ToInternetEnumPtrOutput() InternetEnumPtrOutput {
-	return o
-}
-
-func (o InternetEnumPtrOutput) ToInternetEnumPtrOutputWithContext(ctx context.Context) InternetEnumPtrOutput {
-	return o
-}
-
-func (o InternetEnumPtrOutput) Elem() InternetEnumOutput {
-	return o.ApplyT(func(v *InternetEnum) InternetEnum {
-		if v != nil {
-			return *v
-		}
-		var ret InternetEnum
-		return ret
-	}).(InternetEnumOutput)
-}
-
-func (o InternetEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o InternetEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InternetEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// InternetEnumInput is an input type that accepts InternetEnumArgs and InternetEnumOutput values.
-// You can construct a concrete instance of `InternetEnumInput` via:
-//
-//          InternetEnumArgs{...}
-type InternetEnumInput interface {
-	pulumi.Input
-
-	ToInternetEnumOutput() InternetEnumOutput
-	ToInternetEnumOutputWithContext(context.Context) InternetEnumOutput
-}
-
-var internetEnumPtrType = reflect.TypeOf((**InternetEnum)(nil)).Elem()
-
-type InternetEnumPtrInput interface {
-	pulumi.Input
-
-	ToInternetEnumPtrOutput() InternetEnumPtrOutput
-	ToInternetEnumPtrOutputWithContext(context.Context) InternetEnumPtrOutput
-}
-
-type internetEnumPtr string
-
-func InternetEnumPtr(v string) InternetEnumPtrInput {
-	return (*internetEnumPtr)(&v)
-}
-
-func (*internetEnumPtr) ElementType() reflect.Type {
-	return internetEnumPtrType
-}
-
-func (in *internetEnumPtr) ToInternetEnumPtrOutput() InternetEnumPtrOutput {
-	return pulumi.ToOutput(in).(InternetEnumPtrOutput)
-}
-
-func (in *internetEnumPtr) ToInternetEnumPtrOutputWithContext(ctx context.Context) InternetEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(InternetEnumPtrOutput)
-}
-
 // Protect LDAP communication using SSL certificate (LDAPS)
-type SslEnum string
+type SslEnum pulumi.String
 
 const (
 	SslEnumEnabled  = SslEnum("Enabled")
@@ -184,23 +47,7 @@ const (
 )
 
 func (SslEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslEnum)(nil)).Elem()
-}
-
-func (e SslEnum) ToSslEnumOutput() SslEnumOutput {
-	return pulumi.ToOutput(e).(SslEnumOutput)
-}
-
-func (e SslEnum) ToSslEnumOutputWithContext(ctx context.Context) SslEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SslEnumOutput)
-}
-
-func (e SslEnum) ToSslEnumPtrOutput() SslEnumPtrOutput {
-	return e.ToSslEnumPtrOutputWithContext(context.Background())
-}
-
-func (e SslEnum) ToSslEnumPtrOutputWithContext(ctx context.Context) SslEnumPtrOutput {
-	return SslEnum(e).ToSslEnumOutputWithContext(ctx).ToSslEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SslEnum) ToStringOutput() pulumi.StringOutput {
@@ -217,132 +64,4 @@ func (e SslEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SslEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SslEnumOutput struct{ *pulumi.OutputState }
-
-func (SslEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslEnum)(nil)).Elem()
-}
-
-func (o SslEnumOutput) ToSslEnumOutput() SslEnumOutput {
-	return o
-}
-
-func (o SslEnumOutput) ToSslEnumOutputWithContext(ctx context.Context) SslEnumOutput {
-	return o
-}
-
-func (o SslEnumOutput) ToSslEnumPtrOutput() SslEnumPtrOutput {
-	return o.ToSslEnumPtrOutputWithContext(context.Background())
-}
-
-func (o SslEnumOutput) ToSslEnumPtrOutputWithContext(ctx context.Context) SslEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslEnum) *SslEnum {
-		return &v
-	}).(SslEnumPtrOutput)
-}
-
-func (o SslEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SslEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SslEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SslEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SslEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SslEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SslEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (SslEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SslEnum)(nil)).Elem()
-}
-
-func (o SslEnumPtrOutput) ToSslEnumPtrOutput() SslEnumPtrOutput {
-	return o
-}
-
-func (o SslEnumPtrOutput) ToSslEnumPtrOutputWithContext(ctx context.Context) SslEnumPtrOutput {
-	return o
-}
-
-func (o SslEnumPtrOutput) Elem() SslEnumOutput {
-	return o.ApplyT(func(v *SslEnum) SslEnum {
-		if v != nil {
-			return *v
-		}
-		var ret SslEnum
-		return ret
-	}).(SslEnumOutput)
-}
-
-func (o SslEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SslEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SslEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SslEnumInput is an input type that accepts SslEnumArgs and SslEnumOutput values.
-// You can construct a concrete instance of `SslEnumInput` via:
-//
-//          SslEnumArgs{...}
-type SslEnumInput interface {
-	pulumi.Input
-
-	ToSslEnumOutput() SslEnumOutput
-	ToSslEnumOutputWithContext(context.Context) SslEnumOutput
-}
-
-var sslEnumPtrType = reflect.TypeOf((**SslEnum)(nil)).Elem()
-
-type SslEnumPtrInput interface {
-	pulumi.Input
-
-	ToSslEnumPtrOutput() SslEnumPtrOutput
-	ToSslEnumPtrOutputWithContext(context.Context) SslEnumPtrOutput
-}
-
-type sslEnumPtr string
-
-func SslEnumPtr(v string) SslEnumPtrInput {
-	return (*sslEnumPtr)(&v)
-}
-
-func (*sslEnumPtr) ElementType() reflect.Type {
-	return sslEnumPtrType
-}
-
-func (in *sslEnumPtr) ToSslEnumPtrOutput() SslEnumPtrOutput {
-	return pulumi.ToOutput(in).(SslEnumPtrOutput)
-}
-
-func (in *sslEnumPtr) ToSslEnumPtrOutputWithContext(ctx context.Context) SslEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SslEnumPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(InternetEnumOutput{})
-	pulumi.RegisterOutputType(InternetEnumPtrOutput{})
-	pulumi.RegisterOutputType(SslEnumOutput{})
-	pulumi.RegisterOutputType(SslEnumPtrOutput{})
 }

@@ -175,7 +175,9 @@ func (i *DefaultUserRule) ToDefaultUserRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultUserRuleOutput)
 }
 
-type DefaultUserRuleOutput struct{ *pulumi.OutputState }
+type DefaultUserRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (DefaultUserRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefaultUserRule)(nil))

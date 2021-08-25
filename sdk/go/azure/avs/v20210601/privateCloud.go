@@ -214,7 +214,9 @@ func (i *PrivateCloud) ToPrivateCloudOutputWithContext(ctx context.Context) Priv
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudOutput)
 }
 
-type PrivateCloudOutput struct{ *pulumi.OutputState }
+type PrivateCloudOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateCloudOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateCloud)(nil))

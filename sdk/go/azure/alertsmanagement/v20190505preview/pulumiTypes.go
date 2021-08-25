@@ -352,7 +352,7 @@ func (o ConditionOutput) ToConditionPtrOutput() ConditionPtrOutput {
 }
 
 func (o ConditionOutput) ToConditionPtrOutputWithContext(ctx context.Context) ConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Condition) *Condition {
+	return o.ApplyT(func(v Condition) *Condition {
 		return &v
 	}).(ConditionPtrOutput)
 }
@@ -382,13 +382,7 @@ func (o ConditionPtrOutput) ToConditionPtrOutputWithContext(ctx context.Context)
 }
 
 func (o ConditionPtrOutput) Elem() ConditionOutput {
-	return o.ApplyT(func(v *Condition) Condition {
-		if v != nil {
-			return *v
-		}
-		var ret Condition
-		return ret
-	}).(ConditionOutput)
+	return o.ApplyT(func(v *Condition) Condition { return *v }).(ConditionOutput)
 }
 
 // operator for a given condition
@@ -511,7 +505,7 @@ func (o ConditionResponseOutput) ToConditionResponsePtrOutput() ConditionRespons
 }
 
 func (o ConditionResponseOutput) ToConditionResponsePtrOutputWithContext(ctx context.Context) ConditionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionResponse) *ConditionResponse {
+	return o.ApplyT(func(v ConditionResponse) *ConditionResponse {
 		return &v
 	}).(ConditionResponsePtrOutput)
 }
@@ -541,13 +535,7 @@ func (o ConditionResponsePtrOutput) ToConditionResponsePtrOutputWithContext(ctx 
 }
 
 func (o ConditionResponsePtrOutput) Elem() ConditionResponseOutput {
-	return o.ApplyT(func(v *ConditionResponse) ConditionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConditionResponse
-		return ret
-	}).(ConditionResponseOutput)
+	return o.ApplyT(func(v *ConditionResponse) ConditionResponse { return *v }).(ConditionResponseOutput)
 }
 
 // operator for a given condition
@@ -690,7 +678,7 @@ func (o ConditionsOutput) ToConditionsPtrOutput() ConditionsPtrOutput {
 }
 
 func (o ConditionsOutput) ToConditionsPtrOutputWithContext(ctx context.Context) ConditionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Conditions) *Conditions {
+	return o.ApplyT(func(v Conditions) *Conditions {
 		return &v
 	}).(ConditionsPtrOutput)
 }
@@ -745,13 +733,7 @@ func (o ConditionsPtrOutput) ToConditionsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ConditionsPtrOutput) Elem() ConditionsOutput {
-	return o.ApplyT(func(v *Conditions) Conditions {
-		if v != nil {
-			return *v
-		}
-		var ret Conditions
-		return ret
-	}).(ConditionsOutput)
+	return o.ApplyT(func(v *Conditions) Conditions { return *v }).(ConditionsOutput)
 }
 
 // filter alerts by alert context (payload)
@@ -944,7 +926,7 @@ func (o ConditionsResponseOutput) ToConditionsResponsePtrOutput() ConditionsResp
 }
 
 func (o ConditionsResponseOutput) ToConditionsResponsePtrOutputWithContext(ctx context.Context) ConditionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionsResponse) *ConditionsResponse {
+	return o.ApplyT(func(v ConditionsResponse) *ConditionsResponse {
 		return &v
 	}).(ConditionsResponsePtrOutput)
 }
@@ -999,13 +981,7 @@ func (o ConditionsResponsePtrOutput) ToConditionsResponsePtrOutputWithContext(ct
 }
 
 func (o ConditionsResponsePtrOutput) Elem() ConditionsResponseOutput {
-	return o.ApplyT(func(v *ConditionsResponse) ConditionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConditionsResponse
-		return ret
-	}).(ConditionsResponseOutput)
+	return o.ApplyT(func(v *ConditionsResponse) ConditionsResponse { return *v }).(ConditionsResponseOutput)
 }
 
 // filter alerts by alert context (payload)
@@ -1402,7 +1378,7 @@ func (o ScopeOutput) ToScopePtrOutput() ScopePtrOutput {
 }
 
 func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Scope) *Scope {
+	return o.ApplyT(func(v Scope) *Scope {
 		return &v
 	}).(ScopePtrOutput)
 }
@@ -1432,13 +1408,7 @@ func (o ScopePtrOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePt
 }
 
 func (o ScopePtrOutput) Elem() ScopeOutput {
-	return o.ApplyT(func(v *Scope) Scope {
-		if v != nil {
-			return *v
-		}
-		var ret Scope
-		return ret
-	}).(ScopeOutput)
+	return o.ApplyT(func(v *Scope) Scope { return *v }).(ScopeOutput)
 }
 
 // type of target scope
@@ -1561,7 +1531,7 @@ func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
 }
 
 func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeResponse) *ScopeResponse {
+	return o.ApplyT(func(v ScopeResponse) *ScopeResponse {
 		return &v
 	}).(ScopeResponsePtrOutput)
 }
@@ -1591,13 +1561,7 @@ func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
-	return o.ApplyT(func(v *ScopeResponse) ScopeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScopeResponse
-		return ret
-	}).(ScopeResponseOutput)
+	return o.ApplyT(func(v *ScopeResponse) ScopeResponse { return *v }).(ScopeResponseOutput)
 }
 
 // type of target scope
@@ -2102,7 +2066,7 @@ func (o SuppressionScheduleOutput) ToSuppressionSchedulePtrOutput() SuppressionS
 }
 
 func (o SuppressionScheduleOutput) ToSuppressionSchedulePtrOutputWithContext(ctx context.Context) SuppressionSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionSchedule) *SuppressionSchedule {
+	return o.ApplyT(func(v SuppressionSchedule) *SuppressionSchedule {
 		return &v
 	}).(SuppressionSchedulePtrOutput)
 }
@@ -2147,13 +2111,7 @@ func (o SuppressionSchedulePtrOutput) ToSuppressionSchedulePtrOutputWithContext(
 }
 
 func (o SuppressionSchedulePtrOutput) Elem() SuppressionScheduleOutput {
-	return o.ApplyT(func(v *SuppressionSchedule) SuppressionSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret SuppressionSchedule
-		return ret
-	}).(SuppressionScheduleOutput)
+	return o.ApplyT(func(v *SuppressionSchedule) SuppressionSchedule { return *v }).(SuppressionScheduleOutput)
 }
 
 // End date for suppression
@@ -2318,7 +2276,7 @@ func (o SuppressionScheduleResponseOutput) ToSuppressionScheduleResponsePtrOutpu
 }
 
 func (o SuppressionScheduleResponseOutput) ToSuppressionScheduleResponsePtrOutputWithContext(ctx context.Context) SuppressionScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionScheduleResponse) *SuppressionScheduleResponse {
+	return o.ApplyT(func(v SuppressionScheduleResponse) *SuppressionScheduleResponse {
 		return &v
 	}).(SuppressionScheduleResponsePtrOutput)
 }
@@ -2363,13 +2321,7 @@ func (o SuppressionScheduleResponsePtrOutput) ToSuppressionScheduleResponsePtrOu
 }
 
 func (o SuppressionScheduleResponsePtrOutput) Elem() SuppressionScheduleResponseOutput {
-	return o.ApplyT(func(v *SuppressionScheduleResponse) SuppressionScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SuppressionScheduleResponse
-		return ret
-	}).(SuppressionScheduleResponseOutput)
+	return o.ApplyT(func(v *SuppressionScheduleResponse) SuppressionScheduleResponse { return *v }).(SuppressionScheduleResponseOutput)
 }
 
 // End date for suppression

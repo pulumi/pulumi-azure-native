@@ -151,7 +151,9 @@ func (i *PartnerNamespace) ToPartnerNamespaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerNamespaceOutput)
 }
 
-type PartnerNamespaceOutput struct{ *pulumi.OutputState }
+type PartnerNamespaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (PartnerNamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PartnerNamespace)(nil))

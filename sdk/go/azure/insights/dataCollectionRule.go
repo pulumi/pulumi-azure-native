@@ -170,7 +170,9 @@ func (i *DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleOutput)
 }
 
-type DataCollectionRuleOutput struct{ *pulumi.OutputState }
+type DataCollectionRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataCollectionRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataCollectionRule)(nil))

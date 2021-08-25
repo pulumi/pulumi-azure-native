@@ -255,7 +255,9 @@ func (i *TableResourceTable) ToTableResourceTableOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TableResourceTableOutput)
 }
 
-type TableResourceTableOutput struct{ *pulumi.OutputState }
+type TableResourceTableOutput struct {
+	*pulumi.OutputState
+}
 
 func (TableResourceTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TableResourceTable)(nil))

@@ -148,7 +148,9 @@ func (i *TagAtScope) ToTagAtScopeOutputWithContext(ctx context.Context) TagAtSco
 	return pulumi.ToOutputWithContext(ctx, i).(TagAtScopeOutput)
 }
 
-type TagAtScopeOutput struct{ *pulumi.OutputState }
+type TagAtScopeOutput struct {
+	*pulumi.OutputState
+}
 
 func (TagAtScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagAtScope)(nil))

@@ -207,7 +207,9 @@ func (i *StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorOutput)
 }
 
-type StreamingLocatorOutput struct{ *pulumi.OutputState }
+type StreamingLocatorOutput struct {
+	*pulumi.OutputState
+}
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingLocator)(nil))

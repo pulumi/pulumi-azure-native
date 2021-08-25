@@ -177,7 +177,9 @@ func (i *Dynamics365DataConnector) ToDynamics365DataConnectorOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(Dynamics365DataConnectorOutput)
 }
 
-type Dynamics365DataConnectorOutput struct{ *pulumi.OutputState }
+type Dynamics365DataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (Dynamics365DataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Dynamics365DataConnector)(nil))

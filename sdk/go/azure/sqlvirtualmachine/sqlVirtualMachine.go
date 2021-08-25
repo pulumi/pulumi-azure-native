@@ -205,7 +205,9 @@ func (i *SqlVirtualMachine) ToSqlVirtualMachineOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineOutput)
 }
 
-type SqlVirtualMachineOutput struct{ *pulumi.OutputState }
+type SqlVirtualMachineOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlVirtualMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlVirtualMachine)(nil))

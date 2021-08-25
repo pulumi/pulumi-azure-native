@@ -149,7 +149,9 @@ func (i *EnterpriseChannel) ToEnterpriseChannelOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelOutput)
 }
 
-type EnterpriseChannelOutput struct{ *pulumi.OutputState }
+type EnterpriseChannelOutput struct {
+	*pulumi.OutputState
+}
 
 func (EnterpriseChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterpriseChannel)(nil))

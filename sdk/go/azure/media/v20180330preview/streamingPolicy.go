@@ -175,7 +175,9 @@ func (i *StreamingPolicy) ToStreamingPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyOutput)
 }
 
-type StreamingPolicyOutput struct{ *pulumi.OutputState }
+type StreamingPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (StreamingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingPolicy)(nil))

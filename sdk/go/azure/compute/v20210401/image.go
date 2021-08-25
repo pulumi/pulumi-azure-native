@@ -228,7 +228,9 @@ func (i *Image) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
 }
 
-type ImageOutput struct{ *pulumi.OutputState }
+type ImageOutput struct {
+	*pulumi.OutputState
+}
 
 func (ImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Image)(nil))

@@ -174,7 +174,9 @@ func (i *VirtualApplianceSite) ToVirtualApplianceSiteOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualApplianceSiteOutput)
 }
 
-type VirtualApplianceSiteOutput struct{ *pulumi.OutputState }
+type VirtualApplianceSiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualApplianceSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualApplianceSite)(nil))

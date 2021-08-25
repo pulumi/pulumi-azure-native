@@ -167,7 +167,9 @@ func (i *WorkbookTemplate) ToWorkbookTemplateOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateOutput)
 }
 
-type WorkbookTemplateOutput struct{ *pulumi.OutputState }
+type WorkbookTemplateOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkbookTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkbookTemplate)(nil))

@@ -168,7 +168,9 @@ func (i *CertificateCsr) ToCertificateCsrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCsrOutput)
 }
 
-type CertificateCsrOutput struct{ *pulumi.OutputState }
+type CertificateCsrOutput struct {
+	*pulumi.OutputState
+}
 
 func (CertificateCsrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateCsr)(nil))

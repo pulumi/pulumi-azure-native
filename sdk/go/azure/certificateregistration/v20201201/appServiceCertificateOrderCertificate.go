@@ -205,7 +205,9 @@ func (i *AppServiceCertificateOrderCertificate) ToAppServiceCertificateOrderCert
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderCertificateOutput)
 }
 
-type AppServiceCertificateOrderCertificateOutput struct{ *pulumi.OutputState }
+type AppServiceCertificateOrderCertificateOutput struct {
+	*pulumi.OutputState
+}
 
 func (AppServiceCertificateOrderCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceCertificateOrderCertificate)(nil))

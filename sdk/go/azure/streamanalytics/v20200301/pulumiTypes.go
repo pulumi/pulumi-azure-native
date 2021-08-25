@@ -954,7 +954,7 @@ func (o AzureMachineLearningWebServiceInputsOutput) ToAzureMachineLearningWebSer
 }
 
 func (o AzureMachineLearningWebServiceInputsOutput) ToAzureMachineLearningWebServiceInputsPtrOutputWithContext(ctx context.Context) AzureMachineLearningWebServiceInputsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureMachineLearningWebServiceInputs) *AzureMachineLearningWebServiceInputs {
+	return o.ApplyT(func(v AzureMachineLearningWebServiceInputs) *AzureMachineLearningWebServiceInputs {
 		return &v
 	}).(AzureMachineLearningWebServiceInputsPtrOutput)
 }
@@ -986,13 +986,7 @@ func (o AzureMachineLearningWebServiceInputsPtrOutput) ToAzureMachineLearningWeb
 }
 
 func (o AzureMachineLearningWebServiceInputsPtrOutput) Elem() AzureMachineLearningWebServiceInputsOutput {
-	return o.ApplyT(func(v *AzureMachineLearningWebServiceInputs) AzureMachineLearningWebServiceInputs {
-		if v != nil {
-			return *v
-		}
-		var ret AzureMachineLearningWebServiceInputs
-		return ret
-	}).(AzureMachineLearningWebServiceInputsOutput)
+	return o.ApplyT(func(v *AzureMachineLearningWebServiceInputs) AzureMachineLearningWebServiceInputs { return *v }).(AzureMachineLearningWebServiceInputsOutput)
 }
 
 // A list of input columns for the Azure Machine Learning web service endpoint.
@@ -1115,7 +1109,7 @@ func (o AzureMachineLearningWebServiceInputsResponseOutput) ToAzureMachineLearni
 }
 
 func (o AzureMachineLearningWebServiceInputsResponseOutput) ToAzureMachineLearningWebServiceInputsResponsePtrOutputWithContext(ctx context.Context) AzureMachineLearningWebServiceInputsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureMachineLearningWebServiceInputsResponse) *AzureMachineLearningWebServiceInputsResponse {
+	return o.ApplyT(func(v AzureMachineLearningWebServiceInputsResponse) *AzureMachineLearningWebServiceInputsResponse {
 		return &v
 	}).(AzureMachineLearningWebServiceInputsResponsePtrOutput)
 }
@@ -1148,11 +1142,7 @@ func (o AzureMachineLearningWebServiceInputsResponsePtrOutput) ToAzureMachineLea
 
 func (o AzureMachineLearningWebServiceInputsResponsePtrOutput) Elem() AzureMachineLearningWebServiceInputsResponseOutput {
 	return o.ApplyT(func(v *AzureMachineLearningWebServiceInputsResponse) AzureMachineLearningWebServiceInputsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureMachineLearningWebServiceInputsResponse
-		return ret
+		return *v
 	}).(AzureMachineLearningWebServiceInputsResponseOutput)
 }
 
@@ -3130,7 +3120,7 @@ func (o ClusterInfoOutput) ToClusterInfoPtrOutput() ClusterInfoPtrOutput {
 }
 
 func (o ClusterInfoOutput) ToClusterInfoPtrOutputWithContext(ctx context.Context) ClusterInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInfo) *ClusterInfo {
+	return o.ApplyT(func(v ClusterInfo) *ClusterInfo {
 		return &v
 	}).(ClusterInfoPtrOutput)
 }
@@ -3155,13 +3145,7 @@ func (o ClusterInfoPtrOutput) ToClusterInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ClusterInfoPtrOutput) Elem() ClusterInfoOutput {
-	return o.ApplyT(func(v *ClusterInfo) ClusterInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterInfo
-		return ret
-	}).(ClusterInfoOutput)
+	return o.ApplyT(func(v *ClusterInfo) ClusterInfo { return *v }).(ClusterInfoOutput)
 }
 
 // The resource id of cluster.
@@ -3270,7 +3254,7 @@ func (o ClusterInfoResponseOutput) ToClusterInfoResponsePtrOutput() ClusterInfoR
 }
 
 func (o ClusterInfoResponseOutput) ToClusterInfoResponsePtrOutputWithContext(ctx context.Context) ClusterInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInfoResponse) *ClusterInfoResponse {
+	return o.ApplyT(func(v ClusterInfoResponse) *ClusterInfoResponse {
 		return &v
 	}).(ClusterInfoResponsePtrOutput)
 }
@@ -3295,13 +3279,7 @@ func (o ClusterInfoResponsePtrOutput) ToClusterInfoResponsePtrOutputWithContext(
 }
 
 func (o ClusterInfoResponsePtrOutput) Elem() ClusterInfoResponseOutput {
-	return o.ApplyT(func(v *ClusterInfoResponse) ClusterInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterInfoResponse
-		return ret
-	}).(ClusterInfoResponseOutput)
+	return o.ApplyT(func(v *ClusterInfoResponse) ClusterInfoResponse { return *v }).(ClusterInfoResponseOutput)
 }
 
 // The resource id of cluster.
@@ -3410,7 +3388,7 @@ func (o CompressionOutput) ToCompressionPtrOutput() CompressionPtrOutput {
 }
 
 func (o CompressionOutput) ToCompressionPtrOutputWithContext(ctx context.Context) CompressionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Compression) *Compression {
+	return o.ApplyT(func(v Compression) *Compression {
 		return &v
 	}).(CompressionPtrOutput)
 }
@@ -3435,13 +3413,7 @@ func (o CompressionPtrOutput) ToCompressionPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CompressionPtrOutput) Elem() CompressionOutput {
-	return o.ApplyT(func(v *Compression) Compression {
-		if v != nil {
-			return *v
-		}
-		var ret Compression
-		return ret
-	}).(CompressionOutput)
+	return o.ApplyT(func(v *Compression) Compression { return *v }).(CompressionOutput)
 }
 
 // Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
@@ -3550,7 +3522,7 @@ func (o CompressionResponseOutput) ToCompressionResponsePtrOutput() CompressionR
 }
 
 func (o CompressionResponseOutput) ToCompressionResponsePtrOutputWithContext(ctx context.Context) CompressionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompressionResponse) *CompressionResponse {
+	return o.ApplyT(func(v CompressionResponse) *CompressionResponse {
 		return &v
 	}).(CompressionResponsePtrOutput)
 }
@@ -3575,13 +3547,7 @@ func (o CompressionResponsePtrOutput) ToCompressionResponsePtrOutputWithContext(
 }
 
 func (o CompressionResponsePtrOutput) Elem() CompressionResponseOutput {
-	return o.ApplyT(func(v *CompressionResponse) CompressionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CompressionResponse
-		return ret
-	}).(CompressionResponseOutput)
+	return o.ApplyT(func(v *CompressionResponse) CompressionResponse { return *v }).(CompressionResponseOutput)
 }
 
 // Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
@@ -3960,7 +3926,7 @@ func (o DiagnosticsResponseOutput) ToDiagnosticsResponsePtrOutput() DiagnosticsR
 }
 
 func (o DiagnosticsResponseOutput) ToDiagnosticsResponsePtrOutputWithContext(ctx context.Context) DiagnosticsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsResponse) *DiagnosticsResponse {
+	return o.ApplyT(func(v DiagnosticsResponse) *DiagnosticsResponse {
 		return &v
 	}).(DiagnosticsResponsePtrOutput)
 }
@@ -3985,13 +3951,7 @@ func (o DiagnosticsResponsePtrOutput) ToDiagnosticsResponsePtrOutputWithContext(
 }
 
 func (o DiagnosticsResponsePtrOutput) Elem() DiagnosticsResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsResponse) DiagnosticsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsResponse
-		return ret
-	}).(DiagnosticsResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsResponse) DiagnosticsResponse { return *v }).(DiagnosticsResponseOutput)
 }
 
 // A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
@@ -5583,7 +5543,7 @@ func (o FunctionOutputTypeOutput) ToFunctionOutputTypePtrOutput() FunctionOutput
 }
 
 func (o FunctionOutputTypeOutput) ToFunctionOutputTypePtrOutputWithContext(ctx context.Context) FunctionOutputTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionOutputType) *FunctionOutputType {
+	return o.ApplyT(func(v FunctionOutputType) *FunctionOutputType {
 		return &v
 	}).(FunctionOutputTypePtrOutput)
 }
@@ -5608,13 +5568,7 @@ func (o FunctionOutputTypePtrOutput) ToFunctionOutputTypePtrOutputWithContext(ct
 }
 
 func (o FunctionOutputTypePtrOutput) Elem() FunctionOutputTypeOutput {
-	return o.ApplyT(func(v *FunctionOutputType) FunctionOutputType {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionOutputType
-		return ret
-	}).(FunctionOutputTypeOutput)
+	return o.ApplyT(func(v *FunctionOutputType) FunctionOutputType { return *v }).(FunctionOutputTypeOutput)
 }
 
 // The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
@@ -5723,7 +5677,7 @@ func (o FunctionOutputResponseOutput) ToFunctionOutputResponsePtrOutput() Functi
 }
 
 func (o FunctionOutputResponseOutput) ToFunctionOutputResponsePtrOutputWithContext(ctx context.Context) FunctionOutputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionOutputResponse) *FunctionOutputResponse {
+	return o.ApplyT(func(v FunctionOutputResponse) *FunctionOutputResponse {
 		return &v
 	}).(FunctionOutputResponsePtrOutput)
 }
@@ -5748,13 +5702,7 @@ func (o FunctionOutputResponsePtrOutput) ToFunctionOutputResponsePtrOutputWithCo
 }
 
 func (o FunctionOutputResponsePtrOutput) Elem() FunctionOutputResponseOutput {
-	return o.ApplyT(func(v *FunctionOutputResponse) FunctionOutputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionOutputResponse
-		return ret
-	}).(FunctionOutputResponseOutput)
+	return o.ApplyT(func(v *FunctionOutputResponse) FunctionOutputResponse { return *v }).(FunctionOutputResponseOutput)
 }
 
 // The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
@@ -5998,7 +5946,7 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
@@ -6033,13 +5981,7 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity principal ID
@@ -6176,7 +6118,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -6211,13 +6153,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The identity principal ID
@@ -6930,7 +6866,7 @@ func (o JobStorageAccountOutput) ToJobStorageAccountPtrOutput() JobStorageAccoun
 }
 
 func (o JobStorageAccountOutput) ToJobStorageAccountPtrOutputWithContext(ctx context.Context) JobStorageAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStorageAccount) *JobStorageAccount {
+	return o.ApplyT(func(v JobStorageAccount) *JobStorageAccount {
 		return &v
 	}).(JobStorageAccountPtrOutput)
 }
@@ -6965,13 +6901,7 @@ func (o JobStorageAccountPtrOutput) ToJobStorageAccountPtrOutputWithContext(ctx 
 }
 
 func (o JobStorageAccountPtrOutput) Elem() JobStorageAccountOutput {
-	return o.ApplyT(func(v *JobStorageAccount) JobStorageAccount {
-		if v != nil {
-			return *v
-		}
-		var ret JobStorageAccount
-		return ret
-	}).(JobStorageAccountOutput)
+	return o.ApplyT(func(v *JobStorageAccount) JobStorageAccount { return *v }).(JobStorageAccountOutput)
 }
 
 // The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
@@ -7108,7 +7038,7 @@ func (o JobStorageAccountResponseOutput) ToJobStorageAccountResponsePtrOutput() 
 }
 
 func (o JobStorageAccountResponseOutput) ToJobStorageAccountResponsePtrOutputWithContext(ctx context.Context) JobStorageAccountResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStorageAccountResponse) *JobStorageAccountResponse {
+	return o.ApplyT(func(v JobStorageAccountResponse) *JobStorageAccountResponse {
 		return &v
 	}).(JobStorageAccountResponsePtrOutput)
 }
@@ -7143,13 +7073,7 @@ func (o JobStorageAccountResponsePtrOutput) ToJobStorageAccountResponsePtrOutput
 }
 
 func (o JobStorageAccountResponsePtrOutput) Elem() JobStorageAccountResponseOutput {
-	return o.ApplyT(func(v *JobStorageAccountResponse) JobStorageAccountResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobStorageAccountResponse
-		return ret
-	}).(JobStorageAccountResponseOutput)
+	return o.ApplyT(func(v *JobStorageAccountResponse) JobStorageAccountResponse { return *v }).(JobStorageAccountResponseOutput)
 }
 
 // The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
@@ -8334,7 +8258,7 @@ func (o ScalarFunctionPropertiesOutput) ToScalarFunctionPropertiesPtrOutput() Sc
 }
 
 func (o ScalarFunctionPropertiesOutput) ToScalarFunctionPropertiesPtrOutputWithContext(ctx context.Context) ScalarFunctionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalarFunctionProperties) *ScalarFunctionProperties {
+	return o.ApplyT(func(v ScalarFunctionProperties) *ScalarFunctionProperties {
 		return &v
 	}).(ScalarFunctionPropertiesPtrOutput)
 }
@@ -8375,13 +8299,7 @@ func (o ScalarFunctionPropertiesPtrOutput) ToScalarFunctionPropertiesPtrOutputWi
 }
 
 func (o ScalarFunctionPropertiesPtrOutput) Elem() ScalarFunctionPropertiesOutput {
-	return o.ApplyT(func(v *ScalarFunctionProperties) ScalarFunctionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ScalarFunctionProperties
-		return ret
-	}).(ScalarFunctionPropertiesOutput)
+	return o.ApplyT(func(v *ScalarFunctionProperties) ScalarFunctionProperties { return *v }).(ScalarFunctionPropertiesOutput)
 }
 
 // The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
@@ -8539,7 +8457,7 @@ func (o ScalarFunctionPropertiesResponseOutput) ToScalarFunctionPropertiesRespon
 }
 
 func (o ScalarFunctionPropertiesResponseOutput) ToScalarFunctionPropertiesResponsePtrOutputWithContext(ctx context.Context) ScalarFunctionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalarFunctionPropertiesResponse) *ScalarFunctionPropertiesResponse {
+	return o.ApplyT(func(v ScalarFunctionPropertiesResponse) *ScalarFunctionPropertiesResponse {
 		return &v
 	}).(ScalarFunctionPropertiesResponsePtrOutput)
 }
@@ -8585,13 +8503,7 @@ func (o ScalarFunctionPropertiesResponsePtrOutput) ToScalarFunctionPropertiesRes
 }
 
 func (o ScalarFunctionPropertiesResponsePtrOutput) Elem() ScalarFunctionPropertiesResponseOutput {
-	return o.ApplyT(func(v *ScalarFunctionPropertiesResponse) ScalarFunctionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScalarFunctionPropertiesResponse
-		return ret
-	}).(ScalarFunctionPropertiesResponseOutput)
+	return o.ApplyT(func(v *ScalarFunctionPropertiesResponse) ScalarFunctionPropertiesResponse { return *v }).(ScalarFunctionPropertiesResponseOutput)
 }
 
 // The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
@@ -9225,7 +9137,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -9250,13 +9162,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The name of the SKU. Required on PUT (CreateOrReplace) requests.
@@ -9365,7 +9271,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -9390,13 +9296,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The name of the SKU. Required on PUT (CreateOrReplace) requests.
@@ -9941,7 +9841,7 @@ func (o TransformationOutput) ToTransformationPtrOutput() TransformationPtrOutpu
 }
 
 func (o TransformationOutput) ToTransformationPtrOutputWithContext(ctx context.Context) TransformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Transformation) *Transformation {
+	return o.ApplyT(func(v Transformation) *Transformation {
 		return &v
 	}).(TransformationPtrOutput)
 }
@@ -9981,13 +9881,7 @@ func (o TransformationPtrOutput) ToTransformationPtrOutputWithContext(ctx contex
 }
 
 func (o TransformationPtrOutput) Elem() TransformationOutput {
-	return o.ApplyT(func(v *Transformation) Transformation {
-		if v != nil {
-			return *v
-		}
-		var ret Transformation
-		return ret
-	}).(TransformationOutput)
+	return o.ApplyT(func(v *Transformation) Transformation { return *v }).(TransformationOutput)
 }
 
 // Resource name
@@ -10150,7 +10044,7 @@ func (o TransformationResponseOutput) ToTransformationResponsePtrOutput() Transf
 }
 
 func (o TransformationResponseOutput) ToTransformationResponsePtrOutputWithContext(ctx context.Context) TransformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformationResponse) *TransformationResponse {
+	return o.ApplyT(func(v TransformationResponse) *TransformationResponse {
 		return &v
 	}).(TransformationResponsePtrOutput)
 }
@@ -10205,13 +10099,7 @@ func (o TransformationResponsePtrOutput) ToTransformationResponsePtrOutputWithCo
 }
 
 func (o TransformationResponsePtrOutput) Elem() TransformationResponseOutput {
-	return o.ApplyT(func(v *TransformationResponse) TransformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TransformationResponse
-		return ret
-	}).(TransformationResponseOutput)
+	return o.ApplyT(func(v *TransformationResponse) TransformationResponse { return *v }).(TransformationResponseOutput)
 }
 
 // The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.

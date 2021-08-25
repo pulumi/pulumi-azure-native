@@ -48,9 +48,6 @@ func NewDataStore(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.State == nil {
-		return nil, errors.New("invalid value for required argument 'State'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata:DataStore"),
@@ -116,7 +113,7 @@ type dataStoreArgs struct {
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// State of the data source.
-	State State `pulumi:"state"`
+	State string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a DataStore resource.
@@ -136,7 +133,7 @@ type DataStoreArgs struct {
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// State of the data source.
-	State StateInput
+	State State
 }
 
 func (DataStoreArgs) ElementType() reflect.Type {
@@ -162,7 +159,9 @@ func (i *DataStore) ToDataStoreOutputWithContext(ctx context.Context) DataStoreO
 	return pulumi.ToOutputWithContext(ctx, i).(DataStoreOutput)
 }
 
-type DataStoreOutput struct{ *pulumi.OutputState }
+type DataStoreOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataStore)(nil))

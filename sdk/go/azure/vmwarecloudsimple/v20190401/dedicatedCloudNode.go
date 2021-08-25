@@ -198,7 +198,9 @@ func (i *DedicatedCloudNode) ToDedicatedCloudNodeOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCloudNodeOutput)
 }
 
-type DedicatedCloudNodeOutput struct{ *pulumi.OutputState }
+type DedicatedCloudNodeOutput struct {
+	*pulumi.OutputState
+}
 
 func (DedicatedCloudNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedCloudNode)(nil))

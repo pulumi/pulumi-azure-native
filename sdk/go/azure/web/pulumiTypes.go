@@ -105,11 +105,10 @@ func (o AllowedAudiencesValidationOutput) ToAllowedAudiencesValidationPtrOutput(
 }
 
 func (o AllowedAudiencesValidationOutput) ToAllowedAudiencesValidationPtrOutputWithContext(ctx context.Context) AllowedAudiencesValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AllowedAudiencesValidation) *AllowedAudiencesValidation {
+	return o.ApplyT(func(v AllowedAudiencesValidation) *AllowedAudiencesValidation {
 		return &v
 	}).(AllowedAudiencesValidationPtrOutput)
 }
-
 func (o AllowedAudiencesValidationOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AllowedAudiencesValidation) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
@@ -134,13 +133,7 @@ func (o AllowedAudiencesValidationPtrOutput) ToAllowedAudiencesValidationPtrOutp
 }
 
 func (o AllowedAudiencesValidationPtrOutput) Elem() AllowedAudiencesValidationOutput {
-	return o.ApplyT(func(v *AllowedAudiencesValidation) AllowedAudiencesValidation {
-		if v != nil {
-			return *v
-		}
-		var ret AllowedAudiencesValidation
-		return ret
-	}).(AllowedAudiencesValidationOutput)
+	return o.ApplyT(func(v *AllowedAudiencesValidation) AllowedAudiencesValidation { return *v }).(AllowedAudiencesValidationOutput)
 }
 
 func (o AllowedAudiencesValidationPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
@@ -269,11 +262,10 @@ func (o AllowedAudiencesValidationResponseOutput) ToAllowedAudiencesValidationRe
 }
 
 func (o AllowedAudiencesValidationResponseOutput) ToAllowedAudiencesValidationResponsePtrOutputWithContext(ctx context.Context) AllowedAudiencesValidationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AllowedAudiencesValidationResponse) *AllowedAudiencesValidationResponse {
+	return o.ApplyT(func(v AllowedAudiencesValidationResponse) *AllowedAudiencesValidationResponse {
 		return &v
 	}).(AllowedAudiencesValidationResponsePtrOutput)
 }
-
 func (o AllowedAudiencesValidationResponseOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AllowedAudiencesValidationResponse) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
@@ -313,13 +305,7 @@ func (o AllowedAudiencesValidationResponsePtrOutput) ToAllowedAudiencesValidatio
 }
 
 func (o AllowedAudiencesValidationResponsePtrOutput) Elem() AllowedAudiencesValidationResponseOutput {
-	return o.ApplyT(func(v *AllowedAudiencesValidationResponse) AllowedAudiencesValidationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AllowedAudiencesValidationResponse
-		return ret
-	}).(AllowedAudiencesValidationResponseOutput)
+	return o.ApplyT(func(v *AllowedAudiencesValidationResponse) AllowedAudiencesValidationResponse { return *v }).(AllowedAudiencesValidationResponseOutput)
 }
 
 func (o AllowedAudiencesValidationResponsePtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
@@ -494,11 +480,10 @@ func (o ApiConnectionDefinitionPropertiesOutput) ToApiConnectionDefinitionProper
 }
 
 func (o ApiConnectionDefinitionPropertiesOutput) ToApiConnectionDefinitionPropertiesPtrOutputWithContext(ctx context.Context) ApiConnectionDefinitionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiConnectionDefinitionProperties) *ApiConnectionDefinitionProperties {
+	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *ApiConnectionDefinitionProperties {
 		return &v
 	}).(ApiConnectionDefinitionPropertiesPtrOutput)
 }
-
 func (o ApiConnectionDefinitionPropertiesOutput) Api() ApiReferencePtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *ApiReference { return v.Api }).(ApiReferencePtrOutput)
 }
@@ -558,13 +543,7 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) ToApiConnectionDefinitionPro
 }
 
 func (o ApiConnectionDefinitionPropertiesPtrOutput) Elem() ApiConnectionDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) ApiConnectionDefinitionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ApiConnectionDefinitionProperties
-		return ret
-	}).(ApiConnectionDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) ApiConnectionDefinitionProperties { return *v }).(ApiConnectionDefinitionPropertiesOutput)
 }
 
 func (o ApiConnectionDefinitionPropertiesPtrOutput) Api() ApiReferencePtrOutput {
@@ -779,11 +758,10 @@ func (o ApiConnectionDefinitionResponsePropertiesOutput) ToApiConnectionDefiniti
 }
 
 func (o ApiConnectionDefinitionResponsePropertiesOutput) ToApiConnectionDefinitionResponsePropertiesPtrOutputWithContext(ctx context.Context) ApiConnectionDefinitionResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiConnectionDefinitionResponseProperties) *ApiConnectionDefinitionResponseProperties {
+	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *ApiConnectionDefinitionResponseProperties {
 		return &v
 	}).(ApiConnectionDefinitionResponsePropertiesPtrOutput)
 }
-
 func (o ApiConnectionDefinitionResponsePropertiesOutput) Api() ApiReferenceResponsePtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *ApiReferenceResponse { return v.Api }).(ApiReferenceResponsePtrOutput)
 }
@@ -846,11 +824,7 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) ToApiConnectionDefin
 
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) Elem() ApiConnectionDefinitionResponsePropertiesOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) ApiConnectionDefinitionResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ApiConnectionDefinitionResponseProperties
-		return ret
+		return *v
 	}).(ApiConnectionDefinitionResponsePropertiesOutput)
 }
 
@@ -1257,7 +1231,7 @@ func (o ApiDefinitionInfoOutput) ToApiDefinitionInfoPtrOutput() ApiDefinitionInf
 }
 
 func (o ApiDefinitionInfoOutput) ToApiDefinitionInfoPtrOutputWithContext(ctx context.Context) ApiDefinitionInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDefinitionInfo) *ApiDefinitionInfo {
+	return o.ApplyT(func(v ApiDefinitionInfo) *ApiDefinitionInfo {
 		return &v
 	}).(ApiDefinitionInfoPtrOutput)
 }
@@ -1282,13 +1256,7 @@ func (o ApiDefinitionInfoPtrOutput) ToApiDefinitionInfoPtrOutputWithContext(ctx 
 }
 
 func (o ApiDefinitionInfoPtrOutput) Elem() ApiDefinitionInfoOutput {
-	return o.ApplyT(func(v *ApiDefinitionInfo) ApiDefinitionInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ApiDefinitionInfo
-		return ret
-	}).(ApiDefinitionInfoOutput)
+	return o.ApplyT(func(v *ApiDefinitionInfo) ApiDefinitionInfo { return *v }).(ApiDefinitionInfoOutput)
 }
 
 // The URL of the API definition.
@@ -1397,7 +1365,7 @@ func (o ApiDefinitionInfoResponseOutput) ToApiDefinitionInfoResponsePtrOutput() 
 }
 
 func (o ApiDefinitionInfoResponseOutput) ToApiDefinitionInfoResponsePtrOutputWithContext(ctx context.Context) ApiDefinitionInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDefinitionInfoResponse) *ApiDefinitionInfoResponse {
+	return o.ApplyT(func(v ApiDefinitionInfoResponse) *ApiDefinitionInfoResponse {
 		return &v
 	}).(ApiDefinitionInfoResponsePtrOutput)
 }
@@ -1422,13 +1390,7 @@ func (o ApiDefinitionInfoResponsePtrOutput) ToApiDefinitionInfoResponsePtrOutput
 }
 
 func (o ApiDefinitionInfoResponsePtrOutput) Elem() ApiDefinitionInfoResponseOutput {
-	return o.ApplyT(func(v *ApiDefinitionInfoResponse) ApiDefinitionInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiDefinitionInfoResponse
-		return ret
-	}).(ApiDefinitionInfoResponseOutput)
+	return o.ApplyT(func(v *ApiDefinitionInfoResponse) ApiDefinitionInfoResponse { return *v }).(ApiDefinitionInfoResponseOutput)
 }
 
 // The URL of the API definition.
@@ -1537,7 +1499,7 @@ func (o ApiManagementConfigOutput) ToApiManagementConfigPtrOutput() ApiManagemen
 }
 
 func (o ApiManagementConfigOutput) ToApiManagementConfigPtrOutputWithContext(ctx context.Context) ApiManagementConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementConfig) *ApiManagementConfig {
+	return o.ApplyT(func(v ApiManagementConfig) *ApiManagementConfig {
 		return &v
 	}).(ApiManagementConfigPtrOutput)
 }
@@ -1562,13 +1524,7 @@ func (o ApiManagementConfigPtrOutput) ToApiManagementConfigPtrOutputWithContext(
 }
 
 func (o ApiManagementConfigPtrOutput) Elem() ApiManagementConfigOutput {
-	return o.ApplyT(func(v *ApiManagementConfig) ApiManagementConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementConfig
-		return ret
-	}).(ApiManagementConfigOutput)
+	return o.ApplyT(func(v *ApiManagementConfig) ApiManagementConfig { return *v }).(ApiManagementConfigOutput)
 }
 
 // APIM-Api Identifier.
@@ -1677,7 +1633,7 @@ func (o ApiManagementConfigResponseOutput) ToApiManagementConfigResponsePtrOutpu
 }
 
 func (o ApiManagementConfigResponseOutput) ToApiManagementConfigResponsePtrOutputWithContext(ctx context.Context) ApiManagementConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementConfigResponse) *ApiManagementConfigResponse {
+	return o.ApplyT(func(v ApiManagementConfigResponse) *ApiManagementConfigResponse {
 		return &v
 	}).(ApiManagementConfigResponsePtrOutput)
 }
@@ -1702,13 +1658,7 @@ func (o ApiManagementConfigResponsePtrOutput) ToApiManagementConfigResponsePtrOu
 }
 
 func (o ApiManagementConfigResponsePtrOutput) Elem() ApiManagementConfigResponseOutput {
-	return o.ApplyT(func(v *ApiManagementConfigResponse) ApiManagementConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiManagementConfigResponse
-		return ret
-	}).(ApiManagementConfigResponseOutput)
+	return o.ApplyT(func(v *ApiManagementConfigResponse) ApiManagementConfigResponse { return *v }).(ApiManagementConfigResponseOutput)
 }
 
 // APIM-Api Identifier.
@@ -1841,7 +1791,7 @@ func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPt
 }
 
 func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettings) *ApiOAuthSettings {
+	return o.ApplyT(func(v ApiOAuthSettings) *ApiOAuthSettings {
 		return &v
 	}).(ApiOAuthSettingsPtrOutput)
 }
@@ -1896,13 +1846,7 @@ func (o ApiOAuthSettingsPtrOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx co
 }
 
 func (o ApiOAuthSettingsPtrOutput) Elem() ApiOAuthSettingsOutput {
-	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ApiOAuthSettings
-		return ret
-	}).(ApiOAuthSettingsOutput)
+	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings { return *v }).(ApiOAuthSettingsOutput)
 }
 
 // Resource provider client id
@@ -2331,7 +2275,7 @@ func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutput() Ap
 }
 
 func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
 		return &v
 	}).(ApiOAuthSettingsResponsePtrOutput)
 }
@@ -2388,13 +2332,7 @@ func (o ApiOAuthSettingsResponsePtrOutput) ToApiOAuthSettingsResponsePtrOutputWi
 }
 
 func (o ApiOAuthSettingsResponsePtrOutput) Elem() ApiOAuthSettingsResponseOutput {
-	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiOAuthSettingsResponse
-		return ret
-	}).(ApiOAuthSettingsResponseOutput)
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse { return *v }).(ApiOAuthSettingsResponseOutput)
 }
 
 // Resource provider client id
@@ -2588,7 +2526,7 @@ func (o ApiReferenceOutput) ToApiReferencePtrOutput() ApiReferencePtrOutput {
 }
 
 func (o ApiReferenceOutput) ToApiReferencePtrOutputWithContext(ctx context.Context) ApiReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiReference) *ApiReference {
+	return o.ApplyT(func(v ApiReference) *ApiReference {
 		return &v
 	}).(ApiReferencePtrOutput)
 }
@@ -2648,13 +2586,7 @@ func (o ApiReferencePtrOutput) ToApiReferencePtrOutputWithContext(ctx context.Co
 }
 
 func (o ApiReferencePtrOutput) Elem() ApiReferenceOutput {
-	return o.ApplyT(func(v *ApiReference) ApiReference {
-		if v != nil {
-			return *v
-		}
-		var ret ApiReference
-		return ret
-	}).(ApiReferenceOutput)
+	return o.ApplyT(func(v *ApiReference) ApiReference { return *v }).(ApiReferenceOutput)
 }
 
 // Brand color
@@ -2858,7 +2790,7 @@ func (o ApiReferenceResponseOutput) ToApiReferenceResponsePtrOutput() ApiReferen
 }
 
 func (o ApiReferenceResponseOutput) ToApiReferenceResponsePtrOutputWithContext(ctx context.Context) ApiReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiReferenceResponse) *ApiReferenceResponse {
+	return o.ApplyT(func(v ApiReferenceResponse) *ApiReferenceResponse {
 		return &v
 	}).(ApiReferenceResponsePtrOutput)
 }
@@ -2918,13 +2850,7 @@ func (o ApiReferenceResponsePtrOutput) ToApiReferenceResponsePtrOutputWithContex
 }
 
 func (o ApiReferenceResponsePtrOutput) Elem() ApiReferenceResponseOutput {
-	return o.ApplyT(func(v *ApiReferenceResponse) ApiReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiReferenceResponse
-		return ret
-	}).(ApiReferenceResponseOutput)
+	return o.ApplyT(func(v *ApiReferenceResponse) ApiReferenceResponse { return *v }).(ApiReferenceResponseOutput)
 }
 
 // Brand color
@@ -3103,7 +3029,7 @@ func (o ApiResourceBackendServiceOutput) ToApiResourceBackendServicePtrOutput() 
 }
 
 func (o ApiResourceBackendServiceOutput) ToApiResourceBackendServicePtrOutputWithContext(ctx context.Context) ApiResourceBackendServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceBackendService) *ApiResourceBackendService {
+	return o.ApplyT(func(v ApiResourceBackendService) *ApiResourceBackendService {
 		return &v
 	}).(ApiResourceBackendServicePtrOutput)
 }
@@ -3128,13 +3054,7 @@ func (o ApiResourceBackendServicePtrOutput) ToApiResourceBackendServicePtrOutput
 }
 
 func (o ApiResourceBackendServicePtrOutput) Elem() ApiResourceBackendServiceOutput {
-	return o.ApplyT(func(v *ApiResourceBackendService) ApiResourceBackendService {
-		if v != nil {
-			return *v
-		}
-		var ret ApiResourceBackendService
-		return ret
-	}).(ApiResourceBackendServiceOutput)
+	return o.ApplyT(func(v *ApiResourceBackendService) ApiResourceBackendService { return *v }).(ApiResourceBackendServiceOutput)
 }
 
 // The service URL
@@ -3243,7 +3163,7 @@ func (o ApiResourceBackendServiceResponseOutput) ToApiResourceBackendServiceResp
 }
 
 func (o ApiResourceBackendServiceResponseOutput) ToApiResourceBackendServiceResponsePtrOutputWithContext(ctx context.Context) ApiResourceBackendServiceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceBackendServiceResponse) *ApiResourceBackendServiceResponse {
+	return o.ApplyT(func(v ApiResourceBackendServiceResponse) *ApiResourceBackendServiceResponse {
 		return &v
 	}).(ApiResourceBackendServiceResponsePtrOutput)
 }
@@ -3268,13 +3188,7 @@ func (o ApiResourceBackendServiceResponsePtrOutput) ToApiResourceBackendServiceR
 }
 
 func (o ApiResourceBackendServiceResponsePtrOutput) Elem() ApiResourceBackendServiceResponseOutput {
-	return o.ApplyT(func(v *ApiResourceBackendServiceResponse) ApiResourceBackendServiceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiResourceBackendServiceResponse
-		return ret
-	}).(ApiResourceBackendServiceResponseOutput)
+	return o.ApplyT(func(v *ApiResourceBackendServiceResponse) ApiResourceBackendServiceResponse { return *v }).(ApiResourceBackendServiceResponseOutput)
 }
 
 // The service URL
@@ -3387,7 +3301,7 @@ func (o ApiResourceDefinitionsOutput) ToApiResourceDefinitionsPtrOutput() ApiRes
 }
 
 func (o ApiResourceDefinitionsOutput) ToApiResourceDefinitionsPtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceDefinitions) *ApiResourceDefinitions {
+	return o.ApplyT(func(v ApiResourceDefinitions) *ApiResourceDefinitions {
 		return &v
 	}).(ApiResourceDefinitionsPtrOutput)
 }
@@ -3417,13 +3331,7 @@ func (o ApiResourceDefinitionsPtrOutput) ToApiResourceDefinitionsPtrOutputWithCo
 }
 
 func (o ApiResourceDefinitionsPtrOutput) Elem() ApiResourceDefinitionsOutput {
-	return o.ApplyT(func(v *ApiResourceDefinitions) ApiResourceDefinitions {
-		if v != nil {
-			return *v
-		}
-		var ret ApiResourceDefinitions
-		return ret
-	}).(ApiResourceDefinitionsOutput)
+	return o.ApplyT(func(v *ApiResourceDefinitions) ApiResourceDefinitions { return *v }).(ApiResourceDefinitionsOutput)
 }
 
 // The modified swagger URL
@@ -3546,7 +3454,7 @@ func (o ApiResourceDefinitionsResponseOutput) ToApiResourceDefinitionsResponsePt
 }
 
 func (o ApiResourceDefinitionsResponseOutput) ToApiResourceDefinitionsResponsePtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceDefinitionsResponse) *ApiResourceDefinitionsResponse {
+	return o.ApplyT(func(v ApiResourceDefinitionsResponse) *ApiResourceDefinitionsResponse {
 		return &v
 	}).(ApiResourceDefinitionsResponsePtrOutput)
 }
@@ -3576,13 +3484,7 @@ func (o ApiResourceDefinitionsResponsePtrOutput) ToApiResourceDefinitionsRespons
 }
 
 func (o ApiResourceDefinitionsResponsePtrOutput) Elem() ApiResourceDefinitionsResponseOutput {
-	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) ApiResourceDefinitionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiResourceDefinitionsResponse
-		return ret
-	}).(ApiResourceDefinitionsResponseOutput)
+	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) ApiResourceDefinitionsResponse { return *v }).(ApiResourceDefinitionsResponseOutput)
 }
 
 // The modified swagger URL
@@ -3698,11 +3600,10 @@ func (o AppLogsConfigurationOutput) ToAppLogsConfigurationPtrOutput() AppLogsCon
 }
 
 func (o AppLogsConfigurationOutput) ToAppLogsConfigurationPtrOutputWithContext(ctx context.Context) AppLogsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppLogsConfiguration) *AppLogsConfiguration {
+	return o.ApplyT(func(v AppLogsConfiguration) *AppLogsConfiguration {
 		return &v
 	}).(AppLogsConfigurationPtrOutput)
 }
-
 func (o AppLogsConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppLogsConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -3726,13 +3627,7 @@ func (o AppLogsConfigurationPtrOutput) ToAppLogsConfigurationPtrOutputWithContex
 }
 
 func (o AppLogsConfigurationPtrOutput) Elem() AppLogsConfigurationOutput {
-	return o.ApplyT(func(v *AppLogsConfiguration) AppLogsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AppLogsConfiguration
-		return ret
-	}).(AppLogsConfigurationOutput)
+	return o.ApplyT(func(v *AppLogsConfiguration) AppLogsConfiguration { return *v }).(AppLogsConfigurationOutput)
 }
 
 func (o AppLogsConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
@@ -3846,11 +3741,10 @@ func (o AppLogsConfigurationResponseOutput) ToAppLogsConfigurationResponsePtrOut
 }
 
 func (o AppLogsConfigurationResponseOutput) ToAppLogsConfigurationResponsePtrOutputWithContext(ctx context.Context) AppLogsConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppLogsConfigurationResponse) *AppLogsConfigurationResponse {
+	return o.ApplyT(func(v AppLogsConfigurationResponse) *AppLogsConfigurationResponse {
 		return &v
 	}).(AppLogsConfigurationResponsePtrOutput)
 }
-
 func (o AppLogsConfigurationResponseOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppLogsConfigurationResponse) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -3876,13 +3770,7 @@ func (o AppLogsConfigurationResponsePtrOutput) ToAppLogsConfigurationResponsePtr
 }
 
 func (o AppLogsConfigurationResponsePtrOutput) Elem() AppLogsConfigurationResponseOutput {
-	return o.ApplyT(func(v *AppLogsConfigurationResponse) AppLogsConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AppLogsConfigurationResponse
-		return ret
-	}).(AppLogsConfigurationResponseOutput)
+	return o.ApplyT(func(v *AppLogsConfigurationResponse) AppLogsConfigurationResponse { return *v }).(AppLogsConfigurationResponseOutput)
 }
 
 func (o AppLogsConfigurationResponsePtrOutput) Destination() pulumi.StringPtrOutput {
@@ -4007,7 +3895,7 @@ func (o AppRegistrationOutput) ToAppRegistrationPtrOutput() AppRegistrationPtrOu
 }
 
 func (o AppRegistrationOutput) ToAppRegistrationPtrOutputWithContext(ctx context.Context) AppRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppRegistration) *AppRegistration {
+	return o.ApplyT(func(v AppRegistration) *AppRegistration {
 		return &v
 	}).(AppRegistrationPtrOutput)
 }
@@ -4042,13 +3930,7 @@ func (o AppRegistrationPtrOutput) ToAppRegistrationPtrOutputWithContext(ctx cont
 }
 
 func (o AppRegistrationPtrOutput) Elem() AppRegistrationOutput {
-	return o.ApplyT(func(v *AppRegistration) AppRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret AppRegistration
-		return ret
-	}).(AppRegistrationOutput)
+	return o.ApplyT(func(v *AppRegistration) AppRegistration { return *v }).(AppRegistrationOutput)
 }
 
 // The App ID of the app used for login.
@@ -4197,7 +4079,7 @@ func (o AppRegistrationResponseOutput) ToAppRegistrationResponsePtrOutput() AppR
 }
 
 func (o AppRegistrationResponseOutput) ToAppRegistrationResponsePtrOutputWithContext(ctx context.Context) AppRegistrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppRegistrationResponse) *AppRegistrationResponse {
+	return o.ApplyT(func(v AppRegistrationResponse) *AppRegistrationResponse {
 		return &v
 	}).(AppRegistrationResponsePtrOutput)
 }
@@ -4247,13 +4129,7 @@ func (o AppRegistrationResponsePtrOutput) ToAppRegistrationResponsePtrOutputWith
 }
 
 func (o AppRegistrationResponsePtrOutput) Elem() AppRegistrationResponseOutput {
-	return o.ApplyT(func(v *AppRegistrationResponse) AppRegistrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AppRegistrationResponse
-		return ret
-	}).(AppRegistrationResponseOutput)
+	return o.ApplyT(func(v *AppRegistrationResponse) AppRegistrationResponse { return *v }).(AppRegistrationResponseOutput)
 }
 
 // The App ID of the app used for login.
@@ -4424,7 +4300,7 @@ func (o AppleOutput) ToApplePtrOutput() ApplePtrOutput {
 }
 
 func (o AppleOutput) ToApplePtrOutputWithContext(ctx context.Context) ApplePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Apple) *Apple {
+	return o.ApplyT(func(v Apple) *Apple {
 		return &v
 	}).(ApplePtrOutput)
 }
@@ -4464,13 +4340,7 @@ func (o ApplePtrOutput) ToApplePtrOutputWithContext(ctx context.Context) ApplePt
 }
 
 func (o ApplePtrOutput) Elem() AppleOutput {
-	return o.ApplyT(func(v *Apple) Apple {
-		if v != nil {
-			return *v
-		}
-		var ret Apple
-		return ret
-	}).(AppleOutput)
+	return o.ApplyT(func(v *Apple) Apple { return *v }).(AppleOutput)
 }
 
 // <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -4617,7 +4487,7 @@ func (o AppleRegistrationOutput) ToAppleRegistrationPtrOutput() AppleRegistratio
 }
 
 func (o AppleRegistrationOutput) ToAppleRegistrationPtrOutputWithContext(ctx context.Context) AppleRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppleRegistration) *AppleRegistration {
+	return o.ApplyT(func(v AppleRegistration) *AppleRegistration {
 		return &v
 	}).(AppleRegistrationPtrOutput)
 }
@@ -4652,13 +4522,7 @@ func (o AppleRegistrationPtrOutput) ToAppleRegistrationPtrOutputWithContext(ctx 
 }
 
 func (o AppleRegistrationPtrOutput) Elem() AppleRegistrationOutput {
-	return o.ApplyT(func(v *AppleRegistration) AppleRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret AppleRegistration
-		return ret
-	}).(AppleRegistrationOutput)
+	return o.ApplyT(func(v *AppleRegistration) AppleRegistration { return *v }).(AppleRegistrationOutput)
 }
 
 // The Client ID of the app used for login.
@@ -4807,7 +4671,7 @@ func (o AppleRegistrationResponseOutput) ToAppleRegistrationResponsePtrOutput() 
 }
 
 func (o AppleRegistrationResponseOutput) ToAppleRegistrationResponsePtrOutputWithContext(ctx context.Context) AppleRegistrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppleRegistrationResponse) *AppleRegistrationResponse {
+	return o.ApplyT(func(v AppleRegistrationResponse) *AppleRegistrationResponse {
 		return &v
 	}).(AppleRegistrationResponsePtrOutput)
 }
@@ -4857,13 +4721,7 @@ func (o AppleRegistrationResponsePtrOutput) ToAppleRegistrationResponsePtrOutput
 }
 
 func (o AppleRegistrationResponsePtrOutput) Elem() AppleRegistrationResponseOutput {
-	return o.ApplyT(func(v *AppleRegistrationResponse) AppleRegistrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AppleRegistrationResponse
-		return ret
-	}).(AppleRegistrationResponseOutput)
+	return o.ApplyT(func(v *AppleRegistrationResponse) AppleRegistrationResponse { return *v }).(AppleRegistrationResponseOutput)
 }
 
 // The Client ID of the app used for login.
@@ -5046,7 +4904,7 @@ func (o AppleResponseOutput) ToAppleResponsePtrOutput() AppleResponsePtrOutput {
 }
 
 func (o AppleResponseOutput) ToAppleResponsePtrOutputWithContext(ctx context.Context) AppleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppleResponse) *AppleResponse {
+	return o.ApplyT(func(v AppleResponse) *AppleResponse {
 		return &v
 	}).(AppleResponsePtrOutput)
 }
@@ -5101,13 +4959,7 @@ func (o AppleResponsePtrOutput) ToAppleResponsePtrOutputWithContext(ctx context.
 }
 
 func (o AppleResponsePtrOutput) Elem() AppleResponseOutput {
-	return o.ApplyT(func(v *AppleResponse) AppleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AppleResponse
-		return ret
-	}).(AppleResponseOutput)
+	return o.ApplyT(func(v *AppleResponse) AppleResponse { return *v }).(AppleResponseOutput)
 }
 
 // <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -5284,7 +5136,7 @@ func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutput() Applicat
 }
 
 func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutputWithContext(ctx context.Context) ApplicationLogsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLogsConfig) *ApplicationLogsConfig {
+	return o.ApplyT(func(v ApplicationLogsConfig) *ApplicationLogsConfig {
 		return &v
 	}).(ApplicationLogsConfigPtrOutput)
 }
@@ -5319,13 +5171,7 @@ func (o ApplicationLogsConfigPtrOutput) ToApplicationLogsConfigPtrOutputWithCont
 }
 
 func (o ApplicationLogsConfigPtrOutput) Elem() ApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *ApplicationLogsConfig) ApplicationLogsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationLogsConfig
-		return ret
-	}).(ApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *ApplicationLogsConfig) ApplicationLogsConfig { return *v }).(ApplicationLogsConfigOutput)
 }
 
 // Application logs to blob storage configuration.
@@ -5462,7 +5308,7 @@ func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrO
 }
 
 func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) ApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLogsConfigResponse) *ApplicationLogsConfigResponse {
+	return o.ApplyT(func(v ApplicationLogsConfigResponse) *ApplicationLogsConfigResponse {
 		return &v
 	}).(ApplicationLogsConfigResponsePtrOutput)
 }
@@ -5501,13 +5347,7 @@ func (o ApplicationLogsConfigResponsePtrOutput) ToApplicationLogsConfigResponseP
 }
 
 func (o ApplicationLogsConfigResponsePtrOutput) Elem() ApplicationLogsConfigResponseOutput {
-	return o.ApplyT(func(v *ApplicationLogsConfigResponse) ApplicationLogsConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationLogsConfigResponse
-		return ret
-	}).(ApplicationLogsConfigResponseOutput)
+	return o.ApplyT(func(v *ApplicationLogsConfigResponse) ApplicationLogsConfigResponse { return *v }).(ApplicationLogsConfigResponseOutput)
 }
 
 // Application logs to blob storage configuration.
@@ -5545,7 +5385,7 @@ type ArcConfiguration struct {
 	ArtifactStorageClassName     *string                `pulumi:"artifactStorageClassName"`
 	ArtifactStorageMountPath     *string                `pulumi:"artifactStorageMountPath"`
 	ArtifactStorageNodeName      *string                `pulumi:"artifactStorageNodeName"`
-	ArtifactsStorageType         *StorageType           `pulumi:"artifactsStorageType"`
+	ArtifactsStorageType         *string                `pulumi:"artifactsStorageType"`
 	FrontEndServiceConfiguration *FrontEndConfiguration `pulumi:"frontEndServiceConfiguration"`
 	KubeConfig                   *string                `pulumi:"kubeConfig"`
 }
@@ -5566,7 +5406,7 @@ type ArcConfigurationArgs struct {
 	ArtifactStorageClassName     pulumi.StringPtrInput         `pulumi:"artifactStorageClassName"`
 	ArtifactStorageMountPath     pulumi.StringPtrInput         `pulumi:"artifactStorageMountPath"`
 	ArtifactStorageNodeName      pulumi.StringPtrInput         `pulumi:"artifactStorageNodeName"`
-	ArtifactsStorageType         StorageTypePtrInput           `pulumi:"artifactsStorageType"`
+	ArtifactsStorageType         *StorageType                  `pulumi:"artifactsStorageType"`
 	FrontEndServiceConfiguration FrontEndConfigurationPtrInput `pulumi:"frontEndServiceConfiguration"`
 	KubeConfig                   pulumi.StringPtrInput         `pulumi:"kubeConfig"`
 }
@@ -5643,11 +5483,10 @@ func (o ArcConfigurationOutput) ToArcConfigurationPtrOutput() ArcConfigurationPt
 }
 
 func (o ArcConfigurationOutput) ToArcConfigurationPtrOutputWithContext(ctx context.Context) ArcConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArcConfiguration) *ArcConfiguration {
+	return o.ApplyT(func(v ArcConfiguration) *ArcConfiguration {
 		return &v
 	}).(ArcConfigurationPtrOutput)
 }
-
 func (o ArcConfigurationOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactStorageAccessMode }).(pulumi.StringPtrOutput)
 }
@@ -5664,8 +5503,8 @@ func (o ArcConfigurationOutput) ArtifactStorageNodeName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactStorageNodeName }).(pulumi.StringPtrOutput)
 }
 
-func (o ArcConfigurationOutput) ArtifactsStorageType() StorageTypePtrOutput {
-	return o.ApplyT(func(v ArcConfiguration) *StorageType { return v.ArtifactsStorageType }).(StorageTypePtrOutput)
+func (o ArcConfigurationOutput) ArtifactsStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcConfiguration) *string { return v.ArtifactsStorageType }).(pulumi.StringPtrOutput)
 }
 
 func (o ArcConfigurationOutput) FrontEndServiceConfiguration() FrontEndConfigurationPtrOutput {
@@ -5691,13 +5530,7 @@ func (o ArcConfigurationPtrOutput) ToArcConfigurationPtrOutputWithContext(ctx co
 }
 
 func (o ArcConfigurationPtrOutput) Elem() ArcConfigurationOutput {
-	return o.ApplyT(func(v *ArcConfiguration) ArcConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ArcConfiguration
-		return ret
-	}).(ArcConfigurationOutput)
+	return o.ApplyT(func(v *ArcConfiguration) ArcConfiguration { return *v }).(ArcConfigurationOutput)
 }
 
 func (o ArcConfigurationPtrOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
@@ -5736,13 +5569,13 @@ func (o ArcConfigurationPtrOutput) ArtifactStorageNodeName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ArcConfigurationPtrOutput) ArtifactsStorageType() StorageTypePtrOutput {
-	return o.ApplyT(func(v *ArcConfiguration) *StorageType {
+func (o ArcConfigurationPtrOutput) ArtifactsStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ArtifactsStorageType
-	}).(StorageTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ArcConfigurationPtrOutput) FrontEndServiceConfiguration() FrontEndConfigurationPtrOutput {
@@ -5864,11 +5697,10 @@ func (o ArcConfigurationResponseOutput) ToArcConfigurationResponsePtrOutput() Ar
 }
 
 func (o ArcConfigurationResponseOutput) ToArcConfigurationResponsePtrOutputWithContext(ctx context.Context) ArcConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArcConfigurationResponse) *ArcConfigurationResponse {
+	return o.ApplyT(func(v ArcConfigurationResponse) *ArcConfigurationResponse {
 		return &v
 	}).(ArcConfigurationResponsePtrOutput)
 }
-
 func (o ArcConfigurationResponseOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArcConfigurationResponse) *string { return v.ArtifactStorageAccessMode }).(pulumi.StringPtrOutput)
 }
@@ -5908,13 +5740,7 @@ func (o ArcConfigurationResponsePtrOutput) ToArcConfigurationResponsePtrOutputWi
 }
 
 func (o ArcConfigurationResponsePtrOutput) Elem() ArcConfigurationResponseOutput {
-	return o.ApplyT(func(v *ArcConfigurationResponse) ArcConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArcConfigurationResponse
-		return ret
-	}).(ArcConfigurationResponseOutput)
+	return o.ApplyT(func(v *ArcConfigurationResponse) ArcConfigurationResponse { return *v }).(ArcConfigurationResponseOutput)
 }
 
 func (o ArcConfigurationResponsePtrOutput) ArtifactStorageAccessMode() pulumi.StringPtrOutput {
@@ -6065,11 +5891,10 @@ func (o ArmIdWrapperResponseOutput) ToArmIdWrapperResponsePtrOutput() ArmIdWrapp
 }
 
 func (o ArmIdWrapperResponseOutput) ToArmIdWrapperResponsePtrOutputWithContext(ctx context.Context) ArmIdWrapperResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdWrapperResponse) *ArmIdWrapperResponse {
+	return o.ApplyT(func(v ArmIdWrapperResponse) *ArmIdWrapperResponse {
 		return &v
 	}).(ArmIdWrapperResponsePtrOutput)
 }
-
 func (o ArmIdWrapperResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmIdWrapperResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -6089,13 +5914,7 @@ func (o ArmIdWrapperResponsePtrOutput) ToArmIdWrapperResponsePtrOutputWithContex
 }
 
 func (o ArmIdWrapperResponsePtrOutput) Elem() ArmIdWrapperResponseOutput {
-	return o.ApplyT(func(v *ArmIdWrapperResponse) ArmIdWrapperResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmIdWrapperResponse
-		return ret
-	}).(ArmIdWrapperResponseOutput)
+	return o.ApplyT(func(v *ArmIdWrapperResponse) ArmIdWrapperResponse { return *v }).(ArmIdWrapperResponseOutput)
 }
 
 func (o ArmIdWrapperResponsePtrOutput) Id() pulumi.StringPtrOutput {
@@ -6219,7 +6038,7 @@ func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOu
 }
 
 func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmPlanResponse) *ArmPlanResponse {
+	return o.ApplyT(func(v ArmPlanResponse) *ArmPlanResponse {
 		return &v
 	}).(ArmPlanResponsePtrOutput)
 }
@@ -6264,13 +6083,7 @@ func (o ArmPlanResponsePtrOutput) ToArmPlanResponsePtrOutputWithContext(ctx cont
 }
 
 func (o ArmPlanResponsePtrOutput) Elem() ArmPlanResponseOutput {
-	return o.ApplyT(func(v *ArmPlanResponse) ArmPlanResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmPlanResponse
-		return ret
-	}).(ArmPlanResponseOutput)
+	return o.ApplyT(func(v *ArmPlanResponse) ArmPlanResponse { return *v }).(ArmPlanResponseOutput)
 }
 
 // The name.
@@ -6435,7 +6248,7 @@ func (o AuthPlatformOutput) ToAuthPlatformPtrOutput() AuthPlatformPtrOutput {
 }
 
 func (o AuthPlatformOutput) ToAuthPlatformPtrOutputWithContext(ctx context.Context) AuthPlatformPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthPlatform) *AuthPlatform {
+	return o.ApplyT(func(v AuthPlatform) *AuthPlatform {
 		return &v
 	}).(AuthPlatformPtrOutput)
 }
@@ -6477,13 +6290,7 @@ func (o AuthPlatformPtrOutput) ToAuthPlatformPtrOutputWithContext(ctx context.Co
 }
 
 func (o AuthPlatformPtrOutput) Elem() AuthPlatformOutput {
-	return o.ApplyT(func(v *AuthPlatform) AuthPlatform {
-		if v != nil {
-			return *v
-		}
-		var ret AuthPlatform
-		return ret
-	}).(AuthPlatformOutput)
+	return o.ApplyT(func(v *AuthPlatform) AuthPlatform { return *v }).(AuthPlatformOutput)
 }
 
 // The path of the config file containing auth settings if they come from a file.
@@ -6652,7 +6459,7 @@ func (o AuthPlatformResponseOutput) ToAuthPlatformResponsePtrOutput() AuthPlatfo
 }
 
 func (o AuthPlatformResponseOutput) ToAuthPlatformResponsePtrOutputWithContext(ctx context.Context) AuthPlatformResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthPlatformResponse) *AuthPlatformResponse {
+	return o.ApplyT(func(v AuthPlatformResponse) *AuthPlatformResponse {
 		return &v
 	}).(AuthPlatformResponsePtrOutput)
 }
@@ -6709,13 +6516,7 @@ func (o AuthPlatformResponsePtrOutput) ToAuthPlatformResponsePtrOutputWithContex
 }
 
 func (o AuthPlatformResponsePtrOutput) Elem() AuthPlatformResponseOutput {
-	return o.ApplyT(func(v *AuthPlatformResponse) AuthPlatformResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AuthPlatformResponse
-		return ret
-	}).(AuthPlatformResponseOutput)
+	return o.ApplyT(func(v *AuthPlatformResponse) AuthPlatformResponse { return *v }).(AuthPlatformResponseOutput)
 }
 
 // The path of the config file containing auth settings if they come from a file.
@@ -6793,7 +6594,7 @@ func (o AuthPlatformResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActions struct {
 	// Predefined action to be taken.
-	ActionType *AutoHealActionType `pulumi:"actionType"`
+	ActionType *string `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction *AutoHealCustomAction `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -6815,7 +6616,7 @@ type AutoHealActionsInput interface {
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
 	// Predefined action to be taken.
-	ActionType AutoHealActionTypePtrInput `pulumi:"actionType"`
+	ActionType *AutoHealActionType `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction AutoHealCustomActionPtrInput `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -6896,14 +6697,14 @@ func (o AutoHealActionsOutput) ToAutoHealActionsPtrOutput() AutoHealActionsPtrOu
 }
 
 func (o AutoHealActionsOutput) ToAutoHealActionsPtrOutputWithContext(ctx context.Context) AutoHealActionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealActions) *AutoHealActions {
+	return o.ApplyT(func(v AutoHealActions) *AutoHealActions {
 		return &v
 	}).(AutoHealActionsPtrOutput)
 }
 
 // Predefined action to be taken.
-func (o AutoHealActionsOutput) ActionType() AutoHealActionTypePtrOutput {
-	return o.ApplyT(func(v AutoHealActions) *AutoHealActionType { return v.ActionType }).(AutoHealActionTypePtrOutput)
+func (o AutoHealActionsOutput) ActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoHealActions) *string { return v.ActionType }).(pulumi.StringPtrOutput)
 }
 
 // Custom action to be taken.
@@ -6932,23 +6733,17 @@ func (o AutoHealActionsPtrOutput) ToAutoHealActionsPtrOutputWithContext(ctx cont
 }
 
 func (o AutoHealActionsPtrOutput) Elem() AutoHealActionsOutput {
-	return o.ApplyT(func(v *AutoHealActions) AutoHealActions {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealActions
-		return ret
-	}).(AutoHealActionsOutput)
+	return o.ApplyT(func(v *AutoHealActions) AutoHealActions { return *v }).(AutoHealActionsOutput)
 }
 
 // Predefined action to be taken.
-func (o AutoHealActionsPtrOutput) ActionType() AutoHealActionTypePtrOutput {
-	return o.ApplyT(func(v *AutoHealActions) *AutoHealActionType {
+func (o AutoHealActionsPtrOutput) ActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoHealActions) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ActionType
-	}).(AutoHealActionTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Custom action to be taken.
@@ -7078,7 +6873,7 @@ func (o AutoHealActionsResponseOutput) ToAutoHealActionsResponsePtrOutput() Auto
 }
 
 func (o AutoHealActionsResponseOutput) ToAutoHealActionsResponsePtrOutputWithContext(ctx context.Context) AutoHealActionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealActionsResponse) *AutoHealActionsResponse {
+	return o.ApplyT(func(v AutoHealActionsResponse) *AutoHealActionsResponse {
 		return &v
 	}).(AutoHealActionsResponsePtrOutput)
 }
@@ -7114,13 +6909,7 @@ func (o AutoHealActionsResponsePtrOutput) ToAutoHealActionsResponsePtrOutputWith
 }
 
 func (o AutoHealActionsResponsePtrOutput) Elem() AutoHealActionsResponseOutput {
-	return o.ApplyT(func(v *AutoHealActionsResponse) AutoHealActionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealActionsResponse
-		return ret
-	}).(AutoHealActionsResponseOutput)
+	return o.ApplyT(func(v *AutoHealActionsResponse) AutoHealActionsResponse { return *v }).(AutoHealActionsResponseOutput)
 }
 
 // Predefined action to be taken.
@@ -7257,7 +7046,7 @@ func (o AutoHealCustomActionOutput) ToAutoHealCustomActionPtrOutput() AutoHealCu
 }
 
 func (o AutoHealCustomActionOutput) ToAutoHealCustomActionPtrOutputWithContext(ctx context.Context) AutoHealCustomActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealCustomAction) *AutoHealCustomAction {
+	return o.ApplyT(func(v AutoHealCustomAction) *AutoHealCustomAction {
 		return &v
 	}).(AutoHealCustomActionPtrOutput)
 }
@@ -7287,13 +7076,7 @@ func (o AutoHealCustomActionPtrOutput) ToAutoHealCustomActionPtrOutputWithContex
 }
 
 func (o AutoHealCustomActionPtrOutput) Elem() AutoHealCustomActionOutput {
-	return o.ApplyT(func(v *AutoHealCustomAction) AutoHealCustomAction {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealCustomAction
-		return ret
-	}).(AutoHealCustomActionOutput)
+	return o.ApplyT(func(v *AutoHealCustomAction) AutoHealCustomAction { return *v }).(AutoHealCustomActionOutput)
 }
 
 // Executable to be run.
@@ -7419,7 +7202,7 @@ func (o AutoHealCustomActionResponseOutput) ToAutoHealCustomActionResponsePtrOut
 }
 
 func (o AutoHealCustomActionResponseOutput) ToAutoHealCustomActionResponsePtrOutputWithContext(ctx context.Context) AutoHealCustomActionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealCustomActionResponse) *AutoHealCustomActionResponse {
+	return o.ApplyT(func(v AutoHealCustomActionResponse) *AutoHealCustomActionResponse {
 		return &v
 	}).(AutoHealCustomActionResponsePtrOutput)
 }
@@ -7449,13 +7232,7 @@ func (o AutoHealCustomActionResponsePtrOutput) ToAutoHealCustomActionResponsePtr
 }
 
 func (o AutoHealCustomActionResponsePtrOutput) Elem() AutoHealCustomActionResponseOutput {
-	return o.ApplyT(func(v *AutoHealCustomActionResponse) AutoHealCustomActionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealCustomActionResponse
-		return ret
-	}).(AutoHealCustomActionResponseOutput)
+	return o.ApplyT(func(v *AutoHealCustomActionResponse) AutoHealCustomActionResponse { return *v }).(AutoHealCustomActionResponseOutput)
 }
 
 // Executable to be run.
@@ -7578,7 +7355,7 @@ func (o AutoHealRulesOutput) ToAutoHealRulesPtrOutput() AutoHealRulesPtrOutput {
 }
 
 func (o AutoHealRulesOutput) ToAutoHealRulesPtrOutputWithContext(ctx context.Context) AutoHealRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealRules) *AutoHealRules {
+	return o.ApplyT(func(v AutoHealRules) *AutoHealRules {
 		return &v
 	}).(AutoHealRulesPtrOutput)
 }
@@ -7608,13 +7385,7 @@ func (o AutoHealRulesPtrOutput) ToAutoHealRulesPtrOutputWithContext(ctx context.
 }
 
 func (o AutoHealRulesPtrOutput) Elem() AutoHealRulesOutput {
-	return o.ApplyT(func(v *AutoHealRules) AutoHealRules {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealRules
-		return ret
-	}).(AutoHealRulesOutput)
+	return o.ApplyT(func(v *AutoHealRules) AutoHealRules { return *v }).(AutoHealRulesOutput)
 }
 
 // Actions to be executed when a rule is triggered.
@@ -7737,7 +7508,7 @@ func (o AutoHealRulesResponseOutput) ToAutoHealRulesResponsePtrOutput() AutoHeal
 }
 
 func (o AutoHealRulesResponseOutput) ToAutoHealRulesResponsePtrOutputWithContext(ctx context.Context) AutoHealRulesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealRulesResponse) *AutoHealRulesResponse {
+	return o.ApplyT(func(v AutoHealRulesResponse) *AutoHealRulesResponse {
 		return &v
 	}).(AutoHealRulesResponsePtrOutput)
 }
@@ -7767,13 +7538,7 @@ func (o AutoHealRulesResponsePtrOutput) ToAutoHealRulesResponsePtrOutputWithCont
 }
 
 func (o AutoHealRulesResponsePtrOutput) Elem() AutoHealRulesResponseOutput {
-	return o.ApplyT(func(v *AutoHealRulesResponse) AutoHealRulesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealRulesResponse
-		return ret
-	}).(AutoHealRulesResponseOutput)
+	return o.ApplyT(func(v *AutoHealRulesResponse) AutoHealRulesResponse { return *v }).(AutoHealRulesResponseOutput)
 }
 
 // Actions to be executed when a rule is triggered.
@@ -7912,7 +7677,7 @@ func (o AutoHealTriggersOutput) ToAutoHealTriggersPtrOutput() AutoHealTriggersPt
 }
 
 func (o AutoHealTriggersOutput) ToAutoHealTriggersPtrOutputWithContext(ctx context.Context) AutoHealTriggersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealTriggers) *AutoHealTriggers {
+	return o.ApplyT(func(v AutoHealTriggers) *AutoHealTriggers {
 		return &v
 	}).(AutoHealTriggersPtrOutput)
 }
@@ -7962,13 +7727,7 @@ func (o AutoHealTriggersPtrOutput) ToAutoHealTriggersPtrOutputWithContext(ctx co
 }
 
 func (o AutoHealTriggersPtrOutput) Elem() AutoHealTriggersOutput {
-	return o.ApplyT(func(v *AutoHealTriggers) AutoHealTriggers {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealTriggers
-		return ret
-	}).(AutoHealTriggersOutput)
+	return o.ApplyT(func(v *AutoHealTriggers) AutoHealTriggers { return *v }).(AutoHealTriggersOutput)
 }
 
 // A rule based on private bytes.
@@ -8147,7 +7906,7 @@ func (o AutoHealTriggersResponseOutput) ToAutoHealTriggersResponsePtrOutput() Au
 }
 
 func (o AutoHealTriggersResponseOutput) ToAutoHealTriggersResponsePtrOutputWithContext(ctx context.Context) AutoHealTriggersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealTriggersResponse) *AutoHealTriggersResponse {
+	return o.ApplyT(func(v AutoHealTriggersResponse) *AutoHealTriggersResponse {
 		return &v
 	}).(AutoHealTriggersResponsePtrOutput)
 }
@@ -8197,13 +7956,7 @@ func (o AutoHealTriggersResponsePtrOutput) ToAutoHealTriggersResponsePtrOutputWi
 }
 
 func (o AutoHealTriggersResponsePtrOutput) Elem() AutoHealTriggersResponseOutput {
-	return o.ApplyT(func(v *AutoHealTriggersResponse) AutoHealTriggersResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AutoHealTriggersResponse
-		return ret
-	}).(AutoHealTriggersResponseOutput)
+	return o.ApplyT(func(v *AutoHealTriggersResponse) AutoHealTriggersResponse { return *v }).(AutoHealTriggersResponseOutput)
 }
 
 // A rule based on private bytes.
@@ -8386,7 +8139,7 @@ func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutput() AzureActiv
 }
 
 func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectory) *AzureActiveDirectory {
+	return o.ApplyT(func(v AzureActiveDirectory) *AzureActiveDirectory {
 		return &v
 	}).(AzureActiveDirectoryPtrOutput)
 }
@@ -8438,13 +8191,7 @@ func (o AzureActiveDirectoryPtrOutput) ToAzureActiveDirectoryPtrOutputWithContex
 }
 
 func (o AzureActiveDirectoryPtrOutput) Elem() AzureActiveDirectoryOutput {
-	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectory
-		return ret
-	}).(AzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory { return *v }).(AzureActiveDirectoryOutput)
 }
 
 // <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -8613,11 +8360,10 @@ func (o AzureActiveDirectoryLoginOutput) ToAzureActiveDirectoryLoginPtrOutput() 
 }
 
 func (o AzureActiveDirectoryLoginOutput) ToAzureActiveDirectoryLoginPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryLoginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryLogin) *AzureActiveDirectoryLogin {
+	return o.ApplyT(func(v AzureActiveDirectoryLogin) *AzureActiveDirectoryLogin {
 		return &v
 	}).(AzureActiveDirectoryLoginPtrOutput)
 }
-
 func (o AzureActiveDirectoryLoginOutput) DisableWWWAuthenticate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLogin) *bool { return v.DisableWWWAuthenticate }).(pulumi.BoolPtrOutput)
 }
@@ -8648,13 +8394,7 @@ func (o AzureActiveDirectoryLoginPtrOutput) ToAzureActiveDirectoryLoginPtrOutput
 }
 
 func (o AzureActiveDirectoryLoginPtrOutput) Elem() AzureActiveDirectoryLoginOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLogin) AzureActiveDirectoryLogin {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryLogin
-		return ret
-	}).(AzureActiveDirectoryLoginOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryLogin) AzureActiveDirectoryLogin { return *v }).(AzureActiveDirectoryLoginOutput)
 }
 
 func (o AzureActiveDirectoryLoginPtrOutput) DisableWWWAuthenticate() pulumi.BoolPtrOutput {
@@ -8803,11 +8543,10 @@ func (o AzureActiveDirectoryLoginResponseOutput) ToAzureActiveDirectoryLoginResp
 }
 
 func (o AzureActiveDirectoryLoginResponseOutput) ToAzureActiveDirectoryLoginResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryLoginResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryLoginResponse) *AzureActiveDirectoryLoginResponse {
+	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) *AzureActiveDirectoryLoginResponse {
 		return &v
 	}).(AzureActiveDirectoryLoginResponsePtrOutput)
 }
-
 func (o AzureActiveDirectoryLoginResponseOutput) DisableWWWAuthenticate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) *bool { return v.DisableWWWAuthenticate }).(pulumi.BoolPtrOutput)
 }
@@ -8853,13 +8592,7 @@ func (o AzureActiveDirectoryLoginResponsePtrOutput) ToAzureActiveDirectoryLoginR
 }
 
 func (o AzureActiveDirectoryLoginResponsePtrOutput) Elem() AzureActiveDirectoryLoginResponseOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) AzureActiveDirectoryLoginResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryLoginResponse
-		return ret
-	}).(AzureActiveDirectoryLoginResponseOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) AzureActiveDirectoryLoginResponse { return *v }).(AzureActiveDirectoryLoginResponseOutput)
 }
 
 func (o AzureActiveDirectoryLoginResponsePtrOutput) DisableWWWAuthenticate() pulumi.BoolPtrOutput {
@@ -9048,7 +8781,7 @@ func (o AzureActiveDirectoryRegistrationOutput) ToAzureActiveDirectoryRegistrati
 }
 
 func (o AzureActiveDirectoryRegistrationOutput) ToAzureActiveDirectoryRegistrationPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryRegistration) *AzureActiveDirectoryRegistration {
+	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *AzureActiveDirectoryRegistration {
 		return &v
 	}).(AzureActiveDirectoryRegistrationPtrOutput)
 }
@@ -9100,13 +8833,7 @@ func (o AzureActiveDirectoryRegistrationPtrOutput) ToAzureActiveDirectoryRegistr
 }
 
 func (o AzureActiveDirectoryRegistrationPtrOutput) Elem() AzureActiveDirectoryRegistrationOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) AzureActiveDirectoryRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryRegistration
-		return ret
-	}).(AzureActiveDirectoryRegistrationOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) AzureActiveDirectoryRegistration { return *v }).(AzureActiveDirectoryRegistrationOutput)
 }
 
 // The Client ID of this relying party application, known as the client_id.
@@ -9304,7 +9031,7 @@ func (o AzureActiveDirectoryRegistrationResponseOutput) ToAzureActiveDirectoryRe
 }
 
 func (o AzureActiveDirectoryRegistrationResponseOutput) ToAzureActiveDirectoryRegistrationResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryRegistrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryRegistrationResponse) *AzureActiveDirectoryRegistrationResponse {
+	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *AzureActiveDirectoryRegistrationResponse {
 		return &v
 	}).(AzureActiveDirectoryRegistrationResponsePtrOutput)
 }
@@ -9371,13 +9098,7 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) ToAzureActiveDirector
 }
 
 func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Elem() AzureActiveDirectoryRegistrationResponseOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) AzureActiveDirectoryRegistrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryRegistrationResponse
-		return ret
-	}).(AzureActiveDirectoryRegistrationResponseOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) AzureActiveDirectoryRegistrationResponse { return *v }).(AzureActiveDirectoryRegistrationResponseOutput)
 }
 
 // The Client ID of this relying party application, known as the client_id.
@@ -9599,7 +9320,7 @@ func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOut
 }
 
 func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
+	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
 		return &v
 	}).(AzureActiveDirectoryResponsePtrOutput)
 }
@@ -9666,13 +9387,7 @@ func (o AzureActiveDirectoryResponsePtrOutput) ToAzureActiveDirectoryResponsePtr
 }
 
 func (o AzureActiveDirectoryResponsePtrOutput) Elem() AzureActiveDirectoryResponseOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryResponse
-		return ret
-	}).(AzureActiveDirectoryResponseOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse { return *v }).(AzureActiveDirectoryResponseOutput)
 }
 
 // <code>false</code> if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -9871,7 +9586,7 @@ func (o AzureActiveDirectoryValidationOutput) ToAzureActiveDirectoryValidationPt
 }
 
 func (o AzureActiveDirectoryValidationOutput) ToAzureActiveDirectoryValidationPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryValidation) *AzureActiveDirectoryValidation {
+	return o.ApplyT(func(v AzureActiveDirectoryValidation) *AzureActiveDirectoryValidation {
 		return &v
 	}).(AzureActiveDirectoryValidationPtrOutput)
 }
@@ -9906,13 +9621,7 @@ func (o AzureActiveDirectoryValidationPtrOutput) ToAzureActiveDirectoryValidatio
 }
 
 func (o AzureActiveDirectoryValidationPtrOutput) Elem() AzureActiveDirectoryValidationOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidation) AzureActiveDirectoryValidation {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryValidation
-		return ret
-	}).(AzureActiveDirectoryValidationOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryValidation) AzureActiveDirectoryValidation { return *v }).(AzureActiveDirectoryValidationOutput)
 }
 
 // The list of audiences that can make successful authentication/authorization requests.
@@ -10061,7 +9770,7 @@ func (o AzureActiveDirectoryValidationResponseOutput) ToAzureActiveDirectoryVali
 }
 
 func (o AzureActiveDirectoryValidationResponseOutput) ToAzureActiveDirectoryValidationResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryValidationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryValidationResponse) *AzureActiveDirectoryValidationResponse {
+	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) *AzureActiveDirectoryValidationResponse {
 		return &v
 	}).(AzureActiveDirectoryValidationResponsePtrOutput)
 }
@@ -10111,13 +9820,7 @@ func (o AzureActiveDirectoryValidationResponsePtrOutput) ToAzureActiveDirectoryV
 }
 
 func (o AzureActiveDirectoryValidationResponsePtrOutput) Elem() AzureActiveDirectoryValidationResponseOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) AzureActiveDirectoryValidationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryValidationResponse
-		return ret
-	}).(AzureActiveDirectoryValidationResponseOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) AzureActiveDirectoryValidationResponse { return *v }).(AzureActiveDirectoryValidationResponseOutput)
 }
 
 // The list of audiences that can make successful authentication/authorization requests.
@@ -10183,7 +9886,7 @@ func (o AzureActiveDirectoryValidationResponsePtrOutput) Type() pulumi.StringPtr
 // Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfig struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Retention in days.
 	// Remove blobs older than X days.
 	// 0 or lower means no retention.
@@ -10206,7 +9909,7 @@ type AzureBlobStorageApplicationLogsConfigInput interface {
 // Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevelPtrInput `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// Retention in days.
 	// Remove blobs older than X days.
 	// 0 or lower means no retention.
@@ -10288,14 +9991,14 @@ func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicati
 }
 
 func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
 		return &v
 	}).(AzureBlobStorageApplicationLogsConfigPtrOutput)
 }
 
 // Log level.
-func (o AzureBlobStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
+func (o AzureBlobStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Retention in days.
@@ -10325,23 +10028,17 @@ func (o AzureBlobStorageApplicationLogsConfigPtrOutput) ToAzureBlobStorageApplic
 }
 
 func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Elem() AzureBlobStorageApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) AzureBlobStorageApplicationLogsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AzureBlobStorageApplicationLogsConfig
-		return ret
-	}).(AzureBlobStorageApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) AzureBlobStorageApplicationLogsConfig { return *v }).(AzureBlobStorageApplicationLogsConfigOutput)
 }
 
 // Log level.
-func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *LogLevel {
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(LogLevelPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Retention in days.
@@ -10474,7 +10171,7 @@ func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageA
 }
 
 func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
 		return &v
 	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
 }
@@ -10512,11 +10209,7 @@ func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) ToAzureBlobStora
 
 func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureBlobStorageApplicationLogsConfigResponseOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) AzureBlobStorageApplicationLogsConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureBlobStorageApplicationLogsConfigResponse
-		return ret
+		return *v
 	}).(AzureBlobStorageApplicationLogsConfigResponseOutput)
 }
 
@@ -10660,7 +10353,7 @@ func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPt
 }
 
 func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageHttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
 		return &v
 	}).(AzureBlobStorageHttpLogsConfigPtrOutput)
 }
@@ -10697,13 +10390,7 @@ func (o AzureBlobStorageHttpLogsConfigPtrOutput) ToAzureBlobStorageHttpLogsConfi
 }
 
 func (o AzureBlobStorageHttpLogsConfigPtrOutput) Elem() AzureBlobStorageHttpLogsConfigOutput {
-	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) AzureBlobStorageHttpLogsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AzureBlobStorageHttpLogsConfig
-		return ret
-	}).(AzureBlobStorageHttpLogsConfigOutput)
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) AzureBlobStorageHttpLogsConfig { return *v }).(AzureBlobStorageHttpLogsConfigOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -10846,7 +10533,7 @@ func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogs
 }
 
 func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageHttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
 		return &v
 	}).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
 }
@@ -10883,13 +10570,7 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) ToAzureBlobStorageHttpL
 }
 
 func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Elem() AzureBlobStorageHttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) AzureBlobStorageHttpLogsConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureBlobStorageHttpLogsConfigResponse
-		return ret
-	}).(AzureBlobStorageHttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) AzureBlobStorageHttpLogsConfigResponse { return *v }).(AzureBlobStorageHttpLogsConfigResponseOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -11028,7 +10709,7 @@ func (o AzureStaticWebAppsOutput) ToAzureStaticWebAppsPtrOutput() AzureStaticWeb
 }
 
 func (o AzureStaticWebAppsOutput) ToAzureStaticWebAppsPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureStaticWebApps) *AzureStaticWebApps {
+	return o.ApplyT(func(v AzureStaticWebApps) *AzureStaticWebApps {
 		return &v
 	}).(AzureStaticWebAppsPtrOutput)
 }
@@ -11063,13 +10744,7 @@ func (o AzureStaticWebAppsPtrOutput) ToAzureStaticWebAppsPtrOutputWithContext(ct
 }
 
 func (o AzureStaticWebAppsPtrOutput) Elem() AzureStaticWebAppsOutput {
-	return o.ApplyT(func(v *AzureStaticWebApps) AzureStaticWebApps {
-		if v != nil {
-			return *v
-		}
-		var ret AzureStaticWebApps
-		return ret
-	}).(AzureStaticWebAppsOutput)
+	return o.ApplyT(func(v *AzureStaticWebApps) AzureStaticWebApps { return *v }).(AzureStaticWebAppsOutput)
 }
 
 // <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -11202,7 +10877,7 @@ func (o AzureStaticWebAppsRegistrationOutput) ToAzureStaticWebAppsRegistrationPt
 }
 
 func (o AzureStaticWebAppsRegistrationOutput) ToAzureStaticWebAppsRegistrationPtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureStaticWebAppsRegistration) *AzureStaticWebAppsRegistration {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistration) *AzureStaticWebAppsRegistration {
 		return &v
 	}).(AzureStaticWebAppsRegistrationPtrOutput)
 }
@@ -11232,13 +10907,7 @@ func (o AzureStaticWebAppsRegistrationPtrOutput) ToAzureStaticWebAppsRegistratio
 }
 
 func (o AzureStaticWebAppsRegistrationPtrOutput) Elem() AzureStaticWebAppsRegistrationOutput {
-	return o.ApplyT(func(v *AzureStaticWebAppsRegistration) AzureStaticWebAppsRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret AzureStaticWebAppsRegistration
-		return ret
-	}).(AzureStaticWebAppsRegistrationOutput)
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistration) AzureStaticWebAppsRegistration { return *v }).(AzureStaticWebAppsRegistrationOutput)
 }
 
 // The Client ID of the app used for login.
@@ -11373,7 +11042,7 @@ func (o AzureStaticWebAppsRegistrationResponseOutput) ToAzureStaticWebAppsRegist
 }
 
 func (o AzureStaticWebAppsRegistrationResponseOutput) ToAzureStaticWebAppsRegistrationResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsRegistrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureStaticWebAppsRegistrationResponse) *AzureStaticWebAppsRegistrationResponse {
+	return o.ApplyT(func(v AzureStaticWebAppsRegistrationResponse) *AzureStaticWebAppsRegistrationResponse {
 		return &v
 	}).(AzureStaticWebAppsRegistrationResponsePtrOutput)
 }
@@ -11418,13 +11087,7 @@ func (o AzureStaticWebAppsRegistrationResponsePtrOutput) ToAzureStaticWebAppsReg
 }
 
 func (o AzureStaticWebAppsRegistrationResponsePtrOutput) Elem() AzureStaticWebAppsRegistrationResponseOutput {
-	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) AzureStaticWebAppsRegistrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureStaticWebAppsRegistrationResponse
-		return ret
-	}).(AzureStaticWebAppsRegistrationResponseOutput)
+	return o.ApplyT(func(v *AzureStaticWebAppsRegistrationResponse) AzureStaticWebAppsRegistrationResponse { return *v }).(AzureStaticWebAppsRegistrationResponseOutput)
 }
 
 // The Client ID of the app used for login.
@@ -11593,7 +11256,7 @@ func (o AzureStaticWebAppsResponseOutput) ToAzureStaticWebAppsResponsePtrOutput(
 }
 
 func (o AzureStaticWebAppsResponseOutput) ToAzureStaticWebAppsResponsePtrOutputWithContext(ctx context.Context) AzureStaticWebAppsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureStaticWebAppsResponse) *AzureStaticWebAppsResponse {
+	return o.ApplyT(func(v AzureStaticWebAppsResponse) *AzureStaticWebAppsResponse {
 		return &v
 	}).(AzureStaticWebAppsResponsePtrOutput)
 }
@@ -11643,13 +11306,7 @@ func (o AzureStaticWebAppsResponsePtrOutput) ToAzureStaticWebAppsResponsePtrOutp
 }
 
 func (o AzureStaticWebAppsResponsePtrOutput) Elem() AzureStaticWebAppsResponseOutput {
-	return o.ApplyT(func(v *AzureStaticWebAppsResponse) AzureStaticWebAppsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureStaticWebAppsResponse
-		return ret
-	}).(AzureStaticWebAppsResponseOutput)
+	return o.ApplyT(func(v *AzureStaticWebAppsResponse) AzureStaticWebAppsResponse { return *v }).(AzureStaticWebAppsResponseOutput)
 }
 
 // <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -11723,7 +11380,7 @@ type AzureStorageInfoValue struct {
 	// Name of the file share (container name, for Blob storage).
 	ShareName *string `pulumi:"shareName"`
 	// Type of storage.
-	Type *AzureStorageType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // AzureStorageInfoValueInput is an input type that accepts AzureStorageInfoValueArgs and AzureStorageInfoValueOutput values.
@@ -11748,7 +11405,7 @@ type AzureStorageInfoValueArgs struct {
 	// Name of the file share (container name, for Blob storage).
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// Type of storage.
-	Type AzureStorageTypePtrInput `pulumi:"type"`
+	Type *AzureStorageType `pulumi:"type"`
 }
 
 func (AzureStorageInfoValueArgs) ElementType() reflect.Type {
@@ -11824,8 +11481,8 @@ func (o AzureStorageInfoValueOutput) ShareName() pulumi.StringPtrOutput {
 }
 
 // Type of storage.
-func (o AzureStorageInfoValueOutput) Type() AzureStorageTypePtrOutput {
-	return o.ApplyT(func(v AzureStorageInfoValue) *AzureStorageType { return v.Type }).(AzureStorageTypePtrOutput)
+func (o AzureStorageInfoValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type AzureStorageInfoValueMapOutput struct{ *pulumi.OutputState }
@@ -11996,7 +11653,7 @@ func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) A
 // Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfig struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// SAS URL to an Azure table with add/query/delete permissions.
 	SasUrl string `pulumi:"sasUrl"`
 }
@@ -12015,7 +11672,7 @@ type AzureTableStorageApplicationLogsConfigInput interface {
 // Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevelPtrInput `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// SAS URL to an Azure table with add/query/delete permissions.
 	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
@@ -12093,14 +11750,14 @@ func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplica
 }
 
 func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureTableStorageApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
 		return &v
 	}).(AzureTableStorageApplicationLogsConfigPtrOutput)
 }
 
 // Log level.
-func (o AzureTableStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
+func (o AzureTableStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // SAS URL to an Azure table with add/query/delete permissions.
@@ -12123,23 +11780,17 @@ func (o AzureTableStorageApplicationLogsConfigPtrOutput) ToAzureTableStorageAppl
 }
 
 func (o AzureTableStorageApplicationLogsConfigPtrOutput) Elem() AzureTableStorageApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) AzureTableStorageApplicationLogsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AzureTableStorageApplicationLogsConfig
-		return ret
-	}).(AzureTableStorageApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) AzureTableStorageApplicationLogsConfig { return *v }).(AzureTableStorageApplicationLogsConfigOutput)
 }
 
 // Log level.
-func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *LogLevel {
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(LogLevelPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SAS URL to an Azure table with add/query/delete permissions.
@@ -12252,7 +11903,7 @@ func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorag
 }
 
 func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureTableStorageApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
 		return &v
 	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
 }
@@ -12283,11 +11934,7 @@ func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) ToAzureTableSto
 
 func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureTableStorageApplicationLogsConfigResponseOutput {
 	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) AzureTableStorageApplicationLogsConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureTableStorageApplicationLogsConfigResponse
-		return ret
+		return *v
 	}).(AzureTableStorageApplicationLogsConfigResponseOutput)
 }
 
@@ -12560,7 +12207,7 @@ type BackupSchedule struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval int `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
+	FrequencyUnit string `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -12585,7 +12232,7 @@ type BackupScheduleArgs struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit FrequencyUnitInput `pulumi:"frequencyUnit"`
+	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -12667,7 +12314,7 @@ func (o BackupScheduleOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutpu
 }
 
 func (o BackupScheduleOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupSchedule) *BackupSchedule {
+	return o.ApplyT(func(v BackupSchedule) *BackupSchedule {
 		return &v
 	}).(BackupSchedulePtrOutput)
 }
@@ -12678,8 +12325,8 @@ func (o BackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
 }
 
 // The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupScheduleOutput) FrequencyUnit() FrequencyUnitOutput {
-	return o.ApplyT(func(v BackupSchedule) FrequencyUnit { return v.FrequencyUnit }).(FrequencyUnitOutput)
+func (o BackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
 }
 
 // True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
@@ -12712,13 +12359,7 @@ func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o BackupSchedulePtrOutput) Elem() BackupScheduleOutput {
-	return o.ApplyT(func(v *BackupSchedule) BackupSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret BackupSchedule
-		return ret
-	}).(BackupScheduleOutput)
+	return o.ApplyT(func(v *BackupSchedule) BackupSchedule { return *v }).(BackupScheduleOutput)
 }
 
 // How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -12732,13 +12373,13 @@ func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
 }
 
 // The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupSchedulePtrOutput) FrequencyUnit() FrequencyUnitPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *FrequencyUnit {
+func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.FrequencyUnit
-	}).(FrequencyUnitPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
@@ -12887,7 +12528,7 @@ func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutput() Backup
 }
 
 func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupScheduleResponse) *BackupScheduleResponse {
+	return o.ApplyT(func(v BackupScheduleResponse) *BackupScheduleResponse {
 		return &v
 	}).(BackupScheduleResponsePtrOutput)
 }
@@ -12937,13 +12578,7 @@ func (o BackupScheduleResponsePtrOutput) ToBackupScheduleResponsePtrOutputWithCo
 }
 
 func (o BackupScheduleResponsePtrOutput) Elem() BackupScheduleResponseOutput {
-	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackupScheduleResponse
-		return ret
-	}).(BackupScheduleResponseOutput)
+	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse { return *v }).(BackupScheduleResponseOutput)
 }
 
 // How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -13106,7 +12741,7 @@ func (o BlobStorageTokenStoreOutput) ToBlobStorageTokenStorePtrOutput() BlobStor
 }
 
 func (o BlobStorageTokenStoreOutput) ToBlobStorageTokenStorePtrOutputWithContext(ctx context.Context) BlobStorageTokenStorePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobStorageTokenStore) *BlobStorageTokenStore {
+	return o.ApplyT(func(v BlobStorageTokenStore) *BlobStorageTokenStore {
 		return &v
 	}).(BlobStorageTokenStorePtrOutput)
 }
@@ -13136,13 +12771,7 @@ func (o BlobStorageTokenStorePtrOutput) ToBlobStorageTokenStorePtrOutputWithCont
 }
 
 func (o BlobStorageTokenStorePtrOutput) Elem() BlobStorageTokenStoreOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStore) BlobStorageTokenStore {
-		if v != nil {
-			return *v
-		}
-		var ret BlobStorageTokenStore
-		return ret
-	}).(BlobStorageTokenStoreOutput)
+	return o.ApplyT(func(v *BlobStorageTokenStore) BlobStorageTokenStore { return *v }).(BlobStorageTokenStoreOutput)
 }
 
 // Kind of resource.
@@ -13277,7 +12906,7 @@ func (o BlobStorageTokenStoreResponseOutput) ToBlobStorageTokenStoreResponsePtrO
 }
 
 func (o BlobStorageTokenStoreResponseOutput) ToBlobStorageTokenStoreResponsePtrOutputWithContext(ctx context.Context) BlobStorageTokenStoreResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobStorageTokenStoreResponse) *BlobStorageTokenStoreResponse {
+	return o.ApplyT(func(v BlobStorageTokenStoreResponse) *BlobStorageTokenStoreResponse {
 		return &v
 	}).(BlobStorageTokenStoreResponsePtrOutput)
 }
@@ -13322,13 +12951,7 @@ func (o BlobStorageTokenStoreResponsePtrOutput) ToBlobStorageTokenStoreResponseP
 }
 
 func (o BlobStorageTokenStoreResponsePtrOutput) Elem() BlobStorageTokenStoreResponseOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) BlobStorageTokenStoreResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BlobStorageTokenStoreResponse
-		return ret
-	}).(BlobStorageTokenStoreResponseOutput)
+	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) BlobStorageTokenStoreResponse { return *v }).(BlobStorageTokenStoreResponseOutput)
 }
 
 // Resource Id.
@@ -13721,7 +13344,7 @@ func (o ClientRegistrationOutput) ToClientRegistrationPtrOutput() ClientRegistra
 }
 
 func (o ClientRegistrationOutput) ToClientRegistrationPtrOutputWithContext(ctx context.Context) ClientRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientRegistration) *ClientRegistration {
+	return o.ApplyT(func(v ClientRegistration) *ClientRegistration {
 		return &v
 	}).(ClientRegistrationPtrOutput)
 }
@@ -13756,13 +13379,7 @@ func (o ClientRegistrationPtrOutput) ToClientRegistrationPtrOutputWithContext(ct
 }
 
 func (o ClientRegistrationPtrOutput) Elem() ClientRegistrationOutput {
-	return o.ApplyT(func(v *ClientRegistration) ClientRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret ClientRegistration
-		return ret
-	}).(ClientRegistrationOutput)
+	return o.ApplyT(func(v *ClientRegistration) ClientRegistration { return *v }).(ClientRegistrationOutput)
 }
 
 // The Client ID of the app used for login.
@@ -13911,7 +13528,7 @@ func (o ClientRegistrationResponseOutput) ToClientRegistrationResponsePtrOutput(
 }
 
 func (o ClientRegistrationResponseOutput) ToClientRegistrationResponsePtrOutputWithContext(ctx context.Context) ClientRegistrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientRegistrationResponse) *ClientRegistrationResponse {
+	return o.ApplyT(func(v ClientRegistrationResponse) *ClientRegistrationResponse {
 		return &v
 	}).(ClientRegistrationResponsePtrOutput)
 }
@@ -13961,13 +13578,7 @@ func (o ClientRegistrationResponsePtrOutput) ToClientRegistrationResponsePtrOutp
 }
 
 func (o ClientRegistrationResponsePtrOutput) Elem() ClientRegistrationResponseOutput {
-	return o.ApplyT(func(v *ClientRegistrationResponse) ClientRegistrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClientRegistrationResponse
-		return ret
-	}).(ClientRegistrationResponseOutput)
+	return o.ApplyT(func(v *ClientRegistrationResponse) ClientRegistrationResponse { return *v }).(ClientRegistrationResponseOutput)
 }
 
 // The Client ID of the app used for login.
@@ -14176,7 +13787,7 @@ func (o CloningInfoOutput) ToCloningInfoPtrOutput() CloningInfoPtrOutput {
 }
 
 func (o CloningInfoOutput) ToCloningInfoPtrOutputWithContext(ctx context.Context) CloningInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloningInfo) *CloningInfo {
+	return o.ApplyT(func(v CloningInfo) *CloningInfo {
 		return &v
 	}).(CloningInfoPtrOutput)
 }
@@ -14256,13 +13867,7 @@ func (o CloningInfoPtrOutput) ToCloningInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CloningInfoPtrOutput) Elem() CloningInfoOutput {
-	return o.ApplyT(func(v *CloningInfo) CloningInfo {
-		if v != nil {
-			return *v
-		}
-		var ret CloningInfo
-		return ret
-	}).(CloningInfoOutput)
+	return o.ApplyT(func(v *CloningInfo) CloningInfo { return *v }).(CloningInfoOutput)
 }
 
 // Application setting overrides for cloned app. If specified, these settings override the settings cloned
@@ -14547,7 +14152,7 @@ type ConnStringInfo struct {
 	// Name of connection string.
 	Name *string `pulumi:"name"`
 	// Type of database.
-	Type *ConnectionStringType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ConnStringInfoInput is an input type that accepts ConnStringInfoArgs and ConnStringInfoOutput values.
@@ -14568,7 +14173,7 @@ type ConnStringInfoArgs struct {
 	// Name of connection string.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of database.
-	Type ConnectionStringTypePtrInput `pulumi:"type"`
+	Type *ConnectionStringType `pulumi:"type"`
 }
 
 func (ConnStringInfoArgs) ElementType() reflect.Type {
@@ -14634,8 +14239,8 @@ func (o ConnStringInfoOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Type of database.
-func (o ConnStringInfoOutput) Type() ConnectionStringTypePtrOutput {
-	return o.ApplyT(func(v ConnStringInfo) *ConnectionStringType { return v.Type }).(ConnectionStringTypePtrOutput)
+func (o ConnStringInfoOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnStringInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ConnStringInfoArrayOutput struct{ *pulumi.OutputState }
@@ -14779,7 +14384,7 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 // Database connection string value to type pair.
 type ConnStringValueTypePair struct {
 	// Type of database.
-	Type ConnectionStringType `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// Value of pair.
 	Value string `pulumi:"value"`
 }
@@ -14798,7 +14403,7 @@ type ConnStringValueTypePairInput interface {
 // Database connection string value to type pair.
 type ConnStringValueTypePairArgs struct {
 	// Type of database.
-	Type ConnectionStringTypeInput `pulumi:"type"`
+	Type ConnectionStringType `pulumi:"type"`
 	// Value of pair.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -14856,8 +14461,8 @@ func (o ConnStringValueTypePairOutput) ToConnStringValueTypePairOutputWithContex
 }
 
 // Type of database.
-func (o ConnStringValueTypePairOutput) Type() ConnectionStringTypeOutput {
-	return o.ApplyT(func(v ConnStringValueTypePair) ConnectionStringType { return v.Type }).(ConnectionStringTypeOutput)
+func (o ConnStringValueTypePairOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePair) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Value of pair.
@@ -15106,7 +14711,7 @@ func (o ConnectionErrorOutput) ToConnectionErrorPtrOutput() ConnectionErrorPtrOu
 }
 
 func (o ConnectionErrorOutput) ToConnectionErrorPtrOutputWithContext(ctx context.Context) ConnectionErrorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionError) *ConnectionError {
+	return o.ApplyT(func(v ConnectionError) *ConnectionError {
 		return &v
 	}).(ConnectionErrorPtrOutput)
 }
@@ -15151,13 +14756,7 @@ func (o ConnectionErrorPtrOutput) ToConnectionErrorPtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionErrorPtrOutput) Elem() ConnectionErrorOutput {
-	return o.ApplyT(func(v *ConnectionError) ConnectionError {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionError
-		return ret
-	}).(ConnectionErrorOutput)
+	return o.ApplyT(func(v *ConnectionError) ConnectionError { return *v }).(ConnectionErrorOutput)
 }
 
 // Code of the status
@@ -15334,7 +14933,7 @@ func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutput() Conn
 }
 
 func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionErrorResponse) *ConnectionErrorResponse {
+	return o.ApplyT(func(v ConnectionErrorResponse) *ConnectionErrorResponse {
 		return &v
 	}).(ConnectionErrorResponsePtrOutput)
 }
@@ -15394,13 +14993,7 @@ func (o ConnectionErrorResponsePtrOutput) ToConnectionErrorResponsePtrOutputWith
 }
 
 func (o ConnectionErrorResponsePtrOutput) Elem() ConnectionErrorResponseOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionErrorResponse
-		return ret
-	}).(ConnectionErrorResponseOutput)
+	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse { return *v }).(ConnectionErrorResponseOutput)
 }
 
 // Code of the status
@@ -15600,7 +15193,7 @@ func (o ConnectionGatewayDefinitionPropertiesOutput) ToConnectionGatewayDefiniti
 }
 
 func (o ConnectionGatewayDefinitionPropertiesOutput) ToConnectionGatewayDefinitionPropertiesPtrOutputWithContext(ctx context.Context) ConnectionGatewayDefinitionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayDefinitionProperties) *ConnectionGatewayDefinitionProperties {
+	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *ConnectionGatewayDefinitionProperties {
 		return &v
 	}).(ConnectionGatewayDefinitionPropertiesPtrOutput)
 }
@@ -15657,13 +15250,7 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) ToConnectionGatewayDefin
 }
 
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Elem() ConnectionGatewayDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) ConnectionGatewayDefinitionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionGatewayDefinitionProperties
-		return ret
-	}).(ConnectionGatewayDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) ConnectionGatewayDefinitionProperties { return *v }).(ConnectionGatewayDefinitionPropertiesOutput)
 }
 
 // The URI of the backend
@@ -15853,7 +15440,7 @@ func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ToConnectionGateway
 }
 
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ToConnectionGatewayDefinitionResponsePropertiesPtrOutputWithContext(ctx context.Context) ConnectionGatewayDefinitionResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayDefinitionResponseProperties {
+	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayDefinitionResponseProperties {
 		return &v
 	}).(ConnectionGatewayDefinitionResponsePropertiesPtrOutput)
 }
@@ -15911,11 +15498,7 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) ToConnectionGate
 
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Elem() ConnectionGatewayDefinitionResponsePropertiesOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) ConnectionGatewayDefinitionResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionGatewayDefinitionResponseProperties
-		return ret
+		return *v
 	}).(ConnectionGatewayDefinitionResponsePropertiesOutput)
 }
 
@@ -16097,7 +15680,7 @@ func (o ConnectionGatewayReferenceOutput) ToConnectionGatewayReferencePtrOutput(
 }
 
 func (o ConnectionGatewayReferenceOutput) ToConnectionGatewayReferencePtrOutputWithContext(ctx context.Context) ConnectionGatewayReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayReference) *ConnectionGatewayReference {
+	return o.ApplyT(func(v ConnectionGatewayReference) *ConnectionGatewayReference {
 		return &v
 	}).(ConnectionGatewayReferencePtrOutput)
 }
@@ -16137,13 +15720,7 @@ func (o ConnectionGatewayReferencePtrOutput) ToConnectionGatewayReferencePtrOutp
 }
 
 func (o ConnectionGatewayReferencePtrOutput) Elem() ConnectionGatewayReferenceOutput {
-	return o.ApplyT(func(v *ConnectionGatewayReference) ConnectionGatewayReference {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionGatewayReference
-		return ret
-	}).(ConnectionGatewayReferenceOutput)
+	return o.ApplyT(func(v *ConnectionGatewayReference) ConnectionGatewayReference { return *v }).(ConnectionGatewayReferenceOutput)
 }
 
 // Resource reference id
@@ -16294,7 +15871,7 @@ func (o ConnectionGatewayReferenceResponseOutput) ToConnectionGatewayReferenceRe
 }
 
 func (o ConnectionGatewayReferenceResponseOutput) ToConnectionGatewayReferenceResponsePtrOutputWithContext(ctx context.Context) ConnectionGatewayReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayReferenceResponse) *ConnectionGatewayReferenceResponse {
+	return o.ApplyT(func(v ConnectionGatewayReferenceResponse) *ConnectionGatewayReferenceResponse {
 		return &v
 	}).(ConnectionGatewayReferenceResponsePtrOutput)
 }
@@ -16334,13 +15911,7 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) ToConnectionGatewayReferenc
 }
 
 func (o ConnectionGatewayReferenceResponsePtrOutput) Elem() ConnectionGatewayReferenceResponseOutput {
-	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) ConnectionGatewayReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionGatewayReferenceResponse
-		return ret
-	}).(ConnectionGatewayReferenceResponseOutput)
+	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) ConnectionGatewayReferenceResponse { return *v }).(ConnectionGatewayReferenceResponseOutput)
 }
 
 // Resource reference id
@@ -16388,7 +15959,7 @@ type ConnectionParameter struct {
 	// OAuth settings for the connection provider
 	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *ConnectionParameterType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
@@ -16407,7 +15978,7 @@ type ConnectionParameterArgs struct {
 	// OAuth settings for the connection provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type ConnectionParameterTypePtrInput `pulumi:"type"`
+	Type *ConnectionParameterType `pulumi:"type"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {
@@ -16468,8 +16039,8 @@ func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
 }
 
 // Type of the parameter
-func (o ConnectionParameterOutput) Type() ConnectionParameterTypePtrOutput {
-	return o.ApplyT(func(v ConnectionParameter) *ConnectionParameterType { return v.Type }).(ConnectionParameterTypePtrOutput)
+func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ConnectionParameterMapOutput struct{ *pulumi.OutputState }
@@ -17094,7 +16665,7 @@ func (o ConsentLinkParameterDefinitionArrayOutput) Index(i pulumi.IntInput) Cons
 // The configuration settings of the session cookie's expiration.
 type CookieExpiration struct {
 	// The convention used when determining the session cookie's expiration.
-	Convention *CookieExpirationConvention `pulumi:"convention"`
+	Convention *string `pulumi:"convention"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// The time after the request is made when the session cookie should expire.
@@ -17115,7 +16686,7 @@ type CookieExpirationInput interface {
 // The configuration settings of the session cookie's expiration.
 type CookieExpirationArgs struct {
 	// The convention used when determining the session cookie's expiration.
-	Convention CookieExpirationConventionPtrInput `pulumi:"convention"`
+	Convention *CookieExpirationConvention `pulumi:"convention"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The time after the request is made when the session cookie should expire.
@@ -17195,14 +16766,14 @@ func (o CookieExpirationOutput) ToCookieExpirationPtrOutput() CookieExpirationPt
 }
 
 func (o CookieExpirationOutput) ToCookieExpirationPtrOutputWithContext(ctx context.Context) CookieExpirationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CookieExpiration) *CookieExpiration {
+	return o.ApplyT(func(v CookieExpiration) *CookieExpiration {
 		return &v
 	}).(CookieExpirationPtrOutput)
 }
 
 // The convention used when determining the session cookie's expiration.
-func (o CookieExpirationOutput) Convention() CookieExpirationConventionPtrOutput {
-	return o.ApplyT(func(v CookieExpiration) *CookieExpirationConvention { return v.Convention }).(CookieExpirationConventionPtrOutput)
+func (o CookieExpirationOutput) Convention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CookieExpiration) *string { return v.Convention }).(pulumi.StringPtrOutput)
 }
 
 // Kind of resource.
@@ -17230,23 +16801,17 @@ func (o CookieExpirationPtrOutput) ToCookieExpirationPtrOutputWithContext(ctx co
 }
 
 func (o CookieExpirationPtrOutput) Elem() CookieExpirationOutput {
-	return o.ApplyT(func(v *CookieExpiration) CookieExpiration {
-		if v != nil {
-			return *v
-		}
-		var ret CookieExpiration
-		return ret
-	}).(CookieExpirationOutput)
+	return o.ApplyT(func(v *CookieExpiration) CookieExpiration { return *v }).(CookieExpirationOutput)
 }
 
 // The convention used when determining the session cookie's expiration.
-func (o CookieExpirationPtrOutput) Convention() CookieExpirationConventionPtrOutput {
-	return o.ApplyT(func(v *CookieExpiration) *CookieExpirationConvention {
+func (o CookieExpirationPtrOutput) Convention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CookieExpiration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Convention
-	}).(CookieExpirationConventionPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Kind of resource.
@@ -17385,7 +16950,7 @@ func (o CookieExpirationResponseOutput) ToCookieExpirationResponsePtrOutput() Co
 }
 
 func (o CookieExpirationResponseOutput) ToCookieExpirationResponsePtrOutputWithContext(ctx context.Context) CookieExpirationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CookieExpirationResponse) *CookieExpirationResponse {
+	return o.ApplyT(func(v CookieExpirationResponse) *CookieExpirationResponse {
 		return &v
 	}).(CookieExpirationResponsePtrOutput)
 }
@@ -17435,13 +17000,7 @@ func (o CookieExpirationResponsePtrOutput) ToCookieExpirationResponsePtrOutputWi
 }
 
 func (o CookieExpirationResponsePtrOutput) Elem() CookieExpirationResponseOutput {
-	return o.ApplyT(func(v *CookieExpirationResponse) CookieExpirationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CookieExpirationResponse
-		return ret
-	}).(CookieExpirationResponseOutput)
+	return o.ApplyT(func(v *CookieExpirationResponse) CookieExpirationResponse { return *v }).(CookieExpirationResponseOutput)
 }
 
 // The convention used when determining the session cookie's expiration.
@@ -17610,7 +17169,7 @@ func (o CorsSettingsOutput) ToCorsSettingsPtrOutput() CorsSettingsPtrOutput {
 }
 
 func (o CorsSettingsOutput) ToCorsSettingsPtrOutputWithContext(ctx context.Context) CorsSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsSettings) *CorsSettings {
+	return o.ApplyT(func(v CorsSettings) *CorsSettings {
 		return &v
 	}).(CorsSettingsPtrOutput)
 }
@@ -17643,13 +17202,7 @@ func (o CorsSettingsPtrOutput) ToCorsSettingsPtrOutputWithContext(ctx context.Co
 }
 
 func (o CorsSettingsPtrOutput) Elem() CorsSettingsOutput {
-	return o.ApplyT(func(v *CorsSettings) CorsSettings {
-		if v != nil {
-			return *v
-		}
-		var ret CorsSettings
-		return ret
-	}).(CorsSettingsOutput)
+	return o.ApplyT(func(v *CorsSettings) CorsSettings { return *v }).(CorsSettingsOutput)
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
@@ -17781,7 +17334,7 @@ func (o CorsSettingsResponseOutput) ToCorsSettingsResponsePtrOutput() CorsSettin
 }
 
 func (o CorsSettingsResponseOutput) ToCorsSettingsResponsePtrOutputWithContext(ctx context.Context) CorsSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsSettingsResponse) *CorsSettingsResponse {
+	return o.ApplyT(func(v CorsSettingsResponse) *CorsSettingsResponse {
 		return &v
 	}).(CorsSettingsResponsePtrOutput)
 }
@@ -17814,13 +17367,7 @@ func (o CorsSettingsResponsePtrOutput) ToCorsSettingsResponsePtrOutputWithContex
 }
 
 func (o CorsSettingsResponsePtrOutput) Elem() CorsSettingsResponseOutput {
-	return o.ApplyT(func(v *CorsSettingsResponse) CorsSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CorsSettingsResponse
-		return ret
-	}).(CorsSettingsResponseOutput)
+	return o.ApplyT(func(v *CorsSettingsResponse) CorsSettingsResponse { return *v }).(CorsSettingsResponseOutput)
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
@@ -17986,7 +17533,7 @@ func (o CustomApiPropertiesDefinitionOutput) ToCustomApiPropertiesDefinitionPtrO
 }
 
 func (o CustomApiPropertiesDefinitionOutput) ToCustomApiPropertiesDefinitionPtrOutputWithContext(ctx context.Context) CustomApiPropertiesDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomApiPropertiesDefinition) *CustomApiPropertiesDefinition {
+	return o.ApplyT(func(v CustomApiPropertiesDefinition) *CustomApiPropertiesDefinition {
 		return &v
 	}).(CustomApiPropertiesDefinitionPtrOutput)
 }
@@ -18066,13 +17613,7 @@ func (o CustomApiPropertiesDefinitionPtrOutput) ToCustomApiPropertiesDefinitionP
 }
 
 func (o CustomApiPropertiesDefinitionPtrOutput) Elem() CustomApiPropertiesDefinitionOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinition) CustomApiPropertiesDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret CustomApiPropertiesDefinition
-		return ret
-	}).(CustomApiPropertiesDefinitionOutput)
+	return o.ApplyT(func(v *CustomApiPropertiesDefinition) CustomApiPropertiesDefinition { return *v }).(CustomApiPropertiesDefinitionOutput)
 }
 
 // API Definitions
@@ -18335,7 +17876,7 @@ func (o CustomApiPropertiesDefinitionResponseOutput) ToCustomApiPropertiesDefini
 }
 
 func (o CustomApiPropertiesDefinitionResponseOutput) ToCustomApiPropertiesDefinitionResponsePtrOutputWithContext(ctx context.Context) CustomApiPropertiesDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomApiPropertiesDefinitionResponse) *CustomApiPropertiesDefinitionResponse {
+	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *CustomApiPropertiesDefinitionResponse {
 		return &v
 	}).(CustomApiPropertiesDefinitionResponsePtrOutput)
 }
@@ -18419,13 +17960,7 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) ToCustomApiPropertiesDef
 }
 
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) Elem() CustomApiPropertiesDefinitionResponseOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) CustomApiPropertiesDefinitionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CustomApiPropertiesDefinitionResponse
-		return ret
-	}).(CustomApiPropertiesDefinitionResponseOutput)
+	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) CustomApiPropertiesDefinitionResponse { return *v }).(CustomApiPropertiesDefinitionResponseOutput)
 }
 
 // API Definitions
@@ -19179,7 +18714,7 @@ func (o EnabledConfigOutput) ToEnabledConfigPtrOutput() EnabledConfigPtrOutput {
 }
 
 func (o EnabledConfigOutput) ToEnabledConfigPtrOutputWithContext(ctx context.Context) EnabledConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledConfig) *EnabledConfig {
+	return o.ApplyT(func(v EnabledConfig) *EnabledConfig {
 		return &v
 	}).(EnabledConfigPtrOutput)
 }
@@ -19204,13 +18739,7 @@ func (o EnabledConfigPtrOutput) ToEnabledConfigPtrOutputWithContext(ctx context.
 }
 
 func (o EnabledConfigPtrOutput) Elem() EnabledConfigOutput {
-	return o.ApplyT(func(v *EnabledConfig) EnabledConfig {
-		if v != nil {
-			return *v
-		}
-		var ret EnabledConfig
-		return ret
-	}).(EnabledConfigOutput)
+	return o.ApplyT(func(v *EnabledConfig) EnabledConfig { return *v }).(EnabledConfigOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -19319,7 +18848,7 @@ func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutput() EnabledC
 }
 
 func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutputWithContext(ctx context.Context) EnabledConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledConfigResponse) *EnabledConfigResponse {
+	return o.ApplyT(func(v EnabledConfigResponse) *EnabledConfigResponse {
 		return &v
 	}).(EnabledConfigResponsePtrOutput)
 }
@@ -19344,13 +18873,7 @@ func (o EnabledConfigResponsePtrOutput) ToEnabledConfigResponsePtrOutputWithCont
 }
 
 func (o EnabledConfigResponsePtrOutput) Elem() EnabledConfigResponseOutput {
-	return o.ApplyT(func(v *EnabledConfigResponse) EnabledConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EnabledConfigResponse
-		return ret
-	}).(EnabledConfigResponseOutput)
+	return o.ApplyT(func(v *EnabledConfigResponse) EnabledConfigResponse { return *v }).(EnabledConfigResponseOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -19504,7 +19027,7 @@ func (o ErrorEntityResponseOutput) ToErrorEntityResponsePtrOutput() ErrorEntityR
 }
 
 func (o ErrorEntityResponseOutput) ToErrorEntityResponsePtrOutputWithContext(ctx context.Context) ErrorEntityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorEntityResponse) *ErrorEntityResponse {
+	return o.ApplyT(func(v ErrorEntityResponse) *ErrorEntityResponse {
 		return &v
 	}).(ErrorEntityResponsePtrOutput)
 }
@@ -19554,13 +19077,7 @@ func (o ErrorEntityResponsePtrOutput) ToErrorEntityResponsePtrOutputWithContext(
 }
 
 func (o ErrorEntityResponsePtrOutput) Elem() ErrorEntityResponseOutput {
-	return o.ApplyT(func(v *ErrorEntityResponse) ErrorEntityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorEntityResponse
-		return ret
-	}).(ErrorEntityResponseOutput)
+	return o.ApplyT(func(v *ErrorEntityResponse) ErrorEntityResponse { return *v }).(ErrorEntityResponseOutput)
 }
 
 // Basic error code.
@@ -19739,7 +19256,7 @@ func (o ExperimentsOutput) ToExperimentsPtrOutput() ExperimentsPtrOutput {
 }
 
 func (o ExperimentsOutput) ToExperimentsPtrOutputWithContext(ctx context.Context) ExperimentsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Experiments) *Experiments {
+	return o.ApplyT(func(v Experiments) *Experiments {
 		return &v
 	}).(ExperimentsPtrOutput)
 }
@@ -19764,13 +19281,7 @@ func (o ExperimentsPtrOutput) ToExperimentsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ExperimentsPtrOutput) Elem() ExperimentsOutput {
-	return o.ApplyT(func(v *Experiments) Experiments {
-		if v != nil {
-			return *v
-		}
-		var ret Experiments
-		return ret
-	}).(ExperimentsOutput)
+	return o.ApplyT(func(v *Experiments) Experiments { return *v }).(ExperimentsOutput)
 }
 
 // List of ramp-up rules.
@@ -19879,7 +19390,7 @@ func (o ExperimentsResponseOutput) ToExperimentsResponsePtrOutput() ExperimentsR
 }
 
 func (o ExperimentsResponseOutput) ToExperimentsResponsePtrOutputWithContext(ctx context.Context) ExperimentsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentsResponse) *ExperimentsResponse {
+	return o.ApplyT(func(v ExperimentsResponse) *ExperimentsResponse {
 		return &v
 	}).(ExperimentsResponsePtrOutput)
 }
@@ -19904,13 +19415,7 @@ func (o ExperimentsResponsePtrOutput) ToExperimentsResponsePtrOutputWithContext(
 }
 
 func (o ExperimentsResponsePtrOutput) Elem() ExperimentsResponseOutput {
-	return o.ApplyT(func(v *ExperimentsResponse) ExperimentsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExperimentsResponse
-		return ret
-	}).(ExperimentsResponseOutput)
+	return o.ApplyT(func(v *ExperimentsResponse) ExperimentsResponse { return *v }).(ExperimentsResponseOutput)
 }
 
 // List of ramp-up rules.
@@ -20019,7 +19524,7 @@ func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPt
 }
 
 func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocation) *ExtendedLocation {
+	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
 		return &v
 	}).(ExtendedLocationPtrOutput)
 }
@@ -20044,13 +19549,7 @@ func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx co
 }
 
 func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
-	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation {
-		if v != nil {
-			return *v
-		}
-		var ret ExtendedLocation
-		return ret
-	}).(ExtendedLocationOutput)
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
 }
 
 // Name of extended location.
@@ -20163,7 +19662,7 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() Ex
 }
 
 func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocationResponse) *ExtendedLocationResponse {
+	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
 		return &v
 	}).(ExtendedLocationResponsePtrOutput)
 }
@@ -20193,13 +19692,7 @@ func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWi
 }
 
 func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
-	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExtendedLocationResponse
-		return ret
-	}).(ExtendedLocationResponseOutput)
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
 }
 
 // Name of extended location.
@@ -20334,7 +19827,7 @@ func (o FacebookOutput) ToFacebookPtrOutput() FacebookPtrOutput {
 }
 
 func (o FacebookOutput) ToFacebookPtrOutputWithContext(ctx context.Context) FacebookPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Facebook) *Facebook {
+	return o.ApplyT(func(v Facebook) *Facebook {
 		return &v
 	}).(FacebookPtrOutput)
 }
@@ -20379,13 +19872,7 @@ func (o FacebookPtrOutput) ToFacebookPtrOutputWithContext(ctx context.Context) F
 }
 
 func (o FacebookPtrOutput) Elem() FacebookOutput {
-	return o.ApplyT(func(v *Facebook) Facebook {
-		if v != nil {
-			return *v
-		}
-		var ret Facebook
-		return ret
-	}).(FacebookOutput)
+	return o.ApplyT(func(v *Facebook) Facebook { return *v }).(FacebookOutput)
 }
 
 // <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -20562,7 +20049,7 @@ func (o FacebookResponseOutput) ToFacebookResponsePtrOutput() FacebookResponsePt
 }
 
 func (o FacebookResponseOutput) ToFacebookResponsePtrOutputWithContext(ctx context.Context) FacebookResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FacebookResponse) *FacebookResponse {
+	return o.ApplyT(func(v FacebookResponse) *FacebookResponse {
 		return &v
 	}).(FacebookResponsePtrOutput)
 }
@@ -20622,13 +20109,7 @@ func (o FacebookResponsePtrOutput) ToFacebookResponsePtrOutputWithContext(ctx co
 }
 
 func (o FacebookResponsePtrOutput) Elem() FacebookResponseOutput {
-	return o.ApplyT(func(v *FacebookResponse) FacebookResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FacebookResponse
-		return ret
-	}).(FacebookResponseOutput)
+	return o.ApplyT(func(v *FacebookResponse) FacebookResponse { return *v }).(FacebookResponseOutput)
 }
 
 // <code>false</code> if the Facebook provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -20714,7 +20195,7 @@ func (o FacebookResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // Application logs to file system configuration.
 type FileSystemApplicationLogsConfig struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level *string `pulumi:"level"`
 }
 
 // FileSystemApplicationLogsConfigInput is an input type that accepts FileSystemApplicationLogsConfigArgs and FileSystemApplicationLogsConfigOutput values.
@@ -20731,7 +20212,7 @@ type FileSystemApplicationLogsConfigInput interface {
 // Application logs to file system configuration.
 type FileSystemApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevelPtrInput `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 }
 
 func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -20807,14 +20288,14 @@ func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfig
 }
 
 func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemApplicationLogsConfig) *FileSystemApplicationLogsConfig {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *FileSystemApplicationLogsConfig {
 		return &v
 	}).(FileSystemApplicationLogsConfigPtrOutput)
 }
 
 // Log level.
-func (o FileSystemApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
+func (o FileSystemApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 type FileSystemApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
@@ -20832,23 +20313,17 @@ func (o FileSystemApplicationLogsConfigPtrOutput) ToFileSystemApplicationLogsCon
 }
 
 func (o FileSystemApplicationLogsConfigPtrOutput) Elem() FileSystemApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) FileSystemApplicationLogsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemApplicationLogsConfig
-		return ret
-	}).(FileSystemApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) FileSystemApplicationLogsConfig { return *v }).(FileSystemApplicationLogsConfigOutput)
 }
 
 // Log level.
-func (o FileSystemApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *LogLevel {
+func (o FileSystemApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(LogLevelPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Application logs to file system configuration.
@@ -20947,7 +20422,7 @@ func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLo
 }
 
 func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
 		return &v
 	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
 }
@@ -20972,13 +20447,7 @@ func (o FileSystemApplicationLogsConfigResponsePtrOutput) ToFileSystemApplicatio
 }
 
 func (o FileSystemApplicationLogsConfigResponsePtrOutput) Elem() FileSystemApplicationLogsConfigResponseOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) FileSystemApplicationLogsConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemApplicationLogsConfigResponse
-		return ret
-	}).(FileSystemApplicationLogsConfigResponseOutput)
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) FileSystemApplicationLogsConfigResponse { return *v }).(FileSystemApplicationLogsConfigResponseOutput)
 }
 
 // Log level.
@@ -21103,7 +20572,7 @@ func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutput() Fi
 }
 
 func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemHttpLogsConfig) *FileSystemHttpLogsConfig {
+	return o.ApplyT(func(v FileSystemHttpLogsConfig) *FileSystemHttpLogsConfig {
 		return &v
 	}).(FileSystemHttpLogsConfigPtrOutput)
 }
@@ -21142,13 +20611,7 @@ func (o FileSystemHttpLogsConfigPtrOutput) ToFileSystemHttpLogsConfigPtrOutputWi
 }
 
 func (o FileSystemHttpLogsConfigPtrOutput) Elem() FileSystemHttpLogsConfigOutput {
-	return o.ApplyT(func(v *FileSystemHttpLogsConfig) FileSystemHttpLogsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemHttpLogsConfig
-		return ret
-	}).(FileSystemHttpLogsConfigOutput)
+	return o.ApplyT(func(v *FileSystemHttpLogsConfig) FileSystemHttpLogsConfig { return *v }).(FileSystemHttpLogsConfigOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -21297,7 +20760,7 @@ func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigRespon
 }
 
 func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemHttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
+	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
 		return &v
 	}).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
@@ -21336,13 +20799,7 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) ToFileSystemHttpLogsConfigRes
 }
 
 func (o FileSystemHttpLogsConfigResponsePtrOutput) Elem() FileSystemHttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) FileSystemHttpLogsConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemHttpLogsConfigResponse
-		return ret
-	}).(FileSystemHttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) FileSystemHttpLogsConfigResponse { return *v }).(FileSystemHttpLogsConfigResponseOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -21479,7 +20936,7 @@ func (o FileSystemTokenStoreOutput) ToFileSystemTokenStorePtrOutput() FileSystem
 }
 
 func (o FileSystemTokenStoreOutput) ToFileSystemTokenStorePtrOutputWithContext(ctx context.Context) FileSystemTokenStorePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemTokenStore) *FileSystemTokenStore {
+	return o.ApplyT(func(v FileSystemTokenStore) *FileSystemTokenStore {
 		return &v
 	}).(FileSystemTokenStorePtrOutput)
 }
@@ -21509,13 +20966,7 @@ func (o FileSystemTokenStorePtrOutput) ToFileSystemTokenStorePtrOutputWithContex
 }
 
 func (o FileSystemTokenStorePtrOutput) Elem() FileSystemTokenStoreOutput {
-	return o.ApplyT(func(v *FileSystemTokenStore) FileSystemTokenStore {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemTokenStore
-		return ret
-	}).(FileSystemTokenStoreOutput)
+	return o.ApplyT(func(v *FileSystemTokenStore) FileSystemTokenStore { return *v }).(FileSystemTokenStoreOutput)
 }
 
 // The directory in which the tokens will be stored.
@@ -21650,7 +21101,7 @@ func (o FileSystemTokenStoreResponseOutput) ToFileSystemTokenStoreResponsePtrOut
 }
 
 func (o FileSystemTokenStoreResponseOutput) ToFileSystemTokenStoreResponsePtrOutputWithContext(ctx context.Context) FileSystemTokenStoreResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemTokenStoreResponse) *FileSystemTokenStoreResponse {
+	return o.ApplyT(func(v FileSystemTokenStoreResponse) *FileSystemTokenStoreResponse {
 		return &v
 	}).(FileSystemTokenStoreResponsePtrOutput)
 }
@@ -21695,13 +21146,7 @@ func (o FileSystemTokenStoreResponsePtrOutput) ToFileSystemTokenStoreResponsePtr
 }
 
 func (o FileSystemTokenStoreResponsePtrOutput) Elem() FileSystemTokenStoreResponseOutput {
-	return o.ApplyT(func(v *FileSystemTokenStoreResponse) FileSystemTokenStoreResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemTokenStoreResponse
-		return ret
-	}).(FileSystemTokenStoreResponseOutput)
+	return o.ApplyT(func(v *FileSystemTokenStoreResponse) FileSystemTokenStoreResponse { return *v }).(FileSystemTokenStoreResponseOutput)
 }
 
 // The directory in which the tokens will be stored.
@@ -21757,7 +21202,7 @@ func (o FileSystemTokenStoreResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The configuration settings of a forward proxy used to make the requests.
 type ForwardProxy struct {
 	// The convention used to determine the url of the request made.
-	Convention *ForwardProxyConvention `pulumi:"convention"`
+	Convention *string `pulumi:"convention"`
 	// The name of the header containing the host of the request.
 	CustomHostHeaderName *string `pulumi:"customHostHeaderName"`
 	// The name of the header containing the scheme of the request.
@@ -21780,7 +21225,7 @@ type ForwardProxyInput interface {
 // The configuration settings of a forward proxy used to make the requests.
 type ForwardProxyArgs struct {
 	// The convention used to determine the url of the request made.
-	Convention ForwardProxyConventionPtrInput `pulumi:"convention"`
+	Convention *ForwardProxyConvention `pulumi:"convention"`
 	// The name of the header containing the host of the request.
 	CustomHostHeaderName pulumi.StringPtrInput `pulumi:"customHostHeaderName"`
 	// The name of the header containing the scheme of the request.
@@ -21862,14 +21307,14 @@ func (o ForwardProxyOutput) ToForwardProxyPtrOutput() ForwardProxyPtrOutput {
 }
 
 func (o ForwardProxyOutput) ToForwardProxyPtrOutputWithContext(ctx context.Context) ForwardProxyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ForwardProxy) *ForwardProxy {
+	return o.ApplyT(func(v ForwardProxy) *ForwardProxy {
 		return &v
 	}).(ForwardProxyPtrOutput)
 }
 
 // The convention used to determine the url of the request made.
-func (o ForwardProxyOutput) Convention() ForwardProxyConventionPtrOutput {
-	return o.ApplyT(func(v ForwardProxy) *ForwardProxyConvention { return v.Convention }).(ForwardProxyConventionPtrOutput)
+func (o ForwardProxyOutput) Convention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForwardProxy) *string { return v.Convention }).(pulumi.StringPtrOutput)
 }
 
 // The name of the header containing the host of the request.
@@ -21902,23 +21347,17 @@ func (o ForwardProxyPtrOutput) ToForwardProxyPtrOutputWithContext(ctx context.Co
 }
 
 func (o ForwardProxyPtrOutput) Elem() ForwardProxyOutput {
-	return o.ApplyT(func(v *ForwardProxy) ForwardProxy {
-		if v != nil {
-			return *v
-		}
-		var ret ForwardProxy
-		return ret
-	}).(ForwardProxyOutput)
+	return o.ApplyT(func(v *ForwardProxy) ForwardProxy { return *v }).(ForwardProxyOutput)
 }
 
 // The convention used to determine the url of the request made.
-func (o ForwardProxyPtrOutput) Convention() ForwardProxyConventionPtrOutput {
-	return o.ApplyT(func(v *ForwardProxy) *ForwardProxyConvention {
+func (o ForwardProxyPtrOutput) Convention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ForwardProxy) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Convention
-	}).(ForwardProxyConventionPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the header containing the host of the request.
@@ -22071,7 +21510,7 @@ func (o ForwardProxyResponseOutput) ToForwardProxyResponsePtrOutput() ForwardPro
 }
 
 func (o ForwardProxyResponseOutput) ToForwardProxyResponsePtrOutputWithContext(ctx context.Context) ForwardProxyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ForwardProxyResponse) *ForwardProxyResponse {
+	return o.ApplyT(func(v ForwardProxyResponse) *ForwardProxyResponse {
 		return &v
 	}).(ForwardProxyResponsePtrOutput)
 }
@@ -22126,13 +21565,7 @@ func (o ForwardProxyResponsePtrOutput) ToForwardProxyResponsePtrOutputWithContex
 }
 
 func (o ForwardProxyResponsePtrOutput) Elem() ForwardProxyResponseOutput {
-	return o.ApplyT(func(v *ForwardProxyResponse) ForwardProxyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ForwardProxyResponse
-		return ret
-	}).(ForwardProxyResponseOutput)
+	return o.ApplyT(func(v *ForwardProxyResponse) ForwardProxyResponse { return *v }).(ForwardProxyResponseOutput)
 }
 
 // The convention used to determine the url of the request made.
@@ -22206,7 +21639,7 @@ func (o ForwardProxyResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type FrontEndConfiguration struct {
-	Kind *FrontEndServiceType `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 }
 
 // FrontEndConfigurationInput is an input type that accepts FrontEndConfigurationArgs and FrontEndConfigurationOutput values.
@@ -22221,7 +21654,7 @@ type FrontEndConfigurationInput interface {
 }
 
 type FrontEndConfigurationArgs struct {
-	Kind FrontEndServiceTypePtrInput `pulumi:"kind"`
+	Kind *FrontEndServiceType `pulumi:"kind"`
 }
 
 func (FrontEndConfigurationArgs) ElementType() reflect.Type {
@@ -22296,13 +21729,12 @@ func (o FrontEndConfigurationOutput) ToFrontEndConfigurationPtrOutput() FrontEnd
 }
 
 func (o FrontEndConfigurationOutput) ToFrontEndConfigurationPtrOutputWithContext(ctx context.Context) FrontEndConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontEndConfiguration) *FrontEndConfiguration {
+	return o.ApplyT(func(v FrontEndConfiguration) *FrontEndConfiguration {
 		return &v
 	}).(FrontEndConfigurationPtrOutput)
 }
-
-func (o FrontEndConfigurationOutput) Kind() FrontEndServiceTypePtrOutput {
-	return o.ApplyT(func(v FrontEndConfiguration) *FrontEndServiceType { return v.Kind }).(FrontEndServiceTypePtrOutput)
+func (o FrontEndConfigurationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontEndConfiguration) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 type FrontEndConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -22320,22 +21752,16 @@ func (o FrontEndConfigurationPtrOutput) ToFrontEndConfigurationPtrOutputWithCont
 }
 
 func (o FrontEndConfigurationPtrOutput) Elem() FrontEndConfigurationOutput {
-	return o.ApplyT(func(v *FrontEndConfiguration) FrontEndConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret FrontEndConfiguration
-		return ret
-	}).(FrontEndConfigurationOutput)
+	return o.ApplyT(func(v *FrontEndConfiguration) FrontEndConfiguration { return *v }).(FrontEndConfigurationOutput)
 }
 
-func (o FrontEndConfigurationPtrOutput) Kind() FrontEndServiceTypePtrOutput {
-	return o.ApplyT(func(v *FrontEndConfiguration) *FrontEndServiceType {
+func (o FrontEndConfigurationPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontEndConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Kind
-	}).(FrontEndServiceTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type FrontEndConfigurationResponse struct {
@@ -22429,11 +21855,10 @@ func (o FrontEndConfigurationResponseOutput) ToFrontEndConfigurationResponsePtrO
 }
 
 func (o FrontEndConfigurationResponseOutput) ToFrontEndConfigurationResponsePtrOutputWithContext(ctx context.Context) FrontEndConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontEndConfigurationResponse) *FrontEndConfigurationResponse {
+	return o.ApplyT(func(v FrontEndConfigurationResponse) *FrontEndConfigurationResponse {
 		return &v
 	}).(FrontEndConfigurationResponsePtrOutput)
 }
-
 func (o FrontEndConfigurationResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontEndConfigurationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
@@ -22453,13 +21878,7 @@ func (o FrontEndConfigurationResponsePtrOutput) ToFrontEndConfigurationResponseP
 }
 
 func (o FrontEndConfigurationResponsePtrOutput) Elem() FrontEndConfigurationResponseOutput {
-	return o.ApplyT(func(v *FrontEndConfigurationResponse) FrontEndConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FrontEndConfigurationResponse
-		return ret
-	}).(FrontEndConfigurationResponseOutput)
+	return o.ApplyT(func(v *FrontEndConfigurationResponse) FrontEndConfigurationResponse { return *v }).(FrontEndConfigurationResponseOutput)
 }
 
 func (o FrontEndConfigurationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
@@ -22579,7 +21998,7 @@ func (o GitHubOutput) ToGitHubPtrOutput() GitHubPtrOutput {
 }
 
 func (o GitHubOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHub) *GitHub {
+	return o.ApplyT(func(v GitHub) *GitHub {
 		return &v
 	}).(GitHubPtrOutput)
 }
@@ -22619,13 +22038,7 @@ func (o GitHubPtrOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHu
 }
 
 func (o GitHubPtrOutput) Elem() GitHubOutput {
-	return o.ApplyT(func(v *GitHub) GitHub {
-		if v != nil {
-			return *v
-		}
-		var ret GitHub
-		return ret
-	}).(GitHubOutput)
+	return o.ApplyT(func(v *GitHub) GitHub { return *v }).(GitHubOutput)
 }
 
 // <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -22768,7 +22181,7 @@ func (o GitHubActionCodeConfigurationOutput) ToGitHubActionCodeConfigurationPtrO
 }
 
 func (o GitHubActionCodeConfigurationOutput) ToGitHubActionCodeConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubActionCodeConfiguration) *GitHubActionCodeConfiguration {
+	return o.ApplyT(func(v GitHubActionCodeConfiguration) *GitHubActionCodeConfiguration {
 		return &v
 	}).(GitHubActionCodeConfigurationPtrOutput)
 }
@@ -22798,13 +22211,7 @@ func (o GitHubActionCodeConfigurationPtrOutput) ToGitHubActionCodeConfigurationP
 }
 
 func (o GitHubActionCodeConfigurationPtrOutput) Elem() GitHubActionCodeConfigurationOutput {
-	return o.ApplyT(func(v *GitHubActionCodeConfiguration) GitHubActionCodeConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret GitHubActionCodeConfiguration
-		return ret
-	}).(GitHubActionCodeConfigurationOutput)
+	return o.ApplyT(func(v *GitHubActionCodeConfiguration) GitHubActionCodeConfiguration { return *v }).(GitHubActionCodeConfigurationOutput)
 }
 
 // Runtime stack is used to determine the workflow file content for code base apps.
@@ -22927,7 +22334,7 @@ func (o GitHubActionCodeConfigurationResponseOutput) ToGitHubActionCodeConfigura
 }
 
 func (o GitHubActionCodeConfigurationResponseOutput) ToGitHubActionCodeConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionCodeConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubActionCodeConfigurationResponse) *GitHubActionCodeConfigurationResponse {
+	return o.ApplyT(func(v GitHubActionCodeConfigurationResponse) *GitHubActionCodeConfigurationResponse {
 		return &v
 	}).(GitHubActionCodeConfigurationResponsePtrOutput)
 }
@@ -22957,13 +22364,7 @@ func (o GitHubActionCodeConfigurationResponsePtrOutput) ToGitHubActionCodeConfig
 }
 
 func (o GitHubActionCodeConfigurationResponsePtrOutput) Elem() GitHubActionCodeConfigurationResponseOutput {
-	return o.ApplyT(func(v *GitHubActionCodeConfigurationResponse) GitHubActionCodeConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GitHubActionCodeConfigurationResponse
-		return ret
-	}).(GitHubActionCodeConfigurationResponseOutput)
+	return o.ApplyT(func(v *GitHubActionCodeConfigurationResponse) GitHubActionCodeConfigurationResponse { return *v }).(GitHubActionCodeConfigurationResponseOutput)
 }
 
 // Runtime stack is used to determine the workflow file content for code base apps.
@@ -23094,7 +22495,7 @@ func (o GitHubActionConfigurationOutput) ToGitHubActionConfigurationPtrOutput() 
 }
 
 func (o GitHubActionConfigurationOutput) ToGitHubActionConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubActionConfiguration) *GitHubActionConfiguration {
+	return o.ApplyT(func(v GitHubActionConfiguration) *GitHubActionConfiguration {
 		return &v
 	}).(GitHubActionConfigurationPtrOutput)
 }
@@ -23134,13 +22535,7 @@ func (o GitHubActionConfigurationPtrOutput) ToGitHubActionConfigurationPtrOutput
 }
 
 func (o GitHubActionConfigurationPtrOutput) Elem() GitHubActionConfigurationOutput {
-	return o.ApplyT(func(v *GitHubActionConfiguration) GitHubActionConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret GitHubActionConfiguration
-		return ret
-	}).(GitHubActionConfigurationOutput)
+	return o.ApplyT(func(v *GitHubActionConfiguration) GitHubActionConfiguration { return *v }).(GitHubActionConfigurationOutput)
 }
 
 // GitHub Action code configuration.
@@ -23291,7 +22686,7 @@ func (o GitHubActionConfigurationResponseOutput) ToGitHubActionConfigurationResp
 }
 
 func (o GitHubActionConfigurationResponseOutput) ToGitHubActionConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubActionConfigurationResponse) *GitHubActionConfigurationResponse {
+	return o.ApplyT(func(v GitHubActionConfigurationResponse) *GitHubActionConfigurationResponse {
 		return &v
 	}).(GitHubActionConfigurationResponsePtrOutput)
 }
@@ -23335,13 +22730,7 @@ func (o GitHubActionConfigurationResponsePtrOutput) ToGitHubActionConfigurationR
 }
 
 func (o GitHubActionConfigurationResponsePtrOutput) Elem() GitHubActionConfigurationResponseOutput {
-	return o.ApplyT(func(v *GitHubActionConfigurationResponse) GitHubActionConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GitHubActionConfigurationResponse
-		return ret
-	}).(GitHubActionConfigurationResponseOutput)
+	return o.ApplyT(func(v *GitHubActionConfigurationResponse) GitHubActionConfigurationResponse { return *v }).(GitHubActionConfigurationResponseOutput)
 }
 
 // GitHub Action code configuration.
@@ -23492,7 +22881,7 @@ func (o GitHubActionContainerConfigurationOutput) ToGitHubActionContainerConfigu
 }
 
 func (o GitHubActionContainerConfigurationOutput) ToGitHubActionContainerConfigurationPtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubActionContainerConfiguration) *GitHubActionContainerConfiguration {
+	return o.ApplyT(func(v GitHubActionContainerConfiguration) *GitHubActionContainerConfiguration {
 		return &v
 	}).(GitHubActionContainerConfigurationPtrOutput)
 }
@@ -23532,13 +22921,7 @@ func (o GitHubActionContainerConfigurationPtrOutput) ToGitHubActionContainerConf
 }
 
 func (o GitHubActionContainerConfigurationPtrOutput) Elem() GitHubActionContainerConfigurationOutput {
-	return o.ApplyT(func(v *GitHubActionContainerConfiguration) GitHubActionContainerConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret GitHubActionContainerConfiguration
-		return ret
-	}).(GitHubActionContainerConfigurationOutput)
+	return o.ApplyT(func(v *GitHubActionContainerConfiguration) GitHubActionContainerConfiguration { return *v }).(GitHubActionContainerConfigurationOutput)
 }
 
 // The image name for the build.
@@ -23689,7 +23072,7 @@ func (o GitHubActionContainerConfigurationResponseOutput) ToGitHubActionContaine
 }
 
 func (o GitHubActionContainerConfigurationResponseOutput) ToGitHubActionContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) GitHubActionContainerConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubActionContainerConfigurationResponse) *GitHubActionContainerConfigurationResponse {
+	return o.ApplyT(func(v GitHubActionContainerConfigurationResponse) *GitHubActionContainerConfigurationResponse {
 		return &v
 	}).(GitHubActionContainerConfigurationResponsePtrOutput)
 }
@@ -23730,11 +23113,7 @@ func (o GitHubActionContainerConfigurationResponsePtrOutput) ToGitHubActionConta
 
 func (o GitHubActionContainerConfigurationResponsePtrOutput) Elem() GitHubActionContainerConfigurationResponseOutput {
 	return o.ApplyT(func(v *GitHubActionContainerConfigurationResponse) GitHubActionContainerConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GitHubActionContainerConfigurationResponse
-		return ret
+		return *v
 	}).(GitHubActionContainerConfigurationResponseOutput)
 }
 
@@ -23898,7 +23277,7 @@ func (o GitHubResponseOutput) ToGitHubResponsePtrOutput() GitHubResponsePtrOutpu
 }
 
 func (o GitHubResponseOutput) ToGitHubResponsePtrOutputWithContext(ctx context.Context) GitHubResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubResponse) *GitHubResponse {
+	return o.ApplyT(func(v GitHubResponse) *GitHubResponse {
 		return &v
 	}).(GitHubResponsePtrOutput)
 }
@@ -23953,13 +23332,7 @@ func (o GitHubResponsePtrOutput) ToGitHubResponsePtrOutputWithContext(ctx contex
 }
 
 func (o GitHubResponsePtrOutput) Elem() GitHubResponseOutput {
-	return o.ApplyT(func(v *GitHubResponse) GitHubResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GitHubResponse
-		return ret
-	}).(GitHubResponseOutput)
+	return o.ApplyT(func(v *GitHubResponse) GitHubResponse { return *v }).(GitHubResponseOutput)
 }
 
 // <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -24045,7 +23418,7 @@ type GlobalValidation struct {
 	// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
 	RequireAuthentication *bool `pulumi:"requireAuthentication"`
 	// The action to take when an unauthenticated client attempts to access the app.
-	UnauthenticatedClientAction *UnauthenticatedClientActionV2 `pulumi:"unauthenticatedClientAction"`
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 }
 
 // GlobalValidationInput is an input type that accepts GlobalValidationArgs and GlobalValidationOutput values.
@@ -24072,7 +23445,7 @@ type GlobalValidationArgs struct {
 	// <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
 	RequireAuthentication pulumi.BoolPtrInput `pulumi:"requireAuthentication"`
 	// The action to take when an unauthenticated client attempts to access the app.
-	UnauthenticatedClientAction UnauthenticatedClientActionV2PtrInput `pulumi:"unauthenticatedClientAction"`
+	UnauthenticatedClientAction *UnauthenticatedClientActionV2 `pulumi:"unauthenticatedClientAction"`
 }
 
 func (GlobalValidationArgs) ElementType() reflect.Type {
@@ -24148,7 +23521,7 @@ func (o GlobalValidationOutput) ToGlobalValidationPtrOutput() GlobalValidationPt
 }
 
 func (o GlobalValidationOutput) ToGlobalValidationPtrOutputWithContext(ctx context.Context) GlobalValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalValidation) *GlobalValidation {
+	return o.ApplyT(func(v GlobalValidation) *GlobalValidation {
 		return &v
 	}).(GlobalValidationPtrOutput)
 }
@@ -24176,8 +23549,8 @@ func (o GlobalValidationOutput) RequireAuthentication() pulumi.BoolPtrOutput {
 }
 
 // The action to take when an unauthenticated client attempts to access the app.
-func (o GlobalValidationOutput) UnauthenticatedClientAction() UnauthenticatedClientActionV2PtrOutput {
-	return o.ApplyT(func(v GlobalValidation) *UnauthenticatedClientActionV2 { return v.UnauthenticatedClientAction }).(UnauthenticatedClientActionV2PtrOutput)
+func (o GlobalValidationOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalValidation) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
 
 type GlobalValidationPtrOutput struct{ *pulumi.OutputState }
@@ -24195,13 +23568,7 @@ func (o GlobalValidationPtrOutput) ToGlobalValidationPtrOutputWithContext(ctx co
 }
 
 func (o GlobalValidationPtrOutput) Elem() GlobalValidationOutput {
-	return o.ApplyT(func(v *GlobalValidation) GlobalValidation {
-		if v != nil {
-			return *v
-		}
-		var ret GlobalValidation
-		return ret
-	}).(GlobalValidationOutput)
+	return o.ApplyT(func(v *GlobalValidation) GlobalValidation { return *v }).(GlobalValidationOutput)
 }
 
 // The paths for which unauthenticated flow would not be redirected to the login page.
@@ -24247,13 +23614,13 @@ func (o GlobalValidationPtrOutput) RequireAuthentication() pulumi.BoolPtrOutput 
 }
 
 // The action to take when an unauthenticated client attempts to access the app.
-func (o GlobalValidationPtrOutput) UnauthenticatedClientAction() UnauthenticatedClientActionV2PtrOutput {
-	return o.ApplyT(func(v *GlobalValidation) *UnauthenticatedClientActionV2 {
+func (o GlobalValidationPtrOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalValidation) *string {
 		if v == nil {
 			return nil
 		}
 		return v.UnauthenticatedClientAction
-	}).(UnauthenticatedClientActionV2PtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
@@ -24384,7 +23751,7 @@ func (o GlobalValidationResponseOutput) ToGlobalValidationResponsePtrOutput() Gl
 }
 
 func (o GlobalValidationResponseOutput) ToGlobalValidationResponsePtrOutputWithContext(ctx context.Context) GlobalValidationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalValidationResponse) *GlobalValidationResponse {
+	return o.ApplyT(func(v GlobalValidationResponse) *GlobalValidationResponse {
 		return &v
 	}).(GlobalValidationResponsePtrOutput)
 }
@@ -24446,13 +23813,7 @@ func (o GlobalValidationResponsePtrOutput) ToGlobalValidationResponsePtrOutputWi
 }
 
 func (o GlobalValidationResponsePtrOutput) Elem() GlobalValidationResponseOutput {
-	return o.ApplyT(func(v *GlobalValidationResponse) GlobalValidationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GlobalValidationResponse
-		return ret
-	}).(GlobalValidationResponseOutput)
+	return o.ApplyT(func(v *GlobalValidationResponse) GlobalValidationResponse { return *v }).(GlobalValidationResponseOutput)
 }
 
 // The paths for which unauthenticated flow would not be redirected to the login page.
@@ -24649,7 +24010,7 @@ func (o GoogleOutput) ToGooglePtrOutput() GooglePtrOutput {
 }
 
 func (o GoogleOutput) ToGooglePtrOutputWithContext(ctx context.Context) GooglePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Google) *Google {
+	return o.ApplyT(func(v Google) *Google {
 		return &v
 	}).(GooglePtrOutput)
 }
@@ -24694,13 +24055,7 @@ func (o GooglePtrOutput) ToGooglePtrOutputWithContext(ctx context.Context) Googl
 }
 
 func (o GooglePtrOutput) Elem() GoogleOutput {
-	return o.ApplyT(func(v *Google) Google {
-		if v != nil {
-			return *v
-		}
-		var ret Google
-		return ret
-	}).(GoogleOutput)
+	return o.ApplyT(func(v *Google) Google { return *v }).(GoogleOutput)
 }
 
 // <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -24877,7 +24232,7 @@ func (o GoogleResponseOutput) ToGoogleResponsePtrOutput() GoogleResponsePtrOutpu
 }
 
 func (o GoogleResponseOutput) ToGoogleResponsePtrOutputWithContext(ctx context.Context) GoogleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GoogleResponse) *GoogleResponse {
+	return o.ApplyT(func(v GoogleResponse) *GoogleResponse {
 		return &v
 	}).(GoogleResponsePtrOutput)
 }
@@ -24937,13 +24292,7 @@ func (o GoogleResponsePtrOutput) ToGoogleResponsePtrOutputWithContext(ctx contex
 }
 
 func (o GoogleResponsePtrOutput) Elem() GoogleResponseOutput {
-	return o.ApplyT(func(v *GoogleResponse) GoogleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GoogleResponse
-		return ret
-	}).(GoogleResponseOutput)
+	return o.ApplyT(func(v *GoogleResponse) GoogleResponse { return *v }).(GoogleResponseOutput)
 }
 
 // <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -25271,11 +24620,11 @@ func (o HandlerMappingResponseArrayOutput) Index(i pulumi.IntInput) HandlerMappi
 // SSL-enabled hostname.
 type HostNameSslState struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType *HostType `pulumi:"hostType"`
+	HostType *string `pulumi:"hostType"`
 	// Hostname.
 	Name *string `pulumi:"name"`
 	// SSL type.
-	SslState *SslState `pulumi:"sslState"`
+	SslState *string `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -25298,11 +24647,11 @@ type HostNameSslStateInput interface {
 // SSL-enabled hostname.
 type HostNameSslStateArgs struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType HostTypePtrInput `pulumi:"hostType"`
+	HostType *HostType `pulumi:"hostType"`
 	// Hostname.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// SSL type.
-	SslState SslStatePtrInput `pulumi:"sslState"`
+	SslState *SslState `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -25364,8 +24713,8 @@ func (o HostNameSslStateOutput) ToHostNameSslStateOutputWithContext(ctx context.
 }
 
 // Indicates whether the hostname is a standard or repository hostname.
-func (o HostNameSslStateOutput) HostType() HostTypePtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *HostType { return v.HostType }).(HostTypePtrOutput)
+func (o HostNameSslStateOutput) HostType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *string { return v.HostType }).(pulumi.StringPtrOutput)
 }
 
 // Hostname.
@@ -25374,8 +24723,8 @@ func (o HostNameSslStateOutput) Name() pulumi.StringPtrOutput {
 }
 
 // SSL type.
-func (o HostNameSslStateOutput) SslState() SslStatePtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *SslState { return v.SslState }).(SslStatePtrOutput)
+func (o HostNameSslStateOutput) SslState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *string { return v.SslState }).(pulumi.StringPtrOutput)
 }
 
 // SSL certificate thumbprint.
@@ -25654,7 +25003,7 @@ func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutput() 
 }
 
 func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfile) *HostingEnvironmentProfile {
+	return o.ApplyT(func(v HostingEnvironmentProfile) *HostingEnvironmentProfile {
 		return &v
 	}).(HostingEnvironmentProfilePtrOutput)
 }
@@ -25679,13 +25028,7 @@ func (o HostingEnvironmentProfilePtrOutput) ToHostingEnvironmentProfilePtrOutput
 }
 
 func (o HostingEnvironmentProfilePtrOutput) Elem() HostingEnvironmentProfileOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile {
-		if v != nil {
-			return *v
-		}
-		var ret HostingEnvironmentProfile
-		return ret
-	}).(HostingEnvironmentProfileOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile { return *v }).(HostingEnvironmentProfileOutput)
 }
 
 // Resource ID of the App Service Environment.
@@ -25802,7 +25145,7 @@ func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResp
 }
 
 func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
+	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
 		return &v
 	}).(HostingEnvironmentProfileResponsePtrOutput)
 }
@@ -25837,13 +25180,7 @@ func (o HostingEnvironmentProfileResponsePtrOutput) ToHostingEnvironmentProfileR
 }
 
 func (o HostingEnvironmentProfileResponsePtrOutput) Elem() HostingEnvironmentProfileResponseOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HostingEnvironmentProfileResponse
-		return ret
-	}).(HostingEnvironmentProfileResponseOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse { return *v }).(HostingEnvironmentProfileResponseOutput)
 }
 
 // Resource ID of the App Service Environment.
@@ -25976,7 +25313,7 @@ func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutpu
 }
 
 func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutputWithContext(ctx context.Context) HttpLogsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpLogsConfig) *HttpLogsConfig {
+	return o.ApplyT(func(v HttpLogsConfig) *HttpLogsConfig {
 		return &v
 	}).(HttpLogsConfigPtrOutput)
 }
@@ -26006,13 +25343,7 @@ func (o HttpLogsConfigPtrOutput) ToHttpLogsConfigPtrOutputWithContext(ctx contex
 }
 
 func (o HttpLogsConfigPtrOutput) Elem() HttpLogsConfigOutput {
-	return o.ApplyT(func(v *HttpLogsConfig) HttpLogsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret HttpLogsConfig
-		return ret
-	}).(HttpLogsConfigOutput)
+	return o.ApplyT(func(v *HttpLogsConfig) HttpLogsConfig { return *v }).(HttpLogsConfigOutput)
 }
 
 // Http logs to azure blob storage configuration.
@@ -26135,7 +25466,7 @@ func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutput() HttpLo
 }
 
 func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) HttpLogsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpLogsConfigResponse) *HttpLogsConfigResponse {
+	return o.ApplyT(func(v HttpLogsConfigResponse) *HttpLogsConfigResponse {
 		return &v
 	}).(HttpLogsConfigResponsePtrOutput)
 }
@@ -26165,13 +25496,7 @@ func (o HttpLogsConfigResponsePtrOutput) ToHttpLogsConfigResponsePtrOutputWithCo
 }
 
 func (o HttpLogsConfigResponsePtrOutput) Elem() HttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *HttpLogsConfigResponse) HttpLogsConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HttpLogsConfigResponse
-		return ret
-	}).(HttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *HttpLogsConfigResponse) HttpLogsConfigResponse { return *v }).(HttpLogsConfigResponseOutput)
 }
 
 // Http logs to azure blob storage configuration.
@@ -26302,7 +25627,7 @@ func (o HttpSettingsOutput) ToHttpSettingsPtrOutput() HttpSettingsPtrOutput {
 }
 
 func (o HttpSettingsOutput) ToHttpSettingsPtrOutputWithContext(ctx context.Context) HttpSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpSettings) *HttpSettings {
+	return o.ApplyT(func(v HttpSettings) *HttpSettings {
 		return &v
 	}).(HttpSettingsPtrOutput)
 }
@@ -26342,13 +25667,7 @@ func (o HttpSettingsPtrOutput) ToHttpSettingsPtrOutputWithContext(ctx context.Co
 }
 
 func (o HttpSettingsPtrOutput) Elem() HttpSettingsOutput {
-	return o.ApplyT(func(v *HttpSettings) HttpSettings {
-		if v != nil {
-			return *v
-		}
-		var ret HttpSettings
-		return ret
-	}).(HttpSettingsOutput)
+	return o.ApplyT(func(v *HttpSettings) HttpSettings { return *v }).(HttpSettingsOutput)
 }
 
 // The configuration settings of a forward proxy used to make the requests.
@@ -26511,7 +25830,7 @@ func (o HttpSettingsResponseOutput) ToHttpSettingsResponsePtrOutput() HttpSettin
 }
 
 func (o HttpSettingsResponseOutput) ToHttpSettingsResponsePtrOutputWithContext(ctx context.Context) HttpSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpSettingsResponse) *HttpSettingsResponse {
+	return o.ApplyT(func(v HttpSettingsResponse) *HttpSettingsResponse {
 		return &v
 	}).(HttpSettingsResponsePtrOutput)
 }
@@ -26566,13 +25885,7 @@ func (o HttpSettingsResponsePtrOutput) ToHttpSettingsResponsePtrOutputWithContex
 }
 
 func (o HttpSettingsResponsePtrOutput) Elem() HttpSettingsResponseOutput {
-	return o.ApplyT(func(v *HttpSettingsResponse) HttpSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HttpSettingsResponse
-		return ret
-	}).(HttpSettingsResponseOutput)
+	return o.ApplyT(func(v *HttpSettingsResponse) HttpSettingsResponse { return *v }).(HttpSettingsResponseOutput)
 }
 
 // The configuration settings of a forward proxy used to make the requests.
@@ -26745,7 +26058,7 @@ func (o HttpSettingsRoutesOutput) ToHttpSettingsRoutesPtrOutput() HttpSettingsRo
 }
 
 func (o HttpSettingsRoutesOutput) ToHttpSettingsRoutesPtrOutputWithContext(ctx context.Context) HttpSettingsRoutesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpSettingsRoutes) *HttpSettingsRoutes {
+	return o.ApplyT(func(v HttpSettingsRoutes) *HttpSettingsRoutes {
 		return &v
 	}).(HttpSettingsRoutesPtrOutput)
 }
@@ -26775,13 +26088,7 @@ func (o HttpSettingsRoutesPtrOutput) ToHttpSettingsRoutesPtrOutputWithContext(ct
 }
 
 func (o HttpSettingsRoutesPtrOutput) Elem() HttpSettingsRoutesOutput {
-	return o.ApplyT(func(v *HttpSettingsRoutes) HttpSettingsRoutes {
-		if v != nil {
-			return *v
-		}
-		var ret HttpSettingsRoutes
-		return ret
-	}).(HttpSettingsRoutesOutput)
+	return o.ApplyT(func(v *HttpSettingsRoutes) HttpSettingsRoutes { return *v }).(HttpSettingsRoutesOutput)
 }
 
 // The prefix that should precede all the authentication/authorization paths.
@@ -26916,7 +26223,7 @@ func (o HttpSettingsRoutesResponseOutput) ToHttpSettingsRoutesResponsePtrOutput(
 }
 
 func (o HttpSettingsRoutesResponseOutput) ToHttpSettingsRoutesResponsePtrOutputWithContext(ctx context.Context) HttpSettingsRoutesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpSettingsRoutesResponse) *HttpSettingsRoutesResponse {
+	return o.ApplyT(func(v HttpSettingsRoutesResponse) *HttpSettingsRoutesResponse {
 		return &v
 	}).(HttpSettingsRoutesResponsePtrOutput)
 }
@@ -26961,13 +26268,7 @@ func (o HttpSettingsRoutesResponsePtrOutput) ToHttpSettingsRoutesResponsePtrOutp
 }
 
 func (o HttpSettingsRoutesResponsePtrOutput) Elem() HttpSettingsRoutesResponseOutput {
-	return o.ApplyT(func(v *HttpSettingsRoutesResponse) HttpSettingsRoutesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HttpSettingsRoutesResponse
-		return ret
-	}).(HttpSettingsRoutesResponseOutput)
+	return o.ApplyT(func(v *HttpSettingsRoutesResponse) HttpSettingsRoutesResponse { return *v }).(HttpSettingsRoutesResponseOutput)
 }
 
 // The prefix that should precede all the authentication/authorization paths.
@@ -27290,7 +26591,7 @@ func (o IdentityProvidersOutput) ToIdentityProvidersPtrOutput() IdentityProvider
 }
 
 func (o IdentityProvidersOutput) ToIdentityProvidersPtrOutputWithContext(ctx context.Context) IdentityProvidersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviders) *IdentityProviders {
+	return o.ApplyT(func(v IdentityProviders) *IdentityProviders {
 		return &v
 	}).(IdentityProvidersPtrOutput)
 }
@@ -27363,13 +26664,7 @@ func (o IdentityProvidersPtrOutput) ToIdentityProvidersPtrOutputWithContext(ctx 
 }
 
 func (o IdentityProvidersPtrOutput) Elem() IdentityProvidersOutput {
-	return o.ApplyT(func(v *IdentityProviders) IdentityProviders {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityProviders
-		return ret
-	}).(IdentityProvidersOutput)
+	return o.ApplyT(func(v *IdentityProviders) IdentityProviders { return *v }).(IdentityProvidersOutput)
 }
 
 // The configuration settings of the Apple provider.
@@ -27619,7 +26914,7 @@ func (o IdentityProvidersResponseOutput) ToIdentityProvidersResponsePtrOutput() 
 }
 
 func (o IdentityProvidersResponseOutput) ToIdentityProvidersResponsePtrOutputWithContext(ctx context.Context) IdentityProvidersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProvidersResponse) *IdentityProvidersResponse {
+	return o.ApplyT(func(v IdentityProvidersResponse) *IdentityProvidersResponse {
 		return &v
 	}).(IdentityProvidersResponsePtrOutput)
 }
@@ -27707,13 +27002,7 @@ func (o IdentityProvidersResponsePtrOutput) ToIdentityProvidersResponsePtrOutput
 }
 
 func (o IdentityProvidersResponsePtrOutput) Elem() IdentityProvidersResponseOutput {
-	return o.ApplyT(func(v *IdentityProvidersResponse) IdentityProvidersResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityProvidersResponse
-		return ret
-	}).(IdentityProvidersResponseOutput)
+	return o.ApplyT(func(v *IdentityProvidersResponse) IdentityProvidersResponse { return *v }).(IdentityProvidersResponseOutput)
 }
 
 // The configuration settings of the Apple provider.
@@ -28439,7 +27728,7 @@ func (o JwtClaimChecksOutput) ToJwtClaimChecksPtrOutput() JwtClaimChecksPtrOutpu
 }
 
 func (o JwtClaimChecksOutput) ToJwtClaimChecksPtrOutputWithContext(ctx context.Context) JwtClaimChecksPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JwtClaimChecks) *JwtClaimChecks {
+	return o.ApplyT(func(v JwtClaimChecks) *JwtClaimChecks {
 		return &v
 	}).(JwtClaimChecksPtrOutput)
 }
@@ -28474,13 +27763,7 @@ func (o JwtClaimChecksPtrOutput) ToJwtClaimChecksPtrOutputWithContext(ctx contex
 }
 
 func (o JwtClaimChecksPtrOutput) Elem() JwtClaimChecksOutput {
-	return o.ApplyT(func(v *JwtClaimChecks) JwtClaimChecks {
-		if v != nil {
-			return *v
-		}
-		var ret JwtClaimChecks
-		return ret
-	}).(JwtClaimChecksOutput)
+	return o.ApplyT(func(v *JwtClaimChecks) JwtClaimChecks { return *v }).(JwtClaimChecksOutput)
 }
 
 // The list of the allowed client applications.
@@ -28629,7 +27912,7 @@ func (o JwtClaimChecksResponseOutput) ToJwtClaimChecksResponsePtrOutput() JwtCla
 }
 
 func (o JwtClaimChecksResponseOutput) ToJwtClaimChecksResponsePtrOutputWithContext(ctx context.Context) JwtClaimChecksResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JwtClaimChecksResponse) *JwtClaimChecksResponse {
+	return o.ApplyT(func(v JwtClaimChecksResponse) *JwtClaimChecksResponse {
 		return &v
 	}).(JwtClaimChecksResponsePtrOutput)
 }
@@ -28679,13 +27962,7 @@ func (o JwtClaimChecksResponsePtrOutput) ToJwtClaimChecksResponsePtrOutputWithCo
 }
 
 func (o JwtClaimChecksResponsePtrOutput) Elem() JwtClaimChecksResponseOutput {
-	return o.ApplyT(func(v *JwtClaimChecksResponse) JwtClaimChecksResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JwtClaimChecksResponse
-		return ret
-	}).(JwtClaimChecksResponseOutput)
+	return o.ApplyT(func(v *JwtClaimChecksResponse) JwtClaimChecksResponse { return *v }).(JwtClaimChecksResponseOutput)
 }
 
 // The list of the allowed client applications.
@@ -28844,7 +28121,7 @@ func (o KubeEnvironmentProfileOutput) ToKubeEnvironmentProfilePtrOutput() KubeEn
 }
 
 func (o KubeEnvironmentProfileOutput) ToKubeEnvironmentProfilePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubeEnvironmentProfile) *KubeEnvironmentProfile {
+	return o.ApplyT(func(v KubeEnvironmentProfile) *KubeEnvironmentProfile {
 		return &v
 	}).(KubeEnvironmentProfilePtrOutput)
 }
@@ -28869,13 +28146,7 @@ func (o KubeEnvironmentProfilePtrOutput) ToKubeEnvironmentProfilePtrOutputWithCo
 }
 
 func (o KubeEnvironmentProfilePtrOutput) Elem() KubeEnvironmentProfileOutput {
-	return o.ApplyT(func(v *KubeEnvironmentProfile) KubeEnvironmentProfile {
-		if v != nil {
-			return *v
-		}
-		var ret KubeEnvironmentProfile
-		return ret
-	}).(KubeEnvironmentProfileOutput)
+	return o.ApplyT(func(v *KubeEnvironmentProfile) KubeEnvironmentProfile { return *v }).(KubeEnvironmentProfileOutput)
 }
 
 // Resource ID of the Kubernetes Environment.
@@ -28992,7 +28263,7 @@ func (o KubeEnvironmentProfileResponseOutput) ToKubeEnvironmentProfileResponsePt
 }
 
 func (o KubeEnvironmentProfileResponseOutput) ToKubeEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) KubeEnvironmentProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubeEnvironmentProfileResponse) *KubeEnvironmentProfileResponse {
+	return o.ApplyT(func(v KubeEnvironmentProfileResponse) *KubeEnvironmentProfileResponse {
 		return &v
 	}).(KubeEnvironmentProfileResponsePtrOutput)
 }
@@ -29027,13 +28298,7 @@ func (o KubeEnvironmentProfileResponsePtrOutput) ToKubeEnvironmentProfileRespons
 }
 
 func (o KubeEnvironmentProfileResponsePtrOutput) Elem() KubeEnvironmentProfileResponseOutput {
-	return o.ApplyT(func(v *KubeEnvironmentProfileResponse) KubeEnvironmentProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KubeEnvironmentProfileResponse
-		return ret
-	}).(KubeEnvironmentProfileResponseOutput)
+	return o.ApplyT(func(v *KubeEnvironmentProfileResponse) KubeEnvironmentProfileResponse { return *v }).(KubeEnvironmentProfileResponseOutput)
 }
 
 // Resource ID of the Kubernetes Environment.
@@ -29178,7 +28443,7 @@ func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountPtrOutput() Legacy
 }
 
 func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LegacyMicrosoftAccount) *LegacyMicrosoftAccount {
+	return o.ApplyT(func(v LegacyMicrosoftAccount) *LegacyMicrosoftAccount {
 		return &v
 	}).(LegacyMicrosoftAccountPtrOutput)
 }
@@ -29223,13 +28488,7 @@ func (o LegacyMicrosoftAccountPtrOutput) ToLegacyMicrosoftAccountPtrOutputWithCo
 }
 
 func (o LegacyMicrosoftAccountPtrOutput) Elem() LegacyMicrosoftAccountOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccount) LegacyMicrosoftAccount {
-		if v != nil {
-			return *v
-		}
-		var ret LegacyMicrosoftAccount
-		return ret
-	}).(LegacyMicrosoftAccountOutput)
+	return o.ApplyT(func(v *LegacyMicrosoftAccount) LegacyMicrosoftAccount { return *v }).(LegacyMicrosoftAccountOutput)
 }
 
 // <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -29406,7 +28665,7 @@ func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponsePt
 }
 
 func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponsePtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LegacyMicrosoftAccountResponse) *LegacyMicrosoftAccountResponse {
+	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *LegacyMicrosoftAccountResponse {
 		return &v
 	}).(LegacyMicrosoftAccountResponsePtrOutput)
 }
@@ -29466,13 +28725,7 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) ToLegacyMicrosoftAccountRespons
 }
 
 func (o LegacyMicrosoftAccountResponsePtrOutput) Elem() LegacyMicrosoftAccountResponseOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) LegacyMicrosoftAccountResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LegacyMicrosoftAccountResponse
-		return ret
-	}).(LegacyMicrosoftAccountResponseOutput)
+	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) LegacyMicrosoftAccountResponse { return *v }).(LegacyMicrosoftAccountResponseOutput)
 }
 
 // <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -29648,11 +28901,10 @@ func (o LogAnalyticsConfigurationOutput) ToLogAnalyticsConfigurationPtrOutput() 
 }
 
 func (o LogAnalyticsConfigurationOutput) ToLogAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsConfiguration) *LogAnalyticsConfiguration {
+	return o.ApplyT(func(v LogAnalyticsConfiguration) *LogAnalyticsConfiguration {
 		return &v
 	}).(LogAnalyticsConfigurationPtrOutput)
 }
-
 func (o LogAnalyticsConfigurationOutput) CustomerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsConfiguration) *string { return v.CustomerId }).(pulumi.StringPtrOutput)
 }
@@ -29676,13 +28928,7 @@ func (o LogAnalyticsConfigurationPtrOutput) ToLogAnalyticsConfigurationPtrOutput
 }
 
 func (o LogAnalyticsConfigurationPtrOutput) Elem() LogAnalyticsConfigurationOutput {
-	return o.ApplyT(func(v *LogAnalyticsConfiguration) LogAnalyticsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret LogAnalyticsConfiguration
-		return ret
-	}).(LogAnalyticsConfigurationOutput)
+	return o.ApplyT(func(v *LogAnalyticsConfiguration) LogAnalyticsConfiguration { return *v }).(LogAnalyticsConfigurationOutput)
 }
 
 func (o LogAnalyticsConfigurationPtrOutput) CustomerId() pulumi.StringPtrOutput {
@@ -29794,11 +29040,10 @@ func (o LogAnalyticsConfigurationResponseOutput) ToLogAnalyticsConfigurationResp
 }
 
 func (o LogAnalyticsConfigurationResponseOutput) ToLogAnalyticsConfigurationResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsConfigurationResponse) *LogAnalyticsConfigurationResponse {
+	return o.ApplyT(func(v LogAnalyticsConfigurationResponse) *LogAnalyticsConfigurationResponse {
 		return &v
 	}).(LogAnalyticsConfigurationResponsePtrOutput)
 }
-
 func (o LogAnalyticsConfigurationResponseOutput) CustomerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogAnalyticsConfigurationResponse) *string { return v.CustomerId }).(pulumi.StringPtrOutput)
 }
@@ -29818,13 +29063,7 @@ func (o LogAnalyticsConfigurationResponsePtrOutput) ToLogAnalyticsConfigurationR
 }
 
 func (o LogAnalyticsConfigurationResponsePtrOutput) Elem() LogAnalyticsConfigurationResponseOutput {
-	return o.ApplyT(func(v *LogAnalyticsConfigurationResponse) LogAnalyticsConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LogAnalyticsConfigurationResponse
-		return ret
-	}).(LogAnalyticsConfigurationResponseOutput)
+	return o.ApplyT(func(v *LogAnalyticsConfigurationResponse) LogAnalyticsConfigurationResponse { return *v }).(LogAnalyticsConfigurationResponseOutput)
 }
 
 func (o LogAnalyticsConfigurationResponsePtrOutput) CustomerId() pulumi.StringPtrOutput {
@@ -29960,7 +29199,7 @@ func (o LoginOutput) ToLoginPtrOutput() LoginPtrOutput {
 }
 
 func (o LoginOutput) ToLoginPtrOutputWithContext(ctx context.Context) LoginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Login) *Login {
+	return o.ApplyT(func(v Login) *Login {
 		return &v
 	}).(LoginPtrOutput)
 }
@@ -30017,13 +29256,7 @@ func (o LoginPtrOutput) ToLoginPtrOutputWithContext(ctx context.Context) LoginPt
 }
 
 func (o LoginPtrOutput) Elem() LoginOutput {
-	return o.ApplyT(func(v *Login) Login {
-		if v != nil {
-			return *v
-		}
-		var ret Login
-		return ret
-	}).(LoginOutput)
+	return o.ApplyT(func(v *Login) Login { return *v }).(LoginOutput)
 }
 
 // External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -30234,7 +29467,7 @@ func (o LoginResponseOutput) ToLoginResponsePtrOutput() LoginResponsePtrOutput {
 }
 
 func (o LoginResponseOutput) ToLoginResponsePtrOutputWithContext(ctx context.Context) LoginResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoginResponse) *LoginResponse {
+	return o.ApplyT(func(v LoginResponse) *LoginResponse {
 		return &v
 	}).(LoginResponsePtrOutput)
 }
@@ -30306,13 +29539,7 @@ func (o LoginResponsePtrOutput) ToLoginResponsePtrOutputWithContext(ctx context.
 }
 
 func (o LoginResponsePtrOutput) Elem() LoginResponseOutput {
-	return o.ApplyT(func(v *LoginResponse) LoginResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LoginResponse
-		return ret
-	}).(LoginResponseOutput)
+	return o.ApplyT(func(v *LoginResponse) LoginResponse { return *v }).(LoginResponseOutput)
 }
 
 // External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -30517,7 +29744,7 @@ func (o LoginRoutesOutput) ToLoginRoutesPtrOutput() LoginRoutesPtrOutput {
 }
 
 func (o LoginRoutesOutput) ToLoginRoutesPtrOutputWithContext(ctx context.Context) LoginRoutesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoginRoutes) *LoginRoutes {
+	return o.ApplyT(func(v LoginRoutes) *LoginRoutes {
 		return &v
 	}).(LoginRoutesPtrOutput)
 }
@@ -30547,13 +29774,7 @@ func (o LoginRoutesPtrOutput) ToLoginRoutesPtrOutputWithContext(ctx context.Cont
 }
 
 func (o LoginRoutesPtrOutput) Elem() LoginRoutesOutput {
-	return o.ApplyT(func(v *LoginRoutes) LoginRoutes {
-		if v != nil {
-			return *v
-		}
-		var ret LoginRoutes
-		return ret
-	}).(LoginRoutesOutput)
+	return o.ApplyT(func(v *LoginRoutes) LoginRoutes { return *v }).(LoginRoutesOutput)
 }
 
 // Kind of resource.
@@ -30688,7 +29909,7 @@ func (o LoginRoutesResponseOutput) ToLoginRoutesResponsePtrOutput() LoginRoutesR
 }
 
 func (o LoginRoutesResponseOutput) ToLoginRoutesResponsePtrOutputWithContext(ctx context.Context) LoginRoutesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoginRoutesResponse) *LoginRoutesResponse {
+	return o.ApplyT(func(v LoginRoutesResponse) *LoginRoutesResponse {
 		return &v
 	}).(LoginRoutesResponsePtrOutput)
 }
@@ -30733,13 +29954,7 @@ func (o LoginRoutesResponsePtrOutput) ToLoginRoutesResponsePtrOutputWithContext(
 }
 
 func (o LoginRoutesResponsePtrOutput) Elem() LoginRoutesResponseOutput {
-	return o.ApplyT(func(v *LoginRoutesResponse) LoginRoutesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LoginRoutesResponse
-		return ret
-	}).(LoginRoutesResponseOutput)
+	return o.ApplyT(func(v *LoginRoutesResponse) LoginRoutesResponse { return *v }).(LoginRoutesResponseOutput)
 }
 
 // Resource Id.
@@ -30892,7 +30107,7 @@ func (o LoginScopesOutput) ToLoginScopesPtrOutput() LoginScopesPtrOutput {
 }
 
 func (o LoginScopesOutput) ToLoginScopesPtrOutputWithContext(ctx context.Context) LoginScopesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoginScopes) *LoginScopes {
+	return o.ApplyT(func(v LoginScopes) *LoginScopes {
 		return &v
 	}).(LoginScopesPtrOutput)
 }
@@ -30922,13 +30137,7 @@ func (o LoginScopesPtrOutput) ToLoginScopesPtrOutputWithContext(ctx context.Cont
 }
 
 func (o LoginScopesPtrOutput) Elem() LoginScopesOutput {
-	return o.ApplyT(func(v *LoginScopes) LoginScopes {
-		if v != nil {
-			return *v
-		}
-		var ret LoginScopes
-		return ret
-	}).(LoginScopesOutput)
+	return o.ApplyT(func(v *LoginScopes) LoginScopes { return *v }).(LoginScopesOutput)
 }
 
 // Kind of resource.
@@ -31063,7 +30272,7 @@ func (o LoginScopesResponseOutput) ToLoginScopesResponsePtrOutput() LoginScopesR
 }
 
 func (o LoginScopesResponseOutput) ToLoginScopesResponsePtrOutputWithContext(ctx context.Context) LoginScopesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoginScopesResponse) *LoginScopesResponse {
+	return o.ApplyT(func(v LoginScopesResponse) *LoginScopesResponse {
 		return &v
 	}).(LoginScopesResponsePtrOutput)
 }
@@ -31108,13 +30317,7 @@ func (o LoginScopesResponsePtrOutput) ToLoginScopesResponsePtrOutputWithContext(
 }
 
 func (o LoginScopesResponsePtrOutput) Elem() LoginScopesResponseOutput {
-	return o.ApplyT(func(v *LoginScopesResponse) LoginScopesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LoginScopesResponse
-		return ret
-	}).(LoginScopesResponseOutput)
+	return o.ApplyT(func(v *LoginScopesResponse) LoginScopesResponse { return *v }).(LoginScopesResponseOutput)
 }
 
 // Resource Id.
@@ -31170,7 +30373,7 @@ func (o LoginScopesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // Managed service identity.
 type ManagedServiceIdentity struct {
 	// Type of managed service identity.
-	Type *ManagedServiceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -31189,7 +30392,7 @@ type ManagedServiceIdentityInput interface {
 // Managed service identity.
 type ManagedServiceIdentityArgs struct {
 	// Type of managed service identity.
-	Type ManagedServiceIdentityTypePtrInput `pulumi:"type"`
+	Type *ManagedServiceIdentityType `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -31267,14 +30470,14 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
 // Type of managed service identity.
-func (o ManagedServiceIdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentityType { return v.Type }).(ManagedServiceIdentityTypePtrOutput)
+func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
@@ -31297,23 +30500,17 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedServiceIdentity
-		return ret
-	}).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
 }
 
 // Type of managed service identity.
-func (o ManagedServiceIdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) *ManagedServiceIdentityType {
+func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ManagedServiceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
@@ -31434,7 +30631,7 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
@@ -31476,13 +30673,7 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedServiceIdentityResponse
-		return ret
-	}).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
 }
 
 // Principal Id of managed service identity.
@@ -31953,7 +31144,7 @@ func (o NonceOutput) ToNoncePtrOutput() NoncePtrOutput {
 }
 
 func (o NonceOutput) ToNoncePtrOutputWithContext(ctx context.Context) NoncePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nonce) *Nonce {
+	return o.ApplyT(func(v Nonce) *Nonce {
 		return &v
 	}).(NoncePtrOutput)
 }
@@ -31988,13 +31179,7 @@ func (o NoncePtrOutput) ToNoncePtrOutputWithContext(ctx context.Context) NoncePt
 }
 
 func (o NoncePtrOutput) Elem() NonceOutput {
-	return o.ApplyT(func(v *Nonce) Nonce {
-		if v != nil {
-			return *v
-		}
-		var ret Nonce
-		return ret
-	}).(NonceOutput)
+	return o.ApplyT(func(v *Nonce) Nonce { return *v }).(NonceOutput)
 }
 
 // Kind of resource.
@@ -32143,7 +31328,7 @@ func (o NonceResponseOutput) ToNonceResponsePtrOutput() NonceResponsePtrOutput {
 }
 
 func (o NonceResponseOutput) ToNonceResponsePtrOutputWithContext(ctx context.Context) NonceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NonceResponse) *NonceResponse {
+	return o.ApplyT(func(v NonceResponse) *NonceResponse {
 		return &v
 	}).(NonceResponsePtrOutput)
 }
@@ -32193,13 +31378,7 @@ func (o NonceResponsePtrOutput) ToNonceResponsePtrOutputWithContext(ctx context.
 }
 
 func (o NonceResponsePtrOutput) Elem() NonceResponseOutput {
-	return o.ApplyT(func(v *NonceResponse) NonceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NonceResponse
-		return ret
-	}).(NonceResponseOutput)
+	return o.ApplyT(func(v *NonceResponse) NonceResponse { return *v }).(NonceResponseOutput)
 }
 
 // Resource Id.
@@ -32269,7 +31448,7 @@ type OpenIdConnectClientCredential struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// The method that should be used to authenticate the user.
-	Method *ClientCredentialMethod `pulumi:"method"`
+	Method *string `pulumi:"method"`
 }
 
 // OpenIdConnectClientCredentialInput is an input type that accepts OpenIdConnectClientCredentialArgs and OpenIdConnectClientCredentialOutput values.
@@ -32290,7 +31469,7 @@ type OpenIdConnectClientCredentialArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The method that should be used to authenticate the user.
-	Method ClientCredentialMethodPtrInput `pulumi:"method"`
+	Method *ClientCredentialMethod `pulumi:"method"`
 }
 
 func (OpenIdConnectClientCredentialArgs) ElementType() reflect.Type {
@@ -32366,7 +31545,7 @@ func (o OpenIdConnectClientCredentialOutput) ToOpenIdConnectClientCredentialPtrO
 }
 
 func (o OpenIdConnectClientCredentialOutput) ToOpenIdConnectClientCredentialPtrOutputWithContext(ctx context.Context) OpenIdConnectClientCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectClientCredential) *OpenIdConnectClientCredential {
+	return o.ApplyT(func(v OpenIdConnectClientCredential) *OpenIdConnectClientCredential {
 		return &v
 	}).(OpenIdConnectClientCredentialPtrOutput)
 }
@@ -32382,8 +31561,8 @@ func (o OpenIdConnectClientCredentialOutput) Kind() pulumi.StringPtrOutput {
 }
 
 // The method that should be used to authenticate the user.
-func (o OpenIdConnectClientCredentialOutput) Method() ClientCredentialMethodPtrOutput {
-	return o.ApplyT(func(v OpenIdConnectClientCredential) *ClientCredentialMethod { return v.Method }).(ClientCredentialMethodPtrOutput)
+func (o OpenIdConnectClientCredentialOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenIdConnectClientCredential) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 type OpenIdConnectClientCredentialPtrOutput struct{ *pulumi.OutputState }
@@ -32401,13 +31580,7 @@ func (o OpenIdConnectClientCredentialPtrOutput) ToOpenIdConnectClientCredentialP
 }
 
 func (o OpenIdConnectClientCredentialPtrOutput) Elem() OpenIdConnectClientCredentialOutput {
-	return o.ApplyT(func(v *OpenIdConnectClientCredential) OpenIdConnectClientCredential {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectClientCredential
-		return ret
-	}).(OpenIdConnectClientCredentialOutput)
+	return o.ApplyT(func(v *OpenIdConnectClientCredential) OpenIdConnectClientCredential { return *v }).(OpenIdConnectClientCredentialOutput)
 }
 
 // The app setting that contains the client secret for the custom Open ID Connect provider.
@@ -32431,13 +31604,13 @@ func (o OpenIdConnectClientCredentialPtrOutput) Kind() pulumi.StringPtrOutput {
 }
 
 // The method that should be used to authenticate the user.
-func (o OpenIdConnectClientCredentialPtrOutput) Method() ClientCredentialMethodPtrOutput {
-	return o.ApplyT(func(v *OpenIdConnectClientCredential) *ClientCredentialMethod {
+func (o OpenIdConnectClientCredentialPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenIdConnectClientCredential) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Method
-	}).(ClientCredentialMethodPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The authentication client credentials of the custom Open ID Connect provider.
@@ -32556,7 +31729,7 @@ func (o OpenIdConnectClientCredentialResponseOutput) ToOpenIdConnectClientCreden
 }
 
 func (o OpenIdConnectClientCredentialResponseOutput) ToOpenIdConnectClientCredentialResponsePtrOutputWithContext(ctx context.Context) OpenIdConnectClientCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectClientCredentialResponse) *OpenIdConnectClientCredentialResponse {
+	return o.ApplyT(func(v OpenIdConnectClientCredentialResponse) *OpenIdConnectClientCredentialResponse {
 		return &v
 	}).(OpenIdConnectClientCredentialResponsePtrOutput)
 }
@@ -32606,13 +31779,7 @@ func (o OpenIdConnectClientCredentialResponsePtrOutput) ToOpenIdConnectClientCre
 }
 
 func (o OpenIdConnectClientCredentialResponsePtrOutput) Elem() OpenIdConnectClientCredentialResponseOutput {
-	return o.ApplyT(func(v *OpenIdConnectClientCredentialResponse) OpenIdConnectClientCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectClientCredentialResponse
-		return ret
-	}).(OpenIdConnectClientCredentialResponseOutput)
+	return o.ApplyT(func(v *OpenIdConnectClientCredentialResponse) OpenIdConnectClientCredentialResponse { return *v }).(OpenIdConnectClientCredentialResponseOutput)
 }
 
 // The app setting that contains the client secret for the custom Open ID Connect provider.
@@ -32791,7 +31958,7 @@ func (o OpenIdConnectConfigOutput) ToOpenIdConnectConfigPtrOutput() OpenIdConnec
 }
 
 func (o OpenIdConnectConfigOutput) ToOpenIdConnectConfigPtrOutputWithContext(ctx context.Context) OpenIdConnectConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectConfig) *OpenIdConnectConfig {
+	return o.ApplyT(func(v OpenIdConnectConfig) *OpenIdConnectConfig {
 		return &v
 	}).(OpenIdConnectConfigPtrOutput)
 }
@@ -32841,13 +32008,7 @@ func (o OpenIdConnectConfigPtrOutput) ToOpenIdConnectConfigPtrOutputWithContext(
 }
 
 func (o OpenIdConnectConfigPtrOutput) Elem() OpenIdConnectConfigOutput {
-	return o.ApplyT(func(v *OpenIdConnectConfig) OpenIdConnectConfig {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectConfig
-		return ret
-	}).(OpenIdConnectConfigOutput)
+	return o.ApplyT(func(v *OpenIdConnectConfig) OpenIdConnectConfig { return *v }).(OpenIdConnectConfigOutput)
 }
 
 // The endpoint to be used to make an authorization request.
@@ -33038,7 +32199,7 @@ func (o OpenIdConnectConfigResponseOutput) ToOpenIdConnectConfigResponsePtrOutpu
 }
 
 func (o OpenIdConnectConfigResponseOutput) ToOpenIdConnectConfigResponsePtrOutputWithContext(ctx context.Context) OpenIdConnectConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectConfigResponse) *OpenIdConnectConfigResponse {
+	return o.ApplyT(func(v OpenIdConnectConfigResponse) *OpenIdConnectConfigResponse {
 		return &v
 	}).(OpenIdConnectConfigResponsePtrOutput)
 }
@@ -33103,13 +32264,7 @@ func (o OpenIdConnectConfigResponsePtrOutput) ToOpenIdConnectConfigResponsePtrOu
 }
 
 func (o OpenIdConnectConfigResponsePtrOutput) Elem() OpenIdConnectConfigResponseOutput {
-	return o.ApplyT(func(v *OpenIdConnectConfigResponse) OpenIdConnectConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectConfigResponse
-		return ret
-	}).(OpenIdConnectConfigResponseOutput)
+	return o.ApplyT(func(v *OpenIdConnectConfigResponse) OpenIdConnectConfigResponse { return *v }).(OpenIdConnectConfigResponseOutput)
 }
 
 // The endpoint to be used to make an authorization request.
@@ -33306,7 +32461,7 @@ func (o OpenIdConnectLoginOutput) ToOpenIdConnectLoginPtrOutput() OpenIdConnectL
 }
 
 func (o OpenIdConnectLoginOutput) ToOpenIdConnectLoginPtrOutputWithContext(ctx context.Context) OpenIdConnectLoginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectLogin) *OpenIdConnectLogin {
+	return o.ApplyT(func(v OpenIdConnectLogin) *OpenIdConnectLogin {
 		return &v
 	}).(OpenIdConnectLoginPtrOutput)
 }
@@ -33341,13 +32496,7 @@ func (o OpenIdConnectLoginPtrOutput) ToOpenIdConnectLoginPtrOutputWithContext(ct
 }
 
 func (o OpenIdConnectLoginPtrOutput) Elem() OpenIdConnectLoginOutput {
-	return o.ApplyT(func(v *OpenIdConnectLogin) OpenIdConnectLogin {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectLogin
-		return ret
-	}).(OpenIdConnectLoginOutput)
+	return o.ApplyT(func(v *OpenIdConnectLogin) OpenIdConnectLogin { return *v }).(OpenIdConnectLoginOutput)
 }
 
 // Kind of resource.
@@ -33496,7 +32645,7 @@ func (o OpenIdConnectLoginResponseOutput) ToOpenIdConnectLoginResponsePtrOutput(
 }
 
 func (o OpenIdConnectLoginResponseOutput) ToOpenIdConnectLoginResponsePtrOutputWithContext(ctx context.Context) OpenIdConnectLoginResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectLoginResponse) *OpenIdConnectLoginResponse {
+	return o.ApplyT(func(v OpenIdConnectLoginResponse) *OpenIdConnectLoginResponse {
 		return &v
 	}).(OpenIdConnectLoginResponsePtrOutput)
 }
@@ -33546,13 +32695,7 @@ func (o OpenIdConnectLoginResponsePtrOutput) ToOpenIdConnectLoginResponsePtrOutp
 }
 
 func (o OpenIdConnectLoginResponsePtrOutput) Elem() OpenIdConnectLoginResponseOutput {
-	return o.ApplyT(func(v *OpenIdConnectLoginResponse) OpenIdConnectLoginResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectLoginResponse
-		return ret
-	}).(OpenIdConnectLoginResponseOutput)
+	return o.ApplyT(func(v *OpenIdConnectLoginResponse) OpenIdConnectLoginResponse { return *v }).(OpenIdConnectLoginResponseOutput)
 }
 
 // Resource Id.
@@ -33723,7 +32866,7 @@ func (o OpenIdConnectRegistrationOutput) ToOpenIdConnectRegistrationPtrOutput() 
 }
 
 func (o OpenIdConnectRegistrationOutput) ToOpenIdConnectRegistrationPtrOutputWithContext(ctx context.Context) OpenIdConnectRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectRegistration) *OpenIdConnectRegistration {
+	return o.ApplyT(func(v OpenIdConnectRegistration) *OpenIdConnectRegistration {
 		return &v
 	}).(OpenIdConnectRegistrationPtrOutput)
 }
@@ -33763,13 +32906,7 @@ func (o OpenIdConnectRegistrationPtrOutput) ToOpenIdConnectRegistrationPtrOutput
 }
 
 func (o OpenIdConnectRegistrationPtrOutput) Elem() OpenIdConnectRegistrationOutput {
-	return o.ApplyT(func(v *OpenIdConnectRegistration) OpenIdConnectRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectRegistration
-		return ret
-	}).(OpenIdConnectRegistrationOutput)
+	return o.ApplyT(func(v *OpenIdConnectRegistration) OpenIdConnectRegistration { return *v }).(OpenIdConnectRegistrationOutput)
 }
 
 // The authentication credentials of the custom Open ID Connect provider.
@@ -33932,7 +33069,7 @@ func (o OpenIdConnectRegistrationResponseOutput) ToOpenIdConnectRegistrationResp
 }
 
 func (o OpenIdConnectRegistrationResponseOutput) ToOpenIdConnectRegistrationResponsePtrOutputWithContext(ctx context.Context) OpenIdConnectRegistrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdConnectRegistrationResponse) *OpenIdConnectRegistrationResponse {
+	return o.ApplyT(func(v OpenIdConnectRegistrationResponse) *OpenIdConnectRegistrationResponse {
 		return &v
 	}).(OpenIdConnectRegistrationResponsePtrOutput)
 }
@@ -33991,13 +33128,7 @@ func (o OpenIdConnectRegistrationResponsePtrOutput) ToOpenIdConnectRegistrationR
 }
 
 func (o OpenIdConnectRegistrationResponsePtrOutput) Elem() OpenIdConnectRegistrationResponseOutput {
-	return o.ApplyT(func(v *OpenIdConnectRegistrationResponse) OpenIdConnectRegistrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenIdConnectRegistrationResponse
-		return ret
-	}).(OpenIdConnectRegistrationResponseOutput)
+	return o.ApplyT(func(v *OpenIdConnectRegistrationResponse) OpenIdConnectRegistrationResponse { return *v }).(OpenIdConnectRegistrationResponseOutput)
 }
 
 // The authentication credentials of the custom Open ID Connect provider.
@@ -34174,7 +33305,7 @@ func (o PrivateLinkConnectionStateOutput) ToPrivateLinkConnectionStatePtrOutput(
 }
 
 func (o PrivateLinkConnectionStateOutput) ToPrivateLinkConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkConnectionState) *PrivateLinkConnectionState {
+	return o.ApplyT(func(v PrivateLinkConnectionState) *PrivateLinkConnectionState {
 		return &v
 	}).(PrivateLinkConnectionStatePtrOutput)
 }
@@ -34209,13 +33340,7 @@ func (o PrivateLinkConnectionStatePtrOutput) ToPrivateLinkConnectionStatePtrOutp
 }
 
 func (o PrivateLinkConnectionStatePtrOutput) Elem() PrivateLinkConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkConnectionState) PrivateLinkConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkConnectionState
-		return ret
-	}).(PrivateLinkConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkConnectionState) PrivateLinkConnectionState { return *v }).(PrivateLinkConnectionStateOutput)
 }
 
 // ActionsRequired for a private link connection
@@ -34352,7 +33477,7 @@ func (o PrivateLinkConnectionStateResponseOutput) ToPrivateLinkConnectionStateRe
 }
 
 func (o PrivateLinkConnectionStateResponseOutput) ToPrivateLinkConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkConnectionStateResponse) *PrivateLinkConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkConnectionStateResponse) *PrivateLinkConnectionStateResponse {
 		return &v
 	}).(PrivateLinkConnectionStateResponsePtrOutput)
 }
@@ -34387,13 +33512,7 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) ToPrivateLinkConnectionStat
 }
 
 func (o PrivateLinkConnectionStateResponsePtrOutput) Elem() PrivateLinkConnectionStateResponseOutput {
-	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) PrivateLinkConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkConnectionStateResponse
-		return ret
-	}).(PrivateLinkConnectionStateResponseOutput)
+	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) PrivateLinkConnectionStateResponse { return *v }).(PrivateLinkConnectionStateResponseOutput)
 }
 
 // ActionsRequired for a private link connection
@@ -34544,7 +33663,7 @@ func (o PushSettingsOutput) ToPushSettingsPtrOutput() PushSettingsPtrOutput {
 }
 
 func (o PushSettingsOutput) ToPushSettingsPtrOutputWithContext(ctx context.Context) PushSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushSettings) *PushSettings {
+	return o.ApplyT(func(v PushSettings) *PushSettings {
 		return &v
 	}).(PushSettingsPtrOutput)
 }
@@ -34592,13 +33711,7 @@ func (o PushSettingsPtrOutput) ToPushSettingsPtrOutputWithContext(ctx context.Co
 }
 
 func (o PushSettingsPtrOutput) Elem() PushSettingsOutput {
-	return o.ApplyT(func(v *PushSettings) PushSettings {
-		if v != nil {
-			return *v
-		}
-		var ret PushSettings
-		return ret
-	}).(PushSettingsOutput)
+	return o.ApplyT(func(v *PushSettings) PushSettings { return *v }).(PushSettingsOutput)
 }
 
 // Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -34784,7 +33897,7 @@ func (o PushSettingsResponseOutput) ToPushSettingsResponsePtrOutput() PushSettin
 }
 
 func (o PushSettingsResponseOutput) ToPushSettingsResponsePtrOutputWithContext(ctx context.Context) PushSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushSettingsResponse) *PushSettingsResponse {
+	return o.ApplyT(func(v PushSettingsResponse) *PushSettingsResponse {
 		return &v
 	}).(PushSettingsResponsePtrOutput)
 }
@@ -34847,13 +33960,7 @@ func (o PushSettingsResponsePtrOutput) ToPushSettingsResponsePtrOutputWithContex
 }
 
 func (o PushSettingsResponsePtrOutput) Elem() PushSettingsResponseOutput {
-	return o.ApplyT(func(v *PushSettingsResponse) PushSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PushSettingsResponse
-		return ret
-	}).(PushSettingsResponseOutput)
+	return o.ApplyT(func(v *PushSettingsResponse) PushSettingsResponse { return *v }).(PushSettingsResponseOutput)
 }
 
 // Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -35405,7 +34512,7 @@ func (o RemotePrivateEndpointConnectionResponseOutput) ToRemotePrivateEndpointCo
 }
 
 func (o RemotePrivateEndpointConnectionResponseOutput) ToRemotePrivateEndpointConnectionResponsePtrOutputWithContext(ctx context.Context) RemotePrivateEndpointConnectionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemotePrivateEndpointConnectionResponse) *RemotePrivateEndpointConnectionResponse {
+	return o.ApplyT(func(v RemotePrivateEndpointConnectionResponse) *RemotePrivateEndpointConnectionResponse {
 		return &v
 	}).(RemotePrivateEndpointConnectionResponsePtrOutput)
 }
@@ -35466,13 +34573,7 @@ func (o RemotePrivateEndpointConnectionResponsePtrOutput) ToRemotePrivateEndpoin
 }
 
 func (o RemotePrivateEndpointConnectionResponsePtrOutput) Elem() RemotePrivateEndpointConnectionResponseOutput {
-	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) RemotePrivateEndpointConnectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RemotePrivateEndpointConnectionResponse
-		return ret
-	}).(RemotePrivateEndpointConnectionResponseOutput)
+	return o.ApplyT(func(v *RemotePrivateEndpointConnectionResponse) RemotePrivateEndpointConnectionResponse { return *v }).(RemotePrivateEndpointConnectionResponseOutput)
 }
 
 // Resource Id.
@@ -35654,7 +34755,7 @@ func (o RequestsBasedTriggerOutput) ToRequestsBasedTriggerPtrOutput() RequestsBa
 }
 
 func (o RequestsBasedTriggerOutput) ToRequestsBasedTriggerPtrOutputWithContext(ctx context.Context) RequestsBasedTriggerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestsBasedTrigger) *RequestsBasedTrigger {
+	return o.ApplyT(func(v RequestsBasedTrigger) *RequestsBasedTrigger {
 		return &v
 	}).(RequestsBasedTriggerPtrOutput)
 }
@@ -35684,13 +34785,7 @@ func (o RequestsBasedTriggerPtrOutput) ToRequestsBasedTriggerPtrOutputWithContex
 }
 
 func (o RequestsBasedTriggerPtrOutput) Elem() RequestsBasedTriggerOutput {
-	return o.ApplyT(func(v *RequestsBasedTrigger) RequestsBasedTrigger {
-		if v != nil {
-			return *v
-		}
-		var ret RequestsBasedTrigger
-		return ret
-	}).(RequestsBasedTriggerOutput)
+	return o.ApplyT(func(v *RequestsBasedTrigger) RequestsBasedTrigger { return *v }).(RequestsBasedTriggerOutput)
 }
 
 // Request Count.
@@ -35813,7 +34908,7 @@ func (o RequestsBasedTriggerResponseOutput) ToRequestsBasedTriggerResponsePtrOut
 }
 
 func (o RequestsBasedTriggerResponseOutput) ToRequestsBasedTriggerResponsePtrOutputWithContext(ctx context.Context) RequestsBasedTriggerResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestsBasedTriggerResponse) *RequestsBasedTriggerResponse {
+	return o.ApplyT(func(v RequestsBasedTriggerResponse) *RequestsBasedTriggerResponse {
 		return &v
 	}).(RequestsBasedTriggerResponsePtrOutput)
 }
@@ -35843,13 +34938,7 @@ func (o RequestsBasedTriggerResponsePtrOutput) ToRequestsBasedTriggerResponsePtr
 }
 
 func (o RequestsBasedTriggerResponsePtrOutput) Elem() RequestsBasedTriggerResponseOutput {
-	return o.ApplyT(func(v *RequestsBasedTriggerResponse) RequestsBasedTriggerResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RequestsBasedTriggerResponse
-		return ret
-	}).(RequestsBasedTriggerResponseOutput)
+	return o.ApplyT(func(v *RequestsBasedTriggerResponse) RequestsBasedTriggerResponse { return *v }).(RequestsBasedTriggerResponseOutput)
 }
 
 // Request Count.
@@ -36155,13 +35244,13 @@ type SiteConfig struct {
 	// Linux App Framework and version
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
+	LoadBalancing *string `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled *bool `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit *int `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId *int `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -36307,13 +35396,13 @@ type SiteConfigArgs struct {
 	// Linux App Framework and version
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing SiteLoadBalancingPtrInput `pulumi:"loadBalancing"`
+	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode ManagedPipelineModePtrInput `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -36453,7 +35542,7 @@ func (o SiteConfigOutput) ToSiteConfigPtrOutput() SiteConfigPtrOutput {
 }
 
 func (o SiteConfigOutput) ToSiteConfigPtrOutputWithContext(ctx context.Context) SiteConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteConfig) *SiteConfig {
+	return o.ApplyT(func(v SiteConfig) *SiteConfig {
 		return &v
 	}).(SiteConfigPtrOutput)
 }
@@ -36617,8 +35706,8 @@ func (o SiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // Site load balancing.
-func (o SiteConfigOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *SiteLoadBalancing { return v.LoadBalancing }).(SiteLoadBalancingPtrOutput)
+func (o SiteConfigOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -36632,8 +35721,8 @@ func (o SiteConfigOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 }
 
 // Managed pipeline mode.
-func (o SiteConfigOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
-	return o.ApplyT(func(v SiteConfig) *ManagedPipelineMode { return v.ManagedPipelineMode }).(ManagedPipelineModePtrOutput)
+func (o SiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
 }
 
 // Managed Service Identity Id
@@ -36808,13 +35897,7 @@ func (o SiteConfigPtrOutput) ToSiteConfigPtrOutputWithContext(ctx context.Contex
 }
 
 func (o SiteConfigPtrOutput) Elem() SiteConfigOutput {
-	return o.ApplyT(func(v *SiteConfig) SiteConfig {
-		if v != nil {
-			return *v
-		}
-		var ret SiteConfig
-		return ret
-	}).(SiteConfigOutput)
+	return o.ApplyT(func(v *SiteConfig) SiteConfig { return *v }).(SiteConfigOutput)
 }
 
 // Flag to use Managed Identity Creds for ACR pull
@@ -37131,13 +36214,13 @@ func (o SiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // Site load balancing.
-func (o SiteConfigPtrOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *SiteLoadBalancing {
+func (o SiteConfigPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.LoadBalancing
-	}).(SiteLoadBalancingPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -37161,13 +36244,13 @@ func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 }
 
 // Managed pipeline mode.
-func (o SiteConfigPtrOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *ManagedPipelineMode {
+func (o SiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ManagedPipelineMode
-	}).(ManagedPipelineModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Managed Service Identity Id
@@ -37852,7 +36935,7 @@ func (o SiteConfigResponseOutput) ToSiteConfigResponsePtrOutput() SiteConfigResp
 }
 
 func (o SiteConfigResponseOutput) ToSiteConfigResponsePtrOutputWithContext(ctx context.Context) SiteConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteConfigResponse) *SiteConfigResponse {
+	return o.ApplyT(func(v SiteConfigResponse) *SiteConfigResponse {
 		return &v
 	}).(SiteConfigResponsePtrOutput)
 }
@@ -38212,13 +37295,7 @@ func (o SiteConfigResponsePtrOutput) ToSiteConfigResponsePtrOutputWithContext(ct
 }
 
 func (o SiteConfigResponsePtrOutput) Elem() SiteConfigResponseOutput {
-	return o.ApplyT(func(v *SiteConfigResponse) SiteConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SiteConfigResponse
-		return ret
-	}).(SiteConfigResponseOutput)
+	return o.ApplyT(func(v *SiteConfigResponse) SiteConfigResponse { return *v }).(SiteConfigResponseOutput)
 }
 
 // Flag to use Managed Identity Creds for ACR pull
@@ -39000,7 +38077,7 @@ func (o SiteLimitsOutput) ToSiteLimitsPtrOutput() SiteLimitsPtrOutput {
 }
 
 func (o SiteLimitsOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Context) SiteLimitsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLimits) *SiteLimits {
+	return o.ApplyT(func(v SiteLimits) *SiteLimits {
 		return &v
 	}).(SiteLimitsPtrOutput)
 }
@@ -39035,13 +38112,7 @@ func (o SiteLimitsPtrOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o SiteLimitsPtrOutput) Elem() SiteLimitsOutput {
-	return o.ApplyT(func(v *SiteLimits) SiteLimits {
-		if v != nil {
-			return *v
-		}
-		var ret SiteLimits
-		return ret
-	}).(SiteLimitsOutput)
+	return o.ApplyT(func(v *SiteLimits) SiteLimits { return *v }).(SiteLimitsOutput)
 }
 
 // Maximum allowed disk size usage in MB.
@@ -39178,7 +38249,7 @@ func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutput() SiteLimitsResp
 }
 
 func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutputWithContext(ctx context.Context) SiteLimitsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLimitsResponse) *SiteLimitsResponse {
+	return o.ApplyT(func(v SiteLimitsResponse) *SiteLimitsResponse {
 		return &v
 	}).(SiteLimitsResponsePtrOutput)
 }
@@ -39213,13 +38284,7 @@ func (o SiteLimitsResponsePtrOutput) ToSiteLimitsResponsePtrOutputWithContext(ct
 }
 
 func (o SiteLimitsResponsePtrOutput) Elem() SiteLimitsResponseOutput {
-	return o.ApplyT(func(v *SiteLimitsResponse) SiteLimitsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SiteLimitsResponse
-		return ret
-	}).(SiteLimitsResponseOutput)
+	return o.ApplyT(func(v *SiteLimitsResponse) SiteLimitsResponse { return *v }).(SiteLimitsResponseOutput)
 }
 
 // Maximum allowed disk size usage in MB.
@@ -39360,7 +38425,7 @@ func (o SiteMachineKeyResponseOutput) ToSiteMachineKeyResponsePtrOutput() SiteMa
 }
 
 func (o SiteMachineKeyResponseOutput) ToSiteMachineKeyResponsePtrOutputWithContext(ctx context.Context) SiteMachineKeyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteMachineKeyResponse) *SiteMachineKeyResponse {
+	return o.ApplyT(func(v SiteMachineKeyResponse) *SiteMachineKeyResponse {
 		return &v
 	}).(SiteMachineKeyResponsePtrOutput)
 }
@@ -39400,13 +38465,7 @@ func (o SiteMachineKeyResponsePtrOutput) ToSiteMachineKeyResponsePtrOutputWithCo
 }
 
 func (o SiteMachineKeyResponsePtrOutput) Elem() SiteMachineKeyResponseOutput {
-	return o.ApplyT(func(v *SiteMachineKeyResponse) SiteMachineKeyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SiteMachineKeyResponse
-		return ret
-	}).(SiteMachineKeyResponseOutput)
+	return o.ApplyT(func(v *SiteMachineKeyResponse) SiteMachineKeyResponse { return *v }).(SiteMachineKeyResponseOutput)
 }
 
 // Algorithm used for decryption.
@@ -39561,7 +38620,7 @@ func (o SkuCapacityOutput) ToSkuCapacityPtrOutput() SkuCapacityPtrOutput {
 }
 
 func (o SkuCapacityOutput) ToSkuCapacityPtrOutputWithContext(ctx context.Context) SkuCapacityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuCapacity) *SkuCapacity {
+	return o.ApplyT(func(v SkuCapacity) *SkuCapacity {
 		return &v
 	}).(SkuCapacityPtrOutput)
 }
@@ -39606,13 +38665,7 @@ func (o SkuCapacityPtrOutput) ToSkuCapacityPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuCapacityPtrOutput) Elem() SkuCapacityOutput {
-	return o.ApplyT(func(v *SkuCapacity) SkuCapacity {
-		if v != nil {
-			return *v
-		}
-		var ret SkuCapacity
-		return ret
-	}).(SkuCapacityOutput)
+	return o.ApplyT(func(v *SkuCapacity) SkuCapacity { return *v }).(SkuCapacityOutput)
 }
 
 // Default number of workers for this App Service plan SKU.
@@ -39777,7 +38830,7 @@ func (o SkuCapacityResponseOutput) ToSkuCapacityResponsePtrOutput() SkuCapacityR
 }
 
 func (o SkuCapacityResponseOutput) ToSkuCapacityResponsePtrOutputWithContext(ctx context.Context) SkuCapacityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuCapacityResponse) *SkuCapacityResponse {
+	return o.ApplyT(func(v SkuCapacityResponse) *SkuCapacityResponse {
 		return &v
 	}).(SkuCapacityResponsePtrOutput)
 }
@@ -39822,13 +38875,7 @@ func (o SkuCapacityResponsePtrOutput) ToSkuCapacityResponsePtrOutputWithContext(
 }
 
 func (o SkuCapacityResponsePtrOutput) Elem() SkuCapacityResponseOutput {
-	return o.ApplyT(func(v *SkuCapacityResponse) SkuCapacityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuCapacityResponse
-		return ret
-	}).(SkuCapacityResponseOutput)
+	return o.ApplyT(func(v *SkuCapacityResponse) SkuCapacityResponse { return *v }).(SkuCapacityResponseOutput)
 }
 
 // Default number of workers for this App Service plan SKU.
@@ -40005,7 +39052,7 @@ func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutput() SkuDescriptionPtrOutpu
 }
 
 func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutputWithContext(ctx context.Context) SkuDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescription) *SkuDescription {
+	return o.ApplyT(func(v SkuDescription) *SkuDescription {
 		return &v
 	}).(SkuDescriptionPtrOutput)
 }
@@ -40065,13 +39112,7 @@ func (o SkuDescriptionPtrOutput) ToSkuDescriptionPtrOutputWithContext(ctx contex
 }
 
 func (o SkuDescriptionPtrOutput) Elem() SkuDescriptionOutput {
-	return o.ApplyT(func(v *SkuDescription) SkuDescription {
-		if v != nil {
-			return *v
-		}
-		var ret SkuDescription
-		return ret
-	}).(SkuDescriptionOutput)
+	return o.ApplyT(func(v *SkuDescription) SkuDescription { return *v }).(SkuDescriptionOutput)
 }
 
 // Capabilities of the SKU, e.g., is traffic manager enabled?
@@ -40278,7 +39319,7 @@ func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutput() SkuDes
 }
 
 func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescriptionResponse) *SkuDescriptionResponse {
+	return o.ApplyT(func(v SkuDescriptionResponse) *SkuDescriptionResponse {
 		return &v
 	}).(SkuDescriptionResponsePtrOutput)
 }
@@ -40338,13 +39379,7 @@ func (o SkuDescriptionResponsePtrOutput) ToSkuDescriptionResponsePtrOutputWithCo
 }
 
 func (o SkuDescriptionResponsePtrOutput) Elem() SkuDescriptionResponseOutput {
-	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuDescriptionResponse
-		return ret
-	}).(SkuDescriptionResponseOutput)
+	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse { return *v }).(SkuDescriptionResponseOutput)
 }
 
 // Capabilities of the SKU, e.g., is traffic manager enabled?
@@ -40531,7 +39566,7 @@ func (o SlotSwapStatusResponseOutput) ToSlotSwapStatusResponsePtrOutput() SlotSw
 }
 
 func (o SlotSwapStatusResponseOutput) ToSlotSwapStatusResponsePtrOutputWithContext(ctx context.Context) SlotSwapStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotSwapStatusResponse) *SlotSwapStatusResponse {
+	return o.ApplyT(func(v SlotSwapStatusResponse) *SlotSwapStatusResponse {
 		return &v
 	}).(SlotSwapStatusResponsePtrOutput)
 }
@@ -40566,13 +39601,7 @@ func (o SlotSwapStatusResponsePtrOutput) ToSlotSwapStatusResponsePtrOutputWithCo
 }
 
 func (o SlotSwapStatusResponsePtrOutput) Elem() SlotSwapStatusResponseOutput {
-	return o.ApplyT(func(v *SlotSwapStatusResponse) SlotSwapStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SlotSwapStatusResponse
-		return ret
-	}).(SlotSwapStatusResponseOutput)
+	return o.ApplyT(func(v *SlotSwapStatusResponse) SlotSwapStatusResponse { return *v }).(SlotSwapStatusResponseOutput)
 }
 
 // The destination slot of the last swap operation.
@@ -40738,7 +39767,7 @@ func (o SlowRequestsBasedTriggerOutput) ToSlowRequestsBasedTriggerPtrOutput() Sl
 }
 
 func (o SlowRequestsBasedTriggerOutput) ToSlowRequestsBasedTriggerPtrOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlowRequestsBasedTrigger) *SlowRequestsBasedTrigger {
+	return o.ApplyT(func(v SlowRequestsBasedTrigger) *SlowRequestsBasedTrigger {
 		return &v
 	}).(SlowRequestsBasedTriggerPtrOutput)
 }
@@ -40778,13 +39807,7 @@ func (o SlowRequestsBasedTriggerPtrOutput) ToSlowRequestsBasedTriggerPtrOutputWi
 }
 
 func (o SlowRequestsBasedTriggerPtrOutput) Elem() SlowRequestsBasedTriggerOutput {
-	return o.ApplyT(func(v *SlowRequestsBasedTrigger) SlowRequestsBasedTrigger {
-		if v != nil {
-			return *v
-		}
-		var ret SlowRequestsBasedTrigger
-		return ret
-	}).(SlowRequestsBasedTriggerOutput)
+	return o.ApplyT(func(v *SlowRequestsBasedTrigger) SlowRequestsBasedTrigger { return *v }).(SlowRequestsBasedTriggerOutput)
 }
 
 // Request Count.
@@ -40980,7 +40003,7 @@ func (o SlowRequestsBasedTriggerResponseOutput) ToSlowRequestsBasedTriggerRespon
 }
 
 func (o SlowRequestsBasedTriggerResponseOutput) ToSlowRequestsBasedTriggerResponsePtrOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlowRequestsBasedTriggerResponse) *SlowRequestsBasedTriggerResponse {
+	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *SlowRequestsBasedTriggerResponse {
 		return &v
 	}).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
@@ -41020,13 +40043,7 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) ToSlowRequestsBasedTriggerRes
 }
 
 func (o SlowRequestsBasedTriggerResponsePtrOutput) Elem() SlowRequestsBasedTriggerResponseOutput {
-	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) SlowRequestsBasedTriggerResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SlowRequestsBasedTriggerResponse
-		return ret
-	}).(SlowRequestsBasedTriggerResponseOutput)
+	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) SlowRequestsBasedTriggerResponse { return *v }).(SlowRequestsBasedTriggerResponseOutput)
 }
 
 // Request Count.
@@ -41213,7 +40230,7 @@ func (o StaticSiteBuildPropertiesOutput) ToStaticSiteBuildPropertiesPtrOutput() 
 }
 
 func (o StaticSiteBuildPropertiesOutput) ToStaticSiteBuildPropertiesPtrOutputWithContext(ctx context.Context) StaticSiteBuildPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteBuildProperties) *StaticSiteBuildProperties {
+	return o.ApplyT(func(v StaticSiteBuildProperties) *StaticSiteBuildProperties {
 		return &v
 	}).(StaticSiteBuildPropertiesPtrOutput)
 }
@@ -41273,13 +40290,7 @@ func (o StaticSiteBuildPropertiesPtrOutput) ToStaticSiteBuildPropertiesPtrOutput
 }
 
 func (o StaticSiteBuildPropertiesPtrOutput) Elem() StaticSiteBuildPropertiesOutput {
-	return o.ApplyT(func(v *StaticSiteBuildProperties) StaticSiteBuildProperties {
-		if v != nil {
-			return *v
-		}
-		var ret StaticSiteBuildProperties
-		return ret
-	}).(StaticSiteBuildPropertiesOutput)
+	return o.ApplyT(func(v *StaticSiteBuildProperties) StaticSiteBuildProperties { return *v }).(StaticSiteBuildPropertiesOutput)
 }
 
 // A custom command to run during deployment of the Azure Functions API application.
@@ -41486,7 +40497,7 @@ func (o StaticSiteBuildPropertiesResponseOutput) ToStaticSiteBuildPropertiesResp
 }
 
 func (o StaticSiteBuildPropertiesResponseOutput) ToStaticSiteBuildPropertiesResponsePtrOutputWithContext(ctx context.Context) StaticSiteBuildPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteBuildPropertiesResponse) *StaticSiteBuildPropertiesResponse {
+	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *StaticSiteBuildPropertiesResponse {
 		return &v
 	}).(StaticSiteBuildPropertiesResponsePtrOutput)
 }
@@ -41546,13 +40557,7 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) ToStaticSiteBuildPropertiesR
 }
 
 func (o StaticSiteBuildPropertiesResponsePtrOutput) Elem() StaticSiteBuildPropertiesResponseOutput {
-	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) StaticSiteBuildPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StaticSiteBuildPropertiesResponse
-		return ret
-	}).(StaticSiteBuildPropertiesResponseOutput)
+	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) StaticSiteBuildPropertiesResponse { return *v }).(StaticSiteBuildPropertiesResponseOutput)
 }
 
 // A custom command to run during deployment of the Azure Functions API application.
@@ -41747,7 +40752,7 @@ func (o StaticSiteTemplateOptionsOutput) ToStaticSiteTemplateOptionsPtrOutput() 
 }
 
 func (o StaticSiteTemplateOptionsOutput) ToStaticSiteTemplateOptionsPtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteTemplateOptions) *StaticSiteTemplateOptions {
+	return o.ApplyT(func(v StaticSiteTemplateOptions) *StaticSiteTemplateOptions {
 		return &v
 	}).(StaticSiteTemplateOptionsPtrOutput)
 }
@@ -41792,13 +40797,7 @@ func (o StaticSiteTemplateOptionsPtrOutput) ToStaticSiteTemplateOptionsPtrOutput
 }
 
 func (o StaticSiteTemplateOptionsPtrOutput) Elem() StaticSiteTemplateOptionsOutput {
-	return o.ApplyT(func(v *StaticSiteTemplateOptions) StaticSiteTemplateOptions {
-		if v != nil {
-			return *v
-		}
-		var ret StaticSiteTemplateOptions
-		return ret
-	}).(StaticSiteTemplateOptionsOutput)
+	return o.ApplyT(func(v *StaticSiteTemplateOptions) StaticSiteTemplateOptions { return *v }).(StaticSiteTemplateOptionsOutput)
 }
 
 // Description of the newly generated repository.
@@ -41963,7 +40962,7 @@ func (o StaticSiteTemplateOptionsResponseOutput) ToStaticSiteTemplateOptionsResp
 }
 
 func (o StaticSiteTemplateOptionsResponseOutput) ToStaticSiteTemplateOptionsResponsePtrOutputWithContext(ctx context.Context) StaticSiteTemplateOptionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteTemplateOptionsResponse) *StaticSiteTemplateOptionsResponse {
+	return o.ApplyT(func(v StaticSiteTemplateOptionsResponse) *StaticSiteTemplateOptionsResponse {
 		return &v
 	}).(StaticSiteTemplateOptionsResponsePtrOutput)
 }
@@ -42008,13 +41007,7 @@ func (o StaticSiteTemplateOptionsResponsePtrOutput) ToStaticSiteTemplateOptionsR
 }
 
 func (o StaticSiteTemplateOptionsResponsePtrOutput) Elem() StaticSiteTemplateOptionsResponseOutput {
-	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) StaticSiteTemplateOptionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StaticSiteTemplateOptionsResponse
-		return ret
-	}).(StaticSiteTemplateOptionsResponseOutput)
+	return o.ApplyT(func(v *StaticSiteTemplateOptionsResponse) StaticSiteTemplateOptionsResponse { return *v }).(StaticSiteTemplateOptionsResponseOutput)
 }
 
 // Description of the newly generated repository.
@@ -43038,7 +42031,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -43088,13 +42081,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -43273,7 +42260,7 @@ func (o TokenStoreOutput) ToTokenStorePtrOutput() TokenStorePtrOutput {
 }
 
 func (o TokenStoreOutput) ToTokenStorePtrOutputWithContext(ctx context.Context) TokenStorePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenStore) *TokenStore {
+	return o.ApplyT(func(v TokenStore) *TokenStore {
 		return &v
 	}).(TokenStorePtrOutput)
 }
@@ -43320,13 +42307,7 @@ func (o TokenStorePtrOutput) ToTokenStorePtrOutputWithContext(ctx context.Contex
 }
 
 func (o TokenStorePtrOutput) Elem() TokenStoreOutput {
-	return o.ApplyT(func(v *TokenStore) TokenStore {
-		if v != nil {
-			return *v
-		}
-		var ret TokenStore
-		return ret
-	}).(TokenStoreOutput)
+	return o.ApplyT(func(v *TokenStore) TokenStore { return *v }).(TokenStoreOutput)
 }
 
 // The configuration settings of the storage of the tokens if blob storage is used.
@@ -43509,7 +42490,7 @@ func (o TokenStoreResponseOutput) ToTokenStoreResponsePtrOutput() TokenStoreResp
 }
 
 func (o TokenStoreResponseOutput) ToTokenStoreResponsePtrOutputWithContext(ctx context.Context) TokenStoreResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenStoreResponse) *TokenStoreResponse {
+	return o.ApplyT(func(v TokenStoreResponse) *TokenStoreResponse {
 		return &v
 	}).(TokenStoreResponsePtrOutput)
 }
@@ -43571,13 +42552,7 @@ func (o TokenStoreResponsePtrOutput) ToTokenStoreResponsePtrOutputWithContext(ct
 }
 
 func (o TokenStoreResponsePtrOutput) Elem() TokenStoreResponseOutput {
-	return o.ApplyT(func(v *TokenStoreResponse) TokenStoreResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TokenStoreResponse
-		return ret
-	}).(TokenStoreResponseOutput)
+	return o.ApplyT(func(v *TokenStoreResponse) TokenStoreResponse { return *v }).(TokenStoreResponseOutput)
 }
 
 // The configuration settings of the storage of the tokens if blob storage is used.
@@ -43766,7 +42741,7 @@ func (o TwitterOutput) ToTwitterPtrOutput() TwitterPtrOutput {
 }
 
 func (o TwitterOutput) ToTwitterPtrOutputWithContext(ctx context.Context) TwitterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Twitter) *Twitter {
+	return o.ApplyT(func(v Twitter) *Twitter {
 		return &v
 	}).(TwitterPtrOutput)
 }
@@ -43801,13 +42776,7 @@ func (o TwitterPtrOutput) ToTwitterPtrOutputWithContext(ctx context.Context) Twi
 }
 
 func (o TwitterPtrOutput) Elem() TwitterOutput {
-	return o.ApplyT(func(v *Twitter) Twitter {
-		if v != nil {
-			return *v
-		}
-		var ret Twitter
-		return ret
-	}).(TwitterOutput)
+	return o.ApplyT(func(v *Twitter) Twitter { return *v }).(TwitterOutput)
 }
 
 // <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -43950,7 +42919,7 @@ func (o TwitterRegistrationOutput) ToTwitterRegistrationPtrOutput() TwitterRegis
 }
 
 func (o TwitterRegistrationOutput) ToTwitterRegistrationPtrOutputWithContext(ctx context.Context) TwitterRegistrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TwitterRegistration) *TwitterRegistration {
+	return o.ApplyT(func(v TwitterRegistration) *TwitterRegistration {
 		return &v
 	}).(TwitterRegistrationPtrOutput)
 }
@@ -43988,13 +42957,7 @@ func (o TwitterRegistrationPtrOutput) ToTwitterRegistrationPtrOutputWithContext(
 }
 
 func (o TwitterRegistrationPtrOutput) Elem() TwitterRegistrationOutput {
-	return o.ApplyT(func(v *TwitterRegistration) TwitterRegistration {
-		if v != nil {
-			return *v
-		}
-		var ret TwitterRegistration
-		return ret
-	}).(TwitterRegistrationOutput)
+	return o.ApplyT(func(v *TwitterRegistration) TwitterRegistration { return *v }).(TwitterRegistrationOutput)
 }
 
 // The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -44152,7 +43115,7 @@ func (o TwitterRegistrationResponseOutput) ToTwitterRegistrationResponsePtrOutpu
 }
 
 func (o TwitterRegistrationResponseOutput) ToTwitterRegistrationResponsePtrOutputWithContext(ctx context.Context) TwitterRegistrationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TwitterRegistrationResponse) *TwitterRegistrationResponse {
+	return o.ApplyT(func(v TwitterRegistrationResponse) *TwitterRegistrationResponse {
 		return &v
 	}).(TwitterRegistrationResponsePtrOutput)
 }
@@ -44205,13 +43168,7 @@ func (o TwitterRegistrationResponsePtrOutput) ToTwitterRegistrationResponsePtrOu
 }
 
 func (o TwitterRegistrationResponsePtrOutput) Elem() TwitterRegistrationResponseOutput {
-	return o.ApplyT(func(v *TwitterRegistrationResponse) TwitterRegistrationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TwitterRegistrationResponse
-		return ret
-	}).(TwitterRegistrationResponseOutput)
+	return o.ApplyT(func(v *TwitterRegistrationResponse) TwitterRegistrationResponse { return *v }).(TwitterRegistrationResponseOutput)
 }
 
 // The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -44393,7 +43350,7 @@ func (o TwitterResponseOutput) ToTwitterResponsePtrOutput() TwitterResponsePtrOu
 }
 
 func (o TwitterResponseOutput) ToTwitterResponsePtrOutputWithContext(ctx context.Context) TwitterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TwitterResponse) *TwitterResponse {
+	return o.ApplyT(func(v TwitterResponse) *TwitterResponse {
 		return &v
 	}).(TwitterResponsePtrOutput)
 }
@@ -44443,13 +43400,7 @@ func (o TwitterResponsePtrOutput) ToTwitterResponsePtrOutputWithContext(ctx cont
 }
 
 func (o TwitterResponsePtrOutput) Elem() TwitterResponseOutput {
-	return o.ApplyT(func(v *TwitterResponse) TwitterResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TwitterResponse
-		return ret
-	}).(TwitterResponseOutput)
+	return o.ApplyT(func(v *TwitterResponse) TwitterResponse { return *v }).(TwitterResponseOutput)
 }
 
 // <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -45084,7 +44035,7 @@ func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutput() VirtualN
 }
 
 func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutputWithContext(ctx context.Context) VirtualNetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkProfile) *VirtualNetworkProfile {
+	return o.ApplyT(func(v VirtualNetworkProfile) *VirtualNetworkProfile {
 		return &v
 	}).(VirtualNetworkProfilePtrOutput)
 }
@@ -45114,13 +44065,7 @@ func (o VirtualNetworkProfilePtrOutput) ToVirtualNetworkProfilePtrOutputWithCont
 }
 
 func (o VirtualNetworkProfilePtrOutput) Elem() VirtualNetworkProfileOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfile) VirtualNetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkProfile
-		return ret
-	}).(VirtualNetworkProfileOutput)
+	return o.ApplyT(func(v *VirtualNetworkProfile) VirtualNetworkProfile { return *v }).(VirtualNetworkProfileOutput)
 }
 
 // Resource id of the Virtual Network.
@@ -45251,7 +44196,7 @@ func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrO
 }
 
 func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkProfileResponse) *VirtualNetworkProfileResponse {
+	return o.ApplyT(func(v VirtualNetworkProfileResponse) *VirtualNetworkProfileResponse {
 		return &v
 	}).(VirtualNetworkProfileResponsePtrOutput)
 }
@@ -45291,13 +44236,7 @@ func (o VirtualNetworkProfileResponsePtrOutput) ToVirtualNetworkProfileResponseP
 }
 
 func (o VirtualNetworkProfileResponsePtrOutput) Elem() VirtualNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfileResponse) VirtualNetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkProfileResponse
-		return ret
-	}).(VirtualNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkProfileResponse) VirtualNetworkProfileResponse { return *v }).(VirtualNetworkProfileResponseOutput)
 }
 
 // Resource id of the Virtual Network.
@@ -45617,7 +44556,7 @@ func (o WsdlDefinitionOutput) ToWsdlDefinitionPtrOutput() WsdlDefinitionPtrOutpu
 }
 
 func (o WsdlDefinitionOutput) ToWsdlDefinitionPtrOutputWithContext(ctx context.Context) WsdlDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlDefinition) *WsdlDefinition {
+	return o.ApplyT(func(v WsdlDefinition) *WsdlDefinition {
 		return &v
 	}).(WsdlDefinitionPtrOutput)
 }
@@ -45657,13 +44596,7 @@ func (o WsdlDefinitionPtrOutput) ToWsdlDefinitionPtrOutputWithContext(ctx contex
 }
 
 func (o WsdlDefinitionPtrOutput) Elem() WsdlDefinitionOutput {
-	return o.ApplyT(func(v *WsdlDefinition) WsdlDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret WsdlDefinition
-		return ret
-	}).(WsdlDefinitionOutput)
+	return o.ApplyT(func(v *WsdlDefinition) WsdlDefinition { return *v }).(WsdlDefinitionOutput)
 }
 
 // The WSDL content
@@ -45814,7 +44747,7 @@ func (o WsdlDefinitionResponseOutput) ToWsdlDefinitionResponsePtrOutput() WsdlDe
 }
 
 func (o WsdlDefinitionResponseOutput) ToWsdlDefinitionResponsePtrOutputWithContext(ctx context.Context) WsdlDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlDefinitionResponse) *WsdlDefinitionResponse {
+	return o.ApplyT(func(v WsdlDefinitionResponse) *WsdlDefinitionResponse {
 		return &v
 	}).(WsdlDefinitionResponsePtrOutput)
 }
@@ -45854,13 +44787,7 @@ func (o WsdlDefinitionResponsePtrOutput) ToWsdlDefinitionResponsePtrOutputWithCo
 }
 
 func (o WsdlDefinitionResponsePtrOutput) Elem() WsdlDefinitionResponseOutput {
-	return o.ApplyT(func(v *WsdlDefinitionResponse) WsdlDefinitionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WsdlDefinitionResponse
-		return ret
-	}).(WsdlDefinitionResponseOutput)
+	return o.ApplyT(func(v *WsdlDefinitionResponse) WsdlDefinitionResponse { return *v }).(WsdlDefinitionResponseOutput)
 }
 
 // The WSDL content
@@ -46003,7 +44930,7 @@ func (o WsdlServiceOutput) ToWsdlServicePtrOutput() WsdlServicePtrOutput {
 }
 
 func (o WsdlServiceOutput) ToWsdlServicePtrOutputWithContext(ctx context.Context) WsdlServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlService) *WsdlService {
+	return o.ApplyT(func(v WsdlService) *WsdlService {
 		return &v
 	}).(WsdlServicePtrOutput)
 }
@@ -46033,13 +44960,7 @@ func (o WsdlServicePtrOutput) ToWsdlServicePtrOutputWithContext(ctx context.Cont
 }
 
 func (o WsdlServicePtrOutput) Elem() WsdlServiceOutput {
-	return o.ApplyT(func(v *WsdlService) WsdlService {
-		if v != nil {
-			return *v
-		}
-		var ret WsdlService
-		return ret
-	}).(WsdlServiceOutput)
+	return o.ApplyT(func(v *WsdlService) WsdlService { return *v }).(WsdlServiceOutput)
 }
 
 // List of the endpoints' qualified names
@@ -46187,7 +45108,7 @@ func (o WsdlServiceResponseOutput) ToWsdlServiceResponsePtrOutput() WsdlServiceR
 }
 
 func (o WsdlServiceResponseOutput) ToWsdlServiceResponsePtrOutputWithContext(ctx context.Context) WsdlServiceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlServiceResponse) *WsdlServiceResponse {
+	return o.ApplyT(func(v WsdlServiceResponse) *WsdlServiceResponse {
 		return &v
 	}).(WsdlServiceResponsePtrOutput)
 }
@@ -46217,13 +45138,7 @@ func (o WsdlServiceResponsePtrOutput) ToWsdlServiceResponsePtrOutputWithContext(
 }
 
 func (o WsdlServiceResponsePtrOutput) Elem() WsdlServiceResponseOutput {
-	return o.ApplyT(func(v *WsdlServiceResponse) WsdlServiceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WsdlServiceResponse
-		return ret
-	}).(WsdlServiceResponseOutput)
+	return o.ApplyT(func(v *WsdlServiceResponse) WsdlServiceResponse { return *v }).(WsdlServiceResponseOutput)
 }
 
 // List of the endpoints' qualified names

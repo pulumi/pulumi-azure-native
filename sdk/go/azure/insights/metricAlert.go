@@ -213,7 +213,9 @@ func (i *MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) Metric
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertOutput)
 }
 
-type MetricAlertOutput struct{ *pulumi.OutputState }
+type MetricAlertOutput struct {
+	*pulumi.OutputState
+}
 
 func (MetricAlertOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricAlert)(nil))

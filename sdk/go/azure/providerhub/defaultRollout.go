@@ -131,7 +131,9 @@ func (i *DefaultRollout) ToDefaultRolloutOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutOutput)
 }
 
-type DefaultRolloutOutput struct{ *pulumi.OutputState }
+type DefaultRolloutOutput struct {
+	*pulumi.OutputState
+}
 
 func (DefaultRolloutOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefaultRollout)(nil))

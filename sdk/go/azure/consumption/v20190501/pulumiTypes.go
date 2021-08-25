@@ -110,7 +110,7 @@ func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPt
 }
 
 func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriod) *BudgetTimePeriod {
+	return o.ApplyT(func(v BudgetTimePeriod) *BudgetTimePeriod {
 		return &v
 	}).(BudgetTimePeriodPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx co
 }
 
 func (o BudgetTimePeriodPtrOutput) Elem() BudgetTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetTimePeriod
-		return ret
-	}).(BudgetTimePeriodOutput)
+	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod { return *v }).(BudgetTimePeriodOutput)
 }
 
 // The end date for the budget. If not provided, we default this to 10 years from the start date.
@@ -269,7 +263,7 @@ func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutput() Bu
 }
 
 func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
+	return o.ApplyT(func(v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
 		return &v
 	}).(BudgetTimePeriodResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o BudgetTimePeriodResponsePtrOutput) ToBudgetTimePeriodResponsePtrOutputWi
 }
 
 func (o BudgetTimePeriodResponsePtrOutput) Elem() BudgetTimePeriodResponseOutput {
-	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetTimePeriodResponse
-		return ret
-	}).(BudgetTimePeriodResponseOutput)
+	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse { return *v }).(BudgetTimePeriodResponseOutput)
 }
 
 // The end date for the budget. If not provided, we default this to 10 years from the start date.
@@ -428,7 +416,7 @@ func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutput() CurrentSpe
 }
 
 func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CurrentSpendResponse) *CurrentSpendResponse {
+	return o.ApplyT(func(v CurrentSpendResponse) *CurrentSpendResponse {
 		return &v
 	}).(CurrentSpendResponsePtrOutput)
 }
@@ -458,13 +446,7 @@ func (o CurrentSpendResponsePtrOutput) ToCurrentSpendResponsePtrOutputWithContex
 }
 
 func (o CurrentSpendResponsePtrOutput) Elem() CurrentSpendResponseOutput {
-	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CurrentSpendResponse
-		return ret
-	}).(CurrentSpendResponseOutput)
+	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse { return *v }).(CurrentSpendResponseOutput)
 }
 
 // The total amount of cost which is being tracked by the budget.
@@ -595,7 +577,7 @@ func (o FilterOutput) ToFilterPtrOutput() FilterPtrOutput {
 }
 
 func (o FilterOutput) ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Filter) *Filter {
+	return o.ApplyT(func(v Filter) *Filter {
 		return &v
 	}).(FilterPtrOutput)
 }
@@ -635,13 +617,7 @@ func (o FilterPtrOutput) ToFilterPtrOutputWithContext(ctx context.Context) Filte
 }
 
 func (o FilterPtrOutput) Elem() FilterOutput {
-	return o.ApplyT(func(v *Filter) Filter {
-		if v != nil {
-			return *v
-		}
-		var ret Filter
-		return ret
-	}).(FilterOutput)
+	return o.ApplyT(func(v *Filter) Filter { return *v }).(FilterOutput)
 }
 
 // The list of filters on meters (GUID), mandatory for budgets of usage category.
@@ -792,7 +768,7 @@ func (o FilterResponseOutput) ToFilterResponsePtrOutput() FilterResponsePtrOutpu
 }
 
 func (o FilterResponseOutput) ToFilterResponsePtrOutputWithContext(ctx context.Context) FilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterResponse) *FilterResponse {
+	return o.ApplyT(func(v FilterResponse) *FilterResponse {
 		return &v
 	}).(FilterResponsePtrOutput)
 }
@@ -832,13 +808,7 @@ func (o FilterResponsePtrOutput) ToFilterResponsePtrOutputWithContext(ctx contex
 }
 
 func (o FilterResponsePtrOutput) Elem() FilterResponseOutput {
-	return o.ApplyT(func(v *FilterResponse) FilterResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FilterResponse
-		return ret
-	}).(FilterResponseOutput)
+	return o.ApplyT(func(v *FilterResponse) FilterResponse { return *v }).(FilterResponseOutput)
 }
 
 // The list of filters on meters (GUID), mandatory for budgets of usage category.

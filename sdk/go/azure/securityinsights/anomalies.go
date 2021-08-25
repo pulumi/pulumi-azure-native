@@ -156,7 +156,9 @@ func (i *Anomalies) ToAnomaliesOutputWithContext(ctx context.Context) AnomaliesO
 	return pulumi.ToOutputWithContext(ctx, i).(AnomaliesOutput)
 }
 
-type AnomaliesOutput struct{ *pulumi.OutputState }
+type AnomaliesOutput struct {
+	*pulumi.OutputState
+}
 
 func (AnomaliesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Anomalies)(nil))

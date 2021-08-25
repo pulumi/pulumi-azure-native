@@ -13,7 +13,7 @@ import (
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -30,7 +30,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityTypeInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -106,14 +106,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() IdentityTypeOutput {
-	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
+func (o IdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,23 +131,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *IdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(IdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -254,7 +248,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -289,13 +283,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -624,7 +612,7 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
@@ -649,13 +637,7 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkRuleSet
-		return ret
-	}).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
 }
 
 // A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
@@ -764,7 +746,7 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
@@ -789,13 +771,7 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkRuleSetResponse
-		return ret
-	}).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
 }
 
 // A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
@@ -908,7 +884,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -942,13 +918,7 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionProperties
-		return ret
-	}).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // The private endpoint resource from Microsoft.Network provider.
@@ -1067,7 +1037,7 @@ func (o PrivateEndpointConnectionPropertiesPrivateEndpointOutput) ToPrivateEndpo
 }
 
 func (o PrivateEndpointConnectionPropertiesPrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesPrivateEndpoint) *PrivateEndpointConnectionPropertiesPrivateEndpoint {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateEndpoint) *PrivateEndpointConnectionPropertiesPrivateEndpoint {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput)
 }
@@ -1093,11 +1063,7 @@ func (o PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput) ToPrivateEn
 
 func (o PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput) Elem() PrivateEndpointConnectionPropertiesPrivateEndpointOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateEndpoint) PrivateEndpointConnectionPropertiesPrivateEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionPropertiesPrivateEndpoint
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionPropertiesPrivateEndpointOutput)
 }
 
@@ -1118,7 +1084,7 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState struct
 	// The description for the private link service connection state.
 	Description *string `pulumi:"description"`
 	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 // PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs and PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput values.
@@ -1139,7 +1105,7 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs st
 	// The description for the private link service connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status PrivateLinkServiceConnectionStatusPtrInput `pulumi:"status"`
+	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
 }
 
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1215,7 +1181,7 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutp
 }
 
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -1235,10 +1201,8 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutp
 }
 
 // Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
-		return v.Status
-	}).(PrivateLinkServiceConnectionStatusPtrOutput)
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
@@ -1257,11 +1221,7 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput)
 }
 
@@ -1286,13 +1246,13 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 }
 
 // Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(PrivateLinkServiceConnectionStatusPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
@@ -1395,7 +1355,7 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
@@ -1430,11 +1390,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionPropertiesResponse
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -1554,7 +1510,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput) ToPriv
 }
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
@@ -1580,11 +1536,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput) ToP
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput) Elem() PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionPropertiesResponsePrivateEndpoint
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput)
 }
 
@@ -1702,7 +1654,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 }
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -1744,11 +1696,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput)
 }
 
@@ -2027,13 +1975,13 @@ type SharedPrivateLinkResourceProperties struct {
 	// The resource id of the resource the shared private link resource is for.
 	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
 	// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
-	ProvisioningState *SharedPrivateLinkResourceProvisioningState `pulumi:"provisioningState"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The request message for requesting approval of the shared private link resource.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
 	ResourceRegion *string `pulumi:"resourceRegion"`
 	// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
-	Status *SharedPrivateLinkResourceStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 // SharedPrivateLinkResourcePropertiesInput is an input type that accepts SharedPrivateLinkResourcePropertiesArgs and SharedPrivateLinkResourcePropertiesOutput values.
@@ -2054,13 +2002,13 @@ type SharedPrivateLinkResourcePropertiesArgs struct {
 	// The resource id of the resource the shared private link resource is for.
 	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
 	// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
-	ProvisioningState SharedPrivateLinkResourceProvisioningStatePtrInput `pulumi:"provisioningState"`
+	ProvisioningState *SharedPrivateLinkResourceProvisioningState `pulumi:"provisioningState"`
 	// The request message for requesting approval of the shared private link resource.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
 	ResourceRegion pulumi.StringPtrInput `pulumi:"resourceRegion"`
 	// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
-	Status SharedPrivateLinkResourceStatusPtrInput `pulumi:"status"`
+	Status *SharedPrivateLinkResourceStatus `pulumi:"status"`
 }
 
 func (SharedPrivateLinkResourcePropertiesArgs) ElementType() reflect.Type {
@@ -2136,7 +2084,7 @@ func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePr
 }
 
 func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceProperties {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceProperties {
 		return &v
 	}).(SharedPrivateLinkResourcePropertiesPtrOutput)
 }
@@ -2152,10 +2100,8 @@ func (o SharedPrivateLinkResourcePropertiesOutput) PrivateLinkResourceId() pulum
 }
 
 // The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
-func (o SharedPrivateLinkResourcePropertiesOutput) ProvisioningState() SharedPrivateLinkResourceProvisioningStatePtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceProvisioningState {
-		return v.ProvisioningState
-	}).(SharedPrivateLinkResourceProvisioningStatePtrOutput)
+func (o SharedPrivateLinkResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // The request message for requesting approval of the shared private link resource.
@@ -2169,8 +2115,8 @@ func (o SharedPrivateLinkResourcePropertiesOutput) ResourceRegion() pulumi.Strin
 }
 
 // Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
-func (o SharedPrivateLinkResourcePropertiesOutput) Status() SharedPrivateLinkResourceStatusPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceStatus { return v.Status }).(SharedPrivateLinkResourceStatusPtrOutput)
+func (o SharedPrivateLinkResourcePropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type SharedPrivateLinkResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2188,13 +2134,7 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) ToSharedPrivateLinkResourc
 }
 
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) Elem() SharedPrivateLinkResourcePropertiesOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) SharedPrivateLinkResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SharedPrivateLinkResourceProperties
-		return ret
-	}).(SharedPrivateLinkResourcePropertiesOutput)
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) SharedPrivateLinkResourceProperties { return *v }).(SharedPrivateLinkResourcePropertiesOutput)
 }
 
 // The group id from the provider of resource the shared private link resource is for.
@@ -2218,13 +2158,13 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) PrivateLinkResourceId() pu
 }
 
 // The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
-func (o SharedPrivateLinkResourcePropertiesPtrOutput) ProvisioningState() SharedPrivateLinkResourceProvisioningStatePtrOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceProvisioningState {
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ProvisioningState
-	}).(SharedPrivateLinkResourceProvisioningStatePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The request message for requesting approval of the shared private link resource.
@@ -2248,13 +2188,13 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) ResourceRegion() pulumi.St
 }
 
 // Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
-func (o SharedPrivateLinkResourcePropertiesPtrOutput) Status() SharedPrivateLinkResourceStatusPtrOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceStatus {
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(SharedPrivateLinkResourceStatusPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -2373,7 +2313,7 @@ func (o SharedPrivateLinkResourcePropertiesResponseOutput) ToSharedPrivateLinkRe
 }
 
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) ToSharedPrivateLinkResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedPrivateLinkResourcePropertiesResponse) *SharedPrivateLinkResourcePropertiesResponse {
+	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *SharedPrivateLinkResourcePropertiesResponse {
 		return &v
 	}).(SharedPrivateLinkResourcePropertiesResponsePtrOutput)
 }
@@ -2424,11 +2364,7 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ToSharedPrivateLin
 
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) Elem() SharedPrivateLinkResourcePropertiesResponseOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) SharedPrivateLinkResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SharedPrivateLinkResourcePropertiesResponse
-		return ret
+		return *v
 	}).(SharedPrivateLinkResourcePropertiesResponseOutput)
 }
 
@@ -2624,7 +2560,7 @@ func (o SharedPrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) S
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type Sku struct {
 	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-	Name *SkuName `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -2641,7 +2577,7 @@ type SkuInput interface {
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuArgs struct {
 	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-	Name SkuNamePtrInput `pulumi:"name"`
+	Name *SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -2717,14 +2653,14 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
 // The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-func (o SkuOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v Sku) *SkuName { return v.Name }).(SkuNamePtrOutput)
+func (o SkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -2742,23 +2678,17 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
@@ -2857,7 +2787,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -2882,13 +2812,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'

@@ -181,7 +181,9 @@ func (i *ADLSGen2StorageAccountDataSet) ToADLSGen2StorageAccountDataSetOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountDataSetOutput)
 }
 
-type ADLSGen2StorageAccountDataSetOutput struct{ *pulumi.OutputState }
+type ADLSGen2StorageAccountDataSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (ADLSGen2StorageAccountDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen2StorageAccountDataSet)(nil))
