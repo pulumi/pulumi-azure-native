@@ -5919,6 +5919,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devices/v20210901preview",
+  "fqn": "pulumi_azure_native.devices.v20210901preview",
+  "classes": {
+   "azure-native:devices/v20210901preview:Certificate": "Certificate",
+   "azure-native:devices/v20210901preview:IotHubResource": "IotHubResource",
+   "azure-native:devices/v20210901preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:devices/v20210901preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "deviceupdate",
   "fqn": "pulumi_azure_native.deviceupdate",
   "classes": {
@@ -8830,6 +8841,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.maintenance.v20210501",
   "classes": {
    "azure-native:maintenance/v20210501:MaintenanceConfiguration": "MaintenanceConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "maintenance/v20210901preview",
+  "fqn": "pulumi_azure_native.maintenance.v20210901preview",
+  "classes": {
+   "azure-native:maintenance/v20210901preview:ConfigurationAssignment": "ConfigurationAssignment",
+   "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent": "ConfigurationAssignmentParent",
+   "azure-native:maintenance/v20210901preview:MaintenanceConfiguration": "MaintenanceConfiguration"
   }
  },
  {
@@ -12656,7 +12677,18 @@ _utilities.register(
    "azure-native:recoveryservices/v20210701:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20210701:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20210701:ProtectionPolicy": "ProtectionPolicy",
-   "azure-native:recoveryservices/v20210701:ResourceGuardProxy": "ResourceGuardProxy"
+   "azure-native:recoveryservices/v20210701:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20210701:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20210701:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20210701:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20210701:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20210701:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20210701:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20210701:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20210701:ReplicationvCenter": "ReplicationvCenter",
+   "azure-native:recoveryservices/v20210701:ResourceGuardProxy": "ResourceGuardProxy",
+   "azure-native:recoveryservices/v20210701:Vault": "Vault"
   }
  },
  {
@@ -15121,6 +15153,30 @@ _utilities.register(
    "azure-native:synapse/v20210501:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse/v20210501:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
    "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "synapse/v20210601",
+  "fqn": "pulumi_azure_native.synapse.v20210601",
+  "classes": {
+   "azure-native:synapse/v20210601:BigDataPool": "BigDataPool",
+   "azure-native:synapse/v20210601:IntegrationRuntime": "IntegrationRuntime",
+   "azure-native:synapse/v20210601:IpFirewallRule": "IpFirewallRule",
+   "azure-native:synapse/v20210601:Key": "Key",
+   "azure-native:synapse/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:synapse/v20210601:PrivateLinkHub": "PrivateLinkHub",
+   "azure-native:synapse/v20210601:SqlPool": "SqlPool",
+   "azure-native:synapse/v20210601:SqlPoolSensitivityLabel": "SqlPoolSensitivityLabel",
+   "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption": "SqlPoolTransparentDataEncryption",
+   "azure-native:synapse/v20210601:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment",
+   "azure-native:synapse/v20210601:SqlPoolVulnerabilityAssessmentRuleBaseline": "SqlPoolVulnerabilityAssessmentRuleBaseline",
+   "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier": "SqlPoolWorkloadClassifier",
+   "azure-native:synapse/v20210601:SqlPoolWorkloadGroup": "SqlPoolWorkloadGroup",
+   "azure-native:synapse/v20210601:Workspace": "Workspace",
+   "azure-native:synapse/v20210601:WorkspaceAadAdmin": "WorkspaceAadAdmin",
+   "azure-native:synapse/v20210601:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
+   "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
   }
  },
  {

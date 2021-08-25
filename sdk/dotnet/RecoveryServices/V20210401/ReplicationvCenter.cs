@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210401
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210301:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationvCenter"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210601:ReplicationvCenter"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationvCenter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210701:ReplicationvCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

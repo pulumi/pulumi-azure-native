@@ -397,16 +397,24 @@ class CustomerManagedKeyDetailsArgs:
 class DataLakeStorageAccountDetailsArgs:
     def __init__(__self__, *,
                  account_url: Optional[pulumi.Input[str]] = None,
-                 filesystem: Optional[pulumi.Input[str]] = None):
+                 create_managed_private_endpoint: Optional[pulumi.Input[bool]] = None,
+                 filesystem: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
         Details of the data lake storage account associated with the workspace
         :param pulumi.Input[str] account_url: Account URL
+        :param pulumi.Input[bool] create_managed_private_endpoint: Create managed private endpoint to this storage account or not
         :param pulumi.Input[str] filesystem: Filesystem name
+        :param pulumi.Input[str] resource_id: ARM resource Id of this storage account
         """
         if account_url is not None:
             pulumi.set(__self__, "account_url", account_url)
+        if create_managed_private_endpoint is not None:
+            pulumi.set(__self__, "create_managed_private_endpoint", create_managed_private_endpoint)
         if filesystem is not None:
             pulumi.set(__self__, "filesystem", filesystem)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="accountUrl")
@@ -421,6 +429,18 @@ class DataLakeStorageAccountDetailsArgs:
         pulumi.set(self, "account_url", value)
 
     @property
+    @pulumi.getter(name="createManagedPrivateEndpoint")
+    def create_managed_private_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Create managed private endpoint to this storage account or not
+        """
+        return pulumi.get(self, "create_managed_private_endpoint")
+
+    @create_managed_private_endpoint.setter
+    def create_managed_private_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_managed_private_endpoint", value)
+
+    @property
     @pulumi.getter
     def filesystem(self) -> Optional[pulumi.Input[str]]:
         """
@@ -431,6 +451,18 @@ class DataLakeStorageAccountDetailsArgs:
     @filesystem.setter
     def filesystem(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filesystem", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource Id of this storage account
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type

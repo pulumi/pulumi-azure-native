@@ -27,6 +27,7 @@ class SqlPoolArgs:
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class SqlPoolArgs:
         :param pulumi.Input[str] recoverable_database_id: Backup database to restore from
         :param pulumi.Input[str] restore_point_in_time: Snapshot time to restore
         :param pulumi.Input['SkuArgs'] sku: SQL pool SKU
+        :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the sql pool was deleted
         :param pulumi.Input[str] source_database_id: Source database to create from
         :param pulumi.Input[str] sql_pool_name: SQL pool name
         :param pulumi.Input[str] status: Resource status
@@ -71,6 +73,8 @@ class SqlPoolArgs:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if source_database_deletion_date is not None:
+            pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
             pulumi.set(__self__, "source_database_id", source_database_id)
         if sql_pool_name is not None:
@@ -215,6 +219,18 @@ class SqlPoolArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="sourceDatabaseDeletionDate")
+    def source_database_deletion_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time that the sql pool was deleted
+        """
+        return pulumi.get(self, "source_database_deletion_date")
+
+    @source_database_deletion_date.setter
+    def source_database_deletion_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_database_deletion_date", value)
+
+    @property
     @pulumi.getter(name="sourceDatabaseId")
     def source_database_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -290,6 +306,7 @@ class SqlPool(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -312,6 +329,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] restore_point_in_time: Snapshot time to restore
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SQL pool SKU
+        :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the sql pool was deleted
         :param pulumi.Input[str] source_database_id: Source database to create from
         :param pulumi.Input[str] sql_pool_name: SQL pool name
         :param pulumi.Input[str] status: Resource status
@@ -353,6 +371,7 @@ class SqlPool(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -383,6 +402,7 @@ class SqlPool(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id
             __props__.__dict__["sql_pool_name"] = sql_pool_name
             __props__.__dict__["status"] = status
@@ -393,7 +413,7 @@ class SqlPool(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210601preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20200401preview:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20200401preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210301:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210401preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210501:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210501:SqlPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210601preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20200401preview:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20200401preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20201201:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210301:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210401preview:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210501:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210501:SqlPool"), pulumi.Alias(type_="azure-native:synapse/v20210601:SqlPool"), pulumi.Alias(type_="azure-nextgen:synapse/v20210601:SqlPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlPool, __self__).__init__(
             'azure-native:synapse/v20210601preview:SqlPool',
@@ -427,6 +447,7 @@ class SqlPool(pulumi.CustomResource):
         __props__.__dict__["recoverable_database_id"] = None
         __props__.__dict__["restore_point_in_time"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["source_database_deletion_date"] = None
         __props__.__dict__["source_database_id"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["storage_account_type"] = None
@@ -513,6 +534,14 @@ class SqlPool(pulumi.CustomResource):
         SQL pool SKU
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseDeletionDate")
+    def source_database_deletion_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the time that the sql pool was deleted
+        """
+        return pulumi.get(self, "source_database_deletion_date")
 
     @property
     @pulumi.getter(name="sourceDatabaseId")
