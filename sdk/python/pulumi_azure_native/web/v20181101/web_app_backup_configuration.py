@@ -197,7 +197,7 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
 
     def _internal_init(__self__,
                  resource_name: str,
-                 opts: Optional[pulumi.ResourceOpôions] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None,
                  backup_name: Optional[pulumi.Input[str]] = None,
                  backup_schedule: Optional[pulumi.Input[pulumi.InputType['BackupScheduleArgs']]] = None,
                  databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseBackupSettingArgs']]]]] = None,
