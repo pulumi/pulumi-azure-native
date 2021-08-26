@@ -155,7 +155,9 @@ func (i *ArtifactSource) ToArtifactSourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourceOutput)
 }
 
-type ArtifactSourceOutput struct{ *pulumi.OutputState }
+type ArtifactSourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ArtifactSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArtifactSource)(nil))

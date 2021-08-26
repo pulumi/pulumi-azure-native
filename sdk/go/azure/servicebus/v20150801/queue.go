@@ -169,7 +169,7 @@ type queueArgs struct {
 	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Entity availability status for the queue.
-	EntityAvailabilityStatus *EntityAvailabilityStatus `pulumi:"entityAvailabilityStatus"`
+	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
 	// A value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible *bool `pulumi:"isAnonymousAccessible"`
 	// location of the resource.
@@ -193,7 +193,7 @@ type queueArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// A value that indicates whether the queue supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
 }
@@ -215,7 +215,7 @@ type QueueArgs struct {
 	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Entity availability status for the queue.
-	EntityAvailabilityStatus EntityAvailabilityStatusPtrInput
+	EntityAvailabilityStatus *EntityAvailabilityStatus
 	// A value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible pulumi.BoolPtrInput
 	// location of the resource.
@@ -239,7 +239,7 @@ type QueueArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatusPtrInput
+	Status *EntityStatus
 	// A value that indicates whether the queue supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 }
@@ -267,7 +267,9 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
-type QueueOutput struct{ *pulumi.OutputState }
+type QueueOutput struct {
+	*pulumi.OutputState
+}
 
 func (QueueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Queue)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20210401.Outputs
 {
 
-    /// <summary>
-    /// The provider extended location. 
-    /// </summary>
     [OutputType]
     public sealed class ProviderExtendedLocationResponse
     {

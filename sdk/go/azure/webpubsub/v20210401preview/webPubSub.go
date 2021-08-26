@@ -220,7 +220,9 @@ func (i *WebPubSub) ToWebPubSubOutputWithContext(ctx context.Context) WebPubSubO
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubOutput)
 }
 
-type WebPubSubOutput struct{ *pulumi.OutputState }
+type WebPubSubOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebPubSubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSub)(nil))

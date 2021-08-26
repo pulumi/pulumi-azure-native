@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
-    /// <summary>
-    /// Customer Certificate used for https
-    /// </summary>
     [OutputType]
     public sealed class CustomerCertificateParametersResponse
     {

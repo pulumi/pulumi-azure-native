@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210615.Outputs
 {
 
-    /// <summary>
-    /// Cosmos DB indexing policy
-    /// </summary>
     [OutputType]
     public sealed class IndexingPolicyResponse
     {

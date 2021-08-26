@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.V20171201.Outputs
 {
 
-    /// <summary>
-    /// The Object used to describe a Service Provider supported by Bot Service
-    /// </summary>
     [OutputType]
     public sealed class ServiceProviderPropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20200801Preview.Outputs
 {
 
-    /// <summary>
-    /// Contains error information for an Azure SQL Database, Server or Elastic Pool Recommended Action.
-    /// </summary>
     [OutputType]
     public sealed class RecommendedActionErrorInfoResponse
     {

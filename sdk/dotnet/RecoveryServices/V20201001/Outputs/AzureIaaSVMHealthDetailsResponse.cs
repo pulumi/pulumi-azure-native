@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201001.Outputs
 {
 
-    /// <summary>
-    /// Azure IaaS VM workload-specific Health Details.
-    /// </summary>
     [OutputType]
     public sealed class AzureIaaSVMHealthDetailsResponse
     {

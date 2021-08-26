@@ -157,7 +157,9 @@ func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyOutput)
 }
 
-type BlobInventoryPolicyOutput struct{ *pulumi.OutputState }
+type BlobInventoryPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (BlobInventoryPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobInventoryPolicy)(nil))

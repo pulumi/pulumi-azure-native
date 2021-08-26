@@ -193,7 +193,9 @@ func (i *ScheduleResource) ToScheduleResourceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResourceOutput)
 }
 
-type ScheduleResourceOutput struct{ *pulumi.OutputState }
+type ScheduleResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ScheduleResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduleResource)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.Outputs
 {
 
-    /// <summary>
-    /// Specifies configuration of a redis module
-    /// </summary>
     [OutputType]
     public sealed class ModuleResponse
     {

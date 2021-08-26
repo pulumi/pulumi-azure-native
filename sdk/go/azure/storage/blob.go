@@ -16,7 +16,7 @@ type Blob struct {
 	pulumi.CustomResourceState
 
 	// The access tier of the storage blob.
-	AccessTier BlobAccessTierOutput `pulumi:"accessTier"`
+	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// The MD5 sum of the blob contents.
 	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the storage blob.
@@ -26,7 +26,7 @@ type Blob struct {
 	// The name of the storage blob.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The type of the storage blob to be created.
-	Type BlobTypeOutput `pulumi:"type"`
+	Type pulumi.StringOutput `pulumi:"type"`
 	// The URL of the blob.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -48,7 +48,8 @@ func NewBlob(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.Type == nil {
-		args.Type = BlobType("Block")
+		e := BlobType("Block")
+		args.Type = &e
 	}
 	var resource Blob
 	err := ctx.RegisterResource("azure-native:storage:Blob", name, args, &resource, opts...)
@@ -83,7 +84,7 @@ func (BlobState) ElementType() reflect.Type {
 
 type blobArgs struct {
 	// The access tier of the storage blob.
-	AccessTier *BlobAccessTier `pulumi:"accessTier"`
+	AccessTier *string `pulumi:"accessTier"`
 	// Specifies the storage account in which to create the storage container.
 	AccountName string `pulumi:"accountName"`
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
@@ -101,13 +102,13 @@ type blobArgs struct {
 	// An asset to copy to the blob contents. This field cannot be specified for Append blobs.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
 	// The type of the storage blob to be created. Defaults to 'Block'.
-	Type *BlobType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Blob resource.
 type BlobArgs struct {
 	// The access tier of the storage blob.
-	AccessTier BlobAccessTierPtrInput
+	AccessTier *BlobAccessTier
 	// Specifies the storage account in which to create the storage container.
 	AccountName pulumi.StringInput
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
@@ -125,7 +126,7 @@ type BlobArgs struct {
 	// An asset to copy to the blob contents. This field cannot be specified for Append blobs.
 	Source pulumi.AssetOrArchiveInput
 	// The type of the storage blob to be created. Defaults to 'Block'.
-	Type BlobTypePtrInput
+	Type *BlobType
 }
 
 func (BlobArgs) ElementType() reflect.Type {
@@ -151,7 +152,9 @@ func (i *Blob) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlobOutput)
 }
 
-type BlobOutput struct{ *pulumi.OutputState }
+type BlobOutput struct {
+	*pulumi.OutputState
+}
 
 func (BlobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Blob)(nil))

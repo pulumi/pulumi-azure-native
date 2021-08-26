@@ -141,7 +141,7 @@ type A2APolicyCreationInput struct {
 	// Expected value is 'A2A'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 }
@@ -167,7 +167,7 @@ type A2APolicyCreationInputArgs struct {
 	// Expected value is 'A2A'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatusInput `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 }
@@ -216,8 +216,8 @@ func (o A2APolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o A2APolicyCreationInputOutput) MultiVmSyncStatus() SetMultiVmSyncStatusOutput {
-	return o.ApplyT(func(v A2APolicyCreationInput) SetMultiVmSyncStatus { return v.MultiVmSyncStatus }).(SetMultiVmSyncStatusOutput)
+func (o A2APolicyCreationInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v A2APolicyCreationInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
 }
 
 // The duration in minutes until which the recovery points need to be stored.
@@ -1408,7 +1408,7 @@ func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesPtrOutpu
 }
 
 func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesPtrOutputWithContext(ctx context.Context) AddVCenterRequestPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddVCenterRequestProperties) *AddVCenterRequestProperties {
+	return o.ApplyT(func(v AddVCenterRequestProperties) *AddVCenterRequestProperties {
 		return &v
 	}).(AddVCenterRequestPropertiesPtrOutput)
 }
@@ -1453,13 +1453,7 @@ func (o AddVCenterRequestPropertiesPtrOutput) ToAddVCenterRequestPropertiesPtrOu
 }
 
 func (o AddVCenterRequestPropertiesPtrOutput) Elem() AddVCenterRequestPropertiesOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) AddVCenterRequestProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AddVCenterRequestProperties
-		return ret
-	}).(AddVCenterRequestPropertiesOutput)
+	return o.ApplyT(func(v *AddVCenterRequestProperties) AddVCenterRequestProperties { return *v }).(AddVCenterRequestPropertiesOutput)
 }
 
 // The friendly name of the vCenter.
@@ -1835,7 +1829,7 @@ func (o AzureToAzureVmSyncedConfigDetailsResponseOutput) ToAzureToAzureVmSyncedC
 }
 
 func (o AzureToAzureVmSyncedConfigDetailsResponseOutput) ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(ctx context.Context) AzureToAzureVmSyncedConfigDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureToAzureVmSyncedConfigDetailsResponse) *AzureToAzureVmSyncedConfigDetailsResponse {
+	return o.ApplyT(func(v AzureToAzureVmSyncedConfigDetailsResponse) *AzureToAzureVmSyncedConfigDetailsResponse {
 		return &v
 	}).(AzureToAzureVmSyncedConfigDetailsResponsePtrOutput)
 }
@@ -1871,11 +1865,7 @@ func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) ToAzureToAzureVmSync
 
 func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) Elem() AzureToAzureVmSyncedConfigDetailsResponseOutput {
 	return o.ApplyT(func(v *AzureToAzureVmSyncedConfigDetailsResponse) AzureToAzureVmSyncedConfigDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureToAzureVmSyncedConfigDetailsResponse
-		return ret
+		return *v
 	}).(AzureToAzureVmSyncedConfigDetailsResponseOutput)
 }
 
@@ -2167,7 +2157,7 @@ func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPr
 }
 
 func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateNetworkMappingInputProperties) *CreateNetworkMappingInputProperties {
+	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *CreateNetworkMappingInputProperties {
 		return &v
 	}).(CreateNetworkMappingInputPropertiesPtrOutput)
 }
@@ -2202,13 +2192,7 @@ func (o CreateNetworkMappingInputPropertiesPtrOutput) ToCreateNetworkMappingInpu
 }
 
 func (o CreateNetworkMappingInputPropertiesPtrOutput) Elem() CreateNetworkMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) CreateNetworkMappingInputProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CreateNetworkMappingInputProperties
-		return ret
-	}).(CreateNetworkMappingInputPropertiesOutput)
+	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) CreateNetworkMappingInputProperties { return *v }).(CreateNetworkMappingInputPropertiesOutput)
 }
 
 // Fabric specific input properties.
@@ -2337,7 +2321,7 @@ func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesPtrOutpu
 }
 
 func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesPtrOutputWithContext(ctx context.Context) CreatePolicyInputPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatePolicyInputProperties) *CreatePolicyInputProperties {
+	return o.ApplyT(func(v CreatePolicyInputProperties) *CreatePolicyInputProperties {
 		return &v
 	}).(CreatePolicyInputPropertiesPtrOutput)
 }
@@ -2362,13 +2346,7 @@ func (o CreatePolicyInputPropertiesPtrOutput) ToCreatePolicyInputPropertiesPtrOu
 }
 
 func (o CreatePolicyInputPropertiesPtrOutput) Elem() CreatePolicyInputPropertiesOutput {
-	return o.ApplyT(func(v *CreatePolicyInputProperties) CreatePolicyInputProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CreatePolicyInputProperties
-		return ret
-	}).(CreatePolicyInputPropertiesOutput)
+	return o.ApplyT(func(v *CreatePolicyInputProperties) CreatePolicyInputProperties { return *v }).(CreatePolicyInputPropertiesOutput)
 }
 
 // The ReplicationProviderSettings.
@@ -2485,7 +2463,7 @@ func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectio
 }
 
 func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectionContainerMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateProtectionContainerMappingInputPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateProtectionContainerMappingInputProperties) *CreateProtectionContainerMappingInputProperties {
+	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *CreateProtectionContainerMappingInputProperties {
 		return &v
 	}).(CreateProtectionContainerMappingInputPropertiesPtrOutput)
 }
@@ -2523,11 +2501,7 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) ToCreateProtec
 
 func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) Elem() CreateProtectionContainerMappingInputPropertiesOutput {
 	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) CreateProtectionContainerMappingInputProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CreateProtectionContainerMappingInputProperties
-		return ret
+		return *v
 	}).(CreateProtectionContainerMappingInputPropertiesOutput)
 }
 
@@ -2564,7 +2538,7 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) TargetProtecti
 // Recovery plan creation properties.
 type CreateRecoveryPlanInputProperties struct {
 	// The failover deployment model.
-	FailoverDeploymentModel *FailoverDeploymentModel `pulumi:"failoverDeploymentModel"`
+	FailoverDeploymentModel *string `pulumi:"failoverDeploymentModel"`
 	// The recovery plan groups.
 	Groups []RecoveryPlanGroup `pulumi:"groups"`
 	// The primary fabric Id.
@@ -2587,7 +2561,7 @@ type CreateRecoveryPlanInputPropertiesInput interface {
 // Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesArgs struct {
 	// The failover deployment model.
-	FailoverDeploymentModel FailoverDeploymentModelPtrInput `pulumi:"failoverDeploymentModel"`
+	FailoverDeploymentModel *FailoverDeploymentModel `pulumi:"failoverDeploymentModel"`
 	// The recovery plan groups.
 	Groups RecoveryPlanGroupArrayInput `pulumi:"groups"`
 	// The primary fabric Id.
@@ -2669,14 +2643,14 @@ func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputProper
 }
 
 func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputPropertiesPtrOutputWithContext(ctx context.Context) CreateRecoveryPlanInputPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateRecoveryPlanInputProperties) *CreateRecoveryPlanInputProperties {
+	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *CreateRecoveryPlanInputProperties {
 		return &v
 	}).(CreateRecoveryPlanInputPropertiesPtrOutput)
 }
 
 // The failover deployment model.
-func (o CreateRecoveryPlanInputPropertiesOutput) FailoverDeploymentModel() FailoverDeploymentModelPtrOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *FailoverDeploymentModel { return v.FailoverDeploymentModel }).(FailoverDeploymentModelPtrOutput)
+func (o CreateRecoveryPlanInputPropertiesOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *string { return v.FailoverDeploymentModel }).(pulumi.StringPtrOutput)
 }
 
 // The recovery plan groups.
@@ -2709,23 +2683,17 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) ToCreateRecoveryPlanInputPro
 }
 
 func (o CreateRecoveryPlanInputPropertiesPtrOutput) Elem() CreateRecoveryPlanInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) CreateRecoveryPlanInputProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CreateRecoveryPlanInputProperties
-		return ret
-	}).(CreateRecoveryPlanInputPropertiesOutput)
+	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) CreateRecoveryPlanInputProperties { return *v }).(CreateRecoveryPlanInputPropertiesOutput)
 }
 
 // The failover deployment model.
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) FailoverDeploymentModel() FailoverDeploymentModelPtrOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *FailoverDeploymentModel {
+func (o CreateRecoveryPlanInputPropertiesPtrOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.FailoverDeploymentModel
-	}).(FailoverDeploymentModelPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The recovery plan groups.
@@ -2862,7 +2830,7 @@ func (o CurrentScenarioDetailsResponseOutput) ToCurrentScenarioDetailsResponsePt
 }
 
 func (o CurrentScenarioDetailsResponseOutput) ToCurrentScenarioDetailsResponsePtrOutputWithContext(ctx context.Context) CurrentScenarioDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CurrentScenarioDetailsResponse) *CurrentScenarioDetailsResponse {
+	return o.ApplyT(func(v CurrentScenarioDetailsResponse) *CurrentScenarioDetailsResponse {
 		return &v
 	}).(CurrentScenarioDetailsResponsePtrOutput)
 }
@@ -2897,13 +2865,7 @@ func (o CurrentScenarioDetailsResponsePtrOutput) ToCurrentScenarioDetailsRespons
 }
 
 func (o CurrentScenarioDetailsResponsePtrOutput) Elem() CurrentScenarioDetailsResponseOutput {
-	return o.ApplyT(func(v *CurrentScenarioDetailsResponse) CurrentScenarioDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CurrentScenarioDetailsResponse
-		return ret
-	}).(CurrentScenarioDetailsResponseOutput)
+	return o.ApplyT(func(v *CurrentScenarioDetailsResponse) CurrentScenarioDetailsResponse { return *v }).(CurrentScenarioDetailsResponseOutput)
 }
 
 // ARM Id of the job being executed.
@@ -3303,7 +3265,7 @@ func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputProperties
 }
 
 func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputPropertiesPtrOutputWithContext(ctx context.Context) EnableProtectionInputPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnableProtectionInputProperties) *EnableProtectionInputProperties {
+	return o.ApplyT(func(v EnableProtectionInputProperties) *EnableProtectionInputProperties {
 		return &v
 	}).(EnableProtectionInputPropertiesPtrOutput)
 }
@@ -3338,13 +3300,7 @@ func (o EnableProtectionInputPropertiesPtrOutput) ToEnableProtectionInputPropert
 }
 
 func (o EnableProtectionInputPropertiesPtrOutput) Elem() EnableProtectionInputPropertiesOutput {
-	return o.ApplyT(func(v *EnableProtectionInputProperties) EnableProtectionInputProperties {
-		if v != nil {
-			return *v
-		}
-		var ret EnableProtectionInputProperties
-		return ret
-	}).(EnableProtectionInputPropertiesOutput)
+	return o.ApplyT(func(v *EnableProtectionInputProperties) EnableProtectionInputProperties { return *v }).(EnableProtectionInputPropertiesOutput)
 }
 
 // The Policy Id.
@@ -3481,7 +3437,7 @@ func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutput() 
 }
 
 func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionDetailsResponse) *EncryptionDetailsResponse {
+	return o.ApplyT(func(v EncryptionDetailsResponse) *EncryptionDetailsResponse {
 		return &v
 	}).(EncryptionDetailsResponsePtrOutput)
 }
@@ -3516,13 +3472,7 @@ func (o EncryptionDetailsResponsePtrOutput) ToEncryptionDetailsResponsePtrOutput
 }
 
 func (o EncryptionDetailsResponsePtrOutput) Elem() EncryptionDetailsResponseOutput {
-	return o.ApplyT(func(v *EncryptionDetailsResponse) EncryptionDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionDetailsResponse
-		return ret
-	}).(EncryptionDetailsResponseOutput)
+	return o.ApplyT(func(v *EncryptionDetailsResponse) EncryptionDetailsResponse { return *v }).(EncryptionDetailsResponseOutput)
 }
 
 // The key encryption key certificate expiry date.
@@ -3679,7 +3629,7 @@ func (o FabricPropertiesResponseOutput) ToFabricPropertiesResponsePtrOutput() Fa
 }
 
 func (o FabricPropertiesResponseOutput) ToFabricPropertiesResponsePtrOutputWithContext(ctx context.Context) FabricPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FabricPropertiesResponse) *FabricPropertiesResponse {
+	return o.ApplyT(func(v FabricPropertiesResponse) *FabricPropertiesResponse {
 		return &v
 	}).(FabricPropertiesResponsePtrOutput)
 }
@@ -3739,13 +3689,7 @@ func (o FabricPropertiesResponsePtrOutput) ToFabricPropertiesResponsePtrOutputWi
 }
 
 func (o FabricPropertiesResponsePtrOutput) Elem() FabricPropertiesResponseOutput {
-	return o.ApplyT(func(v *FabricPropertiesResponse) FabricPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FabricPropertiesResponse
-		return ret
-	}).(FabricPropertiesResponseOutput)
+	return o.ApplyT(func(v *FabricPropertiesResponse) FabricPropertiesResponse { return *v }).(FabricPropertiesResponseOutput)
 }
 
 // BCDR state of the fabric.
@@ -5976,7 +5920,7 @@ func (o InMageAgentDetailsResponseOutput) ToInMageAgentDetailsResponsePtrOutput(
 }
 
 func (o InMageAgentDetailsResponseOutput) ToInMageAgentDetailsResponsePtrOutputWithContext(ctx context.Context) InMageAgentDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InMageAgentDetailsResponse) *InMageAgentDetailsResponse {
+	return o.ApplyT(func(v InMageAgentDetailsResponse) *InMageAgentDetailsResponse {
 		return &v
 	}).(InMageAgentDetailsResponsePtrOutput)
 }
@@ -6011,13 +5955,7 @@ func (o InMageAgentDetailsResponsePtrOutput) ToInMageAgentDetailsResponsePtrOutp
 }
 
 func (o InMageAgentDetailsResponsePtrOutput) Elem() InMageAgentDetailsResponseOutput {
-	return o.ApplyT(func(v *InMageAgentDetailsResponse) InMageAgentDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InMageAgentDetailsResponse
-		return ret
-	}).(InMageAgentDetailsResponseOutput)
+	return o.ApplyT(func(v *InMageAgentDetailsResponse) InMageAgentDetailsResponse { return *v }).(InMageAgentDetailsResponseOutput)
 }
 
 // A value indicating whether installed agent needs to be updated.
@@ -6356,7 +6294,7 @@ type InMageAzureV2PolicyInput struct {
 	// Expected value is 'InMageAzureV2'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -6384,7 +6322,7 @@ type InMageAzureV2PolicyInputArgs struct {
 	// Expected value is 'InMageAzureV2'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatusInput `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -6435,8 +6373,8 @@ func (o InMageAzureV2PolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o InMageAzureV2PolicyInputOutput) MultiVmSyncStatus() SetMultiVmSyncStatusOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) SetMultiVmSyncStatus { return v.MultiVmSyncStatus }).(SetMultiVmSyncStatusOutput)
+func (o InMageAzureV2PolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v InMageAzureV2PolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
 }
 
 // The duration in minutes until which the recovery points need to be stored.
@@ -7354,7 +7292,7 @@ func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputPtrOutput() In
 }
 
 func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputPtrOutputWithContext(ctx context.Context) InMageDiskExclusionInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InMageDiskExclusionInput) *InMageDiskExclusionInput {
+	return o.ApplyT(func(v InMageDiskExclusionInput) *InMageDiskExclusionInput {
 		return &v
 	}).(InMageDiskExclusionInputPtrOutput)
 }
@@ -7384,13 +7322,7 @@ func (o InMageDiskExclusionInputPtrOutput) ToInMageDiskExclusionInputPtrOutputWi
 }
 
 func (o InMageDiskExclusionInputPtrOutput) Elem() InMageDiskExclusionInputOutput {
-	return o.ApplyT(func(v *InMageDiskExclusionInput) InMageDiskExclusionInput {
-		if v != nil {
-			return *v
-		}
-		var ret InMageDiskExclusionInput
-		return ret
-	}).(InMageDiskExclusionInputOutput)
+	return o.ApplyT(func(v *InMageDiskExclusionInput) InMageDiskExclusionInput { return *v }).(InMageDiskExclusionInputOutput)
 }
 
 // The guest disk signature based option for disk exclusion.
@@ -7763,7 +7695,7 @@ type InMagePolicyInput struct {
 	// Expected value is 'InMage'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -7789,7 +7721,7 @@ type InMagePolicyInputArgs struct {
 	// Expected value is 'InMage'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatusInput `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -7835,8 +7767,8 @@ func (o InMagePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o InMagePolicyInputOutput) MultiVmSyncStatus() SetMultiVmSyncStatusOutput {
-	return o.ApplyT(func(v InMagePolicyInput) SetMultiVmSyncStatus { return v.MultiVmSyncStatus }).(SetMultiVmSyncStatusOutput)
+func (o InMagePolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v InMagePolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
 }
 
 // The duration in minutes until which the recovery points need to be stored.
@@ -8675,7 +8607,7 @@ func (o InitialReplicationDetailsResponseOutput) ToInitialReplicationDetailsResp
 }
 
 func (o InitialReplicationDetailsResponseOutput) ToInitialReplicationDetailsResponsePtrOutputWithContext(ctx context.Context) InitialReplicationDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InitialReplicationDetailsResponse) *InitialReplicationDetailsResponse {
+	return o.ApplyT(func(v InitialReplicationDetailsResponse) *InitialReplicationDetailsResponse {
 		return &v
 	}).(InitialReplicationDetailsResponsePtrOutput)
 }
@@ -8705,13 +8637,7 @@ func (o InitialReplicationDetailsResponsePtrOutput) ToInitialReplicationDetailsR
 }
 
 func (o InitialReplicationDetailsResponsePtrOutput) Elem() InitialReplicationDetailsResponseOutput {
-	return o.ApplyT(func(v *InitialReplicationDetailsResponse) InitialReplicationDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InitialReplicationDetailsResponse
-		return ret
-	}).(InitialReplicationDetailsResponseOutput)
+	return o.ApplyT(func(v *InitialReplicationDetailsResponse) InitialReplicationDetailsResponse { return *v }).(InitialReplicationDetailsResponseOutput)
 }
 
 // The initial replication progress percentage.
@@ -9306,7 +9232,7 @@ func (o NetworkMappingPropertiesResponseOutput) ToNetworkMappingPropertiesRespon
 }
 
 func (o NetworkMappingPropertiesResponseOutput) ToNetworkMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkMappingPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkMappingPropertiesResponse) *NetworkMappingPropertiesResponse {
+	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *NetworkMappingPropertiesResponse {
 		return &v
 	}).(NetworkMappingPropertiesResponsePtrOutput)
 }
@@ -9371,13 +9297,7 @@ func (o NetworkMappingPropertiesResponsePtrOutput) ToNetworkMappingPropertiesRes
 }
 
 func (o NetworkMappingPropertiesResponsePtrOutput) Elem() NetworkMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) NetworkMappingPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkMappingPropertiesResponse
-		return ret
-	}).(NetworkMappingPropertiesResponseOutput)
+	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) NetworkMappingPropertiesResponse { return *v }).(NetworkMappingPropertiesResponseOutput)
 }
 
 // The fabric specific settings.
@@ -9586,7 +9506,7 @@ func (o OSDetailsResponseOutput) ToOSDetailsResponsePtrOutput() OSDetailsRespons
 }
 
 func (o OSDetailsResponseOutput) ToOSDetailsResponsePtrOutputWithContext(ctx context.Context) OSDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDetailsResponse) *OSDetailsResponse {
+	return o.ApplyT(func(v OSDetailsResponse) *OSDetailsResponse {
 		return &v
 	}).(OSDetailsResponsePtrOutput)
 }
@@ -9636,13 +9556,7 @@ func (o OSDetailsResponsePtrOutput) ToOSDetailsResponsePtrOutputWithContext(ctx 
 }
 
 func (o OSDetailsResponsePtrOutput) Elem() OSDetailsResponseOutput {
-	return o.ApplyT(func(v *OSDetailsResponse) OSDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSDetailsResponse
-		return ret
-	}).(OSDetailsResponseOutput)
+	return o.ApplyT(func(v *OSDetailsResponse) OSDetailsResponse { return *v }).(OSDetailsResponseOutput)
 }
 
 // The OS Major Version.
@@ -9809,7 +9723,7 @@ func (o OSDiskDetailsResponseOutput) ToOSDiskDetailsResponsePtrOutput() OSDiskDe
 }
 
 func (o OSDiskDetailsResponseOutput) ToOSDiskDetailsResponsePtrOutputWithContext(ctx context.Context) OSDiskDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDiskDetailsResponse) *OSDiskDetailsResponse {
+	return o.ApplyT(func(v OSDiskDetailsResponse) *OSDiskDetailsResponse {
 		return &v
 	}).(OSDiskDetailsResponsePtrOutput)
 }
@@ -9844,13 +9758,7 @@ func (o OSDiskDetailsResponsePtrOutput) ToOSDiskDetailsResponsePtrOutputWithCont
 }
 
 func (o OSDiskDetailsResponsePtrOutput) Elem() OSDiskDetailsResponseOutput {
-	return o.ApplyT(func(v *OSDiskDetailsResponse) OSDiskDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSDiskDetailsResponse
-		return ret
-	}).(OSDiskDetailsResponseOutput)
+	return o.ApplyT(func(v *OSDiskDetailsResponse) OSDiskDetailsResponse { return *v }).(OSDiskDetailsResponseOutput)
 }
 
 // The type of the OS on the VM.
@@ -9983,7 +9891,7 @@ func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponsePtrOutput() Po
 }
 
 func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPropertiesResponse) *PolicyPropertiesResponse {
+	return o.ApplyT(func(v PolicyPropertiesResponse) *PolicyPropertiesResponse {
 		return &v
 	}).(PolicyPropertiesResponsePtrOutput)
 }
@@ -10013,13 +9921,7 @@ func (o PolicyPropertiesResponsePtrOutput) ToPolicyPropertiesResponsePtrOutputWi
 }
 
 func (o PolicyPropertiesResponsePtrOutput) Elem() PolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) PolicyPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyPropertiesResponse
-		return ret
-	}).(PolicyPropertiesResponseOutput)
+	return o.ApplyT(func(v *PolicyPropertiesResponse) PolicyPropertiesResponse { return *v }).(PolicyPropertiesResponseOutput)
 }
 
 // The FriendlyName.
@@ -10494,7 +10396,7 @@ func (o ProtectionContainerMappingPropertiesResponseOutput) ToProtectionContaine
 }
 
 func (o ProtectionContainerMappingPropertiesResponseOutput) ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionContainerMappingPropertiesResponse) *ProtectionContainerMappingPropertiesResponse {
+	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *ProtectionContainerMappingPropertiesResponse {
 		return &v
 	}).(ProtectionContainerMappingPropertiesResponsePtrOutput)
 }
@@ -10578,11 +10480,7 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) ToProtectionConta
 
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) Elem() ProtectionContainerMappingPropertiesResponseOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) ProtectionContainerMappingPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectionContainerMappingPropertiesResponse
-		return ret
+		return *v
 	}).(ProtectionContainerMappingPropertiesResponseOutput)
 }
 
@@ -10792,7 +10690,7 @@ func (o ProtectionContainerMappingProviderSpecificDetailsResponseOutput) ToProte
 }
 
 func (o ProtectionContainerMappingProviderSpecificDetailsResponseOutput) ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionContainerMappingProviderSpecificDetailsResponse) *ProtectionContainerMappingProviderSpecificDetailsResponse {
+	return o.ApplyT(func(v ProtectionContainerMappingProviderSpecificDetailsResponse) *ProtectionContainerMappingProviderSpecificDetailsResponse {
 		return &v
 	}).(ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput)
 }
@@ -10818,11 +10716,7 @@ func (o ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput) ToPr
 
 func (o ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput) Elem() ProtectionContainerMappingProviderSpecificDetailsResponseOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingProviderSpecificDetailsResponse) ProtectionContainerMappingProviderSpecificDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectionContainerMappingProviderSpecificDetailsResponse
-		return ret
+		return *v
 	}).(ProtectionContainerMappingProviderSpecificDetailsResponseOutput)
 }
 
@@ -10944,9 +10838,9 @@ type RecoveryPlanAction struct {
 	// The action name.
 	ActionName string `pulumi:"actionName"`
 	// The list of failover directions.
-	FailoverDirections []PossibleOperationsDirections `pulumi:"failoverDirections"`
+	FailoverDirections []string `pulumi:"failoverDirections"`
 	// The list of failover types.
-	FailoverTypes []ReplicationProtectedItemOperation `pulumi:"failoverTypes"`
+	FailoverTypes []string `pulumi:"failoverTypes"`
 }
 
 // RecoveryPlanActionInput is an input type that accepts RecoveryPlanActionArgs and RecoveryPlanActionOutput values.
@@ -11028,13 +10922,13 @@ func (o RecoveryPlanActionOutput) ActionName() pulumi.StringOutput {
 }
 
 // The list of failover directions.
-func (o RecoveryPlanActionOutput) FailoverDirections() PossibleOperationsDirectionsArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanAction) []PossibleOperationsDirections { return v.FailoverDirections }).(PossibleOperationsDirectionsArrayOutput)
+func (o RecoveryPlanActionOutput) FailoverDirections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverDirections }).(pulumi.StringArrayOutput)
 }
 
 // The list of failover types.
-func (o RecoveryPlanActionOutput) FailoverTypes() ReplicationProtectedItemOperationArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanAction) []ReplicationProtectedItemOperation { return v.FailoverTypes }).(ReplicationProtectedItemOperationArrayOutput)
+func (o RecoveryPlanActionOutput) FailoverTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverTypes }).(pulumi.StringArrayOutput)
 }
 
 type RecoveryPlanActionArrayOutput struct{ *pulumi.OutputState }
@@ -11274,7 +11168,7 @@ type RecoveryPlanGroup struct {
 	// The end group actions.
 	EndGroupActions []RecoveryPlanAction `pulumi:"endGroupActions"`
 	// The group type.
-	GroupType RecoveryPlanGroupType `pulumi:"groupType"`
+	GroupType string `pulumi:"groupType"`
 	// The list of protected items.
 	ReplicationProtectedItems []RecoveryPlanProtectedItem `pulumi:"replicationProtectedItems"`
 	// The start group actions.
@@ -11297,7 +11191,7 @@ type RecoveryPlanGroupArgs struct {
 	// The end group actions.
 	EndGroupActions RecoveryPlanActionArrayInput `pulumi:"endGroupActions"`
 	// The group type.
-	GroupType RecoveryPlanGroupTypeInput `pulumi:"groupType"`
+	GroupType RecoveryPlanGroupType `pulumi:"groupType"`
 	// The list of protected items.
 	ReplicationProtectedItems RecoveryPlanProtectedItemArrayInput `pulumi:"replicationProtectedItems"`
 	// The start group actions.
@@ -11362,8 +11256,8 @@ func (o RecoveryPlanGroupOutput) EndGroupActions() RecoveryPlanActionArrayOutput
 }
 
 // The group type.
-func (o RecoveryPlanGroupOutput) GroupType() RecoveryPlanGroupTypeOutput {
-	return o.ApplyT(func(v RecoveryPlanGroup) RecoveryPlanGroupType { return v.GroupType }).(RecoveryPlanGroupTypeOutput)
+func (o RecoveryPlanGroupOutput) GroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecoveryPlanGroup) string { return v.GroupType }).(pulumi.StringOutput)
 }
 
 // The list of protected items.
@@ -11744,7 +11638,7 @@ func (o RecoveryPlanPropertiesResponseOutput) ToRecoveryPlanPropertiesResponsePt
 }
 
 func (o RecoveryPlanPropertiesResponseOutput) ToRecoveryPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) RecoveryPlanPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecoveryPlanPropertiesResponse) *RecoveryPlanPropertiesResponse {
+	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *RecoveryPlanPropertiesResponse {
 		return &v
 	}).(RecoveryPlanPropertiesResponsePtrOutput)
 }
@@ -11839,13 +11733,7 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) ToRecoveryPlanPropertiesRespons
 }
 
 func (o RecoveryPlanPropertiesResponsePtrOutput) Elem() RecoveryPlanPropertiesResponseOutput {
-	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) RecoveryPlanPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RecoveryPlanPropertiesResponse
-		return ret
-	}).(RecoveryPlanPropertiesResponseOutput)
+	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) RecoveryPlanPropertiesResponse { return *v }).(RecoveryPlanPropertiesResponseOutput)
 }
 
 // The list of allowed operations.
@@ -12501,7 +12389,7 @@ func (o ReplicationProtectedItemPropertiesResponseOutput) ToReplicationProtected
 }
 
 func (o ReplicationProtectedItemPropertiesResponseOutput) ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationProtectedItemPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationProtectedItemPropertiesResponse) *ReplicationProtectedItemPropertiesResponse {
+	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *ReplicationProtectedItemPropertiesResponse {
 		return &v
 	}).(ReplicationProtectedItemPropertiesResponsePtrOutput)
 }
@@ -12667,11 +12555,7 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ToReplicationProtec
 
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) Elem() ReplicationProtectedItemPropertiesResponseOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) ReplicationProtectedItemPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationProtectedItemPropertiesResponse
-		return ret
+		return *v
 	}).(ReplicationProtectedItemPropertiesResponseOutput)
 }
 
@@ -13041,7 +12925,7 @@ func (o ReplicationProviderSpecificContainerMappingInputOutput) ToReplicationPro
 }
 
 func (o ReplicationProviderSpecificContainerMappingInputOutput) ToReplicationProviderSpecificContainerMappingInputPtrOutputWithContext(ctx context.Context) ReplicationProviderSpecificContainerMappingInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationProviderSpecificContainerMappingInput) *ReplicationProviderSpecificContainerMappingInput {
+	return o.ApplyT(func(v ReplicationProviderSpecificContainerMappingInput) *ReplicationProviderSpecificContainerMappingInput {
 		return &v
 	}).(ReplicationProviderSpecificContainerMappingInputPtrOutput)
 }
@@ -13067,11 +12951,7 @@ func (o ReplicationProviderSpecificContainerMappingInputPtrOutput) ToReplication
 
 func (o ReplicationProviderSpecificContainerMappingInputPtrOutput) Elem() ReplicationProviderSpecificContainerMappingInputOutput {
 	return o.ApplyT(func(v *ReplicationProviderSpecificContainerMappingInput) ReplicationProviderSpecificContainerMappingInput {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationProviderSpecificContainerMappingInput
-		return ret
+		return *v
 	}).(ReplicationProviderSpecificContainerMappingInputOutput)
 }
 
@@ -13611,7 +13491,7 @@ func (o StorageClassificationMappingPropertiesResponseOutput) ToStorageClassific
 }
 
 func (o StorageClassificationMappingPropertiesResponseOutput) ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageClassificationMappingPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageClassificationMappingPropertiesResponse) *StorageClassificationMappingPropertiesResponse {
+	return o.ApplyT(func(v StorageClassificationMappingPropertiesResponse) *StorageClassificationMappingPropertiesResponse {
 		return &v
 	}).(StorageClassificationMappingPropertiesResponsePtrOutput)
 }
@@ -13637,11 +13517,7 @@ func (o StorageClassificationMappingPropertiesResponsePtrOutput) ToStorageClassi
 
 func (o StorageClassificationMappingPropertiesResponsePtrOutput) Elem() StorageClassificationMappingPropertiesResponseOutput {
 	return o.ApplyT(func(v *StorageClassificationMappingPropertiesResponse) StorageClassificationMappingPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageClassificationMappingPropertiesResponse
-		return ret
+		return *v
 	}).(StorageClassificationMappingPropertiesResponseOutput)
 }
 
@@ -13751,7 +13627,7 @@ func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesPtrO
 }
 
 func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesPtrOutputWithContext(ctx context.Context) StorageMappingInputPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageMappingInputProperties) *StorageMappingInputProperties {
+	return o.ApplyT(func(v StorageMappingInputProperties) *StorageMappingInputProperties {
 		return &v
 	}).(StorageMappingInputPropertiesPtrOutput)
 }
@@ -13776,13 +13652,7 @@ func (o StorageMappingInputPropertiesPtrOutput) ToStorageMappingInputPropertiesP
 }
 
 func (o StorageMappingInputPropertiesPtrOutput) Elem() StorageMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *StorageMappingInputProperties) StorageMappingInputProperties {
-		if v != nil {
-			return *v
-		}
-		var ret StorageMappingInputProperties
-		return ret
-	}).(StorageMappingInputPropertiesOutput)
+	return o.ApplyT(func(v *StorageMappingInputProperties) StorageMappingInputProperties { return *v }).(StorageMappingInputPropertiesOutput)
 }
 
 // The ID of the storage object.
@@ -13927,7 +13797,7 @@ func (o VCenterPropertiesResponseOutput) ToVCenterPropertiesResponsePtrOutput() 
 }
 
 func (o VCenterPropertiesResponseOutput) ToVCenterPropertiesResponsePtrOutputWithContext(ctx context.Context) VCenterPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VCenterPropertiesResponse) *VCenterPropertiesResponse {
+	return o.ApplyT(func(v VCenterPropertiesResponse) *VCenterPropertiesResponse {
 		return &v
 	}).(VCenterPropertiesResponsePtrOutput)
 }
@@ -13997,13 +13867,7 @@ func (o VCenterPropertiesResponsePtrOutput) ToVCenterPropertiesResponsePtrOutput
 }
 
 func (o VCenterPropertiesResponsePtrOutput) Elem() VCenterPropertiesResponseOutput {
-	return o.ApplyT(func(v *VCenterPropertiesResponse) VCenterPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VCenterPropertiesResponse
-		return ret
-	}).(VCenterPropertiesResponseOutput)
+	return o.ApplyT(func(v *VCenterPropertiesResponse) VCenterPropertiesResponse { return *v }).(VCenterPropertiesResponseOutput)
 }
 
 // The VCenter discovery status.

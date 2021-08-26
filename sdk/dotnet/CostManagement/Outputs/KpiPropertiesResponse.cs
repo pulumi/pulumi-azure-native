@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
-    /// <summary>
-    /// Each KPI must contain a 'type' and 'enabled' key.
-    /// </summary>
     [OutputType]
     public sealed class KpiPropertiesResponse
     {

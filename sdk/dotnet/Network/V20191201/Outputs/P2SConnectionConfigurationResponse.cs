@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191201.Outputs
 {
 
-    /// <summary>
-    /// P2SConnectionConfiguration Resource.
-    /// </summary>
     [OutputType]
     public sealed class P2SConnectionConfigurationResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// Describes a virtual machines IP Configuration's PublicIPAddress configuration
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachinePublicIPAddressConfigurationResponse
     {

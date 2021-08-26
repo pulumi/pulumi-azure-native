@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Table properties
-    /// </summary>
     [OutputType]
     public sealed class DatabaseTableResponse
     {

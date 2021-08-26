@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
-    /// <summary>
-    /// LogAnalytics output properties
-    /// </summary>
     [OutputType]
     public sealed class LogAnalyticsOutputResponse
     {

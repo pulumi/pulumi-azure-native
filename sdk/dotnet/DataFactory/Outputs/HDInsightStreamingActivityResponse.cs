@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// HDInsight streaming activity type.
-    /// </summary>
     [OutputType]
     public sealed class HDInsightStreamingActivityResponse
     {

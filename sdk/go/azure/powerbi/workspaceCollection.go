@@ -126,7 +126,9 @@ func (i *WorkspaceCollection) ToWorkspaceCollectionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCollectionOutput)
 }
 
-type WorkspaceCollectionOutput struct{ *pulumi.OutputState }
+type WorkspaceCollectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkspaceCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceCollection)(nil))

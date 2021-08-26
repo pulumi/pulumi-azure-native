@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20201101.Outputs
 {
 
-    /// <summary>
-    /// Defines the Resource ID for a Security Policy.
-    /// </summary>
     [OutputType]
     public sealed class SecurityPolicyLinkResponse
     {

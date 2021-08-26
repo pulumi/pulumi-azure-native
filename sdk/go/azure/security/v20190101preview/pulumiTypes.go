@@ -106,7 +106,7 @@ func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutput() Asse
 }
 
 func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentLinksResponse) *AssessmentLinksResponse {
+	return o.ApplyT(func(v AssessmentLinksResponse) *AssessmentLinksResponse {
 		return &v
 	}).(AssessmentLinksResponsePtrOutput)
 }
@@ -131,13 +131,7 @@ func (o AssessmentLinksResponsePtrOutput) ToAssessmentLinksResponsePtrOutputWith
 }
 
 func (o AssessmentLinksResponsePtrOutput) Elem() AssessmentLinksResponseOutput {
-	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentLinksResponse
-		return ret
-	}).(AssessmentLinksResponseOutput)
+	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse { return *v }).(AssessmentLinksResponseOutput)
 }
 
 // Link to assessment in Azure Portal
@@ -254,7 +248,7 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPt
 }
 
 func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
+	return o.ApplyT(func(v AssessmentStatus) *AssessmentStatus {
 		return &v
 	}).(AssessmentStatusPtrOutput)
 }
@@ -289,13 +283,7 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx co
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentStatus
-		return ret
-	}).(AssessmentStatusOutput)
+	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus { return *v }).(AssessmentStatusOutput)
 }
 
 // Programmatic code for the cause of the assessment status
@@ -432,7 +420,7 @@ func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutput() As
 }
 
 func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatusResponse) *AssessmentStatusResponse {
+	return o.ApplyT(func(v AssessmentStatusResponse) *AssessmentStatusResponse {
 		return &v
 	}).(AssessmentStatusResponsePtrOutput)
 }
@@ -467,13 +455,7 @@ func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutputWi
 }
 
 func (o AssessmentStatusResponsePtrOutput) Elem() AssessmentStatusResponseOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentStatusResponse
-		return ret
-	}).(AssessmentStatusResponseOutput)
+	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse { return *v }).(AssessmentStatusResponseOutput)
 }
 
 // Programmatic code for the cause of the assessment status
@@ -2667,7 +2649,7 @@ func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutput() Suppre
 }
 
 func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionAlertsScope) *SuppressionAlertsScope {
+	return o.ApplyT(func(v SuppressionAlertsScope) *SuppressionAlertsScope {
 		return &v
 	}).(SuppressionAlertsScopePtrOutput)
 }
@@ -2692,13 +2674,7 @@ func (o SuppressionAlertsScopePtrOutput) ToSuppressionAlertsScopePtrOutputWithCo
 }
 
 func (o SuppressionAlertsScopePtrOutput) Elem() SuppressionAlertsScopeOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope {
-		if v != nil {
-			return *v
-		}
-		var ret SuppressionAlertsScope
-		return ret
-	}).(SuppressionAlertsScopeOutput)
+	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope { return *v }).(SuppressionAlertsScopeOutput)
 }
 
 // All the conditions inside need to be true in order to suppress the alert
@@ -2804,7 +2780,7 @@ func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePt
 }
 
 func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionAlertsScopeResponse) *SuppressionAlertsScopeResponse {
+	return o.ApplyT(func(v SuppressionAlertsScopeResponse) *SuppressionAlertsScopeResponse {
 		return &v
 	}).(SuppressionAlertsScopeResponsePtrOutput)
 }
@@ -2829,13 +2805,7 @@ func (o SuppressionAlertsScopeResponsePtrOutput) ToSuppressionAlertsScopeRespons
 }
 
 func (o SuppressionAlertsScopeResponsePtrOutput) Elem() SuppressionAlertsScopeResponseOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) SuppressionAlertsScopeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SuppressionAlertsScopeResponse
-		return ret
-	}).(SuppressionAlertsScopeResponseOutput)
+	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) SuppressionAlertsScopeResponse { return *v }).(SuppressionAlertsScopeResponseOutput)
 }
 
 // All the conditions inside need to be true in order to suppress the alert

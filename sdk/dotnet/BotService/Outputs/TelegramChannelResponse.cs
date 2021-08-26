@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
-    /// <summary>
-    /// Telegram channel definition
-    /// </summary>
     [OutputType]
     public sealed class TelegramChannelResponse
     {

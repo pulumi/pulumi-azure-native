@@ -133,7 +133,9 @@ func (i *ManagementLockByScope) ToManagementLockByScopeOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockByScopeOutput)
 }
 
-type ManagementLockByScopeOutput struct{ *pulumi.OutputState }
+type ManagementLockByScopeOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagementLockByScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementLockByScope)(nil))

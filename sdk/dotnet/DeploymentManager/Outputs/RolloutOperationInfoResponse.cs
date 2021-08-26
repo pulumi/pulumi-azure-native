@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.Outputs
 {
 
-    /// <summary>
-    /// Detailed runtime information of the rollout.
-    /// </summary>
     [OutputType]
     public sealed class RolloutOperationInfoResponse
     {

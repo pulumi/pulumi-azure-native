@@ -90,9 +90,6 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseAccountOfferType == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseAccountOfferType'")
-	}
 	if args.Locations == nil {
 		return nil, errors.New("invalid value for required argument 'Locations'")
 	}
@@ -263,7 +260,7 @@ type databaseAccountArgs struct {
 	// The CORS policy for the Cosmos DB database account.
 	Cors []CorsPolicy `pulumi:"cors"`
 	// The offer type for the database
-	DatabaseAccountOfferType DatabaseAccountOfferType `pulumi:"databaseAccountOfferType"`
+	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// Flag to indicate whether to enable storage analytics.
@@ -291,7 +288,7 @@ type databaseAccountArgs struct {
 	// An array that contains the georeplication locations enabled for the Cosmos DB account.
 	Locations []Location `pulumi:"locations"`
 	// Indicates what services are allowed to bypass firewall checks.
-	NetworkAclBypass *NetworkAclBypass `pulumi:"networkAclBypass"`
+	NetworkAclBypass *string `pulumi:"networkAclBypass"`
 	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
 	NetworkAclBypassResourceIds []string `pulumi:"networkAclBypassResourceIds"`
 	// Whether requests from Public Network are allowed
@@ -321,7 +318,7 @@ type DatabaseAccountArgs struct {
 	// The CORS policy for the Cosmos DB database account.
 	Cors CorsPolicyArrayInput
 	// The offer type for the database
-	DatabaseAccountOfferType DatabaseAccountOfferTypeInput
+	DatabaseAccountOfferType DatabaseAccountOfferType
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput
 	// Flag to indicate whether to enable storage analytics.
@@ -349,7 +346,7 @@ type DatabaseAccountArgs struct {
 	// An array that contains the georeplication locations enabled for the Cosmos DB account.
 	Locations LocationArrayInput
 	// Indicates what services are allowed to bypass firewall checks.
-	NetworkAclBypass NetworkAclBypassPtrInput
+	NetworkAclBypass *NetworkAclBypass
 	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
 	NetworkAclBypassResourceIds pulumi.StringArrayInput
 	// Whether requests from Public Network are allowed
@@ -385,7 +382,9 @@ func (i *DatabaseAccount) ToDatabaseAccountOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountOutput)
 }
 
-type DatabaseAccountOutput struct{ *pulumi.OutputState }
+type DatabaseAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccount)(nil))

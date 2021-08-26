@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20200801Preview.Outputs
 {
 
-    /// <summary>
-    /// An update history of the ImmutabilityPolicy of a blob container.
-    /// </summary>
     [OutputType]
     public sealed class UpdateHistoryPropertyResponse
     {

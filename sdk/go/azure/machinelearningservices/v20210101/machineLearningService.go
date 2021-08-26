@@ -188,7 +188,9 @@ func (i *MachineLearningService) ToMachineLearningServiceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningServiceOutput)
 }
 
-type MachineLearningServiceOutput struct{ *pulumi.OutputState }
+type MachineLearningServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (MachineLearningServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningService)(nil))

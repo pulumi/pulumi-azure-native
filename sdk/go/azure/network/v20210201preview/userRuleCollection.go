@@ -150,7 +150,9 @@ func (i *UserRuleCollection) ToUserRuleCollectionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UserRuleCollectionOutput)
 }
 
-type UserRuleCollectionOutput struct{ *pulumi.OutputState }
+type UserRuleCollectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (UserRuleCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserRuleCollection)(nil))

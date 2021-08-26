@@ -80,12 +80,6 @@ func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:WorkspaceSqlAadAdmin"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:WorkspaceSqlAadAdmin"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"),
 		},
 		{
@@ -178,7 +172,9 @@ func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
 }
 
-type WorkspaceSqlAadAdminOutput struct{ *pulumi.OutputState }
+type WorkspaceSqlAadAdminOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil))

@@ -168,7 +168,9 @@ func (i *JitRequest) ToJitRequestOutputWithContext(ctx context.Context) JitReque
 	return pulumi.ToOutputWithContext(ctx, i).(JitRequestOutput)
 }
 
-type JitRequestOutput struct{ *pulumi.OutputState }
+type JitRequestOutput struct {
+	*pulumi.OutputState
+}
 
 func (JitRequestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JitRequest)(nil))

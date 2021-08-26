@@ -361,7 +361,9 @@ func (i *ConnectionMonitor) ToConnectionMonitorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMonitorOutput)
 }
 
-type ConnectionMonitorOutput struct{ *pulumi.OutputState }
+type ConnectionMonitorOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConnectionMonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionMonitor)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Hyper V Replica Azure provider specific settings.
-    /// </summary>
     [OutputType]
     public sealed class HyperVReplicaAzureReplicationDetailsResponse
     {

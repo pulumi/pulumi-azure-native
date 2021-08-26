@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
-    /// <summary>
-    /// Configuration for defining the transfer of data.
-    /// </summary>
     [OutputType]
     public sealed class TransferConfigurationResponse
     {

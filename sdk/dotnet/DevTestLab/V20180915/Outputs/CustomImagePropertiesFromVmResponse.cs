@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
 {
 
-    /// <summary>
-    /// Properties for creating a custom image from a virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class CustomImagePropertiesFromVmResponse
     {

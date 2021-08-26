@@ -114,7 +114,7 @@ func (o AdmCredentialOutput) ToAdmCredentialPtrOutput() AdmCredentialPtrOutput {
 }
 
 func (o AdmCredentialOutput) ToAdmCredentialPtrOutputWithContext(ctx context.Context) AdmCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredential) *AdmCredential {
+	return o.ApplyT(func(v AdmCredential) *AdmCredential {
 		return &v
 	}).(AdmCredentialPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o AdmCredentialPtrOutput) ToAdmCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o AdmCredentialPtrOutput) Elem() AdmCredentialOutput {
-	return o.ApplyT(func(v *AdmCredential) AdmCredential {
-		if v != nil {
-			return *v
-		}
-		var ret AdmCredential
-		return ret
-	}).(AdmCredentialOutput)
+	return o.ApplyT(func(v *AdmCredential) AdmCredential { return *v }).(AdmCredentialOutput)
 }
 
 // The URL of the authorization token.
@@ -292,7 +286,7 @@ func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutput() AdmCrede
 }
 
 func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutputWithContext(ctx context.Context) AdmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdmCredentialResponse) *AdmCredentialResponse {
+	return o.ApplyT(func(v AdmCredentialResponse) *AdmCredentialResponse {
 		return &v
 	}).(AdmCredentialResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o AdmCredentialResponsePtrOutput) ToAdmCredentialResponsePtrOutputWithCont
 }
 
 func (o AdmCredentialResponsePtrOutput) Elem() AdmCredentialResponseOutput {
-	return o.ApplyT(func(v *AdmCredentialResponse) AdmCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AdmCredentialResponse
-		return ret
-	}).(AdmCredentialResponseOutput)
+	return o.ApplyT(func(v *AdmCredentialResponse) AdmCredentialResponse { return *v }).(AdmCredentialResponseOutput)
 }
 
 // The URL of the authorization token.
@@ -474,7 +462,7 @@ func (o ApnsCredentialOutput) ToApnsCredentialPtrOutput() ApnsCredentialPtrOutpu
 }
 
 func (o ApnsCredentialOutput) ToApnsCredentialPtrOutputWithContext(ctx context.Context) ApnsCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredential) *ApnsCredential {
+	return o.ApplyT(func(v ApnsCredential) *ApnsCredential {
 		return &v
 	}).(ApnsCredentialPtrOutput)
 }
@@ -514,13 +502,7 @@ func (o ApnsCredentialPtrOutput) ToApnsCredentialPtrOutputWithContext(ctx contex
 }
 
 func (o ApnsCredentialPtrOutput) Elem() ApnsCredentialOutput {
-	return o.ApplyT(func(v *ApnsCredential) ApnsCredential {
-		if v != nil {
-			return *v
-		}
-		var ret ApnsCredential
-		return ret
-	}).(ApnsCredentialOutput)
+	return o.ApplyT(func(v *ApnsCredential) ApnsCredential { return *v }).(ApnsCredentialOutput)
 }
 
 // The APNS certificate.
@@ -671,7 +653,7 @@ func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutput() ApnsCr
 }
 
 func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsCredentialResponse) *ApnsCredentialResponse {
+	return o.ApplyT(func(v ApnsCredentialResponse) *ApnsCredentialResponse {
 		return &v
 	}).(ApnsCredentialResponsePtrOutput)
 }
@@ -711,13 +693,7 @@ func (o ApnsCredentialResponsePtrOutput) ToApnsCredentialResponsePtrOutputWithCo
 }
 
 func (o ApnsCredentialResponsePtrOutput) Elem() ApnsCredentialResponseOutput {
-	return o.ApplyT(func(v *ApnsCredentialResponse) ApnsCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApnsCredentialResponse
-		return ret
-	}).(ApnsCredentialResponseOutput)
+	return o.ApplyT(func(v *ApnsCredentialResponse) ApnsCredentialResponse { return *v }).(ApnsCredentialResponseOutput)
 }
 
 // The APNS certificate.
@@ -864,7 +840,7 @@ func (o BaiduCredentialOutput) ToBaiduCredentialPtrOutput() BaiduCredentialPtrOu
 }
 
 func (o BaiduCredentialOutput) ToBaiduCredentialPtrOutputWithContext(ctx context.Context) BaiduCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredential) *BaiduCredential {
+	return o.ApplyT(func(v BaiduCredential) *BaiduCredential {
 		return &v
 	}).(BaiduCredentialPtrOutput)
 }
@@ -899,13 +875,7 @@ func (o BaiduCredentialPtrOutput) ToBaiduCredentialPtrOutputWithContext(ctx cont
 }
 
 func (o BaiduCredentialPtrOutput) Elem() BaiduCredentialOutput {
-	return o.ApplyT(func(v *BaiduCredential) BaiduCredential {
-		if v != nil {
-			return *v
-		}
-		var ret BaiduCredential
-		return ret
-	}).(BaiduCredentialOutput)
+	return o.ApplyT(func(v *BaiduCredential) BaiduCredential { return *v }).(BaiduCredentialOutput)
 }
 
 // Baidu Api Key.
@@ -1042,7 +1012,7 @@ func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutput() Baid
 }
 
 func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaiduCredentialResponse) *BaiduCredentialResponse {
+	return o.ApplyT(func(v BaiduCredentialResponse) *BaiduCredentialResponse {
 		return &v
 	}).(BaiduCredentialResponsePtrOutput)
 }
@@ -1077,13 +1047,7 @@ func (o BaiduCredentialResponsePtrOutput) ToBaiduCredentialResponsePtrOutputWith
 }
 
 func (o BaiduCredentialResponsePtrOutput) Elem() BaiduCredentialResponseOutput {
-	return o.ApplyT(func(v *BaiduCredentialResponse) BaiduCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BaiduCredentialResponse
-		return ret
-	}).(BaiduCredentialResponseOutput)
+	return o.ApplyT(func(v *BaiduCredentialResponse) BaiduCredentialResponse { return *v }).(BaiduCredentialResponseOutput)
 }
 
 // Baidu Api Key.
@@ -1216,7 +1180,7 @@ func (o GcmCredentialOutput) ToGcmCredentialPtrOutput() GcmCredentialPtrOutput {
 }
 
 func (o GcmCredentialOutput) ToGcmCredentialPtrOutputWithContext(ctx context.Context) GcmCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredential) *GcmCredential {
+	return o.ApplyT(func(v GcmCredential) *GcmCredential {
 		return &v
 	}).(GcmCredentialPtrOutput)
 }
@@ -1246,13 +1210,7 @@ func (o GcmCredentialPtrOutput) ToGcmCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o GcmCredentialPtrOutput) Elem() GcmCredentialOutput {
-	return o.ApplyT(func(v *GcmCredential) GcmCredential {
-		if v != nil {
-			return *v
-		}
-		var ret GcmCredential
-		return ret
-	}).(GcmCredentialOutput)
+	return o.ApplyT(func(v *GcmCredential) GcmCredential { return *v }).(GcmCredentialOutput)
 }
 
 // The GCM endpoint.
@@ -1375,7 +1333,7 @@ func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutput() GcmCrede
 }
 
 func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutputWithContext(ctx context.Context) GcmCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmCredentialResponse) *GcmCredentialResponse {
+	return o.ApplyT(func(v GcmCredentialResponse) *GcmCredentialResponse {
 		return &v
 	}).(GcmCredentialResponsePtrOutput)
 }
@@ -1405,13 +1363,7 @@ func (o GcmCredentialResponsePtrOutput) ToGcmCredentialResponsePtrOutputWithCont
 }
 
 func (o GcmCredentialResponsePtrOutput) Elem() GcmCredentialResponseOutput {
-	return o.ApplyT(func(v *GcmCredentialResponse) GcmCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GcmCredentialResponse
-		return ret
-	}).(GcmCredentialResponseOutput)
+	return o.ApplyT(func(v *GcmCredentialResponse) GcmCredentialResponse { return *v }).(GcmCredentialResponseOutput)
 }
 
 // The GCM endpoint.
@@ -1538,7 +1490,7 @@ func (o MpnsCredentialOutput) ToMpnsCredentialPtrOutput() MpnsCredentialPtrOutpu
 }
 
 func (o MpnsCredentialOutput) ToMpnsCredentialPtrOutputWithContext(ctx context.Context) MpnsCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredential) *MpnsCredential {
+	return o.ApplyT(func(v MpnsCredential) *MpnsCredential {
 		return &v
 	}).(MpnsCredentialPtrOutput)
 }
@@ -1573,13 +1525,7 @@ func (o MpnsCredentialPtrOutput) ToMpnsCredentialPtrOutputWithContext(ctx contex
 }
 
 func (o MpnsCredentialPtrOutput) Elem() MpnsCredentialOutput {
-	return o.ApplyT(func(v *MpnsCredential) MpnsCredential {
-		if v != nil {
-			return *v
-		}
-		var ret MpnsCredential
-		return ret
-	}).(MpnsCredentialOutput)
+	return o.ApplyT(func(v *MpnsCredential) MpnsCredential { return *v }).(MpnsCredentialOutput)
 }
 
 // The certificate key for this credential.
@@ -1716,7 +1662,7 @@ func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutput() MpnsCr
 }
 
 func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MpnsCredentialResponse) *MpnsCredentialResponse {
+	return o.ApplyT(func(v MpnsCredentialResponse) *MpnsCredentialResponse {
 		return &v
 	}).(MpnsCredentialResponsePtrOutput)
 }
@@ -1751,13 +1697,7 @@ func (o MpnsCredentialResponsePtrOutput) ToMpnsCredentialResponsePtrOutputWithCo
 }
 
 func (o MpnsCredentialResponsePtrOutput) Elem() MpnsCredentialResponseOutput {
-	return o.ApplyT(func(v *MpnsCredentialResponse) MpnsCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MpnsCredentialResponse
-		return ret
-	}).(MpnsCredentialResponseOutput)
+	return o.ApplyT(func(v *MpnsCredentialResponse) MpnsCredentialResponse { return *v }).(MpnsCredentialResponseOutput)
 }
 
 // The certificate key for this credential.
@@ -1793,7 +1733,7 @@ func (o MpnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 // SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRuleProperties struct {
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // SharedAccessAuthorizationRulePropertiesInput is an input type that accepts SharedAccessAuthorizationRulePropertiesArgs and SharedAccessAuthorizationRulePropertiesOutput values.
@@ -1911,14 +1851,14 @@ func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizati
 }
 
 func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedAccessAuthorizationRuleProperties) *SharedAccessAuthorizationRuleProperties {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) *SharedAccessAuthorizationRuleProperties {
 		return &v
 	}).(SharedAccessAuthorizationRulePropertiesPtrOutput)
 }
 
 // The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() AccessRightsArrayOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []AccessRights { return v.Rights }).(AccessRightsArrayOutput)
+func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1936,23 +1876,17 @@ func (o SharedAccessAuthorizationRulePropertiesPtrOutput) ToSharedAccessAuthoriz
 }
 
 func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Elem() SharedAccessAuthorizationRulePropertiesOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) SharedAccessAuthorizationRuleProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SharedAccessAuthorizationRuleProperties
-		return ret
-	}).(SharedAccessAuthorizationRulePropertiesOutput)
+	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) SharedAccessAuthorizationRuleProperties { return *v }).(SharedAccessAuthorizationRulePropertiesOutput)
 }
 
 // The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Rights() AccessRightsArrayOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) []AccessRights {
+func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Rights
-	}).(AccessRightsArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -2187,7 +2121,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -2232,13 +2166,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The capacity of the resource
@@ -2403,7 +2331,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -2448,13 +2376,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The capacity of the resource
@@ -2611,7 +2533,7 @@ func (o WnsCredentialOutput) ToWnsCredentialPtrOutput() WnsCredentialPtrOutput {
 }
 
 func (o WnsCredentialOutput) ToWnsCredentialPtrOutputWithContext(ctx context.Context) WnsCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredential) *WnsCredential {
+	return o.ApplyT(func(v WnsCredential) *WnsCredential {
 		return &v
 	}).(WnsCredentialPtrOutput)
 }
@@ -2646,13 +2568,7 @@ func (o WnsCredentialPtrOutput) ToWnsCredentialPtrOutputWithContext(ctx context.
 }
 
 func (o WnsCredentialPtrOutput) Elem() WnsCredentialOutput {
-	return o.ApplyT(func(v *WnsCredential) WnsCredential {
-		if v != nil {
-			return *v
-		}
-		var ret WnsCredential
-		return ret
-	}).(WnsCredentialOutput)
+	return o.ApplyT(func(v *WnsCredential) WnsCredential { return *v }).(WnsCredentialOutput)
 }
 
 // The package ID for this credential.
@@ -2789,7 +2705,7 @@ func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutput() WnsCrede
 }
 
 func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutputWithContext(ctx context.Context) WnsCredentialResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WnsCredentialResponse) *WnsCredentialResponse {
+	return o.ApplyT(func(v WnsCredentialResponse) *WnsCredentialResponse {
 		return &v
 	}).(WnsCredentialResponsePtrOutput)
 }
@@ -2824,13 +2740,7 @@ func (o WnsCredentialResponsePtrOutput) ToWnsCredentialResponsePtrOutputWithCont
 }
 
 func (o WnsCredentialResponsePtrOutput) Elem() WnsCredentialResponseOutput {
-	return o.ApplyT(func(v *WnsCredentialResponse) WnsCredentialResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WnsCredentialResponse
-		return ret
-	}).(WnsCredentialResponseOutput)
+	return o.ApplyT(func(v *WnsCredentialResponse) WnsCredentialResponse { return *v }).(WnsCredentialResponseOutput)
 }
 
 // The package ID for this credential.

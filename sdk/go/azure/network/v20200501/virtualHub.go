@@ -348,7 +348,9 @@ func (i *VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualH
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubOutput)
 }
 
-type VirtualHubOutput struct{ *pulumi.OutputState }
+type VirtualHubOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHub)(nil))

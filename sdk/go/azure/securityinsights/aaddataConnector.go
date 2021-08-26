@@ -163,7 +163,9 @@ func (i *AADDataConnector) ToAADDataConnectorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AADDataConnectorOutput)
 }
 
-type AADDataConnectorOutput struct{ *pulumi.OutputState }
+type AADDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (AADDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AADDataConnector)(nil))

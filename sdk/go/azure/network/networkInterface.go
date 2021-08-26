@@ -419,7 +419,9 @@ func (i *NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
 }
 
-type NetworkInterfaceOutput struct{ *pulumi.OutputState }
+type NetworkInterfaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterface)(nil))

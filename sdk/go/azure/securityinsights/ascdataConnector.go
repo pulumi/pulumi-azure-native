@@ -163,7 +163,9 @@ func (i *ASCDataConnector) ToASCDataConnectorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ASCDataConnectorOutput)
 }
 
-type ASCDataConnectorOutput struct{ *pulumi.OutputState }
+type ASCDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (ASCDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ASCDataConnector)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200331.Outputs
 {
 
-    /// <summary>
-    /// Defines the Web Application Firewall policy for the endpoint (if applicable)
-    /// </summary>
     [OutputType]
     public sealed class EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink
     {

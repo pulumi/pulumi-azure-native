@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
-    /// <summary>
-    /// Product Family
-    /// </summary>
     [OutputType]
     public sealed class ProductFamilyResponse
     {

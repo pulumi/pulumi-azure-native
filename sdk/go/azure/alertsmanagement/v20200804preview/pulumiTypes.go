@@ -324,7 +324,7 @@ func (o HealthAlertCriteriaOutput) ToHealthAlertCriteriaPtrOutput() HealthAlertC
 }
 
 func (o HealthAlertCriteriaOutput) ToHealthAlertCriteriaPtrOutputWithContext(ctx context.Context) HealthAlertCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertCriteria) *HealthAlertCriteria {
+	return o.ApplyT(func(v HealthAlertCriteria) *HealthAlertCriteria {
 		return &v
 	}).(HealthAlertCriteriaPtrOutput)
 }
@@ -349,13 +349,7 @@ func (o HealthAlertCriteriaPtrOutput) ToHealthAlertCriteriaPtrOutputWithContext(
 }
 
 func (o HealthAlertCriteriaPtrOutput) Elem() HealthAlertCriteriaOutput {
-	return o.ApplyT(func(v *HealthAlertCriteria) HealthAlertCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret HealthAlertCriteria
-		return ret
-	}).(HealthAlertCriteriaOutput)
+	return o.ApplyT(func(v *HealthAlertCriteria) HealthAlertCriteria { return *v }).(HealthAlertCriteriaOutput)
 }
 
 // The list of metric criteria for this 'all of' operation.
@@ -464,7 +458,7 @@ func (o HealthAlertCriteriaResponseOutput) ToHealthAlertCriteriaResponsePtrOutpu
 }
 
 func (o HealthAlertCriteriaResponseOutput) ToHealthAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) HealthAlertCriteriaResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertCriteriaResponse) *HealthAlertCriteriaResponse {
+	return o.ApplyT(func(v HealthAlertCriteriaResponse) *HealthAlertCriteriaResponse {
 		return &v
 	}).(HealthAlertCriteriaResponsePtrOutput)
 }
@@ -489,13 +483,7 @@ func (o HealthAlertCriteriaResponsePtrOutput) ToHealthAlertCriteriaResponsePtrOu
 }
 
 func (o HealthAlertCriteriaResponsePtrOutput) Elem() HealthAlertCriteriaResponseOutput {
-	return o.ApplyT(func(v *HealthAlertCriteriaResponse) HealthAlertCriteriaResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HealthAlertCriteriaResponse
-		return ret
-	}).(HealthAlertCriteriaResponseOutput)
+	return o.ApplyT(func(v *HealthAlertCriteriaResponse) HealthAlertCriteriaResponse { return *v }).(HealthAlertCriteriaResponseOutput)
 }
 
 // The list of metric criteria for this 'all of' operation.

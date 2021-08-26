@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
-    /// <summary>
-    /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-    /// </summary>
     [OutputType]
     public sealed class RecommendedMachineConfigurationResponse
     {

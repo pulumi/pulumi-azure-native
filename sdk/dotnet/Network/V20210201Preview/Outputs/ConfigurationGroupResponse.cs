@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201Preview.Outputs
 {
 
-    /// <summary>
-    /// The network configuration group resource
-    /// </summary>
     [OutputType]
     public sealed class ConfigurationGroupResponse
     {

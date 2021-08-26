@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190501.Outputs
 {
 
-    /// <summary>
-    /// The properties of a storage account for a container registry. Only applicable to Classic SKU.
-    /// </summary>
     [OutputType]
     public sealed class StorageAccountPropertiesResponse
     {

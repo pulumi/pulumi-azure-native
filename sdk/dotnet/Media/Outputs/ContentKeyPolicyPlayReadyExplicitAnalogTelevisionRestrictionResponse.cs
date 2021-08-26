@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
-    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse
     {

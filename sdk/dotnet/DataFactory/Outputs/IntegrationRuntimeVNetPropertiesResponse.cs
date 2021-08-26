@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// VNet properties for managed integration runtime.
-    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeVNetPropertiesResponse
     {

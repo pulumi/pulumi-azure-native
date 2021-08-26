@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20200301.Outputs
 {
 
-    /// <summary>
-    /// Properties pertained to ClfsTarget
-    /// </summary>
     [OutputType]
     public sealed class ClfsTargetResponse
     {

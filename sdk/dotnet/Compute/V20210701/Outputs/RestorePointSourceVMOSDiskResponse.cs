@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Describes an Operating System disk.
-    /// </summary>
     [OutputType]
     public sealed class RestorePointSourceVMOSDiskResponse
     {

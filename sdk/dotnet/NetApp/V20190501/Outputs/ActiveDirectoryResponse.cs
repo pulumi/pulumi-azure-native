@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20190501.Outputs
 {
 
-    /// <summary>
-    /// Active Directory
-    /// </summary>
     [OutputType]
     public sealed class ActiveDirectoryResponse
     {

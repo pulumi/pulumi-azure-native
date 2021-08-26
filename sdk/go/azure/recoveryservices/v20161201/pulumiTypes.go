@@ -2216,7 +2216,7 @@ func (o AzureWorkloadContainerExtendedInfoOutput) ToAzureWorkloadContainerExtend
 }
 
 func (o AzureWorkloadContainerExtendedInfoOutput) ToAzureWorkloadContainerExtendedInfoPtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureWorkloadContainerExtendedInfo) *AzureWorkloadContainerExtendedInfo {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfo) *AzureWorkloadContainerExtendedInfo {
 		return &v
 	}).(AzureWorkloadContainerExtendedInfoPtrOutput)
 }
@@ -2251,13 +2251,7 @@ func (o AzureWorkloadContainerExtendedInfoPtrOutput) ToAzureWorkloadContainerExt
 }
 
 func (o AzureWorkloadContainerExtendedInfoPtrOutput) Elem() AzureWorkloadContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfo) AzureWorkloadContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret AzureWorkloadContainerExtendedInfo
-		return ret
-	}).(AzureWorkloadContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfo) AzureWorkloadContainerExtendedInfo { return *v }).(AzureWorkloadContainerExtendedInfoOutput)
 }
 
 // Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
@@ -2394,7 +2388,7 @@ func (o AzureWorkloadContainerExtendedInfoResponseOutput) ToAzureWorkloadContain
 }
 
 func (o AzureWorkloadContainerExtendedInfoResponseOutput) ToAzureWorkloadContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureWorkloadContainerExtendedInfoResponse) *AzureWorkloadContainerExtendedInfoResponse {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfoResponse) *AzureWorkloadContainerExtendedInfoResponse {
 		return &v
 	}).(AzureWorkloadContainerExtendedInfoResponsePtrOutput)
 }
@@ -2430,11 +2424,7 @@ func (o AzureWorkloadContainerExtendedInfoResponsePtrOutput) ToAzureWorkloadCont
 
 func (o AzureWorkloadContainerExtendedInfoResponsePtrOutput) Elem() AzureWorkloadContainerExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfoResponse) AzureWorkloadContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureWorkloadContainerExtendedInfoResponse
-		return ret
+		return *v
 	}).(AzureWorkloadContainerExtendedInfoResponseOutput)
 }
 
@@ -2726,7 +2716,7 @@ func (o ContainerIdentityInfoOutput) ToContainerIdentityInfoPtrOutput() Containe
 }
 
 func (o ContainerIdentityInfoOutput) ToContainerIdentityInfoPtrOutputWithContext(ctx context.Context) ContainerIdentityInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerIdentityInfo) *ContainerIdentityInfo {
+	return o.ApplyT(func(v ContainerIdentityInfo) *ContainerIdentityInfo {
 		return &v
 	}).(ContainerIdentityInfoPtrOutput)
 }
@@ -2766,13 +2756,7 @@ func (o ContainerIdentityInfoPtrOutput) ToContainerIdentityInfoPtrOutputWithCont
 }
 
 func (o ContainerIdentityInfoPtrOutput) Elem() ContainerIdentityInfoOutput {
-	return o.ApplyT(func(v *ContainerIdentityInfo) ContainerIdentityInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerIdentityInfo
-		return ret
-	}).(ContainerIdentityInfoOutput)
+	return o.ApplyT(func(v *ContainerIdentityInfo) ContainerIdentityInfo { return *v }).(ContainerIdentityInfoOutput)
 }
 
 // Protection container identity - AAD Tenant
@@ -2923,7 +2907,7 @@ func (o ContainerIdentityInfoResponseOutput) ToContainerIdentityInfoResponsePtrO
 }
 
 func (o ContainerIdentityInfoResponseOutput) ToContainerIdentityInfoResponsePtrOutputWithContext(ctx context.Context) ContainerIdentityInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerIdentityInfoResponse) *ContainerIdentityInfoResponse {
+	return o.ApplyT(func(v ContainerIdentityInfoResponse) *ContainerIdentityInfoResponse {
 		return &v
 	}).(ContainerIdentityInfoResponsePtrOutput)
 }
@@ -2963,13 +2947,7 @@ func (o ContainerIdentityInfoResponsePtrOutput) ToContainerIdentityInfoResponseP
 }
 
 func (o ContainerIdentityInfoResponsePtrOutput) Elem() ContainerIdentityInfoResponseOutput {
-	return o.ApplyT(func(v *ContainerIdentityInfoResponse) ContainerIdentityInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerIdentityInfoResponse
-		return ret
-	}).(ContainerIdentityInfoResponseOutput)
+	return o.ApplyT(func(v *ContainerIdentityInfoResponse) ContainerIdentityInfoResponse { return *v }).(ContainerIdentityInfoResponseOutput)
 }
 
 // Protection container identity - AAD Tenant
@@ -3108,7 +3086,7 @@ func (o DPMContainerExtendedInfoOutput) ToDPMContainerExtendedInfoPtrOutput() DP
 }
 
 func (o DPMContainerExtendedInfoOutput) ToDPMContainerExtendedInfoPtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMContainerExtendedInfo) *DPMContainerExtendedInfo {
+	return o.ApplyT(func(v DPMContainerExtendedInfo) *DPMContainerExtendedInfo {
 		return &v
 	}).(DPMContainerExtendedInfoPtrOutput)
 }
@@ -3133,13 +3111,7 @@ func (o DPMContainerExtendedInfoPtrOutput) ToDPMContainerExtendedInfoPtrOutputWi
 }
 
 func (o DPMContainerExtendedInfoPtrOutput) Elem() DPMContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *DPMContainerExtendedInfo) DPMContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret DPMContainerExtendedInfo
-		return ret
-	}).(DPMContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *DPMContainerExtendedInfo) DPMContainerExtendedInfo { return *v }).(DPMContainerExtendedInfoOutput)
 }
 
 // Last refresh time of the DPMContainer.
@@ -3248,7 +3220,7 @@ func (o DPMContainerExtendedInfoResponseOutput) ToDPMContainerExtendedInfoRespon
 }
 
 func (o DPMContainerExtendedInfoResponseOutput) ToDPMContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMContainerExtendedInfoResponse) *DPMContainerExtendedInfoResponse {
+	return o.ApplyT(func(v DPMContainerExtendedInfoResponse) *DPMContainerExtendedInfoResponse {
 		return &v
 	}).(DPMContainerExtendedInfoResponsePtrOutput)
 }
@@ -3273,13 +3245,7 @@ func (o DPMContainerExtendedInfoResponsePtrOutput) ToDPMContainerExtendedInfoRes
 }
 
 func (o DPMContainerExtendedInfoResponsePtrOutput) Elem() DPMContainerExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *DPMContainerExtendedInfoResponse) DPMContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DPMContainerExtendedInfoResponse
-		return ret
-	}).(DPMContainerExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *DPMContainerExtendedInfoResponse) DPMContainerExtendedInfoResponse { return *v }).(DPMContainerExtendedInfoResponseOutput)
 }
 
 // Last refresh time of the DPMContainer.
@@ -3979,7 +3945,7 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutput() ErrorDetailR
 }
 
 func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailResponse) *ErrorDetailResponse {
+	return o.ApplyT(func(v ErrorDetailResponse) *ErrorDetailResponse {
 		return &v
 	}).(ErrorDetailResponsePtrOutput)
 }
@@ -4014,13 +3980,7 @@ func (o ErrorDetailResponsePtrOutput) ToErrorDetailResponsePtrOutputWithContext(
 }
 
 func (o ErrorDetailResponsePtrOutput) Elem() ErrorDetailResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorDetailResponse
-		return ret
-	}).(ErrorDetailResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse { return *v }).(ErrorDetailResponseOutput)
 }
 
 // Error code.
@@ -4278,7 +4238,7 @@ func (o GenericContainerExtendedInfoOutput) ToGenericContainerExtendedInfoPtrOut
 }
 
 func (o GenericContainerExtendedInfoOutput) ToGenericContainerExtendedInfoPtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GenericContainerExtendedInfo) *GenericContainerExtendedInfo {
+	return o.ApplyT(func(v GenericContainerExtendedInfo) *GenericContainerExtendedInfo {
 		return &v
 	}).(GenericContainerExtendedInfoPtrOutput)
 }
@@ -4313,13 +4273,7 @@ func (o GenericContainerExtendedInfoPtrOutput) ToGenericContainerExtendedInfoPtr
 }
 
 func (o GenericContainerExtendedInfoPtrOutput) Elem() GenericContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *GenericContainerExtendedInfo) GenericContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret GenericContainerExtendedInfo
-		return ret
-	}).(GenericContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *GenericContainerExtendedInfo) GenericContainerExtendedInfo { return *v }).(GenericContainerExtendedInfoOutput)
 }
 
 // Container identity information
@@ -4456,7 +4410,7 @@ func (o GenericContainerExtendedInfoResponseOutput) ToGenericContainerExtendedIn
 }
 
 func (o GenericContainerExtendedInfoResponseOutput) ToGenericContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GenericContainerExtendedInfoResponse) *GenericContainerExtendedInfoResponse {
+	return o.ApplyT(func(v GenericContainerExtendedInfoResponse) *GenericContainerExtendedInfoResponse {
 		return &v
 	}).(GenericContainerExtendedInfoResponsePtrOutput)
 }
@@ -4493,13 +4447,7 @@ func (o GenericContainerExtendedInfoResponsePtrOutput) ToGenericContainerExtende
 }
 
 func (o GenericContainerExtendedInfoResponsePtrOutput) Elem() GenericContainerExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *GenericContainerExtendedInfoResponse) GenericContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GenericContainerExtendedInfoResponse
-		return ret
-	}).(GenericContainerExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *GenericContainerExtendedInfoResponse) GenericContainerExtendedInfoResponse { return *v }).(GenericContainerExtendedInfoResponseOutput)
 }
 
 // Container identity information
@@ -5017,7 +4965,7 @@ func (o InquiryInfoOutput) ToInquiryInfoPtrOutput() InquiryInfoPtrOutput {
 }
 
 func (o InquiryInfoOutput) ToInquiryInfoPtrOutputWithContext(ctx context.Context) InquiryInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryInfo) *InquiryInfo {
+	return o.ApplyT(func(v InquiryInfo) *InquiryInfo {
 		return &v
 	}).(InquiryInfoPtrOutput)
 }
@@ -5049,13 +4997,7 @@ func (o InquiryInfoPtrOutput) ToInquiryInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o InquiryInfoPtrOutput) Elem() InquiryInfoOutput {
-	return o.ApplyT(func(v *InquiryInfo) InquiryInfo {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryInfo
-		return ret
-	}).(InquiryInfoOutput)
+	return o.ApplyT(func(v *InquiryInfo) InquiryInfo { return *v }).(InquiryInfoOutput)
 }
 
 // Inquiry Details which will have workload specific details.
@@ -5188,7 +5130,7 @@ func (o InquiryInfoResponseOutput) ToInquiryInfoResponsePtrOutput() InquiryInfoR
 }
 
 func (o InquiryInfoResponseOutput) ToInquiryInfoResponsePtrOutputWithContext(ctx context.Context) InquiryInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryInfoResponse) *InquiryInfoResponse {
+	return o.ApplyT(func(v InquiryInfoResponse) *InquiryInfoResponse {
 		return &v
 	}).(InquiryInfoResponsePtrOutput)
 }
@@ -5225,13 +5167,7 @@ func (o InquiryInfoResponsePtrOutput) ToInquiryInfoResponsePtrOutputWithContext(
 }
 
 func (o InquiryInfoResponsePtrOutput) Elem() InquiryInfoResponseOutput {
-	return o.ApplyT(func(v *InquiryInfoResponse) InquiryInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryInfoResponse
-		return ret
-	}).(InquiryInfoResponseOutput)
+	return o.ApplyT(func(v *InquiryInfoResponse) InquiryInfoResponse { return *v }).(InquiryInfoResponseOutput)
 }
 
 // Error Details if the Status is non-success.
@@ -5362,7 +5298,7 @@ func (o InquiryValidationOutput) ToInquiryValidationPtrOutput() InquiryValidatio
 }
 
 func (o InquiryValidationOutput) ToInquiryValidationPtrOutputWithContext(ctx context.Context) InquiryValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryValidation) *InquiryValidation {
+	return o.ApplyT(func(v InquiryValidation) *InquiryValidation {
 		return &v
 	}).(InquiryValidationPtrOutput)
 }
@@ -5387,13 +5323,7 @@ func (o InquiryValidationPtrOutput) ToInquiryValidationPtrOutputWithContext(ctx 
 }
 
 func (o InquiryValidationPtrOutput) Elem() InquiryValidationOutput {
-	return o.ApplyT(func(v *InquiryValidation) InquiryValidation {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryValidation
-		return ret
-	}).(InquiryValidationOutput)
+	return o.ApplyT(func(v *InquiryValidation) InquiryValidation { return *v }).(InquiryValidationOutput)
 }
 
 // Status for the Inquiry Validation.
@@ -5510,7 +5440,7 @@ func (o InquiryValidationResponseOutput) ToInquiryValidationResponsePtrOutput() 
 }
 
 func (o InquiryValidationResponseOutput) ToInquiryValidationResponsePtrOutputWithContext(ctx context.Context) InquiryValidationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryValidationResponse) *InquiryValidationResponse {
+	return o.ApplyT(func(v InquiryValidationResponse) *InquiryValidationResponse {
 		return &v
 	}).(InquiryValidationResponsePtrOutput)
 }
@@ -5545,13 +5475,7 @@ func (o InquiryValidationResponsePtrOutput) ToInquiryValidationResponsePtrOutput
 }
 
 func (o InquiryValidationResponsePtrOutput) Elem() InquiryValidationResponseOutput {
-	return o.ApplyT(func(v *InquiryValidationResponse) InquiryValidationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryValidationResponse
-		return ret
-	}).(InquiryValidationResponseOutput)
+	return o.ApplyT(func(v *InquiryValidationResponse) InquiryValidationResponse { return *v }).(InquiryValidationResponseOutput)
 }
 
 // Error Additional Detail in case the status is non-success.
@@ -6116,7 +6040,7 @@ func (o MabContainerExtendedInfoOutput) ToMabContainerExtendedInfoPtrOutput() Ma
 }
 
 func (o MabContainerExtendedInfoOutput) ToMabContainerExtendedInfoPtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabContainerExtendedInfo) *MabContainerExtendedInfo {
+	return o.ApplyT(func(v MabContainerExtendedInfo) *MabContainerExtendedInfo {
 		return &v
 	}).(MabContainerExtendedInfoPtrOutput)
 }
@@ -6161,13 +6085,7 @@ func (o MabContainerExtendedInfoPtrOutput) ToMabContainerExtendedInfoPtrOutputWi
 }
 
 func (o MabContainerExtendedInfoPtrOutput) Elem() MabContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *MabContainerExtendedInfo) MabContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret MabContainerExtendedInfo
-		return ret
-	}).(MabContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *MabContainerExtendedInfo) MabContainerExtendedInfo { return *v }).(MabContainerExtendedInfoOutput)
 }
 
 // Type of backup items associated with this container.
@@ -6332,7 +6250,7 @@ func (o MabContainerExtendedInfoResponseOutput) ToMabContainerExtendedInfoRespon
 }
 
 func (o MabContainerExtendedInfoResponseOutput) ToMabContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabContainerExtendedInfoResponse) *MabContainerExtendedInfoResponse {
+	return o.ApplyT(func(v MabContainerExtendedInfoResponse) *MabContainerExtendedInfoResponse {
 		return &v
 	}).(MabContainerExtendedInfoResponsePtrOutput)
 }
@@ -6377,13 +6295,7 @@ func (o MabContainerExtendedInfoResponsePtrOutput) ToMabContainerExtendedInfoRes
 }
 
 func (o MabContainerExtendedInfoResponsePtrOutput) Elem() MabContainerExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *MabContainerExtendedInfoResponse) MabContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MabContainerExtendedInfoResponse
-		return ret
-	}).(MabContainerExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *MabContainerExtendedInfoResponse) MabContainerExtendedInfoResponse { return *v }).(MabContainerExtendedInfoResponseOutput)
 }
 
 // Type of backup items associated with this container.

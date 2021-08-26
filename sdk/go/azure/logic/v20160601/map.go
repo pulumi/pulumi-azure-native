@@ -51,9 +51,6 @@ func NewMap(ctx *pulumi.Context,
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
-	if args.MapType == nil {
-		return nil, errors.New("invalid value for required argument 'MapType'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -130,7 +127,7 @@ type mapArgs struct {
 	// The integration account map name.
 	MapName *string `pulumi:"mapName"`
 	// The map type.
-	MapType MapType `pulumi:"mapType"`
+	MapType string `pulumi:"mapType"`
 	// The metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// The parameters schema of integration account map.
@@ -154,7 +151,7 @@ type MapArgs struct {
 	// The integration account map name.
 	MapName pulumi.StringPtrInput
 	// The map type.
-	MapType MapTypeInput
+	MapType MapType
 	// The metadata.
 	Metadata pulumi.Input
 	// The parameters schema of integration account map.
@@ -188,7 +185,9 @@ func (i *Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MapOutput)
 }
 
-type MapOutput struct{ *pulumi.OutputState }
+type MapOutput struct {
+	*pulumi.OutputState
+}
 
 func (MapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Map)(nil))

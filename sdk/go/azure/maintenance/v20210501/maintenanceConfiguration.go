@@ -89,12 +89,6 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration"),
 		},
-		{
-			Type: pulumi.String("azure-native:maintenance/v20210901preview:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20210901preview:MaintenanceConfiguration"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource MaintenanceConfiguration
@@ -210,7 +204,9 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
 }
 
-type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
+type MaintenanceConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaintenanceConfiguration)(nil))

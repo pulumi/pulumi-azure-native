@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20170301.Outputs
 {
 
-    /// <summary>
-    /// Http listener of an application gateway.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayHttpListenerResponse
     {

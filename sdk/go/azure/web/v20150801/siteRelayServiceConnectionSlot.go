@@ -235,7 +235,9 @@ func (i *SiteRelayServiceConnectionSlot) ToSiteRelayServiceConnectionSlotOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SiteRelayServiceConnectionSlotOutput)
 }
 
-type SiteRelayServiceConnectionSlotOutput struct{ *pulumi.OutputState }
+type SiteRelayServiceConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteRelayServiceConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteRelayServiceConnectionSlot)(nil))

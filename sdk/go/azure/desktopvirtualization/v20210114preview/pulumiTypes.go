@@ -110,7 +110,7 @@ func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesPtrOutput(
 }
 
 func (o MigrationRequestPropertiesOutput) ToMigrationRequestPropertiesPtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationRequestProperties) *MigrationRequestProperties {
+	return o.ApplyT(func(v MigrationRequestProperties) *MigrationRequestProperties {
 		return &v
 	}).(MigrationRequestPropertiesPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o MigrationRequestPropertiesPtrOutput) ToMigrationRequestPropertiesPtrOutp
 }
 
 func (o MigrationRequestPropertiesPtrOutput) Elem() MigrationRequestPropertiesOutput {
-	return o.ApplyT(func(v *MigrationRequestProperties) MigrationRequestProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationRequestProperties
-		return ret
-	}).(MigrationRequestPropertiesOutput)
+	return o.ApplyT(func(v *MigrationRequestProperties) MigrationRequestProperties { return *v }).(MigrationRequestPropertiesOutput)
 }
 
 // The path to the legacy object to migrate.
@@ -269,7 +263,7 @@ func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesRe
 }
 
 func (o MigrationRequestPropertiesResponseOutput) ToMigrationRequestPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationRequestPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationRequestPropertiesResponse) *MigrationRequestPropertiesResponse {
+	return o.ApplyT(func(v MigrationRequestPropertiesResponse) *MigrationRequestPropertiesResponse {
 		return &v
 	}).(MigrationRequestPropertiesResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o MigrationRequestPropertiesResponsePtrOutput) ToMigrationRequestPropertie
 }
 
 func (o MigrationRequestPropertiesResponsePtrOutput) Elem() MigrationRequestPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) MigrationRequestPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationRequestPropertiesResponse
-		return ret
-	}).(MigrationRequestPropertiesResponseOutput)
+	return o.ApplyT(func(v *MigrationRequestPropertiesResponse) MigrationRequestPropertiesResponse { return *v }).(MigrationRequestPropertiesResponseOutput)
 }
 
 // The path to the legacy object to migrate.
@@ -976,7 +964,7 @@ func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutput() RegistrationInfoPt
 }
 
 func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutputWithContext(ctx context.Context) RegistrationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfo) *RegistrationInfo {
+	return o.ApplyT(func(v RegistrationInfo) *RegistrationInfo {
 		return &v
 	}).(RegistrationInfoPtrOutput)
 }
@@ -1011,13 +999,7 @@ func (o RegistrationInfoPtrOutput) ToRegistrationInfoPtrOutputWithContext(ctx co
 }
 
 func (o RegistrationInfoPtrOutput) Elem() RegistrationInfoOutput {
-	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret RegistrationInfo
-		return ret
-	}).(RegistrationInfoOutput)
+	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo { return *v }).(RegistrationInfoOutput)
 }
 
 // Expiration time of registration token.
@@ -1154,7 +1136,7 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutput() Re
 }
 
 func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfoResponse) *RegistrationInfoResponse {
+	return o.ApplyT(func(v RegistrationInfoResponse) *RegistrationInfoResponse {
 		return &v
 	}).(RegistrationInfoResponsePtrOutput)
 }
@@ -1189,13 +1171,7 @@ func (o RegistrationInfoResponsePtrOutput) ToRegistrationInfoResponsePtrOutputWi
 }
 
 func (o RegistrationInfoResponsePtrOutput) Elem() RegistrationInfoResponseOutput {
-	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RegistrationInfoResponse
-		return ret
-	}).(RegistrationInfoResponseOutput)
+	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse { return *v }).(RegistrationInfoResponseOutput)
 }
 
 // Expiration time of registration token.
@@ -1230,7 +1206,7 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 
 type ResourceModelWithAllowedPropertySetIdentity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ResourceModelWithAllowedPropertySetIdentityInput is an input type that accepts ResourceModelWithAllowedPropertySetIdentityArgs and ResourceModelWithAllowedPropertySetIdentityOutput values.
@@ -1246,7 +1222,7 @@ type ResourceModelWithAllowedPropertySetIdentityInput interface {
 
 type ResourceModelWithAllowedPropertySetIdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (ResourceModelWithAllowedPropertySetIdentityArgs) ElementType() reflect.Type {
@@ -1321,14 +1297,14 @@ func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAl
 }
 
 func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAllowedPropertySetIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetIdentity) *ResourceModelWithAllowedPropertySetIdentity {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *ResourceModelWithAllowedPropertySetIdentity {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetIdentityPtrOutput)
 }
 
 // The identity type.
-func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1347,22 +1323,18 @@ func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) ToResourceModelWit
 
 func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Elem() ResourceModelWithAllowedPropertySetIdentityOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) ResourceModelWithAllowedPropertySetIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetIdentity
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetIdentityOutput)
 }
 
 // The identity type.
-func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType {
+func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetPlan struct {
@@ -1474,7 +1446,7 @@ func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowe
 }
 
 func (o ResourceModelWithAllowedPropertySetPlanOutput) ToResourceModelWithAllowedPropertySetPlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetPlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetPlan) *ResourceModelWithAllowedPropertySetPlan {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetPlan) *ResourceModelWithAllowedPropertySetPlan {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetPlanPtrOutput)
 }
@@ -1519,13 +1491,7 @@ func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) ToResourceModelWithAll
 }
 
 func (o ResourceModelWithAllowedPropertySetPlanPtrOutput) Elem() ResourceModelWithAllowedPropertySetPlanOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) ResourceModelWithAllowedPropertySetPlan {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetPlan
-		return ret
-	}).(ResourceModelWithAllowedPropertySetPlanOutput)
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetPlan) ResourceModelWithAllowedPropertySetPlan { return *v }).(ResourceModelWithAllowedPropertySetPlanOutput)
 }
 
 // A user defined name of the 3rd Party Artifact that is being procured.
@@ -1679,7 +1645,7 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceMod
 }
 
 func (o ResourceModelWithAllowedPropertySetResponseIdentityOutput) ToResourceModelWithAllowedPropertySetResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetResponseIdentity) *ResourceModelWithAllowedPropertySetResponseIdentity {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseIdentity) *ResourceModelWithAllowedPropertySetResponseIdentity {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
 }
@@ -1715,11 +1681,7 @@ func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) ToResource
 
 func (o ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponseIdentityOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseIdentity) ResourceModelWithAllowedPropertySetResponseIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetResponseIdentity
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetResponseIdentityOutput)
 }
 
@@ -1862,7 +1824,7 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWi
 }
 
 func (o ResourceModelWithAllowedPropertySetResponsePlanOutput) ToResourceModelWithAllowedPropertySetResponsePlanPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetResponsePlan) *ResourceModelWithAllowedPropertySetResponsePlan {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponsePlan) *ResourceModelWithAllowedPropertySetResponsePlan {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
 }
@@ -1908,11 +1870,7 @@ func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) ToResourceMode
 
 func (o ResourceModelWithAllowedPropertySetResponsePlanPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponsePlanOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponsePlan) ResourceModelWithAllowedPropertySetResponsePlan {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetResponsePlan
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetResponsePlanOutput)
 }
 
@@ -2075,7 +2033,7 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWit
 }
 
 func (o ResourceModelWithAllowedPropertySetResponseSkuOutput) ToResourceModelWithAllowedPropertySetResponseSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetResponseSku) *ResourceModelWithAllowedPropertySetResponseSku {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetResponseSku) *ResourceModelWithAllowedPropertySetResponseSku {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
 }
@@ -2121,11 +2079,7 @@ func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) ToResourceModel
 
 func (o ResourceModelWithAllowedPropertySetResponseSkuPtrOutput) Elem() ResourceModelWithAllowedPropertySetResponseSkuOutput {
 	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetResponseSku) ResourceModelWithAllowedPropertySetResponseSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetResponseSku
-		return ret
+		return *v
 	}).(ResourceModelWithAllowedPropertySetResponseSkuOutput)
 }
 
@@ -2189,7 +2143,7 @@ type ResourceModelWithAllowedPropertySetSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *SkuTier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // ResourceModelWithAllowedPropertySetSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs and ResourceModelWithAllowedPropertySetSkuOutput values.
@@ -2213,7 +2167,7 @@ type ResourceModelWithAllowedPropertySetSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier SkuTierPtrInput `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (ResourceModelWithAllowedPropertySetSkuArgs) ElementType() reflect.Type {
@@ -2288,7 +2242,7 @@ func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowed
 }
 
 func (o ResourceModelWithAllowedPropertySetSkuOutput) ToResourceModelWithAllowedPropertySetSkuPtrOutputWithContext(ctx context.Context) ResourceModelWithAllowedPropertySetSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceModelWithAllowedPropertySetSku) *ResourceModelWithAllowedPropertySetSku {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *ResourceModelWithAllowedPropertySetSku {
 		return &v
 	}).(ResourceModelWithAllowedPropertySetSkuPtrOutput)
 }
@@ -2314,8 +2268,8 @@ func (o ResourceModelWithAllowedPropertySetSkuOutput) Size() pulumi.StringPtrOut
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetSkuPtrOutput struct{ *pulumi.OutputState }
@@ -2333,13 +2287,7 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) ToResourceModelWithAllo
 }
 
 func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Elem() ResourceModelWithAllowedPropertySetSkuOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) ResourceModelWithAllowedPropertySetSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceModelWithAllowedPropertySetSku
-		return ret
-	}).(ResourceModelWithAllowedPropertySetSkuOutput)
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) ResourceModelWithAllowedPropertySetSku { return *v }).(ResourceModelWithAllowedPropertySetSkuOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -2383,13 +2331,13 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Size() pulumi.StringPtr
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *SkuTier {
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(SkuTierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Scaling plan reference to hostpool.

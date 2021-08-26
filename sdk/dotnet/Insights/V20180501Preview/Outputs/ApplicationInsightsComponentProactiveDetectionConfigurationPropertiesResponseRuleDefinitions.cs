@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180501Preview.Outputs
 {
 
-    /// <summary>
-    /// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-    /// </summary>
     [OutputType]
     public sealed class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions
     {

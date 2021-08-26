@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20150401.Outputs
 {
 
-    /// <summary>
-    /// The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-    /// </summary>
     [OutputType]
     public sealed class RecurrenceResponse
     {

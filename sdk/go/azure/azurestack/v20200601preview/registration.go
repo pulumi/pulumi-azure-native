@@ -151,7 +151,9 @@ func (i *Registration) ToRegistrationOutputWithContext(ctx context.Context) Regi
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationOutput)
 }
 
-type RegistrationOutput struct{ *pulumi.OutputState }
+type RegistrationOutput struct {
+	*pulumi.OutputState
+}
 
 func (RegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Registration)(nil))

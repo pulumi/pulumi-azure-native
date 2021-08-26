@@ -75,12 +75,6 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:IpFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:IpFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:IpFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:IpFirewallRule"),
 		},
 		{
@@ -169,7 +163,9 @@ func (i *IpFirewallRule) ToIpFirewallRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IpFirewallRuleOutput)
 }
 
-type IpFirewallRuleOutput struct{ *pulumi.OutputState }
+type IpFirewallRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (IpFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpFirewallRule)(nil))

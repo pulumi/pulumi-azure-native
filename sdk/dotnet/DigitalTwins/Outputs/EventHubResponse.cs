@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Outputs
 {
 
-    /// <summary>
-    /// Properties related to EventHub.
-    /// </summary>
     [OutputType]
     public sealed class EventHubResponse
     {

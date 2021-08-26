@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191201.Outputs
 {
 
-    /// <summary>
-    /// Virtual Hub identifier.
-    /// </summary>
     [OutputType]
     public sealed class VirtualHubIdResponse
     {

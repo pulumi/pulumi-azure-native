@@ -146,7 +146,9 @@ func (i *ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureADOnlyAuthenticationOutput)
 }
 
-type ServerAzureADOnlyAuthenticationOutput struct{ *pulumi.OutputState }
+type ServerAzureADOnlyAuthenticationOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerAzureADOnlyAuthentication)(nil))

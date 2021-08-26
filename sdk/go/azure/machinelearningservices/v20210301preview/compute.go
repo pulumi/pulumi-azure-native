@@ -253,7 +253,9 @@ func (i *Compute) ToComputeOutputWithContext(ctx context.Context) ComputeOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeOutput)
 }
 
-type ComputeOutput struct{ *pulumi.OutputState }
+type ComputeOutput struct {
+	*pulumi.OutputState
+}
 
 func (ComputeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Compute)(nil))

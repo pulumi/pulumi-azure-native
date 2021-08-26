@@ -202,7 +202,9 @@ func (i *ServiceFabricSchedule) ToServiceFabricScheduleOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceFabricScheduleOutput)
 }
 
-type ServiceFabricScheduleOutput struct{ *pulumi.OutputState }
+type ServiceFabricScheduleOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServiceFabricScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceFabricSchedule)(nil))

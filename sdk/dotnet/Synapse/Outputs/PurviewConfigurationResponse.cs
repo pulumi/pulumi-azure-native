@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
-    /// <summary>
-    /// Purview Configuration
-    /// </summary>
     [OutputType]
     public sealed class PurviewConfigurationResponse
     {

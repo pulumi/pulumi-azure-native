@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Hadoop Distributed File System (HDFS) linked service.
-    /// </summary>
     [OutputType]
     public sealed class HdfsLinkedServiceResponse
     {

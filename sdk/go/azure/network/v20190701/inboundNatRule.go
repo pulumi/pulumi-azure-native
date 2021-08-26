@@ -353,7 +353,9 @@ func (i *InboundNatRule) ToInboundNatRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(InboundNatRuleOutput)
 }
 
-type InboundNatRuleOutput struct{ *pulumi.OutputState }
+type InboundNatRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (InboundNatRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InboundNatRule)(nil))

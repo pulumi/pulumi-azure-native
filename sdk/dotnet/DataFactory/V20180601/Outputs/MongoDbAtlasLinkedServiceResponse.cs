@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Linked service for MongoDB Atlas data source.
-    /// </summary>
     [OutputType]
     public sealed class MongoDbAtlasLinkedServiceResponse
     {

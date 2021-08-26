@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// Localized template data and gallery information.
-    /// </summary>
     [OutputType]
     public sealed class WorkbookTemplateLocalizedGalleryResponse
     {

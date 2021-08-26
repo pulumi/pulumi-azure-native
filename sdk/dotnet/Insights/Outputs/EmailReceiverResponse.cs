@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// An email receiver.
-    /// </summary>
     [OutputType]
     public sealed class EmailReceiverResponse
     {

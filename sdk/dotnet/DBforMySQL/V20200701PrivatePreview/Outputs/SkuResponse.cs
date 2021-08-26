@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Billing information related properties of a server.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20171001.Outputs
 {
 
-    /// <summary>
-    /// VirtualNetworkGatewaySku details
-    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkGatewaySkuResponse
     {

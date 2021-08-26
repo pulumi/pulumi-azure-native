@@ -137,7 +137,9 @@ func (i *EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphOutput)
 }
 
-type EnterpriseKnowledgeGraphOutput struct{ *pulumi.OutputState }
+type EnterpriseKnowledgeGraphOutput struct {
+	*pulumi.OutputState
+}
 
 func (EnterpriseKnowledgeGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil))

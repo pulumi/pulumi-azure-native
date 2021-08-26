@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.V20210201Preview.Outputs
 {
 
-    /// <summary>
-    /// Specifies details of a linked database resource.
-    /// </summary>
     [OutputType]
     public sealed class LinkedDatabaseResponse
     {

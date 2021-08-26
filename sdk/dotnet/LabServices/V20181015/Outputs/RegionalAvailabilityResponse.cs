@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.V20181015.Outputs
 {
 
-    /// <summary>
-    /// The availability information of sizes across regions
-    /// </summary>
     [OutputType]
     public sealed class RegionalAvailabilityResponse
     {

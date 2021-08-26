@@ -138,7 +138,9 @@ func (i *DiskAccessAPrivateEndpointConnection) ToDiskAccessAPrivateEndpointConne
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessAPrivateEndpointConnectionOutput)
 }
 
-type DiskAccessAPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type DiskAccessAPrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiskAccessAPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskAccessAPrivateEndpointConnection)(nil))

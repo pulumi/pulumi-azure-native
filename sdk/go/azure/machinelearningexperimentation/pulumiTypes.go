@@ -110,7 +110,7 @@ func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutput() St
 }
 
 func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountProperties) *StorageAccountProperties {
+	return o.ApplyT(func(v StorageAccountProperties) *StorageAccountProperties {
 		return &v
 	}).(StorageAccountPropertiesPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o StorageAccountPropertiesPtrOutput) ToStorageAccountPropertiesPtrOutputWi
 }
 
 func (o StorageAccountPropertiesPtrOutput) Elem() StorageAccountPropertiesOutput {
-	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountProperties
-		return ret
-	}).(StorageAccountPropertiesOutput)
+	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties { return *v }).(StorageAccountPropertiesOutput)
 }
 
 // The access key to the storage account.
@@ -269,7 +263,7 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountPropertiesResponse
-		return ret
-	}).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
 }
 
 // The access key to the storage account.

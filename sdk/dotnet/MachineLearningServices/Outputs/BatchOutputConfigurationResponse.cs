@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Batch inference output configuration.
-    /// </summary>
     [OutputType]
     public sealed class BatchOutputConfigurationResponse
     {

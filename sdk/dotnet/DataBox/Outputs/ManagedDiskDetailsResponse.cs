@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
-    /// <summary>
-    /// Details of the managed disks.
-    /// </summary>
     [OutputType]
     public sealed class ManagedDiskDetailsResponse
     {

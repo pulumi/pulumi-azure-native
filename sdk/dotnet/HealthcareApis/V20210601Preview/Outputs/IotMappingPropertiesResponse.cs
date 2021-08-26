@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// The mapping content.
-    /// </summary>
     [OutputType]
     public sealed class IotMappingPropertiesResponse
     {

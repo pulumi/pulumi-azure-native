@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// A copy activity source for SAP Cloud for Customer source.
-    /// </summary>
     [OutputType]
     public sealed class SapCloudForCustomerSourceResponse
     {

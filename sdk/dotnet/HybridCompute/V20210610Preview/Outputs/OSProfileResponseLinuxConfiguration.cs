@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210610Preview.Outputs
 {
 
-    /// <summary>
-    /// Specifies the linux configuration for update management.
-    /// </summary>
     [OutputType]
     public sealed class OSProfileResponseLinuxConfiguration
     {

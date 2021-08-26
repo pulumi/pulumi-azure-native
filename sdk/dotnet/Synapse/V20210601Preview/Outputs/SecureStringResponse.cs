@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
-    /// </summary>
     [OutputType]
     public sealed class SecureStringResponse
     {

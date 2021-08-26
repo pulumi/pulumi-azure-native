@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191001.Outputs
 {
 
-    /// <summary>
-    /// Defines a managed rule set.
-    /// </summary>
     [OutputType]
     public sealed class FrontDoorManagedRuleSetResponse
     {

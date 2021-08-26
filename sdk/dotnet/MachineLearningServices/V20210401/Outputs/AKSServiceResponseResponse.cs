@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Outputs
 {
 
-    /// <summary>
-    /// The response for an AKS service.
-    /// </summary>
     [OutputType]
     public sealed class AKSServiceResponseResponse
     {

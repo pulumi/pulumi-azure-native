@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
-    /// <summary>
-    /// Resource stage details.
-    /// </summary>
     [OutputType]
     public sealed class StageDetailsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
-    /// <summary>
-    /// The ssh username, password, and ssh public key.
-    /// </summary>
     [OutputType]
     public sealed class LinuxOperatingSystemProfileResponse
     {

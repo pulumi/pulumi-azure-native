@@ -186,7 +186,9 @@ func (i *FirewallPolicyRuleGroup) ToFirewallPolicyRuleGroupOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleGroupOutput)
 }
 
-type FirewallPolicyRuleGroupOutput struct{ *pulumi.OutputState }
+type FirewallPolicyRuleGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (FirewallPolicyRuleGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyRuleGroup)(nil))

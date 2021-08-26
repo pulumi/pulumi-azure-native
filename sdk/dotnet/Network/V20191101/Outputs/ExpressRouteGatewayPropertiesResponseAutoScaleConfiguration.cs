@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191101.Outputs
 {
 
-    /// <summary>
-    /// Configuration for auto scaling.
-    /// </summary>
     [OutputType]
     public sealed class ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration
     {

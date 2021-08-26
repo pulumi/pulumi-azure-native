@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the error happened when create or update an image template
-    /// </summary>
     [OutputType]
     public sealed class ProvisioningErrorResponse
     {

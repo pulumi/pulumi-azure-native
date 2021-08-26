@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
-    /// <summary>
-    /// A load balancer configuration for an availability group listener.
-    /// </summary>
     [OutputType]
     public sealed class LoadBalancerConfigurationResponse
     {

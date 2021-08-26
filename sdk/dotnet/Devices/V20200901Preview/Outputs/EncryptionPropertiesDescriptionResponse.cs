@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionPropertiesDescriptionResponse
     {

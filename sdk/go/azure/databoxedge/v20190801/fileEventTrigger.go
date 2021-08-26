@@ -204,7 +204,9 @@ func (i *FileEventTrigger) ToFileEventTriggerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FileEventTriggerOutput)
 }
 
-type FileEventTriggerOutput struct{ *pulumi.OutputState }
+type FileEventTriggerOutput struct {
+	*pulumi.OutputState
+}
 
 func (FileEventTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileEventTrigger)(nil))

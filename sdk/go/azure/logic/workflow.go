@@ -197,7 +197,9 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
-type WorkflowOutput struct{ *pulumi.OutputState }
+type WorkflowOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkflowOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workflow)(nil))

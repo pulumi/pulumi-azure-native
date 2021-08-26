@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190401.Outputs
 {
 
-    /// <summary>
-    /// NetworkSecurityGroup resource.
-    /// </summary>
     [OutputType]
     public sealed class NetworkSecurityGroupResponse
     {

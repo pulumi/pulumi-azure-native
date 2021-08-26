@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181201.Outputs
 {
 
-    /// <summary>
-    /// An IPSec Policy configuration for a virtual network gateway connection
-    /// </summary>
     [OutputType]
     public sealed class IpsecPolicyResponse
     {

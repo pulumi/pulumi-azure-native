@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// Describes a data disk.
-    /// </summary>
     [OutputType]
     public sealed class RestorePointSourceVMDataDiskResponse
     {

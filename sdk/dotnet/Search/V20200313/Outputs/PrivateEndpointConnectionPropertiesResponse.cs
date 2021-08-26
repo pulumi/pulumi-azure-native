@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20200313.Outputs
 {
 
-    /// <summary>
-    /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionPropertiesResponse
     {

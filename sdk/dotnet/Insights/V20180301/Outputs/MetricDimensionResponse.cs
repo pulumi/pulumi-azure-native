@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180301.Outputs
 {
 
-    /// <summary>
-    /// Specifies a metric dimension.
-    /// </summary>
     [OutputType]
     public sealed class MetricDimensionResponse
     {

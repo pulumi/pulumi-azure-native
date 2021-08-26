@@ -328,7 +328,7 @@ func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutput() Ro
 }
 
 func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAssignmentProperties) *RoleAssignmentProperties {
+	return o.ApplyT(func(v RoleAssignmentProperties) *RoleAssignmentProperties {
 		return &v
 	}).(RoleAssignmentPropertiesPtrOutput)
 }
@@ -358,13 +358,7 @@ func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutputWi
 }
 
 func (o RoleAssignmentPropertiesPtrOutput) Elem() RoleAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) RoleAssignmentProperties {
-		if v != nil {
-			return *v
-		}
-		var ret RoleAssignmentProperties
-		return ret
-	}).(RoleAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *RoleAssignmentProperties) RoleAssignmentProperties { return *v }).(RoleAssignmentPropertiesOutput)
 }
 
 // The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
@@ -491,7 +485,7 @@ func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropert
 }
 
 func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAssignmentPropertiesWithScopeResponse) *RoleAssignmentPropertiesWithScopeResponse {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *RoleAssignmentPropertiesWithScopeResponse {
 		return &v
 	}).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
 }
@@ -527,11 +521,7 @@ func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentProp
 
 func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Elem() RoleAssignmentPropertiesWithScopeResponseOutput {
 	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) RoleAssignmentPropertiesWithScopeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RoleAssignmentPropertiesWithScopeResponse
-		return ret
+		return *v
 	}).(RoleAssignmentPropertiesWithScopeResponseOutput)
 }
 

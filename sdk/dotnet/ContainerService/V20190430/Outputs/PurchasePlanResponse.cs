@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20190430.Outputs
 {
 
-    /// <summary>
-    /// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
-    /// </summary>
     [OutputType]
     public sealed class PurchasePlanResponse
     {

@@ -110,7 +110,7 @@ func (o AuthorizationOutput) ToAuthorizationPtrOutput() AuthorizationPtrOutput {
 }
 
 func (o AuthorizationOutput) ToAuthorizationPtrOutputWithContext(ctx context.Context) AuthorizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Authorization) *Authorization {
+	return o.ApplyT(func(v Authorization) *Authorization {
 		return &v
 	}).(AuthorizationPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o AuthorizationPtrOutput) ToAuthorizationPtrOutputWithContext(ctx context.
 }
 
 func (o AuthorizationPtrOutput) Elem() AuthorizationOutput {
-	return o.ApplyT(func(v *Authorization) Authorization {
-		if v != nil {
-			return *v
-		}
-		var ret Authorization
-		return ret
-	}).(AuthorizationOutput)
+	return o.ApplyT(func(v *Authorization) Authorization { return *v }).(AuthorizationOutput)
 }
 
 // Type of authorization.
@@ -269,7 +263,7 @@ func (o AuthorizationResponseOutput) ToAuthorizationResponsePtrOutput() Authoriz
 }
 
 func (o AuthorizationResponseOutput) ToAuthorizationResponsePtrOutputWithContext(ctx context.Context) AuthorizationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationResponse) *AuthorizationResponse {
+	return o.ApplyT(func(v AuthorizationResponse) *AuthorizationResponse {
 		return &v
 	}).(AuthorizationResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o AuthorizationResponsePtrOutput) ToAuthorizationResponsePtrOutputWithCont
 }
 
 func (o AuthorizationResponsePtrOutput) Elem() AuthorizationResponseOutput {
-	return o.ApplyT(func(v *AuthorizationResponse) AuthorizationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AuthorizationResponse
-		return ret
-	}).(AuthorizationResponseOutput)
+	return o.ApplyT(func(v *AuthorizationResponse) AuthorizationResponse { return *v }).(AuthorizationResponseOutput)
 }
 
 // Type of authorization.
@@ -428,7 +416,7 @@ func (o BootstrapConfigurationOutput) ToBootstrapConfigurationPtrOutput() Bootst
 }
 
 func (o BootstrapConfigurationOutput) ToBootstrapConfigurationPtrOutputWithContext(ctx context.Context) BootstrapConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootstrapConfiguration) *BootstrapConfiguration {
+	return o.ApplyT(func(v BootstrapConfiguration) *BootstrapConfiguration {
 		return &v
 	}).(BootstrapConfigurationPtrOutput)
 }
@@ -458,13 +446,7 @@ func (o BootstrapConfigurationPtrOutput) ToBootstrapConfigurationPtrOutputWithCo
 }
 
 func (o BootstrapConfigurationPtrOutput) Elem() BootstrapConfigurationOutput {
-	return o.ApplyT(func(v *BootstrapConfiguration) BootstrapConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret BootstrapConfiguration
-		return ret
-	}).(BootstrapConfigurationOutput)
+	return o.ApplyT(func(v *BootstrapConfiguration) BootstrapConfiguration { return *v }).(BootstrapConfigurationOutput)
 }
 
 // Repository containing the source code for the pipeline.
@@ -587,7 +569,7 @@ func (o BootstrapConfigurationResponseOutput) ToBootstrapConfigurationResponsePt
 }
 
 func (o BootstrapConfigurationResponseOutput) ToBootstrapConfigurationResponsePtrOutputWithContext(ctx context.Context) BootstrapConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootstrapConfigurationResponse) *BootstrapConfigurationResponse {
+	return o.ApplyT(func(v BootstrapConfigurationResponse) *BootstrapConfigurationResponse {
 		return &v
 	}).(BootstrapConfigurationResponsePtrOutput)
 }
@@ -617,13 +599,7 @@ func (o BootstrapConfigurationResponsePtrOutput) ToBootstrapConfigurationRespons
 }
 
 func (o BootstrapConfigurationResponsePtrOutput) Elem() BootstrapConfigurationResponseOutput {
-	return o.ApplyT(func(v *BootstrapConfigurationResponse) BootstrapConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BootstrapConfigurationResponse
-		return ret
-	}).(BootstrapConfigurationResponseOutput)
+	return o.ApplyT(func(v *BootstrapConfigurationResponse) BootstrapConfigurationResponse { return *v }).(BootstrapConfigurationResponseOutput)
 }
 
 // Repository containing the source code for the pipeline.
@@ -758,7 +734,7 @@ func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutpu
 }
 
 func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepository) *CodeRepository {
+	return o.ApplyT(func(v CodeRepository) *CodeRepository {
 		return &v
 	}).(CodeRepositoryPtrOutput)
 }
@@ -803,13 +779,7 @@ func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutputWithContext(ctx contex
 }
 
 func (o CodeRepositoryPtrOutput) Elem() CodeRepositoryOutput {
-	return o.ApplyT(func(v *CodeRepository) CodeRepository {
-		if v != nil {
-			return *v
-		}
-		var ret CodeRepository
-		return ret
-	}).(CodeRepositoryOutput)
+	return o.ApplyT(func(v *CodeRepository) CodeRepository { return *v }).(CodeRepositoryOutput)
 }
 
 // Authorization info to access the code repository.
@@ -974,7 +944,7 @@ func (o CodeRepositoryResponseOutput) ToCodeRepositoryResponsePtrOutput() CodeRe
 }
 
 func (o CodeRepositoryResponseOutput) ToCodeRepositoryResponsePtrOutputWithContext(ctx context.Context) CodeRepositoryResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepositoryResponse) *CodeRepositoryResponse {
+	return o.ApplyT(func(v CodeRepositoryResponse) *CodeRepositoryResponse {
 		return &v
 	}).(CodeRepositoryResponsePtrOutput)
 }
@@ -1019,13 +989,7 @@ func (o CodeRepositoryResponsePtrOutput) ToCodeRepositoryResponsePtrOutputWithCo
 }
 
 func (o CodeRepositoryResponsePtrOutput) Elem() CodeRepositoryResponseOutput {
-	return o.ApplyT(func(v *CodeRepositoryResponse) CodeRepositoryResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CodeRepositoryResponse
-		return ret
-	}).(CodeRepositoryResponseOutput)
+	return o.ApplyT(func(v *CodeRepositoryResponse) CodeRepositoryResponse { return *v }).(CodeRepositoryResponseOutput)
 }
 
 // Authorization info to access the code repository.
@@ -1174,7 +1138,7 @@ func (o OrganizationReferenceOutput) ToOrganizationReferencePtrOutput() Organiza
 }
 
 func (o OrganizationReferenceOutput) ToOrganizationReferencePtrOutputWithContext(ctx context.Context) OrganizationReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationReference) *OrganizationReference {
+	return o.ApplyT(func(v OrganizationReference) *OrganizationReference {
 		return &v
 	}).(OrganizationReferencePtrOutput)
 }
@@ -1199,13 +1163,7 @@ func (o OrganizationReferencePtrOutput) ToOrganizationReferencePtrOutputWithCont
 }
 
 func (o OrganizationReferencePtrOutput) Elem() OrganizationReferenceOutput {
-	return o.ApplyT(func(v *OrganizationReference) OrganizationReference {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationReference
-		return ret
-	}).(OrganizationReferenceOutput)
+	return o.ApplyT(func(v *OrganizationReference) OrganizationReference { return *v }).(OrganizationReferenceOutput)
 }
 
 // Name of the Azure DevOps Organization.
@@ -1318,7 +1276,7 @@ func (o OrganizationReferenceResponseOutput) ToOrganizationReferenceResponsePtrO
 }
 
 func (o OrganizationReferenceResponseOutput) ToOrganizationReferenceResponsePtrOutputWithContext(ctx context.Context) OrganizationReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationReferenceResponse) *OrganizationReferenceResponse {
+	return o.ApplyT(func(v OrganizationReferenceResponse) *OrganizationReferenceResponse {
 		return &v
 	}).(OrganizationReferenceResponsePtrOutput)
 }
@@ -1348,13 +1306,7 @@ func (o OrganizationReferenceResponsePtrOutput) ToOrganizationReferenceResponseP
 }
 
 func (o OrganizationReferenceResponsePtrOutput) Elem() OrganizationReferenceResponseOutput {
-	return o.ApplyT(func(v *OrganizationReferenceResponse) OrganizationReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationReferenceResponse
-		return ret
-	}).(OrganizationReferenceResponseOutput)
+	return o.ApplyT(func(v *OrganizationReferenceResponse) OrganizationReferenceResponse { return *v }).(OrganizationReferenceResponseOutput)
 }
 
 // Unique immutable identifier for the Azure DevOps Organization.
@@ -1477,7 +1429,7 @@ func (o PipelineTemplateOutput) ToPipelineTemplatePtrOutput() PipelineTemplatePt
 }
 
 func (o PipelineTemplateOutput) ToPipelineTemplatePtrOutputWithContext(ctx context.Context) PipelineTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTemplate) *PipelineTemplate {
+	return o.ApplyT(func(v PipelineTemplate) *PipelineTemplate {
 		return &v
 	}).(PipelineTemplatePtrOutput)
 }
@@ -1507,13 +1459,7 @@ func (o PipelineTemplatePtrOutput) ToPipelineTemplatePtrOutputWithContext(ctx co
 }
 
 func (o PipelineTemplatePtrOutput) Elem() PipelineTemplateOutput {
-	return o.ApplyT(func(v *PipelineTemplate) PipelineTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineTemplate
-		return ret
-	}).(PipelineTemplateOutput)
+	return o.ApplyT(func(v *PipelineTemplate) PipelineTemplate { return *v }).(PipelineTemplateOutput)
 }
 
 // Unique identifier of the pipeline template.
@@ -1636,7 +1582,7 @@ func (o PipelineTemplateResponseOutput) ToPipelineTemplateResponsePtrOutput() Pi
 }
 
 func (o PipelineTemplateResponseOutput) ToPipelineTemplateResponsePtrOutputWithContext(ctx context.Context) PipelineTemplateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTemplateResponse) *PipelineTemplateResponse {
+	return o.ApplyT(func(v PipelineTemplateResponse) *PipelineTemplateResponse {
 		return &v
 	}).(PipelineTemplateResponsePtrOutput)
 }
@@ -1666,13 +1612,7 @@ func (o PipelineTemplateResponsePtrOutput) ToPipelineTemplateResponsePtrOutputWi
 }
 
 func (o PipelineTemplateResponsePtrOutput) Elem() PipelineTemplateResponseOutput {
-	return o.ApplyT(func(v *PipelineTemplateResponse) PipelineTemplateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PipelineTemplateResponse
-		return ret
-	}).(PipelineTemplateResponseOutput)
+	return o.ApplyT(func(v *PipelineTemplateResponse) PipelineTemplateResponse { return *v }).(PipelineTemplateResponseOutput)
 }
 
 // Unique identifier of the pipeline template.
@@ -1791,7 +1731,7 @@ func (o ProjectReferenceOutput) ToProjectReferencePtrOutput() ProjectReferencePt
 }
 
 func (o ProjectReferenceOutput) ToProjectReferencePtrOutputWithContext(ctx context.Context) ProjectReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectReference) *ProjectReference {
+	return o.ApplyT(func(v ProjectReference) *ProjectReference {
 		return &v
 	}).(ProjectReferencePtrOutput)
 }
@@ -1816,13 +1756,7 @@ func (o ProjectReferencePtrOutput) ToProjectReferencePtrOutputWithContext(ctx co
 }
 
 func (o ProjectReferencePtrOutput) Elem() ProjectReferenceOutput {
-	return o.ApplyT(func(v *ProjectReference) ProjectReference {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectReference
-		return ret
-	}).(ProjectReferenceOutput)
+	return o.ApplyT(func(v *ProjectReference) ProjectReference { return *v }).(ProjectReferenceOutput)
 }
 
 // Name of the Azure DevOps Project.
@@ -1935,7 +1869,7 @@ func (o ProjectReferenceResponseOutput) ToProjectReferenceResponsePtrOutput() Pr
 }
 
 func (o ProjectReferenceResponseOutput) ToProjectReferenceResponsePtrOutputWithContext(ctx context.Context) ProjectReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectReferenceResponse) *ProjectReferenceResponse {
+	return o.ApplyT(func(v ProjectReferenceResponse) *ProjectReferenceResponse {
 		return &v
 	}).(ProjectReferenceResponsePtrOutput)
 }
@@ -1965,13 +1899,7 @@ func (o ProjectReferenceResponsePtrOutput) ToProjectReferenceResponsePtrOutputWi
 }
 
 func (o ProjectReferenceResponsePtrOutput) Elem() ProjectReferenceResponseOutput {
-	return o.ApplyT(func(v *ProjectReferenceResponse) ProjectReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectReferenceResponse
-		return ret
-	}).(ProjectReferenceResponseOutput)
+	return o.ApplyT(func(v *ProjectReferenceResponse) ProjectReferenceResponse { return *v }).(ProjectReferenceResponseOutput)
 }
 
 // Unique immutable identifier of the Azure DevOps Project.

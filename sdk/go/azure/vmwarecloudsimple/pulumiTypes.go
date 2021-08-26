@@ -122,7 +122,7 @@ func (o GuestOSCustomizationOutput) ToGuestOSCustomizationPtrOutput() GuestOSCus
 }
 
 func (o GuestOSCustomizationOutput) ToGuestOSCustomizationPtrOutputWithContext(ctx context.Context) GuestOSCustomizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestOSCustomization) *GuestOSCustomization {
+	return o.ApplyT(func(v GuestOSCustomization) *GuestOSCustomization {
 		return &v
 	}).(GuestOSCustomizationPtrOutput)
 }
@@ -167,13 +167,7 @@ func (o GuestOSCustomizationPtrOutput) ToGuestOSCustomizationPtrOutputWithContex
 }
 
 func (o GuestOSCustomizationPtrOutput) Elem() GuestOSCustomizationOutput {
-	return o.ApplyT(func(v *GuestOSCustomization) GuestOSCustomization {
-		if v != nil {
-			return *v
-		}
-		var ret GuestOSCustomization
-		return ret
-	}).(GuestOSCustomizationOutput)
+	return o.ApplyT(func(v *GuestOSCustomization) GuestOSCustomization { return *v }).(GuestOSCustomizationOutput)
 }
 
 // List of dns servers to use
@@ -338,7 +332,7 @@ func (o GuestOSCustomizationResponseOutput) ToGuestOSCustomizationResponsePtrOut
 }
 
 func (o GuestOSCustomizationResponseOutput) ToGuestOSCustomizationResponsePtrOutputWithContext(ctx context.Context) GuestOSCustomizationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestOSCustomizationResponse) *GuestOSCustomizationResponse {
+	return o.ApplyT(func(v GuestOSCustomizationResponse) *GuestOSCustomizationResponse {
 		return &v
 	}).(GuestOSCustomizationResponsePtrOutput)
 }
@@ -383,13 +377,7 @@ func (o GuestOSCustomizationResponsePtrOutput) ToGuestOSCustomizationResponsePtr
 }
 
 func (o GuestOSCustomizationResponsePtrOutput) Elem() GuestOSCustomizationResponseOutput {
-	return o.ApplyT(func(v *GuestOSCustomizationResponse) GuestOSCustomizationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GuestOSCustomizationResponse
-		return ret
-	}).(GuestOSCustomizationResponseOutput)
+	return o.ApplyT(func(v *GuestOSCustomizationResponse) GuestOSCustomizationResponse { return *v }).(GuestOSCustomizationResponseOutput)
 }
 
 // List of dns servers to use
@@ -562,7 +550,7 @@ func (o GuestOSNICCustomizationOutput) ToGuestOSNICCustomizationPtrOutput() Gues
 }
 
 func (o GuestOSNICCustomizationOutput) ToGuestOSNICCustomizationPtrOutputWithContext(ctx context.Context) GuestOSNICCustomizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestOSNICCustomization) *GuestOSNICCustomization {
+	return o.ApplyT(func(v GuestOSNICCustomization) *GuestOSNICCustomization {
 		return &v
 	}).(GuestOSNICCustomizationPtrOutput)
 }
@@ -617,13 +605,7 @@ func (o GuestOSNICCustomizationPtrOutput) ToGuestOSNICCustomizationPtrOutputWith
 }
 
 func (o GuestOSNICCustomizationPtrOutput) Elem() GuestOSNICCustomizationOutput {
-	return o.ApplyT(func(v *GuestOSNICCustomization) GuestOSNICCustomization {
-		if v != nil {
-			return *v
-		}
-		var ret GuestOSNICCustomization
-		return ret
-	}).(GuestOSNICCustomizationOutput)
+	return o.ApplyT(func(v *GuestOSNICCustomization) GuestOSNICCustomization { return *v }).(GuestOSNICCustomizationOutput)
 }
 
 // IP address allocation method
@@ -816,7 +798,7 @@ func (o GuestOSNICCustomizationResponseOutput) ToGuestOSNICCustomizationResponse
 }
 
 func (o GuestOSNICCustomizationResponseOutput) ToGuestOSNICCustomizationResponsePtrOutputWithContext(ctx context.Context) GuestOSNICCustomizationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestOSNICCustomizationResponse) *GuestOSNICCustomizationResponse {
+	return o.ApplyT(func(v GuestOSNICCustomizationResponse) *GuestOSNICCustomizationResponse {
 		return &v
 	}).(GuestOSNICCustomizationResponsePtrOutput)
 }
@@ -871,13 +853,7 @@ func (o GuestOSNICCustomizationResponsePtrOutput) ToGuestOSNICCustomizationRespo
 }
 
 func (o GuestOSNICCustomizationResponsePtrOutput) Elem() GuestOSNICCustomizationResponseOutput {
-	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) GuestOSNICCustomizationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GuestOSNICCustomizationResponse
-		return ret
-	}).(GuestOSNICCustomizationResponseOutput)
+	return o.ApplyT(func(v *GuestOSNICCustomizationResponse) GuestOSNICCustomizationResponse { return *v }).(GuestOSNICCustomizationResponseOutput)
 }
 
 // IP address allocation method
@@ -1046,7 +1022,7 @@ func (o ResourcePoolOutput) ToResourcePoolPtrOutput() ResourcePoolPtrOutput {
 }
 
 func (o ResourcePoolOutput) ToResourcePoolPtrOutputWithContext(ctx context.Context) ResourcePoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePool) *ResourcePool {
+	return o.ApplyT(func(v ResourcePool) *ResourcePool {
 		return &v
 	}).(ResourcePoolPtrOutput)
 }
@@ -1071,13 +1047,7 @@ func (o ResourcePoolPtrOutput) ToResourcePoolPtrOutputWithContext(ctx context.Co
 }
 
 func (o ResourcePoolPtrOutput) Elem() ResourcePoolOutput {
-	return o.ApplyT(func(v *ResourcePool) ResourcePool {
-		if v != nil {
-			return *v
-		}
-		var ret ResourcePool
-		return ret
-	}).(ResourcePoolOutput)
+	return o.ApplyT(func(v *ResourcePool) ResourcePool { return *v }).(ResourcePoolOutput)
 }
 
 // resource pool id (privateCloudId:vsphereId)
@@ -1206,7 +1176,7 @@ func (o ResourcePoolResponseOutput) ToResourcePoolResponsePtrOutput() ResourcePo
 }
 
 func (o ResourcePoolResponseOutput) ToResourcePoolResponsePtrOutputWithContext(ctx context.Context) ResourcePoolResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePoolResponse) *ResourcePoolResponse {
+	return o.ApplyT(func(v ResourcePoolResponse) *ResourcePoolResponse {
 		return &v
 	}).(ResourcePoolResponsePtrOutput)
 }
@@ -1256,13 +1226,7 @@ func (o ResourcePoolResponsePtrOutput) ToResourcePoolResponsePtrOutputWithContex
 }
 
 func (o ResourcePoolResponsePtrOutput) Elem() ResourcePoolResponseOutput {
-	return o.ApplyT(func(v *ResourcePoolResponse) ResourcePoolResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourcePoolResponse
-		return ret
-	}).(ResourcePoolResponseOutput)
+	return o.ApplyT(func(v *ResourcePoolResponse) ResourcePoolResponse { return *v }).(ResourcePoolResponseOutput)
 }
 
 // Hierarchical resource pool name
@@ -1437,7 +1401,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1482,13 +1446,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The capacity of the SKU
@@ -1653,7 +1611,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1698,13 +1656,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The capacity of the SKU
@@ -1762,7 +1714,7 @@ type VirtualDisk struct {
 	// Disk's Controller id
 	ControllerId string `pulumi:"controllerId"`
 	// Disk's independence mode type
-	IndependenceMode DiskIndependenceMode `pulumi:"independenceMode"`
+	IndependenceMode string `pulumi:"independenceMode"`
 	// Disk's total size
 	TotalSize int `pulumi:"totalSize"`
 	// Disk's id
@@ -1785,7 +1737,7 @@ type VirtualDiskArgs struct {
 	// Disk's Controller id
 	ControllerId pulumi.StringInput `pulumi:"controllerId"`
 	// Disk's independence mode type
-	IndependenceMode DiskIndependenceModeInput `pulumi:"independenceMode"`
+	IndependenceMode DiskIndependenceMode `pulumi:"independenceMode"`
 	// Disk's total size
 	TotalSize pulumi.IntInput `pulumi:"totalSize"`
 	// Disk's id
@@ -1850,8 +1802,8 @@ func (o VirtualDiskOutput) ControllerId() pulumi.StringOutput {
 }
 
 // Disk's independence mode type
-func (o VirtualDiskOutput) IndependenceMode() DiskIndependenceModeOutput {
-	return o.ApplyT(func(v VirtualDisk) DiskIndependenceMode { return v.IndependenceMode }).(DiskIndependenceModeOutput)
+func (o VirtualDiskOutput) IndependenceMode() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDisk) string { return v.IndependenceMode }).(pulumi.StringOutput)
 }
 
 // Disk's total size
@@ -2313,7 +2265,7 @@ type VirtualNic struct {
 	// Virtual Network
 	Network VirtualNetwork `pulumi:"network"`
 	// NIC type
-	NicType NICType `pulumi:"nicType"`
+	NicType string `pulumi:"nicType"`
 	// Is NIC powered on/off on boot
 	PowerOnBoot *bool `pulumi:"powerOnBoot"`
 	// NIC id
@@ -2342,7 +2294,7 @@ type VirtualNicArgs struct {
 	// Virtual Network
 	Network VirtualNetworkInput `pulumi:"network"`
 	// NIC type
-	NicType NICTypeInput `pulumi:"nicType"`
+	NicType NICType `pulumi:"nicType"`
 	// Is NIC powered on/off on boot
 	PowerOnBoot pulumi.BoolPtrInput `pulumi:"powerOnBoot"`
 	// NIC id
@@ -2422,8 +2374,8 @@ func (o VirtualNicOutput) Network() VirtualNetworkOutput {
 }
 
 // NIC type
-func (o VirtualNicOutput) NicType() NICTypeOutput {
-	return o.ApplyT(func(v VirtualNic) NICType { return v.NicType }).(NICTypeOutput)
+func (o VirtualNicOutput) NicType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNic) string { return v.NicType }).(pulumi.StringOutput)
 }
 
 // Is NIC powered on/off on boot

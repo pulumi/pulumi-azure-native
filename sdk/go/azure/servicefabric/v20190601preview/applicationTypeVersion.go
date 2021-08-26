@@ -195,7 +195,9 @@ func (i *ApplicationTypeVersion) ToApplicationTypeVersionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeVersionOutput)
 }
 
-type ApplicationTypeVersionOutput struct{ *pulumi.OutputState }
+type ApplicationTypeVersionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplicationTypeVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationTypeVersion)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
-    /// <summary>
-    /// Query results for table insights query.
-    /// </summary>
     [OutputType]
     public sealed class InsightsTableResultResponse
     {

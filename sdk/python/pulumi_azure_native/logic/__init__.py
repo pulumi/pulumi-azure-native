@@ -52,16 +52,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.logic.v20150201preview as __v20150201preview
-    v20150201preview = __v20150201preview
-    import pulumi_azure_native.logic.v20150801preview as __v20150801preview
-    v20150801preview = __v20150801preview
-    import pulumi_azure_native.logic.v20160601 as __v20160601
-    v20160601 = __v20160601
-    import pulumi_azure_native.logic.v20180701preview as __v20180701preview
-    v20180701preview = __v20180701preview
-    import pulumi_azure_native.logic.v20190501 as __v20190501
-    v20190501 = __v20190501
+    import pulumi_azure_native.logic.v20150201preview as v20150201preview
+    import pulumi_azure_native.logic.v20150801preview as v20150801preview
+    import pulumi_azure_native.logic.v20160601 as v20160601
+    import pulumi_azure_native.logic.v20180701preview as v20180701preview
+    import pulumi_azure_native.logic.v20190501 as v20190501
 else:
     v20150201preview = _utilities.lazy_import('pulumi_azure_native.logic.v20150201preview')
     v20150801preview = _utilities.lazy_import('pulumi_azure_native.logic.v20150801preview')

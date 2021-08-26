@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20191109.Outputs
 {
 
-    /// <summary>
-    /// A class representing database principal entity.
-    /// </summary>
     [OutputType]
     public sealed class DatabasePrincipalResponse
     {

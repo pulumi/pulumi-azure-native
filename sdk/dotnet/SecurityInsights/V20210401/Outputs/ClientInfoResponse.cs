@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210401.Outputs
 {
 
-    /// <summary>
-    /// Information on the client (user or application) that made some action
-    /// </summary>
     [OutputType]
     public sealed class ClientInfoResponse
     {

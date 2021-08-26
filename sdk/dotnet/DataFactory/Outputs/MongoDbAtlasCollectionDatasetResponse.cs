@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The MongoDB Atlas database dataset.
-    /// </summary>
     [OutputType]
     public sealed class MongoDbAtlasCollectionDatasetResponse
     {

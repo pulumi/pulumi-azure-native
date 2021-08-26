@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes a container endpoint.
-    /// </summary>
     [OutputType]
     public sealed class EndpointPropertiesResponse
     {

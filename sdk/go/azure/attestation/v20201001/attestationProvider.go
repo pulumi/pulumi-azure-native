@@ -153,7 +153,9 @@ func (i *AttestationProvider) ToAttestationProviderOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationProviderOutput)
 }
 
-type AttestationProviderOutput struct{ *pulumi.OutputState }
+type AttestationProviderOutput struct {
+	*pulumi.OutputState
+}
 
 func (AttestationProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AttestationProvider)(nil))

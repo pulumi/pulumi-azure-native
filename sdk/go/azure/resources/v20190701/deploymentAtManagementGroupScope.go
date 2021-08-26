@@ -181,7 +181,9 @@ func (i *DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOut
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtManagementGroupScopeOutput)
 }
 
-type DeploymentAtManagementGroupScopeOutput struct{ *pulumi.OutputState }
+type DeploymentAtManagementGroupScopeOutput struct {
+	*pulumi.OutputState
+}
 
 func (DeploymentAtManagementGroupScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentAtManagementGroupScope)(nil))

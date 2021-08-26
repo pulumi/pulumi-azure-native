@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20200601.Outputs
 {
 
-    /// <summary>
-    /// Result of listing the execution history of an export.
-    /// </summary>
     [OutputType]
     public sealed class ExportExecutionListResultResponse
     {

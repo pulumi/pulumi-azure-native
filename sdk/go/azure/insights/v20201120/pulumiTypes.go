@@ -500,49 +500,49 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayOutput) Index(i pulumi.IntI
 	}).(WorkbookTemplateLocalizedGalleryResponseOutput)
 }
 
-type WorkbookTemplateLocalizedGalleryArrayMap map[string]WorkbookTemplateLocalizedGalleryArrayInput
+type WorkbookTemplateLocalizedGalleryArgsArrayMap map[string]WorkbookTemplateLocalizedGalleryArgsArrayInput
 
-func (WorkbookTemplateLocalizedGalleryArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
+func (WorkbookTemplateLocalizedGalleryArgsArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArgsArray)(nil)).Elem()
 }
 
-func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(context.Background())
+func (i WorkbookTemplateLocalizedGalleryArgsArrayMap) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutput() WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
+	return i.ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(context.Background())
 }
 
-func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryArrayMapOutput)
+func (i WorkbookTemplateLocalizedGalleryArgsArrayMap) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryArgsArrayMapOutput)
 }
 
-type WorkbookTemplateLocalizedGalleryArrayMapOutput struct{ *pulumi.OutputState }
+type WorkbookTemplateLocalizedGalleryArgsArrayMapOutput struct{ *pulumi.OutputState }
 
-func (WorkbookTemplateLocalizedGalleryArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
+func (WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArgsArray)(nil)).Elem()
 }
 
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
+func (o WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutput() WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
 	return o
 }
 
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
+func (o WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
 	return o
 }
 
-func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryArray)[vs[1].(string)]
-	}).(WorkbookTemplateLocalizedGalleryArrayOutput)
+func (o WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArgsArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryArgsArray {
+		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryArgsArray)[vs[1].(string)]
+	}).(WorkbookTemplateLocalizedGalleryArgsArrayOutput)
 }
 
-// WorkbookTemplateLocalizedGalleryArrayMapInput is an input type that accepts WorkbookTemplateLocalizedGalleryArrayMap and WorkbookTemplateLocalizedGalleryArrayMapOutput values.
-// You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArrayMapInput` via:
+// WorkbookTemplateLocalizedGalleryArgsArrayMapInput is an input type that accepts WorkbookTemplateLocalizedGalleryArgsArrayMap and WorkbookTemplateLocalizedGalleryArgsArrayMapOutput values.
+// You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArgsArrayMapInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArrayMap{ "key": WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} } }
-type WorkbookTemplateLocalizedGalleryArrayMapInput interface {
+//          WorkbookTemplateLocalizedGalleryArgsArrayMap{ "key": WorkbookTemplateLocalizedGalleryArgsArray{ WorkbookTemplateLocalizedGalleryArgsArgs{...} } }
+type WorkbookTemplateLocalizedGalleryArgsArrayMapInput interface {
 	pulumi.Input
 
-	ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput
-	ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput
+	ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutput() WorkbookTemplateLocalizedGalleryArgsArrayMapOutput
+	ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryArgsArrayMapOutput
 }
 
 type WorkbookTemplateLocalizedGalleryResponseArrayMap map[string]WorkbookTemplateLocalizedGalleryResponseArrayInput
@@ -562,7 +562,7 @@ func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLoca
 type WorkbookTemplateLocalizedGalleryResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
@@ -599,6 +599,5 @@ func init() {
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryArrayOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseArrayOutput{})
-	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryArrayMapOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseArrayMapOutput{})
 }

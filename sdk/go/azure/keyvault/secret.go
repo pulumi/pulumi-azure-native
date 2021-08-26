@@ -173,7 +173,9 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretOutput)
 }
 
-type SecretOutput struct{ *pulumi.OutputState }
+type SecretOutput struct {
+	*pulumi.OutputState
+}
 
 func (SecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Secret)(nil))

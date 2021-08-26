@@ -126,7 +126,9 @@ func (i *AzureADMetric) ToAzureADMetricOutputWithContext(ctx context.Context) Az
 	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricOutput)
 }
 
-type AzureADMetricOutput struct{ *pulumi.OutputState }
+type AzureADMetricOutput struct {
+	*pulumi.OutputState
+}
 
 func (AzureADMetricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureADMetric)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Additional information on Backup engine specific backup item.
-    /// </summary>
     [OutputType]
     public sealed class DPMProtectedItemResponse
     {

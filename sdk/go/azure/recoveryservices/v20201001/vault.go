@@ -97,12 +97,6 @@ func NewVault(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:Vault"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:Vault"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Vault
@@ -198,7 +192,9 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
 }
 
-type VaultOutput struct{ *pulumi.OutputState }
+type VaultOutput struct {
+	*pulumi.OutputState
+}
 
 func (VaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Vault)(nil))

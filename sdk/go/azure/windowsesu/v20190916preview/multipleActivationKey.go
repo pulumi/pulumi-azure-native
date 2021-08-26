@@ -162,7 +162,9 @@ func (i *MultipleActivationKey) ToMultipleActivationKeyOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MultipleActivationKeyOutput)
 }
 
-type MultipleActivationKeyOutput struct{ *pulumi.OutputState }
+type MultipleActivationKeyOutput struct {
+	*pulumi.OutputState
+}
 
 func (MultipleActivationKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MultipleActivationKey)(nil))

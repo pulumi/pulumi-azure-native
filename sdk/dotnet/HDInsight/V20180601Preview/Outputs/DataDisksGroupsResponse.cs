@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
-    /// <summary>
-    /// The data disks groups for the role.
-    /// </summary>
     [OutputType]
     public sealed class DataDisksGroupsResponse
     {

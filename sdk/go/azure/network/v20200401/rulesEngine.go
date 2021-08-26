@@ -139,7 +139,9 @@ func (i *RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesE
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineOutput)
 }
 
-type RulesEngineOutput struct{ *pulumi.OutputState }
+type RulesEngineOutput struct {
+	*pulumi.OutputState
+}
 
 func (RulesEngineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RulesEngine)(nil))

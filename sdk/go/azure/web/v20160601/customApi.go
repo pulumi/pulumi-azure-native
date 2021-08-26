@@ -140,7 +140,9 @@ func (i *CustomApi) ToCustomApiOutputWithContext(ctx context.Context) CustomApiO
 	return pulumi.ToOutputWithContext(ctx, i).(CustomApiOutput)
 }
 
-type CustomApiOutput struct{ *pulumi.OutputState }
+type CustomApiOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomApi)(nil))

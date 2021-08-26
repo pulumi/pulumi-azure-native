@@ -192,7 +192,9 @@ func (i *PolicySetDefinition) ToPolicySetDefinitionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionOutput)
 }
 
-type PolicySetDefinitionOutput struct{ *pulumi.OutputState }
+type PolicySetDefinitionOutput struct {
+	*pulumi.OutputState
+}
 
 func (PolicySetDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicySetDefinition)(nil))

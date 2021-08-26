@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMariaDB.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Properties of a private endpoint connection.
-    /// </summary>
     [OutputType]
     public sealed class ServerPrivateEndpointConnectionPropertiesResponse
     {

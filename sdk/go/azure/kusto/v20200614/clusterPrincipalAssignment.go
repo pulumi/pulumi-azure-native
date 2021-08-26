@@ -182,7 +182,9 @@ func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentOutput)
 }
 
-type ClusterPrincipalAssignmentOutput struct{ *pulumi.OutputState }
+type ClusterPrincipalAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ClusterPrincipalAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil))

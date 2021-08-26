@@ -156,7 +156,9 @@ func (i *PrivateZone) ToPrivateZoneOutputWithContext(ctx context.Context) Privat
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateZoneOutput)
 }
 
-type PrivateZoneOutput struct{ *pulumi.OutputState }
+type PrivateZoneOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateZone)(nil))

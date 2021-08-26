@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210801.Outputs
 {
 
-    /// <summary>
-    /// Properties of sqlManagedInstance.
-    /// </summary>
     [OutputType]
     public sealed class SqlManagedInstancePropertiesResponse
     {

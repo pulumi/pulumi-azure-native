@@ -13,7 +13,7 @@ import (
 // The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentity struct {
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // EnterprisePolicyIdentityInput is an input type that accepts EnterprisePolicyIdentityArgs and EnterprisePolicyIdentityOutput values.
@@ -30,7 +30,7 @@ type EnterprisePolicyIdentityInput interface {
 // The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityArgs struct {
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (EnterprisePolicyIdentityArgs) ElementType() reflect.Type {
@@ -106,14 +106,14 @@ func (o EnterprisePolicyIdentityOutput) ToEnterprisePolicyIdentityPtrOutput() En
 }
 
 func (o EnterprisePolicyIdentityOutput) ToEnterprisePolicyIdentityPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterprisePolicyIdentity) *EnterprisePolicyIdentity {
+	return o.ApplyT(func(v EnterprisePolicyIdentity) *EnterprisePolicyIdentity {
 		return &v
 	}).(EnterprisePolicyIdentityPtrOutput)
 }
 
 // The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o EnterprisePolicyIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o EnterprisePolicyIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterprisePolicyIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type EnterprisePolicyIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,23 +131,17 @@ func (o EnterprisePolicyIdentityPtrOutput) ToEnterprisePolicyIdentityPtrOutputWi
 }
 
 func (o EnterprisePolicyIdentityPtrOutput) Elem() EnterprisePolicyIdentityOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) EnterprisePolicyIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret EnterprisePolicyIdentity
-		return ret
-	}).(EnterprisePolicyIdentityOutput)
+	return o.ApplyT(func(v *EnterprisePolicyIdentity) EnterprisePolicyIdentity { return *v }).(EnterprisePolicyIdentityOutput)
 }
 
 // The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o EnterprisePolicyIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) *ResourceIdentityType {
+func (o EnterprisePolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterprisePolicyIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The identity of the EnterprisePolicy.
@@ -254,7 +248,7 @@ func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityRespon
 }
 
 func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityResponsePtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponse {
+	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponse {
 		return &v
 	}).(EnterprisePolicyIdentityResponsePtrOutput)
 }
@@ -289,13 +283,7 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) ToEnterprisePolicyIdentityRes
 }
 
 func (o EnterprisePolicyIdentityResponsePtrOutput) Elem() EnterprisePolicyIdentityResponseOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) EnterprisePolicyIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EnterprisePolicyIdentityResponse
-		return ret
-	}).(EnterprisePolicyIdentityResponseOutput)
+	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) EnterprisePolicyIdentityResponse { return *v }).(EnterprisePolicyIdentityResponseOutput)
 }
 
 // The principal id of EnterprisePolicy identity.
@@ -428,7 +416,7 @@ func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
 }
 
 func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyProperties) *KeyProperties {
+	return o.ApplyT(func(v KeyProperties) *KeyProperties {
 		return &v
 	}).(KeyPropertiesPtrOutput)
 }
@@ -458,13 +446,7 @@ func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o KeyPropertiesPtrOutput) Elem() KeyPropertiesOutput {
-	return o.ApplyT(func(v *KeyProperties) KeyProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyProperties
-		return ret
-	}).(KeyPropertiesOutput)
+	return o.ApplyT(func(v *KeyProperties) KeyProperties { return *v }).(KeyPropertiesOutput)
 }
 
 // The identifier of the key vault key used to encrypt data.
@@ -587,7 +569,7 @@ func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutput() KeyPrope
 }
 
 func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyPropertiesResponse) *KeyPropertiesResponse {
+	return o.ApplyT(func(v KeyPropertiesResponse) *KeyPropertiesResponse {
 		return &v
 	}).(KeyPropertiesResponsePtrOutput)
 }
@@ -617,13 +599,7 @@ func (o KeyPropertiesResponsePtrOutput) ToKeyPropertiesResponsePtrOutputWithCont
 }
 
 func (o KeyPropertiesResponsePtrOutput) Elem() KeyPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyPropertiesResponse) KeyPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyPropertiesResponse
-		return ret
-	}).(KeyPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyPropertiesResponse) KeyPropertiesResponse { return *v }).(KeyPropertiesResponseOutput)
 }
 
 // The identifier of the key vault key used to encrypt data.
@@ -746,7 +722,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -776,13 +752,7 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultProperties
-		return ret
-	}).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
 }
 
 // Uri of KeyVault
@@ -905,7 +875,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -935,13 +905,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultPropertiesResponse
-		return ret
-	}).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
 }
 
 // Uri of KeyVault
@@ -1060,7 +1024,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -1085,13 +1049,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -1208,7 +1166,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -1243,13 +1201,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -1386,7 +1338,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -1422,11 +1374,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -1560,7 +1508,7 @@ func (o PropertiesEncryptionOutput) ToPropertiesEncryptionPtrOutput() Properties
 }
 
 func (o PropertiesEncryptionOutput) ToPropertiesEncryptionPtrOutputWithContext(ctx context.Context) PropertiesEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesEncryption) *PropertiesEncryption {
+	return o.ApplyT(func(v PropertiesEncryption) *PropertiesEncryption {
 		return &v
 	}).(PropertiesEncryptionPtrOutput)
 }
@@ -1590,13 +1538,7 @@ func (o PropertiesEncryptionPtrOutput) ToPropertiesEncryptionPtrOutputWithContex
 }
 
 func (o PropertiesEncryptionPtrOutput) Elem() PropertiesEncryptionOutput {
-	return o.ApplyT(func(v *PropertiesEncryption) PropertiesEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret PropertiesEncryption
-		return ret
-	}).(PropertiesEncryptionOutput)
+	return o.ApplyT(func(v *PropertiesEncryption) PropertiesEncryption { return *v }).(PropertiesEncryptionOutput)
 }
 
 // Key vault properties.
@@ -1715,7 +1657,7 @@ func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutput() PropertiesLockbo
 }
 
 func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesLockbox) *PropertiesLockbox {
+	return o.ApplyT(func(v PropertiesLockbox) *PropertiesLockbox {
 		return &v
 	}).(PropertiesLockboxPtrOutput)
 }
@@ -1740,13 +1682,7 @@ func (o PropertiesLockboxPtrOutput) ToPropertiesLockboxPtrOutputWithContext(ctx 
 }
 
 func (o PropertiesLockboxPtrOutput) Elem() PropertiesLockboxOutput {
-	return o.ApplyT(func(v *PropertiesLockbox) PropertiesLockbox {
-		if v != nil {
-			return *v
-		}
-		var ret PropertiesLockbox
-		return ret
-	}).(PropertiesLockboxOutput)
+	return o.ApplyT(func(v *PropertiesLockbox) PropertiesLockbox { return *v }).(PropertiesLockboxOutput)
 }
 
 // lockbox configuration
@@ -1855,7 +1791,7 @@ func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionPtrOutput(
 }
 
 func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesNetworkInjectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesNetworkInjection) *PropertiesNetworkInjection {
+	return o.ApplyT(func(v PropertiesNetworkInjection) *PropertiesNetworkInjection {
 		return &v
 	}).(PropertiesNetworkInjectionPtrOutput)
 }
@@ -1880,13 +1816,7 @@ func (o PropertiesNetworkInjectionPtrOutput) ToPropertiesNetworkInjectionPtrOutp
 }
 
 func (o PropertiesNetworkInjectionPtrOutput) Elem() PropertiesNetworkInjectionOutput {
-	return o.ApplyT(func(v *PropertiesNetworkInjection) PropertiesNetworkInjection {
-		if v != nil {
-			return *v
-		}
-		var ret PropertiesNetworkInjection
-		return ret
-	}).(PropertiesNetworkInjectionOutput)
+	return o.ApplyT(func(v *PropertiesNetworkInjection) PropertiesNetworkInjection { return *v }).(PropertiesNetworkInjectionOutput)
 }
 
 // Network injection configuration
@@ -1999,7 +1929,7 @@ func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionPtrOut
 }
 
 func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) PropertiesResponseEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseEncryption) *PropertiesResponseEncryption {
+	return o.ApplyT(func(v PropertiesResponseEncryption) *PropertiesResponseEncryption {
 		return &v
 	}).(PropertiesResponseEncryptionPtrOutput)
 }
@@ -2029,13 +1959,7 @@ func (o PropertiesResponseEncryptionPtrOutput) ToPropertiesResponseEncryptionPtr
 }
 
 func (o PropertiesResponseEncryptionPtrOutput) Elem() PropertiesResponseEncryptionOutput {
-	return o.ApplyT(func(v *PropertiesResponseEncryption) PropertiesResponseEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret PropertiesResponseEncryption
-		return ret
-	}).(PropertiesResponseEncryptionOutput)
+	return o.ApplyT(func(v *PropertiesResponseEncryption) PropertiesResponseEncryption { return *v }).(PropertiesResponseEncryptionOutput)
 }
 
 // Key vault properties.
@@ -2154,7 +2078,7 @@ func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutput() 
 }
 
 func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) PropertiesResponseLockboxPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseLockbox) *PropertiesResponseLockbox {
+	return o.ApplyT(func(v PropertiesResponseLockbox) *PropertiesResponseLockbox {
 		return &v
 	}).(PropertiesResponseLockboxPtrOutput)
 }
@@ -2179,13 +2103,7 @@ func (o PropertiesResponseLockboxPtrOutput) ToPropertiesResponseLockboxPtrOutput
 }
 
 func (o PropertiesResponseLockboxPtrOutput) Elem() PropertiesResponseLockboxOutput {
-	return o.ApplyT(func(v *PropertiesResponseLockbox) PropertiesResponseLockbox {
-		if v != nil {
-			return *v
-		}
-		var ret PropertiesResponseLockbox
-		return ret
-	}).(PropertiesResponseLockboxOutput)
+	return o.ApplyT(func(v *PropertiesResponseLockbox) PropertiesResponseLockbox { return *v }).(PropertiesResponseLockboxOutput)
 }
 
 // lockbox configuration
@@ -2294,7 +2212,7 @@ func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInj
 }
 
 func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseNetworkInjection) *PropertiesResponseNetworkInjection {
+	return o.ApplyT(func(v PropertiesResponseNetworkInjection) *PropertiesResponseNetworkInjection {
 		return &v
 	}).(PropertiesResponseNetworkInjectionPtrOutput)
 }
@@ -2321,13 +2239,7 @@ func (o PropertiesResponseNetworkInjectionPtrOutput) ToPropertiesResponseNetwork
 }
 
 func (o PropertiesResponseNetworkInjectionPtrOutput) Elem() PropertiesResponseNetworkInjectionOutput {
-	return o.ApplyT(func(v *PropertiesResponseNetworkInjection) PropertiesResponseNetworkInjection {
-		if v != nil {
-			return *v
-		}
-		var ret PropertiesResponseNetworkInjection
-		return ret
-	}).(PropertiesResponseNetworkInjectionOutput)
+	return o.ApplyT(func(v *PropertiesResponseNetworkInjection) PropertiesResponseNetworkInjection { return *v }).(PropertiesResponseNetworkInjectionOutput)
 }
 
 // Network injection configuration
@@ -2436,7 +2348,7 @@ func (o SubnetPropertiesOutput) ToSubnetPropertiesPtrOutput() SubnetPropertiesPt
 }
 
 func (o SubnetPropertiesOutput) ToSubnetPropertiesPtrOutputWithContext(ctx context.Context) SubnetPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetProperties) *SubnetProperties {
+	return o.ApplyT(func(v SubnetProperties) *SubnetProperties {
 		return &v
 	}).(SubnetPropertiesPtrOutput)
 }
@@ -2461,13 +2373,7 @@ func (o SubnetPropertiesPtrOutput) ToSubnetPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o SubnetPropertiesPtrOutput) Elem() SubnetPropertiesOutput {
-	return o.ApplyT(func(v *SubnetProperties) SubnetProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetProperties
-		return ret
-	}).(SubnetPropertiesOutput)
+	return o.ApplyT(func(v *SubnetProperties) SubnetProperties { return *v }).(SubnetPropertiesOutput)
 }
 
 // Subnet name.
@@ -2576,7 +2482,7 @@ func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutput() Su
 }
 
 func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetPropertiesResponse) *SubnetPropertiesResponse {
+	return o.ApplyT(func(v SubnetPropertiesResponse) *SubnetPropertiesResponse {
 		return &v
 	}).(SubnetPropertiesResponsePtrOutput)
 }
@@ -2601,13 +2507,7 @@ func (o SubnetPropertiesResponsePtrOutput) ToSubnetPropertiesResponsePtrOutputWi
 }
 
 func (o SubnetPropertiesResponsePtrOutput) Elem() SubnetPropertiesResponseOutput {
-	return o.ApplyT(func(v *SubnetPropertiesResponse) SubnetPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetPropertiesResponse
-		return ret
-	}).(SubnetPropertiesResponseOutput)
+	return o.ApplyT(func(v *SubnetPropertiesResponse) SubnetPropertiesResponse { return *v }).(SubnetPropertiesResponseOutput)
 }
 
 // Subnet name.
@@ -2736,7 +2636,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -2786,13 +2686,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -3064,7 +2958,7 @@ func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListPtrOut
 }
 
 func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListPtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPropertiesList) *VirtualNetworkPropertiesList {
+	return o.ApplyT(func(v VirtualNetworkPropertiesList) *VirtualNetworkPropertiesList {
 		return &v
 	}).(VirtualNetworkPropertiesListPtrOutput)
 }
@@ -3094,13 +2988,7 @@ func (o VirtualNetworkPropertiesListPtrOutput) ToVirtualNetworkPropertiesListPtr
 }
 
 func (o VirtualNetworkPropertiesListPtrOutput) Elem() VirtualNetworkPropertiesListOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesList) VirtualNetworkPropertiesList {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkPropertiesList
-		return ret
-	}).(VirtualNetworkPropertiesListOutput)
+	return o.ApplyT(func(v *VirtualNetworkPropertiesList) VirtualNetworkPropertiesList { return *v }).(VirtualNetworkPropertiesListOutput)
 }
 
 // Next page link if any.
@@ -3223,7 +3111,7 @@ func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesLi
 }
 
 func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPropertiesListResponse) *VirtualNetworkPropertiesListResponse {
+	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) *VirtualNetworkPropertiesListResponse {
 		return &v
 	}).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
@@ -3253,13 +3141,7 @@ func (o VirtualNetworkPropertiesListResponsePtrOutput) ToVirtualNetworkPropertie
 }
 
 func (o VirtualNetworkPropertiesListResponsePtrOutput) Elem() VirtualNetworkPropertiesListResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) VirtualNetworkPropertiesListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkPropertiesListResponse
-		return ret
-	}).(VirtualNetworkPropertiesListResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) VirtualNetworkPropertiesListResponse { return *v }).(VirtualNetworkPropertiesListResponseOutput)
 }
 
 // Next page link if any.

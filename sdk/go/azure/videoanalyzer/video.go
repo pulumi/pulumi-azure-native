@@ -140,7 +140,9 @@ func (i *Video) ToVideoOutputWithContext(ctx context.Context) VideoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VideoOutput)
 }
 
-type VideoOutput struct{ *pulumi.OutputState }
+type VideoOutput struct {
+	*pulumi.OutputState
+}
 
 func (VideoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Video)(nil))

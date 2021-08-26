@@ -1124,7 +1124,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1174,13 +1174,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -1917,7 +1911,7 @@ func (o UserDefinedResourcesPropertiesOutput) ToUserDefinedResourcesPropertiesPt
 }
 
 func (o UserDefinedResourcesPropertiesOutput) ToUserDefinedResourcesPropertiesPtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedResourcesProperties) *UserDefinedResourcesProperties {
+	return o.ApplyT(func(v UserDefinedResourcesProperties) *UserDefinedResourcesProperties {
 		return &v
 	}).(UserDefinedResourcesPropertiesPtrOutput)
 }
@@ -1947,13 +1941,7 @@ func (o UserDefinedResourcesPropertiesPtrOutput) ToUserDefinedResourcesPropertie
 }
 
 func (o UserDefinedResourcesPropertiesPtrOutput) Elem() UserDefinedResourcesPropertiesOutput {
-	return o.ApplyT(func(v *UserDefinedResourcesProperties) UserDefinedResourcesProperties {
-		if v != nil {
-			return *v
-		}
-		var ret UserDefinedResourcesProperties
-		return ret
-	}).(UserDefinedResourcesPropertiesOutput)
+	return o.ApplyT(func(v *UserDefinedResourcesProperties) UserDefinedResourcesProperties { return *v }).(UserDefinedResourcesPropertiesOutput)
 }
 
 // Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
@@ -2076,7 +2064,7 @@ func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesProp
 }
 
 func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedResourcesPropertiesResponse) *UserDefinedResourcesPropertiesResponse {
+	return o.ApplyT(func(v UserDefinedResourcesPropertiesResponse) *UserDefinedResourcesPropertiesResponse {
 		return &v
 	}).(UserDefinedResourcesPropertiesResponsePtrOutput)
 }
@@ -2106,13 +2094,7 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) ToUserDefinedResourcesP
 }
 
 func (o UserDefinedResourcesPropertiesResponsePtrOutput) Elem() UserDefinedResourcesPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) UserDefinedResourcesPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserDefinedResourcesPropertiesResponse
-		return ret
-	}).(UserDefinedResourcesPropertiesResponseOutput)
+	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) UserDefinedResourcesPropertiesResponse { return *v }).(UserDefinedResourcesPropertiesResponseOutput)
 }
 
 // Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""

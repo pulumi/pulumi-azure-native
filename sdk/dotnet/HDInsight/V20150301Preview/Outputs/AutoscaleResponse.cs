@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 {
 
-    /// <summary>
-    /// The autoscale request parameters
-    /// </summary>
     [OutputType]
     public sealed class AutoscaleResponse
     {

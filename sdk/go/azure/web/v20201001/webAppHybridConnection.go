@@ -241,7 +241,9 @@ func (i *WebAppHybridConnection) ToWebAppHybridConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionOutput)
 }
 
-type WebAppHybridConnectionOutput struct{ *pulumi.OutputState }
+type WebAppHybridConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppHybridConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppHybridConnection)(nil))

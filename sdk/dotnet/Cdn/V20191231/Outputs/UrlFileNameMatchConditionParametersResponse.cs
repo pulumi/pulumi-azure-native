@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20191231.Outputs
 {
 
-    /// <summary>
-    /// Defines the parameters for UrlFilename match conditions
-    /// </summary>
     [OutputType]
     public sealed class UrlFileNameMatchConditionParametersResponse
     {

@@ -150,7 +150,9 @@ func (i *RemediationAtResource) ToRemediationAtResourceOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtResourceOutput)
 }
 
-type RemediationAtResourceOutput struct{ *pulumi.OutputState }
+type RemediationAtResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (RemediationAtResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RemediationAtResource)(nil))

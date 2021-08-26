@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
 {
 
-    /// <summary>
-    /// Settings concerning network injection.
-    /// </summary>
     [OutputType]
     public sealed class PropertiesResponseNetworkInjection
     {

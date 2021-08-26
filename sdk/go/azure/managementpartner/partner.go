@@ -121,7 +121,9 @@ func (i *Partner) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerOutput)
 }
 
-type PartnerOutput struct{ *pulumi.OutputState }
+type PartnerOutput struct {
+	*pulumi.OutputState
+}
 
 func (PartnerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Partner)(nil))

@@ -205,7 +205,7 @@ type snapshotArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
 	PurchasePlan *PurchasePlan `pulumi:"purchasePlan"`
 	// The name of the resource group.
@@ -241,7 +241,7 @@ type SnapshotArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// Purchase plan information for the image from which the source disk for the snapshot was originally created.
 	PurchasePlan PurchasePlanPtrInput
 	// The name of the resource group.
@@ -277,7 +277,9 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct{ *pulumi.OutputState }
+type SnapshotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

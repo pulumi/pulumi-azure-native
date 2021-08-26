@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.Outputs
 {
 
-    /// <summary>
-    /// BitLocker recovery key or password to the specified drive
-    /// </summary>
     [OutputType]
     public sealed class DriveBitLockerKeyResponse
     {

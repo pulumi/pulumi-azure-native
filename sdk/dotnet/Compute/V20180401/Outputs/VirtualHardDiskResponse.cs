@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20180401.Outputs
 {
 
-    /// <summary>
-    /// Describes the uri of a disk.
-    /// </summary>
     [OutputType]
     public sealed class VirtualHardDiskResponse
     {

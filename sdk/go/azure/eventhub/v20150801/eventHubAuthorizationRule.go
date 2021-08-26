@@ -131,7 +131,7 @@ type eventHubAuthorizationRuleArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a EventHubAuthorizationRule resource.
@@ -175,7 +175,9 @@ func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
 }
 
-type EventHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type EventHubAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))

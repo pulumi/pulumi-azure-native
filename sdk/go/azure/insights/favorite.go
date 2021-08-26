@@ -104,7 +104,7 @@ type favoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
 	FavoriteId *string `pulumi:"favoriteId"`
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *FavoriteType `pulumi:"favoriteType"`
+	FavoriteType *string `pulumi:"favoriteType"`
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate *bool `pulumi:"isGeneratedFromTemplate"`
 	// The user-defined name of the favorite.
@@ -130,7 +130,7 @@ type FavoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
 	FavoriteId pulumi.StringPtrInput
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType FavoriteTypePtrInput
+	FavoriteType *FavoriteType
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate pulumi.BoolPtrInput
 	// The user-defined name of the favorite.
@@ -170,7 +170,9 @@ func (i *Favorite) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FavoriteOutput)
 }
 
-type FavoriteOutput struct{ *pulumi.OutputState }
+type FavoriteOutput struct {
+	*pulumi.OutputState
+}
 
 func (FavoriteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Favorite)(nil))

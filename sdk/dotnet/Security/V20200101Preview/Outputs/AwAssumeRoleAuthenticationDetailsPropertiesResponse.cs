@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101Preview.Outputs
 {
 
-    /// <summary>
-    /// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html"&gt;Creating a Role to Delegate Permissions to an IAM User (write only)&lt;/a&gt;
-    /// </summary>
     [OutputType]
     public sealed class AwAssumeRoleAuthenticationDetailsPropertiesResponse
     {

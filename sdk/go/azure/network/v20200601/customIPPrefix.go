@@ -178,7 +178,9 @@ func (i *CustomIPPrefix) ToCustomIPPrefixOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomIPPrefixOutput)
 }
 
-type CustomIPPrefixOutput struct{ *pulumi.OutputState }
+type CustomIPPrefixOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomIPPrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomIPPrefix)(nil))

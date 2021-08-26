@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210115.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings of the Azure Active directory provider.
-    /// </summary>
     [OutputType]
     public sealed class AzureActiveDirectoryResponse
     {

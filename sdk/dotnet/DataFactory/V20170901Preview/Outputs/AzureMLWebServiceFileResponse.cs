@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Azure ML WebService Input/Output file
-    /// </summary>
     [OutputType]
     public sealed class AzureMLWebServiceFileResponse
     {

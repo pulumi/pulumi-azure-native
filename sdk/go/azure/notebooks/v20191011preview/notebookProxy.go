@@ -150,7 +150,9 @@ func (i *NotebookProxy) ToNotebookProxyOutputWithContext(ctx context.Context) No
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookProxyOutput)
 }
 
-type NotebookProxyOutput struct{ *pulumi.OutputState }
+type NotebookProxyOutput struct {
+	*pulumi.OutputState
+}
 
 func (NotebookProxyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotebookProxy)(nil))

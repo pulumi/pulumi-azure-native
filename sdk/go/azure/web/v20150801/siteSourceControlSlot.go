@@ -244,7 +244,9 @@ func (i *SiteSourceControlSlot) ToSiteSourceControlSlotOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlSlotOutput)
 }
 
-type SiteSourceControlSlotOutput struct{ *pulumi.OutputState }
+type SiteSourceControlSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteSourceControlSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteSourceControlSlot)(nil))

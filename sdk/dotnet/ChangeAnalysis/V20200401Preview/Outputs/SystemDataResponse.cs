@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview.Outputs
 {
 
-    /// <summary>
-    /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

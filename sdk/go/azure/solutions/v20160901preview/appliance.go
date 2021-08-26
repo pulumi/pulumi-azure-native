@@ -209,7 +209,9 @@ func (i *Appliance) ToApplianceOutputWithContext(ctx context.Context) ApplianceO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplianceOutput)
 }
 
-type ApplianceOutput struct{ *pulumi.OutputState }
+type ApplianceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplianceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Appliance)(nil))

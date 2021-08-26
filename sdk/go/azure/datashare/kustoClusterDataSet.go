@@ -175,7 +175,9 @@ func (i *KustoClusterDataSet) ToKustoClusterDataSetOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(KustoClusterDataSetOutput)
 }
 
-type KustoClusterDataSetOutput struct{ *pulumi.OutputState }
+type KustoClusterDataSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (KustoClusterDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoClusterDataSet)(nil))

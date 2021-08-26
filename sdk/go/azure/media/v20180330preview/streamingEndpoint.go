@@ -237,7 +237,9 @@ func (i *StreamingEndpoint) ToStreamingEndpointOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointOutput)
 }
 
-type StreamingEndpointOutput struct{ *pulumi.OutputState }
+type StreamingEndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (StreamingEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingEndpoint)(nil))

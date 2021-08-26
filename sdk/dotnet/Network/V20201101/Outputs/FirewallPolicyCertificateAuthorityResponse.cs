@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20201101.Outputs
 {
 
-    /// <summary>
-    /// Trusted Root certificates properties for tls.
-    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyCertificateAuthorityResponse
     {

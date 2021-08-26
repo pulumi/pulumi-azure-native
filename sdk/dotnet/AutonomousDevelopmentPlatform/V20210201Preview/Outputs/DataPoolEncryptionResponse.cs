@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20210201Preview.Outputs
 {
 
-    /// <summary>
-    /// Encryption properties of a Data Pool
-    /// </summary>
     [OutputType]
     public sealed class DataPoolEncryptionResponse
     {

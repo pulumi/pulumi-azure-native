@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 {
 
-    /// <summary>
-    /// Scaling plan schedule.
-    /// </summary>
     [OutputType]
     public sealed class ScalingScheduleResponse
     {

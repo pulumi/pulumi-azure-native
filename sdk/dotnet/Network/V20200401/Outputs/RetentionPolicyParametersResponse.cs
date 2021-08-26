@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200401.Outputs
 {
 
-    /// <summary>
-    /// Parameters that define the retention policy for flow log.
-    /// </summary>
     [OutputType]
     public sealed class RetentionPolicyParametersResponse
     {

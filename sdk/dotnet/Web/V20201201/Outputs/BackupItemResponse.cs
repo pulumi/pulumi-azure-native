@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Backup description.
-    /// </summary>
     [OutputType]
     public sealed class BackupItemResponse
     {

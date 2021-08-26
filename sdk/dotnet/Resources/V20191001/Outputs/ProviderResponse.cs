@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20191001.Outputs
 {
 
-    /// <summary>
-    /// Resource provider information.
-    /// </summary>
     [OutputType]
     public sealed class ProviderResponse
     {

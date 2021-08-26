@@ -165,7 +165,7 @@ func (SnapshotState) ElementType() reflect.Type {
 
 type snapshotArgs struct {
 	// the storage account type of the disk.
-	AccountType *StorageAccountTypes `pulumi:"accountType"`
+	AccountType *string `pulumi:"accountType"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationData `pulumi:"creationData"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
@@ -175,7 +175,7 @@ type snapshotArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the snapshot within the given subscription and resource group.
@@ -187,7 +187,7 @@ type snapshotArgs struct {
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
 	// the storage account type of the disk.
-	AccountType StorageAccountTypesPtrInput
+	AccountType *StorageAccountTypes
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
@@ -197,7 +197,7 @@ type SnapshotArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the snapshot within the given subscription and resource group.
@@ -229,7 +229,9 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct{ *pulumi.OutputState }
+type SnapshotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

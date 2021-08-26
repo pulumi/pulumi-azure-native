@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20180601.Outputs
 {
 
-    /// <summary>
-    /// The container execution command, for liveness or readiness probe
-    /// </summary>
     [OutputType]
     public sealed class ContainerExecResponse
     {

@@ -189,7 +189,9 @@ func (i *ExportConfiguration) ToExportConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExportConfigurationOutput)
 }
 
-type ExportConfigurationOutput struct{ *pulumi.OutputState }
+type ExportConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExportConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExportConfiguration)(nil))

@@ -114,7 +114,7 @@ func (o ConsoleCreatePropertiesOutput) ToConsoleCreatePropertiesPtrOutput() Cons
 }
 
 func (o ConsoleCreatePropertiesOutput) ToConsoleCreatePropertiesPtrOutputWithContext(ctx context.Context) ConsoleCreatePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsoleCreateProperties) *ConsoleCreateProperties {
+	return o.ApplyT(func(v ConsoleCreateProperties) *ConsoleCreateProperties {
 		return &v
 	}).(ConsoleCreatePropertiesPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o ConsoleCreatePropertiesPtrOutput) ToConsoleCreatePropertiesPtrOutputWith
 }
 
 func (o ConsoleCreatePropertiesPtrOutput) Elem() ConsoleCreatePropertiesOutput {
-	return o.ApplyT(func(v *ConsoleCreateProperties) ConsoleCreateProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConsoleCreateProperties
-		return ret
-	}).(ConsoleCreatePropertiesOutput)
+	return o.ApplyT(func(v *ConsoleCreateProperties) ConsoleCreateProperties { return *v }).(ConsoleCreatePropertiesOutput)
 }
 
 // The operating system type of the cloud shell.
@@ -292,7 +286,7 @@ func (o ConsolePropertiesResponseOutput) ToConsolePropertiesResponsePtrOutput() 
 }
 
 func (o ConsolePropertiesResponseOutput) ToConsolePropertiesResponsePtrOutputWithContext(ctx context.Context) ConsolePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsolePropertiesResponse) *ConsolePropertiesResponse {
+	return o.ApplyT(func(v ConsolePropertiesResponse) *ConsolePropertiesResponse {
 		return &v
 	}).(ConsolePropertiesResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o ConsolePropertiesResponsePtrOutput) ToConsolePropertiesResponsePtrOutput
 }
 
 func (o ConsolePropertiesResponsePtrOutput) Elem() ConsolePropertiesResponseOutput {
-	return o.ApplyT(func(v *ConsolePropertiesResponse) ConsolePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConsolePropertiesResponse
-		return ret
-	}).(ConsolePropertiesResponseOutput)
+	return o.ApplyT(func(v *ConsolePropertiesResponse) ConsolePropertiesResponse { return *v }).(ConsolePropertiesResponseOutput)
 }
 
 // The operating system type of the cloud shell.
@@ -1108,7 +1096,7 @@ func (o MarkdownPartMetadataOutput) ToMarkdownPartMetadataPtrOutput() MarkdownPa
 }
 
 func (o MarkdownPartMetadataOutput) ToMarkdownPartMetadataPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadata) *MarkdownPartMetadata {
+	return o.ApplyT(func(v MarkdownPartMetadata) *MarkdownPartMetadata {
 		return &v
 	}).(MarkdownPartMetadataPtrOutput)
 }
@@ -1144,13 +1132,7 @@ func (o MarkdownPartMetadataPtrOutput) ToMarkdownPartMetadataPtrOutputWithContex
 }
 
 func (o MarkdownPartMetadataPtrOutput) Elem() MarkdownPartMetadataOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadata) MarkdownPartMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadata
-		return ret
-	}).(MarkdownPartMetadataOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadata) MarkdownPartMetadata { return *v }).(MarkdownPartMetadataOutput)
 }
 
 // Input to dashboard part.
@@ -1280,7 +1262,7 @@ func (o MarkdownPartMetadataContentOutput) ToMarkdownPartMetadataContentPtrOutpu
 }
 
 func (o MarkdownPartMetadataContentOutput) ToMarkdownPartMetadataContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataContentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataContent) *MarkdownPartMetadataContent {
+	return o.ApplyT(func(v MarkdownPartMetadataContent) *MarkdownPartMetadataContent {
 		return &v
 	}).(MarkdownPartMetadataContentPtrOutput)
 }
@@ -1305,13 +1287,7 @@ func (o MarkdownPartMetadataContentPtrOutput) ToMarkdownPartMetadataContentPtrOu
 }
 
 func (o MarkdownPartMetadataContentPtrOutput) Elem() MarkdownPartMetadataContentOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataContent) MarkdownPartMetadataContent {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadataContent
-		return ret
-	}).(MarkdownPartMetadataContentOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataContent) MarkdownPartMetadataContent { return *v }).(MarkdownPartMetadataContentOutput)
 }
 
 // The setting of the content of markdown part.
@@ -1430,7 +1406,7 @@ func (o MarkdownPartMetadataResponseOutput) ToMarkdownPartMetadataResponsePtrOut
 }
 
 func (o MarkdownPartMetadataResponseOutput) ToMarkdownPartMetadataResponsePtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponse) *MarkdownPartMetadataResponse {
+	return o.ApplyT(func(v MarkdownPartMetadataResponse) *MarkdownPartMetadataResponse {
 		return &v
 	}).(MarkdownPartMetadataResponsePtrOutput)
 }
@@ -1466,13 +1442,7 @@ func (o MarkdownPartMetadataResponsePtrOutput) ToMarkdownPartMetadataResponsePtr
 }
 
 func (o MarkdownPartMetadataResponsePtrOutput) Elem() MarkdownPartMetadataResponseOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataResponse) MarkdownPartMetadataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadataResponse
-		return ret
-	}).(MarkdownPartMetadataResponseOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataResponse) MarkdownPartMetadataResponse { return *v }).(MarkdownPartMetadataResponseOutput)
 }
 
 // Input to dashboard part.
@@ -1602,7 +1572,7 @@ func (o MarkdownPartMetadataResponseContentOutput) ToMarkdownPartMetadataRespons
 }
 
 func (o MarkdownPartMetadataResponseContentOutput) ToMarkdownPartMetadataResponseContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponseContentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponseContent) *MarkdownPartMetadataResponseContent {
+	return o.ApplyT(func(v MarkdownPartMetadataResponseContent) *MarkdownPartMetadataResponseContent {
 		return &v
 	}).(MarkdownPartMetadataResponseContentPtrOutput)
 }
@@ -1629,13 +1599,7 @@ func (o MarkdownPartMetadataResponseContentPtrOutput) ToMarkdownPartMetadataResp
 }
 
 func (o MarkdownPartMetadataResponseContentPtrOutput) Elem() MarkdownPartMetadataResponseContentOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataResponseContent) MarkdownPartMetadataResponseContent {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadataResponseContent
-		return ret
-	}).(MarkdownPartMetadataResponseContentOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataResponseContent) MarkdownPartMetadataResponseContent { return *v }).(MarkdownPartMetadataResponseContentOutput)
 }
 
 // The setting of the content of markdown part.
@@ -1744,7 +1708,7 @@ func (o MarkdownPartMetadataResponseSettingsOutput) ToMarkdownPartMetadataRespon
 }
 
 func (o MarkdownPartMetadataResponseSettingsOutput) ToMarkdownPartMetadataResponseSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponseSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponseSettings) *MarkdownPartMetadataResponseSettings {
+	return o.ApplyT(func(v MarkdownPartMetadataResponseSettings) *MarkdownPartMetadataResponseSettings {
 		return &v
 	}).(MarkdownPartMetadataResponseSettingsPtrOutput)
 }
@@ -1769,13 +1733,7 @@ func (o MarkdownPartMetadataResponseSettingsPtrOutput) ToMarkdownPartMetadataRes
 }
 
 func (o MarkdownPartMetadataResponseSettingsPtrOutput) Elem() MarkdownPartMetadataResponseSettingsOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettings) MarkdownPartMetadataResponseSettings {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadataResponseSettings
-		return ret
-	}).(MarkdownPartMetadataResponseSettingsOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettings) MarkdownPartMetadataResponseSettings { return *v }).(MarkdownPartMetadataResponseSettingsOutput)
 }
 
 // The content of markdown part.
@@ -1900,7 +1858,7 @@ func (o MarkdownPartMetadataResponseSettingsSettingsOutput) ToMarkdownPartMetada
 }
 
 func (o MarkdownPartMetadataResponseSettingsSettingsOutput) ToMarkdownPartMetadataResponseSettingsSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataResponseSettingsSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataResponseSettingsSettings) *MarkdownPartMetadataResponseSettingsSettings {
+	return o.ApplyT(func(v MarkdownPartMetadataResponseSettingsSettings) *MarkdownPartMetadataResponseSettingsSettings {
 		return &v
 	}).(MarkdownPartMetadataResponseSettingsSettingsPtrOutput)
 }
@@ -1946,11 +1904,7 @@ func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) ToMarkdownPartMet
 
 func (o MarkdownPartMetadataResponseSettingsSettingsPtrOutput) Elem() MarkdownPartMetadataResponseSettingsSettingsOutput {
 	return o.ApplyT(func(v *MarkdownPartMetadataResponseSettingsSettings) MarkdownPartMetadataResponseSettingsSettings {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadataResponseSettingsSettings
-		return ret
+		return *v
 	}).(MarkdownPartMetadataResponseSettingsSettingsOutput)
 }
 
@@ -2100,7 +2054,7 @@ func (o MarkdownPartMetadataSettingsOutput) ToMarkdownPartMetadataSettingsPtrOut
 }
 
 func (o MarkdownPartMetadataSettingsOutput) ToMarkdownPartMetadataSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataSettings) *MarkdownPartMetadataSettings {
+	return o.ApplyT(func(v MarkdownPartMetadataSettings) *MarkdownPartMetadataSettings {
 		return &v
 	}).(MarkdownPartMetadataSettingsPtrOutput)
 }
@@ -2125,13 +2079,7 @@ func (o MarkdownPartMetadataSettingsPtrOutput) ToMarkdownPartMetadataSettingsPtr
 }
 
 func (o MarkdownPartMetadataSettingsPtrOutput) Elem() MarkdownPartMetadataSettingsOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataSettings) MarkdownPartMetadataSettings {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadataSettings
-		return ret
-	}).(MarkdownPartMetadataSettingsOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataSettings) MarkdownPartMetadataSettings { return *v }).(MarkdownPartMetadataSettingsOutput)
 }
 
 // The content of markdown part.
@@ -2256,7 +2204,7 @@ func (o MarkdownPartMetadataSettingsSettingsOutput) ToMarkdownPartMetadataSettin
 }
 
 func (o MarkdownPartMetadataSettingsSettingsOutput) ToMarkdownPartMetadataSettingsSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataSettingsSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MarkdownPartMetadataSettingsSettings) *MarkdownPartMetadataSettingsSettings {
+	return o.ApplyT(func(v MarkdownPartMetadataSettingsSettings) *MarkdownPartMetadataSettingsSettings {
 		return &v
 	}).(MarkdownPartMetadataSettingsSettingsPtrOutput)
 }
@@ -2301,13 +2249,7 @@ func (o MarkdownPartMetadataSettingsSettingsPtrOutput) ToMarkdownPartMetadataSet
 }
 
 func (o MarkdownPartMetadataSettingsSettingsPtrOutput) Elem() MarkdownPartMetadataSettingsSettingsOutput {
-	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) MarkdownPartMetadataSettingsSettings {
-		if v != nil {
-			return *v
-		}
-		var ret MarkdownPartMetadataSettingsSettings
-		return ret
-	}).(MarkdownPartMetadataSettingsSettingsOutput)
+	return o.ApplyT(func(v *MarkdownPartMetadataSettingsSettings) MarkdownPartMetadataSettingsSettings { return *v }).(MarkdownPartMetadataSettingsSettingsOutput)
 }
 
 // The content of the markdown part.
@@ -2464,7 +2406,7 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
+	return o.ApplyT(func(v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
@@ -2499,13 +2441,7 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile {
-		if v != nil {
-			return *v
-		}
-		var ret StorageProfile
-		return ret
-	}).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
 }
 
 // Size of file share
@@ -2642,7 +2578,7 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
@@ -2677,13 +2613,7 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageProfileResponse
-		return ret
-	}).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
 }
 
 // Size of file share
@@ -2816,7 +2746,7 @@ func (o TerminalSettingsOutput) ToTerminalSettingsPtrOutput() TerminalSettingsPt
 }
 
 func (o TerminalSettingsOutput) ToTerminalSettingsPtrOutputWithContext(ctx context.Context) TerminalSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminalSettings) *TerminalSettings {
+	return o.ApplyT(func(v TerminalSettings) *TerminalSettings {
 		return &v
 	}).(TerminalSettingsPtrOutput)
 }
@@ -2846,13 +2776,7 @@ func (o TerminalSettingsPtrOutput) ToTerminalSettingsPtrOutputWithContext(ctx co
 }
 
 func (o TerminalSettingsPtrOutput) Elem() TerminalSettingsOutput {
-	return o.ApplyT(func(v *TerminalSettings) TerminalSettings {
-		if v != nil {
-			return *v
-		}
-		var ret TerminalSettings
-		return ret
-	}).(TerminalSettingsOutput)
+	return o.ApplyT(func(v *TerminalSettings) TerminalSettings { return *v }).(TerminalSettingsOutput)
 }
 
 // Size of terminal font.
@@ -2975,7 +2899,7 @@ func (o TerminalSettingsResponseOutput) ToTerminalSettingsResponsePtrOutput() Te
 }
 
 func (o TerminalSettingsResponseOutput) ToTerminalSettingsResponsePtrOutputWithContext(ctx context.Context) TerminalSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminalSettingsResponse) *TerminalSettingsResponse {
+	return o.ApplyT(func(v TerminalSettingsResponse) *TerminalSettingsResponse {
 		return &v
 	}).(TerminalSettingsResponsePtrOutput)
 }
@@ -3005,13 +2929,7 @@ func (o TerminalSettingsResponsePtrOutput) ToTerminalSettingsResponsePtrOutputWi
 }
 
 func (o TerminalSettingsResponsePtrOutput) Elem() TerminalSettingsResponseOutput {
-	return o.ApplyT(func(v *TerminalSettingsResponse) TerminalSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TerminalSettingsResponse
-		return ret
-	}).(TerminalSettingsResponseOutput)
+	return o.ApplyT(func(v *TerminalSettingsResponse) TerminalSettingsResponse { return *v }).(TerminalSettingsResponseOutput)
 }
 
 // Size of terminal font.
@@ -3146,7 +3064,7 @@ func (o UserPropertiesOutput) ToUserPropertiesPtrOutput() UserPropertiesPtrOutpu
 }
 
 func (o UserPropertiesOutput) ToUserPropertiesPtrOutputWithContext(ctx context.Context) UserPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProperties) *UserProperties {
+	return o.ApplyT(func(v UserProperties) *UserProperties {
 		return &v
 	}).(UserPropertiesPtrOutput)
 }
@@ -3191,13 +3109,7 @@ func (o UserPropertiesPtrOutput) ToUserPropertiesPtrOutputWithContext(ctx contex
 }
 
 func (o UserPropertiesPtrOutput) Elem() UserPropertiesOutput {
-	return o.ApplyT(func(v *UserProperties) UserProperties {
-		if v != nil {
-			return *v
-		}
-		var ret UserProperties
-		return ret
-	}).(UserPropertiesOutput)
+	return o.ApplyT(func(v *UserProperties) UserProperties { return *v }).(UserPropertiesOutput)
 }
 
 // The preferred location of the cloud shell.
@@ -3362,7 +3274,7 @@ func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutput() UserPr
 }
 
 func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutputWithContext(ctx context.Context) UserPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPropertiesResponse) *UserPropertiesResponse {
+	return o.ApplyT(func(v UserPropertiesResponse) *UserPropertiesResponse {
 		return &v
 	}).(UserPropertiesResponsePtrOutput)
 }
@@ -3407,13 +3319,7 @@ func (o UserPropertiesResponsePtrOutput) ToUserPropertiesResponsePtrOutputWithCo
 }
 
 func (o UserPropertiesResponsePtrOutput) Elem() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) UserPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserPropertiesResponse
-		return ret
-	}).(UserPropertiesResponseOutput)
+	return o.ApplyT(func(v *UserPropertiesResponse) UserPropertiesResponse { return *v }).(UserPropertiesResponseOutput)
 }
 
 // The preferred location of the cloud shell.

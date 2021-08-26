@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
-    /// <summary>
-    /// Incident additional data property bag.
-    /// </summary>
     [OutputType]
     public sealed class IncidentAdditionalDataResponse
     {

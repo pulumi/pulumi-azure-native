@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.Outputs
 {
 
-    /// <summary>
-    /// The properties that make up the expected REST response
-    /// </summary>
     [OutputType]
     public sealed class RestResponseResponse
     {

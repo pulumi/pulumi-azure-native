@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
-    /// <summary>
-    /// Trigger based on range of status codes.
-    /// </summary>
     [OutputType]
     public sealed class StatusCodesRangeBasedTriggerResponse
     {

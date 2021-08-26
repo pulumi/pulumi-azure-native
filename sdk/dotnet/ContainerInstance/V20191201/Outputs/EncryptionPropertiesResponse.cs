@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20191201.Outputs
 {
 
-    /// <summary>
-    /// The container group encryption properties.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionPropertiesResponse
     {

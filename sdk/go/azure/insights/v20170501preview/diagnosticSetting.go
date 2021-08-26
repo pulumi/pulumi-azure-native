@@ -166,7 +166,9 @@ func (i *DiagnosticSetting) ToDiagnosticSettingOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingOutput)
 }
 
-type DiagnosticSettingOutput struct{ *pulumi.OutputState }
+type DiagnosticSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiagnosticSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticSetting)(nil))

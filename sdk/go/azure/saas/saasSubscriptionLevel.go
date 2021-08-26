@@ -133,7 +133,9 @@ func (i *SaasSubscriptionLevel) ToSaasSubscriptionLevelOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SaasSubscriptionLevelOutput)
 }
 
-type SaasSubscriptionLevelOutput struct{ *pulumi.OutputState }
+type SaasSubscriptionLevelOutput struct {
+	*pulumi.OutputState
+}
 
 func (SaasSubscriptionLevelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SaasSubscriptionLevel)(nil))

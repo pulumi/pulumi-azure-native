@@ -166,7 +166,9 @@ func (i *SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameO
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationByNameOutput)
 }
 
-type SoftwareUpdateConfigurationByNameOutput struct{ *pulumi.OutputState }
+type SoftwareUpdateConfigurationByNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (SoftwareUpdateConfigurationByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil))

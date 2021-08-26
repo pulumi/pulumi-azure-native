@@ -179,7 +179,9 @@ func (i *RemoteRenderingAccount) ToRemoteRenderingAccountOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteRenderingAccountOutput)
 }
 
-type RemoteRenderingAccountOutput struct{ *pulumi.OutputState }
+type RemoteRenderingAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (RemoteRenderingAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RemoteRenderingAccount)(nil))

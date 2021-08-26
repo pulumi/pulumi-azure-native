@@ -155,7 +155,9 @@ func (i *Manager) ToManagerOutputWithContext(ctx context.Context) ManagerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerOutput)
 }
 
-type ManagerOutput struct{ *pulumi.OutputState }
+type ManagerOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Manager)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Outputs
 {
 
-    /// <summary>
-    /// The properties that define a Step group in a rollout.
-    /// </summary>
     [OutputType]
     public sealed class StepGroupResponse
     {

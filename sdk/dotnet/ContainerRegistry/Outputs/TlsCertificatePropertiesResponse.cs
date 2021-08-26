@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
-    /// <summary>
-    /// The TLS certificate properties of the connected registry login server.
-    /// </summary>
     [OutputType]
     public sealed class TlsCertificatePropertiesResponse
     {

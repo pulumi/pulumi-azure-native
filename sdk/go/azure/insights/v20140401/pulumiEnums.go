@@ -11,7 +11,7 @@ import (
 )
 
 // the operator that is used to compare the metric data and the threshold.
-type ComparisonOperationType string
+type ComparisonOperationType pulumi.String
 
 const (
 	ComparisonOperationTypeEquals             = ComparisonOperationType("Equals")
@@ -23,23 +23,7 @@ const (
 )
 
 func (ComparisonOperationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComparisonOperationType)(nil)).Elem()
-}
-
-func (e ComparisonOperationType) ToComparisonOperationTypeOutput() ComparisonOperationTypeOutput {
-	return pulumi.ToOutput(e).(ComparisonOperationTypeOutput)
-}
-
-func (e ComparisonOperationType) ToComparisonOperationTypeOutputWithContext(ctx context.Context) ComparisonOperationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ComparisonOperationTypeOutput)
-}
-
-func (e ComparisonOperationType) ToComparisonOperationTypePtrOutput() ComparisonOperationTypePtrOutput {
-	return e.ToComparisonOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (e ComparisonOperationType) ToComparisonOperationTypePtrOutputWithContext(ctx context.Context) ComparisonOperationTypePtrOutput {
-	return ComparisonOperationType(e).ToComparisonOperationTypeOutputWithContext(ctx).ToComparisonOperationTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ComparisonOperationType) ToStringOutput() pulumi.StringOutput {
@@ -58,129 +42,8 @@ func (e ComparisonOperationType) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ComparisonOperationTypeOutput struct{ *pulumi.OutputState }
-
-func (ComparisonOperationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComparisonOperationType)(nil)).Elem()
-}
-
-func (o ComparisonOperationTypeOutput) ToComparisonOperationTypeOutput() ComparisonOperationTypeOutput {
-	return o
-}
-
-func (o ComparisonOperationTypeOutput) ToComparisonOperationTypeOutputWithContext(ctx context.Context) ComparisonOperationTypeOutput {
-	return o
-}
-
-func (o ComparisonOperationTypeOutput) ToComparisonOperationTypePtrOutput() ComparisonOperationTypePtrOutput {
-	return o.ToComparisonOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (o ComparisonOperationTypeOutput) ToComparisonOperationTypePtrOutputWithContext(ctx context.Context) ComparisonOperationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComparisonOperationType) *ComparisonOperationType {
-		return &v
-	}).(ComparisonOperationTypePtrOutput)
-}
-
-func (o ComparisonOperationTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ComparisonOperationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComparisonOperationType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ComparisonOperationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ComparisonOperationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComparisonOperationType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ComparisonOperationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ComparisonOperationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComparisonOperationType)(nil)).Elem()
-}
-
-func (o ComparisonOperationTypePtrOutput) ToComparisonOperationTypePtrOutput() ComparisonOperationTypePtrOutput {
-	return o
-}
-
-func (o ComparisonOperationTypePtrOutput) ToComparisonOperationTypePtrOutputWithContext(ctx context.Context) ComparisonOperationTypePtrOutput {
-	return o
-}
-
-func (o ComparisonOperationTypePtrOutput) Elem() ComparisonOperationTypeOutput {
-	return o.ApplyT(func(v *ComparisonOperationType) ComparisonOperationType {
-		if v != nil {
-			return *v
-		}
-		var ret ComparisonOperationType
-		return ret
-	}).(ComparisonOperationTypeOutput)
-}
-
-func (o ComparisonOperationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ComparisonOperationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComparisonOperationType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ComparisonOperationTypeInput is an input type that accepts ComparisonOperationTypeArgs and ComparisonOperationTypeOutput values.
-// You can construct a concrete instance of `ComparisonOperationTypeInput` via:
-//
-//          ComparisonOperationTypeArgs{...}
-type ComparisonOperationTypeInput interface {
-	pulumi.Input
-
-	ToComparisonOperationTypeOutput() ComparisonOperationTypeOutput
-	ToComparisonOperationTypeOutputWithContext(context.Context) ComparisonOperationTypeOutput
-}
-
-var comparisonOperationTypePtrType = reflect.TypeOf((**ComparisonOperationType)(nil)).Elem()
-
-type ComparisonOperationTypePtrInput interface {
-	pulumi.Input
-
-	ToComparisonOperationTypePtrOutput() ComparisonOperationTypePtrOutput
-	ToComparisonOperationTypePtrOutputWithContext(context.Context) ComparisonOperationTypePtrOutput
-}
-
-type comparisonOperationTypePtr string
-
-func ComparisonOperationTypePtr(v string) ComparisonOperationTypePtrInput {
-	return (*comparisonOperationTypePtr)(&v)
-}
-
-func (*comparisonOperationTypePtr) ElementType() reflect.Type {
-	return comparisonOperationTypePtrType
-}
-
-func (in *comparisonOperationTypePtr) ToComparisonOperationTypePtrOutput() ComparisonOperationTypePtrOutput {
-	return pulumi.ToOutput(in).(ComparisonOperationTypePtrOutput)
-}
-
-func (in *comparisonOperationTypePtr) ToComparisonOperationTypePtrOutputWithContext(ctx context.Context) ComparisonOperationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ComparisonOperationTypePtrOutput)
-}
-
 // the operator used to compare the data and the threshold.
-type ConditionOperator string
+type ConditionOperator pulumi.String
 
 const (
 	ConditionOperatorGreaterThan        = ConditionOperator("GreaterThan")
@@ -190,23 +53,7 @@ const (
 )
 
 func (ConditionOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConditionOperator)(nil)).Elem()
-}
-
-func (e ConditionOperator) ToConditionOperatorOutput() ConditionOperatorOutput {
-	return pulumi.ToOutput(e).(ConditionOperatorOutput)
-}
-
-func (e ConditionOperator) ToConditionOperatorOutputWithContext(ctx context.Context) ConditionOperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ConditionOperatorOutput)
-}
-
-func (e ConditionOperator) ToConditionOperatorPtrOutput() ConditionOperatorPtrOutput {
-	return e.ToConditionOperatorPtrOutputWithContext(context.Background())
-}
-
-func (e ConditionOperator) ToConditionOperatorPtrOutputWithContext(ctx context.Context) ConditionOperatorPtrOutput {
-	return ConditionOperator(e).ToConditionOperatorOutputWithContext(ctx).ToConditionOperatorPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ConditionOperator) ToStringOutput() pulumi.StringOutput {
@@ -225,129 +72,8 @@ func (e ConditionOperator) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ConditionOperatorOutput struct{ *pulumi.OutputState }
-
-func (ConditionOperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConditionOperator)(nil)).Elem()
-}
-
-func (o ConditionOperatorOutput) ToConditionOperatorOutput() ConditionOperatorOutput {
-	return o
-}
-
-func (o ConditionOperatorOutput) ToConditionOperatorOutputWithContext(ctx context.Context) ConditionOperatorOutput {
-	return o
-}
-
-func (o ConditionOperatorOutput) ToConditionOperatorPtrOutput() ConditionOperatorPtrOutput {
-	return o.ToConditionOperatorPtrOutputWithContext(context.Background())
-}
-
-func (o ConditionOperatorOutput) ToConditionOperatorPtrOutputWithContext(ctx context.Context) ConditionOperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionOperator) *ConditionOperator {
-		return &v
-	}).(ConditionOperatorPtrOutput)
-}
-
-func (o ConditionOperatorOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ConditionOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConditionOperator) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ConditionOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ConditionOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConditionOperator) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConditionOperatorPtrOutput struct{ *pulumi.OutputState }
-
-func (ConditionOperatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConditionOperator)(nil)).Elem()
-}
-
-func (o ConditionOperatorPtrOutput) ToConditionOperatorPtrOutput() ConditionOperatorPtrOutput {
-	return o
-}
-
-func (o ConditionOperatorPtrOutput) ToConditionOperatorPtrOutputWithContext(ctx context.Context) ConditionOperatorPtrOutput {
-	return o
-}
-
-func (o ConditionOperatorPtrOutput) Elem() ConditionOperatorOutput {
-	return o.ApplyT(func(v *ConditionOperator) ConditionOperator {
-		if v != nil {
-			return *v
-		}
-		var ret ConditionOperator
-		return ret
-	}).(ConditionOperatorOutput)
-}
-
-func (o ConditionOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ConditionOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConditionOperator) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ConditionOperatorInput is an input type that accepts ConditionOperatorArgs and ConditionOperatorOutput values.
-// You can construct a concrete instance of `ConditionOperatorInput` via:
-//
-//          ConditionOperatorArgs{...}
-type ConditionOperatorInput interface {
-	pulumi.Input
-
-	ToConditionOperatorOutput() ConditionOperatorOutput
-	ToConditionOperatorOutputWithContext(context.Context) ConditionOperatorOutput
-}
-
-var conditionOperatorPtrType = reflect.TypeOf((**ConditionOperator)(nil)).Elem()
-
-type ConditionOperatorPtrInput interface {
-	pulumi.Input
-
-	ToConditionOperatorPtrOutput() ConditionOperatorPtrOutput
-	ToConditionOperatorPtrOutputWithContext(context.Context) ConditionOperatorPtrOutput
-}
-
-type conditionOperatorPtr string
-
-func ConditionOperatorPtr(v string) ConditionOperatorPtrInput {
-	return (*conditionOperatorPtr)(&v)
-}
-
-func (*conditionOperatorPtr) ElementType() reflect.Type {
-	return conditionOperatorPtrType
-}
-
-func (in *conditionOperatorPtr) ToConditionOperatorPtrOutput() ConditionOperatorPtrOutput {
-	return pulumi.ToOutput(in).(ConditionOperatorPtrOutput)
-}
-
-func (in *conditionOperatorPtr) ToConditionOperatorPtrOutputWithContext(ctx context.Context) ConditionOperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ConditionOperatorPtrOutput)
-}
-
 // the metric statistic type. How the metrics from multiple instances are combined.
-type MetricStatisticType string
+type MetricStatisticType pulumi.String
 
 const (
 	MetricStatisticTypeAverage = MetricStatisticType("Average")
@@ -358,23 +84,7 @@ const (
 )
 
 func (MetricStatisticType) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStatisticType)(nil)).Elem()
-}
-
-func (e MetricStatisticType) ToMetricStatisticTypeOutput() MetricStatisticTypeOutput {
-	return pulumi.ToOutput(e).(MetricStatisticTypeOutput)
-}
-
-func (e MetricStatisticType) ToMetricStatisticTypeOutputWithContext(ctx context.Context) MetricStatisticTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MetricStatisticTypeOutput)
-}
-
-func (e MetricStatisticType) ToMetricStatisticTypePtrOutput() MetricStatisticTypePtrOutput {
-	return e.ToMetricStatisticTypePtrOutputWithContext(context.Background())
-}
-
-func (e MetricStatisticType) ToMetricStatisticTypePtrOutputWithContext(ctx context.Context) MetricStatisticTypePtrOutput {
-	return MetricStatisticType(e).ToMetricStatisticTypeOutputWithContext(ctx).ToMetricStatisticTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e MetricStatisticType) ToStringOutput() pulumi.StringOutput {
@@ -393,152 +103,15 @@ func (e MetricStatisticType) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type MetricStatisticTypeOutput struct{ *pulumi.OutputState }
-
-func (MetricStatisticTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStatisticType)(nil)).Elem()
-}
-
-func (o MetricStatisticTypeOutput) ToMetricStatisticTypeOutput() MetricStatisticTypeOutput {
-	return o
-}
-
-func (o MetricStatisticTypeOutput) ToMetricStatisticTypeOutputWithContext(ctx context.Context) MetricStatisticTypeOutput {
-	return o
-}
-
-func (o MetricStatisticTypeOutput) ToMetricStatisticTypePtrOutput() MetricStatisticTypePtrOutput {
-	return o.ToMetricStatisticTypePtrOutputWithContext(context.Background())
-}
-
-func (o MetricStatisticTypeOutput) ToMetricStatisticTypePtrOutputWithContext(ctx context.Context) MetricStatisticTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricStatisticType) *MetricStatisticType {
-		return &v
-	}).(MetricStatisticTypePtrOutput)
-}
-
-func (o MetricStatisticTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MetricStatisticTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MetricStatisticType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MetricStatisticTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MetricStatisticTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MetricStatisticType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MetricStatisticTypePtrOutput struct{ *pulumi.OutputState }
-
-func (MetricStatisticTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricStatisticType)(nil)).Elem()
-}
-
-func (o MetricStatisticTypePtrOutput) ToMetricStatisticTypePtrOutput() MetricStatisticTypePtrOutput {
-	return o
-}
-
-func (o MetricStatisticTypePtrOutput) ToMetricStatisticTypePtrOutputWithContext(ctx context.Context) MetricStatisticTypePtrOutput {
-	return o
-}
-
-func (o MetricStatisticTypePtrOutput) Elem() MetricStatisticTypeOutput {
-	return o.ApplyT(func(v *MetricStatisticType) MetricStatisticType {
-		if v != nil {
-			return *v
-		}
-		var ret MetricStatisticType
-		return ret
-	}).(MetricStatisticTypeOutput)
-}
-
-func (o MetricStatisticTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MetricStatisticTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MetricStatisticType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// MetricStatisticTypeInput is an input type that accepts MetricStatisticTypeArgs and MetricStatisticTypeOutput values.
-// You can construct a concrete instance of `MetricStatisticTypeInput` via:
-//
-//          MetricStatisticTypeArgs{...}
-type MetricStatisticTypeInput interface {
-	pulumi.Input
-
-	ToMetricStatisticTypeOutput() MetricStatisticTypeOutput
-	ToMetricStatisticTypeOutputWithContext(context.Context) MetricStatisticTypeOutput
-}
-
-var metricStatisticTypePtrType = reflect.TypeOf((**MetricStatisticType)(nil)).Elem()
-
-type MetricStatisticTypePtrInput interface {
-	pulumi.Input
-
-	ToMetricStatisticTypePtrOutput() MetricStatisticTypePtrOutput
-	ToMetricStatisticTypePtrOutputWithContext(context.Context) MetricStatisticTypePtrOutput
-}
-
-type metricStatisticTypePtr string
-
-func MetricStatisticTypePtr(v string) MetricStatisticTypePtrInput {
-	return (*metricStatisticTypePtr)(&v)
-}
-
-func (*metricStatisticTypePtr) ElementType() reflect.Type {
-	return metricStatisticTypePtrType
-}
-
-func (in *metricStatisticTypePtr) ToMetricStatisticTypePtrOutput() MetricStatisticTypePtrOutput {
-	return pulumi.ToOutput(in).(MetricStatisticTypePtrOutput)
-}
-
-func (in *metricStatisticTypePtr) ToMetricStatisticTypePtrOutputWithContext(ctx context.Context) MetricStatisticTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MetricStatisticTypePtrOutput)
-}
-
 // the operation associated with the notification and its value must be "scale"
-type OperationType string
+type OperationType pulumi.String
 
 const (
 	OperationTypeScale = OperationType("Scale")
 )
 
 func (OperationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationType)(nil)).Elem()
-}
-
-func (e OperationType) ToOperationTypeOutput() OperationTypeOutput {
-	return pulumi.ToOutput(e).(OperationTypeOutput)
-}
-
-func (e OperationType) ToOperationTypeOutputWithContext(ctx context.Context) OperationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(OperationTypeOutput)
-}
-
-func (e OperationType) ToOperationTypePtrOutput() OperationTypePtrOutput {
-	return e.ToOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (e OperationType) ToOperationTypePtrOutputWithContext(ctx context.Context) OperationTypePtrOutput {
-	return OperationType(e).ToOperationTypeOutputWithContext(ctx).ToOperationTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e OperationType) ToStringOutput() pulumi.StringOutput {
@@ -557,129 +130,8 @@ func (e OperationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type OperationTypeOutput struct{ *pulumi.OutputState }
-
-func (OperationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationType)(nil)).Elem()
-}
-
-func (o OperationTypeOutput) ToOperationTypeOutput() OperationTypeOutput {
-	return o
-}
-
-func (o OperationTypeOutput) ToOperationTypeOutputWithContext(ctx context.Context) OperationTypeOutput {
-	return o
-}
-
-func (o OperationTypeOutput) ToOperationTypePtrOutput() OperationTypePtrOutput {
-	return o.ToOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (o OperationTypeOutput) ToOperationTypePtrOutputWithContext(ctx context.Context) OperationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OperationType) *OperationType {
-		return &v
-	}).(OperationTypePtrOutput)
-}
-
-func (o OperationTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o OperationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OperationType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o OperationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OperationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OperationType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type OperationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (OperationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OperationType)(nil)).Elem()
-}
-
-func (o OperationTypePtrOutput) ToOperationTypePtrOutput() OperationTypePtrOutput {
-	return o
-}
-
-func (o OperationTypePtrOutput) ToOperationTypePtrOutputWithContext(ctx context.Context) OperationTypePtrOutput {
-	return o
-}
-
-func (o OperationTypePtrOutput) Elem() OperationTypeOutput {
-	return o.ApplyT(func(v *OperationType) OperationType {
-		if v != nil {
-			return *v
-		}
-		var ret OperationType
-		return ret
-	}).(OperationTypeOutput)
-}
-
-func (o OperationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OperationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OperationType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// OperationTypeInput is an input type that accepts OperationTypeArgs and OperationTypeOutput values.
-// You can construct a concrete instance of `OperationTypeInput` via:
-//
-//          OperationTypeArgs{...}
-type OperationTypeInput interface {
-	pulumi.Input
-
-	ToOperationTypeOutput() OperationTypeOutput
-	ToOperationTypeOutputWithContext(context.Context) OperationTypeOutput
-}
-
-var operationTypePtrType = reflect.TypeOf((**OperationType)(nil)).Elem()
-
-type OperationTypePtrInput interface {
-	pulumi.Input
-
-	ToOperationTypePtrOutput() OperationTypePtrOutput
-	ToOperationTypePtrOutputWithContext(context.Context) OperationTypePtrOutput
-}
-
-type operationTypePtr string
-
-func OperationTypePtr(v string) OperationTypePtrInput {
-	return (*operationTypePtr)(&v)
-}
-
-func (*operationTypePtr) ElementType() reflect.Type {
-	return operationTypePtrType
-}
-
-func (in *operationTypePtr) ToOperationTypePtrOutput() OperationTypePtrOutput {
-	return pulumi.ToOutput(in).(OperationTypePtrOutput)
-}
-
-func (in *operationTypePtr) ToOperationTypePtrOutputWithContext(ctx context.Context) OperationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(OperationTypePtrOutput)
-}
-
 // the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-type RecurrenceFrequency string
+type RecurrenceFrequency pulumi.String
 
 const (
 	RecurrenceFrequencyNone   = RecurrenceFrequency("None")
@@ -693,23 +145,7 @@ const (
 )
 
 func (RecurrenceFrequency) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrenceFrequency)(nil)).Elem()
-}
-
-func (e RecurrenceFrequency) ToRecurrenceFrequencyOutput() RecurrenceFrequencyOutput {
-	return pulumi.ToOutput(e).(RecurrenceFrequencyOutput)
-}
-
-func (e RecurrenceFrequency) ToRecurrenceFrequencyOutputWithContext(ctx context.Context) RecurrenceFrequencyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RecurrenceFrequencyOutput)
-}
-
-func (e RecurrenceFrequency) ToRecurrenceFrequencyPtrOutput() RecurrenceFrequencyPtrOutput {
-	return e.ToRecurrenceFrequencyPtrOutputWithContext(context.Background())
-}
-
-func (e RecurrenceFrequency) ToRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) RecurrenceFrequencyPtrOutput {
-	return RecurrenceFrequency(e).ToRecurrenceFrequencyOutputWithContext(ctx).ToRecurrenceFrequencyPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e RecurrenceFrequency) ToStringOutput() pulumi.StringOutput {
@@ -728,129 +164,8 @@ func (e RecurrenceFrequency) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RecurrenceFrequencyOutput struct{ *pulumi.OutputState }
-
-func (RecurrenceFrequencyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrenceFrequency)(nil)).Elem()
-}
-
-func (o RecurrenceFrequencyOutput) ToRecurrenceFrequencyOutput() RecurrenceFrequencyOutput {
-	return o
-}
-
-func (o RecurrenceFrequencyOutput) ToRecurrenceFrequencyOutputWithContext(ctx context.Context) RecurrenceFrequencyOutput {
-	return o
-}
-
-func (o RecurrenceFrequencyOutput) ToRecurrenceFrequencyPtrOutput() RecurrenceFrequencyPtrOutput {
-	return o.ToRecurrenceFrequencyPtrOutputWithContext(context.Background())
-}
-
-func (o RecurrenceFrequencyOutput) ToRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) RecurrenceFrequencyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceFrequency) *RecurrenceFrequency {
-		return &v
-	}).(RecurrenceFrequencyPtrOutput)
-}
-
-func (o RecurrenceFrequencyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RecurrenceFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecurrenceFrequency) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RecurrenceFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RecurrenceFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecurrenceFrequency) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RecurrenceFrequencyPtrOutput struct{ *pulumi.OutputState }
-
-func (RecurrenceFrequencyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecurrenceFrequency)(nil)).Elem()
-}
-
-func (o RecurrenceFrequencyPtrOutput) ToRecurrenceFrequencyPtrOutput() RecurrenceFrequencyPtrOutput {
-	return o
-}
-
-func (o RecurrenceFrequencyPtrOutput) ToRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) RecurrenceFrequencyPtrOutput {
-	return o
-}
-
-func (o RecurrenceFrequencyPtrOutput) Elem() RecurrenceFrequencyOutput {
-	return o.ApplyT(func(v *RecurrenceFrequency) RecurrenceFrequency {
-		if v != nil {
-			return *v
-		}
-		var ret RecurrenceFrequency
-		return ret
-	}).(RecurrenceFrequencyOutput)
-}
-
-func (o RecurrenceFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RecurrenceFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecurrenceFrequency) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RecurrenceFrequencyInput is an input type that accepts RecurrenceFrequencyArgs and RecurrenceFrequencyOutput values.
-// You can construct a concrete instance of `RecurrenceFrequencyInput` via:
-//
-//          RecurrenceFrequencyArgs{...}
-type RecurrenceFrequencyInput interface {
-	pulumi.Input
-
-	ToRecurrenceFrequencyOutput() RecurrenceFrequencyOutput
-	ToRecurrenceFrequencyOutputWithContext(context.Context) RecurrenceFrequencyOutput
-}
-
-var recurrenceFrequencyPtrType = reflect.TypeOf((**RecurrenceFrequency)(nil)).Elem()
-
-type RecurrenceFrequencyPtrInput interface {
-	pulumi.Input
-
-	ToRecurrenceFrequencyPtrOutput() RecurrenceFrequencyPtrOutput
-	ToRecurrenceFrequencyPtrOutputWithContext(context.Context) RecurrenceFrequencyPtrOutput
-}
-
-type recurrenceFrequencyPtr string
-
-func RecurrenceFrequencyPtr(v string) RecurrenceFrequencyPtrInput {
-	return (*recurrenceFrequencyPtr)(&v)
-}
-
-func (*recurrenceFrequencyPtr) ElementType() reflect.Type {
-	return recurrenceFrequencyPtrType
-}
-
-func (in *recurrenceFrequencyPtr) ToRecurrenceFrequencyPtrOutput() RecurrenceFrequencyPtrOutput {
-	return pulumi.ToOutput(in).(RecurrenceFrequencyPtrOutput)
-}
-
-func (in *recurrenceFrequencyPtr) ToRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) RecurrenceFrequencyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RecurrenceFrequencyPtrOutput)
-}
-
 // the scale direction. Whether the scaling action increases or decreases the number of instances.
-type ScaleDirection string
+type ScaleDirection pulumi.String
 
 const (
 	ScaleDirectionNone     = ScaleDirection("None")
@@ -859,23 +174,7 @@ const (
 )
 
 func (ScaleDirection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleDirection)(nil)).Elem()
-}
-
-func (e ScaleDirection) ToScaleDirectionOutput() ScaleDirectionOutput {
-	return pulumi.ToOutput(e).(ScaleDirectionOutput)
-}
-
-func (e ScaleDirection) ToScaleDirectionOutputWithContext(ctx context.Context) ScaleDirectionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScaleDirectionOutput)
-}
-
-func (e ScaleDirection) ToScaleDirectionPtrOutput() ScaleDirectionPtrOutput {
-	return e.ToScaleDirectionPtrOutputWithContext(context.Background())
-}
-
-func (e ScaleDirection) ToScaleDirectionPtrOutputWithContext(ctx context.Context) ScaleDirectionPtrOutput {
-	return ScaleDirection(e).ToScaleDirectionOutputWithContext(ctx).ToScaleDirectionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ScaleDirection) ToStringOutput() pulumi.StringOutput {
@@ -894,129 +193,8 @@ func (e ScaleDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ScaleDirectionOutput struct{ *pulumi.OutputState }
-
-func (ScaleDirectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleDirection)(nil)).Elem()
-}
-
-func (o ScaleDirectionOutput) ToScaleDirectionOutput() ScaleDirectionOutput {
-	return o
-}
-
-func (o ScaleDirectionOutput) ToScaleDirectionOutputWithContext(ctx context.Context) ScaleDirectionOutput {
-	return o
-}
-
-func (o ScaleDirectionOutput) ToScaleDirectionPtrOutput() ScaleDirectionPtrOutput {
-	return o.ToScaleDirectionPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleDirectionOutput) ToScaleDirectionPtrOutputWithContext(ctx context.Context) ScaleDirectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleDirection) *ScaleDirection {
-		return &v
-	}).(ScaleDirectionPtrOutput)
-}
-
-func (o ScaleDirectionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScaleDirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScaleDirection) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScaleDirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleDirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScaleDirection) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScaleDirectionPtrOutput struct{ *pulumi.OutputState }
-
-func (ScaleDirectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleDirection)(nil)).Elem()
-}
-
-func (o ScaleDirectionPtrOutput) ToScaleDirectionPtrOutput() ScaleDirectionPtrOutput {
-	return o
-}
-
-func (o ScaleDirectionPtrOutput) ToScaleDirectionPtrOutputWithContext(ctx context.Context) ScaleDirectionPtrOutput {
-	return o
-}
-
-func (o ScaleDirectionPtrOutput) Elem() ScaleDirectionOutput {
-	return o.ApplyT(func(v *ScaleDirection) ScaleDirection {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleDirection
-		return ret
-	}).(ScaleDirectionOutput)
-}
-
-func (o ScaleDirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScaleDirection) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScaleDirectionInput is an input type that accepts ScaleDirectionArgs and ScaleDirectionOutput values.
-// You can construct a concrete instance of `ScaleDirectionInput` via:
-//
-//          ScaleDirectionArgs{...}
-type ScaleDirectionInput interface {
-	pulumi.Input
-
-	ToScaleDirectionOutput() ScaleDirectionOutput
-	ToScaleDirectionOutputWithContext(context.Context) ScaleDirectionOutput
-}
-
-var scaleDirectionPtrType = reflect.TypeOf((**ScaleDirection)(nil)).Elem()
-
-type ScaleDirectionPtrInput interface {
-	pulumi.Input
-
-	ToScaleDirectionPtrOutput() ScaleDirectionPtrOutput
-	ToScaleDirectionPtrOutputWithContext(context.Context) ScaleDirectionPtrOutput
-}
-
-type scaleDirectionPtr string
-
-func ScaleDirectionPtr(v string) ScaleDirectionPtrInput {
-	return (*scaleDirectionPtr)(&v)
-}
-
-func (*scaleDirectionPtr) ElementType() reflect.Type {
-	return scaleDirectionPtrType
-}
-
-func (in *scaleDirectionPtr) ToScaleDirectionPtrOutput() ScaleDirectionPtrOutput {
-	return pulumi.ToOutput(in).(ScaleDirectionPtrOutput)
-}
-
-func (in *scaleDirectionPtr) ToScaleDirectionPtrOutputWithContext(ctx context.Context) ScaleDirectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScaleDirectionPtrOutput)
-}
-
 // the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-type ScaleRuleMetricDimensionOperationType string
+type ScaleRuleMetricDimensionOperationType pulumi.String
 
 const (
 	ScaleRuleMetricDimensionOperationTypeEquals    = ScaleRuleMetricDimensionOperationType("Equals")
@@ -1024,23 +202,7 @@ const (
 )
 
 func (ScaleRuleMetricDimensionOperationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleMetricDimensionOperationType)(nil)).Elem()
-}
-
-func (e ScaleRuleMetricDimensionOperationType) ToScaleRuleMetricDimensionOperationTypeOutput() ScaleRuleMetricDimensionOperationTypeOutput {
-	return pulumi.ToOutput(e).(ScaleRuleMetricDimensionOperationTypeOutput)
-}
-
-func (e ScaleRuleMetricDimensionOperationType) ToScaleRuleMetricDimensionOperationTypeOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOperationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScaleRuleMetricDimensionOperationTypeOutput)
-}
-
-func (e ScaleRuleMetricDimensionOperationType) ToScaleRuleMetricDimensionOperationTypePtrOutput() ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return e.ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (e ScaleRuleMetricDimensionOperationType) ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return ScaleRuleMetricDimensionOperationType(e).ToScaleRuleMetricDimensionOperationTypeOutputWithContext(ctx).ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ScaleRuleMetricDimensionOperationType) ToStringOutput() pulumi.StringOutput {
@@ -1059,129 +221,8 @@ func (e ScaleRuleMetricDimensionOperationType) ToStringPtrOutputWithContext(ctx 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ScaleRuleMetricDimensionOperationTypeOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleMetricDimensionOperationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleMetricDimensionOperationType)(nil)).Elem()
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToScaleRuleMetricDimensionOperationTypeOutput() ScaleRuleMetricDimensionOperationTypeOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToScaleRuleMetricDimensionOperationTypeOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOperationTypeOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToScaleRuleMetricDimensionOperationTypePtrOutput() ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return o.ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleRuleMetricDimensionOperationType) *ScaleRuleMetricDimensionOperationType {
-		return &v
-	}).(ScaleRuleMetricDimensionOperationTypePtrOutput)
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScaleRuleMetricDimensionOperationType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleRuleMetricDimensionOperationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScaleRuleMetricDimensionOperationType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScaleRuleMetricDimensionOperationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleMetricDimensionOperationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleRuleMetricDimensionOperationType)(nil)).Elem()
-}
-
-func (o ScaleRuleMetricDimensionOperationTypePtrOutput) ToScaleRuleMetricDimensionOperationTypePtrOutput() ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionOperationTypePtrOutput) ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionOperationTypePtrOutput) Elem() ScaleRuleMetricDimensionOperationTypeOutput {
-	return o.ApplyT(func(v *ScaleRuleMetricDimensionOperationType) ScaleRuleMetricDimensionOperationType {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleRuleMetricDimensionOperationType
-		return ret
-	}).(ScaleRuleMetricDimensionOperationTypeOutput)
-}
-
-func (o ScaleRuleMetricDimensionOperationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleRuleMetricDimensionOperationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScaleRuleMetricDimensionOperationType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScaleRuleMetricDimensionOperationTypeInput is an input type that accepts ScaleRuleMetricDimensionOperationTypeArgs and ScaleRuleMetricDimensionOperationTypeOutput values.
-// You can construct a concrete instance of `ScaleRuleMetricDimensionOperationTypeInput` via:
-//
-//          ScaleRuleMetricDimensionOperationTypeArgs{...}
-type ScaleRuleMetricDimensionOperationTypeInput interface {
-	pulumi.Input
-
-	ToScaleRuleMetricDimensionOperationTypeOutput() ScaleRuleMetricDimensionOperationTypeOutput
-	ToScaleRuleMetricDimensionOperationTypeOutputWithContext(context.Context) ScaleRuleMetricDimensionOperationTypeOutput
-}
-
-var scaleRuleMetricDimensionOperationTypePtrType = reflect.TypeOf((**ScaleRuleMetricDimensionOperationType)(nil)).Elem()
-
-type ScaleRuleMetricDimensionOperationTypePtrInput interface {
-	pulumi.Input
-
-	ToScaleRuleMetricDimensionOperationTypePtrOutput() ScaleRuleMetricDimensionOperationTypePtrOutput
-	ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(context.Context) ScaleRuleMetricDimensionOperationTypePtrOutput
-}
-
-type scaleRuleMetricDimensionOperationTypePtr string
-
-func ScaleRuleMetricDimensionOperationTypePtr(v string) ScaleRuleMetricDimensionOperationTypePtrInput {
-	return (*scaleRuleMetricDimensionOperationTypePtr)(&v)
-}
-
-func (*scaleRuleMetricDimensionOperationTypePtr) ElementType() reflect.Type {
-	return scaleRuleMetricDimensionOperationTypePtrType
-}
-
-func (in *scaleRuleMetricDimensionOperationTypePtr) ToScaleRuleMetricDimensionOperationTypePtrOutput() ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return pulumi.ToOutput(in).(ScaleRuleMetricDimensionOperationTypePtrOutput)
-}
-
-func (in *scaleRuleMetricDimensionOperationTypePtr) ToScaleRuleMetricDimensionOperationTypePtrOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOperationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScaleRuleMetricDimensionOperationTypePtrOutput)
-}
-
 // the type of action that should occur when the scale rule fires.
-type ScaleType string
+type ScaleType pulumi.String
 
 const (
 	ScaleTypeChangeCount             = ScaleType("ChangeCount")
@@ -1191,23 +232,7 @@ const (
 )
 
 func (ScaleType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleType)(nil)).Elem()
-}
-
-func (e ScaleType) ToScaleTypeOutput() ScaleTypeOutput {
-	return pulumi.ToOutput(e).(ScaleTypeOutput)
-}
-
-func (e ScaleType) ToScaleTypeOutputWithContext(ctx context.Context) ScaleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScaleTypeOutput)
-}
-
-func (e ScaleType) ToScaleTypePtrOutput() ScaleTypePtrOutput {
-	return e.ToScaleTypePtrOutputWithContext(context.Background())
-}
-
-func (e ScaleType) ToScaleTypePtrOutputWithContext(ctx context.Context) ScaleTypePtrOutput {
-	return ScaleType(e).ToScaleTypeOutputWithContext(ctx).ToScaleTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ScaleType) ToStringOutput() pulumi.StringOutput {
@@ -1226,129 +251,8 @@ func (e ScaleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ScaleTypeOutput struct{ *pulumi.OutputState }
-
-func (ScaleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleType)(nil)).Elem()
-}
-
-func (o ScaleTypeOutput) ToScaleTypeOutput() ScaleTypeOutput {
-	return o
-}
-
-func (o ScaleTypeOutput) ToScaleTypeOutputWithContext(ctx context.Context) ScaleTypeOutput {
-	return o
-}
-
-func (o ScaleTypeOutput) ToScaleTypePtrOutput() ScaleTypePtrOutput {
-	return o.ToScaleTypePtrOutputWithContext(context.Background())
-}
-
-func (o ScaleTypeOutput) ToScaleTypePtrOutputWithContext(ctx context.Context) ScaleTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleType) *ScaleType {
-		return &v
-	}).(ScaleTypePtrOutput)
-}
-
-func (o ScaleTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScaleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScaleType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScaleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScaleType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScaleTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ScaleTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleType)(nil)).Elem()
-}
-
-func (o ScaleTypePtrOutput) ToScaleTypePtrOutput() ScaleTypePtrOutput {
-	return o
-}
-
-func (o ScaleTypePtrOutput) ToScaleTypePtrOutputWithContext(ctx context.Context) ScaleTypePtrOutput {
-	return o
-}
-
-func (o ScaleTypePtrOutput) Elem() ScaleTypeOutput {
-	return o.ApplyT(func(v *ScaleType) ScaleType {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleType
-		return ret
-	}).(ScaleTypeOutput)
-}
-
-func (o ScaleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScaleType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScaleTypeInput is an input type that accepts ScaleTypeArgs and ScaleTypeOutput values.
-// You can construct a concrete instance of `ScaleTypeInput` via:
-//
-//          ScaleTypeArgs{...}
-type ScaleTypeInput interface {
-	pulumi.Input
-
-	ToScaleTypeOutput() ScaleTypeOutput
-	ToScaleTypeOutputWithContext(context.Context) ScaleTypeOutput
-}
-
-var scaleTypePtrType = reflect.TypeOf((**ScaleType)(nil)).Elem()
-
-type ScaleTypePtrInput interface {
-	pulumi.Input
-
-	ToScaleTypePtrOutput() ScaleTypePtrOutput
-	ToScaleTypePtrOutputWithContext(context.Context) ScaleTypePtrOutput
-}
-
-type scaleTypePtr string
-
-func ScaleTypePtr(v string) ScaleTypePtrInput {
-	return (*scaleTypePtr)(&v)
-}
-
-func (*scaleTypePtr) ElementType() reflect.Type {
-	return scaleTypePtrType
-}
-
-func (in *scaleTypePtr) ToScaleTypePtrOutput() ScaleTypePtrOutput {
-	return pulumi.ToOutput(in).(ScaleTypePtrOutput)
-}
-
-func (in *scaleTypePtr) ToScaleTypePtrOutputWithContext(ctx context.Context) ScaleTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScaleTypePtrOutput)
-}
-
 // the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-type TimeAggregationOperator string
+type TimeAggregationOperator pulumi.String
 
 const (
 	TimeAggregationOperatorAverage = TimeAggregationOperator("Average")
@@ -1359,23 +263,7 @@ const (
 )
 
 func (TimeAggregationOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeAggregationOperator)(nil)).Elem()
-}
-
-func (e TimeAggregationOperator) ToTimeAggregationOperatorOutput() TimeAggregationOperatorOutput {
-	return pulumi.ToOutput(e).(TimeAggregationOperatorOutput)
-}
-
-func (e TimeAggregationOperator) ToTimeAggregationOperatorOutputWithContext(ctx context.Context) TimeAggregationOperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TimeAggregationOperatorOutput)
-}
-
-func (e TimeAggregationOperator) ToTimeAggregationOperatorPtrOutput() TimeAggregationOperatorPtrOutput {
-	return e.ToTimeAggregationOperatorPtrOutputWithContext(context.Background())
-}
-
-func (e TimeAggregationOperator) ToTimeAggregationOperatorPtrOutputWithContext(ctx context.Context) TimeAggregationOperatorPtrOutput {
-	return TimeAggregationOperator(e).ToTimeAggregationOperatorOutputWithContext(ctx).ToTimeAggregationOperatorPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e TimeAggregationOperator) ToStringOutput() pulumi.StringOutput {
@@ -1394,129 +282,8 @@ func (e TimeAggregationOperator) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TimeAggregationOperatorOutput struct{ *pulumi.OutputState }
-
-func (TimeAggregationOperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeAggregationOperator)(nil)).Elem()
-}
-
-func (o TimeAggregationOperatorOutput) ToTimeAggregationOperatorOutput() TimeAggregationOperatorOutput {
-	return o
-}
-
-func (o TimeAggregationOperatorOutput) ToTimeAggregationOperatorOutputWithContext(ctx context.Context) TimeAggregationOperatorOutput {
-	return o
-}
-
-func (o TimeAggregationOperatorOutput) ToTimeAggregationOperatorPtrOutput() TimeAggregationOperatorPtrOutput {
-	return o.ToTimeAggregationOperatorPtrOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationOperatorOutput) ToTimeAggregationOperatorPtrOutputWithContext(ctx context.Context) TimeAggregationOperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeAggregationOperator) *TimeAggregationOperator {
-		return &v
-	}).(TimeAggregationOperatorPtrOutput)
-}
-
-func (o TimeAggregationOperatorOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TimeAggregationOperator) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o TimeAggregationOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TimeAggregationOperator) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type TimeAggregationOperatorPtrOutput struct{ *pulumi.OutputState }
-
-func (TimeAggregationOperatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeAggregationOperator)(nil)).Elem()
-}
-
-func (o TimeAggregationOperatorPtrOutput) ToTimeAggregationOperatorPtrOutput() TimeAggregationOperatorPtrOutput {
-	return o
-}
-
-func (o TimeAggregationOperatorPtrOutput) ToTimeAggregationOperatorPtrOutputWithContext(ctx context.Context) TimeAggregationOperatorPtrOutput {
-	return o
-}
-
-func (o TimeAggregationOperatorPtrOutput) Elem() TimeAggregationOperatorOutput {
-	return o.ApplyT(func(v *TimeAggregationOperator) TimeAggregationOperator {
-		if v != nil {
-			return *v
-		}
-		var ret TimeAggregationOperator
-		return ret
-	}).(TimeAggregationOperatorOutput)
-}
-
-func (o TimeAggregationOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TimeAggregationOperator) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// TimeAggregationOperatorInput is an input type that accepts TimeAggregationOperatorArgs and TimeAggregationOperatorOutput values.
-// You can construct a concrete instance of `TimeAggregationOperatorInput` via:
-//
-//          TimeAggregationOperatorArgs{...}
-type TimeAggregationOperatorInput interface {
-	pulumi.Input
-
-	ToTimeAggregationOperatorOutput() TimeAggregationOperatorOutput
-	ToTimeAggregationOperatorOutputWithContext(context.Context) TimeAggregationOperatorOutput
-}
-
-var timeAggregationOperatorPtrType = reflect.TypeOf((**TimeAggregationOperator)(nil)).Elem()
-
-type TimeAggregationOperatorPtrInput interface {
-	pulumi.Input
-
-	ToTimeAggregationOperatorPtrOutput() TimeAggregationOperatorPtrOutput
-	ToTimeAggregationOperatorPtrOutputWithContext(context.Context) TimeAggregationOperatorPtrOutput
-}
-
-type timeAggregationOperatorPtr string
-
-func TimeAggregationOperatorPtr(v string) TimeAggregationOperatorPtrInput {
-	return (*timeAggregationOperatorPtr)(&v)
-}
-
-func (*timeAggregationOperatorPtr) ElementType() reflect.Type {
-	return timeAggregationOperatorPtrType
-}
-
-func (in *timeAggregationOperatorPtr) ToTimeAggregationOperatorPtrOutput() TimeAggregationOperatorPtrOutput {
-	return pulumi.ToOutput(in).(TimeAggregationOperatorPtrOutput)
-}
-
-func (in *timeAggregationOperatorPtr) ToTimeAggregationOperatorPtrOutputWithContext(ctx context.Context) TimeAggregationOperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TimeAggregationOperatorPtrOutput)
-}
-
 // time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-type TimeAggregationType string
+type TimeAggregationType pulumi.String
 
 const (
 	TimeAggregationTypeAverage = TimeAggregationType("Average")
@@ -1528,23 +295,7 @@ const (
 )
 
 func (TimeAggregationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeAggregationType)(nil)).Elem()
-}
-
-func (e TimeAggregationType) ToTimeAggregationTypeOutput() TimeAggregationTypeOutput {
-	return pulumi.ToOutput(e).(TimeAggregationTypeOutput)
-}
-
-func (e TimeAggregationType) ToTimeAggregationTypeOutputWithContext(ctx context.Context) TimeAggregationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TimeAggregationTypeOutput)
-}
-
-func (e TimeAggregationType) ToTimeAggregationTypePtrOutput() TimeAggregationTypePtrOutput {
-	return e.ToTimeAggregationTypePtrOutputWithContext(context.Background())
-}
-
-func (e TimeAggregationType) ToTimeAggregationTypePtrOutputWithContext(ctx context.Context) TimeAggregationTypePtrOutput {
-	return TimeAggregationType(e).ToTimeAggregationTypeOutputWithContext(ctx).ToTimeAggregationTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e TimeAggregationType) ToStringOutput() pulumi.StringOutput {
@@ -1561,148 +312,4 @@ func (e TimeAggregationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e TimeAggregationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type TimeAggregationTypeOutput struct{ *pulumi.OutputState }
-
-func (TimeAggregationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeAggregationType)(nil)).Elem()
-}
-
-func (o TimeAggregationTypeOutput) ToTimeAggregationTypeOutput() TimeAggregationTypeOutput {
-	return o
-}
-
-func (o TimeAggregationTypeOutput) ToTimeAggregationTypeOutputWithContext(ctx context.Context) TimeAggregationTypeOutput {
-	return o
-}
-
-func (o TimeAggregationTypeOutput) ToTimeAggregationTypePtrOutput() TimeAggregationTypePtrOutput {
-	return o.ToTimeAggregationTypePtrOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationTypeOutput) ToTimeAggregationTypePtrOutputWithContext(ctx context.Context) TimeAggregationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeAggregationType) *TimeAggregationType {
-		return &v
-	}).(TimeAggregationTypePtrOutput)
-}
-
-func (o TimeAggregationTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TimeAggregationType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o TimeAggregationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TimeAggregationType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type TimeAggregationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (TimeAggregationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeAggregationType)(nil)).Elem()
-}
-
-func (o TimeAggregationTypePtrOutput) ToTimeAggregationTypePtrOutput() TimeAggregationTypePtrOutput {
-	return o
-}
-
-func (o TimeAggregationTypePtrOutput) ToTimeAggregationTypePtrOutputWithContext(ctx context.Context) TimeAggregationTypePtrOutput {
-	return o
-}
-
-func (o TimeAggregationTypePtrOutput) Elem() TimeAggregationTypeOutput {
-	return o.ApplyT(func(v *TimeAggregationType) TimeAggregationType {
-		if v != nil {
-			return *v
-		}
-		var ret TimeAggregationType
-		return ret
-	}).(TimeAggregationTypeOutput)
-}
-
-func (o TimeAggregationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TimeAggregationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TimeAggregationType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// TimeAggregationTypeInput is an input type that accepts TimeAggregationTypeArgs and TimeAggregationTypeOutput values.
-// You can construct a concrete instance of `TimeAggregationTypeInput` via:
-//
-//          TimeAggregationTypeArgs{...}
-type TimeAggregationTypeInput interface {
-	pulumi.Input
-
-	ToTimeAggregationTypeOutput() TimeAggregationTypeOutput
-	ToTimeAggregationTypeOutputWithContext(context.Context) TimeAggregationTypeOutput
-}
-
-var timeAggregationTypePtrType = reflect.TypeOf((**TimeAggregationType)(nil)).Elem()
-
-type TimeAggregationTypePtrInput interface {
-	pulumi.Input
-
-	ToTimeAggregationTypePtrOutput() TimeAggregationTypePtrOutput
-	ToTimeAggregationTypePtrOutputWithContext(context.Context) TimeAggregationTypePtrOutput
-}
-
-type timeAggregationTypePtr string
-
-func TimeAggregationTypePtr(v string) TimeAggregationTypePtrInput {
-	return (*timeAggregationTypePtr)(&v)
-}
-
-func (*timeAggregationTypePtr) ElementType() reflect.Type {
-	return timeAggregationTypePtrType
-}
-
-func (in *timeAggregationTypePtr) ToTimeAggregationTypePtrOutput() TimeAggregationTypePtrOutput {
-	return pulumi.ToOutput(in).(TimeAggregationTypePtrOutput)
-}
-
-func (in *timeAggregationTypePtr) ToTimeAggregationTypePtrOutputWithContext(ctx context.Context) TimeAggregationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TimeAggregationTypePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(ComparisonOperationTypeOutput{})
-	pulumi.RegisterOutputType(ComparisonOperationTypePtrOutput{})
-	pulumi.RegisterOutputType(ConditionOperatorOutput{})
-	pulumi.RegisterOutputType(ConditionOperatorPtrOutput{})
-	pulumi.RegisterOutputType(MetricStatisticTypeOutput{})
-	pulumi.RegisterOutputType(MetricStatisticTypePtrOutput{})
-	pulumi.RegisterOutputType(OperationTypeOutput{})
-	pulumi.RegisterOutputType(OperationTypePtrOutput{})
-	pulumi.RegisterOutputType(RecurrenceFrequencyOutput{})
-	pulumi.RegisterOutputType(RecurrenceFrequencyPtrOutput{})
-	pulumi.RegisterOutputType(ScaleDirectionOutput{})
-	pulumi.RegisterOutputType(ScaleDirectionPtrOutput{})
-	pulumi.RegisterOutputType(ScaleRuleMetricDimensionOperationTypeOutput{})
-	pulumi.RegisterOutputType(ScaleRuleMetricDimensionOperationTypePtrOutput{})
-	pulumi.RegisterOutputType(ScaleTypeOutput{})
-	pulumi.RegisterOutputType(ScaleTypePtrOutput{})
-	pulumi.RegisterOutputType(TimeAggregationOperatorOutput{})
-	pulumi.RegisterOutputType(TimeAggregationOperatorPtrOutput{})
-	pulumi.RegisterOutputType(TimeAggregationTypeOutput{})
-	pulumi.RegisterOutputType(TimeAggregationTypePtrOutput{})
 }

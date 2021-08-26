@@ -231,7 +231,9 @@ func (i *AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanRouteForVnetOutput)
 }
 
-type AppServicePlanRouteForVnetOutput struct{ *pulumi.OutputState }
+type AppServicePlanRouteForVnetOutput struct {
+	*pulumi.OutputState
+}
 
 func (AppServicePlanRouteForVnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServicePlanRouteForVnet)(nil))

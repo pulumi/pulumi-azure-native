@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
-    /// <summary>
-    /// Run resource properties
-    /// </summary>
     [OutputType]
     public sealed class RunResponse
     {

@@ -59,6 +59,9 @@ func NewVolume(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.ServiceLevel == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceLevel'")
+	}
+	if args.ServiceLevel == nil {
 		args.ServiceLevel = pulumi.String("Premium")
 	}
 	if args.UsageThreshold == nil {
@@ -295,7 +298,9 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct{ *pulumi.OutputState }
+type VolumeOutput struct {
+	*pulumi.OutputState
+}
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

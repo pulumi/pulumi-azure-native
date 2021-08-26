@@ -22,22 +22,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public Input<string>? AccountUrl { get; set; }
 
         /// <summary>
-        /// Create managed private endpoint to this storage account or not
-        /// </summary>
-        [Input("createManagedPrivateEndpoint")]
-        public Input<bool>? CreateManagedPrivateEndpoint { get; set; }
-
-        /// <summary>
         /// Filesystem name
         /// </summary>
         [Input("filesystem")]
         public Input<string>? Filesystem { get; set; }
-
-        /// <summary>
-        /// ARM resource Id of this storage account
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
 
         public DataLakeStorageAccountDetailsArgs()
         {

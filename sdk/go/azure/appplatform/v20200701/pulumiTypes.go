@@ -126,7 +126,7 @@ func (o AppResourcePropertiesOutput) ToAppResourcePropertiesPtrOutput() AppResou
 }
 
 func (o AppResourcePropertiesOutput) ToAppResourcePropertiesPtrOutputWithContext(ctx context.Context) AppResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppResourceProperties) *AppResourceProperties {
+	return o.ApplyT(func(v AppResourceProperties) *AppResourceProperties {
 		return &v
 	}).(AppResourcePropertiesPtrOutput)
 }
@@ -176,13 +176,7 @@ func (o AppResourcePropertiesPtrOutput) ToAppResourcePropertiesPtrOutputWithCont
 }
 
 func (o AppResourcePropertiesPtrOutput) Elem() AppResourcePropertiesOutput {
-	return o.ApplyT(func(v *AppResourceProperties) AppResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AppResourceProperties
-		return ret
-	}).(AppResourcePropertiesOutput)
+	return o.ApplyT(func(v *AppResourceProperties) AppResourceProperties { return *v }).(AppResourcePropertiesOutput)
 }
 
 // Name of the active deployment of the App
@@ -373,7 +367,7 @@ func (o AppResourcePropertiesResponseOutput) ToAppResourcePropertiesResponsePtrO
 }
 
 func (o AppResourcePropertiesResponseOutput) ToAppResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) AppResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppResourcePropertiesResponse) *AppResourcePropertiesResponse {
+	return o.ApplyT(func(v AppResourcePropertiesResponse) *AppResourcePropertiesResponse {
 		return &v
 	}).(AppResourcePropertiesResponsePtrOutput)
 }
@@ -438,13 +432,7 @@ func (o AppResourcePropertiesResponsePtrOutput) ToAppResourcePropertiesResponseP
 }
 
 func (o AppResourcePropertiesResponsePtrOutput) Elem() AppResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *AppResourcePropertiesResponse) AppResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AppResourcePropertiesResponse
-		return ret
-	}).(AppResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *AppResourcePropertiesResponse) AppResourcePropertiesResponse { return *v }).(AppResourcePropertiesResponseOutput)
 }
 
 // Name of the active deployment of the App
@@ -641,7 +629,7 @@ func (o BindingResourcePropertiesOutput) ToBindingResourcePropertiesPtrOutput() 
 }
 
 func (o BindingResourcePropertiesOutput) ToBindingResourcePropertiesPtrOutputWithContext(ctx context.Context) BindingResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BindingResourceProperties) *BindingResourceProperties {
+	return o.ApplyT(func(v BindingResourceProperties) *BindingResourceProperties {
 		return &v
 	}).(BindingResourcePropertiesPtrOutput)
 }
@@ -676,13 +664,7 @@ func (o BindingResourcePropertiesPtrOutput) ToBindingResourcePropertiesPtrOutput
 }
 
 func (o BindingResourcePropertiesPtrOutput) Elem() BindingResourcePropertiesOutput {
-	return o.ApplyT(func(v *BindingResourceProperties) BindingResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret BindingResourceProperties
-		return ret
-	}).(BindingResourcePropertiesOutput)
+	return o.ApplyT(func(v *BindingResourceProperties) BindingResourceProperties { return *v }).(BindingResourcePropertiesOutput)
 }
 
 // Binding parameters of the Binding resource
@@ -839,7 +821,7 @@ func (o BindingResourcePropertiesResponseOutput) ToBindingResourcePropertiesResp
 }
 
 func (o BindingResourcePropertiesResponseOutput) ToBindingResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) BindingResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BindingResourcePropertiesResponse) *BindingResourcePropertiesResponse {
+	return o.ApplyT(func(v BindingResourcePropertiesResponse) *BindingResourcePropertiesResponse {
 		return &v
 	}).(BindingResourcePropertiesResponsePtrOutput)
 }
@@ -899,13 +881,7 @@ func (o BindingResourcePropertiesResponsePtrOutput) ToBindingResourcePropertiesR
 }
 
 func (o BindingResourcePropertiesResponsePtrOutput) Elem() BindingResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *BindingResourcePropertiesResponse) BindingResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BindingResourcePropertiesResponse
-		return ret
-	}).(BindingResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *BindingResourcePropertiesResponse) BindingResourcePropertiesResponse { return *v }).(BindingResourcePropertiesResponseOutput)
 }
 
 // Binding parameters of the Binding resource
@@ -1092,7 +1068,7 @@ func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutput() Certific
 }
 
 func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateProperties) *CertificateProperties {
+	return o.ApplyT(func(v CertificateProperties) *CertificateProperties {
 		return &v
 	}).(CertificatePropertiesPtrOutput)
 }
@@ -1127,13 +1103,7 @@ func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutputWithCont
 }
 
 func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
-	return o.ApplyT(func(v *CertificateProperties) CertificateProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateProperties
-		return ret
-	}).(CertificatePropertiesOutput)
+	return o.ApplyT(func(v *CertificateProperties) CertificateProperties { return *v }).(CertificatePropertiesOutput)
 }
 
 // The certificate version of key vault.
@@ -1298,7 +1268,7 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
@@ -1368,13 +1338,7 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificatePropertiesResponse
-		return ret
-	}).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
 }
 
 // The activate date of certificate.
@@ -1573,7 +1537,7 @@ func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutput() 
 }
 
 func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourceProperties) *ClusterResourceProperties {
+	return o.ApplyT(func(v ClusterResourceProperties) *ClusterResourceProperties {
 		return &v
 	}).(ClusterResourcePropertiesPtrOutput)
 }
@@ -1598,13 +1562,7 @@ func (o ClusterResourcePropertiesPtrOutput) ToClusterResourcePropertiesPtrOutput
 }
 
 func (o ClusterResourcePropertiesPtrOutput) Elem() ClusterResourcePropertiesOutput {
-	return o.ApplyT(func(v *ClusterResourceProperties) ClusterResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterResourceProperties
-		return ret
-	}).(ClusterResourcePropertiesOutput)
+	return o.ApplyT(func(v *ClusterResourceProperties) ClusterResourceProperties { return *v }).(ClusterResourcePropertiesOutput)
 }
 
 // Network profile of the Service
@@ -1725,7 +1683,7 @@ func (o ClusterResourcePropertiesResponseOutput) ToClusterResourcePropertiesResp
 }
 
 func (o ClusterResourcePropertiesResponseOutput) ToClusterResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourcePropertiesResponse) *ClusterResourcePropertiesResponse {
+	return o.ApplyT(func(v ClusterResourcePropertiesResponse) *ClusterResourcePropertiesResponse {
 		return &v
 	}).(ClusterResourcePropertiesResponsePtrOutput)
 }
@@ -1765,13 +1723,7 @@ func (o ClusterResourcePropertiesResponsePtrOutput) ToClusterResourcePropertiesR
 }
 
 func (o ClusterResourcePropertiesResponsePtrOutput) Elem() ClusterResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) ClusterResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterResourcePropertiesResponse
-		return ret
-	}).(ClusterResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) ClusterResourcePropertiesResponse { return *v }).(ClusterResourcePropertiesResponseOutput)
 }
 
 // Network profile of the Service
@@ -1914,7 +1866,7 @@ func (o CustomDomainPropertiesOutput) ToCustomDomainPropertiesPtrOutput() Custom
 }
 
 func (o CustomDomainPropertiesOutput) ToCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) CustomDomainPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainProperties) *CustomDomainProperties {
+	return o.ApplyT(func(v CustomDomainProperties) *CustomDomainProperties {
 		return &v
 	}).(CustomDomainPropertiesPtrOutput)
 }
@@ -1944,13 +1896,7 @@ func (o CustomDomainPropertiesPtrOutput) ToCustomDomainPropertiesPtrOutputWithCo
 }
 
 func (o CustomDomainPropertiesPtrOutput) Elem() CustomDomainPropertiesOutput {
-	return o.ApplyT(func(v *CustomDomainProperties) CustomDomainProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDomainProperties
-		return ret
-	}).(CustomDomainPropertiesOutput)
+	return o.ApplyT(func(v *CustomDomainProperties) CustomDomainProperties { return *v }).(CustomDomainPropertiesOutput)
 }
 
 // The bound certificate name of domain.
@@ -2077,7 +2023,7 @@ func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponsePt
 }
 
 func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponsePtrOutputWithContext(ctx context.Context) CustomDomainPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainPropertiesResponse) *CustomDomainPropertiesResponse {
+	return o.ApplyT(func(v CustomDomainPropertiesResponse) *CustomDomainPropertiesResponse {
 		return &v
 	}).(CustomDomainPropertiesResponsePtrOutput)
 }
@@ -2112,13 +2058,7 @@ func (o CustomDomainPropertiesResponsePtrOutput) ToCustomDomainPropertiesRespons
 }
 
 func (o CustomDomainPropertiesResponsePtrOutput) Elem() CustomDomainPropertiesResponseOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) CustomDomainPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDomainPropertiesResponse
-		return ret
-	}).(CustomDomainPropertiesResponseOutput)
+	return o.ApplyT(func(v *CustomDomainPropertiesResponse) CustomDomainPropertiesResponse { return *v }).(CustomDomainPropertiesResponseOutput)
 }
 
 // The app name of domain.
@@ -2387,7 +2327,7 @@ func (o DeploymentResourcePropertiesOutput) ToDeploymentResourcePropertiesPtrOut
 }
 
 func (o DeploymentResourcePropertiesOutput) ToDeploymentResourcePropertiesPtrOutputWithContext(ctx context.Context) DeploymentResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentResourceProperties) *DeploymentResourceProperties {
+	return o.ApplyT(func(v DeploymentResourceProperties) *DeploymentResourceProperties {
 		return &v
 	}).(DeploymentResourcePropertiesPtrOutput)
 }
@@ -2417,13 +2357,7 @@ func (o DeploymentResourcePropertiesPtrOutput) ToDeploymentResourcePropertiesPtr
 }
 
 func (o DeploymentResourcePropertiesPtrOutput) Elem() DeploymentResourcePropertiesOutput {
-	return o.ApplyT(func(v *DeploymentResourceProperties) DeploymentResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentResourceProperties
-		return ret
-	}).(DeploymentResourcePropertiesOutput)
+	return o.ApplyT(func(v *DeploymentResourceProperties) DeploymentResourceProperties { return *v }).(DeploymentResourcePropertiesOutput)
 }
 
 // Deployment settings of the Deployment
@@ -2570,7 +2504,7 @@ func (o DeploymentResourcePropertiesResponseOutput) ToDeploymentResourceProperti
 }
 
 func (o DeploymentResourcePropertiesResponseOutput) ToDeploymentResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) DeploymentResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentResourcePropertiesResponse) *DeploymentResourcePropertiesResponse {
+	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) *DeploymentResourcePropertiesResponse {
 		return &v
 	}).(DeploymentResourcePropertiesResponsePtrOutput)
 }
@@ -2630,13 +2564,7 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) ToDeploymentResourcePrope
 }
 
 func (o DeploymentResourcePropertiesResponsePtrOutput) Elem() DeploymentResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) DeploymentResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentResourcePropertiesResponse
-		return ret
-	}).(DeploymentResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) DeploymentResourcePropertiesResponse { return *v }).(DeploymentResourcePropertiesResponseOutput)
 }
 
 // Indicates whether the Deployment is active
@@ -2835,7 +2763,7 @@ func (o DeploymentSettingsOutput) ToDeploymentSettingsPtrOutput() DeploymentSett
 }
 
 func (o DeploymentSettingsOutput) ToDeploymentSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSettings) *DeploymentSettings {
+	return o.ApplyT(func(v DeploymentSettings) *DeploymentSettings {
 		return &v
 	}).(DeploymentSettingsPtrOutput)
 }
@@ -2885,13 +2813,7 @@ func (o DeploymentSettingsPtrOutput) ToDeploymentSettingsPtrOutputWithContext(ct
 }
 
 func (o DeploymentSettingsPtrOutput) Elem() DeploymentSettingsOutput {
-	return o.ApplyT(func(v *DeploymentSettings) DeploymentSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentSettings
-		return ret
-	}).(DeploymentSettingsOutput)
+	return o.ApplyT(func(v *DeploymentSettings) DeploymentSettings { return *v }).(DeploymentSettingsOutput)
 }
 
 // Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
@@ -3070,7 +2992,7 @@ func (o DeploymentSettingsResponseOutput) ToDeploymentSettingsResponsePtrOutput(
 }
 
 func (o DeploymentSettingsResponseOutput) ToDeploymentSettingsResponsePtrOutputWithContext(ctx context.Context) DeploymentSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSettingsResponse) *DeploymentSettingsResponse {
+	return o.ApplyT(func(v DeploymentSettingsResponse) *DeploymentSettingsResponse {
 		return &v
 	}).(DeploymentSettingsResponsePtrOutput)
 }
@@ -3120,13 +3042,7 @@ func (o DeploymentSettingsResponsePtrOutput) ToDeploymentSettingsResponsePtrOutp
 }
 
 func (o DeploymentSettingsResponsePtrOutput) Elem() DeploymentSettingsResponseOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) DeploymentSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentSettingsResponse
-		return ret
-	}).(DeploymentSettingsResponseOutput)
+	return o.ApplyT(func(v *DeploymentSettingsResponse) DeploymentSettingsResponse { return *v }).(DeploymentSettingsResponseOutput)
 }
 
 // Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
@@ -3293,7 +3209,7 @@ func (o ManagedIdentityPropertiesOutput) ToManagedIdentityPropertiesPtrOutput() 
 }
 
 func (o ManagedIdentityPropertiesOutput) ToManagedIdentityPropertiesPtrOutputWithContext(ctx context.Context) ManagedIdentityPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityProperties) *ManagedIdentityProperties {
+	return o.ApplyT(func(v ManagedIdentityProperties) *ManagedIdentityProperties {
 		return &v
 	}).(ManagedIdentityPropertiesPtrOutput)
 }
@@ -3328,13 +3244,7 @@ func (o ManagedIdentityPropertiesPtrOutput) ToManagedIdentityPropertiesPtrOutput
 }
 
 func (o ManagedIdentityPropertiesPtrOutput) Elem() ManagedIdentityPropertiesOutput {
-	return o.ApplyT(func(v *ManagedIdentityProperties) ManagedIdentityProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedIdentityProperties
-		return ret
-	}).(ManagedIdentityPropertiesOutput)
+	return o.ApplyT(func(v *ManagedIdentityProperties) ManagedIdentityProperties { return *v }).(ManagedIdentityPropertiesOutput)
 }
 
 // Principal Id
@@ -3471,7 +3381,7 @@ func (o ManagedIdentityPropertiesResponseOutput) ToManagedIdentityPropertiesResp
 }
 
 func (o ManagedIdentityPropertiesResponseOutput) ToManagedIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityPropertiesResponse) *ManagedIdentityPropertiesResponse {
+	return o.ApplyT(func(v ManagedIdentityPropertiesResponse) *ManagedIdentityPropertiesResponse {
 		return &v
 	}).(ManagedIdentityPropertiesResponsePtrOutput)
 }
@@ -3506,13 +3416,7 @@ func (o ManagedIdentityPropertiesResponsePtrOutput) ToManagedIdentityPropertiesR
 }
 
 func (o ManagedIdentityPropertiesResponsePtrOutput) Elem() ManagedIdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *ManagedIdentityPropertiesResponse) ManagedIdentityPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedIdentityPropertiesResponse
-		return ret
-	}).(ManagedIdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *ManagedIdentityPropertiesResponse) ManagedIdentityPropertiesResponse { return *v }).(ManagedIdentityPropertiesResponseOutput)
 }
 
 // Principal Id
@@ -3657,7 +3561,7 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
+	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
@@ -3702,13 +3606,7 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfile
-		return ret
-	}).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
 }
 
 // Name of the resource group containing network resources of Azure Spring Cloud Apps
@@ -3881,7 +3779,7 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
@@ -3936,13 +3834,7 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfileResponse
-		return ret
-	}).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
 }
 
 // Name of the resource group containing network resources of Azure Spring Cloud Apps
@@ -4111,7 +4003,7 @@ func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboun
 }
 
 func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponseOutboundIPs) *NetworkProfileResponseOutboundIPs {
+	return o.ApplyT(func(v NetworkProfileResponseOutboundIPs) *NetworkProfileResponseOutboundIPs {
 		return &v
 	}).(NetworkProfileResponseOutboundIPsPtrOutput)
 }
@@ -4136,13 +4028,7 @@ func (o NetworkProfileResponseOutboundIPsPtrOutput) ToNetworkProfileResponseOutb
 }
 
 func (o NetworkProfileResponseOutboundIPsPtrOutput) Elem() NetworkProfileResponseOutboundIPsOutput {
-	return o.ApplyT(func(v *NetworkProfileResponseOutboundIPs) NetworkProfileResponseOutboundIPs {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfileResponseOutboundIPs
-		return ret
-	}).(NetworkProfileResponseOutboundIPsOutput)
+	return o.ApplyT(func(v *NetworkProfileResponseOutboundIPs) NetworkProfileResponseOutboundIPs { return *v }).(NetworkProfileResponseOutboundIPsOutput)
 }
 
 // A list of public IP addresses.
@@ -4255,7 +4141,7 @@ func (o PersistentDiskOutput) ToPersistentDiskPtrOutput() PersistentDiskPtrOutpu
 }
 
 func (o PersistentDiskOutput) ToPersistentDiskPtrOutputWithContext(ctx context.Context) PersistentDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersistentDisk) *PersistentDisk {
+	return o.ApplyT(func(v PersistentDisk) *PersistentDisk {
 		return &v
 	}).(PersistentDiskPtrOutput)
 }
@@ -4285,13 +4171,7 @@ func (o PersistentDiskPtrOutput) ToPersistentDiskPtrOutputWithContext(ctx contex
 }
 
 func (o PersistentDiskPtrOutput) Elem() PersistentDiskOutput {
-	return o.ApplyT(func(v *PersistentDisk) PersistentDisk {
-		if v != nil {
-			return *v
-		}
-		var ret PersistentDisk
-		return ret
-	}).(PersistentDiskOutput)
+	return o.ApplyT(func(v *PersistentDisk) PersistentDisk { return *v }).(PersistentDiskOutput)
 }
 
 // Mount path of the persistent disk
@@ -4418,7 +4298,7 @@ func (o PersistentDiskResponseOutput) ToPersistentDiskResponsePtrOutput() Persis
 }
 
 func (o PersistentDiskResponseOutput) ToPersistentDiskResponsePtrOutputWithContext(ctx context.Context) PersistentDiskResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersistentDiskResponse) *PersistentDiskResponse {
+	return o.ApplyT(func(v PersistentDiskResponse) *PersistentDiskResponse {
 		return &v
 	}).(PersistentDiskResponsePtrOutput)
 }
@@ -4453,13 +4333,7 @@ func (o PersistentDiskResponsePtrOutput) ToPersistentDiskResponsePtrOutputWithCo
 }
 
 func (o PersistentDiskResponsePtrOutput) Elem() PersistentDiskResponseOutput {
-	return o.ApplyT(func(v *PersistentDiskResponse) PersistentDiskResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PersistentDiskResponse
-		return ret
-	}).(PersistentDiskResponseOutput)
+	return o.ApplyT(func(v *PersistentDiskResponse) PersistentDiskResponse { return *v }).(PersistentDiskResponseOutput)
 }
 
 // Mount path of the persistent disk
@@ -4732,7 +4606,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -4767,13 +4641,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Current capacity of the target resource
@@ -4910,7 +4778,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -4945,13 +4813,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Current capacity of the target resource
@@ -5084,7 +4946,7 @@ func (o TemporaryDiskOutput) ToTemporaryDiskPtrOutput() TemporaryDiskPtrOutput {
 }
 
 func (o TemporaryDiskOutput) ToTemporaryDiskPtrOutputWithContext(ctx context.Context) TemporaryDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemporaryDisk) *TemporaryDisk {
+	return o.ApplyT(func(v TemporaryDisk) *TemporaryDisk {
 		return &v
 	}).(TemporaryDiskPtrOutput)
 }
@@ -5114,13 +4976,7 @@ func (o TemporaryDiskPtrOutput) ToTemporaryDiskPtrOutputWithContext(ctx context.
 }
 
 func (o TemporaryDiskPtrOutput) Elem() TemporaryDiskOutput {
-	return o.ApplyT(func(v *TemporaryDisk) TemporaryDisk {
-		if v != nil {
-			return *v
-		}
-		var ret TemporaryDisk
-		return ret
-	}).(TemporaryDiskOutput)
+	return o.ApplyT(func(v *TemporaryDisk) TemporaryDisk { return *v }).(TemporaryDiskOutput)
 }
 
 // Mount path of the temporary disk
@@ -5243,7 +5099,7 @@ func (o TemporaryDiskResponseOutput) ToTemporaryDiskResponsePtrOutput() Temporar
 }
 
 func (o TemporaryDiskResponseOutput) ToTemporaryDiskResponsePtrOutputWithContext(ctx context.Context) TemporaryDiskResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemporaryDiskResponse) *TemporaryDiskResponse {
+	return o.ApplyT(func(v TemporaryDiskResponse) *TemporaryDiskResponse {
 		return &v
 	}).(TemporaryDiskResponsePtrOutput)
 }
@@ -5273,13 +5129,7 @@ func (o TemporaryDiskResponsePtrOutput) ToTemporaryDiskResponsePtrOutputWithCont
 }
 
 func (o TemporaryDiskResponsePtrOutput) Elem() TemporaryDiskResponseOutput {
-	return o.ApplyT(func(v *TemporaryDiskResponse) TemporaryDiskResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TemporaryDiskResponse
-		return ret
-	}).(TemporaryDiskResponseOutput)
+	return o.ApplyT(func(v *TemporaryDiskResponse) TemporaryDiskResponse { return *v }).(TemporaryDiskResponseOutput)
 }
 
 // Mount path of the temporary disk
@@ -5412,7 +5262,7 @@ func (o UserSourceInfoOutput) ToUserSourceInfoPtrOutput() UserSourceInfoPtrOutpu
 }
 
 func (o UserSourceInfoOutput) ToUserSourceInfoPtrOutputWithContext(ctx context.Context) UserSourceInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSourceInfo) *UserSourceInfo {
+	return o.ApplyT(func(v UserSourceInfo) *UserSourceInfo {
 		return &v
 	}).(UserSourceInfoPtrOutput)
 }
@@ -5453,13 +5303,7 @@ func (o UserSourceInfoPtrOutput) ToUserSourceInfoPtrOutputWithContext(ctx contex
 }
 
 func (o UserSourceInfoPtrOutput) Elem() UserSourceInfoOutput {
-	return o.ApplyT(func(v *UserSourceInfo) UserSourceInfo {
-		if v != nil {
-			return *v
-		}
-		var ret UserSourceInfo
-		return ret
-	}).(UserSourceInfoOutput)
+	return o.ApplyT(func(v *UserSourceInfo) UserSourceInfo { return *v }).(UserSourceInfoOutput)
 }
 
 // Selector for the artifact to be used for the deployment for multi-module projects. This should be
@@ -5613,7 +5457,7 @@ func (o UserSourceInfoResponseOutput) ToUserSourceInfoResponsePtrOutput() UserSo
 }
 
 func (o UserSourceInfoResponseOutput) ToUserSourceInfoResponsePtrOutputWithContext(ctx context.Context) UserSourceInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSourceInfoResponse) *UserSourceInfoResponse {
+	return o.ApplyT(func(v UserSourceInfoResponse) *UserSourceInfoResponse {
 		return &v
 	}).(UserSourceInfoResponsePtrOutput)
 }
@@ -5654,13 +5498,7 @@ func (o UserSourceInfoResponsePtrOutput) ToUserSourceInfoResponsePtrOutputWithCo
 }
 
 func (o UserSourceInfoResponsePtrOutput) Elem() UserSourceInfoResponseOutput {
-	return o.ApplyT(func(v *UserSourceInfoResponse) UserSourceInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserSourceInfoResponse
-		return ret
-	}).(UserSourceInfoResponseOutput)
+	return o.ApplyT(func(v *UserSourceInfoResponse) UserSourceInfoResponse { return *v }).(UserSourceInfoResponseOutput)
 }
 
 // Selector for the artifact to be used for the deployment for multi-module projects. This should be

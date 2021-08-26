@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180416.Outputs
 {
 
-    /// <summary>
-    /// Specify action need to be taken when rule type is converting log to metric
-    /// </summary>
     [OutputType]
     public sealed class LogToMetricActionResponse
     {

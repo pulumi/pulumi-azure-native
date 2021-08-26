@@ -244,7 +244,9 @@ func (i *AzureCliScript) ToAzureCliScriptOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AzureCliScriptOutput)
 }
 
-type AzureCliScriptOutput struct{ *pulumi.OutputState }
+type AzureCliScriptOutput struct {
+	*pulumi.OutputState
+}
 
 func (AzureCliScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureCliScript)(nil))

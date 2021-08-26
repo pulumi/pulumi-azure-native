@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview.Outputs
 {
 
-    /// <summary>
-    /// A grouping of information about the connection to the remote resource.
-    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServiceConnectionResponse
     {

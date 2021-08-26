@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
-    /// <summary>
-    /// The content of the event request message.
-    /// </summary>
     [OutputType]
     public sealed class EventContentResponse
     {

@@ -118,7 +118,7 @@ func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutput() Co
 }
 
 func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutputWithContext(ctx context.Context) ComplianceStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComplianceStatusResponse) *ComplianceStatusResponse {
+	return o.ApplyT(func(v ComplianceStatusResponse) *ComplianceStatusResponse {
 		return &v
 	}).(ComplianceStatusResponsePtrOutput)
 }
@@ -158,13 +158,7 @@ func (o ComplianceStatusResponsePtrOutput) ToComplianceStatusResponsePtrOutputWi
 }
 
 func (o ComplianceStatusResponsePtrOutput) Elem() ComplianceStatusResponseOutput {
-	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComplianceStatusResponse
-		return ret
-	}).(ComplianceStatusResponseOutput)
+	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse { return *v }).(ComplianceStatusResponseOutput)
 }
 
 // The compliance state of the configuration.
@@ -307,7 +301,7 @@ func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutput() HelmOp
 }
 
 func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorProperties) *HelmOperatorProperties {
+	return o.ApplyT(func(v HelmOperatorProperties) *HelmOperatorProperties {
 		return &v
 	}).(HelmOperatorPropertiesPtrOutput)
 }
@@ -337,13 +331,7 @@ func (o HelmOperatorPropertiesPtrOutput) ToHelmOperatorPropertiesPtrOutputWithCo
 }
 
 func (o HelmOperatorPropertiesPtrOutput) Elem() HelmOperatorPropertiesOutput {
-	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HelmOperatorProperties
-		return ret
-	}).(HelmOperatorPropertiesOutput)
+	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties { return *v }).(HelmOperatorPropertiesOutput)
 }
 
 // Values override for the operator Helm chart.
@@ -466,7 +454,7 @@ func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePt
 }
 
 func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
+	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
 		return &v
 	}).(HelmOperatorPropertiesResponsePtrOutput)
 }
@@ -496,13 +484,7 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ToHelmOperatorPropertiesRespons
 }
 
 func (o HelmOperatorPropertiesResponsePtrOutput) Elem() HelmOperatorPropertiesResponseOutput {
-	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HelmOperatorPropertiesResponse
-		return ret
-	}).(HelmOperatorPropertiesResponseOutput)
+	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse { return *v }).(HelmOperatorPropertiesResponseOutput)
 }
 
 // Values override for the operator Helm chart.

@@ -213,7 +213,9 @@ func (i *DatabaseThreatDetectionPolicy) ToDatabaseThreatDetectionPolicyOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyOutput)
 }
 
-type DatabaseThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
+type DatabaseThreatDetectionPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil))

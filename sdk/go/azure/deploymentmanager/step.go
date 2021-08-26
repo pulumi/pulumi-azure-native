@@ -140,7 +140,9 @@ func (i *Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StepOutput)
 }
 
-type StepOutput struct{ *pulumi.OutputState }
+type StepOutput struct {
+	*pulumi.OutputState
+}
 
 func (StepOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Step)(nil))

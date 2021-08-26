@@ -163,7 +163,9 @@ func (i *Action) ToActionOutputWithContext(ctx context.Context) ActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput)
 }
 
-type ActionOutput struct{ *pulumi.OutputState }
+type ActionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Action)(nil))

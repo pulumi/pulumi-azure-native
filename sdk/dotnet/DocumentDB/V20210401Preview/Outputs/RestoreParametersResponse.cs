@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Parameters to indicate the information about the restore.
-    /// </summary>
     [OutputType]
     public sealed class RestoreParametersResponse
     {

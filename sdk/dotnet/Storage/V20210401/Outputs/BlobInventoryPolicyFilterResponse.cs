@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Outputs
 {
 
-    /// <summary>
-    /// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
-    /// </summary>
     [OutputType]
     public sealed class BlobInventoryPolicyFilterResponse
     {

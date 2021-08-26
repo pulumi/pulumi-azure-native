@@ -181,7 +181,9 @@ func (i *VirtualNetworkResource) ToVirtualNetworkResourceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkResourceOutput)
 }
 
-type VirtualNetworkResourceOutput struct{ *pulumi.OutputState }
+type VirtualNetworkResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualNetworkResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkResource)(nil))

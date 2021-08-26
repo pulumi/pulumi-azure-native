@@ -45,9 +45,6 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.State == nil {
-		return nil, errors.New("invalid value for required argument 'State'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:GeoBackupPolicy"),
@@ -101,7 +98,7 @@ type geoBackupPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// The state of the geo backup policy.
-	State GeoBackupPolicyStateEnum `pulumi:"state"`
+	State string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a GeoBackupPolicy resource.
@@ -115,7 +112,7 @@ type GeoBackupPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// The state of the geo backup policy.
-	State GeoBackupPolicyStateEnumInput
+	State GeoBackupPolicyStateEnum
 }
 
 func (GeoBackupPolicyArgs) ElementType() reflect.Type {
@@ -141,7 +138,9 @@ func (i *GeoBackupPolicy) ToGeoBackupPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GeoBackupPolicyOutput)
 }
 
-type GeoBackupPolicyOutput struct{ *pulumi.OutputState }
+type GeoBackupPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (GeoBackupPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GeoBackupPolicy)(nil))

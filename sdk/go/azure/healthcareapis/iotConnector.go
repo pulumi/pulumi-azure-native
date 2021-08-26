@@ -160,7 +160,9 @@ func (i *IotConnector) ToIotConnectorOutputWithContext(ctx context.Context) IotC
 	return pulumi.ToOutputWithContext(ctx, i).(IotConnectorOutput)
 }
 
-type IotConnectorOutput struct{ *pulumi.OutputState }
+type IotConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (IotConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotConnector)(nil))

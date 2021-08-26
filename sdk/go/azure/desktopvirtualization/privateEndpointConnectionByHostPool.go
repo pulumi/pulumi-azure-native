@@ -141,7 +141,9 @@ func (i *PrivateEndpointConnectionByHostPool) ToPrivateEndpointConnectionByHostP
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionByHostPoolOutput)
 }
 
-type PrivateEndpointConnectionByHostPoolOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionByHostPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateEndpointConnectionByHostPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionByHostPool)(nil))

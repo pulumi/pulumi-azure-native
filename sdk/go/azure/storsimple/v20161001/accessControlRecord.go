@@ -134,7 +134,9 @@ func (i *AccessControlRecord) ToAccessControlRecordOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AccessControlRecordOutput)
 }
 
-type AccessControlRecordOutput struct{ *pulumi.OutputState }
+type AccessControlRecordOutput struct {
+	*pulumi.OutputState
+}
 
 func (AccessControlRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessControlRecord)(nil))

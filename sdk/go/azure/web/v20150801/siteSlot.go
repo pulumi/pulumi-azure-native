@@ -347,7 +347,9 @@ func (i *SiteSlot) ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotOutput)
 }
 
-type SiteSlotOutput struct{ *pulumi.OutputState }
+type SiteSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteSlot)(nil))

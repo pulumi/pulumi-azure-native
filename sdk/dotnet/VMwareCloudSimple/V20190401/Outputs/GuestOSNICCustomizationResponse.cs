@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Outputs
 {
 
-    /// <summary>
-    /// Guest OS nic customization
-    /// </summary>
     [OutputType]
     public sealed class GuestOSNICCustomizationResponse
     {

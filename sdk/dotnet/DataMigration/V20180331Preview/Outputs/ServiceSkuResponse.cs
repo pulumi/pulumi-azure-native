@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180331Preview.Outputs
 {
 
-    /// <summary>
-    /// An Azure SKU instance
-    /// </summary>
     [OutputType]
     public sealed class ServiceSkuResponse
     {

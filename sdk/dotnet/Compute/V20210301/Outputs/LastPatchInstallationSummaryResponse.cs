@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Describes the properties of the last installed patch summary.
-    /// </summary>
     [OutputType]
     public sealed class LastPatchInstallationSummaryResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// An endpoint to connect to with no encryption in transit.
-    /// </summary>
     [OutputType]
     public sealed class MediaGraphClearEndpointResponse
     {

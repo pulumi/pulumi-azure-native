@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Online endpoint configuration
-    /// </summary>
     [OutputType]
     public sealed class OnlineEndpointResponse
     {

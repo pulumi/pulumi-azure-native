@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210410PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Storage Profile properties of a server
-    /// </summary>
     [OutputType]
     public sealed class StorageProfileResponse
     {

@@ -197,7 +197,9 @@ func (i *MECRole) ToMECRoleOutputWithContext(ctx context.Context) MECRoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MECRoleOutput)
 }
 
-type MECRoleOutput struct{ *pulumi.OutputState }
+type MECRoleOutput struct {
+	*pulumi.OutputState
+}
 
 func (MECRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MECRole)(nil))

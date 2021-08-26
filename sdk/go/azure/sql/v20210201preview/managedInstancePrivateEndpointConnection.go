@@ -149,7 +149,9 @@ func (i *ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateEndpointConnectionOutput)
 }
 
-type ManagedInstancePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type ManagedInstancePrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedInstancePrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnection)(nil))

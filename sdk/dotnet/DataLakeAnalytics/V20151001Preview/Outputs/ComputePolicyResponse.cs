@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.Outputs
 {
 
-    /// <summary>
-    /// Data Lake Analytics compute policy information.
-    /// </summary>
     [OutputType]
     public sealed class ComputePolicyResponse
     {

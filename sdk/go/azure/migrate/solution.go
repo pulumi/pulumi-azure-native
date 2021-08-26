@@ -132,7 +132,9 @@ func (i *Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionOutput)
 }
 
-type SolutionOutput struct{ *pulumi.OutputState }
+type SolutionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SolutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Solution)(nil))

@@ -186,7 +186,9 @@ func (i *BudgetByResourceGroupName) ToBudgetByResourceGroupNameOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetByResourceGroupNameOutput)
 }
 
-type BudgetByResourceGroupNameOutput struct{ *pulumi.OutputState }
+type BudgetByResourceGroupNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (BudgetByResourceGroupNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BudgetByResourceGroupName)(nil))

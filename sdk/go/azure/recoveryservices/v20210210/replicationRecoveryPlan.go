@@ -87,12 +87,6 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationRecoveryPlan"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationRecoveryPlan"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationRecoveryPlan
@@ -172,7 +166,9 @@ func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanOutput)
 }
 
-type ReplicationRecoveryPlanOutput struct{ *pulumi.OutputState }
+type ReplicationRecoveryPlanOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationRecoveryPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil))

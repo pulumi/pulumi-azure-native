@@ -207,7 +207,9 @@ func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionOutput)
 }
 
-type SystemTopicEventSubscriptionOutput struct{ *pulumi.OutputState }
+type SystemTopicEventSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SystemTopicEventSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SystemTopicEventSubscription)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Outputs
 {
 
-    /// <summary>
-    /// Data specific to GlusterFS.
-    /// </summary>
     [OutputType]
     public sealed class GlusterFsSectionResponse
     {

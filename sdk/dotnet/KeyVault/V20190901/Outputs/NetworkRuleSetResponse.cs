@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20190901.Outputs
 {
 
-    /// <summary>
-    /// A set of rules governing the network accessibility of a vault.
-    /// </summary>
     [OutputType]
     public sealed class NetworkRuleSetResponse
     {

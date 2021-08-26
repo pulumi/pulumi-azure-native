@@ -9,344 +9,175 @@ from .provider import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.aad as __aad
-    aad = __aad
-    import pulumi_azure_native.aadiam as __aadiam
-    aadiam = __aadiam
-    import pulumi_azure_native.addons as __addons
-    addons = __addons
-    import pulumi_azure_native.advisor as __advisor
-    advisor = __advisor
-    import pulumi_azure_native.agfoodplatform as __agfoodplatform
-    agfoodplatform = __agfoodplatform
-    import pulumi_azure_native.alertsmanagement as __alertsmanagement
-    alertsmanagement = __alertsmanagement
-    import pulumi_azure_native.analysisservices as __analysisservices
-    analysisservices = __analysisservices
-    import pulumi_azure_native.apimanagement as __apimanagement
-    apimanagement = __apimanagement
-    import pulumi_azure_native.appconfiguration as __appconfiguration
-    appconfiguration = __appconfiguration
-    import pulumi_azure_native.appplatform as __appplatform
-    appplatform = __appplatform
-    import pulumi_azure_native.attestation as __attestation
-    attestation = __attestation
-    import pulumi_azure_native.authorization as __authorization
-    authorization = __authorization
-    import pulumi_azure_native.automanage as __automanage
-    automanage = __automanage
-    import pulumi_azure_native.automation as __automation
-    automation = __automation
-    import pulumi_azure_native.autonomousdevelopmentplatform as __autonomousdevelopmentplatform
-    autonomousdevelopmentplatform = __autonomousdevelopmentplatform
-    import pulumi_azure_native.avs as __avs
-    avs = __avs
-    import pulumi_azure_native.azureactivedirectory as __azureactivedirectory
-    azureactivedirectory = __azureactivedirectory
-    import pulumi_azure_native.azurearcdata as __azurearcdata
-    azurearcdata = __azurearcdata
-    import pulumi_azure_native.azuredata as __azuredata
-    azuredata = __azuredata
-    import pulumi_azure_native.azurestack as __azurestack
-    azurestack = __azurestack
-    import pulumi_azure_native.azurestackhci as __azurestackhci
-    azurestackhci = __azurestackhci
-    import pulumi_azure_native.batch as __batch
-    batch = __batch
-    import pulumi_azure_native.billing as __billing
-    billing = __billing
-    import pulumi_azure_native.blockchain as __blockchain
-    blockchain = __blockchain
-    import pulumi_azure_native.blueprint as __blueprint
-    blueprint = __blueprint
-    import pulumi_azure_native.botservice as __botservice
-    botservice = __botservice
-    import pulumi_azure_native.cache as __cache
-    cache = __cache
-    import pulumi_azure_native.cdn as __cdn
-    cdn = __cdn
-    import pulumi_azure_native.certificateregistration as __certificateregistration
-    certificateregistration = __certificateregistration
-    import pulumi_azure_native.changeanalysis as __changeanalysis
-    changeanalysis = __changeanalysis
-    import pulumi_azure_native.cognitiveservices as __cognitiveservices
-    cognitiveservices = __cognitiveservices
-    import pulumi_azure_native.communication as __communication
-    communication = __communication
-    import pulumi_azure_native.compute as __compute
-    compute = __compute
-    import pulumi_azure_native.confidentialledger as __confidentialledger
-    confidentialledger = __confidentialledger
-    import pulumi_azure_native.config as __config
-    config = __config
-    import pulumi_azure_native.confluent as __confluent
-    confluent = __confluent
-    import pulumi_azure_native.consumption as __consumption
-    consumption = __consumption
-    import pulumi_azure_native.containerinstance as __containerinstance
-    containerinstance = __containerinstance
-    import pulumi_azure_native.containerregistry as __containerregistry
-    containerregistry = __containerregistry
-    import pulumi_azure_native.containerservice as __containerservice
-    containerservice = __containerservice
-    import pulumi_azure_native.costmanagement as __costmanagement
-    costmanagement = __costmanagement
-    import pulumi_azure_native.customerinsights as __customerinsights
-    customerinsights = __customerinsights
-    import pulumi_azure_native.customproviders as __customproviders
-    customproviders = __customproviders
-    import pulumi_azure_native.databox as __databox
-    databox = __databox
-    import pulumi_azure_native.databoxedge as __databoxedge
-    databoxedge = __databoxedge
-    import pulumi_azure_native.databricks as __databricks
-    databricks = __databricks
-    import pulumi_azure_native.datacatalog as __datacatalog
-    datacatalog = __datacatalog
-    import pulumi_azure_native.datadog as __datadog
-    datadog = __datadog
-    import pulumi_azure_native.datafactory as __datafactory
-    datafactory = __datafactory
-    import pulumi_azure_native.datalakeanalytics as __datalakeanalytics
-    datalakeanalytics = __datalakeanalytics
-    import pulumi_azure_native.datalakestore as __datalakestore
-    datalakestore = __datalakestore
-    import pulumi_azure_native.datamigration as __datamigration
-    datamigration = __datamigration
-    import pulumi_azure_native.dataprotection as __dataprotection
-    dataprotection = __dataprotection
-    import pulumi_azure_native.datashare as __datashare
-    datashare = __datashare
-    import pulumi_azure_native.dbformariadb as __dbformariadb
-    dbformariadb = __dbformariadb
-    import pulumi_azure_native.dbformysql as __dbformysql
-    dbformysql = __dbformysql
-    import pulumi_azure_native.dbforpostgresql as __dbforpostgresql
-    dbforpostgresql = __dbforpostgresql
-    import pulumi_azure_native.delegatednetwork as __delegatednetwork
-    delegatednetwork = __delegatednetwork
-    import pulumi_azure_native.deploymentmanager as __deploymentmanager
-    deploymentmanager = __deploymentmanager
-    import pulumi_azure_native.desktopvirtualization as __desktopvirtualization
-    desktopvirtualization = __desktopvirtualization
-    import pulumi_azure_native.devices as __devices
-    devices = __devices
-    import pulumi_azure_native.deviceupdate as __deviceupdate
-    deviceupdate = __deviceupdate
-    import pulumi_azure_native.devops as __devops
-    devops = __devops
-    import pulumi_azure_native.devspaces as __devspaces
-    devspaces = __devspaces
-    import pulumi_azure_native.devtestlab as __devtestlab
-    devtestlab = __devtestlab
-    import pulumi_azure_native.digitaltwins as __digitaltwins
-    digitaltwins = __digitaltwins
-    import pulumi_azure_native.documentdb as __documentdb
-    documentdb = __documentdb
-    import pulumi_azure_native.domainregistration as __domainregistration
-    domainregistration = __domainregistration
-    import pulumi_azure_native.dynamics365fraudprotection as __dynamics365fraudprotection
-    dynamics365fraudprotection = __dynamics365fraudprotection
-    import pulumi_azure_native.edgeorder as __edgeorder
-    edgeorder = __edgeorder
-    import pulumi_azure_native.elastic as __elastic
-    elastic = __elastic
-    import pulumi_azure_native.engagementfabric as __engagementfabric
-    engagementfabric = __engagementfabric
-    import pulumi_azure_native.enterpriseknowledgegraph as __enterpriseknowledgegraph
-    enterpriseknowledgegraph = __enterpriseknowledgegraph
-    import pulumi_azure_native.eventgrid as __eventgrid
-    eventgrid = __eventgrid
-    import pulumi_azure_native.eventhub as __eventhub
-    eventhub = __eventhub
-    import pulumi_azure_native.extendedlocation as __extendedlocation
-    extendedlocation = __extendedlocation
-    import pulumi_azure_native.features as __features
-    features = __features
-    import pulumi_azure_native.fluidrelay as __fluidrelay
-    fluidrelay = __fluidrelay
-    import pulumi_azure_native.guestconfiguration as __guestconfiguration
-    guestconfiguration = __guestconfiguration
-    import pulumi_azure_native.hanaonazure as __hanaonazure
-    hanaonazure = __hanaonazure
-    import pulumi_azure_native.hardwaresecuritymodules as __hardwaresecuritymodules
-    hardwaresecuritymodules = __hardwaresecuritymodules
-    import pulumi_azure_native.hdinsight as __hdinsight
-    hdinsight = __hdinsight
-    import pulumi_azure_native.healthbot as __healthbot
-    healthbot = __healthbot
-    import pulumi_azure_native.healthcareapis as __healthcareapis
-    healthcareapis = __healthcareapis
-    import pulumi_azure_native.hybridcompute as __hybridcompute
-    hybridcompute = __hybridcompute
-    import pulumi_azure_native.hybriddata as __hybriddata
-    hybriddata = __hybriddata
-    import pulumi_azure_native.hybridnetwork as __hybridnetwork
-    hybridnetwork = __hybridnetwork
-    import pulumi_azure_native.importexport as __importexport
-    importexport = __importexport
-    import pulumi_azure_native.insights as __insights
-    insights = __insights
-    import pulumi_azure_native.intune as __intune
-    intune = __intune
-    import pulumi_azure_native.iotcentral as __iotcentral
-    iotcentral = __iotcentral
-    import pulumi_azure_native.iotsecurity as __iotsecurity
-    iotsecurity = __iotsecurity
-    import pulumi_azure_native.keyvault as __keyvault
-    keyvault = __keyvault
-    import pulumi_azure_native.kubernetes as __kubernetes
-    kubernetes = __kubernetes
-    import pulumi_azure_native.kubernetesconfiguration as __kubernetesconfiguration
-    kubernetesconfiguration = __kubernetesconfiguration
-    import pulumi_azure_native.kusto as __kusto
-    kusto = __kusto
-    import pulumi_azure_native.labservices as __labservices
-    labservices = __labservices
-    import pulumi_azure_native.logic as __logic
-    logic = __logic
-    import pulumi_azure_native.logz as __logz
-    logz = __logz
-    import pulumi_azure_native.m365securityandcompliance as __m365securityandcompliance
-    m365securityandcompliance = __m365securityandcompliance
-    import pulumi_azure_native.machinelearning as __machinelearning
-    machinelearning = __machinelearning
-    import pulumi_azure_native.machinelearningcompute as __machinelearningcompute
-    machinelearningcompute = __machinelearningcompute
-    import pulumi_azure_native.machinelearningexperimentation as __machinelearningexperimentation
-    machinelearningexperimentation = __machinelearningexperimentation
-    import pulumi_azure_native.machinelearningservices as __machinelearningservices
-    machinelearningservices = __machinelearningservices
-    import pulumi_azure_native.maintenance as __maintenance
-    maintenance = __maintenance
-    import pulumi_azure_native.managedidentity as __managedidentity
-    managedidentity = __managedidentity
-    import pulumi_azure_native.managednetwork as __managednetwork
-    managednetwork = __managednetwork
-    import pulumi_azure_native.managedservices as __managedservices
-    managedservices = __managedservices
-    import pulumi_azure_native.management as __management
-    management = __management
-    import pulumi_azure_native.managementpartner as __managementpartner
-    managementpartner = __managementpartner
-    import pulumi_azure_native.maps as __maps
-    maps = __maps
-    import pulumi_azure_native.marketplace as __marketplace
-    marketplace = __marketplace
-    import pulumi_azure_native.media as __media
-    media = __media
-    import pulumi_azure_native.migrate as __migrate
-    migrate = __migrate
-    import pulumi_azure_native.mixedreality as __mixedreality
-    mixedreality = __mixedreality
-    import pulumi_azure_native.netapp as __netapp
-    netapp = __netapp
-    import pulumi_azure_native.network as __network
-    network = __network
-    import pulumi_azure_native.notebooks as __notebooks
-    notebooks = __notebooks
-    import pulumi_azure_native.notificationhubs as __notificationhubs
-    notificationhubs = __notificationhubs
-    import pulumi_azure_native.offazure as __offazure
-    offazure = __offazure
-    import pulumi_azure_native.operationalinsights as __operationalinsights
-    operationalinsights = __operationalinsights
-    import pulumi_azure_native.operationsmanagement as __operationsmanagement
-    operationsmanagement = __operationsmanagement
-    import pulumi_azure_native.peering as __peering
-    peering = __peering
-    import pulumi_azure_native.policyinsights as __policyinsights
-    policyinsights = __policyinsights
-    import pulumi_azure_native.portal as __portal
-    portal = __portal
-    import pulumi_azure_native.powerbi as __powerbi
-    powerbi = __powerbi
-    import pulumi_azure_native.powerbidedicated as __powerbidedicated
-    powerbidedicated = __powerbidedicated
-    import pulumi_azure_native.powerplatform as __powerplatform
-    powerplatform = __powerplatform
-    import pulumi_azure_native.providerhub as __providerhub
-    providerhub = __providerhub
-    import pulumi_azure_native.purview as __purview
-    purview = __purview
-    import pulumi_azure_native.quantum as __quantum
-    quantum = __quantum
-    import pulumi_azure_native.recoveryservices as __recoveryservices
-    recoveryservices = __recoveryservices
-    import pulumi_azure_native.redhatopenshift as __redhatopenshift
-    redhatopenshift = __redhatopenshift
-    import pulumi_azure_native.relay as __relay
-    relay = __relay
-    import pulumi_azure_native.resourcegraph as __resourcegraph
-    resourcegraph = __resourcegraph
-    import pulumi_azure_native.resources as __resources
-    resources = __resources
-    import pulumi_azure_native.saas as __saas
-    saas = __saas
-    import pulumi_azure_native.scheduler as __scheduler
-    scheduler = __scheduler
-    import pulumi_azure_native.search as __search
-    search = __search
-    import pulumi_azure_native.security as __security
-    security = __security
-    import pulumi_azure_native.securityandcompliance as __securityandcompliance
-    securityandcompliance = __securityandcompliance
-    import pulumi_azure_native.securityinsights as __securityinsights
-    securityinsights = __securityinsights
-    import pulumi_azure_native.serialconsole as __serialconsole
-    serialconsole = __serialconsole
-    import pulumi_azure_native.servicebus as __servicebus
-    servicebus = __servicebus
-    import pulumi_azure_native.servicefabric as __servicefabric
-    servicefabric = __servicefabric
-    import pulumi_azure_native.servicefabricmesh as __servicefabricmesh
-    servicefabricmesh = __servicefabricmesh
-    import pulumi_azure_native.signalrservice as __signalrservice
-    signalrservice = __signalrservice
-    import pulumi_azure_native.softwareplan as __softwareplan
-    softwareplan = __softwareplan
-    import pulumi_azure_native.solutions as __solutions
-    solutions = __solutions
-    import pulumi_azure_native.sql as __sql
-    sql = __sql
-    import pulumi_azure_native.sqlvirtualmachine as __sqlvirtualmachine
-    sqlvirtualmachine = __sqlvirtualmachine
-    import pulumi_azure_native.storage as __storage
-    storage = __storage
-    import pulumi_azure_native.storagecache as __storagecache
-    storagecache = __storagecache
-    import pulumi_azure_native.storagepool as __storagepool
-    storagepool = __storagepool
-    import pulumi_azure_native.storagesync as __storagesync
-    storagesync = __storagesync
-    import pulumi_azure_native.storsimple as __storsimple
-    storsimple = __storsimple
-    import pulumi_azure_native.streamanalytics as __streamanalytics
-    streamanalytics = __streamanalytics
-    import pulumi_azure_native.subscription as __subscription
-    subscription = __subscription
-    import pulumi_azure_native.synapse as __synapse
-    synapse = __synapse
-    import pulumi_azure_native.testbase as __testbase
-    testbase = __testbase
-    import pulumi_azure_native.timeseriesinsights as __timeseriesinsights
-    timeseriesinsights = __timeseriesinsights
-    import pulumi_azure_native.videoanalyzer as __videoanalyzer
-    videoanalyzer = __videoanalyzer
-    import pulumi_azure_native.virtualmachineimages as __virtualmachineimages
-    virtualmachineimages = __virtualmachineimages
-    import pulumi_azure_native.visualstudio as __visualstudio
-    visualstudio = __visualstudio
-    import pulumi_azure_native.vmwarecloudsimple as __vmwarecloudsimple
-    vmwarecloudsimple = __vmwarecloudsimple
-    import pulumi_azure_native.web as __web
-    web = __web
-    import pulumi_azure_native.webpubsub as __webpubsub
-    webpubsub = __webpubsub
-    import pulumi_azure_native.windowsesu as __windowsesu
-    windowsesu = __windowsesu
-    import pulumi_azure_native.windowsiot as __windowsiot
-    windowsiot = __windowsiot
+    import pulumi_azure_native.aad as aad
+    import pulumi_azure_native.aadiam as aadiam
+    import pulumi_azure_native.addons as addons
+    import pulumi_azure_native.advisor as advisor
+    import pulumi_azure_native.agfoodplatform as agfoodplatform
+    import pulumi_azure_native.alertsmanagement as alertsmanagement
+    import pulumi_azure_native.analysisservices as analysisservices
+    import pulumi_azure_native.apimanagement as apimanagement
+    import pulumi_azure_native.appconfiguration as appconfiguration
+    import pulumi_azure_native.appplatform as appplatform
+    import pulumi_azure_native.attestation as attestation
+    import pulumi_azure_native.authorization as authorization
+    import pulumi_azure_native.automanage as automanage
+    import pulumi_azure_native.automation as automation
+    import pulumi_azure_native.autonomousdevelopmentplatform as autonomousdevelopmentplatform
+    import pulumi_azure_native.avs as avs
+    import pulumi_azure_native.azureactivedirectory as azureactivedirectory
+    import pulumi_azure_native.azurearcdata as azurearcdata
+    import pulumi_azure_native.azuredata as azuredata
+    import pulumi_azure_native.azurestack as azurestack
+    import pulumi_azure_native.azurestackhci as azurestackhci
+    import pulumi_azure_native.batch as batch
+    import pulumi_azure_native.billing as billing
+    import pulumi_azure_native.blockchain as blockchain
+    import pulumi_azure_native.blueprint as blueprint
+    import pulumi_azure_native.botservice as botservice
+    import pulumi_azure_native.cache as cache
+    import pulumi_azure_native.cdn as cdn
+    import pulumi_azure_native.certificateregistration as certificateregistration
+    import pulumi_azure_native.changeanalysis as changeanalysis
+    import pulumi_azure_native.cognitiveservices as cognitiveservices
+    import pulumi_azure_native.communication as communication
+    import pulumi_azure_native.compute as compute
+    import pulumi_azure_native.confidentialledger as confidentialledger
+    import pulumi_azure_native.config as config
+    import pulumi_azure_native.confluent as confluent
+    import pulumi_azure_native.consumption as consumption
+    import pulumi_azure_native.containerinstance as containerinstance
+    import pulumi_azure_native.containerregistry as containerregistry
+    import pulumi_azure_native.containerservice as containerservice
+    import pulumi_azure_native.costmanagement as costmanagement
+    import pulumi_azure_native.customerinsights as customerinsights
+    import pulumi_azure_native.customproviders as customproviders
+    import pulumi_azure_native.databox as databox
+    import pulumi_azure_native.databoxedge as databoxedge
+    import pulumi_azure_native.databricks as databricks
+    import pulumi_azure_native.datacatalog as datacatalog
+    import pulumi_azure_native.datadog as datadog
+    import pulumi_azure_native.datafactory as datafactory
+    import pulumi_azure_native.datalakeanalytics as datalakeanalytics
+    import pulumi_azure_native.datalakestore as datalakestore
+    import pulumi_azure_native.datamigration as datamigration
+    import pulumi_azure_native.dataprotection as dataprotection
+    import pulumi_azure_native.datashare as datashare
+    import pulumi_azure_native.dbformariadb as dbformariadb
+    import pulumi_azure_native.dbformysql as dbformysql
+    import pulumi_azure_native.dbforpostgresql as dbforpostgresql
+    import pulumi_azure_native.delegatednetwork as delegatednetwork
+    import pulumi_azure_native.deploymentmanager as deploymentmanager
+    import pulumi_azure_native.desktopvirtualization as desktopvirtualization
+    import pulumi_azure_native.devices as devices
+    import pulumi_azure_native.deviceupdate as deviceupdate
+    import pulumi_azure_native.devops as devops
+    import pulumi_azure_native.devspaces as devspaces
+    import pulumi_azure_native.devtestlab as devtestlab
+    import pulumi_azure_native.digitaltwins as digitaltwins
+    import pulumi_azure_native.documentdb as documentdb
+    import pulumi_azure_native.domainregistration as domainregistration
+    import pulumi_azure_native.dynamics365fraudprotection as dynamics365fraudprotection
+    import pulumi_azure_native.edgeorder as edgeorder
+    import pulumi_azure_native.elastic as elastic
+    import pulumi_azure_native.engagementfabric as engagementfabric
+    import pulumi_azure_native.enterpriseknowledgegraph as enterpriseknowledgegraph
+    import pulumi_azure_native.eventgrid as eventgrid
+    import pulumi_azure_native.eventhub as eventhub
+    import pulumi_azure_native.extendedlocation as extendedlocation
+    import pulumi_azure_native.features as features
+    import pulumi_azure_native.fluidrelay as fluidrelay
+    import pulumi_azure_native.guestconfiguration as guestconfiguration
+    import pulumi_azure_native.hanaonazure as hanaonazure
+    import pulumi_azure_native.hardwaresecuritymodules as hardwaresecuritymodules
+    import pulumi_azure_native.hdinsight as hdinsight
+    import pulumi_azure_native.healthbot as healthbot
+    import pulumi_azure_native.healthcareapis as healthcareapis
+    import pulumi_azure_native.hybridcompute as hybridcompute
+    import pulumi_azure_native.hybriddata as hybriddata
+    import pulumi_azure_native.hybridnetwork as hybridnetwork
+    import pulumi_azure_native.importexport as importexport
+    import pulumi_azure_native.insights as insights
+    import pulumi_azure_native.intune as intune
+    import pulumi_azure_native.iotcentral as iotcentral
+    import pulumi_azure_native.iotsecurity as iotsecurity
+    import pulumi_azure_native.keyvault as keyvault
+    import pulumi_azure_native.kubernetes as kubernetes
+    import pulumi_azure_native.kubernetesconfiguration as kubernetesconfiguration
+    import pulumi_azure_native.kusto as kusto
+    import pulumi_azure_native.labservices as labservices
+    import pulumi_azure_native.logic as logic
+    import pulumi_azure_native.logz as logz
+    import pulumi_azure_native.m365securityandcompliance as m365securityandcompliance
+    import pulumi_azure_native.machinelearning as machinelearning
+    import pulumi_azure_native.machinelearningcompute as machinelearningcompute
+    import pulumi_azure_native.machinelearningexperimentation as machinelearningexperimentation
+    import pulumi_azure_native.machinelearningservices as machinelearningservices
+    import pulumi_azure_native.maintenance as maintenance
+    import pulumi_azure_native.managedidentity as managedidentity
+    import pulumi_azure_native.managednetwork as managednetwork
+    import pulumi_azure_native.managedservices as managedservices
+    import pulumi_azure_native.management as management
+    import pulumi_azure_native.managementpartner as managementpartner
+    import pulumi_azure_native.maps as maps
+    import pulumi_azure_native.marketplace as marketplace
+    import pulumi_azure_native.media as media
+    import pulumi_azure_native.migrate as migrate
+    import pulumi_azure_native.mixedreality as mixedreality
+    import pulumi_azure_native.netapp as netapp
+    import pulumi_azure_native.network as network
+    import pulumi_azure_native.notebooks as notebooks
+    import pulumi_azure_native.notificationhubs as notificationhubs
+    import pulumi_azure_native.offazure as offazure
+    import pulumi_azure_native.operationalinsights as operationalinsights
+    import pulumi_azure_native.operationsmanagement as operationsmanagement
+    import pulumi_azure_native.peering as peering
+    import pulumi_azure_native.policyinsights as policyinsights
+    import pulumi_azure_native.portal as portal
+    import pulumi_azure_native.powerbi as powerbi
+    import pulumi_azure_native.powerbidedicated as powerbidedicated
+    import pulumi_azure_native.powerplatform as powerplatform
+    import pulumi_azure_native.providerhub as providerhub
+    import pulumi_azure_native.purview as purview
+    import pulumi_azure_native.quantum as quantum
+    import pulumi_azure_native.recoveryservices as recoveryservices
+    import pulumi_azure_native.redhatopenshift as redhatopenshift
+    import pulumi_azure_native.relay as relay
+    import pulumi_azure_native.resourcegraph as resourcegraph
+    import pulumi_azure_native.resources as resources
+    import pulumi_azure_native.saas as saas
+    import pulumi_azure_native.scheduler as scheduler
+    import pulumi_azure_native.search as search
+    import pulumi_azure_native.security as security
+    import pulumi_azure_native.securityandcompliance as securityandcompliance
+    import pulumi_azure_native.securityinsights as securityinsights
+    import pulumi_azure_native.serialconsole as serialconsole
+    import pulumi_azure_native.servicebus as servicebus
+    import pulumi_azure_native.servicefabric as servicefabric
+    import pulumi_azure_native.servicefabricmesh as servicefabricmesh
+    import pulumi_azure_native.signalrservice as signalrservice
+    import pulumi_azure_native.softwareplan as softwareplan
+    import pulumi_azure_native.solutions as solutions
+    import pulumi_azure_native.sql as sql
+    import pulumi_azure_native.sqlvirtualmachine as sqlvirtualmachine
+    import pulumi_azure_native.storage as storage
+    import pulumi_azure_native.storagecache as storagecache
+    import pulumi_azure_native.storagepool as storagepool
+    import pulumi_azure_native.storagesync as storagesync
+    import pulumi_azure_native.storsimple as storsimple
+    import pulumi_azure_native.streamanalytics as streamanalytics
+    import pulumi_azure_native.subscription as subscription
+    import pulumi_azure_native.synapse as synapse
+    import pulumi_azure_native.testbase as testbase
+    import pulumi_azure_native.timeseriesinsights as timeseriesinsights
+    import pulumi_azure_native.videoanalyzer as videoanalyzer
+    import pulumi_azure_native.virtualmachineimages as virtualmachineimages
+    import pulumi_azure_native.visualstudio as visualstudio
+    import pulumi_azure_native.vmwarecloudsimple as vmwarecloudsimple
+    import pulumi_azure_native.web as web
+    import pulumi_azure_native.webpubsub as webpubsub
+    import pulumi_azure_native.windowsesu as windowsesu
+    import pulumi_azure_native.windowsiot as windowsiot
 else:
     aad = _utilities.lazy_import('pulumi_azure_native.aad')
     aadiam = _utilities.lazy_import('pulumi_azure_native.aadiam')
@@ -5919,17 +5750,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "devices/v20210901preview",
-  "fqn": "pulumi_azure_native.devices.v20210901preview",
-  "classes": {
-   "azure-native:devices/v20210901preview:Certificate": "Certificate",
-   "azure-native:devices/v20210901preview:IotHubResource": "IotHubResource",
-   "azure-native:devices/v20210901preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
-   "azure-native:devices/v20210901preview:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "deviceupdate",
   "fqn": "pulumi_azure_native.deviceupdate",
   "classes": {
@@ -8841,16 +8661,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.maintenance.v20210501",
   "classes": {
    "azure-native:maintenance/v20210501:MaintenanceConfiguration": "MaintenanceConfiguration"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "maintenance/v20210901preview",
-  "fqn": "pulumi_azure_native.maintenance.v20210901preview",
-  "classes": {
-   "azure-native:maintenance/v20210901preview:ConfigurationAssignment": "ConfigurationAssignment",
-   "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent": "ConfigurationAssignmentParent",
-   "azure-native:maintenance/v20210901preview:MaintenanceConfiguration": "MaintenanceConfiguration"
   }
  },
  {
@@ -12677,18 +12487,7 @@ _utilities.register(
    "azure-native:recoveryservices/v20210701:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20210701:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20210701:ProtectionPolicy": "ProtectionPolicy",
-   "azure-native:recoveryservices/v20210701:ReplicationFabric": "ReplicationFabric",
-   "azure-native:recoveryservices/v20210701:ReplicationMigrationItem": "ReplicationMigrationItem",
-   "azure-native:recoveryservices/v20210701:ReplicationNetworkMapping": "ReplicationNetworkMapping",
-   "azure-native:recoveryservices/v20210701:ReplicationPolicy": "ReplicationPolicy",
-   "azure-native:recoveryservices/v20210701:ReplicationProtectedItem": "ReplicationProtectedItem",
-   "azure-native:recoveryservices/v20210701:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
-   "azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
-   "azure-native:recoveryservices/v20210701:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
-   "azure-native:recoveryservices/v20210701:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
-   "azure-native:recoveryservices/v20210701:ReplicationvCenter": "ReplicationvCenter",
-   "azure-native:recoveryservices/v20210701:ResourceGuardProxy": "ResourceGuardProxy",
-   "azure-native:recoveryservices/v20210701:Vault": "Vault"
+   "azure-native:recoveryservices/v20210701:ResourceGuardProxy": "ResourceGuardProxy"
   }
  },
  {
@@ -15153,30 +14952,6 @@ _utilities.register(
    "azure-native:synapse/v20210501:WorkspaceAadAdmin": "WorkspaceAadAdmin",
    "azure-native:synapse/v20210501:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
    "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "synapse/v20210601",
-  "fqn": "pulumi_azure_native.synapse.v20210601",
-  "classes": {
-   "azure-native:synapse/v20210601:BigDataPool": "BigDataPool",
-   "azure-native:synapse/v20210601:IntegrationRuntime": "IntegrationRuntime",
-   "azure-native:synapse/v20210601:IpFirewallRule": "IpFirewallRule",
-   "azure-native:synapse/v20210601:Key": "Key",
-   "azure-native:synapse/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:synapse/v20210601:PrivateLinkHub": "PrivateLinkHub",
-   "azure-native:synapse/v20210601:SqlPool": "SqlPool",
-   "azure-native:synapse/v20210601:SqlPoolSensitivityLabel": "SqlPoolSensitivityLabel",
-   "azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption": "SqlPoolTransparentDataEncryption",
-   "azure-native:synapse/v20210601:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment",
-   "azure-native:synapse/v20210601:SqlPoolVulnerabilityAssessmentRuleBaseline": "SqlPoolVulnerabilityAssessmentRuleBaseline",
-   "azure-native:synapse/v20210601:SqlPoolWorkloadClassifier": "SqlPoolWorkloadClassifier",
-   "azure-native:synapse/v20210601:SqlPoolWorkloadGroup": "SqlPoolWorkloadGroup",
-   "azure-native:synapse/v20210601:Workspace": "Workspace",
-   "azure-native:synapse/v20210601:WorkspaceAadAdmin": "WorkspaceAadAdmin",
-   "azure-native:synapse/v20210601:WorkspaceManagedSqlServerVulnerabilityAssessment": "WorkspaceManagedSqlServerVulnerabilityAssessment",
-   "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
   }
  },
  {

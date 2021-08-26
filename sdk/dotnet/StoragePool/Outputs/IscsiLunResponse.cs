@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool.Outputs
 {
 
-    /// <summary>
-    /// LUN to expose the Azure Managed Disk.
-    /// </summary>
     [OutputType]
     public sealed class IscsiLunResponse
     {

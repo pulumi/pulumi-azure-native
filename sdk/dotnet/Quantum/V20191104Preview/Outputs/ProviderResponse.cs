@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Quantum.V20191104Preview.Outputs
 {
 
-    /// <summary>
-    /// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
-    /// </summary>
     [OutputType]
     public sealed class ProviderResponse
     {

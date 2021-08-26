@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview.Outputs
 {
 
-    /// <summary>
-    /// An access policy entry.
-    /// </summary>
     [OutputType]
     public sealed class ServiceAccessPolicyEntryResponse
     {

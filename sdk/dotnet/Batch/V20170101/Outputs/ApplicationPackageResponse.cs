@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170101.Outputs
 {
 
-    /// <summary>
-    /// An application package which represents a particular version of an application.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationPackageResponse
     {

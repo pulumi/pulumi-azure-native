@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Integration runtime reference type.
-    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeReferenceResponse
     {

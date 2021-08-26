@@ -58,12 +58,6 @@ func NewConfigurationAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:maintenance:ConfigurationAssignment"),
 		},
-		{
-			Type: pulumi.String("azure-native:maintenance/v20210901preview:ConfigurationAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20210901preview:ConfigurationAssignment"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationAssignment
@@ -159,7 +153,9 @@ func (i *ConfigurationAssignment) ToConfigurationAssignmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssignmentOutput)
 }
 
-type ConfigurationAssignmentOutput struct{ *pulumi.OutputState }
+type ConfigurationAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConfigurationAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationAssignment)(nil))

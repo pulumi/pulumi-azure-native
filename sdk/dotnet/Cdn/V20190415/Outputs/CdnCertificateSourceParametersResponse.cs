@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190415.Outputs
 {
 
-    /// <summary>
-    /// Defines the parameters for using CDN managed certificate for securing custom domain.
-    /// </summary>
     [OutputType]
     public sealed class CdnCertificateSourceParametersResponse
     {

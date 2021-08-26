@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20190513.Outputs
 {
 
-    /// <summary>
-    /// Additional information on Azure IaaS VM specific backup item.
-    /// </summary>
     [OutputType]
     public sealed class AzureIaaSVMProtectedItemExtendedInfoResponse
     {

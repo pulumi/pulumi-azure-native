@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The integration account RosettaNet ProcessConfiguration activity behavior.
-    /// </summary>
     [OutputType]
     public sealed class RosettaNetPipActivityBehaviorResponse
     {

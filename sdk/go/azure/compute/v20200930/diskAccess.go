@@ -148,7 +148,9 @@ func (i *DiskAccess) ToDiskAccessOutputWithContext(ctx context.Context) DiskAcce
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessOutput)
 }
 
-type DiskAccessOutput struct{ *pulumi.OutputState }
+type DiskAccessOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiskAccessOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskAccess)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20190301.Outputs
 {
 
-    /// <summary>
-    /// Describes the policy to be used for placement of a Service Fabric service.
-    /// </summary>
     [OutputType]
     public sealed class ServicePlacementPolicyDescriptionResponse
     {

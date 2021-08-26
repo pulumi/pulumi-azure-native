@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.Outputs
 {
 
-    /// <summary>
-    /// IpAddressOrRange object
-    /// </summary>
     [OutputType]
     public sealed class IpAddressOrRangeResponse
     {

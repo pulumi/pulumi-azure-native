@@ -11,7 +11,7 @@ import (
 )
 
 // Type of backup management for the backed up item.
-type BackupManagementType string
+type BackupManagementType pulumi.String
 
 const (
 	BackupManagementTypeInvalid           = BackupManagementType("Invalid")
@@ -26,23 +26,7 @@ const (
 )
 
 func (BackupManagementType) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupManagementType)(nil)).Elem()
-}
-
-func (e BackupManagementType) ToBackupManagementTypeOutput() BackupManagementTypeOutput {
-	return pulumi.ToOutput(e).(BackupManagementTypeOutput)
-}
-
-func (e BackupManagementType) ToBackupManagementTypeOutputWithContext(ctx context.Context) BackupManagementTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(BackupManagementTypeOutput)
-}
-
-func (e BackupManagementType) ToBackupManagementTypePtrOutput() BackupManagementTypePtrOutput {
-	return e.ToBackupManagementTypePtrOutputWithContext(context.Background())
-}
-
-func (e BackupManagementType) ToBackupManagementTypePtrOutputWithContext(ctx context.Context) BackupManagementTypePtrOutput {
-	return BackupManagementType(e).ToBackupManagementTypeOutputWithContext(ctx).ToBackupManagementTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e BackupManagementType) ToStringOutput() pulumi.StringOutput {
@@ -61,129 +45,8 @@ func (e BackupManagementType) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type BackupManagementTypeOutput struct{ *pulumi.OutputState }
-
-func (BackupManagementTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupManagementType)(nil)).Elem()
-}
-
-func (o BackupManagementTypeOutput) ToBackupManagementTypeOutput() BackupManagementTypeOutput {
-	return o
-}
-
-func (o BackupManagementTypeOutput) ToBackupManagementTypeOutputWithContext(ctx context.Context) BackupManagementTypeOutput {
-	return o
-}
-
-func (o BackupManagementTypeOutput) ToBackupManagementTypePtrOutput() BackupManagementTypePtrOutput {
-	return o.ToBackupManagementTypePtrOutputWithContext(context.Background())
-}
-
-func (o BackupManagementTypeOutput) ToBackupManagementTypePtrOutputWithContext(ctx context.Context) BackupManagementTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupManagementType) *BackupManagementType {
-		return &v
-	}).(BackupManagementTypePtrOutput)
-}
-
-func (o BackupManagementTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o BackupManagementTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupManagementType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o BackupManagementTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BackupManagementTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupManagementType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type BackupManagementTypePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupManagementTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupManagementType)(nil)).Elem()
-}
-
-func (o BackupManagementTypePtrOutput) ToBackupManagementTypePtrOutput() BackupManagementTypePtrOutput {
-	return o
-}
-
-func (o BackupManagementTypePtrOutput) ToBackupManagementTypePtrOutputWithContext(ctx context.Context) BackupManagementTypePtrOutput {
-	return o
-}
-
-func (o BackupManagementTypePtrOutput) Elem() BackupManagementTypeOutput {
-	return o.ApplyT(func(v *BackupManagementType) BackupManagementType {
-		if v != nil {
-			return *v
-		}
-		var ret BackupManagementType
-		return ret
-	}).(BackupManagementTypeOutput)
-}
-
-func (o BackupManagementTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BackupManagementTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupManagementType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// BackupManagementTypeInput is an input type that accepts BackupManagementTypeArgs and BackupManagementTypeOutput values.
-// You can construct a concrete instance of `BackupManagementTypeInput` via:
-//
-//          BackupManagementTypeArgs{...}
-type BackupManagementTypeInput interface {
-	pulumi.Input
-
-	ToBackupManagementTypeOutput() BackupManagementTypeOutput
-	ToBackupManagementTypeOutputWithContext(context.Context) BackupManagementTypeOutput
-}
-
-var backupManagementTypePtrType = reflect.TypeOf((**BackupManagementType)(nil)).Elem()
-
-type BackupManagementTypePtrInput interface {
-	pulumi.Input
-
-	ToBackupManagementTypePtrOutput() BackupManagementTypePtrOutput
-	ToBackupManagementTypePtrOutputWithContext(context.Context) BackupManagementTypePtrOutput
-}
-
-type backupManagementTypePtr string
-
-func BackupManagementTypePtr(v string) BackupManagementTypePtrInput {
-	return (*backupManagementTypePtr)(&v)
-}
-
-func (*backupManagementTypePtr) ElementType() reflect.Type {
-	return backupManagementTypePtrType
-}
-
-func (in *backupManagementTypePtr) ToBackupManagementTypePtrOutput() BackupManagementTypePtrOutput {
-	return pulumi.ToOutput(in).(BackupManagementTypePtrOutput)
-}
-
-func (in *backupManagementTypePtr) ToBackupManagementTypePtrOutputWithContext(ctx context.Context) BackupManagementTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(BackupManagementTypePtrOutput)
-}
-
 // Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-type CreateMode string
+type CreateMode pulumi.String
 
 const (
 	CreateModeInvalid = CreateMode("Invalid")
@@ -192,23 +55,7 @@ const (
 )
 
 func (CreateMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateMode)(nil)).Elem()
-}
-
-func (e CreateMode) ToCreateModeOutput() CreateModeOutput {
-	return pulumi.ToOutput(e).(CreateModeOutput)
-}
-
-func (e CreateMode) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CreateModeOutput)
-}
-
-func (e CreateMode) ToCreateModePtrOutput() CreateModePtrOutput {
-	return e.ToCreateModePtrOutputWithContext(context.Background())
-}
-
-func (e CreateMode) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return CreateMode(e).ToCreateModeOutputWithContext(ctx).ToCreateModePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e CreateMode) ToStringOutput() pulumi.StringOutput {
@@ -227,129 +74,8 @@ func (e CreateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CreateModeOutput struct{ *pulumi.OutputState }
-
-func (CreateModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateMode)(nil)).Elem()
-}
-
-func (o CreateModeOutput) ToCreateModeOutput() CreateModeOutput {
-	return o
-}
-
-func (o CreateModeOutput) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
-	return o
-}
-
-func (o CreateModeOutput) ToCreateModePtrOutput() CreateModePtrOutput {
-	return o.ToCreateModePtrOutputWithContext(context.Background())
-}
-
-func (o CreateModeOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateMode) *CreateMode {
-		return &v
-	}).(CreateModePtrOutput)
-}
-
-func (o CreateModeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o CreateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o CreateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CreateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type CreateModePtrOutput struct{ *pulumi.OutputState }
-
-func (CreateModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateMode)(nil)).Elem()
-}
-
-func (o CreateModePtrOutput) ToCreateModePtrOutput() CreateModePtrOutput {
-	return o
-}
-
-func (o CreateModePtrOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return o
-}
-
-func (o CreateModePtrOutput) Elem() CreateModeOutput {
-	return o.ApplyT(func(v *CreateMode) CreateMode {
-		if v != nil {
-			return *v
-		}
-		var ret CreateMode
-		return ret
-	}).(CreateModeOutput)
-}
-
-func (o CreateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CreateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreateMode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// CreateModeInput is an input type that accepts CreateModeArgs and CreateModeOutput values.
-// You can construct a concrete instance of `CreateModeInput` via:
-//
-//          CreateModeArgs{...}
-type CreateModeInput interface {
-	pulumi.Input
-
-	ToCreateModeOutput() CreateModeOutput
-	ToCreateModeOutputWithContext(context.Context) CreateModeOutput
-}
-
-var createModePtrType = reflect.TypeOf((**CreateMode)(nil)).Elem()
-
-type CreateModePtrInput interface {
-	pulumi.Input
-
-	ToCreateModePtrOutput() CreateModePtrOutput
-	ToCreateModePtrOutputWithContext(context.Context) CreateModePtrOutput
-}
-
-type createModePtr string
-
-func CreateModePtr(v string) CreateModePtrInput {
-	return (*createModePtr)(&v)
-}
-
-func (*createModePtr) ElementType() reflect.Type {
-	return createModePtrType
-}
-
-func (in *createModePtr) ToCreateModePtrOutput() CreateModePtrOutput {
-	return pulumi.ToOutput(in).(CreateModePtrOutput)
-}
-
-func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
-}
-
 // Type of workload this item represents.
-type DataSourceType string
+type DataSourceType pulumi.String
 
 const (
 	DataSourceTypeInvalid           = DataSourceType("Invalid")
@@ -370,23 +96,7 @@ const (
 )
 
 func (DataSourceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceType)(nil)).Elem()
-}
-
-func (e DataSourceType) ToDataSourceTypeOutput() DataSourceTypeOutput {
-	return pulumi.ToOutput(e).(DataSourceTypeOutput)
-}
-
-func (e DataSourceType) ToDataSourceTypeOutputWithContext(ctx context.Context) DataSourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataSourceTypeOutput)
-}
-
-func (e DataSourceType) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput {
-	return e.ToDataSourceTypePtrOutputWithContext(context.Background())
-}
-
-func (e DataSourceType) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
-	return DataSourceType(e).ToDataSourceTypeOutputWithContext(ctx).ToDataSourceTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e DataSourceType) ToStringOutput() pulumi.StringOutput {
@@ -405,129 +115,8 @@ func (e DataSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DataSourceTypeOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceType)(nil)).Elem()
-}
-
-func (o DataSourceTypeOutput) ToDataSourceTypeOutput() DataSourceTypeOutput {
-	return o
-}
-
-func (o DataSourceTypeOutput) ToDataSourceTypeOutputWithContext(ctx context.Context) DataSourceTypeOutput {
-	return o
-}
-
-func (o DataSourceTypeOutput) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput {
-	return o.ToDataSourceTypePtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceTypeOutput) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceType) *DataSourceType {
-		return &v
-	}).(DataSourceTypePtrOutput)
-}
-
-func (o DataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DataSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DataSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataSourceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceType)(nil)).Elem()
-}
-
-func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput {
-	return o
-}
-
-func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
-	return o
-}
-
-func (o DataSourceTypePtrOutput) Elem() DataSourceTypeOutput {
-	return o.ApplyT(func(v *DataSourceType) DataSourceType {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceType
-		return ret
-	}).(DataSourceTypeOutput)
-}
-
-func (o DataSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DataSourceTypeInput is an input type that accepts DataSourceTypeArgs and DataSourceTypeOutput values.
-// You can construct a concrete instance of `DataSourceTypeInput` via:
-//
-//          DataSourceTypeArgs{...}
-type DataSourceTypeInput interface {
-	pulumi.Input
-
-	ToDataSourceTypeOutput() DataSourceTypeOutput
-	ToDataSourceTypeOutputWithContext(context.Context) DataSourceTypeOutput
-}
-
-var dataSourceTypePtrType = reflect.TypeOf((**DataSourceType)(nil)).Elem()
-
-type DataSourceTypePtrInput interface {
-	pulumi.Input
-
-	ToDataSourceTypePtrOutput() DataSourceTypePtrOutput
-	ToDataSourceTypePtrOutputWithContext(context.Context) DataSourceTypePtrOutput
-}
-
-type dataSourceTypePtr string
-
-func DataSourceTypePtr(v string) DataSourceTypePtrInput {
-	return (*dataSourceTypePtr)(&v)
-}
-
-func (*dataSourceTypePtr) ElementType() reflect.Type {
-	return dataSourceTypePtrType
-}
-
-func (in *dataSourceTypePtr) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput {
-	return pulumi.ToOutput(in).(DataSourceTypePtrOutput)
-}
-
-func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
-}
-
 // Health status of protected item.
-type HealthStatus string
+type HealthStatus pulumi.String
 
 const (
 	HealthStatusPassed          = HealthStatus("Passed")
@@ -537,23 +126,7 @@ const (
 )
 
 func (HealthStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthStatus)(nil)).Elem()
-}
-
-func (e HealthStatus) ToHealthStatusOutput() HealthStatusOutput {
-	return pulumi.ToOutput(e).(HealthStatusOutput)
-}
-
-func (e HealthStatus) ToHealthStatusOutputWithContext(ctx context.Context) HealthStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HealthStatusOutput)
-}
-
-func (e HealthStatus) ToHealthStatusPtrOutput() HealthStatusPtrOutput {
-	return e.ToHealthStatusPtrOutputWithContext(context.Background())
-}
-
-func (e HealthStatus) ToHealthStatusPtrOutputWithContext(ctx context.Context) HealthStatusPtrOutput {
-	return HealthStatus(e).ToHealthStatusOutputWithContext(ctx).ToHealthStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HealthStatus) ToStringOutput() pulumi.StringOutput {
@@ -572,129 +145,8 @@ func (e HealthStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HealthStatusOutput struct{ *pulumi.OutputState }
-
-func (HealthStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthStatus)(nil)).Elem()
-}
-
-func (o HealthStatusOutput) ToHealthStatusOutput() HealthStatusOutput {
-	return o
-}
-
-func (o HealthStatusOutput) ToHealthStatusOutputWithContext(ctx context.Context) HealthStatusOutput {
-	return o
-}
-
-func (o HealthStatusOutput) ToHealthStatusPtrOutput() HealthStatusPtrOutput {
-	return o.ToHealthStatusPtrOutputWithContext(context.Background())
-}
-
-func (o HealthStatusOutput) ToHealthStatusPtrOutputWithContext(ctx context.Context) HealthStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthStatus) *HealthStatus {
-		return &v
-	}).(HealthStatusPtrOutput)
-}
-
-func (o HealthStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HealthStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HealthStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HealthStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HealthStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (HealthStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HealthStatus)(nil)).Elem()
-}
-
-func (o HealthStatusPtrOutput) ToHealthStatusPtrOutput() HealthStatusPtrOutput {
-	return o
-}
-
-func (o HealthStatusPtrOutput) ToHealthStatusPtrOutputWithContext(ctx context.Context) HealthStatusPtrOutput {
-	return o
-}
-
-func (o HealthStatusPtrOutput) Elem() HealthStatusOutput {
-	return o.ApplyT(func(v *HealthStatus) HealthStatus {
-		if v != nil {
-			return *v
-		}
-		var ret HealthStatus
-		return ret
-	}).(HealthStatusOutput)
-}
-
-func (o HealthStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HealthStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// HealthStatusInput is an input type that accepts HealthStatusArgs and HealthStatusOutput values.
-// You can construct a concrete instance of `HealthStatusInput` via:
-//
-//          HealthStatusArgs{...}
-type HealthStatusInput interface {
-	pulumi.Input
-
-	ToHealthStatusOutput() HealthStatusOutput
-	ToHealthStatusOutputWithContext(context.Context) HealthStatusOutput
-}
-
-var healthStatusPtrType = reflect.TypeOf((**HealthStatus)(nil)).Elem()
-
-type HealthStatusPtrInput interface {
-	pulumi.Input
-
-	ToHealthStatusPtrOutput() HealthStatusPtrOutput
-	ToHealthStatusPtrOutputWithContext(context.Context) HealthStatusPtrOutput
-}
-
-type healthStatusPtr string
-
-func HealthStatusPtr(v string) HealthStatusPtrInput {
-	return (*healthStatusPtr)(&v)
-}
-
-func (*healthStatusPtr) ElementType() reflect.Type {
-	return healthStatusPtrType
-}
-
-func (in *healthStatusPtr) ToHealthStatusPtrOutput() HealthStatusPtrOutput {
-	return pulumi.ToOutput(in).(HealthStatusPtrOutput)
-}
-
-func (in *healthStatusPtr) ToHealthStatusPtrOutputWithContext(ctx context.Context) HealthStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HealthStatusPtrOutput)
-}
-
 // Last backup operation status. Possible values: Healthy, Unhealthy.
-type LastBackupStatus string
+type LastBackupStatus pulumi.String
 
 const (
 	LastBackupStatusInvalid   = LastBackupStatus("Invalid")
@@ -704,23 +156,7 @@ const (
 )
 
 func (LastBackupStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*LastBackupStatus)(nil)).Elem()
-}
-
-func (e LastBackupStatus) ToLastBackupStatusOutput() LastBackupStatusOutput {
-	return pulumi.ToOutput(e).(LastBackupStatusOutput)
-}
-
-func (e LastBackupStatus) ToLastBackupStatusOutputWithContext(ctx context.Context) LastBackupStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LastBackupStatusOutput)
-}
-
-func (e LastBackupStatus) ToLastBackupStatusPtrOutput() LastBackupStatusPtrOutput {
-	return e.ToLastBackupStatusPtrOutputWithContext(context.Background())
-}
-
-func (e LastBackupStatus) ToLastBackupStatusPtrOutputWithContext(ctx context.Context) LastBackupStatusPtrOutput {
-	return LastBackupStatus(e).ToLastBackupStatusOutputWithContext(ctx).ToLastBackupStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e LastBackupStatus) ToStringOutput() pulumi.StringOutput {
@@ -739,129 +175,8 @@ func (e LastBackupStatus) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LastBackupStatusOutput struct{ *pulumi.OutputState }
-
-func (LastBackupStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LastBackupStatus)(nil)).Elem()
-}
-
-func (o LastBackupStatusOutput) ToLastBackupStatusOutput() LastBackupStatusOutput {
-	return o
-}
-
-func (o LastBackupStatusOutput) ToLastBackupStatusOutputWithContext(ctx context.Context) LastBackupStatusOutput {
-	return o
-}
-
-func (o LastBackupStatusOutput) ToLastBackupStatusPtrOutput() LastBackupStatusPtrOutput {
-	return o.ToLastBackupStatusPtrOutputWithContext(context.Background())
-}
-
-func (o LastBackupStatusOutput) ToLastBackupStatusPtrOutputWithContext(ctx context.Context) LastBackupStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LastBackupStatus) *LastBackupStatus {
-		return &v
-	}).(LastBackupStatusPtrOutput)
-}
-
-func (o LastBackupStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o LastBackupStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LastBackupStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o LastBackupStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LastBackupStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LastBackupStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type LastBackupStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (LastBackupStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LastBackupStatus)(nil)).Elem()
-}
-
-func (o LastBackupStatusPtrOutput) ToLastBackupStatusPtrOutput() LastBackupStatusPtrOutput {
-	return o
-}
-
-func (o LastBackupStatusPtrOutput) ToLastBackupStatusPtrOutputWithContext(ctx context.Context) LastBackupStatusPtrOutput {
-	return o
-}
-
-func (o LastBackupStatusPtrOutput) Elem() LastBackupStatusOutput {
-	return o.ApplyT(func(v *LastBackupStatus) LastBackupStatus {
-		if v != nil {
-			return *v
-		}
-		var ret LastBackupStatus
-		return ret
-	}).(LastBackupStatusOutput)
-}
-
-func (o LastBackupStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LastBackupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LastBackupStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// LastBackupStatusInput is an input type that accepts LastBackupStatusArgs and LastBackupStatusOutput values.
-// You can construct a concrete instance of `LastBackupStatusInput` via:
-//
-//          LastBackupStatusArgs{...}
-type LastBackupStatusInput interface {
-	pulumi.Input
-
-	ToLastBackupStatusOutput() LastBackupStatusOutput
-	ToLastBackupStatusOutputWithContext(context.Context) LastBackupStatusOutput
-}
-
-var lastBackupStatusPtrType = reflect.TypeOf((**LastBackupStatus)(nil)).Elem()
-
-type LastBackupStatusPtrInput interface {
-	pulumi.Input
-
-	ToLastBackupStatusPtrOutput() LastBackupStatusPtrOutput
-	ToLastBackupStatusPtrOutputWithContext(context.Context) LastBackupStatusPtrOutput
-}
-
-type lastBackupStatusPtr string
-
-func LastBackupStatusPtr(v string) LastBackupStatusPtrInput {
-	return (*lastBackupStatusPtr)(&v)
-}
-
-func (*lastBackupStatusPtr) ElementType() reflect.Type {
-	return lastBackupStatusPtrType
-}
-
-func (in *lastBackupStatusPtr) ToLastBackupStatusPtrOutput() LastBackupStatusPtrOutput {
-	return pulumi.ToOutput(in).(LastBackupStatusPtrOutput)
-}
-
-func (in *lastBackupStatusPtr) ToLastBackupStatusPtrOutputWithContext(ctx context.Context) LastBackupStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LastBackupStatusPtrOutput)
-}
-
 // Health status of the backup item, evaluated based on last heartbeat received
-type ProtectedItemHealthStatus string
+type ProtectedItemHealthStatus pulumi.String
 
 const (
 	ProtectedItemHealthStatusInvalid      = ProtectedItemHealthStatus("Invalid")
@@ -872,23 +187,7 @@ const (
 )
 
 func (ProtectedItemHealthStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemHealthStatus)(nil)).Elem()
-}
-
-func (e ProtectedItemHealthStatus) ToProtectedItemHealthStatusOutput() ProtectedItemHealthStatusOutput {
-	return pulumi.ToOutput(e).(ProtectedItemHealthStatusOutput)
-}
-
-func (e ProtectedItemHealthStatus) ToProtectedItemHealthStatusOutputWithContext(ctx context.Context) ProtectedItemHealthStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ProtectedItemHealthStatusOutput)
-}
-
-func (e ProtectedItemHealthStatus) ToProtectedItemHealthStatusPtrOutput() ProtectedItemHealthStatusPtrOutput {
-	return e.ToProtectedItemHealthStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ProtectedItemHealthStatus) ToProtectedItemHealthStatusPtrOutputWithContext(ctx context.Context) ProtectedItemHealthStatusPtrOutput {
-	return ProtectedItemHealthStatus(e).ToProtectedItemHealthStatusOutputWithContext(ctx).ToProtectedItemHealthStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ProtectedItemHealthStatus) ToStringOutput() pulumi.StringOutput {
@@ -907,129 +206,8 @@ func (e ProtectedItemHealthStatus) ToStringPtrOutputWithContext(ctx context.Cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ProtectedItemHealthStatusOutput struct{ *pulumi.OutputState }
-
-func (ProtectedItemHealthStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemHealthStatus)(nil)).Elem()
-}
-
-func (o ProtectedItemHealthStatusOutput) ToProtectedItemHealthStatusOutput() ProtectedItemHealthStatusOutput {
-	return o
-}
-
-func (o ProtectedItemHealthStatusOutput) ToProtectedItemHealthStatusOutputWithContext(ctx context.Context) ProtectedItemHealthStatusOutput {
-	return o
-}
-
-func (o ProtectedItemHealthStatusOutput) ToProtectedItemHealthStatusPtrOutput() ProtectedItemHealthStatusPtrOutput {
-	return o.ToProtectedItemHealthStatusPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemHealthStatusOutput) ToProtectedItemHealthStatusPtrOutputWithContext(ctx context.Context) ProtectedItemHealthStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectedItemHealthStatus) *ProtectedItemHealthStatus {
-		return &v
-	}).(ProtectedItemHealthStatusPtrOutput)
-}
-
-func (o ProtectedItemHealthStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemHealthStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtectedItemHealthStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ProtectedItemHealthStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemHealthStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtectedItemHealthStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ProtectedItemHealthStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (ProtectedItemHealthStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectedItemHealthStatus)(nil)).Elem()
-}
-
-func (o ProtectedItemHealthStatusPtrOutput) ToProtectedItemHealthStatusPtrOutput() ProtectedItemHealthStatusPtrOutput {
-	return o
-}
-
-func (o ProtectedItemHealthStatusPtrOutput) ToProtectedItemHealthStatusPtrOutputWithContext(ctx context.Context) ProtectedItemHealthStatusPtrOutput {
-	return o
-}
-
-func (o ProtectedItemHealthStatusPtrOutput) Elem() ProtectedItemHealthStatusOutput {
-	return o.ApplyT(func(v *ProtectedItemHealthStatus) ProtectedItemHealthStatus {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectedItemHealthStatus
-		return ret
-	}).(ProtectedItemHealthStatusOutput)
-}
-
-func (o ProtectedItemHealthStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemHealthStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProtectedItemHealthStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ProtectedItemHealthStatusInput is an input type that accepts ProtectedItemHealthStatusArgs and ProtectedItemHealthStatusOutput values.
-// You can construct a concrete instance of `ProtectedItemHealthStatusInput` via:
-//
-//          ProtectedItemHealthStatusArgs{...}
-type ProtectedItemHealthStatusInput interface {
-	pulumi.Input
-
-	ToProtectedItemHealthStatusOutput() ProtectedItemHealthStatusOutput
-	ToProtectedItemHealthStatusOutputWithContext(context.Context) ProtectedItemHealthStatusOutput
-}
-
-var protectedItemHealthStatusPtrType = reflect.TypeOf((**ProtectedItemHealthStatus)(nil)).Elem()
-
-type ProtectedItemHealthStatusPtrInput interface {
-	pulumi.Input
-
-	ToProtectedItemHealthStatusPtrOutput() ProtectedItemHealthStatusPtrOutput
-	ToProtectedItemHealthStatusPtrOutputWithContext(context.Context) ProtectedItemHealthStatusPtrOutput
-}
-
-type protectedItemHealthStatusPtr string
-
-func ProtectedItemHealthStatusPtr(v string) ProtectedItemHealthStatusPtrInput {
-	return (*protectedItemHealthStatusPtr)(&v)
-}
-
-func (*protectedItemHealthStatusPtr) ElementType() reflect.Type {
-	return protectedItemHealthStatusPtrType
-}
-
-func (in *protectedItemHealthStatusPtr) ToProtectedItemHealthStatusPtrOutput() ProtectedItemHealthStatusPtrOutput {
-	return pulumi.ToOutput(in).(ProtectedItemHealthStatusPtrOutput)
-}
-
-func (in *protectedItemHealthStatusPtr) ToProtectedItemHealthStatusPtrOutputWithContext(ctx context.Context) ProtectedItemHealthStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ProtectedItemHealthStatusPtrOutput)
-}
-
 // Protection state of the backup engine
-type ProtectedItemStateEnum string
+type ProtectedItemStateEnum pulumi.String
 
 const (
 	ProtectedItemStateEnumInvalid           = ProtectedItemStateEnum("Invalid")
@@ -1041,23 +219,7 @@ const (
 )
 
 func (ProtectedItemStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemStateEnum)(nil)).Elem()
-}
-
-func (e ProtectedItemStateEnum) ToProtectedItemStateEnumOutput() ProtectedItemStateEnumOutput {
-	return pulumi.ToOutput(e).(ProtectedItemStateEnumOutput)
-}
-
-func (e ProtectedItemStateEnum) ToProtectedItemStateEnumOutputWithContext(ctx context.Context) ProtectedItemStateEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ProtectedItemStateEnumOutput)
-}
-
-func (e ProtectedItemStateEnum) ToProtectedItemStateEnumPtrOutput() ProtectedItemStateEnumPtrOutput {
-	return e.ToProtectedItemStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (e ProtectedItemStateEnum) ToProtectedItemStateEnumPtrOutputWithContext(ctx context.Context) ProtectedItemStateEnumPtrOutput {
-	return ProtectedItemStateEnum(e).ToProtectedItemStateEnumOutputWithContext(ctx).ToProtectedItemStateEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ProtectedItemStateEnum) ToStringOutput() pulumi.StringOutput {
@@ -1076,129 +238,8 @@ func (e ProtectedItemStateEnum) ToStringPtrOutputWithContext(ctx context.Context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ProtectedItemStateEnumOutput struct{ *pulumi.OutputState }
-
-func (ProtectedItemStateEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemStateEnum)(nil)).Elem()
-}
-
-func (o ProtectedItemStateEnumOutput) ToProtectedItemStateEnumOutput() ProtectedItemStateEnumOutput {
-	return o
-}
-
-func (o ProtectedItemStateEnumOutput) ToProtectedItemStateEnumOutputWithContext(ctx context.Context) ProtectedItemStateEnumOutput {
-	return o
-}
-
-func (o ProtectedItemStateEnumOutput) ToProtectedItemStateEnumPtrOutput() ProtectedItemStateEnumPtrOutput {
-	return o.ToProtectedItemStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemStateEnumOutput) ToProtectedItemStateEnumPtrOutputWithContext(ctx context.Context) ProtectedItemStateEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectedItemStateEnum) *ProtectedItemStateEnum {
-		return &v
-	}).(ProtectedItemStateEnumPtrOutput)
-}
-
-func (o ProtectedItemStateEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtectedItemStateEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ProtectedItemStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtectedItemStateEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ProtectedItemStateEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (ProtectedItemStateEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectedItemStateEnum)(nil)).Elem()
-}
-
-func (o ProtectedItemStateEnumPtrOutput) ToProtectedItemStateEnumPtrOutput() ProtectedItemStateEnumPtrOutput {
-	return o
-}
-
-func (o ProtectedItemStateEnumPtrOutput) ToProtectedItemStateEnumPtrOutputWithContext(ctx context.Context) ProtectedItemStateEnumPtrOutput {
-	return o
-}
-
-func (o ProtectedItemStateEnumPtrOutput) Elem() ProtectedItemStateEnumOutput {
-	return o.ApplyT(func(v *ProtectedItemStateEnum) ProtectedItemStateEnum {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectedItemStateEnum
-		return ret
-	}).(ProtectedItemStateEnumOutput)
-}
-
-func (o ProtectedItemStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectedItemStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProtectedItemStateEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ProtectedItemStateEnumInput is an input type that accepts ProtectedItemStateEnumArgs and ProtectedItemStateEnumOutput values.
-// You can construct a concrete instance of `ProtectedItemStateEnumInput` via:
-//
-//          ProtectedItemStateEnumArgs{...}
-type ProtectedItemStateEnumInput interface {
-	pulumi.Input
-
-	ToProtectedItemStateEnumOutput() ProtectedItemStateEnumOutput
-	ToProtectedItemStateEnumOutputWithContext(context.Context) ProtectedItemStateEnumOutput
-}
-
-var protectedItemStateEnumPtrType = reflect.TypeOf((**ProtectedItemStateEnum)(nil)).Elem()
-
-type ProtectedItemStateEnumPtrInput interface {
-	pulumi.Input
-
-	ToProtectedItemStateEnumPtrOutput() ProtectedItemStateEnumPtrOutput
-	ToProtectedItemStateEnumPtrOutputWithContext(context.Context) ProtectedItemStateEnumPtrOutput
-}
-
-type protectedItemStateEnumPtr string
-
-func ProtectedItemStateEnumPtr(v string) ProtectedItemStateEnumPtrInput {
-	return (*protectedItemStateEnumPtr)(&v)
-}
-
-func (*protectedItemStateEnumPtr) ElementType() reflect.Type {
-	return protectedItemStateEnumPtrType
-}
-
-func (in *protectedItemStateEnumPtr) ToProtectedItemStateEnumPtrOutput() ProtectedItemStateEnumPtrOutput {
-	return pulumi.ToOutput(in).(ProtectedItemStateEnumPtrOutput)
-}
-
-func (in *protectedItemStateEnumPtr) ToProtectedItemStateEnumPtrOutputWithContext(ctx context.Context) ProtectedItemStateEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ProtectedItemStateEnumPtrOutput)
-}
-
 // Backup state of this backup item.
-type ProtectionState string
+type ProtectionState pulumi.String
 
 const (
 	ProtectionStateInvalid           = ProtectionState("Invalid")
@@ -1210,23 +251,7 @@ const (
 )
 
 func (ProtectionState) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionState)(nil)).Elem()
-}
-
-func (e ProtectionState) ToProtectionStateOutput() ProtectionStateOutput {
-	return pulumi.ToOutput(e).(ProtectionStateOutput)
-}
-
-func (e ProtectionState) ToProtectionStateOutputWithContext(ctx context.Context) ProtectionStateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ProtectionStateOutput)
-}
-
-func (e ProtectionState) ToProtectionStatePtrOutput() ProtectionStatePtrOutput {
-	return e.ToProtectionStatePtrOutputWithContext(context.Background())
-}
-
-func (e ProtectionState) ToProtectionStatePtrOutputWithContext(ctx context.Context) ProtectionStatePtrOutput {
-	return ProtectionState(e).ToProtectionStateOutputWithContext(ctx).ToProtectionStatePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ProtectionState) ToStringOutput() pulumi.StringOutput {
@@ -1245,129 +270,8 @@ func (e ProtectionState) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ProtectionStateOutput struct{ *pulumi.OutputState }
-
-func (ProtectionStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionState)(nil)).Elem()
-}
-
-func (o ProtectionStateOutput) ToProtectionStateOutput() ProtectionStateOutput {
-	return o
-}
-
-func (o ProtectionStateOutput) ToProtectionStateOutputWithContext(ctx context.Context) ProtectionStateOutput {
-	return o
-}
-
-func (o ProtectionStateOutput) ToProtectionStatePtrOutput() ProtectionStatePtrOutput {
-	return o.ToProtectionStatePtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionStateOutput) ToProtectionStatePtrOutputWithContext(ctx context.Context) ProtectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionState) *ProtectionState {
-		return &v
-	}).(ProtectionStatePtrOutput)
-}
-
-func (o ProtectionStateOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ProtectionStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtectionState) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ProtectionStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtectionState) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ProtectionStatePtrOutput struct{ *pulumi.OutputState }
-
-func (ProtectionStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionState)(nil)).Elem()
-}
-
-func (o ProtectionStatePtrOutput) ToProtectionStatePtrOutput() ProtectionStatePtrOutput {
-	return o
-}
-
-func (o ProtectionStatePtrOutput) ToProtectionStatePtrOutputWithContext(ctx context.Context) ProtectionStatePtrOutput {
-	return o
-}
-
-func (o ProtectionStatePtrOutput) Elem() ProtectionStateOutput {
-	return o.ApplyT(func(v *ProtectionState) ProtectionState {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectionState
-		return ret
-	}).(ProtectionStateOutput)
-}
-
-func (o ProtectionStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProtectionState) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ProtectionStateInput is an input type that accepts ProtectionStateArgs and ProtectionStateOutput values.
-// You can construct a concrete instance of `ProtectionStateInput` via:
-//
-//          ProtectionStateArgs{...}
-type ProtectionStateInput interface {
-	pulumi.Input
-
-	ToProtectionStateOutput() ProtectionStateOutput
-	ToProtectionStateOutputWithContext(context.Context) ProtectionStateOutput
-}
-
-var protectionStatePtrType = reflect.TypeOf((**ProtectionState)(nil)).Elem()
-
-type ProtectionStatePtrInput interface {
-	pulumi.Input
-
-	ToProtectionStatePtrOutput() ProtectionStatePtrOutput
-	ToProtectionStatePtrOutputWithContext(context.Context) ProtectionStatePtrOutput
-}
-
-type protectionStatePtr string
-
-func ProtectionStatePtr(v string) ProtectionStatePtrInput {
-	return (*protectionStatePtr)(&v)
-}
-
-func (*protectionStatePtr) ElementType() reflect.Type {
-	return protectionStatePtrType
-}
-
-func (in *protectionStatePtr) ToProtectionStatePtrOutput() ProtectionStatePtrOutput {
-	return pulumi.ToOutput(in).(ProtectionStatePtrOutput)
-}
-
-func (in *protectionStatePtr) ToProtectionStatePtrOutputWithContext(ctx context.Context) ProtectionStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ProtectionStatePtrOutput)
-}
-
 // Resource Health Status
-type ResourceHealthStatus string
+type ResourceHealthStatus pulumi.String
 
 const (
 	ResourceHealthStatusHealthy             = ResourceHealthStatus("Healthy")
@@ -1379,23 +283,7 @@ const (
 )
 
 func (ResourceHealthStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceHealthStatus)(nil)).Elem()
-}
-
-func (e ResourceHealthStatus) ToResourceHealthStatusOutput() ResourceHealthStatusOutput {
-	return pulumi.ToOutput(e).(ResourceHealthStatusOutput)
-}
-
-func (e ResourceHealthStatus) ToResourceHealthStatusOutputWithContext(ctx context.Context) ResourceHealthStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResourceHealthStatusOutput)
-}
-
-func (e ResourceHealthStatus) ToResourceHealthStatusPtrOutput() ResourceHealthStatusPtrOutput {
-	return e.ToResourceHealthStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ResourceHealthStatus) ToResourceHealthStatusPtrOutputWithContext(ctx context.Context) ResourceHealthStatusPtrOutput {
-	return ResourceHealthStatus(e).ToResourceHealthStatusOutputWithContext(ctx).ToResourceHealthStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ResourceHealthStatus) ToStringOutput() pulumi.StringOutput {
@@ -1412,146 +300,4 @@ func (e ResourceHealthStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ResourceHealthStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ResourceHealthStatusOutput struct{ *pulumi.OutputState }
-
-func (ResourceHealthStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceHealthStatus)(nil)).Elem()
-}
-
-func (o ResourceHealthStatusOutput) ToResourceHealthStatusOutput() ResourceHealthStatusOutput {
-	return o
-}
-
-func (o ResourceHealthStatusOutput) ToResourceHealthStatusOutputWithContext(ctx context.Context) ResourceHealthStatusOutput {
-	return o
-}
-
-func (o ResourceHealthStatusOutput) ToResourceHealthStatusPtrOutput() ResourceHealthStatusPtrOutput {
-	return o.ToResourceHealthStatusPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceHealthStatusOutput) ToResourceHealthStatusPtrOutputWithContext(ctx context.Context) ResourceHealthStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceHealthStatus) *ResourceHealthStatus {
-		return &v
-	}).(ResourceHealthStatusPtrOutput)
-}
-
-func (o ResourceHealthStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ResourceHealthStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceHealthStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ResourceHealthStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceHealthStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceHealthStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ResourceHealthStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceHealthStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceHealthStatus)(nil)).Elem()
-}
-
-func (o ResourceHealthStatusPtrOutput) ToResourceHealthStatusPtrOutput() ResourceHealthStatusPtrOutput {
-	return o
-}
-
-func (o ResourceHealthStatusPtrOutput) ToResourceHealthStatusPtrOutputWithContext(ctx context.Context) ResourceHealthStatusPtrOutput {
-	return o
-}
-
-func (o ResourceHealthStatusPtrOutput) Elem() ResourceHealthStatusOutput {
-	return o.ApplyT(func(v *ResourceHealthStatus) ResourceHealthStatus {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceHealthStatus
-		return ret
-	}).(ResourceHealthStatusOutput)
-}
-
-func (o ResourceHealthStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceHealthStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceHealthStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ResourceHealthStatusInput is an input type that accepts ResourceHealthStatusArgs and ResourceHealthStatusOutput values.
-// You can construct a concrete instance of `ResourceHealthStatusInput` via:
-//
-//          ResourceHealthStatusArgs{...}
-type ResourceHealthStatusInput interface {
-	pulumi.Input
-
-	ToResourceHealthStatusOutput() ResourceHealthStatusOutput
-	ToResourceHealthStatusOutputWithContext(context.Context) ResourceHealthStatusOutput
-}
-
-var resourceHealthStatusPtrType = reflect.TypeOf((**ResourceHealthStatus)(nil)).Elem()
-
-type ResourceHealthStatusPtrInput interface {
-	pulumi.Input
-
-	ToResourceHealthStatusPtrOutput() ResourceHealthStatusPtrOutput
-	ToResourceHealthStatusPtrOutputWithContext(context.Context) ResourceHealthStatusPtrOutput
-}
-
-type resourceHealthStatusPtr string
-
-func ResourceHealthStatusPtr(v string) ResourceHealthStatusPtrInput {
-	return (*resourceHealthStatusPtr)(&v)
-}
-
-func (*resourceHealthStatusPtr) ElementType() reflect.Type {
-	return resourceHealthStatusPtrType
-}
-
-func (in *resourceHealthStatusPtr) ToResourceHealthStatusPtrOutput() ResourceHealthStatusPtrOutput {
-	return pulumi.ToOutput(in).(ResourceHealthStatusPtrOutput)
-}
-
-func (in *resourceHealthStatusPtr) ToResourceHealthStatusPtrOutputWithContext(ctx context.Context) ResourceHealthStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResourceHealthStatusPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(BackupManagementTypeOutput{})
-	pulumi.RegisterOutputType(BackupManagementTypePtrOutput{})
-	pulumi.RegisterOutputType(CreateModeOutput{})
-	pulumi.RegisterOutputType(CreateModePtrOutput{})
-	pulumi.RegisterOutputType(DataSourceTypeOutput{})
-	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
-	pulumi.RegisterOutputType(HealthStatusOutput{})
-	pulumi.RegisterOutputType(HealthStatusPtrOutput{})
-	pulumi.RegisterOutputType(LastBackupStatusOutput{})
-	pulumi.RegisterOutputType(LastBackupStatusPtrOutput{})
-	pulumi.RegisterOutputType(ProtectedItemHealthStatusOutput{})
-	pulumi.RegisterOutputType(ProtectedItemHealthStatusPtrOutput{})
-	pulumi.RegisterOutputType(ProtectedItemStateEnumOutput{})
-	pulumi.RegisterOutputType(ProtectedItemStateEnumPtrOutput{})
-	pulumi.RegisterOutputType(ProtectionStateOutput{})
-	pulumi.RegisterOutputType(ProtectionStatePtrOutput{})
-	pulumi.RegisterOutputType(ResourceHealthStatusOutput{})
-	pulumi.RegisterOutputType(ResourceHealthStatusPtrOutput{})
 }

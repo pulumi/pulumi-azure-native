@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200415.Outputs
 {
 
-    /// <summary>
-    /// Rules defining user's geo access within a CDN endpoint.
-    /// </summary>
     [OutputType]
     public sealed class GeoFilterResponse
     {

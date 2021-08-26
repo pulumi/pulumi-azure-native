@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview.Outputs
 {
 
-    /// <summary>
-    /// The EngagementFabric SKU
-    /// </summary>
     [OutputType]
     public sealed class SKUResponse
     {

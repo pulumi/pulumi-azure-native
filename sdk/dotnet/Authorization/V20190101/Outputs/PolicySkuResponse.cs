@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20190101.Outputs
 {
 
-    /// <summary>
-    /// The policy sku. This property is optional, obsolete, and will be ignored.
-    /// </summary>
     [OutputType]
     public sealed class PolicySkuResponse
     {

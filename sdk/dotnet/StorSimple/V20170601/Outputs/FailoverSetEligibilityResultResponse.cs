@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20170601.Outputs
 {
 
-    /// <summary>
-    /// The eligibility result of failover set, for failover.
-    /// </summary>
     [OutputType]
     public sealed class FailoverSetEligibilityResultResponse
     {

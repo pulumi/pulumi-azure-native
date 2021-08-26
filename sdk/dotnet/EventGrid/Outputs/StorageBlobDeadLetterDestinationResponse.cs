@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
-    /// <summary>
-    /// Information about the storage blob based dead letter destination.
-    /// </summary>
     [OutputType]
     public sealed class StorageBlobDeadLetterDestinationResponse
     {

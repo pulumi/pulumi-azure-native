@@ -262,7 +262,9 @@ func (i *DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinGraphOutput)
 }
 
-type DatabaseAccountGremlinGraphOutput struct{ *pulumi.OutputState }
+type DatabaseAccountGremlinGraphOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountGremlinGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountGremlinGraph)(nil))

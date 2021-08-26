@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
-    /// <summary>
-    /// Class representing the servers solution summary.
-    /// </summary>
     [OutputType]
     public sealed class ServersSolutionSummaryResponse
     {

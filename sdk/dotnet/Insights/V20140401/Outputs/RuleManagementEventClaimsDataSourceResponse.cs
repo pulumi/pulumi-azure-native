@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20140401.Outputs
 {
 
-    /// <summary>
-    /// The claims for a rule management event data source.
-    /// </summary>
     [OutputType]
     public sealed class RuleManagementEventClaimsDataSourceResponse
     {

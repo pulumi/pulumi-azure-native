@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthBot.Outputs
 {
 
-    /// <summary>
-    /// The resource model definition representing SKU
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

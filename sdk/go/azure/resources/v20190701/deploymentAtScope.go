@@ -169,7 +169,9 @@ func (i *DeploymentAtScope) ToDeploymentAtScopeOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtScopeOutput)
 }
 
-type DeploymentAtScopeOutput struct{ *pulumi.OutputState }
+type DeploymentAtScopeOutput struct {
+	*pulumi.OutputState
+}
 
 func (DeploymentAtScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentAtScope)(nil))

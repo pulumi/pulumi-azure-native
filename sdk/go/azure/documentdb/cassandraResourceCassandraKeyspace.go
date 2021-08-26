@@ -247,7 +247,9 @@ func (i *CassandraResourceCassandraKeyspace) ToCassandraResourceCassandraKeyspac
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraKeyspaceOutput)
 }
 
-type CassandraResourceCassandraKeyspaceOutput struct{ *pulumi.OutputState }
+type CassandraResourceCassandraKeyspaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (CassandraResourceCassandraKeyspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraResourceCassandraKeyspace)(nil))

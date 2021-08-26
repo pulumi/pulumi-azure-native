@@ -220,7 +220,9 @@ func (i *NodeType) ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeOutput)
 }
 
-type NodeTypeOutput struct{ *pulumi.OutputState }
+type NodeTypeOutput struct {
+	*pulumi.OutputState
+}
 
 func (NodeTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NodeType)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210201.Outputs
 {
 
-    /// <summary>
-    /// The authentication client credentials of the custom Open ID Connect provider.
-    /// </summary>
     [OutputType]
     public sealed class OpenIdConnectClientCredentialResponse
     {

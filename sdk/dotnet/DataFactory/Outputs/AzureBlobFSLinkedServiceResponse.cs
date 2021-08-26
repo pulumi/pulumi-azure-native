@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Azure Data Lake Storage Gen2 linked service.
-    /// </summary>
     [OutputType]
     public sealed class AzureBlobFSLinkedServiceResponse
     {

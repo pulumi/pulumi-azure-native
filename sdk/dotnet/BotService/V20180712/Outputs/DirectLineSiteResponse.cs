@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.V20180712.Outputs
 {
 
-    /// <summary>
-    /// A site for the Direct Line channel
-    /// </summary>
     [OutputType]
     public sealed class DirectLineSiteResponse
     {

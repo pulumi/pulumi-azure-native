@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
 {
 
-    /// <summary>
-    /// An error response from the pod identity provisioning.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterPodIdentityProvisioningErrorResponse
     {

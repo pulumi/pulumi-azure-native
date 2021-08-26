@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
-    /// <summary>
-    /// Describes properties of a network resource.
-    /// </summary>
     [OutputType]
     public sealed class NetworkResourcePropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20160601.Outputs
 {
 
-    /// <summary>
-    /// The sku type.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

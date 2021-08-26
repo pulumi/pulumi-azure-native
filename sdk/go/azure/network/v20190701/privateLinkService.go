@@ -260,7 +260,9 @@ func (i *PrivateLinkService) ToPrivateLinkServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceOutput)
 }
 
-type PrivateLinkServiceOutput struct{ *pulumi.OutputState }
+type PrivateLinkServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateLinkServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkService)(nil))

@@ -157,7 +157,9 @@ func (i *DpsCertificate) ToDpsCertificateOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DpsCertificateOutput)
 }
 
-type DpsCertificateOutput struct{ *pulumi.OutputState }
+type DpsCertificateOutput struct {
+	*pulumi.OutputState
+}
 
 func (DpsCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DpsCertificate)(nil))

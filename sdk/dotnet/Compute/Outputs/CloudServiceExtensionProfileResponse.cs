@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// Describes a cloud service extension profile.
-    /// </summary>
     [OutputType]
     public sealed class CloudServiceExtensionProfileResponse
     {

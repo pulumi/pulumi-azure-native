@@ -126,7 +126,7 @@ func (o AddressOutput) ToAddressPtrOutput() AddressPtrOutput {
 }
 
 func (o AddressOutput) ToAddressPtrOutputWithContext(ctx context.Context) AddressPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Address) *Address {
+	return o.ApplyT(func(v Address) *Address {
 		return &v
 	}).(AddressPtrOutput)
 }
@@ -176,13 +176,7 @@ func (o AddressPtrOutput) ToAddressPtrOutputWithContext(ctx context.Context) Add
 }
 
 func (o AddressPtrOutput) Elem() AddressOutput {
-	return o.ApplyT(func(v *Address) Address {
-		if v != nil {
-			return *v
-		}
-		var ret Address
-		return ret
-	}).(AddressOutput)
+	return o.ApplyT(func(v *Address) Address { return *v }).(AddressOutput)
 }
 
 // First line of an Address.
@@ -361,7 +355,7 @@ func (o AddressResponseOutput) ToAddressResponsePtrOutput() AddressResponsePtrOu
 }
 
 func (o AddressResponseOutput) ToAddressResponsePtrOutputWithContext(ctx context.Context) AddressResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressResponse) *AddressResponse {
+	return o.ApplyT(func(v AddressResponse) *AddressResponse {
 		return &v
 	}).(AddressResponsePtrOutput)
 }
@@ -411,13 +405,7 @@ func (o AddressResponsePtrOutput) ToAddressResponsePtrOutputWithContext(ctx cont
 }
 
 func (o AddressResponsePtrOutput) Elem() AddressResponseOutput {
-	return o.ApplyT(func(v *AddressResponse) AddressResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AddressResponse
-		return ret
-	}).(AddressResponseOutput)
+	return o.ApplyT(func(v *AddressResponse) AddressResponse { return *v }).(AddressResponseOutput)
 }
 
 // First line of an Address.
@@ -611,7 +599,7 @@ func (o ContactOutput) ToContactPtrOutput() ContactPtrOutput {
 }
 
 func (o ContactOutput) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Contact) *Contact {
+	return o.ApplyT(func(v Contact) *Contact {
 		return &v
 	}).(ContactPtrOutput)
 }
@@ -676,13 +664,7 @@ func (o ContactPtrOutput) ToContactPtrOutputWithContext(ctx context.Context) Con
 }
 
 func (o ContactPtrOutput) Elem() ContactOutput {
-	return o.ApplyT(func(v *Contact) Contact {
-		if v != nil {
-			return *v
-		}
-		var ret Contact
-		return ret
-	}).(ContactOutput)
+	return o.ApplyT(func(v *Contact) Contact { return *v }).(ContactOutput)
 }
 
 // Mailing address.
@@ -1009,7 +991,7 @@ func (o DomainPurchaseConsentOutput) ToDomainPurchaseConsentPtrOutput() DomainPu
 }
 
 func (o DomainPurchaseConsentOutput) ToDomainPurchaseConsentPtrOutputWithContext(ctx context.Context) DomainPurchaseConsentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainPurchaseConsent) *DomainPurchaseConsent {
+	return o.ApplyT(func(v DomainPurchaseConsent) *DomainPurchaseConsent {
 		return &v
 	}).(DomainPurchaseConsentPtrOutput)
 }
@@ -1044,13 +1026,7 @@ func (o DomainPurchaseConsentPtrOutput) ToDomainPurchaseConsentPtrOutputWithCont
 }
 
 func (o DomainPurchaseConsentPtrOutput) Elem() DomainPurchaseConsentOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsent) DomainPurchaseConsent {
-		if v != nil {
-			return *v
-		}
-		var ret DomainPurchaseConsent
-		return ret
-	}).(DomainPurchaseConsentOutput)
+	return o.ApplyT(func(v *DomainPurchaseConsent) DomainPurchaseConsent { return *v }).(DomainPurchaseConsentOutput)
 }
 
 // Timestamp when the agreements were accepted.

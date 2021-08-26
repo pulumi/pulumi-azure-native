@@ -131,7 +131,9 @@ func (i *Artifact) ToArtifactOutputWithContext(ctx context.Context) ArtifactOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactOutput)
 }
 
-type ArtifactOutput struct{ *pulumi.OutputState }
+type ArtifactOutput struct {
+	*pulumi.OutputState
+}
 
 func (ArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Artifact)(nil))

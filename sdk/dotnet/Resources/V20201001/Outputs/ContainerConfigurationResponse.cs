@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20201001.Outputs
 {
 
-    /// <summary>
-    /// Settings to customize ACI container instance.
-    /// </summary>
     [OutputType]
     public sealed class ContainerConfigurationResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210701Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties on upload watermark.  Mostly timestamp for each upload data type
-    /// </summary>
     [OutputType]
     public sealed class UploadWatermarkResponse
     {

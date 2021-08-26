@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
-    /// <summary>
-    /// StringContains Advanced Filter.
-    /// </summary>
     [OutputType]
     public sealed class StringContainsAdvancedFilterResponse
     {

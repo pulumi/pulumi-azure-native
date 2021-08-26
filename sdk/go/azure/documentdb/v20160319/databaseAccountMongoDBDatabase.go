@@ -239,7 +239,9 @@ func (i *DatabaseAccountMongoDBDatabase) ToDatabaseAccountMongoDBDatabaseOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongoDBDatabaseOutput)
 }
 
-type DatabaseAccountMongoDBDatabaseOutput struct{ *pulumi.OutputState }
+type DatabaseAccountMongoDBDatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountMongoDBDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountMongoDBDatabase)(nil))

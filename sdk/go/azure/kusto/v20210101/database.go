@@ -190,7 +190,9 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-type DatabaseOutput struct{ *pulumi.OutputState }
+type DatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Database)(nil))

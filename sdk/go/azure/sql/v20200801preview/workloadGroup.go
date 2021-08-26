@@ -195,7 +195,9 @@ func (i *WorkloadGroup) ToWorkloadGroupOutputWithContext(ctx context.Context) Wo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadGroupOutput)
 }
 
-type WorkloadGroupOutput struct{ *pulumi.OutputState }
+type WorkloadGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadGroup)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// A feature for gallery image.
-    /// </summary>
     [OutputType]
     public sealed class GalleryImageFeatureResponse
     {

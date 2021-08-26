@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20160301.Outputs
 {
 
-    /// <summary>
-    /// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
-    /// </summary>
     [OutputType]
     public sealed class RuleManagementEventDataSourceResponse
     {

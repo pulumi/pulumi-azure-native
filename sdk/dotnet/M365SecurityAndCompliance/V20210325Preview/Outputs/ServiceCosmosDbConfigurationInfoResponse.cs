@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview.Outputs
 {
 
-    /// <summary>
-    /// The settings for the Cosmos DB database backing the service.
-    /// </summary>
     [OutputType]
     public sealed class ServiceCosmosDbConfigurationInfoResponse
     {

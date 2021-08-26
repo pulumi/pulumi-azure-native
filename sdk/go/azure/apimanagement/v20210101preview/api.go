@@ -326,7 +326,9 @@ func (i *Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOutput)
 }
 
-type ApiOutput struct{ *pulumi.OutputState }
+type ApiOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Api)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191201.Outputs
 {
 
-    /// <summary>
-    /// IP configuration of an Azure Firewall.
-    /// </summary>
     [OutputType]
     public sealed class AzureFirewallIPConfigurationResponse
     {

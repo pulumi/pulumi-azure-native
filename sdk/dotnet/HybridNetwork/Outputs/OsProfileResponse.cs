@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.Outputs
 {
 
-    /// <summary>
-    /// Specifies the operating system settings for the role instance.
-    /// </summary>
     [OutputType]
     public sealed class OsProfileResponse
     {

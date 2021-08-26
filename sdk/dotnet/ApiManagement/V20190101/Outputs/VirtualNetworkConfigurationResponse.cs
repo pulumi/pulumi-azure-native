@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20190101.Outputs
 {
 
-    /// <summary>
-    /// Configuration of a virtual network to which API Management service is deployed.
-    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkConfigurationResponse
     {

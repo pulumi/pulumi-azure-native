@@ -174,7 +174,9 @@ func (i *RedisEnterprise) ToRedisEnterpriseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RedisEnterpriseOutput)
 }
 
-type RedisEnterpriseOutput struct{ *pulumi.OutputState }
+type RedisEnterpriseOutput struct {
+	*pulumi.OutputState
+}
 
 func (RedisEnterpriseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RedisEnterprise)(nil))

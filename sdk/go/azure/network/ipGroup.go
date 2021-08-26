@@ -203,7 +203,9 @@ func (i *IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupOutput)
 }
 
-type IpGroupOutput struct{ *pulumi.OutputState }
+type IpGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (IpGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpGroup)(nil))

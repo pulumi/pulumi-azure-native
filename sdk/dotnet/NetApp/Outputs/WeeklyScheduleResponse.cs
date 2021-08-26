@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.Outputs
 {
 
-    /// <summary>
-    /// Weekly Schedule properties, make a snapshot every week at a specific day or days
-    /// </summary>
     [OutputType]
     public sealed class WeeklyScheduleResponse
     {

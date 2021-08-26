@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Outputs
 {
 
-    /// <summary>
-    /// The password that will be used for authenticating the token of a container registry.
-    /// </summary>
     [OutputType]
     public sealed class TokenPasswordResponse
     {

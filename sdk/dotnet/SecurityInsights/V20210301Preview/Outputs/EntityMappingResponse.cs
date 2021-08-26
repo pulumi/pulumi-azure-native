@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Single entity mapping for the alert rule
-    /// </summary>
     [OutputType]
     public sealed class EntityMappingResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.Outputs
 {
 
-    /// <summary>
-    /// Contains information for manual implementation for an Azure SQL Database, Server or Elastic Pool Recommended Action.
-    /// </summary>
     [OutputType]
     public sealed class RecommendedActionImplementationInfoResponse
     {

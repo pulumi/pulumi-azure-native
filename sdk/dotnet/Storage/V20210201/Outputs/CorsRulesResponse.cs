@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210201.Outputs
 {
 
-    /// <summary>
-    /// Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-    /// </summary>
     [OutputType]
     public sealed class CorsRulesResponse
     {

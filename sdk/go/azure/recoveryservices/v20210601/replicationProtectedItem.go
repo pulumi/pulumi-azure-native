@@ -90,12 +90,6 @@ func NewReplicationProtectedItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationProtectedItem"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationProtectedItem"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationProtectedItem
@@ -183,7 +177,9 @@ func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemOutput)
 }
 
-type ReplicationProtectedItemOutput struct{ *pulumi.OutputState }
+type ReplicationProtectedItemOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationProtectedItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationProtectedItem)(nil))

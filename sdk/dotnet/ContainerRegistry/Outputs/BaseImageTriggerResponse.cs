@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
-    /// <summary>
-    /// The trigger based on base image dependency.
-    /// </summary>
     [OutputType]
     public sealed class BaseImageTriggerResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200901.Outputs
 {
 
-    /// <summary>
-    /// The JSON object that contains the properties to validate a domain.
-    /// </summary>
     [OutputType]
     public sealed class DomainValidationPropertiesResponse
     {

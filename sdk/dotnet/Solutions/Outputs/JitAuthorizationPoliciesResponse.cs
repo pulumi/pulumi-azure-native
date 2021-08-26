@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.Outputs
 {
 
-    /// <summary>
-    /// The JIT authorization policies.
-    /// </summary>
     [OutputType]
     public sealed class JitAuthorizationPoliciesResponse
     {

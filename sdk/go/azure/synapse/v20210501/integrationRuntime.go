@@ -76,12 +76,6 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:IntegrationRuntime"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:IntegrationRuntime"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:IntegrationRuntime"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:IntegrationRuntime"),
 		},
 		{
@@ -166,7 +160,9 @@ func (i *IntegrationRuntime) ToIntegrationRuntimeOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeOutput)
 }
 
-type IntegrationRuntimeOutput struct{ *pulumi.OutputState }
+type IntegrationRuntimeOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationRuntimeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntime)(nil))

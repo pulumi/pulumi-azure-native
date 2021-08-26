@@ -74,12 +74,6 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:PrivateLinkHub"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:PrivateLinkHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:PrivateLinkHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:PrivateLinkHub"),
 		},
 		{
@@ -168,7 +162,9 @@ func (i *PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubOutput)
 }
 
-type PrivateLinkHubOutput struct{ *pulumi.OutputState }
+type PrivateLinkHubOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateLinkHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkHub)(nil))

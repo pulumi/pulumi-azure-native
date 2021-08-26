@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.V20200821Preview.Outputs
 {
 
-    /// <summary>
-    /// Managed application Jit access policy.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationJitAccessPolicyResponse
     {

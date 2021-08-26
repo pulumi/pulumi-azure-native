@@ -111,7 +111,7 @@ func (o ConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ToConnectio
 }
 
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ToConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesPrivateLinkServiceConnectionState) *ConnectionPropertiesPrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v ConnectionPropertiesPrivateLinkServiceConnectionState) *ConnectionPropertiesPrivateLinkServiceConnectionState {
 		return &v
 	}).(ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -147,11 +147,7 @@ func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) ToConnec
 
 func (o ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Elem() ConnectionPropertiesPrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesPrivateLinkServiceConnectionState) ConnectionPropertiesPrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionPropertiesPrivateLinkServiceConnectionState
-		return ret
+		return *v
 	}).(ConnectionPropertiesPrivateLinkServiceConnectionStateOutput)
 }
 
@@ -278,7 +274,7 @@ func (o ConnectionPropertiesResponsePrivateEndpointOutput) ToConnectionPropertie
 }
 
 func (o ConnectionPropertiesResponsePrivateEndpointOutput) ToConnectionPropertiesResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) ConnectionPropertiesResponsePrivateEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesResponsePrivateEndpoint) *ConnectionPropertiesResponsePrivateEndpoint {
+	return o.ApplyT(func(v ConnectionPropertiesResponsePrivateEndpoint) *ConnectionPropertiesResponsePrivateEndpoint {
 		return &v
 	}).(ConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
@@ -304,11 +300,7 @@ func (o ConnectionPropertiesResponsePrivateEndpointPtrOutput) ToConnectionProper
 
 func (o ConnectionPropertiesResponsePrivateEndpointPtrOutput) Elem() ConnectionPropertiesResponsePrivateEndpointOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesResponsePrivateEndpoint) ConnectionPropertiesResponsePrivateEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionPropertiesResponsePrivateEndpoint
-		return ret
+		return *v
 	}).(ConnectionPropertiesResponsePrivateEndpointOutput)
 }
 
@@ -423,7 +415,7 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ToC
 }
 
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ToConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPropertiesResponsePrivateLinkServiceConnectionState) *ConnectionPropertiesResponsePrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v ConnectionPropertiesResponsePrivateLinkServiceConnectionState) *ConnectionPropertiesResponsePrivateLinkServiceConnectionState {
 		return &v
 	}).(ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -461,11 +453,7 @@ func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) 
 
 func (o ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) Elem() ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v *ConnectionPropertiesResponsePrivateLinkServiceConnectionState) ConnectionPropertiesResponsePrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionPropertiesResponsePrivateLinkServiceConnectionState
-		return ret
+		return *v
 	}).(ConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput)
 }
 
@@ -595,7 +583,7 @@ func (o DigitalTwinsIdentityOutput) ToDigitalTwinsIdentityPtrOutput() DigitalTwi
 }
 
 func (o DigitalTwinsIdentityOutput) ToDigitalTwinsIdentityPtrOutputWithContext(ctx context.Context) DigitalTwinsIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DigitalTwinsIdentity) *DigitalTwinsIdentity {
+	return o.ApplyT(func(v DigitalTwinsIdentity) *DigitalTwinsIdentity {
 		return &v
 	}).(DigitalTwinsIdentityPtrOutput)
 }
@@ -620,13 +608,7 @@ func (o DigitalTwinsIdentityPtrOutput) ToDigitalTwinsIdentityPtrOutputWithContex
 }
 
 func (o DigitalTwinsIdentityPtrOutput) Elem() DigitalTwinsIdentityOutput {
-	return o.ApplyT(func(v *DigitalTwinsIdentity) DigitalTwinsIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret DigitalTwinsIdentity
-		return ret
-	}).(DigitalTwinsIdentityOutput)
+	return o.ApplyT(func(v *DigitalTwinsIdentity) DigitalTwinsIdentity { return *v }).(DigitalTwinsIdentityOutput)
 }
 
 // The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
@@ -743,7 +725,7 @@ func (o DigitalTwinsIdentityResponseOutput) ToDigitalTwinsIdentityResponsePtrOut
 }
 
 func (o DigitalTwinsIdentityResponseOutput) ToDigitalTwinsIdentityResponsePtrOutputWithContext(ctx context.Context) DigitalTwinsIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DigitalTwinsIdentityResponse) *DigitalTwinsIdentityResponse {
+	return o.ApplyT(func(v DigitalTwinsIdentityResponse) *DigitalTwinsIdentityResponse {
 		return &v
 	}).(DigitalTwinsIdentityResponsePtrOutput)
 }
@@ -778,13 +760,7 @@ func (o DigitalTwinsIdentityResponsePtrOutput) ToDigitalTwinsIdentityResponsePtr
 }
 
 func (o DigitalTwinsIdentityResponsePtrOutput) Elem() DigitalTwinsIdentityResponseOutput {
-	return o.ApplyT(func(v *DigitalTwinsIdentityResponse) DigitalTwinsIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DigitalTwinsIdentityResponse
-		return ret
-	}).(DigitalTwinsIdentityResponseOutput)
+	return o.ApplyT(func(v *DigitalTwinsIdentityResponse) DigitalTwinsIdentityResponse { return *v }).(DigitalTwinsIdentityResponseOutput)
 }
 
 // The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
@@ -1511,7 +1487,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -1542,13 +1518,7 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionProperties
-		return ret
-	}).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // The list of group ids for the private endpoint connection.
@@ -1797,7 +1767,7 @@ func (o PrivateEndpointConnectionResponsePropertiesOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionResponsePropertiesOutput) ToPrivateEndpointConnectionResponsePropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionResponseProperties) *PrivateEndpointConnectionResponseProperties {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponseProperties) *PrivateEndpointConnectionResponseProperties {
 		return &v
 	}).(PrivateEndpointConnectionResponsePropertiesPtrOutput)
 }
@@ -1840,11 +1810,7 @@ func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionResponsePropertiesPtrOutput) Elem() PrivateEndpointConnectionResponsePropertiesOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionResponseProperties) PrivateEndpointConnectionResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionResponseProperties
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionResponsePropertiesOutput)
 }
 

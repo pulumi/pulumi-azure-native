@@ -146,7 +146,9 @@ func (i *TransactionNode) ToTransactionNodeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TransactionNodeOutput)
 }
 
-type TransactionNodeOutput struct{ *pulumi.OutputState }
+type TransactionNodeOutput struct {
+	*pulumi.OutputState
+}
 
 func (TransactionNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TransactionNode)(nil))

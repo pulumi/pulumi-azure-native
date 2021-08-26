@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210520.Outputs
 {
 
-    /// <summary>
-    /// Metadata pertaining to creation and last modification of the resource.
-    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines the metadata of AzureFunctionOutputDataSource
-    /// </summary>
     [OutputType]
     public sealed class AzureFunctionOutputDataSourceResponse
     {

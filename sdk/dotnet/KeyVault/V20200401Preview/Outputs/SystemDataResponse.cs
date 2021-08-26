@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Outputs
 {
 
-    /// <summary>
-    /// Metadata pertaining to creation and last modification of key vault resource.
-    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

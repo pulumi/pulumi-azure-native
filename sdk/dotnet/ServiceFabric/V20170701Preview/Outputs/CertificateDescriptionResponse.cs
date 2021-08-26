@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the certificate details.
-    /// </summary>
     [OutputType]
     public sealed class CertificateDescriptionResponse
     {

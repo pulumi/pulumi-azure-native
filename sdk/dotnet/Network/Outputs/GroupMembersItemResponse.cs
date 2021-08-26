@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// GroupMembers Item.
-    /// </summary>
     [OutputType]
     public sealed class GroupMembersItemResponse
     {

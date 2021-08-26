@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Outputs
 {
 
-    /// <summary>
-    /// Object level immutability properties of the container.
-    /// </summary>
     [OutputType]
     public sealed class ImmutableStorageWithVersioningResponse
     {

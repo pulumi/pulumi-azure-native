@@ -124,7 +124,7 @@ type integrationAccountPartnerArgs struct {
 	// The integration account partner name.
 	PartnerName *string `pulumi:"partnerName"`
 	// The partner type.
-	PartnerType *PartnerType `pulumi:"partnerType"`
+	PartnerType *string `pulumi:"partnerType"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -150,7 +150,7 @@ type IntegrationAccountPartnerArgs struct {
 	// The integration account partner name.
 	PartnerName pulumi.StringPtrInput
 	// The partner type.
-	PartnerType PartnerTypePtrInput
+	PartnerType *PartnerType
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
@@ -182,7 +182,9 @@ func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerOutput)
 }
 
-type IntegrationAccountPartnerOutput struct{ *pulumi.OutputState }
+type IntegrationAccountPartnerOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationAccountPartnerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountPartner)(nil))

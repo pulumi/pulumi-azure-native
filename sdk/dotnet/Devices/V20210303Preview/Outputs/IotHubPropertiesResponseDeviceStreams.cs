@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20210303Preview.Outputs
 {
 
-    /// <summary>
-    /// The device streams properties of iothub.
-    /// </summary>
     [OutputType]
     public sealed class IotHubPropertiesResponseDeviceStreams
     {

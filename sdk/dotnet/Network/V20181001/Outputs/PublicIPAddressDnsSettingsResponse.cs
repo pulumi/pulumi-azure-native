@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181001.Outputs
 {
 
-    /// <summary>
-    /// Contains FQDN of the DNS record associated with the public IP address
-    /// </summary>
     [OutputType]
     public sealed class PublicIPAddressDnsSettingsResponse
     {

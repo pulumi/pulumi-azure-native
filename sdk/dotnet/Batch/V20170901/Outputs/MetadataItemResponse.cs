@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20170901.Outputs
 {
 
-    /// <summary>
-    /// The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
-    /// </summary>
     [OutputType]
     public sealed class MetadataItemResponse
     {

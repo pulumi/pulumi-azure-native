@@ -73,12 +73,6 @@ func NewKey(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:Key"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:Key"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:Key"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:Key"),
 		},
 		{
@@ -167,7 +161,9 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
 }
 
-type KeyOutput struct{ *pulumi.OutputState }
+type KeyOutput struct {
+	*pulumi.OutputState
+}
 
 func (KeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Key)(nil))

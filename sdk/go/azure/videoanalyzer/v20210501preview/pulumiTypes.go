@@ -114,7 +114,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptio
 }
 
 func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
+	return o.ApplyT(func(v AccountEncryption) *AccountEncryption {
 		return &v
 	}).(AccountEncryptionPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx 
 }
 
 func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
-	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret AccountEncryption
-		return ret
-	}).(AccountEncryptionOutput)
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption { return *v }).(AccountEncryptionOutput)
 }
 
 // The Key Vault identity.
@@ -296,7 +290,7 @@ func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutput() 
 }
 
 func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionResponse) *AccountEncryptionResponse {
+	return o.ApplyT(func(v AccountEncryptionResponse) *AccountEncryptionResponse {
 		return &v
 	}).(AccountEncryptionResponsePtrOutput)
 }
@@ -336,13 +330,7 @@ func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput
 }
 
 func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
-	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AccountEncryptionResponse
-		return ret
-	}).(AccountEncryptionResponseOutput)
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse { return *v }).(AccountEncryptionResponseOutput)
 }
 
 // The Key Vault identity.
@@ -796,7 +784,7 @@ func (o JwtAuthenticationOutput) ToJwtAuthenticationPtrOutput() JwtAuthenticatio
 }
 
 func (o JwtAuthenticationOutput) ToJwtAuthenticationPtrOutputWithContext(ctx context.Context) JwtAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JwtAuthentication) *JwtAuthentication {
+	return o.ApplyT(func(v JwtAuthentication) *JwtAuthentication {
 		return &v
 	}).(JwtAuthenticationPtrOutput)
 }
@@ -842,13 +830,7 @@ func (o JwtAuthenticationPtrOutput) ToJwtAuthenticationPtrOutputWithContext(ctx 
 }
 
 func (o JwtAuthenticationPtrOutput) Elem() JwtAuthenticationOutput {
-	return o.ApplyT(func(v *JwtAuthentication) JwtAuthentication {
-		if v != nil {
-			return *v
-		}
-		var ret JwtAuthentication
-		return ret
-	}).(JwtAuthenticationOutput)
+	return o.ApplyT(func(v *JwtAuthentication) JwtAuthentication { return *v }).(JwtAuthenticationOutput)
 }
 
 // List of expected token audiences. Token audience is valid if it matches at least one of the given values.
@@ -1016,7 +998,7 @@ func (o JwtAuthenticationResponseOutput) ToJwtAuthenticationResponsePtrOutput() 
 }
 
 func (o JwtAuthenticationResponseOutput) ToJwtAuthenticationResponsePtrOutputWithContext(ctx context.Context) JwtAuthenticationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JwtAuthenticationResponse) *JwtAuthenticationResponse {
+	return o.ApplyT(func(v JwtAuthenticationResponse) *JwtAuthenticationResponse {
 		return &v
 	}).(JwtAuthenticationResponsePtrOutput)
 }
@@ -1062,13 +1044,7 @@ func (o JwtAuthenticationResponsePtrOutput) ToJwtAuthenticationResponsePtrOutput
 }
 
 func (o JwtAuthenticationResponsePtrOutput) Elem() JwtAuthenticationResponseOutput {
-	return o.ApplyT(func(v *JwtAuthenticationResponse) JwtAuthenticationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JwtAuthenticationResponse
-		return ret
-	}).(JwtAuthenticationResponseOutput)
+	return o.ApplyT(func(v *JwtAuthenticationResponse) JwtAuthenticationResponse { return *v }).(JwtAuthenticationResponseOutput)
 }
 
 // List of expected token audiences. Token audience is valid if it matches at least one of the given values.
@@ -1218,7 +1194,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -1243,13 +1219,7 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultProperties
-		return ret
-	}).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
 }
 
 // The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
@@ -1362,7 +1332,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -1392,13 +1362,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultPropertiesResponse
-		return ret
-	}).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
 }
 
 // The current key used to encrypt Video Analyzer account, including the key version.
@@ -1517,7 +1481,7 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
@@ -1542,13 +1506,7 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentity
-		return ret
-	}).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
 }
 
 // The user assigned managed identity's resource identifier to use when accessing a resource.
@@ -1657,7 +1615,7 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
@@ -1682,13 +1640,7 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentityResponse
-		return ret
-	}).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
 }
 
 // The user assigned managed identity's resource identifier to use when accessing a resource.
@@ -2232,7 +2184,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -2282,13 +2234,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -2778,7 +2724,7 @@ func (o VideoAnalyzerIdentityOutput) ToVideoAnalyzerIdentityPtrOutput() VideoAna
 }
 
 func (o VideoAnalyzerIdentityOutput) ToVideoAnalyzerIdentityPtrOutputWithContext(ctx context.Context) VideoAnalyzerIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoAnalyzerIdentity) *VideoAnalyzerIdentity {
+	return o.ApplyT(func(v VideoAnalyzerIdentity) *VideoAnalyzerIdentity {
 		return &v
 	}).(VideoAnalyzerIdentityPtrOutput)
 }
@@ -2808,13 +2754,7 @@ func (o VideoAnalyzerIdentityPtrOutput) ToVideoAnalyzerIdentityPtrOutputWithCont
 }
 
 func (o VideoAnalyzerIdentityPtrOutput) Elem() VideoAnalyzerIdentityOutput {
-	return o.ApplyT(func(v *VideoAnalyzerIdentity) VideoAnalyzerIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret VideoAnalyzerIdentity
-		return ret
-	}).(VideoAnalyzerIdentityOutput)
+	return o.ApplyT(func(v *VideoAnalyzerIdentity) VideoAnalyzerIdentity { return *v }).(VideoAnalyzerIdentityOutput)
 }
 
 // The identity type.
@@ -2937,7 +2877,7 @@ func (o VideoAnalyzerIdentityResponseOutput) ToVideoAnalyzerIdentityResponsePtrO
 }
 
 func (o VideoAnalyzerIdentityResponseOutput) ToVideoAnalyzerIdentityResponsePtrOutputWithContext(ctx context.Context) VideoAnalyzerIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoAnalyzerIdentityResponse) *VideoAnalyzerIdentityResponse {
+	return o.ApplyT(func(v VideoAnalyzerIdentityResponse) *VideoAnalyzerIdentityResponse {
 		return &v
 	}).(VideoAnalyzerIdentityResponsePtrOutput)
 }
@@ -2969,13 +2909,7 @@ func (o VideoAnalyzerIdentityResponsePtrOutput) ToVideoAnalyzerIdentityResponseP
 }
 
 func (o VideoAnalyzerIdentityResponsePtrOutput) Elem() VideoAnalyzerIdentityResponseOutput {
-	return o.ApplyT(func(v *VideoAnalyzerIdentityResponse) VideoAnalyzerIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VideoAnalyzerIdentityResponse
-		return ret
-	}).(VideoAnalyzerIdentityResponseOutput)
+	return o.ApplyT(func(v *VideoAnalyzerIdentityResponse) VideoAnalyzerIdentityResponse { return *v }).(VideoAnalyzerIdentityResponseOutput)
 }
 
 // The identity type.
@@ -3102,7 +3036,7 @@ func (o VideoFlagsResponseOutput) ToVideoFlagsResponsePtrOutput() VideoFlagsResp
 }
 
 func (o VideoFlagsResponseOutput) ToVideoFlagsResponsePtrOutputWithContext(ctx context.Context) VideoFlagsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoFlagsResponse) *VideoFlagsResponse {
+	return o.ApplyT(func(v VideoFlagsResponse) *VideoFlagsResponse {
 		return &v
 	}).(VideoFlagsResponsePtrOutput)
 }
@@ -3137,13 +3071,7 @@ func (o VideoFlagsResponsePtrOutput) ToVideoFlagsResponsePtrOutputWithContext(ct
 }
 
 func (o VideoFlagsResponsePtrOutput) Elem() VideoFlagsResponseOutput {
-	return o.ApplyT(func(v *VideoFlagsResponse) VideoFlagsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VideoFlagsResponse
-		return ret
-	}).(VideoFlagsResponseOutput)
+	return o.ApplyT(func(v *VideoFlagsResponse) VideoFlagsResponse { return *v }).(VideoFlagsResponseOutput)
 }
 
 // Value indicating whether or not the video can be streamed. Only "archive" type videos can be streamed.
@@ -3272,7 +3200,7 @@ func (o VideoMediaInfoResponseOutput) ToVideoMediaInfoResponsePtrOutput() VideoM
 }
 
 func (o VideoMediaInfoResponseOutput) ToVideoMediaInfoResponsePtrOutputWithContext(ctx context.Context) VideoMediaInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoMediaInfoResponse) *VideoMediaInfoResponse {
+	return o.ApplyT(func(v VideoMediaInfoResponse) *VideoMediaInfoResponse {
 		return &v
 	}).(VideoMediaInfoResponsePtrOutput)
 }
@@ -3297,13 +3225,7 @@ func (o VideoMediaInfoResponsePtrOutput) ToVideoMediaInfoResponsePtrOutputWithCo
 }
 
 func (o VideoMediaInfoResponsePtrOutput) Elem() VideoMediaInfoResponseOutput {
-	return o.ApplyT(func(v *VideoMediaInfoResponse) VideoMediaInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VideoMediaInfoResponse
-		return ret
-	}).(VideoMediaInfoResponseOutput)
+	return o.ApplyT(func(v *VideoMediaInfoResponse) VideoMediaInfoResponse { return *v }).(VideoMediaInfoResponseOutput)
 }
 
 // Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
@@ -3424,7 +3346,7 @@ func (o VideoStreamingResponseOutput) ToVideoStreamingResponsePtrOutput() VideoS
 }
 
 func (o VideoStreamingResponseOutput) ToVideoStreamingResponsePtrOutputWithContext(ctx context.Context) VideoStreamingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoStreamingResponse) *VideoStreamingResponse {
+	return o.ApplyT(func(v VideoStreamingResponse) *VideoStreamingResponse {
 		return &v
 	}).(VideoStreamingResponsePtrOutput)
 }
@@ -3455,13 +3377,7 @@ func (o VideoStreamingResponsePtrOutput) ToVideoStreamingResponsePtrOutputWithCo
 }
 
 func (o VideoStreamingResponsePtrOutput) Elem() VideoStreamingResponseOutput {
-	return o.ApplyT(func(v *VideoStreamingResponse) VideoStreamingResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VideoStreamingResponse
-		return ret
-	}).(VideoStreamingResponseOutput)
+	return o.ApplyT(func(v *VideoStreamingResponse) VideoStreamingResponse { return *v }).(VideoStreamingResponseOutput)
 }
 
 // Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:

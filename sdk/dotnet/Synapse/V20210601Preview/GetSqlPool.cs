@@ -93,10 +93,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Specifies the time that the sql pool was deleted
-        /// </summary>
-        public readonly string? SourceDatabaseDeletionDate;
-        /// <summary>
         /// Source database to create from
         /// </summary>
         public readonly string? SourceDatabaseId;
@@ -141,8 +137,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             Outputs.SkuResponse? sku,
 
-            string? sourceDatabaseDeletionDate,
-
             string? sourceDatabaseId,
 
             string? status,
@@ -164,7 +158,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             RecoverableDatabaseId = recoverableDatabaseId;
             RestorePointInTime = restorePointInTime;
             Sku = sku;
-            SourceDatabaseDeletionDate = sourceDatabaseDeletionDate;
             SourceDatabaseId = sourceDatabaseId;
             Status = status;
             StorageAccountType = storageAccountType;

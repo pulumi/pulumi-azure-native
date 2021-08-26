@@ -99,12 +99,6 @@ func NewSqlPoolsV3(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolsV3"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolsV3"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolsV3"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:SqlPoolsV3"),
 		},
 		{
@@ -209,7 +203,9 @@ func (i *SqlPoolsV3) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPools
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolsV3Output)
 }
 
-type SqlPoolsV3Output struct{ *pulumi.OutputState }
+type SqlPoolsV3Output struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolsV3Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolsV3)(nil))

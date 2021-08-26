@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.V20181015.Outputs
 {
 
-    /// <summary>
-    /// Represents a size category supported by this Lab Account (small, medium or large)
-    /// </summary>
     [OutputType]
     public sealed class EnvironmentSizeResponse
     {

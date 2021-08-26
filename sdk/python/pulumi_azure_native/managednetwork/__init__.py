@@ -19,8 +19,7 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.managednetwork.v20190601preview as __v20190601preview
-    v20190601preview = __v20190601preview
+    import pulumi_azure_native.managednetwork.v20190601preview as v20190601preview
 else:
     v20190601preview = _utilities.lazy_import('pulumi_azure_native.managednetwork.v20190601preview')
 

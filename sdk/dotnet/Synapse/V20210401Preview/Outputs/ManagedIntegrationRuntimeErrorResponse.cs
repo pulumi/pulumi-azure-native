@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Error definition for managed integration runtime.
-    /// </summary>
     [OutputType]
     public sealed class ManagedIntegrationRuntimeErrorResponse
     {

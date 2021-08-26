@@ -150,7 +150,9 @@ func (i *TaskRun) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskRunOutput)
 }
 
-type TaskRunOutput struct{ *pulumi.OutputState }
+type TaskRunOutput struct {
+	*pulumi.OutputState
+}
 
 func (TaskRunOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TaskRun)(nil))

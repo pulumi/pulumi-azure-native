@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties specific to a Graph based web service.
-    /// </summary>
     [OutputType]
     public sealed class WebServicePropertiesForGraphResponse
     {

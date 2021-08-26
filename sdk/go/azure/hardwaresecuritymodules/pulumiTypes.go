@@ -106,7 +106,7 @@ func (o ApiEntityReferenceOutput) ToApiEntityReferencePtrOutput() ApiEntityRefer
 }
 
 func (o ApiEntityReferenceOutput) ToApiEntityReferencePtrOutputWithContext(ctx context.Context) ApiEntityReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntityReference) *ApiEntityReference {
+	return o.ApplyT(func(v ApiEntityReference) *ApiEntityReference {
 		return &v
 	}).(ApiEntityReferencePtrOutput)
 }
@@ -131,13 +131,7 @@ func (o ApiEntityReferencePtrOutput) ToApiEntityReferencePtrOutputWithContext(ct
 }
 
 func (o ApiEntityReferencePtrOutput) Elem() ApiEntityReferenceOutput {
-	return o.ApplyT(func(v *ApiEntityReference) ApiEntityReference {
-		if v != nil {
-			return *v
-		}
-		var ret ApiEntityReference
-		return ret
-	}).(ApiEntityReferenceOutput)
+	return o.ApplyT(func(v *ApiEntityReference) ApiEntityReference { return *v }).(ApiEntityReferenceOutput)
 }
 
 // The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
@@ -246,7 +240,7 @@ func (o ApiEntityReferenceResponseOutput) ToApiEntityReferenceResponsePtrOutput(
 }
 
 func (o ApiEntityReferenceResponseOutput) ToApiEntityReferenceResponsePtrOutputWithContext(ctx context.Context) ApiEntityReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntityReferenceResponse) *ApiEntityReferenceResponse {
+	return o.ApplyT(func(v ApiEntityReferenceResponse) *ApiEntityReferenceResponse {
 		return &v
 	}).(ApiEntityReferenceResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o ApiEntityReferenceResponsePtrOutput) ToApiEntityReferenceResponsePtrOutp
 }
 
 func (o ApiEntityReferenceResponsePtrOutput) Elem() ApiEntityReferenceResponseOutput {
-	return o.ApplyT(func(v *ApiEntityReferenceResponse) ApiEntityReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApiEntityReferenceResponse
-		return ret
-	}).(ApiEntityReferenceResponseOutput)
+	return o.ApplyT(func(v *ApiEntityReferenceResponse) ApiEntityReferenceResponse { return *v }).(ApiEntityReferenceResponseOutput)
 }
 
 // The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
@@ -596,7 +584,7 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
+	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
@@ -626,13 +614,7 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfile
-		return ret
-	}).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
 }
 
 // Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
@@ -752,7 +734,7 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
@@ -782,13 +764,7 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfileResponse
-		return ret
-	}).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
 }
 
 // Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
@@ -904,7 +880,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -929,13 +905,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // SKU of the dedicated HSM
@@ -1041,7 +1011,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1066,13 +1036,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // SKU of the dedicated HSM

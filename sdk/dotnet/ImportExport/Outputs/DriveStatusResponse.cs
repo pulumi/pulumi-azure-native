@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.Outputs
 {
 
-    /// <summary>
-    /// Provides information about the drive's status
-    /// </summary>
     [OutputType]
     public sealed class DriveStatusResponse
     {

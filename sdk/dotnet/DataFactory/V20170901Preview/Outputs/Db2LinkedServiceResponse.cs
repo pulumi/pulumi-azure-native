@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Linked service for DB2 data source.
-    /// </summary>
     [OutputType]
     public sealed class Db2LinkedServiceResponse
     {

@@ -141,7 +141,9 @@ func (i *B2CTenant) ToB2CTenantOutputWithContext(ctx context.Context) B2CTenantO
 	return pulumi.ToOutputWithContext(ctx, i).(B2CTenantOutput)
 }
 
-type B2CTenantOutput struct{ *pulumi.OutputState }
+type B2CTenantOutput struct {
+	*pulumi.OutputState
+}
 
 func (B2CTenantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*B2CTenant)(nil))

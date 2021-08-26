@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Custom script action to run on HDI ondemand cluster once it's up.
-    /// </summary>
     [OutputType]
     public sealed class ScriptActionResponse
     {

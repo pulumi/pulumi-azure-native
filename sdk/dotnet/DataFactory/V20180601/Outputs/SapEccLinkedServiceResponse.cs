@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Linked service for SAP ERP Central Component(SAP ECC).
-    /// </summary>
     [OutputType]
     public sealed class SapEccLinkedServiceResponse
     {

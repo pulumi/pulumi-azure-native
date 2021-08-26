@@ -98,9 +98,6 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Status == nil {
-		return nil, errors.New("invalid value for required argument 'Status'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:web/v20150801:HostingEnvironment"),
@@ -228,7 +225,7 @@ type hostingEnvironmentArgs struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode *InternalLoadBalancingMode `pulumi:"internalLoadBalancingMode"`
+	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
 	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
 	// Kind of resource
@@ -250,13 +247,13 @@ type hostingEnvironmentArgs struct {
 	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
 	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
 	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState *ProvisioningState `pulumi:"provisioningState"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource group of the hostingEnvironment (App Service Environment)
 	ResourceGroup *string `pulumi:"resourceGroup"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Current status of the hostingEnvironment (App Service Environment)
-	Status HostingEnvironmentStatus `pulumi:"status"`
+	Status string `pulumi:"status"`
 	// Subscription of the hostingEnvironment (App Service Environment)
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
@@ -307,7 +304,7 @@ type HostingEnvironmentArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode InternalLoadBalancingModePtrInput
+	InternalLoadBalancingMode *InternalLoadBalancingMode
 	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
 	IpsslAddressCount pulumi.IntPtrInput
 	// Kind of resource
@@ -329,13 +326,13 @@ type HostingEnvironmentArgs struct {
 	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
 	NetworkAccessControlList NetworkAccessControlEntryArrayInput
 	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState ProvisioningStatePtrInput
+	ProvisioningState *ProvisioningState
 	// Resource group of the hostingEnvironment (App Service Environment)
 	ResourceGroup pulumi.StringPtrInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
 	// Current status of the hostingEnvironment (App Service Environment)
-	Status HostingEnvironmentStatusInput
+	Status HostingEnvironmentStatus
 	// Subscription of the hostingEnvironment (App Service Environment)
 	SubscriptionId pulumi.StringPtrInput
 	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
@@ -384,7 +381,9 @@ func (i *HostingEnvironment) ToHostingEnvironmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentOutput)
 }
 
-type HostingEnvironmentOutput struct{ *pulumi.OutputState }
+type HostingEnvironmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (HostingEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostingEnvironment)(nil))

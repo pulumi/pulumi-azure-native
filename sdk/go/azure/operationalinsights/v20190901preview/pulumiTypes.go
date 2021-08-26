@@ -114,7 +114,7 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ToLogAnalyticsQueryPa
 }
 
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ToLogAnalyticsQueryPackQueryPropertiesRelatedPtrOutputWithContext(ctx context.Context) LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsQueryPackQueryPropertiesRelated) *LogAnalyticsQueryPackQueryPropertiesRelated {
+	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) *LogAnalyticsQueryPackQueryPropertiesRelated {
 		return &v
 	}).(LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput)
 }
@@ -150,11 +150,7 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) ToLogAnalyticsQuer
 
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Elem() LogAnalyticsQueryPackQueryPropertiesRelatedOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) LogAnalyticsQueryPackQueryPropertiesRelated {
-		if v != nil {
-			return *v
-		}
-		var ret LogAnalyticsQueryPackQueryPropertiesRelated
-		return ret
+		return *v
 	}).(LogAnalyticsQueryPackQueryPropertiesRelatedOutput)
 }
 
@@ -292,7 +288,7 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ToLogAnalytic
 }
 
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ToLogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutputWithContext(ctx context.Context) LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsQueryPackQueryPropertiesResponseRelated) *LogAnalyticsQueryPackQueryPropertiesResponseRelated {
+	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) *LogAnalyticsQueryPackQueryPropertiesResponseRelated {
 		return &v
 	}).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput)
 }
@@ -328,11 +324,7 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) ToLogAnaly
 
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Elem() LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) LogAnalyticsQueryPackQueryPropertiesResponseRelated {
-		if v != nil {
-			return *v
-		}
-		var ret LogAnalyticsQueryPackQueryPropertiesResponseRelated
-		return ret
+		return *v
 	}).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput)
 }
 
@@ -482,7 +474,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -532,13 +524,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC)

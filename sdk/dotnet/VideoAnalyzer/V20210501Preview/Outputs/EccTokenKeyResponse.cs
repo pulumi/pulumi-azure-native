@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Outputs
 {
 
-    /// <summary>
-    /// Required validation properties for tokens generated with Elliptical Curve algorithm.
-    /// </summary>
     [OutputType]
     public sealed class EccTokenKeyResponse
     {

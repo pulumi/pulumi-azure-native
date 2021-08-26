@@ -178,7 +178,9 @@ func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
 }
 
-type ModuleOutput struct{ *pulumi.OutputState }
+type ModuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (ModuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Module)(nil))

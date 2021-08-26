@@ -137,7 +137,9 @@ func (i *Dataset) ToDatasetOutputWithContext(ctx context.Context) DatasetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetOutput)
 }
 
-type DatasetOutput struct{ *pulumi.OutputState }
+type DatasetOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatasetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Dataset)(nil))

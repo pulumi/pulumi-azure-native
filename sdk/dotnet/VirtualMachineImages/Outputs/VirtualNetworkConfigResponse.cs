@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
-    /// <summary>
-    /// Virtual Network configuration.
-    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkConfigResponse
     {

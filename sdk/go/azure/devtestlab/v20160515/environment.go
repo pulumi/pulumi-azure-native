@@ -172,7 +172,9 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
-type EnvironmentOutput struct{ *pulumi.OutputState }
+type EnvironmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Environment)(nil))

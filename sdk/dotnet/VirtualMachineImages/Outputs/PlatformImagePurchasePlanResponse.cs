@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
-    /// <summary>
-    /// Purchase plan configuration for platform image.
-    /// </summary>
     [OutputType]
     public sealed class PlatformImagePurchasePlanResponse
     {

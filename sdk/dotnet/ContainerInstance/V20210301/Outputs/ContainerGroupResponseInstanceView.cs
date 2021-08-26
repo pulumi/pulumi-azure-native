@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20210301.Outputs
 {
 
-    /// <summary>
-    /// The instance view of the container group. Only valid in response.
-    /// </summary>
     [OutputType]
     public sealed class ContainerGroupResponseInstanceView
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20190701Preview.Outputs
 {
 
-    /// <summary>
-    /// The description of an X509 CA Certificate.
-    /// </summary>
     [OutputType]
     public sealed class CertificatePropertiesResponse
     {

@@ -275,7 +275,9 @@ func (i *VirtualMachineExtension) ToVirtualMachineExtensionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionOutput)
 }
 
-type VirtualMachineExtensionOutput struct{ *pulumi.OutputState }
+type VirtualMachineExtensionOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualMachineExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineExtension)(nil))

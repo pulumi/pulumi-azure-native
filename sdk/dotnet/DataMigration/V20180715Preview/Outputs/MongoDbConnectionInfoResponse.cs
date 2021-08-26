@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes a connection to a MongoDB data source
-    /// </summary>
     [OutputType]
     public sealed class MongoDbConnectionInfoResponse
     {

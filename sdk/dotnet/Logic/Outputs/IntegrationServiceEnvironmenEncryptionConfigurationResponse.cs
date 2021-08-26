@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The encryption configuration for the integration service environment.
-    /// </summary>
     [OutputType]
     public sealed class IntegrationServiceEnvironmenEncryptionConfigurationResponse
     {

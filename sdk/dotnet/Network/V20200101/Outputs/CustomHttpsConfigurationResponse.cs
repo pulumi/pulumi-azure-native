@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200101.Outputs
 {
 
-    /// <summary>
-    /// Https settings for a domain
-    /// </summary>
     [OutputType]
     public sealed class CustomHttpsConfigurationResponse
     {

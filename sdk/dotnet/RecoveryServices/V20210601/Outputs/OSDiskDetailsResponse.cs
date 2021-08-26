@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Details of the OS Disk.
-    /// </summary>
     [OutputType]
     public sealed class OSDiskDetailsResponse
     {

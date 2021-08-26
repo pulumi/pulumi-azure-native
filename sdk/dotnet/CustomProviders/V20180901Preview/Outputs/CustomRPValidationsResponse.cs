@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomProviders.V20180901Preview.Outputs
 {
 
-    /// <summary>
-    /// A validation to apply on custom resource provider requests.
-    /// </summary>
     [OutputType]
     public sealed class CustomRPValidationsResponse
     {

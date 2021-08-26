@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// LinkedService specific properties.
-    /// </summary>
     [OutputType]
     public sealed class LinkedServicePropsResponse
     {

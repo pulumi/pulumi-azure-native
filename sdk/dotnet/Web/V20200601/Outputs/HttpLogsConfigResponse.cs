@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Outputs
 {
 
-    /// <summary>
-    /// Http logs configuration.
-    /// </summary>
     [OutputType]
     public sealed class HttpLogsConfigResponse
     {

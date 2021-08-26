@@ -153,7 +153,9 @@ func (i *RegisteredAsn) ToRegisteredAsnOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredAsnOutput)
 }
 
-type RegisteredAsnOutput struct{ *pulumi.OutputState }
+type RegisteredAsnOutput struct {
+	*pulumi.OutputState
+}
 
 func (RegisteredAsnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegisteredAsn)(nil))

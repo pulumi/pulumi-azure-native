@@ -213,7 +213,9 @@ func (i *IotHubDataConnection) ToIotHubDataConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionOutput)
 }
 
-type IotHubDataConnectionOutput struct{ *pulumi.OutputState }
+type IotHubDataConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (IotHubDataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubDataConnection)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
-    /// <summary>
-    /// The inputs for the Azure Machine Learning web service endpoint.
-    /// </summary>
     [OutputType]
     public sealed class AzureMachineLearningWebServiceInputsResponse
     {

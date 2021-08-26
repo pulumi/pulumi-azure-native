@@ -131,7 +131,9 @@ func (i *ServiceTask) ToServiceTaskOutputWithContext(ctx context.Context) Servic
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTaskOutput)
 }
 
-type ServiceTaskOutput struct{ *pulumi.OutputState }
+type ServiceTaskOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServiceTaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceTask)(nil))

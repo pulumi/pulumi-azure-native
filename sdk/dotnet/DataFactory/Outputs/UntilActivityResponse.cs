@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-    /// </summary>
     [OutputType]
     public sealed class UntilActivityResponse
     {

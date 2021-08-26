@@ -213,7 +213,9 @@ func (i *IpAllocation) ToIpAllocationOutputWithContext(ctx context.Context) IpAl
 	return pulumi.ToOutputWithContext(ctx, i).(IpAllocationOutput)
 }
 
-type IpAllocationOutput struct{ *pulumi.OutputState }
+type IpAllocationOutput struct {
+	*pulumi.OutputState
+}
 
 func (IpAllocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpAllocation)(nil))

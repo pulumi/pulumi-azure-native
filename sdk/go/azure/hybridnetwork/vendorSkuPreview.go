@@ -126,7 +126,9 @@ func (i *VendorSkuPreview) ToVendorSkuPreviewOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VendorSkuPreviewOutput)
 }
 
-type VendorSkuPreviewOutput struct{ *pulumi.OutputState }
+type VendorSkuPreviewOutput struct {
+	*pulumi.OutputState
+}
 
 func (VendorSkuPreviewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VendorSkuPreview)(nil))

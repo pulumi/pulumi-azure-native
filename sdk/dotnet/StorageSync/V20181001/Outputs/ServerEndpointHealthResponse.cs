@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20181001.Outputs
 {
 
-    /// <summary>
-    /// ServerEndpoint Health object.
-    /// </summary>
     [OutputType]
     public sealed class ServerEndpointHealthResponse
     {

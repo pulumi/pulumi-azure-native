@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190501.Outputs
 {
 
-    /// <summary>
-    /// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-    /// </summary>
     [OutputType]
     public sealed class ActorResponse
     {

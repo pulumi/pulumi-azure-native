@@ -90,12 +90,6 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationNetworkMapping"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationNetworkMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationNetworkMapping"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationNetworkMapping
@@ -183,7 +177,9 @@ func (i *ReplicationNetworkMapping) ToReplicationNetworkMappingOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationNetworkMappingOutput)
 }
 
-type ReplicationNetworkMappingOutput struct{ *pulumi.OutputState }
+type ReplicationNetworkMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationNetworkMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationNetworkMapping)(nil))

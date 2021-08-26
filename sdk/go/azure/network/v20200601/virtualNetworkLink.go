@@ -165,7 +165,9 @@ func (i *VirtualNetworkLink) ToVirtualNetworkLinkOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkLinkOutput)
 }
 
-type VirtualNetworkLinkOutput struct{ *pulumi.OutputState }
+type VirtualNetworkLinkOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualNetworkLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkLink)(nil))

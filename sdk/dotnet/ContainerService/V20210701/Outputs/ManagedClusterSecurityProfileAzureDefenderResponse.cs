@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Azure Defender settings for the security profile.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterSecurityProfileAzureDefenderResponse
     {

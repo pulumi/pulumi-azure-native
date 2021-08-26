@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20180301Preview.Outputs
 {
 
-    /// <summary>
-    /// An access key for the storage account.
-    /// </summary>
     [OutputType]
     public sealed class StorageAccountKeyResponse
     {

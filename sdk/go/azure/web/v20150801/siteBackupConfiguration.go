@@ -234,7 +234,9 @@ func (i *SiteBackupConfiguration) ToSiteBackupConfigurationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SiteBackupConfigurationOutput)
 }
 
-type SiteBackupConfigurationOutput struct{ *pulumi.OutputState }
+type SiteBackupConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteBackupConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteBackupConfiguration)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20151031.Outputs
 {
 
-    /// <summary>
-    /// Definition of the configuration parameter type.
-    /// </summary>
     [OutputType]
     public sealed class DscConfigurationParameterResponse
     {

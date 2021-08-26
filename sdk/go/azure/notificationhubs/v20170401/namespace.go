@@ -134,7 +134,7 @@ type namespaceArgs struct {
 	// The namespace name.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The namespace type.
-	NamespaceType *NamespaceType `pulumi:"namespaceType"`
+	NamespaceType *string `pulumi:"namespaceType"`
 	// Provisioning state of the Namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -174,7 +174,7 @@ type NamespaceArgs struct {
 	// The namespace name.
 	NamespaceName pulumi.StringPtrInput
 	// The namespace type.
-	NamespaceType NamespaceTypePtrInput
+	NamespaceType *NamespaceType
 	// Provisioning state of the Namespace.
 	ProvisioningState pulumi.StringPtrInput
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -220,7 +220,9 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct{ *pulumi.OutputState }
+type NamespaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

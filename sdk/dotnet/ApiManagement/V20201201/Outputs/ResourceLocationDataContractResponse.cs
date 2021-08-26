@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Resource location data properties.
-    /// </summary>
     [OutputType]
     public sealed class ResourceLocationDataContractResponse
     {

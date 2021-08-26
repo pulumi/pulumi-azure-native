@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
-    /// <summary>
-    /// Runtime information of a container instance.
-    /// </summary>
     [OutputType]
     public sealed class ContainerInstanceViewResponse
     {

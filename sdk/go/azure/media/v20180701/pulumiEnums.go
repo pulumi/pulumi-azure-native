@@ -11,7 +11,7 @@ import (
 )
 
 // The encoding profile to be used when encoding audio with AAC.
-type AacAudioProfile string
+type AacAudioProfile pulumi.String
 
 const (
 	// Specifies that the output audio is to be encoded into AAC Low Complexity profile (AAC-LC).
@@ -23,23 +23,7 @@ const (
 )
 
 func (AacAudioProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*AacAudioProfile)(nil)).Elem()
-}
-
-func (e AacAudioProfile) ToAacAudioProfileOutput() AacAudioProfileOutput {
-	return pulumi.ToOutput(e).(AacAudioProfileOutput)
-}
-
-func (e AacAudioProfile) ToAacAudioProfileOutputWithContext(ctx context.Context) AacAudioProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AacAudioProfileOutput)
-}
-
-func (e AacAudioProfile) ToAacAudioProfilePtrOutput() AacAudioProfilePtrOutput {
-	return e.ToAacAudioProfilePtrOutputWithContext(context.Background())
-}
-
-func (e AacAudioProfile) ToAacAudioProfilePtrOutputWithContext(ctx context.Context) AacAudioProfilePtrOutput {
-	return AacAudioProfile(e).ToAacAudioProfileOutputWithContext(ctx).ToAacAudioProfilePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AacAudioProfile) ToStringOutput() pulumi.StringOutput {
@@ -58,129 +42,8 @@ func (e AacAudioProfile) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AacAudioProfileOutput struct{ *pulumi.OutputState }
-
-func (AacAudioProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AacAudioProfile)(nil)).Elem()
-}
-
-func (o AacAudioProfileOutput) ToAacAudioProfileOutput() AacAudioProfileOutput {
-	return o
-}
-
-func (o AacAudioProfileOutput) ToAacAudioProfileOutputWithContext(ctx context.Context) AacAudioProfileOutput {
-	return o
-}
-
-func (o AacAudioProfileOutput) ToAacAudioProfilePtrOutput() AacAudioProfilePtrOutput {
-	return o.ToAacAudioProfilePtrOutputWithContext(context.Background())
-}
-
-func (o AacAudioProfileOutput) ToAacAudioProfilePtrOutputWithContext(ctx context.Context) AacAudioProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AacAudioProfile) *AacAudioProfile {
-		return &v
-	}).(AacAudioProfilePtrOutput)
-}
-
-func (o AacAudioProfileOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AacAudioProfileOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AacAudioProfile) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AacAudioProfileOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AacAudioProfileOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AacAudioProfile) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AacAudioProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (AacAudioProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AacAudioProfile)(nil)).Elem()
-}
-
-func (o AacAudioProfilePtrOutput) ToAacAudioProfilePtrOutput() AacAudioProfilePtrOutput {
-	return o
-}
-
-func (o AacAudioProfilePtrOutput) ToAacAudioProfilePtrOutputWithContext(ctx context.Context) AacAudioProfilePtrOutput {
-	return o
-}
-
-func (o AacAudioProfilePtrOutput) Elem() AacAudioProfileOutput {
-	return o.ApplyT(func(v *AacAudioProfile) AacAudioProfile {
-		if v != nil {
-			return *v
-		}
-		var ret AacAudioProfile
-		return ret
-	}).(AacAudioProfileOutput)
-}
-
-func (o AacAudioProfilePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AacAudioProfilePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AacAudioProfile) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AacAudioProfileInput is an input type that accepts AacAudioProfileArgs and AacAudioProfileOutput values.
-// You can construct a concrete instance of `AacAudioProfileInput` via:
-//
-//          AacAudioProfileArgs{...}
-type AacAudioProfileInput interface {
-	pulumi.Input
-
-	ToAacAudioProfileOutput() AacAudioProfileOutput
-	ToAacAudioProfileOutputWithContext(context.Context) AacAudioProfileOutput
-}
-
-var aacAudioProfilePtrType = reflect.TypeOf((**AacAudioProfile)(nil)).Elem()
-
-type AacAudioProfilePtrInput interface {
-	pulumi.Input
-
-	ToAacAudioProfilePtrOutput() AacAudioProfilePtrOutput
-	ToAacAudioProfilePtrOutputWithContext(context.Context) AacAudioProfilePtrOutput
-}
-
-type aacAudioProfilePtr string
-
-func AacAudioProfilePtr(v string) AacAudioProfilePtrInput {
-	return (*aacAudioProfilePtr)(&v)
-}
-
-func (*aacAudioProfilePtr) ElementType() reflect.Type {
-	return aacAudioProfilePtrType
-}
-
-func (in *aacAudioProfilePtr) ToAacAudioProfilePtrOutput() AacAudioProfilePtrOutput {
-	return pulumi.ToOutput(in).(AacAudioProfilePtrOutput)
-}
-
-func (in *aacAudioProfilePtr) ToAacAudioProfilePtrOutputWithContext(ctx context.Context) AacAudioProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AacAudioProfilePtrOutput)
-}
-
 // Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
-type AnalysisResolution string
+type AnalysisResolution pulumi.String
 
 const (
 	AnalysisResolutionSourceResolution   = AnalysisResolution("SourceResolution")
@@ -188,23 +51,7 @@ const (
 )
 
 func (AnalysisResolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisResolution)(nil)).Elem()
-}
-
-func (e AnalysisResolution) ToAnalysisResolutionOutput() AnalysisResolutionOutput {
-	return pulumi.ToOutput(e).(AnalysisResolutionOutput)
-}
-
-func (e AnalysisResolution) ToAnalysisResolutionOutputWithContext(ctx context.Context) AnalysisResolutionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AnalysisResolutionOutput)
-}
-
-func (e AnalysisResolution) ToAnalysisResolutionPtrOutput() AnalysisResolutionPtrOutput {
-	return e.ToAnalysisResolutionPtrOutputWithContext(context.Background())
-}
-
-func (e AnalysisResolution) ToAnalysisResolutionPtrOutputWithContext(ctx context.Context) AnalysisResolutionPtrOutput {
-	return AnalysisResolution(e).ToAnalysisResolutionOutputWithContext(ctx).ToAnalysisResolutionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AnalysisResolution) ToStringOutput() pulumi.StringOutput {
@@ -223,129 +70,8 @@ func (e AnalysisResolution) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AnalysisResolutionOutput struct{ *pulumi.OutputState }
-
-func (AnalysisResolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisResolution)(nil)).Elem()
-}
-
-func (o AnalysisResolutionOutput) ToAnalysisResolutionOutput() AnalysisResolutionOutput {
-	return o
-}
-
-func (o AnalysisResolutionOutput) ToAnalysisResolutionOutputWithContext(ctx context.Context) AnalysisResolutionOutput {
-	return o
-}
-
-func (o AnalysisResolutionOutput) ToAnalysisResolutionPtrOutput() AnalysisResolutionPtrOutput {
-	return o.ToAnalysisResolutionPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisResolutionOutput) ToAnalysisResolutionPtrOutputWithContext(ctx context.Context) AnalysisResolutionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisResolution) *AnalysisResolution {
-		return &v
-	}).(AnalysisResolutionPtrOutput)
-}
-
-func (o AnalysisResolutionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AnalysisResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisResolution) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AnalysisResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisResolution) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AnalysisResolutionPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisResolutionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisResolution)(nil)).Elem()
-}
-
-func (o AnalysisResolutionPtrOutput) ToAnalysisResolutionPtrOutput() AnalysisResolutionPtrOutput {
-	return o
-}
-
-func (o AnalysisResolutionPtrOutput) ToAnalysisResolutionPtrOutputWithContext(ctx context.Context) AnalysisResolutionPtrOutput {
-	return o
-}
-
-func (o AnalysisResolutionPtrOutput) Elem() AnalysisResolutionOutput {
-	return o.ApplyT(func(v *AnalysisResolution) AnalysisResolution {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisResolution
-		return ret
-	}).(AnalysisResolutionOutput)
-}
-
-func (o AnalysisResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisResolution) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AnalysisResolutionInput is an input type that accepts AnalysisResolutionArgs and AnalysisResolutionOutput values.
-// You can construct a concrete instance of `AnalysisResolutionInput` via:
-//
-//          AnalysisResolutionArgs{...}
-type AnalysisResolutionInput interface {
-	pulumi.Input
-
-	ToAnalysisResolutionOutput() AnalysisResolutionOutput
-	ToAnalysisResolutionOutputWithContext(context.Context) AnalysisResolutionOutput
-}
-
-var analysisResolutionPtrType = reflect.TypeOf((**AnalysisResolution)(nil)).Elem()
-
-type AnalysisResolutionPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisResolutionPtrOutput() AnalysisResolutionPtrOutput
-	ToAnalysisResolutionPtrOutputWithContext(context.Context) AnalysisResolutionPtrOutput
-}
-
-type analysisResolutionPtr string
-
-func AnalysisResolutionPtr(v string) AnalysisResolutionPtrInput {
-	return (*analysisResolutionPtr)(&v)
-}
-
-func (*analysisResolutionPtr) ElementType() reflect.Type {
-	return analysisResolutionPtrType
-}
-
-func (in *analysisResolutionPtr) ToAnalysisResolutionPtrOutput() AnalysisResolutionPtrOutput {
-	return pulumi.ToOutput(in).(AnalysisResolutionPtrOutput)
-}
-
-func (in *analysisResolutionPtr) ToAnalysisResolutionPtrOutputWithContext(ctx context.Context) AnalysisResolutionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AnalysisResolutionPtrOutput)
-}
-
 // The permissions to set on the SAS URL.
-type AssetContainerPermission string
+type AssetContainerPermission pulumi.String
 
 const (
 	// The SAS URL will allow read access to the container.
@@ -357,23 +83,7 @@ const (
 )
 
 func (AssetContainerPermission) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetContainerPermission)(nil)).Elem()
-}
-
-func (e AssetContainerPermission) ToAssetContainerPermissionOutput() AssetContainerPermissionOutput {
-	return pulumi.ToOutput(e).(AssetContainerPermissionOutput)
-}
-
-func (e AssetContainerPermission) ToAssetContainerPermissionOutputWithContext(ctx context.Context) AssetContainerPermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AssetContainerPermissionOutput)
-}
-
-func (e AssetContainerPermission) ToAssetContainerPermissionPtrOutput() AssetContainerPermissionPtrOutput {
-	return e.ToAssetContainerPermissionPtrOutputWithContext(context.Background())
-}
-
-func (e AssetContainerPermission) ToAssetContainerPermissionPtrOutputWithContext(ctx context.Context) AssetContainerPermissionPtrOutput {
-	return AssetContainerPermission(e).ToAssetContainerPermissionOutputWithContext(ctx).ToAssetContainerPermissionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AssetContainerPermission) ToStringOutput() pulumi.StringOutput {
@@ -392,129 +102,8 @@ func (e AssetContainerPermission) ToStringPtrOutputWithContext(ctx context.Conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AssetContainerPermissionOutput struct{ *pulumi.OutputState }
-
-func (AssetContainerPermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetContainerPermission)(nil)).Elem()
-}
-
-func (o AssetContainerPermissionOutput) ToAssetContainerPermissionOutput() AssetContainerPermissionOutput {
-	return o
-}
-
-func (o AssetContainerPermissionOutput) ToAssetContainerPermissionOutputWithContext(ctx context.Context) AssetContainerPermissionOutput {
-	return o
-}
-
-func (o AssetContainerPermissionOutput) ToAssetContainerPermissionPtrOutput() AssetContainerPermissionPtrOutput {
-	return o.ToAssetContainerPermissionPtrOutputWithContext(context.Background())
-}
-
-func (o AssetContainerPermissionOutput) ToAssetContainerPermissionPtrOutputWithContext(ctx context.Context) AssetContainerPermissionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetContainerPermission) *AssetContainerPermission {
-		return &v
-	}).(AssetContainerPermissionPtrOutput)
-}
-
-func (o AssetContainerPermissionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AssetContainerPermissionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssetContainerPermission) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AssetContainerPermissionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssetContainerPermissionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssetContainerPermission) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AssetContainerPermissionPtrOutput struct{ *pulumi.OutputState }
-
-func (AssetContainerPermissionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssetContainerPermission)(nil)).Elem()
-}
-
-func (o AssetContainerPermissionPtrOutput) ToAssetContainerPermissionPtrOutput() AssetContainerPermissionPtrOutput {
-	return o
-}
-
-func (o AssetContainerPermissionPtrOutput) ToAssetContainerPermissionPtrOutputWithContext(ctx context.Context) AssetContainerPermissionPtrOutput {
-	return o
-}
-
-func (o AssetContainerPermissionPtrOutput) Elem() AssetContainerPermissionOutput {
-	return o.ApplyT(func(v *AssetContainerPermission) AssetContainerPermission {
-		if v != nil {
-			return *v
-		}
-		var ret AssetContainerPermission
-		return ret
-	}).(AssetContainerPermissionOutput)
-}
-
-func (o AssetContainerPermissionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssetContainerPermissionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssetContainerPermission) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AssetContainerPermissionInput is an input type that accepts AssetContainerPermissionArgs and AssetContainerPermissionOutput values.
-// You can construct a concrete instance of `AssetContainerPermissionInput` via:
-//
-//          AssetContainerPermissionArgs{...}
-type AssetContainerPermissionInput interface {
-	pulumi.Input
-
-	ToAssetContainerPermissionOutput() AssetContainerPermissionOutput
-	ToAssetContainerPermissionOutputWithContext(context.Context) AssetContainerPermissionOutput
-}
-
-var assetContainerPermissionPtrType = reflect.TypeOf((**AssetContainerPermission)(nil)).Elem()
-
-type AssetContainerPermissionPtrInput interface {
-	pulumi.Input
-
-	ToAssetContainerPermissionPtrOutput() AssetContainerPermissionPtrOutput
-	ToAssetContainerPermissionPtrOutputWithContext(context.Context) AssetContainerPermissionPtrOutput
-}
-
-type assetContainerPermissionPtr string
-
-func AssetContainerPermissionPtr(v string) AssetContainerPermissionPtrInput {
-	return (*assetContainerPermissionPtr)(&v)
-}
-
-func (*assetContainerPermissionPtr) ElementType() reflect.Type {
-	return assetContainerPermissionPtrType
-}
-
-func (in *assetContainerPermissionPtr) ToAssetContainerPermissionPtrOutput() AssetContainerPermissionPtrOutput {
-	return pulumi.ToOutput(in).(AssetContainerPermissionPtrOutput)
-}
-
-func (in *assetContainerPermissionPtr) ToAssetContainerPermissionPtrOutputWithContext(ctx context.Context) AssetContainerPermissionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AssetContainerPermissionPtrOutput)
-}
-
 // The rental and lease key type.
-type ContentKeyPolicyFairPlayRentalAndLeaseKeyType string
+type ContentKeyPolicyFairPlayRentalAndLeaseKeyType pulumi.String
 
 const (
 	// Represents a ContentKeyPolicyFairPlayRentalAndLeaseKeyType that is unavailable in current API version.
@@ -530,23 +119,7 @@ const (
 )
 
 func (ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyFairPlayRentalAndLeaseKeyType)(nil)).Elem()
-}
-
-func (e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput {
-	return pulumi.ToOutput(e).(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput)
-}
-
-func (e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput)
-}
-
-func (e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return e.ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return ContentKeyPolicyFairPlayRentalAndLeaseKeyType(e).ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutputWithContext(ctx).ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ToStringOutput() pulumi.StringOutput {
@@ -565,129 +138,8 @@ func (e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ToStringPtrOutputWithCont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyFairPlayRentalAndLeaseKeyType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return o.ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyFairPlayRentalAndLeaseKeyType) *ContentKeyPolicyFairPlayRentalAndLeaseKeyType {
-		return &v
-	}).(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput)
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyFairPlayRentalAndLeaseKeyType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentKeyPolicyFairPlayRentalAndLeaseKeyType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput) Elem() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyFairPlayRentalAndLeaseKeyType) ContentKeyPolicyFairPlayRentalAndLeaseKeyType {
-		if v != nil {
-			return *v
-		}
-		var ret ContentKeyPolicyFairPlayRentalAndLeaseKeyType
-		return ret
-	}).(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput)
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentKeyPolicyFairPlayRentalAndLeaseKeyType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeInput is an input type that accepts ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeArgs and ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeInput` via:
-//
-//          ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeArgs{...}
-type ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput
-	ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutputWithContext(context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput
-}
-
-var contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrType = reflect.TypeOf((**ContentKeyPolicyFairPlayRentalAndLeaseKeyType)(nil)).Elem()
-
-type ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput
-	ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput
-}
-
-type contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtr string
-
-func ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtr(v string) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrInput {
-	return (*contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtr)(&v)
-}
-
-func (*contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtr) ElementType() reflect.Type {
-	return contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrType
-}
-
-func (in *contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtr) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput() ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return pulumi.ToOutput(in).(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput)
-}
-
-func (in *contentKeyPolicyFairPlayRentalAndLeaseKeyTypePtr) ToContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput)
-}
-
 // The PlayReady content type.
-type ContentKeyPolicyPlayReadyContentType string
+type ContentKeyPolicyPlayReadyContentType pulumi.String
 
 const (
 	// Represents a ContentKeyPolicyPlayReadyContentType that is unavailable in current API version.
@@ -701,23 +153,7 @@ const (
 )
 
 func (ContentKeyPolicyPlayReadyContentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyPlayReadyContentType)(nil)).Elem()
-}
-
-func (e ContentKeyPolicyPlayReadyContentType) ToContentKeyPolicyPlayReadyContentTypeOutput() ContentKeyPolicyPlayReadyContentTypeOutput {
-	return pulumi.ToOutput(e).(ContentKeyPolicyPlayReadyContentTypeOutput)
-}
-
-func (e ContentKeyPolicyPlayReadyContentType) ToContentKeyPolicyPlayReadyContentTypeOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ContentKeyPolicyPlayReadyContentTypeOutput)
-}
-
-func (e ContentKeyPolicyPlayReadyContentType) ToContentKeyPolicyPlayReadyContentTypePtrOutput() ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return e.ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(context.Background())
-}
-
-func (e ContentKeyPolicyPlayReadyContentType) ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return ContentKeyPolicyPlayReadyContentType(e).ToContentKeyPolicyPlayReadyContentTypeOutputWithContext(ctx).ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ContentKeyPolicyPlayReadyContentType) ToStringOutput() pulumi.StringOutput {
@@ -736,129 +172,8 @@ func (e ContentKeyPolicyPlayReadyContentType) ToStringPtrOutputWithContext(ctx c
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ContentKeyPolicyPlayReadyContentTypeOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyPlayReadyContentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyPlayReadyContentType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToContentKeyPolicyPlayReadyContentTypeOutput() ContentKeyPolicyPlayReadyContentTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToContentKeyPolicyPlayReadyContentTypeOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToContentKeyPolicyPlayReadyContentTypePtrOutput() ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return o.ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyContentType) *ContentKeyPolicyPlayReadyContentType {
-		return &v
-	}).(ContentKeyPolicyPlayReadyContentTypePtrOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyPlayReadyContentType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyPlayReadyContentType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ContentKeyPolicyPlayReadyContentTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyPlayReadyContentTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentKeyPolicyPlayReadyContentType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypePtrOutput) ToContentKeyPolicyPlayReadyContentTypePtrOutput() ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypePtrOutput) ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypePtrOutput) Elem() ContentKeyPolicyPlayReadyContentTypeOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyContentType) ContentKeyPolicyPlayReadyContentType {
-		if v != nil {
-			return *v
-		}
-		var ret ContentKeyPolicyPlayReadyContentType
-		return ret
-	}).(ContentKeyPolicyPlayReadyContentTypeOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentKeyPolicyPlayReadyContentType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ContentKeyPolicyPlayReadyContentTypeInput is an input type that accepts ContentKeyPolicyPlayReadyContentTypeArgs and ContentKeyPolicyPlayReadyContentTypeOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyPlayReadyContentTypeInput` via:
-//
-//          ContentKeyPolicyPlayReadyContentTypeArgs{...}
-type ContentKeyPolicyPlayReadyContentTypeInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyPlayReadyContentTypeOutput() ContentKeyPolicyPlayReadyContentTypeOutput
-	ToContentKeyPolicyPlayReadyContentTypeOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentTypeOutput
-}
-
-var contentKeyPolicyPlayReadyContentTypePtrType = reflect.TypeOf((**ContentKeyPolicyPlayReadyContentType)(nil)).Elem()
-
-type ContentKeyPolicyPlayReadyContentTypePtrInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyPlayReadyContentTypePtrOutput() ContentKeyPolicyPlayReadyContentTypePtrOutput
-	ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentTypePtrOutput
-}
-
-type contentKeyPolicyPlayReadyContentTypePtr string
-
-func ContentKeyPolicyPlayReadyContentTypePtr(v string) ContentKeyPolicyPlayReadyContentTypePtrInput {
-	return (*contentKeyPolicyPlayReadyContentTypePtr)(&v)
-}
-
-func (*contentKeyPolicyPlayReadyContentTypePtr) ElementType() reflect.Type {
-	return contentKeyPolicyPlayReadyContentTypePtrType
-}
-
-func (in *contentKeyPolicyPlayReadyContentTypePtr) ToContentKeyPolicyPlayReadyContentTypePtrOutput() ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return pulumi.ToOutput(in).(ContentKeyPolicyPlayReadyContentTypePtrOutput)
-}
-
-func (in *contentKeyPolicyPlayReadyContentTypePtr) ToContentKeyPolicyPlayReadyContentTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyPlayReadyContentTypePtrOutput)
-}
-
 // The license type.
-type ContentKeyPolicyPlayReadyLicenseType string
+type ContentKeyPolicyPlayReadyLicenseType pulumi.String
 
 const (
 	// Represents a ContentKeyPolicyPlayReadyLicenseType that is unavailable in current API version.
@@ -870,23 +185,7 @@ const (
 )
 
 func (ContentKeyPolicyPlayReadyLicenseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyPlayReadyLicenseType)(nil)).Elem()
-}
-
-func (e ContentKeyPolicyPlayReadyLicenseType) ToContentKeyPolicyPlayReadyLicenseTypeOutput() ContentKeyPolicyPlayReadyLicenseTypeOutput {
-	return pulumi.ToOutput(e).(ContentKeyPolicyPlayReadyLicenseTypeOutput)
-}
-
-func (e ContentKeyPolicyPlayReadyLicenseType) ToContentKeyPolicyPlayReadyLicenseTypeOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ContentKeyPolicyPlayReadyLicenseTypeOutput)
-}
-
-func (e ContentKeyPolicyPlayReadyLicenseType) ToContentKeyPolicyPlayReadyLicenseTypePtrOutput() ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return e.ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(context.Background())
-}
-
-func (e ContentKeyPolicyPlayReadyLicenseType) ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return ContentKeyPolicyPlayReadyLicenseType(e).ToContentKeyPolicyPlayReadyLicenseTypeOutputWithContext(ctx).ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ContentKeyPolicyPlayReadyLicenseType) ToStringOutput() pulumi.StringOutput {
@@ -905,129 +204,8 @@ func (e ContentKeyPolicyPlayReadyLicenseType) ToStringPtrOutputWithContext(ctx c
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ContentKeyPolicyPlayReadyLicenseTypeOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyPlayReadyLicenseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyPlayReadyLicenseType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToContentKeyPolicyPlayReadyLicenseTypeOutput() ContentKeyPolicyPlayReadyLicenseTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToContentKeyPolicyPlayReadyLicenseTypeOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToContentKeyPolicyPlayReadyLicenseTypePtrOutput() ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return o.ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyLicenseType) *ContentKeyPolicyPlayReadyLicenseType {
-		return &v
-	}).(ContentKeyPolicyPlayReadyLicenseTypePtrOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyPlayReadyLicenseType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyPlayReadyLicenseType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ContentKeyPolicyPlayReadyLicenseTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyPlayReadyLicenseTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentKeyPolicyPlayReadyLicenseType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypePtrOutput) ToContentKeyPolicyPlayReadyLicenseTypePtrOutput() ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypePtrOutput) ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypePtrOutput) Elem() ContentKeyPolicyPlayReadyLicenseTypeOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyLicenseType) ContentKeyPolicyPlayReadyLicenseType {
-		if v != nil {
-			return *v
-		}
-		var ret ContentKeyPolicyPlayReadyLicenseType
-		return ret
-	}).(ContentKeyPolicyPlayReadyLicenseTypeOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyLicenseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentKeyPolicyPlayReadyLicenseType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ContentKeyPolicyPlayReadyLicenseTypeInput is an input type that accepts ContentKeyPolicyPlayReadyLicenseTypeArgs and ContentKeyPolicyPlayReadyLicenseTypeOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyPlayReadyLicenseTypeInput` via:
-//
-//          ContentKeyPolicyPlayReadyLicenseTypeArgs{...}
-type ContentKeyPolicyPlayReadyLicenseTypeInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyPlayReadyLicenseTypeOutput() ContentKeyPolicyPlayReadyLicenseTypeOutput
-	ToContentKeyPolicyPlayReadyLicenseTypeOutputWithContext(context.Context) ContentKeyPolicyPlayReadyLicenseTypeOutput
-}
-
-var contentKeyPolicyPlayReadyLicenseTypePtrType = reflect.TypeOf((**ContentKeyPolicyPlayReadyLicenseType)(nil)).Elem()
-
-type ContentKeyPolicyPlayReadyLicenseTypePtrInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyPlayReadyLicenseTypePtrOutput() ContentKeyPolicyPlayReadyLicenseTypePtrOutput
-	ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(context.Context) ContentKeyPolicyPlayReadyLicenseTypePtrOutput
-}
-
-type contentKeyPolicyPlayReadyLicenseTypePtr string
-
-func ContentKeyPolicyPlayReadyLicenseTypePtr(v string) ContentKeyPolicyPlayReadyLicenseTypePtrInput {
-	return (*contentKeyPolicyPlayReadyLicenseTypePtr)(&v)
-}
-
-func (*contentKeyPolicyPlayReadyLicenseTypePtr) ElementType() reflect.Type {
-	return contentKeyPolicyPlayReadyLicenseTypePtrType
-}
-
-func (in *contentKeyPolicyPlayReadyLicenseTypePtr) ToContentKeyPolicyPlayReadyLicenseTypePtrOutput() ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return pulumi.ToOutput(in).(ContentKeyPolicyPlayReadyLicenseTypePtrOutput)
-}
-
-func (in *contentKeyPolicyPlayReadyLicenseTypePtr) ToContentKeyPolicyPlayReadyLicenseTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyPlayReadyLicenseTypePtrOutput)
-}
-
 // Configures Unknown output handling settings of the license.
-type ContentKeyPolicyPlayReadyUnknownOutputPassingOption string
+type ContentKeyPolicyPlayReadyUnknownOutputPassingOption pulumi.String
 
 const (
 	// Represents a ContentKeyPolicyPlayReadyUnknownOutputPassingOption that is unavailable in current API version.
@@ -1041,23 +219,7 @@ const (
 )
 
 func (ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyPlayReadyUnknownOutputPassingOption)(nil)).Elem()
-}
-
-func (e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput {
-	return pulumi.ToOutput(e).(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput)
-}
-
-func (e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput)
-}
-
-func (e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return e.ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(context.Background())
-}
-
-func (e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return ContentKeyPolicyPlayReadyUnknownOutputPassingOption(e).ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutputWithContext(ctx).ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ToStringOutput() pulumi.StringOutput {
@@ -1076,129 +238,8 @@ func (e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ToStringPtrOutputWi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyPlayReadyUnknownOutputPassingOption)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return o.ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPlayReadyUnknownOutputPassingOption) *ContentKeyPolicyPlayReadyUnknownOutputPassingOption {
-		return &v
-	}).(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyPlayReadyUnknownOutputPassingOption) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentKeyPolicyPlayReadyUnknownOutputPassingOption)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput) Elem() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyUnknownOutputPassingOption) ContentKeyPolicyPlayReadyUnknownOutputPassingOption {
-		if v != nil {
-			return *v
-		}
-		var ret ContentKeyPolicyPlayReadyUnknownOutputPassingOption
-		return ret
-	}).(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput)
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentKeyPolicyPlayReadyUnknownOutputPassingOption) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ContentKeyPolicyPlayReadyUnknownOutputPassingOptionInput is an input type that accepts ContentKeyPolicyPlayReadyUnknownOutputPassingOptionArgs and ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyPlayReadyUnknownOutputPassingOptionInput` via:
-//
-//          ContentKeyPolicyPlayReadyUnknownOutputPassingOptionArgs{...}
-type ContentKeyPolicyPlayReadyUnknownOutputPassingOptionInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput
-	ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutputWithContext(context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput
-}
-
-var contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrType = reflect.TypeOf((**ContentKeyPolicyPlayReadyUnknownOutputPassingOption)(nil)).Elem()
-
-type ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput
-	ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput
-}
-
-type contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtr string
-
-func ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtr(v string) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrInput {
-	return (*contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtr)(&v)
-}
-
-func (*contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtr) ElementType() reflect.Type {
-	return contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrType
-}
-
-func (in *contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtr) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput() ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return pulumi.ToOutput(in).(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput)
-}
-
-func (in *contentKeyPolicyPlayReadyUnknownOutputPassingOptionPtr) ToContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput)
-}
-
 // The type of token.
-type ContentKeyPolicyRestrictionTokenType string
+type ContentKeyPolicyRestrictionTokenType pulumi.String
 
 const (
 	// Represents a ContentKeyPolicyRestrictionTokenType that is unavailable in current API version.
@@ -1210,23 +251,7 @@ const (
 )
 
 func (ContentKeyPolicyRestrictionTokenType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyRestrictionTokenType)(nil)).Elem()
-}
-
-func (e ContentKeyPolicyRestrictionTokenType) ToContentKeyPolicyRestrictionTokenTypeOutput() ContentKeyPolicyRestrictionTokenTypeOutput {
-	return pulumi.ToOutput(e).(ContentKeyPolicyRestrictionTokenTypeOutput)
-}
-
-func (e ContentKeyPolicyRestrictionTokenType) ToContentKeyPolicyRestrictionTokenTypeOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionTokenTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ContentKeyPolicyRestrictionTokenTypeOutput)
-}
-
-func (e ContentKeyPolicyRestrictionTokenType) ToContentKeyPolicyRestrictionTokenTypePtrOutput() ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return e.ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(context.Background())
-}
-
-func (e ContentKeyPolicyRestrictionTokenType) ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return ContentKeyPolicyRestrictionTokenType(e).ToContentKeyPolicyRestrictionTokenTypeOutputWithContext(ctx).ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ContentKeyPolicyRestrictionTokenType) ToStringOutput() pulumi.StringOutput {
@@ -1245,129 +270,8 @@ func (e ContentKeyPolicyRestrictionTokenType) ToStringPtrOutputWithContext(ctx c
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ContentKeyPolicyRestrictionTokenTypeOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyRestrictionTokenTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyRestrictionTokenType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToContentKeyPolicyRestrictionTokenTypeOutput() ContentKeyPolicyRestrictionTokenTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToContentKeyPolicyRestrictionTokenTypeOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionTokenTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToContentKeyPolicyRestrictionTokenTypePtrOutput() ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return o.ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyRestrictionTokenType) *ContentKeyPolicyRestrictionTokenType {
-		return &v
-	}).(ContentKeyPolicyRestrictionTokenTypePtrOutput)
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyRestrictionTokenType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentKeyPolicyRestrictionTokenType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ContentKeyPolicyRestrictionTokenTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyRestrictionTokenTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentKeyPolicyRestrictionTokenType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypePtrOutput) ToContentKeyPolicyRestrictionTokenTypePtrOutput() ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypePtrOutput) ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypePtrOutput) Elem() ContentKeyPolicyRestrictionTokenTypeOutput {
-	return o.ApplyT(func(v *ContentKeyPolicyRestrictionTokenType) ContentKeyPolicyRestrictionTokenType {
-		if v != nil {
-			return *v
-		}
-		var ret ContentKeyPolicyRestrictionTokenType
-		return ret
-	}).(ContentKeyPolicyRestrictionTokenTypeOutput)
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyRestrictionTokenTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentKeyPolicyRestrictionTokenType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ContentKeyPolicyRestrictionTokenTypeInput is an input type that accepts ContentKeyPolicyRestrictionTokenTypeArgs and ContentKeyPolicyRestrictionTokenTypeOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyRestrictionTokenTypeInput` via:
-//
-//          ContentKeyPolicyRestrictionTokenTypeArgs{...}
-type ContentKeyPolicyRestrictionTokenTypeInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyRestrictionTokenTypeOutput() ContentKeyPolicyRestrictionTokenTypeOutput
-	ToContentKeyPolicyRestrictionTokenTypeOutputWithContext(context.Context) ContentKeyPolicyRestrictionTokenTypeOutput
-}
-
-var contentKeyPolicyRestrictionTokenTypePtrType = reflect.TypeOf((**ContentKeyPolicyRestrictionTokenType)(nil)).Elem()
-
-type ContentKeyPolicyRestrictionTokenTypePtrInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyRestrictionTokenTypePtrOutput() ContentKeyPolicyRestrictionTokenTypePtrOutput
-	ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(context.Context) ContentKeyPolicyRestrictionTokenTypePtrOutput
-}
-
-type contentKeyPolicyRestrictionTokenTypePtr string
-
-func ContentKeyPolicyRestrictionTokenTypePtr(v string) ContentKeyPolicyRestrictionTokenTypePtrInput {
-	return (*contentKeyPolicyRestrictionTokenTypePtr)(&v)
-}
-
-func (*contentKeyPolicyRestrictionTokenTypePtr) ElementType() reflect.Type {
-	return contentKeyPolicyRestrictionTokenTypePtrType
-}
-
-func (in *contentKeyPolicyRestrictionTokenTypePtr) ToContentKeyPolicyRestrictionTokenTypePtrOutput() ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return pulumi.ToOutput(in).(ContentKeyPolicyRestrictionTokenTypePtrOutput)
-}
-
-func (in *contentKeyPolicyRestrictionTokenTypePtr) ToContentKeyPolicyRestrictionTokenTypePtrOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionTokenTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ContentKeyPolicyRestrictionTokenTypePtrOutput)
-}
-
 // The deinterlacing mode. Defaults to AutoPixelAdaptive.
-type DeinterlaceMode string
+type DeinterlaceMode pulumi.String
 
 const (
 	// Disables de-interlacing of the source video.
@@ -1377,23 +281,7 @@ const (
 )
 
 func (DeinterlaceMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeinterlaceMode)(nil)).Elem()
-}
-
-func (e DeinterlaceMode) ToDeinterlaceModeOutput() DeinterlaceModeOutput {
-	return pulumi.ToOutput(e).(DeinterlaceModeOutput)
-}
-
-func (e DeinterlaceMode) ToDeinterlaceModeOutputWithContext(ctx context.Context) DeinterlaceModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DeinterlaceModeOutput)
-}
-
-func (e DeinterlaceMode) ToDeinterlaceModePtrOutput() DeinterlaceModePtrOutput {
-	return e.ToDeinterlaceModePtrOutputWithContext(context.Background())
-}
-
-func (e DeinterlaceMode) ToDeinterlaceModePtrOutputWithContext(ctx context.Context) DeinterlaceModePtrOutput {
-	return DeinterlaceMode(e).ToDeinterlaceModeOutputWithContext(ctx).ToDeinterlaceModePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e DeinterlaceMode) ToStringOutput() pulumi.StringOutput {
@@ -1412,129 +300,8 @@ func (e DeinterlaceMode) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DeinterlaceModeOutput struct{ *pulumi.OutputState }
-
-func (DeinterlaceModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeinterlaceMode)(nil)).Elem()
-}
-
-func (o DeinterlaceModeOutput) ToDeinterlaceModeOutput() DeinterlaceModeOutput {
-	return o
-}
-
-func (o DeinterlaceModeOutput) ToDeinterlaceModeOutputWithContext(ctx context.Context) DeinterlaceModeOutput {
-	return o
-}
-
-func (o DeinterlaceModeOutput) ToDeinterlaceModePtrOutput() DeinterlaceModePtrOutput {
-	return o.ToDeinterlaceModePtrOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceModeOutput) ToDeinterlaceModePtrOutputWithContext(ctx context.Context) DeinterlaceModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeinterlaceMode) *DeinterlaceMode {
-		return &v
-	}).(DeinterlaceModePtrOutput)
-}
-
-func (o DeinterlaceModeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeinterlaceMode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DeinterlaceModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeinterlaceMode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DeinterlaceModePtrOutput struct{ *pulumi.OutputState }
-
-func (DeinterlaceModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeinterlaceMode)(nil)).Elem()
-}
-
-func (o DeinterlaceModePtrOutput) ToDeinterlaceModePtrOutput() DeinterlaceModePtrOutput {
-	return o
-}
-
-func (o DeinterlaceModePtrOutput) ToDeinterlaceModePtrOutputWithContext(ctx context.Context) DeinterlaceModePtrOutput {
-	return o
-}
-
-func (o DeinterlaceModePtrOutput) Elem() DeinterlaceModeOutput {
-	return o.ApplyT(func(v *DeinterlaceMode) DeinterlaceMode {
-		if v != nil {
-			return *v
-		}
-		var ret DeinterlaceMode
-		return ret
-	}).(DeinterlaceModeOutput)
-}
-
-func (o DeinterlaceModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeinterlaceMode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DeinterlaceModeInput is an input type that accepts DeinterlaceModeArgs and DeinterlaceModeOutput values.
-// You can construct a concrete instance of `DeinterlaceModeInput` via:
-//
-//          DeinterlaceModeArgs{...}
-type DeinterlaceModeInput interface {
-	pulumi.Input
-
-	ToDeinterlaceModeOutput() DeinterlaceModeOutput
-	ToDeinterlaceModeOutputWithContext(context.Context) DeinterlaceModeOutput
-}
-
-var deinterlaceModePtrType = reflect.TypeOf((**DeinterlaceMode)(nil)).Elem()
-
-type DeinterlaceModePtrInput interface {
-	pulumi.Input
-
-	ToDeinterlaceModePtrOutput() DeinterlaceModePtrOutput
-	ToDeinterlaceModePtrOutputWithContext(context.Context) DeinterlaceModePtrOutput
-}
-
-type deinterlaceModePtr string
-
-func DeinterlaceModePtr(v string) DeinterlaceModePtrInput {
-	return (*deinterlaceModePtr)(&v)
-}
-
-func (*deinterlaceModePtr) ElementType() reflect.Type {
-	return deinterlaceModePtrType
-}
-
-func (in *deinterlaceModePtr) ToDeinterlaceModePtrOutput() DeinterlaceModePtrOutput {
-	return pulumi.ToOutput(in).(DeinterlaceModePtrOutput)
-}
-
-func (in *deinterlaceModePtr) ToDeinterlaceModePtrOutputWithContext(ctx context.Context) DeinterlaceModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DeinterlaceModePtrOutput)
-}
-
 // The field parity for de-interlacing, defaults to Auto.
-type DeinterlaceParity string
+type DeinterlaceParity pulumi.String
 
 const (
 	// Automatically detect the order of fields
@@ -1546,23 +313,7 @@ const (
 )
 
 func (DeinterlaceParity) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeinterlaceParity)(nil)).Elem()
-}
-
-func (e DeinterlaceParity) ToDeinterlaceParityOutput() DeinterlaceParityOutput {
-	return pulumi.ToOutput(e).(DeinterlaceParityOutput)
-}
-
-func (e DeinterlaceParity) ToDeinterlaceParityOutputWithContext(ctx context.Context) DeinterlaceParityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DeinterlaceParityOutput)
-}
-
-func (e DeinterlaceParity) ToDeinterlaceParityPtrOutput() DeinterlaceParityPtrOutput {
-	return e.ToDeinterlaceParityPtrOutputWithContext(context.Background())
-}
-
-func (e DeinterlaceParity) ToDeinterlaceParityPtrOutputWithContext(ctx context.Context) DeinterlaceParityPtrOutput {
-	return DeinterlaceParity(e).ToDeinterlaceParityOutputWithContext(ctx).ToDeinterlaceParityPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e DeinterlaceParity) ToStringOutput() pulumi.StringOutput {
@@ -1581,129 +332,8 @@ func (e DeinterlaceParity) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DeinterlaceParityOutput struct{ *pulumi.OutputState }
-
-func (DeinterlaceParityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeinterlaceParity)(nil)).Elem()
-}
-
-func (o DeinterlaceParityOutput) ToDeinterlaceParityOutput() DeinterlaceParityOutput {
-	return o
-}
-
-func (o DeinterlaceParityOutput) ToDeinterlaceParityOutputWithContext(ctx context.Context) DeinterlaceParityOutput {
-	return o
-}
-
-func (o DeinterlaceParityOutput) ToDeinterlaceParityPtrOutput() DeinterlaceParityPtrOutput {
-	return o.ToDeinterlaceParityPtrOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceParityOutput) ToDeinterlaceParityPtrOutputWithContext(ctx context.Context) DeinterlaceParityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeinterlaceParity) *DeinterlaceParity {
-		return &v
-	}).(DeinterlaceParityPtrOutput)
-}
-
-func (o DeinterlaceParityOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceParityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeinterlaceParity) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DeinterlaceParityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceParityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeinterlaceParity) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DeinterlaceParityPtrOutput struct{ *pulumi.OutputState }
-
-func (DeinterlaceParityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeinterlaceParity)(nil)).Elem()
-}
-
-func (o DeinterlaceParityPtrOutput) ToDeinterlaceParityPtrOutput() DeinterlaceParityPtrOutput {
-	return o
-}
-
-func (o DeinterlaceParityPtrOutput) ToDeinterlaceParityPtrOutputWithContext(ctx context.Context) DeinterlaceParityPtrOutput {
-	return o
-}
-
-func (o DeinterlaceParityPtrOutput) Elem() DeinterlaceParityOutput {
-	return o.ApplyT(func(v *DeinterlaceParity) DeinterlaceParity {
-		if v != nil {
-			return *v
-		}
-		var ret DeinterlaceParity
-		return ret
-	}).(DeinterlaceParityOutput)
-}
-
-func (o DeinterlaceParityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeinterlaceParityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeinterlaceParity) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DeinterlaceParityInput is an input type that accepts DeinterlaceParityArgs and DeinterlaceParityOutput values.
-// You can construct a concrete instance of `DeinterlaceParityInput` via:
-//
-//          DeinterlaceParityArgs{...}
-type DeinterlaceParityInput interface {
-	pulumi.Input
-
-	ToDeinterlaceParityOutput() DeinterlaceParityOutput
-	ToDeinterlaceParityOutputWithContext(context.Context) DeinterlaceParityOutput
-}
-
-var deinterlaceParityPtrType = reflect.TypeOf((**DeinterlaceParity)(nil)).Elem()
-
-type DeinterlaceParityPtrInput interface {
-	pulumi.Input
-
-	ToDeinterlaceParityPtrOutput() DeinterlaceParityPtrOutput
-	ToDeinterlaceParityPtrOutputWithContext(context.Context) DeinterlaceParityPtrOutput
-}
-
-type deinterlaceParityPtr string
-
-func DeinterlaceParityPtr(v string) DeinterlaceParityPtrInput {
-	return (*deinterlaceParityPtr)(&v)
-}
-
-func (*deinterlaceParityPtr) ElementType() reflect.Type {
-	return deinterlaceParityPtrType
-}
-
-func (in *deinterlaceParityPtr) ToDeinterlaceParityPtrOutput() DeinterlaceParityPtrOutput {
-	return pulumi.ToOutput(in).(DeinterlaceParityPtrOutput)
-}
-
-func (in *deinterlaceParityPtr) ToDeinterlaceParityPtrOutputWithContext(ctx context.Context) DeinterlaceParityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DeinterlaceParityPtrOutput)
-}
-
 // The built-in preset to be used for encoding videos.
-type EncoderNamedPreset string
+type EncoderNamedPreset pulumi.String
 
 const (
 	// Produces an MP4 file where the video is encoded with H.264 codec at 2200 kbps and a picture height of 480 pixels, and the stereo audio is encoded with AAC-LC codec at 64 kbps.
@@ -1729,23 +359,7 @@ const (
 )
 
 func (EncoderNamedPreset) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncoderNamedPreset)(nil)).Elem()
-}
-
-func (e EncoderNamedPreset) ToEncoderNamedPresetOutput() EncoderNamedPresetOutput {
-	return pulumi.ToOutput(e).(EncoderNamedPresetOutput)
-}
-
-func (e EncoderNamedPreset) ToEncoderNamedPresetOutputWithContext(ctx context.Context) EncoderNamedPresetOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EncoderNamedPresetOutput)
-}
-
-func (e EncoderNamedPreset) ToEncoderNamedPresetPtrOutput() EncoderNamedPresetPtrOutput {
-	return e.ToEncoderNamedPresetPtrOutputWithContext(context.Background())
-}
-
-func (e EncoderNamedPreset) ToEncoderNamedPresetPtrOutputWithContext(ctx context.Context) EncoderNamedPresetPtrOutput {
-	return EncoderNamedPreset(e).ToEncoderNamedPresetOutputWithContext(ctx).ToEncoderNamedPresetPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e EncoderNamedPreset) ToStringOutput() pulumi.StringOutput {
@@ -1764,129 +378,8 @@ func (e EncoderNamedPreset) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type EncoderNamedPresetOutput struct{ *pulumi.OutputState }
-
-func (EncoderNamedPresetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncoderNamedPreset)(nil)).Elem()
-}
-
-func (o EncoderNamedPresetOutput) ToEncoderNamedPresetOutput() EncoderNamedPresetOutput {
-	return o
-}
-
-func (o EncoderNamedPresetOutput) ToEncoderNamedPresetOutputWithContext(ctx context.Context) EncoderNamedPresetOutput {
-	return o
-}
-
-func (o EncoderNamedPresetOutput) ToEncoderNamedPresetPtrOutput() EncoderNamedPresetPtrOutput {
-	return o.ToEncoderNamedPresetPtrOutputWithContext(context.Background())
-}
-
-func (o EncoderNamedPresetOutput) ToEncoderNamedPresetPtrOutputWithContext(ctx context.Context) EncoderNamedPresetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncoderNamedPreset) *EncoderNamedPreset {
-		return &v
-	}).(EncoderNamedPresetPtrOutput)
-}
-
-func (o EncoderNamedPresetOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o EncoderNamedPresetOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncoderNamedPreset) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o EncoderNamedPresetOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EncoderNamedPresetOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncoderNamedPreset) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type EncoderNamedPresetPtrOutput struct{ *pulumi.OutputState }
-
-func (EncoderNamedPresetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncoderNamedPreset)(nil)).Elem()
-}
-
-func (o EncoderNamedPresetPtrOutput) ToEncoderNamedPresetPtrOutput() EncoderNamedPresetPtrOutput {
-	return o
-}
-
-func (o EncoderNamedPresetPtrOutput) ToEncoderNamedPresetPtrOutputWithContext(ctx context.Context) EncoderNamedPresetPtrOutput {
-	return o
-}
-
-func (o EncoderNamedPresetPtrOutput) Elem() EncoderNamedPresetOutput {
-	return o.ApplyT(func(v *EncoderNamedPreset) EncoderNamedPreset {
-		if v != nil {
-			return *v
-		}
-		var ret EncoderNamedPreset
-		return ret
-	}).(EncoderNamedPresetOutput)
-}
-
-func (o EncoderNamedPresetPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EncoderNamedPresetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EncoderNamedPreset) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// EncoderNamedPresetInput is an input type that accepts EncoderNamedPresetArgs and EncoderNamedPresetOutput values.
-// You can construct a concrete instance of `EncoderNamedPresetInput` via:
-//
-//          EncoderNamedPresetArgs{...}
-type EncoderNamedPresetInput interface {
-	pulumi.Input
-
-	ToEncoderNamedPresetOutput() EncoderNamedPresetOutput
-	ToEncoderNamedPresetOutputWithContext(context.Context) EncoderNamedPresetOutput
-}
-
-var encoderNamedPresetPtrType = reflect.TypeOf((**EncoderNamedPreset)(nil)).Elem()
-
-type EncoderNamedPresetPtrInput interface {
-	pulumi.Input
-
-	ToEncoderNamedPresetPtrOutput() EncoderNamedPresetPtrOutput
-	ToEncoderNamedPresetPtrOutputWithContext(context.Context) EncoderNamedPresetPtrOutput
-}
-
-type encoderNamedPresetPtr string
-
-func EncoderNamedPresetPtr(v string) EncoderNamedPresetPtrInput {
-	return (*encoderNamedPresetPtr)(&v)
-}
-
-func (*encoderNamedPresetPtr) ElementType() reflect.Type {
-	return encoderNamedPresetPtrType
-}
-
-func (in *encoderNamedPresetPtr) ToEncoderNamedPresetPtrOutput() EncoderNamedPresetPtrOutput {
-	return pulumi.ToOutput(in).(EncoderNamedPresetPtrOutput)
-}
-
-func (in *encoderNamedPresetPtr) ToEncoderNamedPresetPtrOutputWithContext(ctx context.Context) EncoderNamedPresetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EncoderNamedPresetPtrOutput)
-}
-
 // The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
-type EntropyMode string
+type EntropyMode pulumi.String
 
 const (
 	// Context Adaptive Binary Arithmetic Coder (CABAC) entropy encoding.
@@ -1896,23 +389,7 @@ const (
 )
 
 func (EntropyMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntropyMode)(nil)).Elem()
-}
-
-func (e EntropyMode) ToEntropyModeOutput() EntropyModeOutput {
-	return pulumi.ToOutput(e).(EntropyModeOutput)
-}
-
-func (e EntropyMode) ToEntropyModeOutputWithContext(ctx context.Context) EntropyModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EntropyModeOutput)
-}
-
-func (e EntropyMode) ToEntropyModePtrOutput() EntropyModePtrOutput {
-	return e.ToEntropyModePtrOutputWithContext(context.Background())
-}
-
-func (e EntropyMode) ToEntropyModePtrOutputWithContext(ctx context.Context) EntropyModePtrOutput {
-	return EntropyMode(e).ToEntropyModeOutputWithContext(ctx).ToEntropyModePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e EntropyMode) ToStringOutput() pulumi.StringOutput {
@@ -1931,129 +408,8 @@ func (e EntropyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type EntropyModeOutput struct{ *pulumi.OutputState }
-
-func (EntropyModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntropyMode)(nil)).Elem()
-}
-
-func (o EntropyModeOutput) ToEntropyModeOutput() EntropyModeOutput {
-	return o
-}
-
-func (o EntropyModeOutput) ToEntropyModeOutputWithContext(ctx context.Context) EntropyModeOutput {
-	return o
-}
-
-func (o EntropyModeOutput) ToEntropyModePtrOutput() EntropyModePtrOutput {
-	return o.ToEntropyModePtrOutputWithContext(context.Background())
-}
-
-func (o EntropyModeOutput) ToEntropyModePtrOutputWithContext(ctx context.Context) EntropyModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntropyMode) *EntropyMode {
-		return &v
-	}).(EntropyModePtrOutput)
-}
-
-func (o EntropyModeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o EntropyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntropyMode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o EntropyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EntropyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntropyMode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type EntropyModePtrOutput struct{ *pulumi.OutputState }
-
-func (EntropyModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntropyMode)(nil)).Elem()
-}
-
-func (o EntropyModePtrOutput) ToEntropyModePtrOutput() EntropyModePtrOutput {
-	return o
-}
-
-func (o EntropyModePtrOutput) ToEntropyModePtrOutputWithContext(ctx context.Context) EntropyModePtrOutput {
-	return o
-}
-
-func (o EntropyModePtrOutput) Elem() EntropyModeOutput {
-	return o.ApplyT(func(v *EntropyMode) EntropyMode {
-		if v != nil {
-			return *v
-		}
-		var ret EntropyMode
-		return ret
-	}).(EntropyModeOutput)
-}
-
-func (o EntropyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EntropyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntropyMode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// EntropyModeInput is an input type that accepts EntropyModeArgs and EntropyModeOutput values.
-// You can construct a concrete instance of `EntropyModeInput` via:
-//
-//          EntropyModeArgs{...}
-type EntropyModeInput interface {
-	pulumi.Input
-
-	ToEntropyModeOutput() EntropyModeOutput
-	ToEntropyModeOutputWithContext(context.Context) EntropyModeOutput
-}
-
-var entropyModePtrType = reflect.TypeOf((**EntropyMode)(nil)).Elem()
-
-type EntropyModePtrInput interface {
-	pulumi.Input
-
-	ToEntropyModePtrOutput() EntropyModePtrOutput
-	ToEntropyModePtrOutputWithContext(context.Context) EntropyModePtrOutput
-}
-
-type entropyModePtr string
-
-func EntropyModePtr(v string) EntropyModePtrInput {
-	return (*entropyModePtr)(&v)
-}
-
-func (*entropyModePtr) ElementType() reflect.Type {
-	return entropyModePtrType
-}
-
-func (in *entropyModePtr) ToEntropyModePtrOutput() EntropyModePtrOutput {
-	return pulumi.ToOutput(in).(EntropyModePtrOutput)
-}
-
-func (in *entropyModePtr) ToEntropyModePtrOutputWithContext(ctx context.Context) EntropyModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EntropyModePtrOutput)
-}
-
 // The track property condition operation.
-type FilterTrackPropertyCompareOperation string
+type FilterTrackPropertyCompareOperation pulumi.String
 
 const (
 	// The equal operation.
@@ -2063,23 +419,7 @@ const (
 )
 
 func (FilterTrackPropertyCompareOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterTrackPropertyCompareOperation)(nil)).Elem()
-}
-
-func (e FilterTrackPropertyCompareOperation) ToFilterTrackPropertyCompareOperationOutput() FilterTrackPropertyCompareOperationOutput {
-	return pulumi.ToOutput(e).(FilterTrackPropertyCompareOperationOutput)
-}
-
-func (e FilterTrackPropertyCompareOperation) ToFilterTrackPropertyCompareOperationOutputWithContext(ctx context.Context) FilterTrackPropertyCompareOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FilterTrackPropertyCompareOperationOutput)
-}
-
-func (e FilterTrackPropertyCompareOperation) ToFilterTrackPropertyCompareOperationPtrOutput() FilterTrackPropertyCompareOperationPtrOutput {
-	return e.ToFilterTrackPropertyCompareOperationPtrOutputWithContext(context.Background())
-}
-
-func (e FilterTrackPropertyCompareOperation) ToFilterTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) FilterTrackPropertyCompareOperationPtrOutput {
-	return FilterTrackPropertyCompareOperation(e).ToFilterTrackPropertyCompareOperationOutputWithContext(ctx).ToFilterTrackPropertyCompareOperationPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e FilterTrackPropertyCompareOperation) ToStringOutput() pulumi.StringOutput {
@@ -2098,129 +438,8 @@ func (e FilterTrackPropertyCompareOperation) ToStringPtrOutputWithContext(ctx co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type FilterTrackPropertyCompareOperationOutput struct{ *pulumi.OutputState }
-
-func (FilterTrackPropertyCompareOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterTrackPropertyCompareOperation)(nil)).Elem()
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToFilterTrackPropertyCompareOperationOutput() FilterTrackPropertyCompareOperationOutput {
-	return o
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToFilterTrackPropertyCompareOperationOutputWithContext(ctx context.Context) FilterTrackPropertyCompareOperationOutput {
-	return o
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToFilterTrackPropertyCompareOperationPtrOutput() FilterTrackPropertyCompareOperationPtrOutput {
-	return o.ToFilterTrackPropertyCompareOperationPtrOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToFilterTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) FilterTrackPropertyCompareOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterTrackPropertyCompareOperation) *FilterTrackPropertyCompareOperation {
-		return &v
-	}).(FilterTrackPropertyCompareOperationPtrOutput)
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FilterTrackPropertyCompareOperation) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyCompareOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FilterTrackPropertyCompareOperation) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type FilterTrackPropertyCompareOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (FilterTrackPropertyCompareOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterTrackPropertyCompareOperation)(nil)).Elem()
-}
-
-func (o FilterTrackPropertyCompareOperationPtrOutput) ToFilterTrackPropertyCompareOperationPtrOutput() FilterTrackPropertyCompareOperationPtrOutput {
-	return o
-}
-
-func (o FilterTrackPropertyCompareOperationPtrOutput) ToFilterTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) FilterTrackPropertyCompareOperationPtrOutput {
-	return o
-}
-
-func (o FilterTrackPropertyCompareOperationPtrOutput) Elem() FilterTrackPropertyCompareOperationOutput {
-	return o.ApplyT(func(v *FilterTrackPropertyCompareOperation) FilterTrackPropertyCompareOperation {
-		if v != nil {
-			return *v
-		}
-		var ret FilterTrackPropertyCompareOperation
-		return ret
-	}).(FilterTrackPropertyCompareOperationOutput)
-}
-
-func (o FilterTrackPropertyCompareOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyCompareOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FilterTrackPropertyCompareOperation) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// FilterTrackPropertyCompareOperationInput is an input type that accepts FilterTrackPropertyCompareOperationArgs and FilterTrackPropertyCompareOperationOutput values.
-// You can construct a concrete instance of `FilterTrackPropertyCompareOperationInput` via:
-//
-//          FilterTrackPropertyCompareOperationArgs{...}
-type FilterTrackPropertyCompareOperationInput interface {
-	pulumi.Input
-
-	ToFilterTrackPropertyCompareOperationOutput() FilterTrackPropertyCompareOperationOutput
-	ToFilterTrackPropertyCompareOperationOutputWithContext(context.Context) FilterTrackPropertyCompareOperationOutput
-}
-
-var filterTrackPropertyCompareOperationPtrType = reflect.TypeOf((**FilterTrackPropertyCompareOperation)(nil)).Elem()
-
-type FilterTrackPropertyCompareOperationPtrInput interface {
-	pulumi.Input
-
-	ToFilterTrackPropertyCompareOperationPtrOutput() FilterTrackPropertyCompareOperationPtrOutput
-	ToFilterTrackPropertyCompareOperationPtrOutputWithContext(context.Context) FilterTrackPropertyCompareOperationPtrOutput
-}
-
-type filterTrackPropertyCompareOperationPtr string
-
-func FilterTrackPropertyCompareOperationPtr(v string) FilterTrackPropertyCompareOperationPtrInput {
-	return (*filterTrackPropertyCompareOperationPtr)(&v)
-}
-
-func (*filterTrackPropertyCompareOperationPtr) ElementType() reflect.Type {
-	return filterTrackPropertyCompareOperationPtrType
-}
-
-func (in *filterTrackPropertyCompareOperationPtr) ToFilterTrackPropertyCompareOperationPtrOutput() FilterTrackPropertyCompareOperationPtrOutput {
-	return pulumi.ToOutput(in).(FilterTrackPropertyCompareOperationPtrOutput)
-}
-
-func (in *filterTrackPropertyCompareOperationPtr) ToFilterTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) FilterTrackPropertyCompareOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FilterTrackPropertyCompareOperationPtrOutput)
-}
-
 // The track property type.
-type FilterTrackPropertyType string
+type FilterTrackPropertyType pulumi.String
 
 const (
 	// The unknown track property type.
@@ -2238,23 +457,7 @@ const (
 )
 
 func (FilterTrackPropertyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterTrackPropertyType)(nil)).Elem()
-}
-
-func (e FilterTrackPropertyType) ToFilterTrackPropertyTypeOutput() FilterTrackPropertyTypeOutput {
-	return pulumi.ToOutput(e).(FilterTrackPropertyTypeOutput)
-}
-
-func (e FilterTrackPropertyType) ToFilterTrackPropertyTypeOutputWithContext(ctx context.Context) FilterTrackPropertyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FilterTrackPropertyTypeOutput)
-}
-
-func (e FilterTrackPropertyType) ToFilterTrackPropertyTypePtrOutput() FilterTrackPropertyTypePtrOutput {
-	return e.ToFilterTrackPropertyTypePtrOutputWithContext(context.Background())
-}
-
-func (e FilterTrackPropertyType) ToFilterTrackPropertyTypePtrOutputWithContext(ctx context.Context) FilterTrackPropertyTypePtrOutput {
-	return FilterTrackPropertyType(e).ToFilterTrackPropertyTypeOutputWithContext(ctx).ToFilterTrackPropertyTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e FilterTrackPropertyType) ToStringOutput() pulumi.StringOutput {
@@ -2273,129 +476,8 @@ func (e FilterTrackPropertyType) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type FilterTrackPropertyTypeOutput struct{ *pulumi.OutputState }
-
-func (FilterTrackPropertyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterTrackPropertyType)(nil)).Elem()
-}
-
-func (o FilterTrackPropertyTypeOutput) ToFilterTrackPropertyTypeOutput() FilterTrackPropertyTypeOutput {
-	return o
-}
-
-func (o FilterTrackPropertyTypeOutput) ToFilterTrackPropertyTypeOutputWithContext(ctx context.Context) FilterTrackPropertyTypeOutput {
-	return o
-}
-
-func (o FilterTrackPropertyTypeOutput) ToFilterTrackPropertyTypePtrOutput() FilterTrackPropertyTypePtrOutput {
-	return o.ToFilterTrackPropertyTypePtrOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyTypeOutput) ToFilterTrackPropertyTypePtrOutputWithContext(ctx context.Context) FilterTrackPropertyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterTrackPropertyType) *FilterTrackPropertyType {
-		return &v
-	}).(FilterTrackPropertyTypePtrOutput)
-}
-
-func (o FilterTrackPropertyTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FilterTrackPropertyType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o FilterTrackPropertyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FilterTrackPropertyType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type FilterTrackPropertyTypePtrOutput struct{ *pulumi.OutputState }
-
-func (FilterTrackPropertyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterTrackPropertyType)(nil)).Elem()
-}
-
-func (o FilterTrackPropertyTypePtrOutput) ToFilterTrackPropertyTypePtrOutput() FilterTrackPropertyTypePtrOutput {
-	return o
-}
-
-func (o FilterTrackPropertyTypePtrOutput) ToFilterTrackPropertyTypePtrOutputWithContext(ctx context.Context) FilterTrackPropertyTypePtrOutput {
-	return o
-}
-
-func (o FilterTrackPropertyTypePtrOutput) Elem() FilterTrackPropertyTypeOutput {
-	return o.ApplyT(func(v *FilterTrackPropertyType) FilterTrackPropertyType {
-		if v != nil {
-			return *v
-		}
-		var ret FilterTrackPropertyType
-		return ret
-	}).(FilterTrackPropertyTypeOutput)
-}
-
-func (o FilterTrackPropertyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FilterTrackPropertyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FilterTrackPropertyType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// FilterTrackPropertyTypeInput is an input type that accepts FilterTrackPropertyTypeArgs and FilterTrackPropertyTypeOutput values.
-// You can construct a concrete instance of `FilterTrackPropertyTypeInput` via:
-//
-//          FilterTrackPropertyTypeArgs{...}
-type FilterTrackPropertyTypeInput interface {
-	pulumi.Input
-
-	ToFilterTrackPropertyTypeOutput() FilterTrackPropertyTypeOutput
-	ToFilterTrackPropertyTypeOutputWithContext(context.Context) FilterTrackPropertyTypeOutput
-}
-
-var filterTrackPropertyTypePtrType = reflect.TypeOf((**FilterTrackPropertyType)(nil)).Elem()
-
-type FilterTrackPropertyTypePtrInput interface {
-	pulumi.Input
-
-	ToFilterTrackPropertyTypePtrOutput() FilterTrackPropertyTypePtrOutput
-	ToFilterTrackPropertyTypePtrOutputWithContext(context.Context) FilterTrackPropertyTypePtrOutput
-}
-
-type filterTrackPropertyTypePtr string
-
-func FilterTrackPropertyTypePtr(v string) FilterTrackPropertyTypePtrInput {
-	return (*filterTrackPropertyTypePtr)(&v)
-}
-
-func (*filterTrackPropertyTypePtr) ElementType() reflect.Type {
-	return filterTrackPropertyTypePtrType
-}
-
-func (in *filterTrackPropertyTypePtr) ToFilterTrackPropertyTypePtrOutput() FilterTrackPropertyTypePtrOutput {
-	return pulumi.ToOutput(in).(FilterTrackPropertyTypePtrOutput)
-}
-
-func (in *filterTrackPropertyTypePtr) ToFilterTrackPropertyTypePtrOutputWithContext(ctx context.Context) FilterTrackPropertyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FilterTrackPropertyTypePtrOutput)
-}
-
 // Tells the encoder how to choose its encoding settings. The default value is Balanced.
-type H264Complexity string
+type H264Complexity pulumi.String
 
 const (
 	// Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
@@ -2407,23 +489,7 @@ const (
 )
 
 func (H264Complexity) ElementType() reflect.Type {
-	return reflect.TypeOf((*H264Complexity)(nil)).Elem()
-}
-
-func (e H264Complexity) ToH264ComplexityOutput() H264ComplexityOutput {
-	return pulumi.ToOutput(e).(H264ComplexityOutput)
-}
-
-func (e H264Complexity) ToH264ComplexityOutputWithContext(ctx context.Context) H264ComplexityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(H264ComplexityOutput)
-}
-
-func (e H264Complexity) ToH264ComplexityPtrOutput() H264ComplexityPtrOutput {
-	return e.ToH264ComplexityPtrOutputWithContext(context.Background())
-}
-
-func (e H264Complexity) ToH264ComplexityPtrOutputWithContext(ctx context.Context) H264ComplexityPtrOutput {
-	return H264Complexity(e).ToH264ComplexityOutputWithContext(ctx).ToH264ComplexityPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e H264Complexity) ToStringOutput() pulumi.StringOutput {
@@ -2442,129 +508,8 @@ func (e H264Complexity) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type H264ComplexityOutput struct{ *pulumi.OutputState }
-
-func (H264ComplexityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*H264Complexity)(nil)).Elem()
-}
-
-func (o H264ComplexityOutput) ToH264ComplexityOutput() H264ComplexityOutput {
-	return o
-}
-
-func (o H264ComplexityOutput) ToH264ComplexityOutputWithContext(ctx context.Context) H264ComplexityOutput {
-	return o
-}
-
-func (o H264ComplexityOutput) ToH264ComplexityPtrOutput() H264ComplexityPtrOutput {
-	return o.ToH264ComplexityPtrOutputWithContext(context.Background())
-}
-
-func (o H264ComplexityOutput) ToH264ComplexityPtrOutputWithContext(ctx context.Context) H264ComplexityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v H264Complexity) *H264Complexity {
-		return &v
-	}).(H264ComplexityPtrOutput)
-}
-
-func (o H264ComplexityOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o H264ComplexityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e H264Complexity) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o H264ComplexityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o H264ComplexityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e H264Complexity) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type H264ComplexityPtrOutput struct{ *pulumi.OutputState }
-
-func (H264ComplexityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**H264Complexity)(nil)).Elem()
-}
-
-func (o H264ComplexityPtrOutput) ToH264ComplexityPtrOutput() H264ComplexityPtrOutput {
-	return o
-}
-
-func (o H264ComplexityPtrOutput) ToH264ComplexityPtrOutputWithContext(ctx context.Context) H264ComplexityPtrOutput {
-	return o
-}
-
-func (o H264ComplexityPtrOutput) Elem() H264ComplexityOutput {
-	return o.ApplyT(func(v *H264Complexity) H264Complexity {
-		if v != nil {
-			return *v
-		}
-		var ret H264Complexity
-		return ret
-	}).(H264ComplexityOutput)
-}
-
-func (o H264ComplexityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o H264ComplexityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *H264Complexity) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// H264ComplexityInput is an input type that accepts H264ComplexityArgs and H264ComplexityOutput values.
-// You can construct a concrete instance of `H264ComplexityInput` via:
-//
-//          H264ComplexityArgs{...}
-type H264ComplexityInput interface {
-	pulumi.Input
-
-	ToH264ComplexityOutput() H264ComplexityOutput
-	ToH264ComplexityOutputWithContext(context.Context) H264ComplexityOutput
-}
-
-var h264complexityPtrType = reflect.TypeOf((**H264Complexity)(nil)).Elem()
-
-type H264ComplexityPtrInput interface {
-	pulumi.Input
-
-	ToH264ComplexityPtrOutput() H264ComplexityPtrOutput
-	ToH264ComplexityPtrOutputWithContext(context.Context) H264ComplexityPtrOutput
-}
-
-type h264complexityPtr string
-
-func H264ComplexityPtr(v string) H264ComplexityPtrInput {
-	return (*h264complexityPtr)(&v)
-}
-
-func (*h264complexityPtr) ElementType() reflect.Type {
-	return h264complexityPtrType
-}
-
-func (in *h264complexityPtr) ToH264ComplexityPtrOutput() H264ComplexityPtrOutput {
-	return pulumi.ToOutput(in).(H264ComplexityPtrOutput)
-}
-
-func (in *h264complexityPtr) ToH264ComplexityPtrOutputWithContext(ctx context.Context) H264ComplexityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(H264ComplexityPtrOutput)
-}
-
 // We currently support Baseline, Main, High, High422, High444. Default is Auto.
-type H264VideoProfile string
+type H264VideoProfile pulumi.String
 
 const (
 	// Tells the encoder to automatically determine the appropriate H.264 profile.
@@ -2582,23 +527,7 @@ const (
 )
 
 func (H264VideoProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*H264VideoProfile)(nil)).Elem()
-}
-
-func (e H264VideoProfile) ToH264VideoProfileOutput() H264VideoProfileOutput {
-	return pulumi.ToOutput(e).(H264VideoProfileOutput)
-}
-
-func (e H264VideoProfile) ToH264VideoProfileOutputWithContext(ctx context.Context) H264VideoProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(H264VideoProfileOutput)
-}
-
-func (e H264VideoProfile) ToH264VideoProfilePtrOutput() H264VideoProfilePtrOutput {
-	return e.ToH264VideoProfilePtrOutputWithContext(context.Background())
-}
-
-func (e H264VideoProfile) ToH264VideoProfilePtrOutputWithContext(ctx context.Context) H264VideoProfilePtrOutput {
-	return H264VideoProfile(e).ToH264VideoProfileOutputWithContext(ctx).ToH264VideoProfilePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e H264VideoProfile) ToStringOutput() pulumi.StringOutput {
@@ -2617,129 +546,8 @@ func (e H264VideoProfile) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type H264VideoProfileOutput struct{ *pulumi.OutputState }
-
-func (H264VideoProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*H264VideoProfile)(nil)).Elem()
-}
-
-func (o H264VideoProfileOutput) ToH264VideoProfileOutput() H264VideoProfileOutput {
-	return o
-}
-
-func (o H264VideoProfileOutput) ToH264VideoProfileOutputWithContext(ctx context.Context) H264VideoProfileOutput {
-	return o
-}
-
-func (o H264VideoProfileOutput) ToH264VideoProfilePtrOutput() H264VideoProfilePtrOutput {
-	return o.ToH264VideoProfilePtrOutputWithContext(context.Background())
-}
-
-func (o H264VideoProfileOutput) ToH264VideoProfilePtrOutputWithContext(ctx context.Context) H264VideoProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v H264VideoProfile) *H264VideoProfile {
-		return &v
-	}).(H264VideoProfilePtrOutput)
-}
-
-func (o H264VideoProfileOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o H264VideoProfileOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e H264VideoProfile) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o H264VideoProfileOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o H264VideoProfileOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e H264VideoProfile) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type H264VideoProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (H264VideoProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**H264VideoProfile)(nil)).Elem()
-}
-
-func (o H264VideoProfilePtrOutput) ToH264VideoProfilePtrOutput() H264VideoProfilePtrOutput {
-	return o
-}
-
-func (o H264VideoProfilePtrOutput) ToH264VideoProfilePtrOutputWithContext(ctx context.Context) H264VideoProfilePtrOutput {
-	return o
-}
-
-func (o H264VideoProfilePtrOutput) Elem() H264VideoProfileOutput {
-	return o.ApplyT(func(v *H264VideoProfile) H264VideoProfile {
-		if v != nil {
-			return *v
-		}
-		var ret H264VideoProfile
-		return ret
-	}).(H264VideoProfileOutput)
-}
-
-func (o H264VideoProfilePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o H264VideoProfilePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *H264VideoProfile) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// H264VideoProfileInput is an input type that accepts H264VideoProfileArgs and H264VideoProfileOutput values.
-// You can construct a concrete instance of `H264VideoProfileInput` via:
-//
-//          H264VideoProfileArgs{...}
-type H264VideoProfileInput interface {
-	pulumi.Input
-
-	ToH264VideoProfileOutput() H264VideoProfileOutput
-	ToH264VideoProfileOutputWithContext(context.Context) H264VideoProfileOutput
-}
-
-var h264videoProfilePtrType = reflect.TypeOf((**H264VideoProfile)(nil)).Elem()
-
-type H264VideoProfilePtrInput interface {
-	pulumi.Input
-
-	ToH264VideoProfilePtrOutput() H264VideoProfilePtrOutput
-	ToH264VideoProfilePtrOutputWithContext(context.Context) H264VideoProfilePtrOutput
-}
-
-type h264videoProfilePtr string
-
-func H264VideoProfilePtr(v string) H264VideoProfilePtrInput {
-	return (*h264videoProfilePtr)(&v)
-}
-
-func (*h264videoProfilePtr) ElementType() reflect.Type {
-	return h264videoProfilePtrType
-}
-
-func (in *h264videoProfilePtr) ToH264VideoProfilePtrOutput() H264VideoProfilePtrOutput {
-	return pulumi.ToOutput(in).(H264VideoProfilePtrOutput)
-}
-
-func (in *h264videoProfilePtr) ToH264VideoProfilePtrOutputWithContext(ctx context.Context) H264VideoProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(H264VideoProfilePtrOutput)
-}
-
 // Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
-type InsightsType string
+type InsightsType pulumi.String
 
 const (
 	// Generate audio only insights. Ignore video even if present. Fails if no audio is present.
@@ -2751,23 +559,7 @@ const (
 )
 
 func (InsightsType) ElementType() reflect.Type {
-	return reflect.TypeOf((*InsightsType)(nil)).Elem()
-}
-
-func (e InsightsType) ToInsightsTypeOutput() InsightsTypeOutput {
-	return pulumi.ToOutput(e).(InsightsTypeOutput)
-}
-
-func (e InsightsType) ToInsightsTypeOutputWithContext(ctx context.Context) InsightsTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(InsightsTypeOutput)
-}
-
-func (e InsightsType) ToInsightsTypePtrOutput() InsightsTypePtrOutput {
-	return e.ToInsightsTypePtrOutputWithContext(context.Background())
-}
-
-func (e InsightsType) ToInsightsTypePtrOutputWithContext(ctx context.Context) InsightsTypePtrOutput {
-	return InsightsType(e).ToInsightsTypeOutputWithContext(ctx).ToInsightsTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e InsightsType) ToStringOutput() pulumi.StringOutput {
@@ -2786,129 +578,8 @@ func (e InsightsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type InsightsTypeOutput struct{ *pulumi.OutputState }
-
-func (InsightsTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InsightsType)(nil)).Elem()
-}
-
-func (o InsightsTypeOutput) ToInsightsTypeOutput() InsightsTypeOutput {
-	return o
-}
-
-func (o InsightsTypeOutput) ToInsightsTypeOutputWithContext(ctx context.Context) InsightsTypeOutput {
-	return o
-}
-
-func (o InsightsTypeOutput) ToInsightsTypePtrOutput() InsightsTypePtrOutput {
-	return o.ToInsightsTypePtrOutputWithContext(context.Background())
-}
-
-func (o InsightsTypeOutput) ToInsightsTypePtrOutputWithContext(ctx context.Context) InsightsTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightsType) *InsightsType {
-		return &v
-	}).(InsightsTypePtrOutput)
-}
-
-func (o InsightsTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o InsightsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightsType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o InsightsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o InsightsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightsType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type InsightsTypePtrOutput struct{ *pulumi.OutputState }
-
-func (InsightsTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InsightsType)(nil)).Elem()
-}
-
-func (o InsightsTypePtrOutput) ToInsightsTypePtrOutput() InsightsTypePtrOutput {
-	return o
-}
-
-func (o InsightsTypePtrOutput) ToInsightsTypePtrOutputWithContext(ctx context.Context) InsightsTypePtrOutput {
-	return o
-}
-
-func (o InsightsTypePtrOutput) Elem() InsightsTypeOutput {
-	return o.ApplyT(func(v *InsightsType) InsightsType {
-		if v != nil {
-			return *v
-		}
-		var ret InsightsType
-		return ret
-	}).(InsightsTypeOutput)
-}
-
-func (o InsightsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o InsightsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InsightsType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// InsightsTypeInput is an input type that accepts InsightsTypeArgs and InsightsTypeOutput values.
-// You can construct a concrete instance of `InsightsTypeInput` via:
-//
-//          InsightsTypeArgs{...}
-type InsightsTypeInput interface {
-	pulumi.Input
-
-	ToInsightsTypeOutput() InsightsTypeOutput
-	ToInsightsTypeOutputWithContext(context.Context) InsightsTypeOutput
-}
-
-var insightsTypePtrType = reflect.TypeOf((**InsightsType)(nil)).Elem()
-
-type InsightsTypePtrInput interface {
-	pulumi.Input
-
-	ToInsightsTypePtrOutput() InsightsTypePtrOutput
-	ToInsightsTypePtrOutputWithContext(context.Context) InsightsTypePtrOutput
-}
-
-type insightsTypePtr string
-
-func InsightsTypePtr(v string) InsightsTypePtrInput {
-	return (*insightsTypePtr)(&v)
-}
-
-func (*insightsTypePtr) ElementType() reflect.Type {
-	return insightsTypePtrType
-}
-
-func (in *insightsTypePtr) ToInsightsTypePtrOutput() InsightsTypePtrOutput {
-	return pulumi.ToOutput(in).(InsightsTypePtrOutput)
-}
-
-func (in *insightsTypePtr) ToInsightsTypePtrOutputWithContext(ctx context.Context) InsightsTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(InsightsTypePtrOutput)
-}
-
 // The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
-type LiveEventEncodingType string
+type LiveEventEncodingType pulumi.String
 
 const (
 	LiveEventEncodingTypeNone         = LiveEventEncodingType("None")
@@ -2918,23 +589,7 @@ const (
 )
 
 func (LiveEventEncodingType) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventEncodingType)(nil)).Elem()
-}
-
-func (e LiveEventEncodingType) ToLiveEventEncodingTypeOutput() LiveEventEncodingTypeOutput {
-	return pulumi.ToOutput(e).(LiveEventEncodingTypeOutput)
-}
-
-func (e LiveEventEncodingType) ToLiveEventEncodingTypeOutputWithContext(ctx context.Context) LiveEventEncodingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LiveEventEncodingTypeOutput)
-}
-
-func (e LiveEventEncodingType) ToLiveEventEncodingTypePtrOutput() LiveEventEncodingTypePtrOutput {
-	return e.ToLiveEventEncodingTypePtrOutputWithContext(context.Background())
-}
-
-func (e LiveEventEncodingType) ToLiveEventEncodingTypePtrOutputWithContext(ctx context.Context) LiveEventEncodingTypePtrOutput {
-	return LiveEventEncodingType(e).ToLiveEventEncodingTypeOutputWithContext(ctx).ToLiveEventEncodingTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e LiveEventEncodingType) ToStringOutput() pulumi.StringOutput {
@@ -2953,129 +608,8 @@ func (e LiveEventEncodingType) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LiveEventEncodingTypeOutput struct{ *pulumi.OutputState }
-
-func (LiveEventEncodingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventEncodingType)(nil)).Elem()
-}
-
-func (o LiveEventEncodingTypeOutput) ToLiveEventEncodingTypeOutput() LiveEventEncodingTypeOutput {
-	return o
-}
-
-func (o LiveEventEncodingTypeOutput) ToLiveEventEncodingTypeOutputWithContext(ctx context.Context) LiveEventEncodingTypeOutput {
-	return o
-}
-
-func (o LiveEventEncodingTypeOutput) ToLiveEventEncodingTypePtrOutput() LiveEventEncodingTypePtrOutput {
-	return o.ToLiveEventEncodingTypePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventEncodingTypeOutput) ToLiveEventEncodingTypePtrOutputWithContext(ctx context.Context) LiveEventEncodingTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncodingType) *LiveEventEncodingType {
-		return &v
-	}).(LiveEventEncodingTypePtrOutput)
-}
-
-func (o LiveEventEncodingTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o LiveEventEncodingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LiveEventEncodingType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o LiveEventEncodingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventEncodingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LiveEventEncodingType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type LiveEventEncodingTypePtrOutput struct{ *pulumi.OutputState }
-
-func (LiveEventEncodingTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventEncodingType)(nil)).Elem()
-}
-
-func (o LiveEventEncodingTypePtrOutput) ToLiveEventEncodingTypePtrOutput() LiveEventEncodingTypePtrOutput {
-	return o
-}
-
-func (o LiveEventEncodingTypePtrOutput) ToLiveEventEncodingTypePtrOutputWithContext(ctx context.Context) LiveEventEncodingTypePtrOutput {
-	return o
-}
-
-func (o LiveEventEncodingTypePtrOutput) Elem() LiveEventEncodingTypeOutput {
-	return o.ApplyT(func(v *LiveEventEncodingType) LiveEventEncodingType {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventEncodingType
-		return ret
-	}).(LiveEventEncodingTypeOutput)
-}
-
-func (o LiveEventEncodingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventEncodingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LiveEventEncodingType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// LiveEventEncodingTypeInput is an input type that accepts LiveEventEncodingTypeArgs and LiveEventEncodingTypeOutput values.
-// You can construct a concrete instance of `LiveEventEncodingTypeInput` via:
-//
-//          LiveEventEncodingTypeArgs{...}
-type LiveEventEncodingTypeInput interface {
-	pulumi.Input
-
-	ToLiveEventEncodingTypeOutput() LiveEventEncodingTypeOutput
-	ToLiveEventEncodingTypeOutputWithContext(context.Context) LiveEventEncodingTypeOutput
-}
-
-var liveEventEncodingTypePtrType = reflect.TypeOf((**LiveEventEncodingType)(nil)).Elem()
-
-type LiveEventEncodingTypePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventEncodingTypePtrOutput() LiveEventEncodingTypePtrOutput
-	ToLiveEventEncodingTypePtrOutputWithContext(context.Context) LiveEventEncodingTypePtrOutput
-}
-
-type liveEventEncodingTypePtr string
-
-func LiveEventEncodingTypePtr(v string) LiveEventEncodingTypePtrInput {
-	return (*liveEventEncodingTypePtr)(&v)
-}
-
-func (*liveEventEncodingTypePtr) ElementType() reflect.Type {
-	return liveEventEncodingTypePtrType
-}
-
-func (in *liveEventEncodingTypePtr) ToLiveEventEncodingTypePtrOutput() LiveEventEncodingTypePtrOutput {
-	return pulumi.ToOutput(in).(LiveEventEncodingTypePtrOutput)
-}
-
-func (in *liveEventEncodingTypePtr) ToLiveEventEncodingTypePtrOutputWithContext(ctx context.Context) LiveEventEncodingTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LiveEventEncodingTypePtrOutput)
-}
-
 // The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-type LiveEventInputProtocol string
+type LiveEventInputProtocol pulumi.String
 
 const (
 	LiveEventInputProtocolFragmentedMP4 = LiveEventInputProtocol("FragmentedMP4")
@@ -3083,23 +617,7 @@ const (
 )
 
 func (LiveEventInputProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventInputProtocol)(nil)).Elem()
-}
-
-func (e LiveEventInputProtocol) ToLiveEventInputProtocolOutput() LiveEventInputProtocolOutput {
-	return pulumi.ToOutput(e).(LiveEventInputProtocolOutput)
-}
-
-func (e LiveEventInputProtocol) ToLiveEventInputProtocolOutputWithContext(ctx context.Context) LiveEventInputProtocolOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LiveEventInputProtocolOutput)
-}
-
-func (e LiveEventInputProtocol) ToLiveEventInputProtocolPtrOutput() LiveEventInputProtocolPtrOutput {
-	return e.ToLiveEventInputProtocolPtrOutputWithContext(context.Background())
-}
-
-func (e LiveEventInputProtocol) ToLiveEventInputProtocolPtrOutputWithContext(ctx context.Context) LiveEventInputProtocolPtrOutput {
-	return LiveEventInputProtocol(e).ToLiveEventInputProtocolOutputWithContext(ctx).ToLiveEventInputProtocolPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e LiveEventInputProtocol) ToStringOutput() pulumi.StringOutput {
@@ -3118,129 +636,8 @@ func (e LiveEventInputProtocol) ToStringPtrOutputWithContext(ctx context.Context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LiveEventInputProtocolOutput struct{ *pulumi.OutputState }
-
-func (LiveEventInputProtocolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventInputProtocol)(nil)).Elem()
-}
-
-func (o LiveEventInputProtocolOutput) ToLiveEventInputProtocolOutput() LiveEventInputProtocolOutput {
-	return o
-}
-
-func (o LiveEventInputProtocolOutput) ToLiveEventInputProtocolOutputWithContext(ctx context.Context) LiveEventInputProtocolOutput {
-	return o
-}
-
-func (o LiveEventInputProtocolOutput) ToLiveEventInputProtocolPtrOutput() LiveEventInputProtocolPtrOutput {
-	return o.ToLiveEventInputProtocolPtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputProtocolOutput) ToLiveEventInputProtocolPtrOutputWithContext(ctx context.Context) LiveEventInputProtocolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputProtocol) *LiveEventInputProtocol {
-		return &v
-	}).(LiveEventInputProtocolPtrOutput)
-}
-
-func (o LiveEventInputProtocolOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LiveEventInputProtocol) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o LiveEventInputProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LiveEventInputProtocol) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type LiveEventInputProtocolPtrOutput struct{ *pulumi.OutputState }
-
-func (LiveEventInputProtocolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputProtocol)(nil)).Elem()
-}
-
-func (o LiveEventInputProtocolPtrOutput) ToLiveEventInputProtocolPtrOutput() LiveEventInputProtocolPtrOutput {
-	return o
-}
-
-func (o LiveEventInputProtocolPtrOutput) ToLiveEventInputProtocolPtrOutputWithContext(ctx context.Context) LiveEventInputProtocolPtrOutput {
-	return o
-}
-
-func (o LiveEventInputProtocolPtrOutput) Elem() LiveEventInputProtocolOutput {
-	return o.ApplyT(func(v *LiveEventInputProtocol) LiveEventInputProtocol {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputProtocol
-		return ret
-	}).(LiveEventInputProtocolOutput)
-}
-
-func (o LiveEventInputProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LiveEventInputProtocol) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// LiveEventInputProtocolInput is an input type that accepts LiveEventInputProtocolArgs and LiveEventInputProtocolOutput values.
-// You can construct a concrete instance of `LiveEventInputProtocolInput` via:
-//
-//          LiveEventInputProtocolArgs{...}
-type LiveEventInputProtocolInput interface {
-	pulumi.Input
-
-	ToLiveEventInputProtocolOutput() LiveEventInputProtocolOutput
-	ToLiveEventInputProtocolOutputWithContext(context.Context) LiveEventInputProtocolOutput
-}
-
-var liveEventInputProtocolPtrType = reflect.TypeOf((**LiveEventInputProtocol)(nil)).Elem()
-
-type LiveEventInputProtocolPtrInput interface {
-	pulumi.Input
-
-	ToLiveEventInputProtocolPtrOutput() LiveEventInputProtocolPtrOutput
-	ToLiveEventInputProtocolPtrOutputWithContext(context.Context) LiveEventInputProtocolPtrOutput
-}
-
-type liveEventInputProtocolPtr string
-
-func LiveEventInputProtocolPtr(v string) LiveEventInputProtocolPtrInput {
-	return (*liveEventInputProtocolPtr)(&v)
-}
-
-func (*liveEventInputProtocolPtr) ElementType() reflect.Type {
-	return liveEventInputProtocolPtrType
-}
-
-func (in *liveEventInputProtocolPtr) ToLiveEventInputProtocolPtrOutput() LiveEventInputProtocolPtrOutput {
-	return pulumi.ToOutput(in).(LiveEventInputProtocolPtrOutput)
-}
-
-func (in *liveEventInputProtocolPtr) ToLiveEventInputProtocolPtrOutputWithContext(ctx context.Context) LiveEventInputProtocolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LiveEventInputProtocolPtrOutput)
-}
-
 // A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-type OnErrorType string
+type OnErrorType pulumi.String
 
 const (
 	// Tells the service that if this TransformOutput fails, then any other incomplete TransformOutputs can be stopped.
@@ -3250,23 +647,7 @@ const (
 )
 
 func (OnErrorType) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnErrorType)(nil)).Elem()
-}
-
-func (e OnErrorType) ToOnErrorTypeOutput() OnErrorTypeOutput {
-	return pulumi.ToOutput(e).(OnErrorTypeOutput)
-}
-
-func (e OnErrorType) ToOnErrorTypeOutputWithContext(ctx context.Context) OnErrorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(OnErrorTypeOutput)
-}
-
-func (e OnErrorType) ToOnErrorTypePtrOutput() OnErrorTypePtrOutput {
-	return e.ToOnErrorTypePtrOutputWithContext(context.Background())
-}
-
-func (e OnErrorType) ToOnErrorTypePtrOutputWithContext(ctx context.Context) OnErrorTypePtrOutput {
-	return OnErrorType(e).ToOnErrorTypeOutputWithContext(ctx).ToOnErrorTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e OnErrorType) ToStringOutput() pulumi.StringOutput {
@@ -3285,129 +666,8 @@ func (e OnErrorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type OnErrorTypeOutput struct{ *pulumi.OutputState }
-
-func (OnErrorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnErrorType)(nil)).Elem()
-}
-
-func (o OnErrorTypeOutput) ToOnErrorTypeOutput() OnErrorTypeOutput {
-	return o
-}
-
-func (o OnErrorTypeOutput) ToOnErrorTypeOutputWithContext(ctx context.Context) OnErrorTypeOutput {
-	return o
-}
-
-func (o OnErrorTypeOutput) ToOnErrorTypePtrOutput() OnErrorTypePtrOutput {
-	return o.ToOnErrorTypePtrOutputWithContext(context.Background())
-}
-
-func (o OnErrorTypeOutput) ToOnErrorTypePtrOutputWithContext(ctx context.Context) OnErrorTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnErrorType) *OnErrorType {
-		return &v
-	}).(OnErrorTypePtrOutput)
-}
-
-func (o OnErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o OnErrorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnErrorType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o OnErrorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OnErrorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnErrorType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type OnErrorTypePtrOutput struct{ *pulumi.OutputState }
-
-func (OnErrorTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnErrorType)(nil)).Elem()
-}
-
-func (o OnErrorTypePtrOutput) ToOnErrorTypePtrOutput() OnErrorTypePtrOutput {
-	return o
-}
-
-func (o OnErrorTypePtrOutput) ToOnErrorTypePtrOutputWithContext(ctx context.Context) OnErrorTypePtrOutput {
-	return o
-}
-
-func (o OnErrorTypePtrOutput) Elem() OnErrorTypeOutput {
-	return o.ApplyT(func(v *OnErrorType) OnErrorType {
-		if v != nil {
-			return *v
-		}
-		var ret OnErrorType
-		return ret
-	}).(OnErrorTypeOutput)
-}
-
-func (o OnErrorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OnErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OnErrorType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// OnErrorTypeInput is an input type that accepts OnErrorTypeArgs and OnErrorTypeOutput values.
-// You can construct a concrete instance of `OnErrorTypeInput` via:
-//
-//          OnErrorTypeArgs{...}
-type OnErrorTypeInput interface {
-	pulumi.Input
-
-	ToOnErrorTypeOutput() OnErrorTypeOutput
-	ToOnErrorTypeOutputWithContext(context.Context) OnErrorTypeOutput
-}
-
-var onErrorTypePtrType = reflect.TypeOf((**OnErrorType)(nil)).Elem()
-
-type OnErrorTypePtrInput interface {
-	pulumi.Input
-
-	ToOnErrorTypePtrOutput() OnErrorTypePtrOutput
-	ToOnErrorTypePtrOutputWithContext(context.Context) OnErrorTypePtrOutput
-}
-
-type onErrorTypePtr string
-
-func OnErrorTypePtr(v string) OnErrorTypePtrInput {
-	return (*onErrorTypePtr)(&v)
-}
-
-func (*onErrorTypePtr) ElementType() reflect.Type {
-	return onErrorTypePtrType
-}
-
-func (in *onErrorTypePtr) ToOnErrorTypePtrOutput() OnErrorTypePtrOutput {
-	return pulumi.ToOutput(in).(OnErrorTypePtrOutput)
-}
-
-func (in *onErrorTypePtr) ToOnErrorTypePtrOutputWithContext(ctx context.Context) OnErrorTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(OnErrorTypePtrOutput)
-}
-
 // Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
-type Priority string
+type Priority pulumi.String
 
 const (
 	// Used for TransformOutputs that can be generated after Normal and High priority TransformOutputs.
@@ -3419,23 +679,7 @@ const (
 )
 
 func (Priority) ElementType() reflect.Type {
-	return reflect.TypeOf((*Priority)(nil)).Elem()
-}
-
-func (e Priority) ToPriorityOutput() PriorityOutput {
-	return pulumi.ToOutput(e).(PriorityOutput)
-}
-
-func (e Priority) ToPriorityOutputWithContext(ctx context.Context) PriorityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PriorityOutput)
-}
-
-func (e Priority) ToPriorityPtrOutput() PriorityPtrOutput {
-	return e.ToPriorityPtrOutputWithContext(context.Background())
-}
-
-func (e Priority) ToPriorityPtrOutputWithContext(ctx context.Context) PriorityPtrOutput {
-	return Priority(e).ToPriorityOutputWithContext(ctx).ToPriorityPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Priority) ToStringOutput() pulumi.StringOutput {
@@ -3454,129 +698,8 @@ func (e Priority) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PriorityOutput struct{ *pulumi.OutputState }
-
-func (PriorityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Priority)(nil)).Elem()
-}
-
-func (o PriorityOutput) ToPriorityOutput() PriorityOutput {
-	return o
-}
-
-func (o PriorityOutput) ToPriorityOutputWithContext(ctx context.Context) PriorityOutput {
-	return o
-}
-
-func (o PriorityOutput) ToPriorityPtrOutput() PriorityPtrOutput {
-	return o.ToPriorityPtrOutputWithContext(context.Background())
-}
-
-func (o PriorityOutput) ToPriorityPtrOutputWithContext(ctx context.Context) PriorityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Priority) *Priority {
-		return &v
-	}).(PriorityPtrOutput)
-}
-
-func (o PriorityOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PriorityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Priority) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PriorityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PriorityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Priority) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PriorityPtrOutput struct{ *pulumi.OutputState }
-
-func (PriorityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Priority)(nil)).Elem()
-}
-
-func (o PriorityPtrOutput) ToPriorityPtrOutput() PriorityPtrOutput {
-	return o
-}
-
-func (o PriorityPtrOutput) ToPriorityPtrOutputWithContext(ctx context.Context) PriorityPtrOutput {
-	return o
-}
-
-func (o PriorityPtrOutput) Elem() PriorityOutput {
-	return o.ApplyT(func(v *Priority) Priority {
-		if v != nil {
-			return *v
-		}
-		var ret Priority
-		return ret
-	}).(PriorityOutput)
-}
-
-func (o PriorityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PriorityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Priority) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// PriorityInput is an input type that accepts PriorityArgs and PriorityOutput values.
-// You can construct a concrete instance of `PriorityInput` via:
-//
-//          PriorityArgs{...}
-type PriorityInput interface {
-	pulumi.Input
-
-	ToPriorityOutput() PriorityOutput
-	ToPriorityOutputWithContext(context.Context) PriorityOutput
-}
-
-var priorityPtrType = reflect.TypeOf((**Priority)(nil)).Elem()
-
-type PriorityPtrInput interface {
-	pulumi.Input
-
-	ToPriorityPtrOutput() PriorityPtrOutput
-	ToPriorityPtrOutputWithContext(context.Context) PriorityPtrOutput
-}
-
-type priorityPtr string
-
-func PriorityPtr(v string) PriorityPtrInput {
-	return (*priorityPtr)(&v)
-}
-
-func (*priorityPtr) ElementType() reflect.Type {
-	return priorityPtrType
-}
-
-func (in *priorityPtr) ToPriorityPtrOutput() PriorityPtrOutput {
-	return pulumi.ToOutput(in).(PriorityPtrOutput)
-}
-
-func (in *priorityPtr) ToPriorityPtrOutputWithContext(ctx context.Context) PriorityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PriorityPtrOutput)
-}
-
 // The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
-type Rotation string
+type Rotation pulumi.String
 
 const (
 	// Automatically detect and rotate as needed.
@@ -3594,23 +717,7 @@ const (
 )
 
 func (Rotation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rotation)(nil)).Elem()
-}
-
-func (e Rotation) ToRotationOutput() RotationOutput {
-	return pulumi.ToOutput(e).(RotationOutput)
-}
-
-func (e Rotation) ToRotationOutputWithContext(ctx context.Context) RotationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RotationOutput)
-}
-
-func (e Rotation) ToRotationPtrOutput() RotationPtrOutput {
-	return e.ToRotationPtrOutputWithContext(context.Background())
-}
-
-func (e Rotation) ToRotationPtrOutputWithContext(ctx context.Context) RotationPtrOutput {
-	return Rotation(e).ToRotationOutputWithContext(ctx).ToRotationPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Rotation) ToStringOutput() pulumi.StringOutput {
@@ -3629,129 +736,8 @@ func (e Rotation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RotationOutput struct{ *pulumi.OutputState }
-
-func (RotationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rotation)(nil)).Elem()
-}
-
-func (o RotationOutput) ToRotationOutput() RotationOutput {
-	return o
-}
-
-func (o RotationOutput) ToRotationOutputWithContext(ctx context.Context) RotationOutput {
-	return o
-}
-
-func (o RotationOutput) ToRotationPtrOutput() RotationPtrOutput {
-	return o.ToRotationPtrOutputWithContext(context.Background())
-}
-
-func (o RotationOutput) ToRotationPtrOutputWithContext(ctx context.Context) RotationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Rotation) *Rotation {
-		return &v
-	}).(RotationPtrOutput)
-}
-
-func (o RotationOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RotationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Rotation) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RotationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RotationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Rotation) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RotationPtrOutput struct{ *pulumi.OutputState }
-
-func (RotationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Rotation)(nil)).Elem()
-}
-
-func (o RotationPtrOutput) ToRotationPtrOutput() RotationPtrOutput {
-	return o
-}
-
-func (o RotationPtrOutput) ToRotationPtrOutputWithContext(ctx context.Context) RotationPtrOutput {
-	return o
-}
-
-func (o RotationPtrOutput) Elem() RotationOutput {
-	return o.ApplyT(func(v *Rotation) Rotation {
-		if v != nil {
-			return *v
-		}
-		var ret Rotation
-		return ret
-	}).(RotationOutput)
-}
-
-func (o RotationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RotationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Rotation) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RotationInput is an input type that accepts RotationArgs and RotationOutput values.
-// You can construct a concrete instance of `RotationInput` via:
-//
-//          RotationArgs{...}
-type RotationInput interface {
-	pulumi.Input
-
-	ToRotationOutput() RotationOutput
-	ToRotationOutputWithContext(context.Context) RotationOutput
-}
-
-var rotationPtrType = reflect.TypeOf((**Rotation)(nil)).Elem()
-
-type RotationPtrInput interface {
-	pulumi.Input
-
-	ToRotationPtrOutput() RotationPtrOutput
-	ToRotationPtrOutputWithContext(context.Context) RotationPtrOutput
-}
-
-type rotationPtr string
-
-func RotationPtr(v string) RotationPtrInput {
-	return (*rotationPtr)(&v)
-}
-
-func (*rotationPtr) ElementType() reflect.Type {
-	return rotationPtrType
-}
-
-func (in *rotationPtr) ToRotationPtrOutput() RotationPtrOutput {
-	return pulumi.ToOutput(in).(RotationPtrOutput)
-}
-
-func (in *rotationPtr) ToRotationPtrOutputWithContext(ctx context.Context) RotationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RotationPtrOutput)
-}
-
 // The type of the storage account.
-type StorageAccountType string
+type StorageAccountType pulumi.String
 
 const (
 	// The primary storage account for the Media Services account.
@@ -3761,23 +747,7 @@ const (
 )
 
 func (StorageAccountType) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (e StorageAccountType) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return pulumi.ToOutput(e).(StorageAccountTypeOutput)
-}
-
-func (e StorageAccountType) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StorageAccountTypeOutput)
-}
-
-func (e StorageAccountType) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return e.ToStorageAccountTypePtrOutputWithContext(context.Background())
-}
-
-func (e StorageAccountType) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return StorageAccountType(e).ToStorageAccountTypeOutputWithContext(ctx).ToStorageAccountTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e StorageAccountType) ToStringOutput() pulumi.StringOutput {
@@ -3796,128 +766,7 @@ func (e StorageAccountType) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type StorageAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return o
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return o
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return o.ToStorageAccountTypePtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountType) *StorageAccountType {
-		return &v
-	}).(StorageAccountTypePtrOutput)
-}
-
-func (o StorageAccountTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAccountType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StorageAccountTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAccountType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StorageAccountTypePtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountType)(nil)).Elem()
-}
-
-func (o StorageAccountTypePtrOutput) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return o
-}
-
-func (o StorageAccountTypePtrOutput) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return o
-}
-
-func (o StorageAccountTypePtrOutput) Elem() StorageAccountTypeOutput {
-	return o.ApplyT(func(v *StorageAccountType) StorageAccountType {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountType
-		return ret
-	}).(StorageAccountTypeOutput)
-}
-
-func (o StorageAccountTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageAccountType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// StorageAccountTypeInput is an input type that accepts StorageAccountTypeArgs and StorageAccountTypeOutput values.
-// You can construct a concrete instance of `StorageAccountTypeInput` via:
-//
-//          StorageAccountTypeArgs{...}
-type StorageAccountTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountTypeOutput() StorageAccountTypeOutput
-	ToStorageAccountTypeOutputWithContext(context.Context) StorageAccountTypeOutput
-}
-
-var storageAccountTypePtrType = reflect.TypeOf((**StorageAccountType)(nil)).Elem()
-
-type StorageAccountTypePtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput
-	ToStorageAccountTypePtrOutputWithContext(context.Context) StorageAccountTypePtrOutput
-}
-
-type storageAccountTypePtr string
-
-func StorageAccountTypePtr(v string) StorageAccountTypePtrInput {
-	return (*storageAccountTypePtr)(&v)
-}
-
-func (*storageAccountTypePtr) ElementType() reflect.Type {
-	return storageAccountTypePtrType
-}
-
-func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return pulumi.ToOutput(in).(StorageAccountTypePtrOutput)
-}
-
-func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountTypePtrOutput)
-}
-
-type StreamOptionsFlag string
+type StreamOptionsFlag pulumi.String
 
 const (
 	StreamOptionsFlagDefault    = StreamOptionsFlag("Default")
@@ -3925,23 +774,7 @@ const (
 )
 
 func (StreamOptionsFlag) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamOptionsFlag)(nil)).Elem()
-}
-
-func (e StreamOptionsFlag) ToStreamOptionsFlagOutput() StreamOptionsFlagOutput {
-	return pulumi.ToOutput(e).(StreamOptionsFlagOutput)
-}
-
-func (e StreamOptionsFlag) ToStreamOptionsFlagOutputWithContext(ctx context.Context) StreamOptionsFlagOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StreamOptionsFlagOutput)
-}
-
-func (e StreamOptionsFlag) ToStreamOptionsFlagPtrOutput() StreamOptionsFlagPtrOutput {
-	return e.ToStreamOptionsFlagPtrOutputWithContext(context.Background())
-}
-
-func (e StreamOptionsFlag) ToStreamOptionsFlagPtrOutputWithContext(ctx context.Context) StreamOptionsFlagPtrOutput {
-	return StreamOptionsFlag(e).ToStreamOptionsFlagOutputWithContext(ctx).ToStreamOptionsFlagPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e StreamOptionsFlag) ToStringOutput() pulumi.StringOutput {
@@ -3960,129 +793,8 @@ func (e StreamOptionsFlag) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type StreamOptionsFlagOutput struct{ *pulumi.OutputState }
-
-func (StreamOptionsFlagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamOptionsFlag)(nil)).Elem()
-}
-
-func (o StreamOptionsFlagOutput) ToStreamOptionsFlagOutput() StreamOptionsFlagOutput {
-	return o
-}
-
-func (o StreamOptionsFlagOutput) ToStreamOptionsFlagOutputWithContext(ctx context.Context) StreamOptionsFlagOutput {
-	return o
-}
-
-func (o StreamOptionsFlagOutput) ToStreamOptionsFlagPtrOutput() StreamOptionsFlagPtrOutput {
-	return o.ToStreamOptionsFlagPtrOutputWithContext(context.Background())
-}
-
-func (o StreamOptionsFlagOutput) ToStreamOptionsFlagPtrOutputWithContext(ctx context.Context) StreamOptionsFlagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamOptionsFlag) *StreamOptionsFlag {
-		return &v
-	}).(StreamOptionsFlagPtrOutput)
-}
-
-func (o StreamOptionsFlagOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StreamOptionsFlagOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamOptionsFlag) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StreamOptionsFlagOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StreamOptionsFlagOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamOptionsFlag) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StreamOptionsFlagPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamOptionsFlagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamOptionsFlag)(nil)).Elem()
-}
-
-func (o StreamOptionsFlagPtrOutput) ToStreamOptionsFlagPtrOutput() StreamOptionsFlagPtrOutput {
-	return o
-}
-
-func (o StreamOptionsFlagPtrOutput) ToStreamOptionsFlagPtrOutputWithContext(ctx context.Context) StreamOptionsFlagPtrOutput {
-	return o
-}
-
-func (o StreamOptionsFlagPtrOutput) Elem() StreamOptionsFlagOutput {
-	return o.ApplyT(func(v *StreamOptionsFlag) StreamOptionsFlag {
-		if v != nil {
-			return *v
-		}
-		var ret StreamOptionsFlag
-		return ret
-	}).(StreamOptionsFlagOutput)
-}
-
-func (o StreamOptionsFlagPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StreamOptionsFlagPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StreamOptionsFlag) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// StreamOptionsFlagInput is an input type that accepts StreamOptionsFlagArgs and StreamOptionsFlagOutput values.
-// You can construct a concrete instance of `StreamOptionsFlagInput` via:
-//
-//          StreamOptionsFlagArgs{...}
-type StreamOptionsFlagInput interface {
-	pulumi.Input
-
-	ToStreamOptionsFlagOutput() StreamOptionsFlagOutput
-	ToStreamOptionsFlagOutputWithContext(context.Context) StreamOptionsFlagOutput
-}
-
-var streamOptionsFlagPtrType = reflect.TypeOf((**StreamOptionsFlag)(nil)).Elem()
-
-type StreamOptionsFlagPtrInput interface {
-	pulumi.Input
-
-	ToStreamOptionsFlagPtrOutput() StreamOptionsFlagPtrOutput
-	ToStreamOptionsFlagPtrOutputWithContext(context.Context) StreamOptionsFlagPtrOutput
-}
-
-type streamOptionsFlagPtr string
-
-func StreamOptionsFlagPtr(v string) StreamOptionsFlagPtrInput {
-	return (*streamOptionsFlagPtr)(&v)
-}
-
-func (*streamOptionsFlagPtr) ElementType() reflect.Type {
-	return streamOptionsFlagPtrType
-}
-
-func (in *streamOptionsFlagPtr) ToStreamOptionsFlagPtrOutput() StreamOptionsFlagPtrOutput {
-	return pulumi.ToOutput(in).(StreamOptionsFlagPtrOutput)
-}
-
-func (in *streamOptionsFlagPtr) ToStreamOptionsFlagPtrOutputWithContext(ctx context.Context) StreamOptionsFlagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StreamOptionsFlagPtrOutput)
-}
-
 // The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-type StretchMode string
+type StretchMode pulumi.String
 
 const (
 	// Strictly respect the output resolution without considering the pixel aspect ratio or display aspect ratio of the input video.
@@ -4094,23 +806,7 @@ const (
 )
 
 func (StretchMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*StretchMode)(nil)).Elem()
-}
-
-func (e StretchMode) ToStretchModeOutput() StretchModeOutput {
-	return pulumi.ToOutput(e).(StretchModeOutput)
-}
-
-func (e StretchMode) ToStretchModeOutputWithContext(ctx context.Context) StretchModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StretchModeOutput)
-}
-
-func (e StretchMode) ToStretchModePtrOutput() StretchModePtrOutput {
-	return e.ToStretchModePtrOutputWithContext(context.Background())
-}
-
-func (e StretchMode) ToStretchModePtrOutputWithContext(ctx context.Context) StretchModePtrOutput {
-	return StretchMode(e).ToStretchModeOutputWithContext(ctx).ToStretchModePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e StretchMode) ToStringOutput() pulumi.StringOutput {
@@ -4129,129 +825,8 @@ func (e StretchMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type StretchModeOutput struct{ *pulumi.OutputState }
-
-func (StretchModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StretchMode)(nil)).Elem()
-}
-
-func (o StretchModeOutput) ToStretchModeOutput() StretchModeOutput {
-	return o
-}
-
-func (o StretchModeOutput) ToStretchModeOutputWithContext(ctx context.Context) StretchModeOutput {
-	return o
-}
-
-func (o StretchModeOutput) ToStretchModePtrOutput() StretchModePtrOutput {
-	return o.ToStretchModePtrOutputWithContext(context.Background())
-}
-
-func (o StretchModeOutput) ToStretchModePtrOutputWithContext(ctx context.Context) StretchModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StretchMode) *StretchMode {
-		return &v
-	}).(StretchModePtrOutput)
-}
-
-func (o StretchModeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StretchModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StretchMode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StretchModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StretchModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StretchMode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StretchModePtrOutput struct{ *pulumi.OutputState }
-
-func (StretchModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StretchMode)(nil)).Elem()
-}
-
-func (o StretchModePtrOutput) ToStretchModePtrOutput() StretchModePtrOutput {
-	return o
-}
-
-func (o StretchModePtrOutput) ToStretchModePtrOutputWithContext(ctx context.Context) StretchModePtrOutput {
-	return o
-}
-
-func (o StretchModePtrOutput) Elem() StretchModeOutput {
-	return o.ApplyT(func(v *StretchMode) StretchMode {
-		if v != nil {
-			return *v
-		}
-		var ret StretchMode
-		return ret
-	}).(StretchModeOutput)
-}
-
-func (o StretchModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StretchModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StretchMode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// StretchModeInput is an input type that accepts StretchModeArgs and StretchModeOutput values.
-// You can construct a concrete instance of `StretchModeInput` via:
-//
-//          StretchModeArgs{...}
-type StretchModeInput interface {
-	pulumi.Input
-
-	ToStretchModeOutput() StretchModeOutput
-	ToStretchModeOutputWithContext(context.Context) StretchModeOutput
-}
-
-var stretchModePtrType = reflect.TypeOf((**StretchMode)(nil)).Elem()
-
-type StretchModePtrInput interface {
-	pulumi.Input
-
-	ToStretchModePtrOutput() StretchModePtrOutput
-	ToStretchModePtrOutputWithContext(context.Context) StretchModePtrOutput
-}
-
-type stretchModePtr string
-
-func StretchModePtr(v string) StretchModePtrInput {
-	return (*stretchModePtr)(&v)
-}
-
-func (*stretchModePtr) ElementType() reflect.Type {
-	return stretchModePtrType
-}
-
-func (in *stretchModePtr) ToStretchModePtrOutput() StretchModePtrOutput {
-	return pulumi.ToOutput(in).(StretchModePtrOutput)
-}
-
-func (in *stretchModePtr) ToStretchModePtrOutputWithContext(ctx context.Context) StretchModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StretchModePtrOutput)
-}
-
 // Track property condition operation
-type TrackPropertyCompareOperation string
+type TrackPropertyCompareOperation pulumi.String
 
 const (
 	// Unknown track property compare operation
@@ -4261,23 +836,7 @@ const (
 )
 
 func (TrackPropertyCompareOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrackPropertyCompareOperation)(nil)).Elem()
-}
-
-func (e TrackPropertyCompareOperation) ToTrackPropertyCompareOperationOutput() TrackPropertyCompareOperationOutput {
-	return pulumi.ToOutput(e).(TrackPropertyCompareOperationOutput)
-}
-
-func (e TrackPropertyCompareOperation) ToTrackPropertyCompareOperationOutputWithContext(ctx context.Context) TrackPropertyCompareOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TrackPropertyCompareOperationOutput)
-}
-
-func (e TrackPropertyCompareOperation) ToTrackPropertyCompareOperationPtrOutput() TrackPropertyCompareOperationPtrOutput {
-	return e.ToTrackPropertyCompareOperationPtrOutputWithContext(context.Background())
-}
-
-func (e TrackPropertyCompareOperation) ToTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) TrackPropertyCompareOperationPtrOutput {
-	return TrackPropertyCompareOperation(e).ToTrackPropertyCompareOperationOutputWithContext(ctx).ToTrackPropertyCompareOperationPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e TrackPropertyCompareOperation) ToStringOutput() pulumi.StringOutput {
@@ -4296,129 +855,8 @@ func (e TrackPropertyCompareOperation) ToStringPtrOutputWithContext(ctx context.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TrackPropertyCompareOperationOutput struct{ *pulumi.OutputState }
-
-func (TrackPropertyCompareOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrackPropertyCompareOperation)(nil)).Elem()
-}
-
-func (o TrackPropertyCompareOperationOutput) ToTrackPropertyCompareOperationOutput() TrackPropertyCompareOperationOutput {
-	return o
-}
-
-func (o TrackPropertyCompareOperationOutput) ToTrackPropertyCompareOperationOutputWithContext(ctx context.Context) TrackPropertyCompareOperationOutput {
-	return o
-}
-
-func (o TrackPropertyCompareOperationOutput) ToTrackPropertyCompareOperationPtrOutput() TrackPropertyCompareOperationPtrOutput {
-	return o.ToTrackPropertyCompareOperationPtrOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyCompareOperationOutput) ToTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) TrackPropertyCompareOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrackPropertyCompareOperation) *TrackPropertyCompareOperation {
-		return &v
-	}).(TrackPropertyCompareOperationPtrOutput)
-}
-
-func (o TrackPropertyCompareOperationOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyCompareOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrackPropertyCompareOperation) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o TrackPropertyCompareOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyCompareOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrackPropertyCompareOperation) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type TrackPropertyCompareOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (TrackPropertyCompareOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrackPropertyCompareOperation)(nil)).Elem()
-}
-
-func (o TrackPropertyCompareOperationPtrOutput) ToTrackPropertyCompareOperationPtrOutput() TrackPropertyCompareOperationPtrOutput {
-	return o
-}
-
-func (o TrackPropertyCompareOperationPtrOutput) ToTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) TrackPropertyCompareOperationPtrOutput {
-	return o
-}
-
-func (o TrackPropertyCompareOperationPtrOutput) Elem() TrackPropertyCompareOperationOutput {
-	return o.ApplyT(func(v *TrackPropertyCompareOperation) TrackPropertyCompareOperation {
-		if v != nil {
-			return *v
-		}
-		var ret TrackPropertyCompareOperation
-		return ret
-	}).(TrackPropertyCompareOperationOutput)
-}
-
-func (o TrackPropertyCompareOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyCompareOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrackPropertyCompareOperation) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// TrackPropertyCompareOperationInput is an input type that accepts TrackPropertyCompareOperationArgs and TrackPropertyCompareOperationOutput values.
-// You can construct a concrete instance of `TrackPropertyCompareOperationInput` via:
-//
-//          TrackPropertyCompareOperationArgs{...}
-type TrackPropertyCompareOperationInput interface {
-	pulumi.Input
-
-	ToTrackPropertyCompareOperationOutput() TrackPropertyCompareOperationOutput
-	ToTrackPropertyCompareOperationOutputWithContext(context.Context) TrackPropertyCompareOperationOutput
-}
-
-var trackPropertyCompareOperationPtrType = reflect.TypeOf((**TrackPropertyCompareOperation)(nil)).Elem()
-
-type TrackPropertyCompareOperationPtrInput interface {
-	pulumi.Input
-
-	ToTrackPropertyCompareOperationPtrOutput() TrackPropertyCompareOperationPtrOutput
-	ToTrackPropertyCompareOperationPtrOutputWithContext(context.Context) TrackPropertyCompareOperationPtrOutput
-}
-
-type trackPropertyCompareOperationPtr string
-
-func TrackPropertyCompareOperationPtr(v string) TrackPropertyCompareOperationPtrInput {
-	return (*trackPropertyCompareOperationPtr)(&v)
-}
-
-func (*trackPropertyCompareOperationPtr) ElementType() reflect.Type {
-	return trackPropertyCompareOperationPtrType
-}
-
-func (in *trackPropertyCompareOperationPtr) ToTrackPropertyCompareOperationPtrOutput() TrackPropertyCompareOperationPtrOutput {
-	return pulumi.ToOutput(in).(TrackPropertyCompareOperationPtrOutput)
-}
-
-func (in *trackPropertyCompareOperationPtr) ToTrackPropertyCompareOperationPtrOutputWithContext(ctx context.Context) TrackPropertyCompareOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TrackPropertyCompareOperationPtrOutput)
-}
-
 // Track property type
-type TrackPropertyType string
+type TrackPropertyType pulumi.String
 
 const (
 	// Unknown track property
@@ -4428,23 +866,7 @@ const (
 )
 
 func (TrackPropertyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrackPropertyType)(nil)).Elem()
-}
-
-func (e TrackPropertyType) ToTrackPropertyTypeOutput() TrackPropertyTypeOutput {
-	return pulumi.ToOutput(e).(TrackPropertyTypeOutput)
-}
-
-func (e TrackPropertyType) ToTrackPropertyTypeOutputWithContext(ctx context.Context) TrackPropertyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TrackPropertyTypeOutput)
-}
-
-func (e TrackPropertyType) ToTrackPropertyTypePtrOutput() TrackPropertyTypePtrOutput {
-	return e.ToTrackPropertyTypePtrOutputWithContext(context.Background())
-}
-
-func (e TrackPropertyType) ToTrackPropertyTypePtrOutputWithContext(ctx context.Context) TrackPropertyTypePtrOutput {
-	return TrackPropertyType(e).ToTrackPropertyTypeOutputWithContext(ctx).ToTrackPropertyTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e TrackPropertyType) ToStringOutput() pulumi.StringOutput {
@@ -4461,182 +883,4 @@ func (e TrackPropertyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e TrackPropertyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type TrackPropertyTypeOutput struct{ *pulumi.OutputState }
-
-func (TrackPropertyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrackPropertyType)(nil)).Elem()
-}
-
-func (o TrackPropertyTypeOutput) ToTrackPropertyTypeOutput() TrackPropertyTypeOutput {
-	return o
-}
-
-func (o TrackPropertyTypeOutput) ToTrackPropertyTypeOutputWithContext(ctx context.Context) TrackPropertyTypeOutput {
-	return o
-}
-
-func (o TrackPropertyTypeOutput) ToTrackPropertyTypePtrOutput() TrackPropertyTypePtrOutput {
-	return o.ToTrackPropertyTypePtrOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyTypeOutput) ToTrackPropertyTypePtrOutputWithContext(ctx context.Context) TrackPropertyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrackPropertyType) *TrackPropertyType {
-		return &v
-	}).(TrackPropertyTypePtrOutput)
-}
-
-func (o TrackPropertyTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrackPropertyType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o TrackPropertyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrackPropertyType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type TrackPropertyTypePtrOutput struct{ *pulumi.OutputState }
-
-func (TrackPropertyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrackPropertyType)(nil)).Elem()
-}
-
-func (o TrackPropertyTypePtrOutput) ToTrackPropertyTypePtrOutput() TrackPropertyTypePtrOutput {
-	return o
-}
-
-func (o TrackPropertyTypePtrOutput) ToTrackPropertyTypePtrOutputWithContext(ctx context.Context) TrackPropertyTypePtrOutput {
-	return o
-}
-
-func (o TrackPropertyTypePtrOutput) Elem() TrackPropertyTypeOutput {
-	return o.ApplyT(func(v *TrackPropertyType) TrackPropertyType {
-		if v != nil {
-			return *v
-		}
-		var ret TrackPropertyType
-		return ret
-	}).(TrackPropertyTypeOutput)
-}
-
-func (o TrackPropertyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TrackPropertyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrackPropertyType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// TrackPropertyTypeInput is an input type that accepts TrackPropertyTypeArgs and TrackPropertyTypeOutput values.
-// You can construct a concrete instance of `TrackPropertyTypeInput` via:
-//
-//          TrackPropertyTypeArgs{...}
-type TrackPropertyTypeInput interface {
-	pulumi.Input
-
-	ToTrackPropertyTypeOutput() TrackPropertyTypeOutput
-	ToTrackPropertyTypeOutputWithContext(context.Context) TrackPropertyTypeOutput
-}
-
-var trackPropertyTypePtrType = reflect.TypeOf((**TrackPropertyType)(nil)).Elem()
-
-type TrackPropertyTypePtrInput interface {
-	pulumi.Input
-
-	ToTrackPropertyTypePtrOutput() TrackPropertyTypePtrOutput
-	ToTrackPropertyTypePtrOutputWithContext(context.Context) TrackPropertyTypePtrOutput
-}
-
-type trackPropertyTypePtr string
-
-func TrackPropertyTypePtr(v string) TrackPropertyTypePtrInput {
-	return (*trackPropertyTypePtr)(&v)
-}
-
-func (*trackPropertyTypePtr) ElementType() reflect.Type {
-	return trackPropertyTypePtrType
-}
-
-func (in *trackPropertyTypePtr) ToTrackPropertyTypePtrOutput() TrackPropertyTypePtrOutput {
-	return pulumi.ToOutput(in).(TrackPropertyTypePtrOutput)
-}
-
-func (in *trackPropertyTypePtr) ToTrackPropertyTypePtrOutputWithContext(ctx context.Context) TrackPropertyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TrackPropertyTypePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(AacAudioProfileOutput{})
-	pulumi.RegisterOutputType(AacAudioProfilePtrOutput{})
-	pulumi.RegisterOutputType(AnalysisResolutionOutput{})
-	pulumi.RegisterOutputType(AnalysisResolutionPtrOutput{})
-	pulumi.RegisterOutputType(AssetContainerPermissionOutput{})
-	pulumi.RegisterOutputType(AssetContainerPermissionPtrOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypePtrOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentTypeOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentTypePtrOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseTypeOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseTypePtrOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionPtrOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyRestrictionTokenTypeOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyRestrictionTokenTypePtrOutput{})
-	pulumi.RegisterOutputType(DeinterlaceModeOutput{})
-	pulumi.RegisterOutputType(DeinterlaceModePtrOutput{})
-	pulumi.RegisterOutputType(DeinterlaceParityOutput{})
-	pulumi.RegisterOutputType(DeinterlaceParityPtrOutput{})
-	pulumi.RegisterOutputType(EncoderNamedPresetOutput{})
-	pulumi.RegisterOutputType(EncoderNamedPresetPtrOutput{})
-	pulumi.RegisterOutputType(EntropyModeOutput{})
-	pulumi.RegisterOutputType(EntropyModePtrOutput{})
-	pulumi.RegisterOutputType(FilterTrackPropertyCompareOperationOutput{})
-	pulumi.RegisterOutputType(FilterTrackPropertyCompareOperationPtrOutput{})
-	pulumi.RegisterOutputType(FilterTrackPropertyTypeOutput{})
-	pulumi.RegisterOutputType(FilterTrackPropertyTypePtrOutput{})
-	pulumi.RegisterOutputType(H264ComplexityOutput{})
-	pulumi.RegisterOutputType(H264ComplexityPtrOutput{})
-	pulumi.RegisterOutputType(H264VideoProfileOutput{})
-	pulumi.RegisterOutputType(H264VideoProfilePtrOutput{})
-	pulumi.RegisterOutputType(InsightsTypeOutput{})
-	pulumi.RegisterOutputType(InsightsTypePtrOutput{})
-	pulumi.RegisterOutputType(LiveEventEncodingTypeOutput{})
-	pulumi.RegisterOutputType(LiveEventEncodingTypePtrOutput{})
-	pulumi.RegisterOutputType(LiveEventInputProtocolOutput{})
-	pulumi.RegisterOutputType(LiveEventInputProtocolPtrOutput{})
-	pulumi.RegisterOutputType(OnErrorTypeOutput{})
-	pulumi.RegisterOutputType(OnErrorTypePtrOutput{})
-	pulumi.RegisterOutputType(PriorityOutput{})
-	pulumi.RegisterOutputType(PriorityPtrOutput{})
-	pulumi.RegisterOutputType(RotationOutput{})
-	pulumi.RegisterOutputType(RotationPtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
-	pulumi.RegisterOutputType(StorageAccountTypePtrOutput{})
-	pulumi.RegisterOutputType(StreamOptionsFlagOutput{})
-	pulumi.RegisterOutputType(StreamOptionsFlagPtrOutput{})
-	pulumi.RegisterOutputType(StretchModeOutput{})
-	pulumi.RegisterOutputType(StretchModePtrOutput{})
-	pulumi.RegisterOutputType(TrackPropertyCompareOperationOutput{})
-	pulumi.RegisterOutputType(TrackPropertyCompareOperationPtrOutput{})
-	pulumi.RegisterOutputType(TrackPropertyTypeOutput{})
-	pulumi.RegisterOutputType(TrackPropertyTypePtrOutput{})
 }

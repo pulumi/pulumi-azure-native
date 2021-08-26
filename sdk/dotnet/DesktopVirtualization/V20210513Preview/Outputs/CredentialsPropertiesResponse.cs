@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210513Preview.Outputs
 {
 
-    /// <summary>
-    /// Credentials needed to create the virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class CredentialsPropertiesResponse
     {

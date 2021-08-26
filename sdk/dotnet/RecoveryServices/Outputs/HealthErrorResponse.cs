@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Health Error
-    /// </summary>
     [OutputType]
     public sealed class HealthErrorResponse
     {

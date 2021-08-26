@@ -230,7 +230,7 @@ func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutput() OSProfileRespons
 }
 
 func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponse) *OSProfileResponse {
+	return o.ApplyT(func(v OSProfileResponse) *OSProfileResponse {
 		return &v
 	}).(OSProfileResponsePtrOutput)
 }
@@ -255,13 +255,7 @@ func (o OSProfileResponsePtrOutput) ToOSProfileResponsePtrOutputWithContext(ctx 
 }
 
 func (o OSProfileResponsePtrOutput) Elem() OSProfileResponseOutput {
-	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileResponse
-		return ret
-	}).(OSProfileResponseOutput)
+	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse { return *v }).(OSProfileResponseOutput)
 }
 
 // Specifies the host OS name of the hybrid machine.

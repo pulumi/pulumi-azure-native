@@ -38,9 +38,6 @@ func NewServiceUnit(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeploymentMode == nil {
-		return nil, errors.New("invalid value for required argument 'DeploymentMode'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -106,7 +103,7 @@ type serviceUnitArgs struct {
 	// The artifacts for the service unit.
 	Artifacts *ServiceUnitArtifacts `pulumi:"artifacts"`
 	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode DeploymentMode `pulumi:"deploymentMode"`
+	DeploymentMode string `pulumi:"deploymentMode"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
@@ -128,7 +125,7 @@ type ServiceUnitArgs struct {
 	// The artifacts for the service unit.
 	Artifacts ServiceUnitArtifactsPtrInput
 	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode DeploymentModeInput
+	DeploymentMode DeploymentMode
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
@@ -168,7 +165,9 @@ func (i *ServiceUnit) ToServiceUnitOutputWithContext(ctx context.Context) Servic
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUnitOutput)
 }
 
-type ServiceUnitOutput struct{ *pulumi.OutputState }
+type ServiceUnitOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServiceUnitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceUnit)(nil))

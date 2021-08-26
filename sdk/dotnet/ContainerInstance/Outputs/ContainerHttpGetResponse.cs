@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
-    /// <summary>
-    /// The container Http Get settings, for liveness or readiness probe
-    /// </summary>
     [OutputType]
     public sealed class ContainerHttpGetResponse
     {

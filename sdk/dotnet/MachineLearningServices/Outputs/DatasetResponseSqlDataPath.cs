@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Sql Query/Table/Stored Procedure details.
-    /// </summary>
     [OutputType]
     public sealed class DatasetResponseSqlDataPath
     {

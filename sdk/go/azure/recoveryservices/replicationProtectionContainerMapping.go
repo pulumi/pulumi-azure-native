@@ -91,12 +91,6 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationProtectionContainerMapping"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationProtectionContainerMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationProtectionContainerMapping"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationProtectionContainerMapping
@@ -184,7 +178,9 @@ func (i *ReplicationProtectionContainerMapping) ToReplicationProtectionContainer
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectionContainerMappingOutput)
 }
 
-type ReplicationProtectionContainerMappingOutput struct{ *pulumi.OutputState }
+type ReplicationProtectionContainerMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationProtectionContainerMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// Network access control rules for the endpoints.
-    /// </summary>
     [OutputType]
     public sealed class DataCollectionEndpointResponseNetworkAcls
     {

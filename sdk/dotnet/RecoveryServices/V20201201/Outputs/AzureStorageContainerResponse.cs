@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Azure Storage Account workload-specific container.
-    /// </summary>
     [OutputType]
     public sealed class AzureStorageContainerResponse
     {

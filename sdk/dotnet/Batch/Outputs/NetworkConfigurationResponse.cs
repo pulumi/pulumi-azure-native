@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
-    /// <summary>
-    /// The network configuration for a pool.
-    /// </summary>
     [OutputType]
     public sealed class NetworkConfigurationResponse
     {

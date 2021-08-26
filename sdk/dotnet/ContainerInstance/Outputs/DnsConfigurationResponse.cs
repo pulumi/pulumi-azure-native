@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
-    /// <summary>
-    /// DNS configuration for the container group.
-    /// </summary>
     [OutputType]
     public sealed class DnsConfigurationResponse
     {

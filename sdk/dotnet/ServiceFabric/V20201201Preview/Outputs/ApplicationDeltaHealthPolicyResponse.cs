@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationDeltaHealthPolicyResponse
     {

@@ -177,7 +177,7 @@ type blobContainerArgs struct {
 	// A name-value pair to associate with the container as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess *PublicAccess `pulumi:"publicAccess"`
+	PublicAccess *string `pulumi:"publicAccess"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -195,7 +195,7 @@ type BlobContainerArgs struct {
 	// A name-value pair to associate with the container as metadata.
 	Metadata pulumi.StringMapInput
 	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess PublicAccessPtrInput
+	PublicAccess *PublicAccess
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }
@@ -223,7 +223,9 @@ func (i *BlobContainer) ToBlobContainerOutputWithContext(ctx context.Context) Bl
 	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerOutput)
 }
 
-type BlobContainerOutput struct{ *pulumi.OutputState }
+type BlobContainerOutput struct {
+	*pulumi.OutputState
+}
 
 func (BlobContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobContainer)(nil))

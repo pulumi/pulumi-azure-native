@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.V20200821Preview.Outputs
 {
 
-    /// <summary>
-    /// The JIT scheduling policies.
-    /// </summary>
     [OutputType]
     public sealed class JitSchedulingPolicyResponse
     {

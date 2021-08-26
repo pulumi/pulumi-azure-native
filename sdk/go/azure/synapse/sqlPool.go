@@ -102,12 +102,6 @@ func NewSqlPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPool"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:SqlPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:SqlPool"),
 		},
 		{
@@ -240,7 +234,9 @@ func (i *SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolOutput)
 }
 
-type SqlPoolOutput struct{ *pulumi.OutputState }
+type SqlPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPool)(nil))

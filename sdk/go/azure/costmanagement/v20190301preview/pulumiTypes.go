@@ -118,7 +118,7 @@ func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorIn
 }
 
 func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionErrorInfoResponse) *ConnectorCollectionErrorInfoResponse {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoResponse) *ConnectorCollectionErrorInfoResponse {
 		return &v
 	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
 }
@@ -158,13 +158,7 @@ func (o ConnectorCollectionErrorInfoResponsePtrOutput) ToConnectorCollectionErro
 }
 
 func (o ConnectorCollectionErrorInfoResponsePtrOutput) Elem() ConnectorCollectionErrorInfoResponseOutput {
-	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) ConnectorCollectionErrorInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorCollectionErrorInfoResponse
-		return ret
-	}).(ConnectorCollectionErrorInfoResponseOutput)
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoResponse) ConnectorCollectionErrorInfoResponse { return *v }).(ConnectorCollectionErrorInfoResponseOutput)
 }
 
 // Short error code
@@ -315,7 +309,7 @@ func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponse
 }
 
 func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionInfoResponse) *ConnectorCollectionInfoResponse {
+	return o.ApplyT(func(v ConnectorCollectionInfoResponse) *ConnectorCollectionInfoResponse {
 		return &v
 	}).(ConnectorCollectionInfoResponsePtrOutput)
 }
@@ -355,13 +349,7 @@ func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoRespo
 }
 
 func (o ConnectorCollectionInfoResponsePtrOutput) Elem() ConnectorCollectionInfoResponseOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) ConnectorCollectionInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorCollectionInfoResponse
-		return ret
-	}).(ConnectorCollectionInfoResponseOutput)
+	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) ConnectorCollectionInfoResponse { return *v }).(ConnectorCollectionInfoResponseOutput)
 }
 
 // Error information of last collection

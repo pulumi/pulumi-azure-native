@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
-    /// <summary>
-    /// Storage setting
-    /// </summary>
     [OutputType]
     public sealed class StorageSettingResponse
     {

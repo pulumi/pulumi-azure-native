@@ -470,7 +470,7 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 // Deployment properties.
 type DeploymentProperties struct {
 	// The deployment mode.
-	Mode DeploymentMode `pulumi:"mode"`
+	Mode string `pulumi:"mode"`
 	// Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
 	Parameters interface{} `pulumi:"parameters"`
 	// The parameters URI. Use only one of Parameters or ParametersLink.
@@ -495,7 +495,7 @@ type DeploymentPropertiesInput interface {
 // Deployment properties.
 type DeploymentPropertiesArgs struct {
 	// The deployment mode.
-	Mode DeploymentModeInput `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
 	Parameters pulumi.Input `pulumi:"parameters"`
 	// The parameters URI. Use only one of Parameters or ParametersLink.
@@ -579,14 +579,14 @@ func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutput() Deployment
 }
 
 func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentProperties) *DeploymentProperties {
+	return o.ApplyT(func(v DeploymentProperties) *DeploymentProperties {
 		return &v
 	}).(DeploymentPropertiesPtrOutput)
 }
 
 // The deployment mode.
-func (o DeploymentPropertiesOutput) Mode() DeploymentModeOutput {
-	return o.ApplyT(func(v DeploymentProperties) DeploymentMode { return v.Mode }).(DeploymentModeOutput)
+func (o DeploymentPropertiesOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentProperties) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 // Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
@@ -624,23 +624,17 @@ func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutputWithContex
 }
 
 func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
-	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentProperties
-		return ret
-	}).(DeploymentPropertiesOutput)
+	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties { return *v }).(DeploymentPropertiesOutput)
 }
 
 // The deployment mode.
-func (o DeploymentPropertiesPtrOutput) Mode() DeploymentModePtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *DeploymentMode {
+func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Mode
-	}).(DeploymentModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
@@ -819,7 +813,7 @@ func (o DeploymentPropertiesExtendedResponseOutput) ToDeploymentPropertiesExtend
 }
 
 func (o DeploymentPropertiesExtendedResponseOutput) ToDeploymentPropertiesExtendedResponsePtrOutputWithContext(ctx context.Context) DeploymentPropertiesExtendedResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentPropertiesExtendedResponse) *DeploymentPropertiesExtendedResponse {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *DeploymentPropertiesExtendedResponse {
 		return &v
 	}).(DeploymentPropertiesExtendedResponsePtrOutput)
 }
@@ -894,13 +888,7 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ToDeploymentPropertiesExt
 }
 
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Elem() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) DeploymentPropertiesExtendedResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentPropertiesExtendedResponse
-		return ret
-	}).(DeploymentPropertiesExtendedResponseOutput)
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) DeploymentPropertiesExtendedResponse { return *v }).(DeploymentPropertiesExtendedResponseOutput)
 }
 
 // The correlation ID of the deployment.
@@ -1016,7 +1004,7 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Timestamp() pulumi.String
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1033,7 +1021,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1109,14 +1097,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1134,23 +1122,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -1257,7 +1239,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -1292,13 +1274,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal id of resource identity.
@@ -1431,7 +1407,7 @@ func (o ParametersLinkOutput) ToParametersLinkPtrOutput() ParametersLinkPtrOutpu
 }
 
 func (o ParametersLinkOutput) ToParametersLinkPtrOutputWithContext(ctx context.Context) ParametersLinkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParametersLink) *ParametersLink {
+	return o.ApplyT(func(v ParametersLink) *ParametersLink {
 		return &v
 	}).(ParametersLinkPtrOutput)
 }
@@ -1461,13 +1437,7 @@ func (o ParametersLinkPtrOutput) ToParametersLinkPtrOutputWithContext(ctx contex
 }
 
 func (o ParametersLinkPtrOutput) Elem() ParametersLinkOutput {
-	return o.ApplyT(func(v *ParametersLink) ParametersLink {
-		if v != nil {
-			return *v
-		}
-		var ret ParametersLink
-		return ret
-	}).(ParametersLinkOutput)
+	return o.ApplyT(func(v *ParametersLink) ParametersLink { return *v }).(ParametersLinkOutput)
 }
 
 // If included it must match the ContentVersion in the template.
@@ -1590,7 +1560,7 @@ func (o ParametersLinkResponseOutput) ToParametersLinkResponsePtrOutput() Parame
 }
 
 func (o ParametersLinkResponseOutput) ToParametersLinkResponsePtrOutputWithContext(ctx context.Context) ParametersLinkResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParametersLinkResponse) *ParametersLinkResponse {
+	return o.ApplyT(func(v ParametersLinkResponse) *ParametersLinkResponse {
 		return &v
 	}).(ParametersLinkResponsePtrOutput)
 }
@@ -1620,13 +1590,7 @@ func (o ParametersLinkResponsePtrOutput) ToParametersLinkResponsePtrOutputWithCo
 }
 
 func (o ParametersLinkResponsePtrOutput) Elem() ParametersLinkResponseOutput {
-	return o.ApplyT(func(v *ParametersLinkResponse) ParametersLinkResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ParametersLinkResponse
-		return ret
-	}).(ParametersLinkResponseOutput)
+	return o.ApplyT(func(v *ParametersLinkResponse) ParametersLinkResponse { return *v }).(ParametersLinkResponseOutput)
 }
 
 // If included it must match the ContentVersion in the template.
@@ -1757,7 +1721,7 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
+	return o.ApplyT(func(v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
@@ -1797,13 +1761,7 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan {
-		if v != nil {
-			return *v
-		}
-		var ret Plan
-		return ret
-	}).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
 }
 
 // The plan ID.
@@ -1954,7 +1912,7 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
+	return o.ApplyT(func(v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
@@ -1994,13 +1952,7 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PlanResponse
-		return ret
-	}).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
 }
 
 // The plan ID.
@@ -2402,7 +2354,7 @@ func (o ResourceGroupPropertiesResponseOutput) ToResourceGroupPropertiesResponse
 }
 
 func (o ResourceGroupPropertiesResponseOutput) ToResourceGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) ResourceGroupPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupPropertiesResponse) *ResourceGroupPropertiesResponse {
+	return o.ApplyT(func(v ResourceGroupPropertiesResponse) *ResourceGroupPropertiesResponse {
 		return &v
 	}).(ResourceGroupPropertiesResponsePtrOutput)
 }
@@ -2427,13 +2379,7 @@ func (o ResourceGroupPropertiesResponsePtrOutput) ToResourceGroupPropertiesRespo
 }
 
 func (o ResourceGroupPropertiesResponsePtrOutput) Elem() ResourceGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *ResourceGroupPropertiesResponse) ResourceGroupPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceGroupPropertiesResponse
-		return ret
-	}).(ResourceGroupPropertiesResponseOutput)
+	return o.ApplyT(func(v *ResourceGroupPropertiesResponse) ResourceGroupPropertiesResponse { return *v }).(ResourceGroupPropertiesResponseOutput)
 }
 
 // The provisioning state.
@@ -2562,7 +2508,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -2612,13 +2558,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The sku capacity.
@@ -2797,7 +2737,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -2847,13 +2787,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The sku capacity.
@@ -3016,7 +2950,7 @@ func (o TemplateLinkOutput) ToTemplateLinkPtrOutput() TemplateLinkPtrOutput {
 }
 
 func (o TemplateLinkOutput) ToTemplateLinkPtrOutputWithContext(ctx context.Context) TemplateLinkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLink) *TemplateLink {
+	return o.ApplyT(func(v TemplateLink) *TemplateLink {
 		return &v
 	}).(TemplateLinkPtrOutput)
 }
@@ -3046,13 +2980,7 @@ func (o TemplateLinkPtrOutput) ToTemplateLinkPtrOutputWithContext(ctx context.Co
 }
 
 func (o TemplateLinkPtrOutput) Elem() TemplateLinkOutput {
-	return o.ApplyT(func(v *TemplateLink) TemplateLink {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateLink
-		return ret
-	}).(TemplateLinkOutput)
+	return o.ApplyT(func(v *TemplateLink) TemplateLink { return *v }).(TemplateLinkOutput)
 }
 
 // If included it must match the ContentVersion in the template.
@@ -3175,7 +3103,7 @@ func (o TemplateLinkResponseOutput) ToTemplateLinkResponsePtrOutput() TemplateLi
 }
 
 func (o TemplateLinkResponseOutput) ToTemplateLinkResponsePtrOutputWithContext(ctx context.Context) TemplateLinkResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLinkResponse) *TemplateLinkResponse {
+	return o.ApplyT(func(v TemplateLinkResponse) *TemplateLinkResponse {
 		return &v
 	}).(TemplateLinkResponsePtrOutput)
 }
@@ -3205,13 +3133,7 @@ func (o TemplateLinkResponsePtrOutput) ToTemplateLinkResponsePtrOutputWithContex
 }
 
 func (o TemplateLinkResponsePtrOutput) Elem() TemplateLinkResponseOutput {
-	return o.ApplyT(func(v *TemplateLinkResponse) TemplateLinkResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateLinkResponse
-		return ret
-	}).(TemplateLinkResponseOutput)
+	return o.ApplyT(func(v *TemplateLinkResponse) TemplateLinkResponse { return *v }).(TemplateLinkResponseOutput)
 }
 
 // If included it must match the ContentVersion in the template.

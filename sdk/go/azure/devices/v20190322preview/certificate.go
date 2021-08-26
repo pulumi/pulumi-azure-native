@@ -162,12 +162,6 @@ func NewCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20210701preview:Certificate"),
 		},
-		{
-			Type: pulumi.String("azure-native:devices/v20210901preview:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20210901preview:Certificate"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource Certificate
@@ -247,7 +241,9 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct{ *pulumi.OutputState }
+type CertificateOutput struct {
+	*pulumi.OutputState
+}
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

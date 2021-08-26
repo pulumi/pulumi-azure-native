@@ -162,7 +162,9 @@ func (i *MigrationConfig) ToMigrationConfigOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationConfigOutput)
 }
 
-type MigrationConfigOutput struct{ *pulumi.OutputState }
+type MigrationConfigOutput struct {
+	*pulumi.OutputState
+}
 
 func (MigrationConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MigrationConfig)(nil))

@@ -84,12 +84,6 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationPolicy"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationPolicy"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationPolicy
@@ -169,7 +163,9 @@ func (i *ReplicationPolicy) ToReplicationPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPolicyOutput)
 }
 
-type ReplicationPolicyOutput struct{ *pulumi.OutputState }
+type ReplicationPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationPolicy)(nil))

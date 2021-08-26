@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview.Outputs
 {
 
-    /// <summary>
-    /// A streaming job.
-    /// </summary>
     [OutputType]
     public sealed class ClusterJobResponse
     {

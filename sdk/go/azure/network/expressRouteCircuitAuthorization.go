@@ -360,7 +360,9 @@ func (i *ExpressRouteCircuitAuthorization) ToExpressRouteCircuitAuthorizationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitAuthorizationOutput)
 }
 
-type ExpressRouteCircuitAuthorizationOutput struct{ *pulumi.OutputState }
+type ExpressRouteCircuitAuthorizationOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExpressRouteCircuitAuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitAuthorization)(nil))

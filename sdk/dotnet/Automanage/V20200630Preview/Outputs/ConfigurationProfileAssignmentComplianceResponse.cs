@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automanage.V20200630Preview.Outputs
 {
 
-    /// <summary>
-    /// The compliance status for the configuration profile assignment.
-    /// </summary>
     [OutputType]
     public sealed class ConfigurationProfileAssignmentComplianceResponse
     {

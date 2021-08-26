@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20190318Preview.Outputs
 {
 
-    /// <summary>
-    /// Specifies the operating system settings for the hybrid machine.
-    /// </summary>
     [OutputType]
     public sealed class OSProfileResponse
     {

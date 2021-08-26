@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210601.Outputs
 {
 
-    /// <summary>
-    /// An error response from the Batch service.
-    /// </summary>
     [OutputType]
     public sealed class DeleteCertificateErrorResponse
     {

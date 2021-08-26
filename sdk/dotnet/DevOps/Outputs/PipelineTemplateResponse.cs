@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevOps.Outputs
 {
 
-    /// <summary>
-    /// Template used to bootstrap the pipeline.
-    /// </summary>
     [OutputType]
     public sealed class PipelineTemplateResponse
     {

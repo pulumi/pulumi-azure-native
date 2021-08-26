@@ -91,12 +91,6 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationStorageClassificationMapping"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationStorageClassificationMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationStorageClassificationMapping"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationStorageClassificationMapping
@@ -184,7 +178,9 @@ func (i *ReplicationStorageClassificationMapping) ToReplicationStorageClassifica
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStorageClassificationMappingOutput)
 }
 
-type ReplicationStorageClassificationMappingOutput struct{ *pulumi.OutputState }
+type ReplicationStorageClassificationMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationStorageClassificationMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationStorageClassificationMapping)(nil))

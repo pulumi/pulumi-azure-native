@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.V20170426.Outputs
 {
 
-    /// <summary>
-    /// The definition of a canonical profile property.
-    /// </summary>
     [OutputType]
     public sealed class CanonicalProfileDefinitionResponseProperties
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
-    /// <summary>
-    /// The binding to an Azure Machine Learning Studio.
-    /// </summary>
     [OutputType]
     public sealed class AzureMachineLearningStudioFunctionBindingResponse
     {

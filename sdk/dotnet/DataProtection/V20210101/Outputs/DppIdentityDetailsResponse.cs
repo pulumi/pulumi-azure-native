@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210101.Outputs
 {
 
-    /// <summary>
-    /// Identity details
-    /// </summary>
     [OutputType]
     public sealed class DppIdentityDetailsResponse
     {

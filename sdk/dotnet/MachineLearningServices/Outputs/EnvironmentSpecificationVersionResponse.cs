@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Environment specification version details.
-    /// &lt;see href="https://repo2docker.readthedocs.io/en/latest/specification.html" /&gt;
-    /// </summary>
     [OutputType]
     public sealed class EnvironmentSpecificationVersionResponse
     {

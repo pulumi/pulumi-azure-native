@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
-    /// <summary>
-    /// Results for checksum based Data Integrity validation results
-    /// </summary>
     [OutputType]
     public sealed class DataIntegrityValidationResultResponse
     {

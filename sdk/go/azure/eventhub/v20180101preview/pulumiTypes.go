@@ -17,7 +17,7 @@ type CaptureDescription struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
+	Encoding *string `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -44,7 +44,7 @@ type CaptureDescriptionArgs struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding EncodingCaptureDescriptionPtrInput `pulumi:"encoding"`
+	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -126,7 +126,7 @@ func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutput() CaptureDescrip
 }
 
 func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutputWithContext(ctx context.Context) CaptureDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaptureDescription) *CaptureDescription {
+	return o.ApplyT(func(v CaptureDescription) *CaptureDescription {
 		return &v
 	}).(CaptureDescriptionPtrOutput)
 }
@@ -142,8 +142,8 @@ func (o CaptureDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v CaptureDescription) *EncodingCaptureDescription { return v.Encoding }).(EncodingCaptureDescriptionPtrOutput)
+func (o CaptureDescriptionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -176,13 +176,7 @@ func (o CaptureDescriptionPtrOutput) ToCaptureDescriptionPtrOutputWithContext(ct
 }
 
 func (o CaptureDescriptionPtrOutput) Elem() CaptureDescriptionOutput {
-	return o.ApplyT(func(v *CaptureDescription) CaptureDescription {
-		if v != nil {
-			return *v
-		}
-		var ret CaptureDescription
-		return ret
-	}).(CaptureDescriptionOutput)
+	return o.ApplyT(func(v *CaptureDescription) CaptureDescription { return *v }).(CaptureDescriptionOutput)
 }
 
 // Properties of Destination where capture will be stored. (Storage Account, Blob Names)
@@ -206,13 +200,13 @@ func (o CaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionPtrOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v *CaptureDescription) *EncodingCaptureDescription {
+func (o CaptureDescriptionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Encoding
-	}).(EncodingCaptureDescriptionPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -361,7 +355,7 @@ func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutput(
 }
 
 func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutputWithContext(ctx context.Context) CaptureDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaptureDescriptionResponse) *CaptureDescriptionResponse {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *CaptureDescriptionResponse {
 		return &v
 	}).(CaptureDescriptionResponsePtrOutput)
 }
@@ -411,13 +405,7 @@ func (o CaptureDescriptionResponsePtrOutput) ToCaptureDescriptionResponsePtrOutp
 }
 
 func (o CaptureDescriptionResponsePtrOutput) Elem() CaptureDescriptionResponseOutput {
-	return o.ApplyT(func(v *CaptureDescriptionResponse) CaptureDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CaptureDescriptionResponse
-		return ret
-	}).(CaptureDescriptionResponseOutput)
+	return o.ApplyT(func(v *CaptureDescriptionResponse) CaptureDescriptionResponse { return *v }).(CaptureDescriptionResponseOutput)
 }
 
 // Properties of Destination where capture will be stored. (Storage Account, Blob Names)
@@ -580,7 +568,7 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 }
 
 func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
+	return o.ApplyT(func(v ClusterSku) *ClusterSku {
 		return &v
 	}).(ClusterSkuPtrOutput)
 }
@@ -610,13 +598,7 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func(v *ClusterSku) ClusterSku {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterSku
-		return ret
-	}).(ClusterSkuOutput)
+	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
 }
 
 // The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
@@ -739,7 +721,7 @@ func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutput() ClusterSkuResp
 }
 
 func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSkuResponse) *ClusterSkuResponse {
+	return o.ApplyT(func(v ClusterSkuResponse) *ClusterSkuResponse {
 		return &v
 	}).(ClusterSkuResponsePtrOutput)
 }
@@ -769,13 +751,7 @@ func (o ClusterSkuResponsePtrOutput) ToClusterSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
-	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterSkuResponse
-		return ret
-	}).(ClusterSkuResponseOutput)
+	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse { return *v }).(ClusterSkuResponseOutput)
 }
 
 // The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
@@ -898,7 +874,7 @@ func (o ConnectionStateOutput) ToConnectionStatePtrOutput() ConnectionStatePtrOu
 }
 
 func (o ConnectionStateOutput) ToConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionState) *ConnectionState {
+	return o.ApplyT(func(v ConnectionState) *ConnectionState {
 		return &v
 	}).(ConnectionStatePtrOutput)
 }
@@ -928,13 +904,7 @@ func (o ConnectionStatePtrOutput) ToConnectionStatePtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionStatePtrOutput) Elem() ConnectionStateOutput {
-	return o.ApplyT(func(v *ConnectionState) ConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionState
-		return ret
-	}).(ConnectionStateOutput)
+	return o.ApplyT(func(v *ConnectionState) ConnectionState { return *v }).(ConnectionStateOutput)
 }
 
 // Description of the connection state.
@@ -1057,7 +1027,7 @@ func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutput() Conn
 }
 
 func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutputWithContext(ctx context.Context) ConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionStateResponse) *ConnectionStateResponse {
+	return o.ApplyT(func(v ConnectionStateResponse) *ConnectionStateResponse {
 		return &v
 	}).(ConnectionStateResponsePtrOutput)
 }
@@ -1087,13 +1057,7 @@ func (o ConnectionStateResponsePtrOutput) ToConnectionStateResponsePtrOutputWith
 }
 
 func (o ConnectionStateResponsePtrOutput) Elem() ConnectionStateResponseOutput {
-	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionStateResponse
-		return ret
-	}).(ConnectionStateResponseOutput)
+	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse { return *v }).(ConnectionStateResponseOutput)
 }
 
 // Description of the connection state.
@@ -1224,7 +1188,7 @@ func (o DestinationOutput) ToDestinationPtrOutput() DestinationPtrOutput {
 }
 
 func (o DestinationOutput) ToDestinationPtrOutputWithContext(ctx context.Context) DestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Destination) *Destination {
+	return o.ApplyT(func(v Destination) *Destination {
 		return &v
 	}).(DestinationPtrOutput)
 }
@@ -1264,13 +1228,7 @@ func (o DestinationPtrOutput) ToDestinationPtrOutputWithContext(ctx context.Cont
 }
 
 func (o DestinationPtrOutput) Elem() DestinationOutput {
-	return o.ApplyT(func(v *Destination) Destination {
-		if v != nil {
-			return *v
-		}
-		var ret Destination
-		return ret
-	}).(DestinationOutput)
+	return o.ApplyT(func(v *Destination) Destination { return *v }).(DestinationOutput)
 }
 
 // Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -1421,7 +1379,7 @@ func (o DestinationResponseOutput) ToDestinationResponsePtrOutput() DestinationR
 }
 
 func (o DestinationResponseOutput) ToDestinationResponsePtrOutputWithContext(ctx context.Context) DestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationResponse) *DestinationResponse {
+	return o.ApplyT(func(v DestinationResponse) *DestinationResponse {
 		return &v
 	}).(DestinationResponsePtrOutput)
 }
@@ -1461,13 +1419,7 @@ func (o DestinationResponsePtrOutput) ToDestinationResponsePtrOutputWithContext(
 }
 
 func (o DestinationResponsePtrOutput) Elem() DestinationResponseOutput {
-	return o.ApplyT(func(v *DestinationResponse) DestinationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DestinationResponse
-		return ret
-	}).(DestinationResponseOutput)
+	return o.ApplyT(func(v *DestinationResponse) DestinationResponse { return *v }).(DestinationResponseOutput)
 }
 
 // Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -1513,7 +1465,7 @@ func (o DestinationResponsePtrOutput) StorageAccountResourceId() pulumi.StringPt
 // Properties to configure Encryption
 type Encryption struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource *KeySource `pulumi:"keySource"`
+	KeySource *string `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties []KeyVaultProperties `pulumi:"keyVaultProperties"`
 }
@@ -1532,7 +1484,7 @@ type EncryptionInput interface {
 // Properties to configure Encryption
 type EncryptionArgs struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource KeySourcePtrInput `pulumi:"keySource"`
+	KeySource *KeySource `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties KeyVaultPropertiesArrayInput `pulumi:"keyVaultProperties"`
 }
@@ -1610,14 +1562,14 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
+	return o.ApplyT(func(v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
 
 // Enumerates the possible value of keySource for Encryption
-func (o EncryptionOutput) KeySource() KeySourcePtrOutput {
-	return o.ApplyT(func(v Encryption) *KeySource { return v.KeySource }).(KeySourcePtrOutput)
+func (o EncryptionOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Encryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
 // Properties of KeyVault
@@ -1640,23 +1592,17 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption {
-		if v != nil {
-			return *v
-		}
-		var ret Encryption
-		return ret
-	}).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
 }
 
 // Enumerates the possible value of keySource for Encryption
-func (o EncryptionPtrOutput) KeySource() KeySourcePtrOutput {
-	return o.ApplyT(func(v *Encryption) *KeySource {
+func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
 			return nil
 		}
 		return v.KeySource
-	}).(KeySourcePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Properties of KeyVault
@@ -1769,7 +1715,7 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
@@ -1799,13 +1745,7 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionResponse
-		return ret
-	}).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
 }
 
 // Enumerates the possible value of keySource for Encryption
@@ -1835,7 +1775,7 @@ type Identity struct {
 	// TenantId from the KeyVault
 	TenantId *string `pulumi:"tenantId"`
 	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type *IdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1856,7 +1796,7 @@ type IdentityArgs struct {
 	// TenantId from the KeyVault
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type IdentityTypePtrInput `pulumi:"type"`
+	Type *IdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1932,7 +1872,7 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
@@ -1948,8 +1888,8 @@ func (o IdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-func (o IdentityOutput) Type() IdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *IdentityType { return v.Type }).(IdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1967,13 +1907,7 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // ObjectId from the KeyVault
@@ -1997,13 +1931,13 @@ func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *IdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(IdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Properties to configure Identity for Bring your Own Keys
@@ -2110,7 +2044,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -2145,13 +2079,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // ObjectId from the KeyVault
@@ -2952,7 +2880,7 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
@@ -2977,13 +2905,7 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpoint
-		return ret
-	}).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
 }
 
 // The ARM identifier for Private Endpoint.
@@ -3092,7 +3014,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -3117,13 +3039,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint.
@@ -3240,7 +3156,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -3275,13 +3191,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The Event Hubs throughput units, value should be 0 to 20 throughput units.
@@ -3418,7 +3328,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -3453,13 +3363,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The Event Hubs throughput units, value should be 0 to 20 throughput units.
@@ -3588,7 +3492,7 @@ func (o SubnetOutput) ToSubnetPtrOutput() SubnetPtrOutput {
 }
 
 func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Subnet) *Subnet {
+	return o.ApplyT(func(v Subnet) *Subnet {
 		return &v
 	}).(SubnetPtrOutput)
 }
@@ -3613,13 +3517,7 @@ func (o SubnetPtrOutput) ToSubnetPtrOutputWithContext(ctx context.Context) Subne
 }
 
 func (o SubnetPtrOutput) Elem() SubnetOutput {
-	return o.ApplyT(func(v *Subnet) Subnet {
-		if v != nil {
-			return *v
-		}
-		var ret Subnet
-		return ret
-	}).(SubnetOutput)
+	return o.ApplyT(func(v *Subnet) Subnet { return *v }).(SubnetOutput)
 }
 
 // Resource ID of Virtual Network Subnet
@@ -3728,7 +3626,7 @@ func (o SubnetResponseOutput) ToSubnetResponsePtrOutput() SubnetResponsePtrOutpu
 }
 
 func (o SubnetResponseOutput) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetResponse) *SubnetResponse {
+	return o.ApplyT(func(v SubnetResponse) *SubnetResponse {
 		return &v
 	}).(SubnetResponsePtrOutput)
 }
@@ -3753,13 +3651,7 @@ func (o SubnetResponsePtrOutput) ToSubnetResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SubnetResponsePtrOutput) Elem() SubnetResponseOutput {
-	return o.ApplyT(func(v *SubnetResponse) SubnetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetResponse
-		return ret
-	}).(SubnetResponseOutput)
+	return o.ApplyT(func(v *SubnetResponse) SubnetResponse { return *v }).(SubnetResponseOutput)
 }
 
 // Resource ID of Virtual Network Subnet

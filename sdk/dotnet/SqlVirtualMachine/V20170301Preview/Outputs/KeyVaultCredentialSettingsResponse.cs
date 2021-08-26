@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 {
 
-    /// <summary>
-    /// Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultCredentialSettingsResponse
     {

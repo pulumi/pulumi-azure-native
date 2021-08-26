@@ -143,7 +143,9 @@ func (i *HyperVSite) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSi
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteOutput)
 }
 
-type HyperVSiteOutput struct{ *pulumi.OutputState }
+type HyperVSiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (HyperVSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HyperVSite)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 {
 
-    /// <summary>
-    /// Domain configurations of session hosts.
-    /// </summary>
     [OutputType]
     public sealed class DomainInfoPropertiesResponse
     {

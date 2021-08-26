@@ -164,7 +164,9 @@ func (i *ContentKeyPolicy) ToContentKeyPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOutput)
 }
 
-type ContentKeyPolicyOutput struct{ *pulumi.OutputState }
+type ContentKeyPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ContentKeyPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContentKeyPolicy)(nil))

@@ -207,7 +207,9 @@ func (i *WebAppSlotConfigurationNames) ToWebAppSlotConfigurationNamesOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotConfigurationNamesOutput)
 }
 
-type WebAppSlotConfigurationNamesOutput struct{ *pulumi.OutputState }
+type WebAppSlotConfigurationNamesOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppSlotConfigurationNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSlotConfigurationNames)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.GuestConfiguration.Outputs
 {
 
-    /// <summary>
-    /// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
-    /// </summary>
     [OutputType]
     public sealed class GuestConfigurationNavigationResponse
     {

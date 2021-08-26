@@ -159,7 +159,9 @@ func (i *AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetF
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterOutput)
 }
 
-type AssetFilterOutput struct{ *pulumi.OutputState }
+type AssetFilterOutput struct {
+	*pulumi.OutputState
+}
 
 func (AssetFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssetFilter)(nil))

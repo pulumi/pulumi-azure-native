@@ -141,7 +141,9 @@ func (i *SubAccount) ToSubAccountOutputWithContext(ctx context.Context) SubAccou
 	return pulumi.ToOutputWithContext(ctx, i).(SubAccountOutput)
 }
 
-type SubAccountOutput struct{ *pulumi.OutputState }
+type SubAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (SubAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubAccount)(nil))

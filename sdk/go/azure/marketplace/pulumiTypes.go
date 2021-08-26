@@ -249,61 +249,6 @@ func (o PlanResponseArrayOutput) Index(i pulumi.IntInput) PlanResponseOutput {
 	}).(PlanResponseOutput)
 }
 
-// Describes the json payload for a notified recipient for new requests
-type Recipient struct {
-	// Principal ID
-	PrincipalId *string `pulumi:"principalId"`
-}
-
-// RecipientInput is an input type that accepts RecipientArgs and RecipientOutput values.
-// You can construct a concrete instance of `RecipientInput` via:
-//
-//          RecipientArgs{...}
-type RecipientInput interface {
-	pulumi.Input
-
-	ToRecipientOutput() RecipientOutput
-	ToRecipientOutputWithContext(context.Context) RecipientOutput
-}
-
-// Describes the json payload for a notified recipient for new requests
-type RecipientArgs struct {
-	// Principal ID
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-}
-
-func (RecipientArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Recipient)(nil)).Elem()
-}
-
-func (i RecipientArgs) ToRecipientOutput() RecipientOutput {
-	return i.ToRecipientOutputWithContext(context.Background())
-}
-
-func (i RecipientArgs) ToRecipientOutputWithContext(ctx context.Context) RecipientOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipientOutput)
-}
-
-// Describes the json payload for a notified recipient for new requests
-type RecipientOutput struct{ *pulumi.OutputState }
-
-func (RecipientOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Recipient)(nil)).Elem()
-}
-
-func (o RecipientOutput) ToRecipientOutput() RecipientOutput {
-	return o
-}
-
-func (o RecipientOutput) ToRecipientOutputWithContext(ctx context.Context) RecipientOutput {
-	return o
-}
-
-// Principal ID
-func (o RecipientOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Recipient) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
 // Read only system data
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC)
@@ -420,7 +365,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -470,13 +415,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC)
@@ -544,7 +483,6 @@ func init() {
 	pulumi.RegisterOutputType(PlanArrayOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponseArrayOutput{})
-	pulumi.RegisterOutputType(RecipientOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

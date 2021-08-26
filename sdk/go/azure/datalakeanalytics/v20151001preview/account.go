@@ -96,10 +96,12 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.FirewallAllowAzureIps == nil {
-		args.FirewallAllowAzureIps = FirewallAllowAzureIpsState("Disabled")
+		e := FirewallAllowAzureIpsState("Disabled")
+		args.FirewallAllowAzureIps = &e
 	}
 	if args.FirewallState == nil {
-		args.FirewallState = FirewallState("Disabled")
+		e := FirewallState("Disabled")
+		args.FirewallState = &e
 	}
 	if args.MaxDegreeOfParallelismPerJob == nil {
 		args.MaxDegreeOfParallelismPerJob = pulumi.IntPtr(32)
@@ -108,7 +110,8 @@ func NewAccount(ctx *pulumi.Context,
 		args.MaxJobCount = pulumi.IntPtr(20)
 	}
 	if args.NewTier == nil {
-		args.NewTier = TierType("Consumption")
+		e := TierType("Consumption")
+		args.NewTier = &e
 	}
 	if args.QueryStoreRetention == nil {
 		args.QueryStoreRetention = pulumi.IntPtr(30)
@@ -172,11 +175,11 @@ type accountArgs struct {
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount string `pulumi:"defaultDataLakeStoreAccount"`
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps *FirewallAllowAzureIpsState `pulumi:"firewallAllowAzureIps"`
+	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
 	// The list of firewall rules associated with this account.
 	FirewallRules []CreateFirewallRuleWithAccountParameters `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
-	FirewallState *FirewallState `pulumi:"firewallState"`
+	FirewallState *string `pulumi:"firewallState"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The maximum supported degree of parallelism for this account.
@@ -188,7 +191,7 @@ type accountArgs struct {
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
 	// The commitment tier for the next month.
-	NewTier *TierType `pulumi:"newTier"`
+	NewTier *string `pulumi:"newTier"`
 	// The number of days that job metadata is retained.
 	QueryStoreRetention *int `pulumi:"queryStoreRetention"`
 	// The name of the Azure resource group.
@@ -210,11 +213,11 @@ type AccountArgs struct {
 	// The default Data Lake Store account associated with this account.
 	DefaultDataLakeStoreAccount pulumi.StringInput
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps FirewallAllowAzureIpsStatePtrInput
+	FirewallAllowAzureIps *FirewallAllowAzureIpsState
 	// The list of firewall rules associated with this account.
 	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
 	// The current state of the IP address firewall for this account.
-	FirewallState FirewallStatePtrInput
+	FirewallState *FirewallState
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The maximum supported degree of parallelism for this account.
@@ -226,7 +229,7 @@ type AccountArgs struct {
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob pulumi.IntPtrInput
 	// The commitment tier for the next month.
-	NewTier TierTypePtrInput
+	NewTier *TierType
 	// The number of days that job metadata is retained.
 	QueryStoreRetention pulumi.IntPtrInput
 	// The name of the Azure resource group.
@@ -260,7 +263,9 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct{ *pulumi.OutputState }
+type AccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

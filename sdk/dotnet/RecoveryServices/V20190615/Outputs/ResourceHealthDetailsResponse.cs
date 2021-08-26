@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20190615.Outputs
 {
 
-    /// <summary>
-    /// Health Details for backup items.
-    /// </summary>
     [OutputType]
     public sealed class ResourceHealthDetailsResponse
     {

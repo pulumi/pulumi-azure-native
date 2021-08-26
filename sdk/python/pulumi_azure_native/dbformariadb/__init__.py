@@ -23,14 +23,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.dbformariadb.v20180601 as __v20180601
-    v20180601 = __v20180601
-    import pulumi_azure_native.dbformariadb.v20180601preview as __v20180601preview
-    v20180601preview = __v20180601preview
-    import pulumi_azure_native.dbformariadb.v20180601privatepreview as __v20180601privatepreview
-    v20180601privatepreview = __v20180601privatepreview
-    import pulumi_azure_native.dbformariadb.v20200101privatepreview as __v20200101privatepreview
-    v20200101privatepreview = __v20200101privatepreview
+    import pulumi_azure_native.dbformariadb.v20180601 as v20180601
+    import pulumi_azure_native.dbformariadb.v20180601preview as v20180601preview
+    import pulumi_azure_native.dbformariadb.v20180601privatepreview as v20180601privatepreview
+    import pulumi_azure_native.dbformariadb.v20200101privatepreview as v20200101privatepreview
 else:
     v20180601 = _utilities.lazy_import('pulumi_azure_native.dbformariadb.v20180601')
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.dbformariadb.v20180601preview')

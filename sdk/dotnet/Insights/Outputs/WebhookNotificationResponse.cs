@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// Webhook notification of an autoscale event.
-    /// </summary>
     [OutputType]
     public sealed class WebhookNotificationResponse
     {

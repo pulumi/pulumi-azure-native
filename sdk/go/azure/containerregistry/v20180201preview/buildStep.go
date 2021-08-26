@@ -122,7 +122,9 @@ func (i *BuildStep) ToBuildStepOutputWithContext(ctx context.Context) BuildStepO
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStepOutput)
 }
 
-type BuildStepOutput struct{ *pulumi.OutputState }
+type BuildStepOutput struct {
+	*pulumi.OutputState
+}
 
 func (BuildStepOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BuildStep)(nil))

@@ -253,7 +253,9 @@ func (i *GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinGraphOutput)
 }
 
-type GremlinResourceGremlinGraphOutput struct{ *pulumi.OutputState }
+type GremlinResourceGremlinGraphOutput struct {
+	*pulumi.OutputState
+}
 
 func (GremlinResourceGremlinGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil))

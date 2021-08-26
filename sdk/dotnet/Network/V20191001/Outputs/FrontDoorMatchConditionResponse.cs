@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191001.Outputs
 {
 
-    /// <summary>
-    /// Define a match condition.
-    /// </summary>
     [OutputType]
     public sealed class FrontDoorMatchConditionResponse
     {

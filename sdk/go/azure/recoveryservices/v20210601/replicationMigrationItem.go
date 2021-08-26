@@ -87,12 +87,6 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationMigrationItem"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationMigrationItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationMigrationItem"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationMigrationItem
@@ -180,7 +174,9 @@ func (i *ReplicationMigrationItem) ToReplicationMigrationItemOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationMigrationItemOutput)
 }
 
-type ReplicationMigrationItemOutput struct{ *pulumi.OutputState }
+type ReplicationMigrationItemOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationMigrationItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationMigrationItem)(nil))

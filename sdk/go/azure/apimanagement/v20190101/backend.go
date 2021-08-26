@@ -239,7 +239,9 @@ func (i *Backend) ToBackendOutputWithContext(ctx context.Context) BackendOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BackendOutput)
 }
 
-type BackendOutput struct{ *pulumi.OutputState }
+type BackendOutput struct {
+	*pulumi.OutputState
+}
 
 func (BackendOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Backend)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20190601.Outputs
 {
 
-    /// <summary>
-    /// Definition of the module error info type.
-    /// </summary>
     [OutputType]
     public sealed class ModuleErrorInfoResponse
     {

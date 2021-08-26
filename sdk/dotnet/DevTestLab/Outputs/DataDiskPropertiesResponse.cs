@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
-    /// <summary>
-    /// Request body for adding a new or existing data disk to a virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class DataDiskPropertiesResponse
     {

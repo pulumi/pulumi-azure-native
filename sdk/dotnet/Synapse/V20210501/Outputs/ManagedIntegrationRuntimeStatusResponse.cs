@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
 {
 
-    /// <summary>
-    /// Managed integration runtime status.
-    /// </summary>
     [OutputType]
     public sealed class ManagedIntegrationRuntimeStatusResponse
     {

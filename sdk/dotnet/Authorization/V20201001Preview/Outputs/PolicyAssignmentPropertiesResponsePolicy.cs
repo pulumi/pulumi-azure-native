@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20201001Preview.Outputs
 {
 
-    /// <summary>
-    /// Details of the policy
-    /// </summary>
     [OutputType]
     public sealed class PolicyAssignmentPropertiesResponsePolicy
     {

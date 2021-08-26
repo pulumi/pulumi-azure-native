@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
-    /// <summary>
-    /// Managed service identity.
-    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

@@ -167,7 +167,9 @@ func (i *ConsumerGroup) ToConsumerGroupOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupOutput)
 }
 
-type ConsumerGroupOutput struct{ *pulumi.OutputState }
+type ConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConsumerGroup)(nil))

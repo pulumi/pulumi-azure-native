@@ -200,7 +200,7 @@ type storageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName *string `pulumi:"accountName"`
 	// Gets or sets the account type.
-	AccountType *AccountType `pulumi:"accountType"`
+	AccountType *string `pulumi:"accountType"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
@@ -214,7 +214,7 @@ type StorageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringPtrInput
 	// Gets or sets the account type.
-	AccountType AccountTypePtrInput
+	AccountType *AccountType
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.
@@ -246,7 +246,9 @@ func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
 }
 
-type StorageAccountOutput struct{ *pulumi.OutputState }
+type StorageAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccount)(nil))

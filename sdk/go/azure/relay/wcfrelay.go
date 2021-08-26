@@ -106,7 +106,7 @@ type wcfrelayArgs struct {
 	// The relay name.
 	RelayName *string `pulumi:"relayName"`
 	// WCF relay type.
-	RelayType *Relaytype `pulumi:"relayType"`
+	RelayType *string `pulumi:"relayType"`
 	// Returns true if client authorization is needed for this relay; otherwise, false.
 	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// Returns true if transport security is needed for this relay; otherwise, false.
@@ -124,7 +124,7 @@ type WCFRelayArgs struct {
 	// The relay name.
 	RelayName pulumi.StringPtrInput
 	// WCF relay type.
-	RelayType RelaytypePtrInput
+	RelayType *Relaytype
 	// Returns true if client authorization is needed for this relay; otherwise, false.
 	RequiresClientAuthorization pulumi.BoolPtrInput
 	// Returns true if transport security is needed for this relay; otherwise, false.
@@ -158,7 +158,9 @@ func (i *WCFRelay) ToWCFRelayOutputWithContext(ctx context.Context) WCFRelayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayOutput)
 }
 
-type WCFRelayOutput struct{ *pulumi.OutputState }
+type WCFRelayOutput struct {
+	*pulumi.OutputState
+}
 
 func (WCFRelayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WCFRelay)(nil))

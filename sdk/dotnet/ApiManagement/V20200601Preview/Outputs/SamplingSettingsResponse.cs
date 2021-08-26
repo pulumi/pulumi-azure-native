@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// Sampling settings for Diagnostic.
-    /// </summary>
     [OutputType]
     public sealed class SamplingSettingsResponse
     {

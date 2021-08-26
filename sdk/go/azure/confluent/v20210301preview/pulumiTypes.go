@@ -126,7 +126,7 @@ func (o OfferDetailOutput) ToOfferDetailPtrOutput() OfferDetailPtrOutput {
 }
 
 func (o OfferDetailOutput) ToOfferDetailPtrOutputWithContext(ctx context.Context) OfferDetailPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfferDetail) *OfferDetail {
+	return o.ApplyT(func(v OfferDetail) *OfferDetail {
 		return &v
 	}).(OfferDetailPtrOutput)
 }
@@ -176,13 +176,7 @@ func (o OfferDetailPtrOutput) ToOfferDetailPtrOutputWithContext(ctx context.Cont
 }
 
 func (o OfferDetailPtrOutput) Elem() OfferDetailOutput {
-	return o.ApplyT(func(v *OfferDetail) OfferDetail {
-		if v != nil {
-			return *v
-		}
-		var ret OfferDetail
-		return ret
-	}).(OfferDetailOutput)
+	return o.ApplyT(func(v *OfferDetail) OfferDetail { return *v }).(OfferDetailOutput)
 }
 
 // Offer Id
@@ -361,7 +355,7 @@ func (o OfferDetailResponseOutput) ToOfferDetailResponsePtrOutput() OfferDetailR
 }
 
 func (o OfferDetailResponseOutput) ToOfferDetailResponsePtrOutputWithContext(ctx context.Context) OfferDetailResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfferDetailResponse) *OfferDetailResponse {
+	return o.ApplyT(func(v OfferDetailResponse) *OfferDetailResponse {
 		return &v
 	}).(OfferDetailResponsePtrOutput)
 }
@@ -411,13 +405,7 @@ func (o OfferDetailResponsePtrOutput) ToOfferDetailResponsePtrOutputWithContext(
 }
 
 func (o OfferDetailResponsePtrOutput) Elem() OfferDetailResponseOutput {
-	return o.ApplyT(func(v *OfferDetailResponse) OfferDetailResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OfferDetailResponse
-		return ret
-	}).(OfferDetailResponseOutput)
+	return o.ApplyT(func(v *OfferDetailResponse) OfferDetailResponse { return *v }).(OfferDetailResponseOutput)
 }
 
 // Offer Id
@@ -596,7 +584,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -646,13 +634,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -819,7 +801,7 @@ func (o UserDetailOutput) ToUserDetailPtrOutput() UserDetailPtrOutput {
 }
 
 func (o UserDetailOutput) ToUserDetailPtrOutputWithContext(ctx context.Context) UserDetailPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDetail) *UserDetail {
+	return o.ApplyT(func(v UserDetail) *UserDetail {
 		return &v
 	}).(UserDetailPtrOutput)
 }
@@ -854,13 +836,7 @@ func (o UserDetailPtrOutput) ToUserDetailPtrOutputWithContext(ctx context.Contex
 }
 
 func (o UserDetailPtrOutput) Elem() UserDetailOutput {
-	return o.ApplyT(func(v *UserDetail) UserDetail {
-		if v != nil {
-			return *v
-		}
-		var ret UserDetail
-		return ret
-	}).(UserDetailOutput)
+	return o.ApplyT(func(v *UserDetail) UserDetail { return *v }).(UserDetailOutput)
 }
 
 // Email address
@@ -997,7 +973,7 @@ func (o UserDetailResponseOutput) ToUserDetailResponsePtrOutput() UserDetailResp
 }
 
 func (o UserDetailResponseOutput) ToUserDetailResponsePtrOutputWithContext(ctx context.Context) UserDetailResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDetailResponse) *UserDetailResponse {
+	return o.ApplyT(func(v UserDetailResponse) *UserDetailResponse {
 		return &v
 	}).(UserDetailResponsePtrOutput)
 }
@@ -1032,13 +1008,7 @@ func (o UserDetailResponsePtrOutput) ToUserDetailResponsePtrOutputWithContext(ct
 }
 
 func (o UserDetailResponsePtrOutput) Elem() UserDetailResponseOutput {
-	return o.ApplyT(func(v *UserDetailResponse) UserDetailResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserDetailResponse
-		return ret
-	}).(UserDetailResponseOutput)
+	return o.ApplyT(func(v *UserDetailResponse) UserDetailResponse { return *v }).(UserDetailResponseOutput)
 }
 
 // Email address

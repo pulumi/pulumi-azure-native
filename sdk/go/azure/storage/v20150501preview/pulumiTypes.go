@@ -110,7 +110,7 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutput() CustomDoma
 }
 
 func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainResponse) *CustomDomainResponse {
+	return o.ApplyT(func(v CustomDomainResponse) *CustomDomainResponse {
 		return &v
 	}).(CustomDomainResponsePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o CustomDomainResponsePtrOutput) ToCustomDomainResponsePtrOutputWithContex
 }
 
 func (o CustomDomainResponsePtrOutput) Elem() CustomDomainResponseOutput {
-	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDomainResponse
-		return ret
-	}).(CustomDomainResponseOutput)
+	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse { return *v }).(CustomDomainResponseOutput)
 }
 
 // Gets or sets the custom domain name. Name is the CNAME source.
@@ -273,7 +267,7 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
@@ -308,13 +302,7 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointsResponse
-		return ret
-	}).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
 }
 
 // Gets the blob endpoint.

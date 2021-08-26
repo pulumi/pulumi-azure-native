@@ -240,7 +240,7 @@ func (o DomainSecuritySettingsOutput) ToDomainSecuritySettingsPtrOutput() Domain
 }
 
 func (o DomainSecuritySettingsOutput) ToDomainSecuritySettingsPtrOutputWithContext(ctx context.Context) DomainSecuritySettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSecuritySettings) *DomainSecuritySettings {
+	return o.ApplyT(func(v DomainSecuritySettings) *DomainSecuritySettings {
 		return &v
 	}).(DomainSecuritySettingsPtrOutput)
 }
@@ -285,13 +285,7 @@ func (o DomainSecuritySettingsPtrOutput) ToDomainSecuritySettingsPtrOutputWithCo
 }
 
 func (o DomainSecuritySettingsPtrOutput) Elem() DomainSecuritySettingsOutput {
-	return o.ApplyT(func(v *DomainSecuritySettings) DomainSecuritySettings {
-		if v != nil {
-			return *v
-		}
-		var ret DomainSecuritySettings
-		return ret
-	}).(DomainSecuritySettingsOutput)
+	return o.ApplyT(func(v *DomainSecuritySettings) DomainSecuritySettings { return *v }).(DomainSecuritySettingsOutput)
 }
 
 // A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -456,7 +450,7 @@ func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponsePt
 }
 
 func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) DomainSecuritySettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSecuritySettingsResponse) *DomainSecuritySettingsResponse {
+	return o.ApplyT(func(v DomainSecuritySettingsResponse) *DomainSecuritySettingsResponse {
 		return &v
 	}).(DomainSecuritySettingsResponsePtrOutput)
 }
@@ -501,13 +495,7 @@ func (o DomainSecuritySettingsResponsePtrOutput) ToDomainSecuritySettingsRespons
 }
 
 func (o DomainSecuritySettingsResponsePtrOutput) Elem() DomainSecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *DomainSecuritySettingsResponse) DomainSecuritySettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DomainSecuritySettingsResponse
-		return ret
-	}).(DomainSecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *DomainSecuritySettingsResponse) DomainSecuritySettingsResponse { return *v }).(DomainSecuritySettingsResponseOutput)
 }
 
 // A flag to determine whether or not NtlmV1 is enabled or disabled.
@@ -1212,7 +1200,7 @@ func (o LdapsSettingsOutput) ToLdapsSettingsPtrOutput() LdapsSettingsPtrOutput {
 }
 
 func (o LdapsSettingsOutput) ToLdapsSettingsPtrOutputWithContext(ctx context.Context) LdapsSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapsSettings) *LdapsSettings {
+	return o.ApplyT(func(v LdapsSettings) *LdapsSettings {
 		return &v
 	}).(LdapsSettingsPtrOutput)
 }
@@ -1252,13 +1240,7 @@ func (o LdapsSettingsPtrOutput) ToLdapsSettingsPtrOutputWithContext(ctx context.
 }
 
 func (o LdapsSettingsPtrOutput) Elem() LdapsSettingsOutput {
-	return o.ApplyT(func(v *LdapsSettings) LdapsSettings {
-		if v != nil {
-			return *v
-		}
-		var ret LdapsSettings
-		return ret
-	}).(LdapsSettingsOutput)
+	return o.ApplyT(func(v *LdapsSettings) LdapsSettings { return *v }).(LdapsSettingsOutput)
 }
 
 // A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
@@ -1421,7 +1403,7 @@ func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponsePtrOutput() LdapsSet
 }
 
 func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponsePtrOutputWithContext(ctx context.Context) LdapsSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapsSettingsResponse) *LdapsSettingsResponse {
+	return o.ApplyT(func(v LdapsSettingsResponse) *LdapsSettingsResponse {
 		return &v
 	}).(LdapsSettingsResponsePtrOutput)
 }
@@ -1476,13 +1458,7 @@ func (o LdapsSettingsResponsePtrOutput) ToLdapsSettingsResponsePtrOutputWithCont
 }
 
 func (o LdapsSettingsResponsePtrOutput) Elem() LdapsSettingsResponseOutput {
-	return o.ApplyT(func(v *LdapsSettingsResponse) LdapsSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LdapsSettingsResponse
-		return ret
-	}).(LdapsSettingsResponseOutput)
+	return o.ApplyT(func(v *LdapsSettingsResponse) LdapsSettingsResponse { return *v }).(LdapsSettingsResponseOutput)
 }
 
 // NotAfter DateTime of configure ldaps certificate.
@@ -1655,7 +1631,7 @@ func (o MigrationProgressResponseOutput) ToMigrationProgressResponsePtrOutput() 
 }
 
 func (o MigrationProgressResponseOutput) ToMigrationProgressResponsePtrOutputWithContext(ctx context.Context) MigrationProgressResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationProgressResponse) *MigrationProgressResponse {
+	return o.ApplyT(func(v MigrationProgressResponse) *MigrationProgressResponse {
 		return &v
 	}).(MigrationProgressResponsePtrOutput)
 }
@@ -1685,13 +1661,7 @@ func (o MigrationProgressResponsePtrOutput) ToMigrationProgressResponsePtrOutput
 }
 
 func (o MigrationProgressResponsePtrOutput) Elem() MigrationProgressResponseOutput {
-	return o.ApplyT(func(v *MigrationProgressResponse) MigrationProgressResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationProgressResponse
-		return ret
-	}).(MigrationProgressResponseOutput)
+	return o.ApplyT(func(v *MigrationProgressResponse) MigrationProgressResponse { return *v }).(MigrationProgressResponseOutput)
 }
 
 // Completion Percentage
@@ -1818,7 +1788,7 @@ func (o MigrationPropertiesResponseOutput) ToMigrationPropertiesResponsePtrOutpu
 }
 
 func (o MigrationPropertiesResponseOutput) ToMigrationPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationPropertiesResponse) *MigrationPropertiesResponse {
+	return o.ApplyT(func(v MigrationPropertiesResponse) *MigrationPropertiesResponse {
 		return &v
 	}).(MigrationPropertiesResponsePtrOutput)
 }
@@ -1853,13 +1823,7 @@ func (o MigrationPropertiesResponsePtrOutput) ToMigrationPropertiesResponsePtrOu
 }
 
 func (o MigrationPropertiesResponsePtrOutput) Elem() MigrationPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrationPropertiesResponse) MigrationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MigrationPropertiesResponse
-		return ret
-	}).(MigrationPropertiesResponseOutput)
+	return o.ApplyT(func(v *MigrationPropertiesResponse) MigrationPropertiesResponse { return *v }).(MigrationPropertiesResponseOutput)
 }
 
 // Migration Progress
@@ -1996,7 +1960,7 @@ func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutput() Notificati
 }
 
 func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutputWithContext(ctx context.Context) NotificationSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettings) *NotificationSettings {
+	return o.ApplyT(func(v NotificationSettings) *NotificationSettings {
 		return &v
 	}).(NotificationSettingsPtrOutput)
 }
@@ -2031,13 +1995,7 @@ func (o NotificationSettingsPtrOutput) ToNotificationSettingsPtrOutputWithContex
 }
 
 func (o NotificationSettingsPtrOutput) Elem() NotificationSettingsOutput {
-	return o.ApplyT(func(v *NotificationSettings) NotificationSettings {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationSettings
-		return ret
-	}).(NotificationSettingsOutput)
+	return o.ApplyT(func(v *NotificationSettings) NotificationSettings { return *v }).(NotificationSettingsOutput)
 }
 
 // The list of additional recipients
@@ -2174,7 +2132,7 @@ func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOut
 }
 
 func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettingsResponse) *NotificationSettingsResponse {
+	return o.ApplyT(func(v NotificationSettingsResponse) *NotificationSettingsResponse {
 		return &v
 	}).(NotificationSettingsResponsePtrOutput)
 }
@@ -2209,13 +2167,7 @@ func (o NotificationSettingsResponsePtrOutput) ToNotificationSettingsResponsePtr
 }
 
 func (o NotificationSettingsResponsePtrOutput) Elem() NotificationSettingsResponseOutput {
-	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationSettingsResponse
-		return ret
-	}).(NotificationSettingsResponseOutput)
+	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse { return *v }).(NotificationSettingsResponseOutput)
 }
 
 // The list of additional recipients
@@ -2638,7 +2590,7 @@ func (o ResourceForestSettingsOutput) ToResourceForestSettingsPtrOutput() Resour
 }
 
 func (o ResourceForestSettingsOutput) ToResourceForestSettingsPtrOutputWithContext(ctx context.Context) ResourceForestSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceForestSettings) *ResourceForestSettings {
+	return o.ApplyT(func(v ResourceForestSettings) *ResourceForestSettings {
 		return &v
 	}).(ResourceForestSettingsPtrOutput)
 }
@@ -2668,13 +2620,7 @@ func (o ResourceForestSettingsPtrOutput) ToResourceForestSettingsPtrOutputWithCo
 }
 
 func (o ResourceForestSettingsPtrOutput) Elem() ResourceForestSettingsOutput {
-	return o.ApplyT(func(v *ResourceForestSettings) ResourceForestSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceForestSettings
-		return ret
-	}).(ResourceForestSettingsOutput)
+	return o.ApplyT(func(v *ResourceForestSettings) ResourceForestSettings { return *v }).(ResourceForestSettingsOutput)
 }
 
 // Resource Forest
@@ -2797,7 +2743,7 @@ func (o ResourceForestSettingsResponseOutput) ToResourceForestSettingsResponsePt
 }
 
 func (o ResourceForestSettingsResponseOutput) ToResourceForestSettingsResponsePtrOutputWithContext(ctx context.Context) ResourceForestSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceForestSettingsResponse) *ResourceForestSettingsResponse {
+	return o.ApplyT(func(v ResourceForestSettingsResponse) *ResourceForestSettingsResponse {
 		return &v
 	}).(ResourceForestSettingsResponsePtrOutput)
 }
@@ -2827,13 +2773,7 @@ func (o ResourceForestSettingsResponsePtrOutput) ToResourceForestSettingsRespons
 }
 
 func (o ResourceForestSettingsResponsePtrOutput) Elem() ResourceForestSettingsResponseOutput {
-	return o.ApplyT(func(v *ResourceForestSettingsResponse) ResourceForestSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceForestSettingsResponse
-		return ret
-	}).(ResourceForestSettingsResponseOutput)
+	return o.ApplyT(func(v *ResourceForestSettingsResponse) ResourceForestSettingsResponse { return *v }).(ResourceForestSettingsResponseOutput)
 }
 
 // Resource Forest

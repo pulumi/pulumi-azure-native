@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Outputs
 {
 
-    /// <summary>
-    /// Information for connecting to SQL database server
-    /// </summary>
     [OutputType]
     public sealed class SqlConnectionInfoResponse
     {

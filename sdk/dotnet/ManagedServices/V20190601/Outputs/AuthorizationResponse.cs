@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices.V20190601.Outputs
 {
 
-    /// <summary>
-    /// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
-    /// </summary>
     [OutputType]
     public sealed class AuthorizationResponse
     {

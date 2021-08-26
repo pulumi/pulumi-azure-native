@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationsManagement.Outputs
 {
 
-    /// <summary>
-    /// Solution properties supported by the OperationsManagement resource provider.
-    /// </summary>
     [OutputType]
     public sealed class SolutionPropertiesResponse
     {

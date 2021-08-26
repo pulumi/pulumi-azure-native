@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppConfiguration.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// The encryption settings for a configuration store.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionPropertiesResponse
     {

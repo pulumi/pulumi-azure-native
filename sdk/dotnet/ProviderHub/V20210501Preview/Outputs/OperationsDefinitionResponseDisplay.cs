@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ProviderHub.V20210501Preview.Outputs
 {
 
-    /// <summary>
-    /// Display information of the operation.
-    /// </summary>
     [OutputType]
     public sealed class OperationsDefinitionResponseDisplay
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HanaOnAzure.Outputs
 {
 
-    /// <summary>
-    /// Specifies information related to a SAP system ID
-    /// </summary>
     [OutputType]
     public sealed class SAPSystemIDResponse
     {

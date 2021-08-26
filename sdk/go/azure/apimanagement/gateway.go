@@ -156,7 +156,9 @@ func (i *Gateway) ToGatewayOutputWithContext(ctx context.Context) GatewayOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayOutput)
 }
 
-type GatewayOutput struct{ *pulumi.OutputState }
+type GatewayOutput struct {
+	*pulumi.OutputState
+}
 
 func (GatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Gateway)(nil))

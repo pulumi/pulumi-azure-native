@@ -223,7 +223,7 @@ type diskArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -265,7 +265,7 @@ type DiskArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -299,7 +299,9 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct{ *pulumi.OutputState }
+type DiskOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

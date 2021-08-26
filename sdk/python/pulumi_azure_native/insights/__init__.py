@@ -74,72 +74,39 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.insights.v20140401 as __v20140401
-    v20140401 = __v20140401
-    import pulumi_azure_native.insights.v20150401 as __v20150401
-    v20150401 = __v20150401
-    import pulumi_azure_native.insights.v20150501 as __v20150501
-    v20150501 = __v20150501
-    import pulumi_azure_native.insights.v20160301 as __v20160301
-    v20160301 = __v20160301
-    import pulumi_azure_native.insights.v20170401 as __v20170401
-    v20170401 = __v20170401
-    import pulumi_azure_native.insights.v20170501preview as __v20170501preview
-    v20170501preview = __v20170501preview
-    import pulumi_azure_native.insights.v20171001 as __v20171001
-    v20171001 = __v20171001
-    import pulumi_azure_native.insights.v20180301 as __v20180301
-    v20180301 = __v20180301
-    import pulumi_azure_native.insights.v20180416 as __v20180416
-    v20180416 = __v20180416
-    import pulumi_azure_native.insights.v20180501preview as __v20180501preview
-    v20180501preview = __v20180501preview
-    import pulumi_azure_native.insights.v20180601preview as __v20180601preview
-    v20180601preview = __v20180601preview
-    import pulumi_azure_native.insights.v20180617preview as __v20180617preview
-    v20180617preview = __v20180617preview
-    import pulumi_azure_native.insights.v20180901 as __v20180901
-    v20180901 = __v20180901
-    import pulumi_azure_native.insights.v20190301 as __v20190301
-    v20190301 = __v20190301
-    import pulumi_azure_native.insights.v20190601 as __v20190601
-    v20190601 = __v20190601
-    import pulumi_azure_native.insights.v20191017preview as __v20191017preview
-    v20191017preview = __v20191017preview
-    import pulumi_azure_native.insights.v20191101preview as __v20191101preview
-    v20191101preview = __v20191101preview
-    import pulumi_azure_native.insights.v20200101preview as __v20200101preview
-    v20200101preview = __v20200101preview
-    import pulumi_azure_native.insights.v20200202 as __v20200202
-    v20200202 = __v20200202
-    import pulumi_azure_native.insights.v20200202preview as __v20200202preview
-    v20200202preview = __v20200202preview
-    import pulumi_azure_native.insights.v20200210preview as __v20200210preview
-    v20200210preview = __v20200210preview
-    import pulumi_azure_native.insights.v20200301preview as __v20200301preview
-    v20200301preview = __v20200301preview
-    import pulumi_azure_native.insights.v20200501preview as __v20200501preview
-    v20200501preview = __v20200501preview
-    import pulumi_azure_native.insights.v20200602preview as __v20200602preview
-    v20200602preview = __v20200602preview
-    import pulumi_azure_native.insights.v20201001 as __v20201001
-    v20201001 = __v20201001
-    import pulumi_azure_native.insights.v20201005preview as __v20201005preview
-    v20201005preview = __v20201005preview
-    import pulumi_azure_native.insights.v20201020 as __v20201020
-    v20201020 = __v20201020
-    import pulumi_azure_native.insights.v20201120 as __v20201120
-    v20201120 = __v20201120
-    import pulumi_azure_native.insights.v20210201preview as __v20210201preview
-    v20210201preview = __v20210201preview
-    import pulumi_azure_native.insights.v20210303preview as __v20210303preview
-    v20210303preview = __v20210303preview
-    import pulumi_azure_native.insights.v20210308 as __v20210308
-    v20210308 = __v20210308
-    import pulumi_azure_native.insights.v20210401 as __v20210401
-    v20210401 = __v20210401
-    import pulumi_azure_native.insights.v20210501preview as __v20210501preview
-    v20210501preview = __v20210501preview
+    import pulumi_azure_native.insights.v20140401 as v20140401
+    import pulumi_azure_native.insights.v20150401 as v20150401
+    import pulumi_azure_native.insights.v20150501 as v20150501
+    import pulumi_azure_native.insights.v20160301 as v20160301
+    import pulumi_azure_native.insights.v20170401 as v20170401
+    import pulumi_azure_native.insights.v20170501preview as v20170501preview
+    import pulumi_azure_native.insights.v20171001 as v20171001
+    import pulumi_azure_native.insights.v20180301 as v20180301
+    import pulumi_azure_native.insights.v20180416 as v20180416
+    import pulumi_azure_native.insights.v20180501preview as v20180501preview
+    import pulumi_azure_native.insights.v20180601preview as v20180601preview
+    import pulumi_azure_native.insights.v20180617preview as v20180617preview
+    import pulumi_azure_native.insights.v20180901 as v20180901
+    import pulumi_azure_native.insights.v20190301 as v20190301
+    import pulumi_azure_native.insights.v20190601 as v20190601
+    import pulumi_azure_native.insights.v20191017preview as v20191017preview
+    import pulumi_azure_native.insights.v20191101preview as v20191101preview
+    import pulumi_azure_native.insights.v20200101preview as v20200101preview
+    import pulumi_azure_native.insights.v20200202 as v20200202
+    import pulumi_azure_native.insights.v20200202preview as v20200202preview
+    import pulumi_azure_native.insights.v20200210preview as v20200210preview
+    import pulumi_azure_native.insights.v20200301preview as v20200301preview
+    import pulumi_azure_native.insights.v20200501preview as v20200501preview
+    import pulumi_azure_native.insights.v20200602preview as v20200602preview
+    import pulumi_azure_native.insights.v20201001 as v20201001
+    import pulumi_azure_native.insights.v20201005preview as v20201005preview
+    import pulumi_azure_native.insights.v20201020 as v20201020
+    import pulumi_azure_native.insights.v20201120 as v20201120
+    import pulumi_azure_native.insights.v20210201preview as v20210201preview
+    import pulumi_azure_native.insights.v20210303preview as v20210303preview
+    import pulumi_azure_native.insights.v20210308 as v20210308
+    import pulumi_azure_native.insights.v20210401 as v20210401
+    import pulumi_azure_native.insights.v20210501preview as v20210501preview
 else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.insights.v20140401')
     v20150401 = _utilities.lazy_import('pulumi_azure_native.insights.v20150401')

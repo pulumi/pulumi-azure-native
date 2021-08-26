@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Outputs
 {
 
-    /// <summary>
-    /// Profile for container service agent pool
-    /// </summary>
     [OutputType]
     public sealed class ContainerServiceAgentPoolProfileResponse
     {

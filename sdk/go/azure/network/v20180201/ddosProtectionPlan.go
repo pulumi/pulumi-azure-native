@@ -274,7 +274,9 @@ func (i *DdosProtectionPlan) ToDdosProtectionPlanOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DdosProtectionPlanOutput)
 }
 
-type DdosProtectionPlanOutput struct{ *pulumi.OutputState }
+type DdosProtectionPlanOutput struct {
+	*pulumi.OutputState
+}
 
 func (DdosProtectionPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DdosProtectionPlan)(nil))

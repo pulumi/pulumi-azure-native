@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// Metadata pertaining to creation and last modification of the resource.
-    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

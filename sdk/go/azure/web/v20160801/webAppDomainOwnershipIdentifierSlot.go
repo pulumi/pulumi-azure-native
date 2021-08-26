@@ -196,7 +196,9 @@ func (i *WebAppDomainOwnershipIdentifierSlot) ToWebAppDomainOwnershipIdentifierS
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierSlotOutput)
 }
 
-type WebAppDomainOwnershipIdentifierSlotOutput struct{ *pulumi.OutputState }
+type WebAppDomainOwnershipIdentifierSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppDomainOwnershipIdentifierSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierSlot)(nil))

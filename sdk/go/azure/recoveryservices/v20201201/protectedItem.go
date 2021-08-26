@@ -229,7 +229,9 @@ func (i *ProtectedItem) ToProtectedItemOutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemOutput)
 }
 
-type ProtectedItemOutput struct{ *pulumi.OutputState }
+type ProtectedItemOutput struct {
+	*pulumi.OutputState
+}
 
 func (ProtectedItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectedItem)(nil))

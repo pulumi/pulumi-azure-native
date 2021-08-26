@@ -85,12 +85,6 @@ func NewReplicationFabric(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationFabric"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationFabric"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationFabric
@@ -170,7 +164,9 @@ func (i *ReplicationFabric) ToReplicationFabricOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationFabricOutput)
 }
 
-type ReplicationFabricOutput struct{ *pulumi.OutputState }
+type ReplicationFabricOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationFabricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationFabric)(nil))

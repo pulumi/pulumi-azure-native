@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// The last operation on ComputeInstance.
-    /// </summary>
     [OutputType]
     public sealed class ComputeInstanceLastOperationResponse
     {

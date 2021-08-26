@@ -128,7 +128,9 @@ func (i *ResourceTypeRegistration) ToResourceTypeRegistrationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceTypeRegistrationOutput)
 }
 
-type ResourceTypeRegistrationOutput struct{ *pulumi.OutputState }
+type ResourceTypeRegistrationOutput struct {
+	*pulumi.OutputState
+}
 
 func (ResourceTypeRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceTypeRegistration)(nil))

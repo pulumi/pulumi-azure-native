@@ -29,32 +29,19 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.desktopvirtualization.v20190123preview as __v20190123preview
-    v20190123preview = __v20190123preview
-    import pulumi_azure_native.desktopvirtualization.v20190924preview as __v20190924preview
-    v20190924preview = __v20190924preview
-    import pulumi_azure_native.desktopvirtualization.v20191210preview as __v20191210preview
-    v20191210preview = __v20191210preview
-    import pulumi_azure_native.desktopvirtualization.v20200921preview as __v20200921preview
-    v20200921preview = __v20200921preview
-    import pulumi_azure_native.desktopvirtualization.v20201019preview as __v20201019preview
-    v20201019preview = __v20201019preview
-    import pulumi_azure_native.desktopvirtualization.v20201102preview as __v20201102preview
-    v20201102preview = __v20201102preview
-    import pulumi_azure_native.desktopvirtualization.v20201110preview as __v20201110preview
-    v20201110preview = __v20201110preview
-    import pulumi_azure_native.desktopvirtualization.v20210114preview as __v20210114preview
-    v20210114preview = __v20210114preview
-    import pulumi_azure_native.desktopvirtualization.v20210201preview as __v20210201preview
-    v20210201preview = __v20210201preview
-    import pulumi_azure_native.desktopvirtualization.v20210309preview as __v20210309preview
-    v20210309preview = __v20210309preview
-    import pulumi_azure_native.desktopvirtualization.v20210401preview as __v20210401preview
-    v20210401preview = __v20210401preview
-    import pulumi_azure_native.desktopvirtualization.v20210513preview as __v20210513preview
-    v20210513preview = __v20210513preview
-    import pulumi_azure_native.desktopvirtualization.v20210712 as __v20210712
-    v20210712 = __v20210712
+    import pulumi_azure_native.desktopvirtualization.v20190123preview as v20190123preview
+    import pulumi_azure_native.desktopvirtualization.v20190924preview as v20190924preview
+    import pulumi_azure_native.desktopvirtualization.v20191210preview as v20191210preview
+    import pulumi_azure_native.desktopvirtualization.v20200921preview as v20200921preview
+    import pulumi_azure_native.desktopvirtualization.v20201019preview as v20201019preview
+    import pulumi_azure_native.desktopvirtualization.v20201102preview as v20201102preview
+    import pulumi_azure_native.desktopvirtualization.v20201110preview as v20201110preview
+    import pulumi_azure_native.desktopvirtualization.v20210114preview as v20210114preview
+    import pulumi_azure_native.desktopvirtualization.v20210201preview as v20210201preview
+    import pulumi_azure_native.desktopvirtualization.v20210309preview as v20210309preview
+    import pulumi_azure_native.desktopvirtualization.v20210401preview as v20210401preview
+    import pulumi_azure_native.desktopvirtualization.v20210513preview as v20210513preview
+    import pulumi_azure_native.desktopvirtualization.v20210712 as v20210712
 else:
     v20190123preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20190123preview')
     v20190924preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20190924preview')

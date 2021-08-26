@@ -166,7 +166,9 @@ func (i *MachineGroup) ToMachineGroupOutputWithContext(ctx context.Context) Mach
 	return pulumi.ToOutputWithContext(ctx, i).(MachineGroupOutput)
 }
 
-type MachineGroupOutput struct{ *pulumi.OutputState }
+type MachineGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (MachineGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineGroup)(nil))

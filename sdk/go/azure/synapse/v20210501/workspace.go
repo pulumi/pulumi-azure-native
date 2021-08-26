@@ -108,12 +108,6 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:Workspace"),
 		},
 		{
@@ -258,7 +252,9 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct{ *pulumi.OutputState }
+type WorkspaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

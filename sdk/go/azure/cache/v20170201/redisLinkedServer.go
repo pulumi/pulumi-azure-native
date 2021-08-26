@@ -48,9 +48,6 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerRole == nil {
-		return nil, errors.New("invalid value for required argument 'ServerRole'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20170201:RedisLinkedServer"),
@@ -136,7 +133,7 @@ type redisLinkedServerArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Role of the linked server.
-	ServerRole ReplicationRole `pulumi:"serverRole"`
+	ServerRole string `pulumi:"serverRole"`
 }
 
 // The set of arguments for constructing a RedisLinkedServer resource.
@@ -152,7 +149,7 @@ type RedisLinkedServerArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Role of the linked server.
-	ServerRole ReplicationRoleInput
+	ServerRole ReplicationRole
 }
 
 func (RedisLinkedServerArgs) ElementType() reflect.Type {
@@ -178,7 +175,9 @@ func (i *RedisLinkedServer) ToRedisLinkedServerOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerOutput)
 }
 
-type RedisLinkedServerOutput struct{ *pulumi.OutputState }
+type RedisLinkedServerOutput struct {
+	*pulumi.OutputState
+}
 
 func (RedisLinkedServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RedisLinkedServer)(nil))

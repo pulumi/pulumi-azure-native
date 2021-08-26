@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// InMageAzureV2 Managed disk details.
-    /// </summary>
     [OutputType]
     public sealed class InMageAzureV2ManagedDiskDetailsResponse
     {

@@ -42,9 +42,6 @@ func NewPrivateLinkServicesForM365SecurityCenter(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Kind == nil {
-		return nil, errors.New("invalid value for required argument 'Kind'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -97,7 +94,7 @@ type privateLinkServicesForM365SecurityCenterArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
-	Kind Kind `pulumi:"kind"`
+	Kind string `pulumi:"kind"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The common properties of a service.
@@ -117,7 +114,7 @@ type PrivateLinkServicesForM365SecurityCenterArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.
-	Kind KindInput
+	Kind Kind
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The common properties of a service.
@@ -153,7 +150,9 @@ func (i *PrivateLinkServicesForM365SecurityCenter) ToPrivateLinkServicesForM365S
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicesForM365SecurityCenterOutput)
 }
 
-type PrivateLinkServicesForM365SecurityCenterOutput struct{ *pulumi.OutputState }
+type PrivateLinkServicesForM365SecurityCenterOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateLinkServicesForM365SecurityCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkServicesForM365SecurityCenter)(nil))

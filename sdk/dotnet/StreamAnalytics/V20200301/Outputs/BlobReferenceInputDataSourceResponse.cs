@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
 {
 
-    /// <summary>
-    /// Describes a blob input data source that contains reference data.
-    /// </summary>
     [OutputType]
     public sealed class BlobReferenceInputDataSourceResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Active Directory admin credentials used to join the HPC Cache to a domain.
-    /// </summary>
     [OutputType]
     public sealed class CacheActiveDirectorySettingsResponseCredentials
     {

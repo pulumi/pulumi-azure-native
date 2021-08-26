@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Retry settings for a batch inference operation.
-    /// </summary>
     [OutputType]
     public sealed class BatchRetrySettingsResponse
     {

@@ -189,7 +189,7 @@ type snapshotArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -217,7 +217,7 @@ type SnapshotArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -251,7 +251,9 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct{ *pulumi.OutputState }
+type SnapshotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

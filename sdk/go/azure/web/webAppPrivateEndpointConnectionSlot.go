@@ -158,7 +158,9 @@ func (i *WebAppPrivateEndpointConnectionSlot) ToWebAppPrivateEndpointConnectionS
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPrivateEndpointConnectionSlotOutput)
 }
 
-type WebAppPrivateEndpointConnectionSlotOutput struct{ *pulumi.OutputState }
+type WebAppPrivateEndpointConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppPrivateEndpointConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppPrivateEndpointConnectionSlot)(nil))

@@ -135,7 +135,9 @@ func (i *ServerCommunicationLink) ToServerCommunicationLinkOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCommunicationLinkOutput)
 }
 
-type ServerCommunicationLinkOutput struct{ *pulumi.OutputState }
+type ServerCommunicationLinkOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerCommunicationLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerCommunicationLink)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
-    /// <summary>
-    /// Path to match for routing.
-    /// </summary>
     [OutputType]
     public sealed class HttpRouteMatchPathResponse
     {

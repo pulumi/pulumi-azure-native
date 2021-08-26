@@ -180,7 +180,9 @@ func (i *Invitation) ToInvitationOutputWithContext(ctx context.Context) Invitati
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationOutput)
 }
 
-type InvitationOutput struct{ *pulumi.OutputState }
+type InvitationOutput struct {
+	*pulumi.OutputState
+}
 
 func (InvitationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Invitation)(nil))

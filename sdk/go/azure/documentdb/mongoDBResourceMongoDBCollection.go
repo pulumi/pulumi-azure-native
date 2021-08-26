@@ -254,7 +254,9 @@ func (i *MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOut
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBCollectionOutput)
 }
 
-type MongoDBResourceMongoDBCollectionOutput struct{ *pulumi.OutputState }
+type MongoDBResourceMongoDBCollectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (MongoDBResourceMongoDBCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil))

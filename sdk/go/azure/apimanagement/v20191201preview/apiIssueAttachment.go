@@ -208,7 +208,9 @@ func (i *ApiIssueAttachment) ToApiIssueAttachmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueAttachmentOutput)
 }
 
-type ApiIssueAttachmentOutput struct{ *pulumi.OutputState }
+type ApiIssueAttachmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiIssueAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiIssueAttachment)(nil))

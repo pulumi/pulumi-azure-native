@@ -175,7 +175,9 @@ func (i *EventHubConnection) ToEventHubConnectionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConnectionOutput)
 }
 
-type EventHubConnectionOutput struct{ *pulumi.OutputState }
+type EventHubConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (EventHubConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubConnection)(nil))

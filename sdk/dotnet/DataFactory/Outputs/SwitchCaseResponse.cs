@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Switch cases with have a value and corresponding activities.
-    /// </summary>
     [OutputType]
     public sealed class SwitchCaseResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
-    /// <summary>
-    /// The load-based autoscale request parameters
-    /// </summary>
     [OutputType]
     public sealed class AutoscaleCapacityResponse
     {

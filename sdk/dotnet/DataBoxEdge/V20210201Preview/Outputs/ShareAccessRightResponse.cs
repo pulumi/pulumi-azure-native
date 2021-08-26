@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview.Outputs
 {
 
-    /// <summary>
-    /// Specifies the mapping between this particular user and the type of access he has on shares on this device.
-    /// </summary>
     [OutputType]
     public sealed class ShareAccessRightResponse
     {

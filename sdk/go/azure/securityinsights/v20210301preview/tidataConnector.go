@@ -183,7 +183,9 @@ func (i *TIDataConnector) ToTIDataConnectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorOutput)
 }
 
-type TIDataConnectorOutput struct{ *pulumi.OutputState }
+type TIDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (TIDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TIDataConnector)(nil))

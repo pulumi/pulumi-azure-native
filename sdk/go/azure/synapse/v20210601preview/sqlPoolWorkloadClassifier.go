@@ -95,12 +95,6 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolWorkloadClassifier"),
 		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolWorkloadClassifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolWorkloadClassifier"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolWorkloadClassifier
@@ -208,7 +202,9 @@ func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierOutput)
 }
 
-type SqlPoolWorkloadClassifierOutput struct{ *pulumi.OutputState }
+type SqlPoolWorkloadClassifierOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))

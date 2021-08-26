@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Describes a Virtual Machine Scale Set Extension.
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetExtensionResponse
     {

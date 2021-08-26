@@ -222,7 +222,7 @@ type endpointArgs struct {
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *QueryStringCachingBehavior `pulumi:"queryStringCachingBehavior"`
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -268,7 +268,7 @@ type EndpointArgs struct {
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior QueryStringCachingBehaviorPtrInput
+	QueryStringCachingBehavior *QueryStringCachingBehavior
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
@@ -302,7 +302,9 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
-type EndpointOutput struct{ *pulumi.OutputState }
+type EndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (EndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Endpoint)(nil))

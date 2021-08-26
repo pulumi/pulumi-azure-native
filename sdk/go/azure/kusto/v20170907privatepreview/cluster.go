@@ -203,7 +203,9 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct{ *pulumi.OutputState }
+type ClusterOutput struct {
+	*pulumi.OutputState
+}
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

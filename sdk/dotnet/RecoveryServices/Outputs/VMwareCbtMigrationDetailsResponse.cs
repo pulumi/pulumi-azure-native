@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// VMwareCbt provider specific settings
-    /// </summary>
     [OutputType]
     public sealed class VMwareCbtMigrationDetailsResponse
     {

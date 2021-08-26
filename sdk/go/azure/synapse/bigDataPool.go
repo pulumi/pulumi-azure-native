@@ -110,12 +110,6 @@ func NewBigDataPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:BigDataPool"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:BigDataPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:BigDataPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:BigDataPool"),
 		},
 		{
@@ -276,7 +270,9 @@ func (i *BigDataPool) ToBigDataPoolOutputWithContext(ctx context.Context) BigDat
 	return pulumi.ToOutputWithContext(ctx, i).(BigDataPoolOutput)
 }
 
-type BigDataPoolOutput struct{ *pulumi.OutputState }
+type BigDataPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (BigDataPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BigDataPool)(nil))

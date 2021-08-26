@@ -351,7 +351,7 @@ type EncryptionConfig struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo *KeyVaultMetaInfo `pulumi:"keyVaultMetaInfo"`
 	// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-	Type EncryptionConfigType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // EncryptionConfigInput is an input type that accepts EncryptionConfigArgs and EncryptionConfigOutput values.
@@ -370,7 +370,7 @@ type EncryptionConfigArgs struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo KeyVaultMetaInfoPtrInput `pulumi:"keyVaultMetaInfo"`
 	// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-	Type EncryptionConfigTypeInput `pulumi:"type"`
+	Type EncryptionConfigType `pulumi:"type"`
 }
 
 func (EncryptionConfigArgs) ElementType() reflect.Type {
@@ -446,7 +446,7 @@ func (o EncryptionConfigOutput) ToEncryptionConfigPtrOutput() EncryptionConfigPt
 }
 
 func (o EncryptionConfigOutput) ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionConfig) *EncryptionConfig {
+	return o.ApplyT(func(v EncryptionConfig) *EncryptionConfig {
 		return &v
 	}).(EncryptionConfigPtrOutput)
 }
@@ -457,8 +457,8 @@ func (o EncryptionConfigOutput) KeyVaultMetaInfo() KeyVaultMetaInfoPtrOutput {
 }
 
 // The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-func (o EncryptionConfigOutput) Type() EncryptionConfigTypeOutput {
-	return o.ApplyT(func(v EncryptionConfig) EncryptionConfigType { return v.Type }).(EncryptionConfigTypeOutput)
+func (o EncryptionConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type EncryptionConfigPtrOutput struct{ *pulumi.OutputState }
@@ -476,13 +476,7 @@ func (o EncryptionConfigPtrOutput) ToEncryptionConfigPtrOutputWithContext(ctx co
 }
 
 func (o EncryptionConfigPtrOutput) Elem() EncryptionConfigOutput {
-	return o.ApplyT(func(v *EncryptionConfig) EncryptionConfig {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionConfig
-		return ret
-	}).(EncryptionConfigOutput)
+	return o.ApplyT(func(v *EncryptionConfig) EncryptionConfig { return *v }).(EncryptionConfigOutput)
 }
 
 // The Key Vault information for connecting to user managed encryption keys.
@@ -496,13 +490,13 @@ func (o EncryptionConfigPtrOutput) KeyVaultMetaInfo() KeyVaultMetaInfoPtrOutput 
 }
 
 // The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-func (o EncryptionConfigPtrOutput) Type() EncryptionConfigTypePtrOutput {
-	return o.ApplyT(func(v *EncryptionConfig) *EncryptionConfigType {
+func (o EncryptionConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(EncryptionConfigTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The encryption configuration for the account.
@@ -605,7 +599,7 @@ func (o EncryptionConfigResponseOutput) ToEncryptionConfigResponsePtrOutput() En
 }
 
 func (o EncryptionConfigResponseOutput) ToEncryptionConfigResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionConfigResponse) *EncryptionConfigResponse {
+	return o.ApplyT(func(v EncryptionConfigResponse) *EncryptionConfigResponse {
 		return &v
 	}).(EncryptionConfigResponsePtrOutput)
 }
@@ -635,13 +629,7 @@ func (o EncryptionConfigResponsePtrOutput) ToEncryptionConfigResponsePtrOutputWi
 }
 
 func (o EncryptionConfigResponsePtrOutput) Elem() EncryptionConfigResponseOutput {
-	return o.ApplyT(func(v *EncryptionConfigResponse) EncryptionConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionConfigResponse
-		return ret
-	}).(EncryptionConfigResponseOutput)
+	return o.ApplyT(func(v *EncryptionConfigResponse) EncryptionConfigResponse { return *v }).(EncryptionConfigResponseOutput)
 }
 
 // The Key Vault information for connecting to user managed encryption keys.
@@ -667,7 +655,7 @@ func (o EncryptionConfigResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The encryption identity properties.
 type EncryptionIdentity struct {
 	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-	Type EncryptionIdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // EncryptionIdentityInput is an input type that accepts EncryptionIdentityArgs and EncryptionIdentityOutput values.
@@ -684,7 +672,7 @@ type EncryptionIdentityInput interface {
 // The encryption identity properties.
 type EncryptionIdentityArgs struct {
 	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-	Type EncryptionIdentityTypeInput `pulumi:"type"`
+	Type EncryptionIdentityType `pulumi:"type"`
 }
 
 func (EncryptionIdentityArgs) ElementType() reflect.Type {
@@ -760,14 +748,14 @@ func (o EncryptionIdentityOutput) ToEncryptionIdentityPtrOutput() EncryptionIden
 }
 
 func (o EncryptionIdentityOutput) ToEncryptionIdentityPtrOutputWithContext(ctx context.Context) EncryptionIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionIdentity) *EncryptionIdentity {
+	return o.ApplyT(func(v EncryptionIdentity) *EncryptionIdentity {
 		return &v
 	}).(EncryptionIdentityPtrOutput)
 }
 
 // The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-func (o EncryptionIdentityOutput) Type() EncryptionIdentityTypeOutput {
-	return o.ApplyT(func(v EncryptionIdentity) EncryptionIdentityType { return v.Type }).(EncryptionIdentityTypeOutput)
+func (o EncryptionIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type EncryptionIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -785,23 +773,17 @@ func (o EncryptionIdentityPtrOutput) ToEncryptionIdentityPtrOutputWithContext(ct
 }
 
 func (o EncryptionIdentityPtrOutput) Elem() EncryptionIdentityOutput {
-	return o.ApplyT(func(v *EncryptionIdentity) EncryptionIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionIdentity
-		return ret
-	}).(EncryptionIdentityOutput)
+	return o.ApplyT(func(v *EncryptionIdentity) EncryptionIdentity { return *v }).(EncryptionIdentityOutput)
 }
 
 // The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-func (o EncryptionIdentityPtrOutput) Type() EncryptionIdentityTypePtrOutput {
-	return o.ApplyT(func(v *EncryptionIdentity) *EncryptionIdentityType {
+func (o EncryptionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(EncryptionIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The encryption identity properties.
@@ -908,7 +890,7 @@ func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponsePtrOutput(
 }
 
 func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionIdentityResponse) *EncryptionIdentityResponse {
+	return o.ApplyT(func(v EncryptionIdentityResponse) *EncryptionIdentityResponse {
 		return &v
 	}).(EncryptionIdentityResponsePtrOutput)
 }
@@ -943,13 +925,7 @@ func (o EncryptionIdentityResponsePtrOutput) ToEncryptionIdentityResponsePtrOutp
 }
 
 func (o EncryptionIdentityResponsePtrOutput) Elem() EncryptionIdentityResponseOutput {
-	return o.ApplyT(func(v *EncryptionIdentityResponse) EncryptionIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionIdentityResponse
-		return ret
-	}).(EncryptionIdentityResponseOutput)
+	return o.ApplyT(func(v *EncryptionIdentityResponse) EncryptionIdentityResponse { return *v }).(EncryptionIdentityResponseOutput)
 }
 
 // The principal identifier associated with the encryption.
@@ -1222,7 +1198,7 @@ func (o KeyVaultMetaInfoOutput) ToKeyVaultMetaInfoPtrOutput() KeyVaultMetaInfoPt
 }
 
 func (o KeyVaultMetaInfoOutput) ToKeyVaultMetaInfoPtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultMetaInfo) *KeyVaultMetaInfo {
+	return o.ApplyT(func(v KeyVaultMetaInfo) *KeyVaultMetaInfo {
 		return &v
 	}).(KeyVaultMetaInfoPtrOutput)
 }
@@ -1257,13 +1233,7 @@ func (o KeyVaultMetaInfoPtrOutput) ToKeyVaultMetaInfoPtrOutputWithContext(ctx co
 }
 
 func (o KeyVaultMetaInfoPtrOutput) Elem() KeyVaultMetaInfoOutput {
-	return o.ApplyT(func(v *KeyVaultMetaInfo) KeyVaultMetaInfo {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultMetaInfo
-		return ret
-	}).(KeyVaultMetaInfoOutput)
+	return o.ApplyT(func(v *KeyVaultMetaInfo) KeyVaultMetaInfo { return *v }).(KeyVaultMetaInfoOutput)
 }
 
 // The name of the user managed encryption key.
@@ -1400,7 +1370,7 @@ func (o KeyVaultMetaInfoResponseOutput) ToKeyVaultMetaInfoResponsePtrOutput() Ke
 }
 
 func (o KeyVaultMetaInfoResponseOutput) ToKeyVaultMetaInfoResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultMetaInfoResponse) *KeyVaultMetaInfoResponse {
+	return o.ApplyT(func(v KeyVaultMetaInfoResponse) *KeyVaultMetaInfoResponse {
 		return &v
 	}).(KeyVaultMetaInfoResponsePtrOutput)
 }
@@ -1435,13 +1405,7 @@ func (o KeyVaultMetaInfoResponsePtrOutput) ToKeyVaultMetaInfoResponsePtrOutputWi
 }
 
 func (o KeyVaultMetaInfoResponsePtrOutput) Elem() KeyVaultMetaInfoResponseOutput {
-	return o.ApplyT(func(v *KeyVaultMetaInfoResponse) KeyVaultMetaInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultMetaInfoResponse
-		return ret
-	}).(KeyVaultMetaInfoResponseOutput)
+	return o.ApplyT(func(v *KeyVaultMetaInfoResponse) KeyVaultMetaInfoResponse { return *v }).(KeyVaultMetaInfoResponseOutput)
 }
 
 // The name of the user managed encryption key.

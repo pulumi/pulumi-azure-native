@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.Outputs
 {
 
-    /// <summary>
-    /// Role definition permissions.
-    /// </summary>
     [OutputType]
     public sealed class PermissionResponse
     {

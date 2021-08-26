@@ -195,7 +195,9 @@ func (i *BuildTask) ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskO
 	return pulumi.ToOutputWithContext(ctx, i).(BuildTaskOutput)
 }
 
-type BuildTaskOutput struct{ *pulumi.OutputState }
+type BuildTaskOutput struct {
+	*pulumi.OutputState
+}
 
 func (BuildTaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BuildTask)(nil))

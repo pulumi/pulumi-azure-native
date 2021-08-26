@@ -190,7 +190,9 @@ func (i *HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HubVirtualNetworkConnectionOutput)
 }
 
-type HubVirtualNetworkConnectionOutput struct{ *pulumi.OutputState }
+type HubVirtualNetworkConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (HubVirtualNetworkConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil))

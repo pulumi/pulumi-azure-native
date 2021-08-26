@@ -131,9 +131,6 @@ func NewServerBlobAuditingPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.State == nil {
-		return nil, errors.New("invalid value for required argument 'State'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerBlobAuditingPolicy"),
@@ -300,7 +297,7 @@ type serverBlobAuditingPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
-	State BlobAuditingPolicyState `pulumi:"state"`
+	State string `pulumi:"state"`
 	// Specifies the identifier key of the auditing storage account.
 	// If state is Enabled and storageEndpoint is specified, not specifying the storageAccountAccessKey will use SQL server system-assigned managed identity to access the storage.
 	// Prerequisites for using managed identity authentication:
@@ -414,7 +411,7 @@ type ServerBlobAuditingPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
-	State BlobAuditingPolicyStateInput
+	State BlobAuditingPolicyState
 	// Specifies the identifier key of the auditing storage account.
 	// If state is Enabled and storageEndpoint is specified, not specifying the storageAccountAccessKey will use SQL server system-assigned managed identity to access the storage.
 	// Prerequisites for using managed identity authentication:
@@ -451,7 +448,9 @@ func (i *ServerBlobAuditingPolicy) ToServerBlobAuditingPolicyOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerBlobAuditingPolicyOutput)
 }
 
-type ServerBlobAuditingPolicyOutput struct{ *pulumi.OutputState }
+type ServerBlobAuditingPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerBlobAuditingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerBlobAuditingPolicy)(nil))

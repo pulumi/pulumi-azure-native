@@ -461,7 +461,7 @@ func (o AzureFileFilterDetailsOutput) ToAzureFileFilterDetailsPtrOutput() AzureF
 }
 
 func (o AzureFileFilterDetailsOutput) ToAzureFileFilterDetailsPtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileFilterDetails) *AzureFileFilterDetails {
+	return o.ApplyT(func(v AzureFileFilterDetails) *AzureFileFilterDetails {
 		return &v
 	}).(AzureFileFilterDetailsPtrOutput)
 }
@@ -496,13 +496,7 @@ func (o AzureFileFilterDetailsPtrOutput) ToAzureFileFilterDetailsPtrOutputWithCo
 }
 
 func (o AzureFileFilterDetailsPtrOutput) Elem() AzureFileFilterDetailsOutput {
-	return o.ApplyT(func(v *AzureFileFilterDetails) AzureFileFilterDetails {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileFilterDetails
-		return ret
-	}).(AzureFileFilterDetailsOutput)
+	return o.ApplyT(func(v *AzureFileFilterDetails) AzureFileFilterDetails { return *v }).(AzureFileFilterDetailsOutput)
 }
 
 // List of full path of the files to be transferred.
@@ -639,7 +633,7 @@ func (o AzureFileFilterDetailsResponseOutput) ToAzureFileFilterDetailsResponsePt
 }
 
 func (o AzureFileFilterDetailsResponseOutput) ToAzureFileFilterDetailsResponsePtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileFilterDetailsResponse) *AzureFileFilterDetailsResponse {
+	return o.ApplyT(func(v AzureFileFilterDetailsResponse) *AzureFileFilterDetailsResponse {
 		return &v
 	}).(AzureFileFilterDetailsResponsePtrOutput)
 }
@@ -674,13 +668,7 @@ func (o AzureFileFilterDetailsResponsePtrOutput) ToAzureFileFilterDetailsRespons
 }
 
 func (o AzureFileFilterDetailsResponsePtrOutput) Elem() AzureFileFilterDetailsResponseOutput {
-	return o.ApplyT(func(v *AzureFileFilterDetailsResponse) AzureFileFilterDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileFilterDetailsResponse
-		return ret
-	}).(AzureFileFilterDetailsResponseOutput)
+	return o.ApplyT(func(v *AzureFileFilterDetailsResponse) AzureFileFilterDetailsResponse { return *v }).(AzureFileFilterDetailsResponseOutput)
 }
 
 // List of full path of the files to be transferred.
@@ -817,7 +805,7 @@ func (o BlobFilterDetailsOutput) ToBlobFilterDetailsPtrOutput() BlobFilterDetail
 }
 
 func (o BlobFilterDetailsOutput) ToBlobFilterDetailsPtrOutputWithContext(ctx context.Context) BlobFilterDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobFilterDetails) *BlobFilterDetails {
+	return o.ApplyT(func(v BlobFilterDetails) *BlobFilterDetails {
 		return &v
 	}).(BlobFilterDetailsPtrOutput)
 }
@@ -852,13 +840,7 @@ func (o BlobFilterDetailsPtrOutput) ToBlobFilterDetailsPtrOutputWithContext(ctx 
 }
 
 func (o BlobFilterDetailsPtrOutput) Elem() BlobFilterDetailsOutput {
-	return o.ApplyT(func(v *BlobFilterDetails) BlobFilterDetails {
-		if v != nil {
-			return *v
-		}
-		var ret BlobFilterDetails
-		return ret
-	}).(BlobFilterDetailsOutput)
+	return o.ApplyT(func(v *BlobFilterDetails) BlobFilterDetails { return *v }).(BlobFilterDetailsOutput)
 }
 
 // List of full path of the blobs to be transferred.
@@ -995,7 +977,7 @@ func (o BlobFilterDetailsResponseOutput) ToBlobFilterDetailsResponsePtrOutput() 
 }
 
 func (o BlobFilterDetailsResponseOutput) ToBlobFilterDetailsResponsePtrOutputWithContext(ctx context.Context) BlobFilterDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobFilterDetailsResponse) *BlobFilterDetailsResponse {
+	return o.ApplyT(func(v BlobFilterDetailsResponse) *BlobFilterDetailsResponse {
 		return &v
 	}).(BlobFilterDetailsResponsePtrOutput)
 }
@@ -1030,13 +1012,7 @@ func (o BlobFilterDetailsResponsePtrOutput) ToBlobFilterDetailsResponsePtrOutput
 }
 
 func (o BlobFilterDetailsResponsePtrOutput) Elem() BlobFilterDetailsResponseOutput {
-	return o.ApplyT(func(v *BlobFilterDetailsResponse) BlobFilterDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BlobFilterDetailsResponse
-		return ret
-	}).(BlobFilterDetailsResponseOutput)
+	return o.ApplyT(func(v *BlobFilterDetailsResponse) BlobFilterDetailsResponse { return *v }).(BlobFilterDetailsResponseOutput)
 }
 
 // List of full path of the blobs to be transferred.
@@ -1206,7 +1182,7 @@ func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutput() CloudErrorResp
 }
 
 func (o CloudErrorResponseOutput) ToCloudErrorResponsePtrOutputWithContext(ctx context.Context) CloudErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudErrorResponse) *CloudErrorResponse {
+	return o.ApplyT(func(v CloudErrorResponse) *CloudErrorResponse {
 		return &v
 	}).(CloudErrorResponsePtrOutput)
 }
@@ -1251,13 +1227,7 @@ func (o CloudErrorResponsePtrOutput) ToCloudErrorResponsePtrOutputWithContext(ct
 }
 
 func (o CloudErrorResponsePtrOutput) Elem() CloudErrorResponseOutput {
-	return o.ApplyT(func(v *CloudErrorResponse) CloudErrorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudErrorResponse
-		return ret
-	}).(CloudErrorResponseOutput)
+	return o.ApplyT(func(v *CloudErrorResponse) CloudErrorResponse { return *v }).(CloudErrorResponseOutput)
 }
 
 // Cloud error additional info.
@@ -4451,7 +4421,7 @@ func (o EncryptionPreferencesOutput) ToEncryptionPreferencesPtrOutput() Encrypti
 }
 
 func (o EncryptionPreferencesOutput) ToEncryptionPreferencesPtrOutputWithContext(ctx context.Context) EncryptionPreferencesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPreferences) *EncryptionPreferences {
+	return o.ApplyT(func(v EncryptionPreferences) *EncryptionPreferences {
 		return &v
 	}).(EncryptionPreferencesPtrOutput)
 }
@@ -4476,13 +4446,7 @@ func (o EncryptionPreferencesPtrOutput) ToEncryptionPreferencesPtrOutputWithCont
 }
 
 func (o EncryptionPreferencesPtrOutput) Elem() EncryptionPreferencesOutput {
-	return o.ApplyT(func(v *EncryptionPreferences) EncryptionPreferences {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionPreferences
-		return ret
-	}).(EncryptionPreferencesOutput)
+	return o.ApplyT(func(v *EncryptionPreferences) EncryptionPreferences { return *v }).(EncryptionPreferencesOutput)
 }
 
 // Defines secondary layer of software-based encryption enablement.
@@ -4591,7 +4555,7 @@ func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponsePtrO
 }
 
 func (o EncryptionPreferencesResponseOutput) ToEncryptionPreferencesResponsePtrOutputWithContext(ctx context.Context) EncryptionPreferencesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPreferencesResponse) *EncryptionPreferencesResponse {
+	return o.ApplyT(func(v EncryptionPreferencesResponse) *EncryptionPreferencesResponse {
 		return &v
 	}).(EncryptionPreferencesResponsePtrOutput)
 }
@@ -4616,13 +4580,7 @@ func (o EncryptionPreferencesResponsePtrOutput) ToEncryptionPreferencesResponseP
 }
 
 func (o EncryptionPreferencesResponsePtrOutput) Elem() EncryptionPreferencesResponseOutput {
-	return o.ApplyT(func(v *EncryptionPreferencesResponse) EncryptionPreferencesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionPreferencesResponse
-		return ret
-	}).(EncryptionPreferencesResponseOutput)
+	return o.ApplyT(func(v *EncryptionPreferencesResponse) EncryptionPreferencesResponse { return *v }).(EncryptionPreferencesResponseOutput)
 }
 
 // Defines secondary layer of software-based encryption enablement.
@@ -4953,7 +4911,7 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
+	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
@@ -4983,13 +4941,7 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityProperties
-		return ret
-	}).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
 }
 
 // Managed service identity type.
@@ -5112,7 +5064,7 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
@@ -5142,13 +5094,7 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityPropertiesResponse
-		return ret
-	}).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
 }
 
 // Managed service identity type.
@@ -5267,7 +5213,7 @@ func (o JobDeliveryInfoOutput) ToJobDeliveryInfoPtrOutput() JobDeliveryInfoPtrOu
 }
 
 func (o JobDeliveryInfoOutput) ToJobDeliveryInfoPtrOutputWithContext(ctx context.Context) JobDeliveryInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDeliveryInfo) *JobDeliveryInfo {
+	return o.ApplyT(func(v JobDeliveryInfo) *JobDeliveryInfo {
 		return &v
 	}).(JobDeliveryInfoPtrOutput)
 }
@@ -5292,13 +5238,7 @@ func (o JobDeliveryInfoPtrOutput) ToJobDeliveryInfoPtrOutputWithContext(ctx cont
 }
 
 func (o JobDeliveryInfoPtrOutput) Elem() JobDeliveryInfoOutput {
-	return o.ApplyT(func(v *JobDeliveryInfo) JobDeliveryInfo {
-		if v != nil {
-			return *v
-		}
-		var ret JobDeliveryInfo
-		return ret
-	}).(JobDeliveryInfoOutput)
+	return o.ApplyT(func(v *JobDeliveryInfo) JobDeliveryInfo { return *v }).(JobDeliveryInfoOutput)
 }
 
 // Scheduled date time.
@@ -5407,7 +5347,7 @@ func (o JobDeliveryInfoResponseOutput) ToJobDeliveryInfoResponsePtrOutput() JobD
 }
 
 func (o JobDeliveryInfoResponseOutput) ToJobDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) JobDeliveryInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDeliveryInfoResponse) *JobDeliveryInfoResponse {
+	return o.ApplyT(func(v JobDeliveryInfoResponse) *JobDeliveryInfoResponse {
 		return &v
 	}).(JobDeliveryInfoResponsePtrOutput)
 }
@@ -5432,13 +5372,7 @@ func (o JobDeliveryInfoResponsePtrOutput) ToJobDeliveryInfoResponsePtrOutputWith
 }
 
 func (o JobDeliveryInfoResponsePtrOutput) Elem() JobDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *JobDeliveryInfoResponse) JobDeliveryInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobDeliveryInfoResponse
-		return ret
-	}).(JobDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *JobDeliveryInfoResponse) JobDeliveryInfoResponse { return *v }).(JobDeliveryInfoResponseOutput)
 }
 
 // Scheduled date time.
@@ -5695,7 +5629,7 @@ func (o KeyEncryptionKeyOutput) ToKeyEncryptionKeyPtrOutput() KeyEncryptionKeyPt
 }
 
 func (o KeyEncryptionKeyOutput) ToKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) KeyEncryptionKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyEncryptionKey) *KeyEncryptionKey {
+	return o.ApplyT(func(v KeyEncryptionKey) *KeyEncryptionKey {
 		return &v
 	}).(KeyEncryptionKeyPtrOutput)
 }
@@ -5735,13 +5669,7 @@ func (o KeyEncryptionKeyPtrOutput) ToKeyEncryptionKeyPtrOutputWithContext(ctx co
 }
 
 func (o KeyEncryptionKeyPtrOutput) Elem() KeyEncryptionKeyOutput {
-	return o.ApplyT(func(v *KeyEncryptionKey) KeyEncryptionKey {
-		if v != nil {
-			return *v
-		}
-		var ret KeyEncryptionKey
-		return ret
-	}).(KeyEncryptionKeyOutput)
+	return o.ApplyT(func(v *KeyEncryptionKey) KeyEncryptionKey { return *v }).(KeyEncryptionKeyOutput)
 }
 
 // Managed identity properties used for key encryption.
@@ -5892,7 +5820,7 @@ func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponsePtrOutput() Ke
 }
 
 func (o KeyEncryptionKeyResponseOutput) ToKeyEncryptionKeyResponsePtrOutputWithContext(ctx context.Context) KeyEncryptionKeyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyEncryptionKeyResponse) *KeyEncryptionKeyResponse {
+	return o.ApplyT(func(v KeyEncryptionKeyResponse) *KeyEncryptionKeyResponse {
 		return &v
 	}).(KeyEncryptionKeyResponsePtrOutput)
 }
@@ -5932,13 +5860,7 @@ func (o KeyEncryptionKeyResponsePtrOutput) ToKeyEncryptionKeyResponsePtrOutputWi
 }
 
 func (o KeyEncryptionKeyResponsePtrOutput) Elem() KeyEncryptionKeyResponseOutput {
-	return o.ApplyT(func(v *KeyEncryptionKeyResponse) KeyEncryptionKeyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyEncryptionKeyResponse
-		return ret
-	}).(KeyEncryptionKeyResponseOutput)
+	return o.ApplyT(func(v *KeyEncryptionKeyResponse) KeyEncryptionKeyResponse { return *v }).(KeyEncryptionKeyResponseOutput)
 }
 
 // Managed identity properties used for key encryption.
@@ -6613,7 +6535,7 @@ func (o PreferencesOutput) ToPreferencesPtrOutput() PreferencesPtrOutput {
 }
 
 func (o PreferencesOutput) ToPreferencesPtrOutputWithContext(ctx context.Context) PreferencesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Preferences) *Preferences {
+	return o.ApplyT(func(v Preferences) *Preferences {
 		return &v
 	}).(PreferencesPtrOutput)
 }
@@ -6648,13 +6570,7 @@ func (o PreferencesPtrOutput) ToPreferencesPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PreferencesPtrOutput) Elem() PreferencesOutput {
-	return o.ApplyT(func(v *Preferences) Preferences {
-		if v != nil {
-			return *v
-		}
-		var ret Preferences
-		return ret
-	}).(PreferencesOutput)
+	return o.ApplyT(func(v *Preferences) Preferences { return *v }).(PreferencesOutput)
 }
 
 // Preferences related to the Encryption.
@@ -6791,7 +6707,7 @@ func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutput() PreferencesR
 }
 
 func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutputWithContext(ctx context.Context) PreferencesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PreferencesResponse) *PreferencesResponse {
+	return o.ApplyT(func(v PreferencesResponse) *PreferencesResponse {
 		return &v
 	}).(PreferencesResponsePtrOutput)
 }
@@ -6826,13 +6742,7 @@ func (o PreferencesResponsePtrOutput) ToPreferencesResponsePtrOutputWithContext(
 }
 
 func (o PreferencesResponsePtrOutput) Elem() PreferencesResponseOutput {
-	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PreferencesResponse
-		return ret
-	}).(PreferencesResponseOutput)
+	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse { return *v }).(PreferencesResponseOutput)
 }
 
 // Preferences related to the Encryption.
@@ -6965,7 +6875,7 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
@@ -6995,13 +6905,7 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentity
-		return ret
-	}).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
 }
 
 // Identity type
@@ -7132,7 +7036,7 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
@@ -7174,13 +7078,7 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentityResponse
-		return ret
-	}).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
 }
 
 // Service Principal Id backing the Msi
@@ -7491,7 +7389,7 @@ func (o ShippingAddressOutput) ToShippingAddressPtrOutput() ShippingAddressPtrOu
 }
 
 func (o ShippingAddressOutput) ToShippingAddressPtrOutputWithContext(ctx context.Context) ShippingAddressPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingAddress) *ShippingAddress {
+	return o.ApplyT(func(v ShippingAddress) *ShippingAddress {
 		return &v
 	}).(ShippingAddressPtrOutput)
 }
@@ -7561,13 +7459,7 @@ func (o ShippingAddressPtrOutput) ToShippingAddressPtrOutputWithContext(ctx cont
 }
 
 func (o ShippingAddressPtrOutput) Elem() ShippingAddressOutput {
-	return o.ApplyT(func(v *ShippingAddress) ShippingAddress {
-		if v != nil {
-			return *v
-		}
-		var ret ShippingAddress
-		return ret
-	}).(ShippingAddressOutput)
+	return o.ApplyT(func(v *ShippingAddress) ShippingAddress { return *v }).(ShippingAddressOutput)
 }
 
 // Type of address.
@@ -7802,7 +7694,7 @@ func (o ShippingAddressResponseOutput) ToShippingAddressResponsePtrOutput() Ship
 }
 
 func (o ShippingAddressResponseOutput) ToShippingAddressResponsePtrOutputWithContext(ctx context.Context) ShippingAddressResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingAddressResponse) *ShippingAddressResponse {
+	return o.ApplyT(func(v ShippingAddressResponse) *ShippingAddressResponse {
 		return &v
 	}).(ShippingAddressResponsePtrOutput)
 }
@@ -7872,13 +7764,7 @@ func (o ShippingAddressResponsePtrOutput) ToShippingAddressResponsePtrOutputWith
 }
 
 func (o ShippingAddressResponsePtrOutput) Elem() ShippingAddressResponseOutput {
-	return o.ApplyT(func(v *ShippingAddressResponse) ShippingAddressResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ShippingAddressResponse
-		return ret
-	}).(ShippingAddressResponseOutput)
+	return o.ApplyT(func(v *ShippingAddressResponse) ShippingAddressResponse { return *v }).(ShippingAddressResponseOutput)
 }
 
 // Type of address.
@@ -8085,7 +7971,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -8120,13 +8006,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The display name of the sku.
@@ -8263,7 +8143,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -8298,13 +8178,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The display name of the sku.
@@ -8596,7 +8470,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -8646,13 +8520,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC)
@@ -8819,7 +8687,7 @@ func (o TransferAllDetailsOutput) ToTransferAllDetailsPtrOutput() TransferAllDet
 }
 
 func (o TransferAllDetailsOutput) ToTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferAllDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferAllDetails) *TransferAllDetails {
+	return o.ApplyT(func(v TransferAllDetails) *TransferAllDetails {
 		return &v
 	}).(TransferAllDetailsPtrOutput)
 }
@@ -8854,13 +8722,7 @@ func (o TransferAllDetailsPtrOutput) ToTransferAllDetailsPtrOutputWithContext(ct
 }
 
 func (o TransferAllDetailsPtrOutput) Elem() TransferAllDetailsOutput {
-	return o.ApplyT(func(v *TransferAllDetails) TransferAllDetails {
-		if v != nil {
-			return *v
-		}
-		var ret TransferAllDetails
-		return ret
-	}).(TransferAllDetailsOutput)
+	return o.ApplyT(func(v *TransferAllDetails) TransferAllDetails { return *v }).(TransferAllDetailsOutput)
 }
 
 // Type of the account of data
@@ -8997,7 +8859,7 @@ func (o TransferAllDetailsResponseOutput) ToTransferAllDetailsResponsePtrOutput(
 }
 
 func (o TransferAllDetailsResponseOutput) ToTransferAllDetailsResponsePtrOutputWithContext(ctx context.Context) TransferAllDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferAllDetailsResponse) *TransferAllDetailsResponse {
+	return o.ApplyT(func(v TransferAllDetailsResponse) *TransferAllDetailsResponse {
 		return &v
 	}).(TransferAllDetailsResponsePtrOutput)
 }
@@ -9032,13 +8894,7 @@ func (o TransferAllDetailsResponsePtrOutput) ToTransferAllDetailsResponsePtrOutp
 }
 
 func (o TransferAllDetailsResponsePtrOutput) Elem() TransferAllDetailsResponseOutput {
-	return o.ApplyT(func(v *TransferAllDetailsResponse) TransferAllDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TransferAllDetailsResponse
-		return ret
-	}).(TransferAllDetailsResponseOutput)
+	return o.ApplyT(func(v *TransferAllDetailsResponse) TransferAllDetailsResponse { return *v }).(TransferAllDetailsResponseOutput)
 }
 
 // Type of the account of data
@@ -9319,7 +9175,7 @@ func (o TransferConfigurationResponseTransferAllDetailsOutput) ToTransferConfigu
 }
 
 func (o TransferConfigurationResponseTransferAllDetailsOutput) ToTransferConfigurationResponseTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationResponseTransferAllDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationResponseTransferAllDetails) *TransferConfigurationResponseTransferAllDetails {
+	return o.ApplyT(func(v TransferConfigurationResponseTransferAllDetails) *TransferConfigurationResponseTransferAllDetails {
 		return &v
 	}).(TransferConfigurationResponseTransferAllDetailsPtrOutput)
 }
@@ -9345,11 +9201,7 @@ func (o TransferConfigurationResponseTransferAllDetailsPtrOutput) ToTransferConf
 
 func (o TransferConfigurationResponseTransferAllDetailsPtrOutput) Elem() TransferConfigurationResponseTransferAllDetailsOutput {
 	return o.ApplyT(func(v *TransferConfigurationResponseTransferAllDetails) TransferConfigurationResponseTransferAllDetails {
-		if v != nil {
-			return *v
-		}
-		var ret TransferConfigurationResponseTransferAllDetails
-		return ret
+		return *v
 	}).(TransferConfigurationResponseTransferAllDetailsOutput)
 }
 
@@ -9459,7 +9311,7 @@ func (o TransferConfigurationResponseTransferFilterDetailsOutput) ToTransferConf
 }
 
 func (o TransferConfigurationResponseTransferFilterDetailsOutput) ToTransferConfigurationResponseTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationResponseTransferFilterDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationResponseTransferFilterDetails) *TransferConfigurationResponseTransferFilterDetails {
+	return o.ApplyT(func(v TransferConfigurationResponseTransferFilterDetails) *TransferConfigurationResponseTransferFilterDetails {
 		return &v
 	}).(TransferConfigurationResponseTransferFilterDetailsPtrOutput)
 }
@@ -9487,11 +9339,7 @@ func (o TransferConfigurationResponseTransferFilterDetailsPtrOutput) ToTransferC
 
 func (o TransferConfigurationResponseTransferFilterDetailsPtrOutput) Elem() TransferConfigurationResponseTransferFilterDetailsOutput {
 	return o.ApplyT(func(v *TransferConfigurationResponseTransferFilterDetails) TransferConfigurationResponseTransferFilterDetails {
-		if v != nil {
-			return *v
-		}
-		var ret TransferConfigurationResponseTransferFilterDetails
-		return ret
+		return *v
 	}).(TransferConfigurationResponseTransferFilterDetailsOutput)
 }
 
@@ -9601,7 +9449,7 @@ func (o TransferConfigurationTransferAllDetailsOutput) ToTransferConfigurationTr
 }
 
 func (o TransferConfigurationTransferAllDetailsOutput) ToTransferConfigurationTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationTransferAllDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationTransferAllDetails) *TransferConfigurationTransferAllDetails {
+	return o.ApplyT(func(v TransferConfigurationTransferAllDetails) *TransferConfigurationTransferAllDetails {
 		return &v
 	}).(TransferConfigurationTransferAllDetailsPtrOutput)
 }
@@ -9626,13 +9474,7 @@ func (o TransferConfigurationTransferAllDetailsPtrOutput) ToTransferConfiguratio
 }
 
 func (o TransferConfigurationTransferAllDetailsPtrOutput) Elem() TransferConfigurationTransferAllDetailsOutput {
-	return o.ApplyT(func(v *TransferConfigurationTransferAllDetails) TransferConfigurationTransferAllDetails {
-		if v != nil {
-			return *v
-		}
-		var ret TransferConfigurationTransferAllDetails
-		return ret
-	}).(TransferConfigurationTransferAllDetailsOutput)
+	return o.ApplyT(func(v *TransferConfigurationTransferAllDetails) TransferConfigurationTransferAllDetails { return *v }).(TransferConfigurationTransferAllDetailsOutput)
 }
 
 // Details to transfer all data.
@@ -9741,7 +9583,7 @@ func (o TransferConfigurationTransferFilterDetailsOutput) ToTransferConfiguratio
 }
 
 func (o TransferConfigurationTransferFilterDetailsOutput) ToTransferConfigurationTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationTransferFilterDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferConfigurationTransferFilterDetails) *TransferConfigurationTransferFilterDetails {
+	return o.ApplyT(func(v TransferConfigurationTransferFilterDetails) *TransferConfigurationTransferFilterDetails {
 		return &v
 	}).(TransferConfigurationTransferFilterDetailsPtrOutput)
 }
@@ -9767,11 +9609,7 @@ func (o TransferConfigurationTransferFilterDetailsPtrOutput) ToTransferConfigura
 
 func (o TransferConfigurationTransferFilterDetailsPtrOutput) Elem() TransferConfigurationTransferFilterDetailsOutput {
 	return o.ApplyT(func(v *TransferConfigurationTransferFilterDetails) TransferConfigurationTransferFilterDetails {
-		if v != nil {
-			return *v
-		}
-		var ret TransferConfigurationTransferFilterDetails
-		return ret
+		return *v
 	}).(TransferConfigurationTransferFilterDetailsOutput)
 }
 
@@ -9893,7 +9731,7 @@ func (o TransferFilterDetailsOutput) ToTransferFilterDetailsPtrOutput() Transfer
 }
 
 func (o TransferFilterDetailsOutput) ToTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferFilterDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferFilterDetails) *TransferFilterDetails {
+	return o.ApplyT(func(v TransferFilterDetails) *TransferFilterDetails {
 		return &v
 	}).(TransferFilterDetailsPtrOutput)
 }
@@ -9933,13 +9771,7 @@ func (o TransferFilterDetailsPtrOutput) ToTransferFilterDetailsPtrOutputWithCont
 }
 
 func (o TransferFilterDetailsPtrOutput) Elem() TransferFilterDetailsOutput {
-	return o.ApplyT(func(v *TransferFilterDetails) TransferFilterDetails {
-		if v != nil {
-			return *v
-		}
-		var ret TransferFilterDetails
-		return ret
-	}).(TransferFilterDetailsOutput)
+	return o.ApplyT(func(v *TransferFilterDetails) TransferFilterDetails { return *v }).(TransferFilterDetailsOutput)
 }
 
 // Filter details to transfer Azure files.
@@ -10090,7 +9922,7 @@ func (o TransferFilterDetailsResponseOutput) ToTransferFilterDetailsResponsePtrO
 }
 
 func (o TransferFilterDetailsResponseOutput) ToTransferFilterDetailsResponsePtrOutputWithContext(ctx context.Context) TransferFilterDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferFilterDetailsResponse) *TransferFilterDetailsResponse {
+	return o.ApplyT(func(v TransferFilterDetailsResponse) *TransferFilterDetailsResponse {
 		return &v
 	}).(TransferFilterDetailsResponsePtrOutput)
 }
@@ -10130,13 +9962,7 @@ func (o TransferFilterDetailsResponsePtrOutput) ToTransferFilterDetailsResponseP
 }
 
 func (o TransferFilterDetailsResponsePtrOutput) Elem() TransferFilterDetailsResponseOutput {
-	return o.ApplyT(func(v *TransferFilterDetailsResponse) TransferFilterDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TransferFilterDetailsResponse
-		return ret
-	}).(TransferFilterDetailsResponseOutput)
+	return o.ApplyT(func(v *TransferFilterDetailsResponse) TransferFilterDetailsResponse { return *v }).(TransferFilterDetailsResponseOutput)
 }
 
 // Filter details to transfer Azure files.
@@ -10275,7 +10101,7 @@ func (o TransportPreferencesOutput) ToTransportPreferencesPtrOutput() TransportP
 }
 
 func (o TransportPreferencesOutput) ToTransportPreferencesPtrOutputWithContext(ctx context.Context) TransportPreferencesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransportPreferences) *TransportPreferences {
+	return o.ApplyT(func(v TransportPreferences) *TransportPreferences {
 		return &v
 	}).(TransportPreferencesPtrOutput)
 }
@@ -10300,13 +10126,7 @@ func (o TransportPreferencesPtrOutput) ToTransportPreferencesPtrOutputWithContex
 }
 
 func (o TransportPreferencesPtrOutput) Elem() TransportPreferencesOutput {
-	return o.ApplyT(func(v *TransportPreferences) TransportPreferences {
-		if v != nil {
-			return *v
-		}
-		var ret TransportPreferences
-		return ret
-	}).(TransportPreferencesOutput)
+	return o.ApplyT(func(v *TransportPreferences) TransportPreferences { return *v }).(TransportPreferencesOutput)
 }
 
 // Indicates Shipment Logistics type that the customer preferred.
@@ -10415,7 +10235,7 @@ func (o TransportPreferencesResponseOutput) ToTransportPreferencesResponsePtrOut
 }
 
 func (o TransportPreferencesResponseOutput) ToTransportPreferencesResponsePtrOutputWithContext(ctx context.Context) TransportPreferencesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransportPreferencesResponse) *TransportPreferencesResponse {
+	return o.ApplyT(func(v TransportPreferencesResponse) *TransportPreferencesResponse {
 		return &v
 	}).(TransportPreferencesResponsePtrOutput)
 }
@@ -10440,13 +10260,7 @@ func (o TransportPreferencesResponsePtrOutput) ToTransportPreferencesResponsePtr
 }
 
 func (o TransportPreferencesResponsePtrOutput) Elem() TransportPreferencesResponseOutput {
-	return o.ApplyT(func(v *TransportPreferencesResponse) TransportPreferencesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TransportPreferencesResponse
-		return ret
-	}).(TransportPreferencesResponseOutput)
+	return o.ApplyT(func(v *TransportPreferencesResponse) TransportPreferencesResponse { return *v }).(TransportPreferencesResponseOutput)
 }
 
 // Indicates Shipment Logistics type that the customer preferred.
@@ -10773,7 +10587,7 @@ func (o UserAssignedPropertiesOutput) ToUserAssignedPropertiesPtrOutput() UserAs
 }
 
 func (o UserAssignedPropertiesOutput) ToUserAssignedPropertiesPtrOutputWithContext(ctx context.Context) UserAssignedPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAssignedProperties) *UserAssignedProperties {
+	return o.ApplyT(func(v UserAssignedProperties) *UserAssignedProperties {
 		return &v
 	}).(UserAssignedPropertiesPtrOutput)
 }
@@ -10798,13 +10612,7 @@ func (o UserAssignedPropertiesPtrOutput) ToUserAssignedPropertiesPtrOutputWithCo
 }
 
 func (o UserAssignedPropertiesPtrOutput) Elem() UserAssignedPropertiesOutput {
-	return o.ApplyT(func(v *UserAssignedProperties) UserAssignedProperties {
-		if v != nil {
-			return *v
-		}
-		var ret UserAssignedProperties
-		return ret
-	}).(UserAssignedPropertiesOutput)
+	return o.ApplyT(func(v *UserAssignedProperties) UserAssignedProperties { return *v }).(UserAssignedPropertiesOutput)
 }
 
 // Arm resource id for user assigned identity to be used to fetch MSI token.
@@ -10913,7 +10721,7 @@ func (o UserAssignedPropertiesResponseOutput) ToUserAssignedPropertiesResponsePt
 }
 
 func (o UserAssignedPropertiesResponseOutput) ToUserAssignedPropertiesResponsePtrOutputWithContext(ctx context.Context) UserAssignedPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAssignedPropertiesResponse) *UserAssignedPropertiesResponse {
+	return o.ApplyT(func(v UserAssignedPropertiesResponse) *UserAssignedPropertiesResponse {
 		return &v
 	}).(UserAssignedPropertiesResponsePtrOutput)
 }
@@ -10938,13 +10746,7 @@ func (o UserAssignedPropertiesResponsePtrOutput) ToUserAssignedPropertiesRespons
 }
 
 func (o UserAssignedPropertiesResponsePtrOutput) Elem() UserAssignedPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserAssignedPropertiesResponse) UserAssignedPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserAssignedPropertiesResponse
-		return ret
-	}).(UserAssignedPropertiesResponseOutput)
+	return o.ApplyT(func(v *UserAssignedPropertiesResponse) UserAssignedPropertiesResponse { return *v }).(UserAssignedPropertiesResponseOutput)
 }
 
 // Arm resource id for user assigned identity to be used to fetch MSI token.

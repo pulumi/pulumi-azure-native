@@ -166,7 +166,9 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneOutput)
 }
 
-type ZoneOutput struct{ *pulumi.OutputState }
+type ZoneOutput struct {
+	*pulumi.OutputState
+}
 
 func (ZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Zone)(nil))

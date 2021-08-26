@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// Agent details.
-    /// </summary>
     [OutputType]
     public sealed class AgentDetailsResponse
     {

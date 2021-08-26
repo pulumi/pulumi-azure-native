@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.Outputs
 {
 
-    /// <summary>
-    /// Details of single instance of redis.
-    /// </summary>
     [OutputType]
     public sealed class RedisInstanceDetailsResponse
     {

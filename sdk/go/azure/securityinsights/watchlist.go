@@ -281,7 +281,9 @@ func (i *Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistO
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistOutput)
 }
 
-type WatchlistOutput struct{ *pulumi.OutputState }
+type WatchlistOutput struct {
+	*pulumi.OutputState
+}
 
 func (WatchlistOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Watchlist)(nil))

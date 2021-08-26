@@ -268,7 +268,9 @@ func (i *SiteDeploymentSlot) ToSiteDeploymentSlotOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SiteDeploymentSlotOutput)
 }
 
-type SiteDeploymentSlotOutput struct{ *pulumi.OutputState }
+type SiteDeploymentSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteDeploymentSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteDeploymentSlot)(nil))

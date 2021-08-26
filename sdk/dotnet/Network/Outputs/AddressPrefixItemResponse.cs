@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Address prefix item.
-    /// </summary>
     [OutputType]
     public sealed class AddressPrefixItemResponse
     {

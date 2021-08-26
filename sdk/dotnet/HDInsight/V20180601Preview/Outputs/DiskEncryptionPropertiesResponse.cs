@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
-    /// <summary>
-    /// The disk encryption properties
-    /// </summary>
     [OutputType]
     public sealed class DiskEncryptionPropertiesResponse
     {

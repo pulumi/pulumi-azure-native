@@ -506,7 +506,7 @@ func (o CnameRecordOutput) ToCnameRecordPtrOutput() CnameRecordPtrOutput {
 }
 
 func (o CnameRecordOutput) ToCnameRecordPtrOutputWithContext(ctx context.Context) CnameRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecord) *CnameRecord {
+	return o.ApplyT(func(v CnameRecord) *CnameRecord {
 		return &v
 	}).(CnameRecordPtrOutput)
 }
@@ -531,13 +531,7 @@ func (o CnameRecordPtrOutput) ToCnameRecordPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CnameRecordPtrOutput) Elem() CnameRecordOutput {
-	return o.ApplyT(func(v *CnameRecord) CnameRecord {
-		if v != nil {
-			return *v
-		}
-		var ret CnameRecord
-		return ret
-	}).(CnameRecordOutput)
+	return o.ApplyT(func(v *CnameRecord) CnameRecord { return *v }).(CnameRecordOutput)
 }
 
 // The canonical name for this CNAME record.
@@ -646,7 +640,7 @@ func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutput() CnameRecordR
 }
 
 func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutputWithContext(ctx context.Context) CnameRecordResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecordResponse) *CnameRecordResponse {
+	return o.ApplyT(func(v CnameRecordResponse) *CnameRecordResponse {
 		return &v
 	}).(CnameRecordResponsePtrOutput)
 }
@@ -671,13 +665,7 @@ func (o CnameRecordResponsePtrOutput) ToCnameRecordResponsePtrOutputWithContext(
 }
 
 func (o CnameRecordResponsePtrOutput) Elem() CnameRecordResponseOutput {
-	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CnameRecordResponse
-		return ret
-	}).(CnameRecordResponseOutput)
+	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse { return *v }).(CnameRecordResponseOutput)
 }
 
 // The canonical name for this CNAME record.
@@ -1428,7 +1416,7 @@ func (o SoaRecordOutput) ToSoaRecordPtrOutput() SoaRecordPtrOutput {
 }
 
 func (o SoaRecordOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context) SoaRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecord) *SoaRecord {
+	return o.ApplyT(func(v SoaRecord) *SoaRecord {
 		return &v
 	}).(SoaRecordPtrOutput)
 }
@@ -1483,13 +1471,7 @@ func (o SoaRecordPtrOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context)
 }
 
 func (o SoaRecordPtrOutput) Elem() SoaRecordOutput {
-	return o.ApplyT(func(v *SoaRecord) SoaRecord {
-		if v != nil {
-			return *v
-		}
-		var ret SoaRecord
-		return ret
-	}).(SoaRecordOutput)
+	return o.ApplyT(func(v *SoaRecord) SoaRecord { return *v }).(SoaRecordOutput)
 }
 
 // The email contact for this SOA record.
@@ -1682,7 +1664,7 @@ func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutput() SoaRecordRespons
 }
 
 func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutputWithContext(ctx context.Context) SoaRecordResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecordResponse) *SoaRecordResponse {
+	return o.ApplyT(func(v SoaRecordResponse) *SoaRecordResponse {
 		return &v
 	}).(SoaRecordResponsePtrOutput)
 }
@@ -1737,13 +1719,7 @@ func (o SoaRecordResponsePtrOutput) ToSoaRecordResponsePtrOutputWithContext(ctx 
 }
 
 func (o SoaRecordResponsePtrOutput) Elem() SoaRecordResponseOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SoaRecordResponse
-		return ret
-	}).(SoaRecordResponseOutput)
+	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse { return *v }).(SoaRecordResponseOutput)
 }
 
 // The email contact for this SOA record.

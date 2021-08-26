@@ -188,7 +188,9 @@ func (i *GlobalSchedule) ToGlobalScheduleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalScheduleOutput)
 }
 
-type GlobalScheduleOutput struct{ *pulumi.OutputState }
+type GlobalScheduleOutput struct {
+	*pulumi.OutputState
+}
 
 func (GlobalScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GlobalSchedule)(nil))

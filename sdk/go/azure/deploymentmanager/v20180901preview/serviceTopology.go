@@ -136,7 +136,9 @@ func (i *ServiceTopology) ToServiceTopologyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTopologyOutput)
 }
 
-type ServiceTopologyOutput struct{ *pulumi.OutputState }
+type ServiceTopologyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServiceTopologyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceTopology)(nil))

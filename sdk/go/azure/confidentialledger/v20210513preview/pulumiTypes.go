@@ -568,7 +568,7 @@ func (o LedgerPropertiesOutput) ToLedgerPropertiesPtrOutput() LedgerPropertiesPt
 }
 
 func (o LedgerPropertiesOutput) ToLedgerPropertiesPtrOutputWithContext(ctx context.Context) LedgerPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LedgerProperties) *LedgerProperties {
+	return o.ApplyT(func(v LedgerProperties) *LedgerProperties {
 		return &v
 	}).(LedgerPropertiesPtrOutput)
 }
@@ -603,13 +603,7 @@ func (o LedgerPropertiesPtrOutput) ToLedgerPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o LedgerPropertiesPtrOutput) Elem() LedgerPropertiesOutput {
-	return o.ApplyT(func(v *LedgerProperties) LedgerProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LedgerProperties
-		return ret
-	}).(LedgerPropertiesOutput)
+	return o.ApplyT(func(v *LedgerProperties) LedgerProperties { return *v }).(LedgerPropertiesOutput)
 }
 
 // Array of all AAD based Security Principals.
@@ -766,7 +760,7 @@ func (o LedgerPropertiesResponseOutput) ToLedgerPropertiesResponsePtrOutput() Le
 }
 
 func (o LedgerPropertiesResponseOutput) ToLedgerPropertiesResponsePtrOutputWithContext(ctx context.Context) LedgerPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LedgerPropertiesResponse) *LedgerPropertiesResponse {
+	return o.ApplyT(func(v LedgerPropertiesResponse) *LedgerPropertiesResponse {
 		return &v
 	}).(LedgerPropertiesResponsePtrOutput)
 }
@@ -830,13 +824,7 @@ func (o LedgerPropertiesResponsePtrOutput) ToLedgerPropertiesResponsePtrOutputWi
 }
 
 func (o LedgerPropertiesResponsePtrOutput) Elem() LedgerPropertiesResponseOutput {
-	return o.ApplyT(func(v *LedgerPropertiesResponse) LedgerPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LedgerPropertiesResponse
-		return ret
-	}).(LedgerPropertiesResponseOutput)
+	return o.ApplyT(func(v *LedgerPropertiesResponse) LedgerPropertiesResponse { return *v }).(LedgerPropertiesResponseOutput)
 }
 
 // Array of all AAD based Security Principals.
@@ -1035,7 +1023,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1085,13 +1073,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

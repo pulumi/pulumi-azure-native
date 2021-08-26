@@ -156,7 +156,9 @@ func (i *IscsiServer) ToIscsiServerOutputWithContext(ctx context.Context) IscsiS
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiServerOutput)
 }
 
-type IscsiServerOutput struct{ *pulumi.OutputState }
+type IscsiServerOutput struct {
+	*pulumi.OutputState
+}
 
 func (IscsiServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IscsiServer)(nil))

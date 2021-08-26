@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20170701.Outputs
 {
 
-    /// <summary>
-    /// Azure Workload SQL Auto Protection intent item.
-    /// </summary>
     [OutputType]
     public sealed class AzureWorkloadSQLAutoProtectionIntentResponse
     {

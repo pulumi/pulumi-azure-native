@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20180401.Outputs
 {
 
-    /// <summary>
-    /// AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
-    /// </summary>
     [OutputType]
     public sealed class AddressSpaceResponse
     {

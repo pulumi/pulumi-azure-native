@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Input for command that completes online migration for an Azure SQL Database Managed Instance.
-    /// </summary>
     [OutputType]
     public sealed class MigrateMISyncCompleteCommandInputResponse
     {

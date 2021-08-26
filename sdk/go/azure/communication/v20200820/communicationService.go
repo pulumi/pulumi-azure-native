@@ -151,7 +151,9 @@ func (i *CommunicationService) ToCommunicationServiceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CommunicationServiceOutput)
 }
 
-type CommunicationServiceOutput struct{ *pulumi.OutputState }
+type CommunicationServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (CommunicationServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CommunicationService)(nil))

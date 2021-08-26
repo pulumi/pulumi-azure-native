@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Describes a virtual machine scale set network profile's network configurations.
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetNetworkConfigurationResponse
     {

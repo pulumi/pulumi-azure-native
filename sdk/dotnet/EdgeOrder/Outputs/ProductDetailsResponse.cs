@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
-    /// <summary>
-    /// Represents product details
-    /// </summary>
     [OutputType]
     public sealed class ProductDetailsResponse
     {

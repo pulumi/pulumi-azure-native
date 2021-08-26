@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20201101Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties of a private endpoint connection.
-    /// </summary>
     [OutputType]
     public sealed class ManagedInstancePrivateEndpointConnectionPropertiesResponse
     {

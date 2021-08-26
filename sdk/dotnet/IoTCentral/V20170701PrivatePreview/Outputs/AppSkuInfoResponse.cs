@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.IoTCentral.V20170701PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Information about the SKU of the IoT Central application.
-    /// </summary>
     [OutputType]
     public sealed class AppSkuInfoResponse
     {

@@ -272,7 +272,7 @@ type webAppArgs struct {
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name *string `pulumi:"name"`
 	// Site redundancy mode
-	RedundancyMode *RedundancyMode `pulumi:"redundancyMode"`
+	RedundancyMode *string `pulumi:"redundancyMode"`
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved *bool `pulumi:"reserved"`
 	// Name of the resource group to which the resource belongs.
@@ -326,7 +326,7 @@ type WebAppArgs struct {
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name pulumi.StringPtrInput
 	// Site redundancy mode
-	RedundancyMode RedundancyModePtrInput
+	RedundancyMode *RedundancyMode
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.
@@ -364,7 +364,9 @@ func (i *WebApp) ToWebAppOutputWithContext(ctx context.Context) WebAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppOutput)
 }
 
-type WebAppOutput struct{ *pulumi.OutputState }
+type WebAppOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebApp)(nil))

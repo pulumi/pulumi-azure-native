@@ -179,7 +179,7 @@ type webAppBackupConfigurationArgs struct {
 	// SAS URL to the container.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
 	// Type of the backup.
-	Type *BackupRestoreOperationType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a WebAppBackupConfiguration resource.
@@ -201,7 +201,7 @@ type WebAppBackupConfigurationArgs struct {
 	// SAS URL to the container.
 	StorageAccountUrl pulumi.StringInput
 	// Type of the backup.
-	Type BackupRestoreOperationTypePtrInput
+	Type *BackupRestoreOperationType
 }
 
 func (WebAppBackupConfigurationArgs) ElementType() reflect.Type {
@@ -227,7 +227,9 @@ func (i *WebAppBackupConfiguration) ToWebAppBackupConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppBackupConfigurationOutput)
 }
 
-type WebAppBackupConfigurationOutput struct{ *pulumi.OutputState }
+type WebAppBackupConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppBackupConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppBackupConfiguration)(nil))

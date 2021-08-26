@@ -164,7 +164,9 @@ func (i *Credential) ToCredentialOutputWithContext(ctx context.Context) Credenti
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialOutput)
 }
 
-type CredentialOutput struct{ *pulumi.OutputState }
+type CredentialOutput struct {
+	*pulumi.OutputState
+}
 
 func (CredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Credential)(nil))

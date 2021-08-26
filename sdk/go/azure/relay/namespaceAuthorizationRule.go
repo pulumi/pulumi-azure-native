@@ -97,7 +97,7 @@ type namespaceAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.
@@ -135,7 +135,9 @@ func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
 }
 
-type NamespaceAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type NamespaceAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))

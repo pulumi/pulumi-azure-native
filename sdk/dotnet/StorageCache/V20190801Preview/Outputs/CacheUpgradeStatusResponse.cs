@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties describing the software upgrade state of the cache
-    /// </summary>
     [OutputType]
     public sealed class CacheUpgradeStatusResponse
     {

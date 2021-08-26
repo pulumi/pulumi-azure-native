@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NotificationHubs.V20160301.Outputs
 {
 
-    /// <summary>
-    /// Description of a NotificationHub GcmCredential.
-    /// </summary>
     [OutputType]
     public sealed class GcmCredentialResponse
     {

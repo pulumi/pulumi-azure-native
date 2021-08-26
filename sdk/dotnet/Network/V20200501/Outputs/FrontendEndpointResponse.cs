@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200501.Outputs
 {
 
-    /// <summary>
-    /// A frontend endpoint used for routing.
-    /// </summary>
     [OutputType]
     public sealed class FrontendEndpointResponse
     {

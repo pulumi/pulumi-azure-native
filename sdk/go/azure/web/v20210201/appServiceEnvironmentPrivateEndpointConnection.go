@@ -152,7 +152,9 @@ func (i *AppServiceEnvironmentPrivateEndpointConnection) ToAppServiceEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentPrivateEndpointConnectionOutput)
 }
 
-type AppServiceEnvironmentPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type AppServiceEnvironmentPrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (AppServiceEnvironmentPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceEnvironmentPrivateEndpointConnection)(nil))

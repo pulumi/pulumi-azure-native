@@ -189,7 +189,7 @@ type authorizationServerArgs struct {
 	// OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
-	AuthorizationMethods []AuthorizationMethod `pulumi:"authorizationMethods"`
+	AuthorizationMethods []string `pulumi:"authorizationMethods"`
 	// Identifier of the authorization server.
 	Authsid *string `pulumi:"authsid"`
 	// Specifies the mechanism by which access token is passed to the API.
@@ -291,7 +291,9 @@ func (i *AuthorizationServer) ToAuthorizationServerOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerOutput)
 }
 
-type AuthorizationServerOutput struct{ *pulumi.OutputState }
+type AuthorizationServerOutput struct {
+	*pulumi.OutputState
+}
 
 func (AuthorizationServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AuthorizationServer)(nil))

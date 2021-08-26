@@ -524,7 +524,7 @@ func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPt
 }
 
 func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
+	return o.ApplyT(func(v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
 		return &v
 	}).(WebTestPropertiesConfigurationPtrOutput)
 }
@@ -549,13 +549,7 @@ func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfiguratio
 }
 
 func (o WebTestPropertiesConfigurationPtrOutput) Elem() WebTestPropertiesConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesConfiguration
-		return ret
-	}).(WebTestPropertiesConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration { return *v }).(WebTestPropertiesConfigurationOutput)
 }
 
 // The XML specification of a WebTest to run against an application.
@@ -672,7 +666,7 @@ func (o WebTestPropertiesContentValidationOutput) ToWebTestPropertiesContentVali
 }
 
 func (o WebTestPropertiesContentValidationOutput) ToWebTestPropertiesContentValidationPtrOutputWithContext(ctx context.Context) WebTestPropertiesContentValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesContentValidation) *WebTestPropertiesContentValidation {
+	return o.ApplyT(func(v WebTestPropertiesContentValidation) *WebTestPropertiesContentValidation {
 		return &v
 	}).(WebTestPropertiesContentValidationPtrOutput)
 }
@@ -707,13 +701,7 @@ func (o WebTestPropertiesContentValidationPtrOutput) ToWebTestPropertiesContentV
 }
 
 func (o WebTestPropertiesContentValidationPtrOutput) Elem() WebTestPropertiesContentValidationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesContentValidation) WebTestPropertiesContentValidation {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesContentValidation
-		return ret
-	}).(WebTestPropertiesContentValidationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesContentValidation) WebTestPropertiesContentValidation { return *v }).(WebTestPropertiesContentValidationOutput)
 }
 
 // Content to look for in the return of the WebTest.  Must not be null or empty.
@@ -862,7 +850,7 @@ func (o WebTestPropertiesRequestOutput) ToWebTestPropertiesRequestPtrOutput() We
 }
 
 func (o WebTestPropertiesRequestOutput) ToWebTestPropertiesRequestPtrOutputWithContext(ctx context.Context) WebTestPropertiesRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesRequest) *WebTestPropertiesRequest {
+	return o.ApplyT(func(v WebTestPropertiesRequest) *WebTestPropertiesRequest {
 		return &v
 	}).(WebTestPropertiesRequestPtrOutput)
 }
@@ -912,13 +900,7 @@ func (o WebTestPropertiesRequestPtrOutput) ToWebTestPropertiesRequestPtrOutputWi
 }
 
 func (o WebTestPropertiesRequestPtrOutput) Elem() WebTestPropertiesRequestOutput {
-	return o.ApplyT(func(v *WebTestPropertiesRequest) WebTestPropertiesRequest {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesRequest
-		return ret
-	}).(WebTestPropertiesRequestOutput)
+	return o.ApplyT(func(v *WebTestPropertiesRequest) WebTestPropertiesRequest { return *v }).(WebTestPropertiesRequestOutput)
 }
 
 // Follow redirects for this web test.
@@ -1077,7 +1059,7 @@ func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesRespons
 }
 
 func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
+	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
 		return &v
 	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
@@ -1102,13 +1084,7 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) ToWebTestPropertiesResp
 }
 
 func (o WebTestPropertiesResponseConfigurationPtrOutput) Elem() WebTestPropertiesResponseConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesResponseConfiguration
-		return ret
-	}).(WebTestPropertiesResponseConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration { return *v }).(WebTestPropertiesResponseConfigurationOutput)
 }
 
 // The XML specification of a WebTest to run against an application.
@@ -1225,7 +1201,7 @@ func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesRes
 }
 
 func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseContentValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseContentValidation) *WebTestPropertiesResponseContentValidation {
+	return o.ApplyT(func(v WebTestPropertiesResponseContentValidation) *WebTestPropertiesResponseContentValidation {
 		return &v
 	}).(WebTestPropertiesResponseContentValidationPtrOutput)
 }
@@ -1261,11 +1237,7 @@ func (o WebTestPropertiesResponseContentValidationPtrOutput) ToWebTestProperties
 
 func (o WebTestPropertiesResponseContentValidationPtrOutput) Elem() WebTestPropertiesResponseContentValidationOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseContentValidation) WebTestPropertiesResponseContentValidation {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesResponseContentValidation
-		return ret
+		return *v
 	}).(WebTestPropertiesResponseContentValidationOutput)
 }
 
@@ -1415,7 +1387,7 @@ func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseReque
 }
 
 func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseRequestPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseRequest) *WebTestPropertiesResponseRequest {
+	return o.ApplyT(func(v WebTestPropertiesResponseRequest) *WebTestPropertiesResponseRequest {
 		return &v
 	}).(WebTestPropertiesResponseRequestPtrOutput)
 }
@@ -1465,13 +1437,7 @@ func (o WebTestPropertiesResponseRequestPtrOutput) ToWebTestPropertiesResponseRe
 }
 
 func (o WebTestPropertiesResponseRequestPtrOutput) Elem() WebTestPropertiesResponseRequestOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) WebTestPropertiesResponseRequest {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesResponseRequest
-		return ret
-	}).(WebTestPropertiesResponseRequestOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) WebTestPropertiesResponseRequest { return *v }).(WebTestPropertiesResponseRequestOutput)
 }
 
 // Follow redirects for this web test.
@@ -1646,7 +1612,7 @@ func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesRespo
 }
 
 func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseValidationRules {
+	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseValidationRules {
 		return &v
 	}).(WebTestPropertiesResponseValidationRulesPtrOutput)
 }
@@ -1693,13 +1659,7 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) ToWebTestPropertiesRe
 }
 
 func (o WebTestPropertiesResponseValidationRulesPtrOutput) Elem() WebTestPropertiesResponseValidationRulesOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) WebTestPropertiesResponseValidationRules {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesResponseValidationRules
-		return ret
-	}).(WebTestPropertiesResponseValidationRulesOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) WebTestPropertiesResponseValidationRules { return *v }).(WebTestPropertiesResponseValidationRulesOutput)
 }
 
 // The collection of content validation properties
@@ -1864,7 +1824,7 @@ func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRul
 }
 
 func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesValidationRules) *WebTestPropertiesValidationRules {
+	return o.ApplyT(func(v WebTestPropertiesValidationRules) *WebTestPropertiesValidationRules {
 		return &v
 	}).(WebTestPropertiesValidationRulesPtrOutput)
 }
@@ -1911,13 +1871,7 @@ func (o WebTestPropertiesValidationRulesPtrOutput) ToWebTestPropertiesValidation
 }
 
 func (o WebTestPropertiesValidationRulesPtrOutput) Elem() WebTestPropertiesValidationRulesOutput {
-	return o.ApplyT(func(v *WebTestPropertiesValidationRules) WebTestPropertiesValidationRules {
-		if v != nil {
-			return *v
-		}
-		var ret WebTestPropertiesValidationRules
-		return ret
-	}).(WebTestPropertiesValidationRulesOutput)
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) WebTestPropertiesValidationRules { return *v }).(WebTestPropertiesValidationRulesOutput)
 }
 
 // The collection of content validation properties

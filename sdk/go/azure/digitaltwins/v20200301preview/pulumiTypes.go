@@ -106,7 +106,7 @@ func (o DigitalTwinsSkuInfoOutput) ToDigitalTwinsSkuInfoPtrOutput() DigitalTwins
 }
 
 func (o DigitalTwinsSkuInfoOutput) ToDigitalTwinsSkuInfoPtrOutputWithContext(ctx context.Context) DigitalTwinsSkuInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DigitalTwinsSkuInfo) *DigitalTwinsSkuInfo {
+	return o.ApplyT(func(v DigitalTwinsSkuInfo) *DigitalTwinsSkuInfo {
 		return &v
 	}).(DigitalTwinsSkuInfoPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o DigitalTwinsSkuInfoPtrOutput) ToDigitalTwinsSkuInfoPtrOutputWithContext(
 }
 
 func (o DigitalTwinsSkuInfoPtrOutput) Elem() DigitalTwinsSkuInfoOutput {
-	return o.ApplyT(func(v *DigitalTwinsSkuInfo) DigitalTwinsSkuInfo {
-		if v != nil {
-			return *v
-		}
-		var ret DigitalTwinsSkuInfo
-		return ret
-	}).(DigitalTwinsSkuInfoOutput)
+	return o.ApplyT(func(v *DigitalTwinsSkuInfo) DigitalTwinsSkuInfo { return *v }).(DigitalTwinsSkuInfoOutput)
 }
 
 // The name of the SKU.
@@ -246,7 +240,7 @@ func (o DigitalTwinsSkuInfoResponseOutput) ToDigitalTwinsSkuInfoResponsePtrOutpu
 }
 
 func (o DigitalTwinsSkuInfoResponseOutput) ToDigitalTwinsSkuInfoResponsePtrOutputWithContext(ctx context.Context) DigitalTwinsSkuInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DigitalTwinsSkuInfoResponse) *DigitalTwinsSkuInfoResponse {
+	return o.ApplyT(func(v DigitalTwinsSkuInfoResponse) *DigitalTwinsSkuInfoResponse {
 		return &v
 	}).(DigitalTwinsSkuInfoResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o DigitalTwinsSkuInfoResponsePtrOutput) ToDigitalTwinsSkuInfoResponsePtrOu
 }
 
 func (o DigitalTwinsSkuInfoResponsePtrOutput) Elem() DigitalTwinsSkuInfoResponseOutput {
-	return o.ApplyT(func(v *DigitalTwinsSkuInfoResponse) DigitalTwinsSkuInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DigitalTwinsSkuInfoResponse
-		return ret
-	}).(DigitalTwinsSkuInfoResponseOutput)
+	return o.ApplyT(func(v *DigitalTwinsSkuInfoResponse) DigitalTwinsSkuInfoResponse { return *v }).(DigitalTwinsSkuInfoResponseOutput)
 }
 
 // The name of the SKU.

@@ -297,7 +297,9 @@ func (i *ApplicationSecurityGroup) ToApplicationSecurityGroupOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupOutput)
 }
 
-type ApplicationSecurityGroupOutput struct{ *pulumi.OutputState }
+type ApplicationSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplicationSecurityGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationSecurityGroup)(nil))

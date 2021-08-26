@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Deployment container liveness/readiness probe configuration.
-    /// </summary>
     [OutputType]
     public sealed class ProbeSettingsResponse
     {

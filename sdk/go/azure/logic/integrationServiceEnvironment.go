@@ -137,7 +137,9 @@ func (i *IntegrationServiceEnvironment) ToIntegrationServiceEnvironmentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentOutput)
 }
 
-type IntegrationServiceEnvironmentOutput struct{ *pulumi.OutputState }
+type IntegrationServiceEnvironmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationServiceEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationServiceEnvironment)(nil))

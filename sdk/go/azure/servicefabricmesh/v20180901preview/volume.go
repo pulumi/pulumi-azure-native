@@ -157,7 +157,9 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct{ *pulumi.OutputState }
+type VolumeOutput struct {
+	*pulumi.OutputState
+}
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

@@ -81,7 +81,8 @@ func NewApiManagementService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	if args.VpnType == nil {
-		args.VpnType = VirtualNetworkType("None")
+		e := VirtualNetworkType("None")
+		args.VpnType = &e
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -212,7 +213,7 @@ type apiManagementServiceArgs struct {
 	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
 	Tags map[string]string `pulumi:"tags"`
 	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType *VirtualNetworkType `pulumi:"vpnType"`
+	VpnType *string `pulumi:"vpnType"`
 	// Virtual network configuration of the API Management service.
 	Vpnconfiguration *VirtualNetworkConfiguration `pulumi:"vpnconfiguration"`
 }
@@ -244,7 +245,7 @@ type ApiManagementServiceArgs struct {
 	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
 	Tags pulumi.StringMapInput
 	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType VirtualNetworkTypePtrInput
+	VpnType *VirtualNetworkType
 	// Virtual network configuration of the API Management service.
 	Vpnconfiguration VirtualNetworkConfigurationPtrInput
 }
@@ -272,7 +273,9 @@ func (i *ApiManagementService) ToApiManagementServiceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceOutput)
 }
 
-type ApiManagementServiceOutput struct{ *pulumi.OutputState }
+type ApiManagementServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiManagementServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiManagementService)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20180214.Outputs
 {
 
-    /// <summary>
-    /// A rule governing the accessibility of a vault from a specific virtual network.
-    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkRuleResponse
     {

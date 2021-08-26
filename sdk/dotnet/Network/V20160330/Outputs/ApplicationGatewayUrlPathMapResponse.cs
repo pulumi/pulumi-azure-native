@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160330.Outputs
 {
 
-    /// <summary>
-    /// UrlPathMap of application gateway
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayUrlPathMapResponse
     {

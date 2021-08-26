@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
 {
 
-    /// <summary>
-    /// The custom setup of installing 3rd party components.
-    /// </summary>
     [OutputType]
     public sealed class ComponentSetupResponse
     {

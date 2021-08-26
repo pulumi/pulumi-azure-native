@@ -159,7 +159,9 @@ func (i *Ueba) ToUebaOutputWithContext(ctx context.Context) UebaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UebaOutput)
 }
 
-type UebaOutput struct{ *pulumi.OutputState }
+type UebaOutput struct {
+	*pulumi.OutputState
+}
 
 func (UebaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Ueba)(nil))

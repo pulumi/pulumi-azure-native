@@ -158,7 +158,9 @@ func (i *Getbot) ToGetbotOutputWithContext(ctx context.Context) GetbotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetbotOutput)
 }
 
-type GetbotOutput struct{ *pulumi.OutputState }
+type GetbotOutput struct {
+	*pulumi.OutputState
+}
 
 func (GetbotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Getbot)(nil))

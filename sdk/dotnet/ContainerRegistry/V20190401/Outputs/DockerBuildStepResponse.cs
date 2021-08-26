@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190401.Outputs
 {
 
-    /// <summary>
-    /// The Docker build step.
-    /// </summary>
     [OutputType]
     public sealed class DockerBuildStepResponse
     {

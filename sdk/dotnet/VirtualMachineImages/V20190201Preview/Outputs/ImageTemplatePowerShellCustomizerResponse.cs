@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview.Outputs
 {
 
-    /// <summary>
-    /// Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'script' or 'inline' can be specified.
-    /// </summary>
     [OutputType]
     public sealed class ImageTemplatePowerShellCustomizerResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Activity dependency information.
-    /// </summary>
     [OutputType]
     public sealed class ActivityDependencyResponse
     {

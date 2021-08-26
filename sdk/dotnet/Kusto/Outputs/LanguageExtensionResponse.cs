@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.Outputs
 {
 
-    /// <summary>
-    /// The language extension object.
-    /// </summary>
     [OutputType]
     public sealed class LanguageExtensionResponse
     {

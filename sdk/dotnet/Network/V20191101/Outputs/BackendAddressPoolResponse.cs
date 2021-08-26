@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191101.Outputs
 {
 
-    /// <summary>
-    /// Pool of backend IP addresses.
-    /// </summary>
     [OutputType]
     public sealed class BackendAddressPoolResponse
     {

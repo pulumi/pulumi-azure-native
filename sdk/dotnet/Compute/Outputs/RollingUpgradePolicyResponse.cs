@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// The configuration parameters used while performing a rolling upgrade.
-    /// </summary>
     [OutputType]
     public sealed class RollingUpgradePolicyResponse
     {

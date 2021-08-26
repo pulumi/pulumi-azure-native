@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
-    /// <summary>
-    /// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-    /// </summary>
     [OutputType]
     public sealed class ClusterSkuResponse
     {

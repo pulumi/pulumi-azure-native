@@ -102,7 +102,7 @@ type hybridConnectionAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a HybridConnectionAuthorizationRule resource.
@@ -142,7 +142,9 @@ func (i *HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleOutput)
 }
 
-type HybridConnectionAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type HybridConnectionAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (HybridConnectionAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridConnectionAuthorizationRule)(nil))

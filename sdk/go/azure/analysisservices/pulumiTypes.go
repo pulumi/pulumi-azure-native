@@ -106,7 +106,7 @@ func (o GatewayDetailsOutput) ToGatewayDetailsPtrOutput() GatewayDetailsPtrOutpu
 }
 
 func (o GatewayDetailsOutput) ToGatewayDetailsPtrOutputWithContext(ctx context.Context) GatewayDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayDetails) *GatewayDetails {
+	return o.ApplyT(func(v GatewayDetails) *GatewayDetails {
 		return &v
 	}).(GatewayDetailsPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o GatewayDetailsPtrOutput) ToGatewayDetailsPtrOutputWithContext(ctx contex
 }
 
 func (o GatewayDetailsPtrOutput) Elem() GatewayDetailsOutput {
-	return o.ApplyT(func(v *GatewayDetails) GatewayDetails {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayDetails
-		return ret
-	}).(GatewayDetailsOutput)
+	return o.ApplyT(func(v *GatewayDetails) GatewayDetails { return *v }).(GatewayDetailsOutput)
 }
 
 // Gateway resource to be associated with the server.
@@ -254,7 +248,7 @@ func (o GatewayDetailsResponseOutput) ToGatewayDetailsResponsePtrOutput() Gatewa
 }
 
 func (o GatewayDetailsResponseOutput) ToGatewayDetailsResponsePtrOutputWithContext(ctx context.Context) GatewayDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayDetailsResponse) *GatewayDetailsResponse {
+	return o.ApplyT(func(v GatewayDetailsResponse) *GatewayDetailsResponse {
 		return &v
 	}).(GatewayDetailsResponsePtrOutput)
 }
@@ -289,13 +283,7 @@ func (o GatewayDetailsResponsePtrOutput) ToGatewayDetailsResponsePtrOutputWithCo
 }
 
 func (o GatewayDetailsResponsePtrOutput) Elem() GatewayDetailsResponseOutput {
-	return o.ApplyT(func(v *GatewayDetailsResponse) GatewayDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayDetailsResponse
-		return ret
-	}).(GatewayDetailsResponseOutput)
+	return o.ApplyT(func(v *GatewayDetailsResponse) GatewayDetailsResponse { return *v }).(GatewayDetailsResponseOutput)
 }
 
 // Uri of the DMTS cluster.
@@ -664,7 +652,7 @@ func (o IPv4FirewallSettingsOutput) ToIPv4FirewallSettingsPtrOutput() IPv4Firewa
 }
 
 func (o IPv4FirewallSettingsOutput) ToIPv4FirewallSettingsPtrOutputWithContext(ctx context.Context) IPv4FirewallSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPv4FirewallSettings) *IPv4FirewallSettings {
+	return o.ApplyT(func(v IPv4FirewallSettings) *IPv4FirewallSettings {
 		return &v
 	}).(IPv4FirewallSettingsPtrOutput)
 }
@@ -694,13 +682,7 @@ func (o IPv4FirewallSettingsPtrOutput) ToIPv4FirewallSettingsPtrOutputWithContex
 }
 
 func (o IPv4FirewallSettingsPtrOutput) Elem() IPv4FirewallSettingsOutput {
-	return o.ApplyT(func(v *IPv4FirewallSettings) IPv4FirewallSettings {
-		if v != nil {
-			return *v
-		}
-		var ret IPv4FirewallSettings
-		return ret
-	}).(IPv4FirewallSettingsOutput)
+	return o.ApplyT(func(v *IPv4FirewallSettings) IPv4FirewallSettings { return *v }).(IPv4FirewallSettingsOutput)
 }
 
 // The indicator of enabling PBI service.
@@ -823,7 +805,7 @@ func (o IPv4FirewallSettingsResponseOutput) ToIPv4FirewallSettingsResponsePtrOut
 }
 
 func (o IPv4FirewallSettingsResponseOutput) ToIPv4FirewallSettingsResponsePtrOutputWithContext(ctx context.Context) IPv4FirewallSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPv4FirewallSettingsResponse) *IPv4FirewallSettingsResponse {
+	return o.ApplyT(func(v IPv4FirewallSettingsResponse) *IPv4FirewallSettingsResponse {
 		return &v
 	}).(IPv4FirewallSettingsResponsePtrOutput)
 }
@@ -853,13 +835,7 @@ func (o IPv4FirewallSettingsResponsePtrOutput) ToIPv4FirewallSettingsResponsePtr
 }
 
 func (o IPv4FirewallSettingsResponsePtrOutput) Elem() IPv4FirewallSettingsResponseOutput {
-	return o.ApplyT(func(v *IPv4FirewallSettingsResponse) IPv4FirewallSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IPv4FirewallSettingsResponse
-		return ret
-	}).(IPv4FirewallSettingsResponseOutput)
+	return o.ApplyT(func(v *IPv4FirewallSettingsResponse) IPv4FirewallSettingsResponse { return *v }).(IPv4FirewallSettingsResponseOutput)
 }
 
 // The indicator of enabling PBI service.
@@ -986,7 +962,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
+	return o.ApplyT(func(v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -1021,13 +997,7 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSku
-		return ret
-	}).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
 }
 
 // The number of instances in the read only query pool.
@@ -1164,7 +1134,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -1199,13 +1169,7 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSkuResponse
-		return ret
-	}).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
 }
 
 // The number of instances in the read only query pool.
@@ -1334,7 +1298,7 @@ func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutput() ServerAdmi
 }
 
 func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutputWithContext(ctx context.Context) ServerAdministratorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministrators) *ServerAdministrators {
+	return o.ApplyT(func(v ServerAdministrators) *ServerAdministrators {
 		return &v
 	}).(ServerAdministratorsPtrOutput)
 }
@@ -1359,13 +1323,7 @@ func (o ServerAdministratorsPtrOutput) ToServerAdministratorsPtrOutputWithContex
 }
 
 func (o ServerAdministratorsPtrOutput) Elem() ServerAdministratorsOutput {
-	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators {
-		if v != nil {
-			return *v
-		}
-		var ret ServerAdministrators
-		return ret
-	}).(ServerAdministratorsOutput)
+	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators { return *v }).(ServerAdministratorsOutput)
 }
 
 // An array of administrator user identities.
@@ -1474,7 +1432,7 @@ func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOut
 }
 
 func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministratorsResponse) *ServerAdministratorsResponse {
+	return o.ApplyT(func(v ServerAdministratorsResponse) *ServerAdministratorsResponse {
 		return &v
 	}).(ServerAdministratorsResponsePtrOutput)
 }
@@ -1499,13 +1457,7 @@ func (o ServerAdministratorsResponsePtrOutput) ToServerAdministratorsResponsePtr
 }
 
 func (o ServerAdministratorsResponsePtrOutput) Elem() ServerAdministratorsResponseOutput {
-	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerAdministratorsResponse
-		return ret
-	}).(ServerAdministratorsResponseOutput)
+	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse { return *v }).(ServerAdministratorsResponseOutput)
 }
 
 // An array of administrator user identities.

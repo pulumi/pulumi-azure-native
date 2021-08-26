@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// The object representing continuous mode backup policy.
-    /// </summary>
     [OutputType]
     public sealed class ContinuousModeBackupPolicyResponse
     {

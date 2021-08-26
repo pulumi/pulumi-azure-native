@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// The parameters for a docker quick build.
-    /// </summary>
     [OutputType]
     public sealed class DockerBuildRequestResponse
     {

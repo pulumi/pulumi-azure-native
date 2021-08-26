@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.Outputs
 {
 
-    /// <summary>
-    /// A private endpoint connection to an azure resource
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

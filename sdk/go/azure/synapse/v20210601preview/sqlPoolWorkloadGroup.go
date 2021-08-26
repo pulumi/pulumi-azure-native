@@ -98,12 +98,6 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolWorkloadGroup"),
 		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolWorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolWorkloadGroup"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolWorkloadGroup
@@ -207,7 +201,9 @@ func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupOutput)
 }
 
-type SqlPoolWorkloadGroupOutput struct{ *pulumi.OutputState }
+type SqlPoolWorkloadGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))

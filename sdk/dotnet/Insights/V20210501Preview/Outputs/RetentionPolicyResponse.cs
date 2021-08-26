@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20210501Preview.Outputs
 {
 
-    /// <summary>
-    /// Specifies the retention policy for the log.
-    /// </summary>
     [OutputType]
     public sealed class RetentionPolicyResponse
     {

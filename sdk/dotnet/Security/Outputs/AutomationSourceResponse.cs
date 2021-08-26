@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
-    /// <summary>
-    /// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
-    /// </summary>
     [OutputType]
     public sealed class AutomationSourceResponse
     {

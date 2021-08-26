@@ -132,7 +132,9 @@ func (i *MoveResource) ToMoveResourceOutputWithContext(ctx context.Context) Move
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceOutput)
 }
 
-type MoveResourceOutput struct{ *pulumi.OutputState }
+type MoveResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (MoveResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MoveResource)(nil))

@@ -150,7 +150,9 @@ func (i *SessionHostConfiguration) ToSessionHostConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SessionHostConfigurationOutput)
 }
 
-type SessionHostConfigurationOutput struct{ *pulumi.OutputState }
+type SessionHostConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (SessionHostConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SessionHostConfiguration)(nil))

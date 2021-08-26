@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceBus.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties specific to client affine subscriptions.
-    /// </summary>
     [OutputType]
     public sealed class SBClientAffinePropertiesResponse
     {

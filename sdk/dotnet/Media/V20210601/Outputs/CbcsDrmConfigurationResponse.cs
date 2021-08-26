@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
-    /// </summary>
     [OutputType]
     public sealed class CbcsDrmConfigurationResponse
     {

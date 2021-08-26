@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
-    /// </summary>
     [OutputType]
     public sealed class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse
     {

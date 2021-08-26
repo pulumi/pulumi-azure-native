@@ -22,12 +22,9 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.notificationhubs.v20140901 as __v20140901
-    v20140901 = __v20140901
-    import pulumi_azure_native.notificationhubs.v20160301 as __v20160301
-    v20160301 = __v20160301
-    import pulumi_azure_native.notificationhubs.v20170401 as __v20170401
-    v20170401 = __v20170401
+    import pulumi_azure_native.notificationhubs.v20140901 as v20140901
+    import pulumi_azure_native.notificationhubs.v20160301 as v20160301
+    import pulumi_azure_native.notificationhubs.v20170401 as v20170401
 else:
     v20140901 = _utilities.lazy_import('pulumi_azure_native.notificationhubs.v20140901')
     v20160301 = _utilities.lazy_import('pulumi_azure_native.notificationhubs.v20160301')

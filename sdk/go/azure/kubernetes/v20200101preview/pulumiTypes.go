@@ -169,7 +169,7 @@ func (o ConnectedClusterAADProfileOutput) ToConnectedClusterAADProfilePtrOutput(
 }
 
 func (o ConnectedClusterAADProfileOutput) ToConnectedClusterAADProfilePtrOutputWithContext(ctx context.Context) ConnectedClusterAADProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterAADProfile) *ConnectedClusterAADProfile {
+	return o.ApplyT(func(v ConnectedClusterAADProfile) *ConnectedClusterAADProfile {
 		return &v
 	}).(ConnectedClusterAADProfilePtrOutput)
 }
@@ -204,13 +204,7 @@ func (o ConnectedClusterAADProfilePtrOutput) ToConnectedClusterAADProfilePtrOutp
 }
 
 func (o ConnectedClusterAADProfilePtrOutput) Elem() ConnectedClusterAADProfileOutput {
-	return o.ApplyT(func(v *ConnectedClusterAADProfile) ConnectedClusterAADProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectedClusterAADProfile
-		return ret
-	}).(ConnectedClusterAADProfileOutput)
+	return o.ApplyT(func(v *ConnectedClusterAADProfile) ConnectedClusterAADProfile { return *v }).(ConnectedClusterAADProfileOutput)
 }
 
 // The client app id configured on target K8 cluster
@@ -347,7 +341,7 @@ func (o ConnectedClusterAADProfileResponseOutput) ToConnectedClusterAADProfileRe
 }
 
 func (o ConnectedClusterAADProfileResponseOutput) ToConnectedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterAADProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterAADProfileResponse) *ConnectedClusterAADProfileResponse {
+	return o.ApplyT(func(v ConnectedClusterAADProfileResponse) *ConnectedClusterAADProfileResponse {
 		return &v
 	}).(ConnectedClusterAADProfileResponsePtrOutput)
 }
@@ -382,13 +376,7 @@ func (o ConnectedClusterAADProfileResponsePtrOutput) ToConnectedClusterAADProfil
 }
 
 func (o ConnectedClusterAADProfileResponsePtrOutput) Elem() ConnectedClusterAADProfileResponseOutput {
-	return o.ApplyT(func(v *ConnectedClusterAADProfileResponse) ConnectedClusterAADProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectedClusterAADProfileResponse
-		return ret
-	}).(ConnectedClusterAADProfileResponseOutput)
+	return o.ApplyT(func(v *ConnectedClusterAADProfileResponse) ConnectedClusterAADProfileResponse { return *v }).(ConnectedClusterAADProfileResponseOutput)
 }
 
 // The client app id configured on target K8 cluster
@@ -424,7 +412,7 @@ func (o ConnectedClusterAADProfileResponsePtrOutput) TenantId() pulumi.StringPtr
 // Identity for the connected cluster.
 type ConnectedClusterIdentity struct {
 	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ConnectedClusterIdentityInput is an input type that accepts ConnectedClusterIdentityArgs and ConnectedClusterIdentityOutput values.
@@ -441,7 +429,7 @@ type ConnectedClusterIdentityInput interface {
 // Identity for the connected cluster.
 type ConnectedClusterIdentityArgs struct {
 	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type ResourceIdentityTypeInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (ConnectedClusterIdentityArgs) ElementType() reflect.Type {
@@ -517,14 +505,14 @@ func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutput() Co
 }
 
 func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentity) *ConnectedClusterIdentity {
+	return o.ApplyT(func(v ConnectedClusterIdentity) *ConnectedClusterIdentity {
 		return &v
 	}).(ConnectedClusterIdentityPtrOutput)
 }
 
 // The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityOutput) Type() ResourceIdentityTypeOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentity) ResourceIdentityType { return v.Type }).(ResourceIdentityTypeOutput)
+func (o ConnectedClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectedClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ConnectedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -542,23 +530,17 @@ func (o ConnectedClusterIdentityPtrOutput) ToConnectedClusterIdentityPtrOutputWi
 }
 
 func (o ConnectedClusterIdentityPtrOutput) Elem() ConnectedClusterIdentityOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) ConnectedClusterIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectedClusterIdentity
-		return ret
-	}).(ConnectedClusterIdentityOutput)
+	return o.ApplyT(func(v *ConnectedClusterIdentity) ConnectedClusterIdentity { return *v }).(ConnectedClusterIdentityOutput)
 }
 
 // The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) *ResourceIdentityType {
+func (o ConnectedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedClusterIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the connected cluster.
@@ -665,7 +647,7 @@ func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityRespon
 }
 
 func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentityResponse) *ConnectedClusterIdentityResponse {
+	return o.ApplyT(func(v ConnectedClusterIdentityResponse) *ConnectedClusterIdentityResponse {
 		return &v
 	}).(ConnectedClusterIdentityResponsePtrOutput)
 }
@@ -700,13 +682,7 @@ func (o ConnectedClusterIdentityResponsePtrOutput) ToConnectedClusterIdentityRes
 }
 
 func (o ConnectedClusterIdentityResponsePtrOutput) Elem() ConnectedClusterIdentityResponseOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) ConnectedClusterIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectedClusterIdentityResponse
-		return ret
-	}).(ConnectedClusterIdentityResponseOutput)
+	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) ConnectedClusterIdentityResponse { return *v }).(ConnectedClusterIdentityResponseOutput)
 }
 
 // The principal id of connected cluster identity. This property will only be provided for a system assigned identity.

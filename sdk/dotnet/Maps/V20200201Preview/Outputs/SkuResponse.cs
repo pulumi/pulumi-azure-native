@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maps.V20200201Preview.Outputs
 {
 
-    /// <summary>
-    /// The SKU of the Maps Account.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

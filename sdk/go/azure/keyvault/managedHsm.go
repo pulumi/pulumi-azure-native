@@ -151,7 +151,9 @@ func (i *ManagedHsm) ToManagedHsmOutputWithContext(ctx context.Context) ManagedH
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHsmOutput)
 }
 
-type ManagedHsmOutput struct{ *pulumi.OutputState }
+type ManagedHsmOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedHsmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedHsm)(nil))

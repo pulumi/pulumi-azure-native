@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationsManagement.Outputs
 {
 
-    /// <summary>
-    /// Parameter to pass to ARM template
-    /// </summary>
     [OutputType]
     public sealed class ArmTemplateParameterResponse
     {

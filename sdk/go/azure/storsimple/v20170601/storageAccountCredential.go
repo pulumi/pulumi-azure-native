@@ -47,9 +47,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SslStatus == nil {
-		return nil, errors.New("invalid value for required argument 'SslStatus'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:storsimple/v20170601:StorageAccountCredential"),
@@ -105,13 +102,13 @@ type storageAccountCredentialArgs struct {
 	// The storage endpoint
 	EndPoint string `pulumi:"endPoint"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Signifies whether SSL needs to be enabled or not.
-	SslStatus SslStatus `pulumi:"sslStatus"`
+	SslStatus string `pulumi:"sslStatus"`
 	// The storage account credential name.
 	StorageAccountCredentialName *string `pulumi:"storageAccountCredentialName"`
 }
@@ -123,13 +120,13 @@ type StorageAccountCredentialArgs struct {
 	// The storage endpoint
 	EndPoint pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// Signifies whether SSL needs to be enabled or not.
-	SslStatus SslStatusInput
+	SslStatus SslStatus
 	// The storage account credential name.
 	StorageAccountCredentialName pulumi.StringPtrInput
 }
@@ -157,7 +154,9 @@ func (i *StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialOutput)
 }
 
-type StorageAccountCredentialOutput struct{ *pulumi.OutputState }
+type StorageAccountCredentialOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageAccountCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountCredential)(nil))

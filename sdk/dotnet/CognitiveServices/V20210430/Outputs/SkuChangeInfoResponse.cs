@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.V20210430.Outputs
 {
 
-    /// <summary>
-    /// Sku change info of account.
-    /// </summary>
     [OutputType]
     public sealed class SkuChangeInfoResponse
     {

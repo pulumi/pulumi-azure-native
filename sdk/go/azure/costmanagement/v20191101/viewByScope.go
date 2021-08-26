@@ -206,7 +206,9 @@ func (i *ViewByScope) ToViewByScopeOutputWithContext(ctx context.Context) ViewBy
 	return pulumi.ToOutputWithContext(ctx, i).(ViewByScopeOutput)
 }
 
-type ViewByScopeOutput struct{ *pulumi.OutputState }
+type ViewByScopeOutput struct {
+	*pulumi.OutputState
+}
 
 func (ViewByScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ViewByScope)(nil))

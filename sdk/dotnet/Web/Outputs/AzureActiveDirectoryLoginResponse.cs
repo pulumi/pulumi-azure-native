@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings of the Azure Active Directory login flow.
-    /// </summary>
     [OutputType]
     public sealed class AzureActiveDirectoryLoginResponse
     {

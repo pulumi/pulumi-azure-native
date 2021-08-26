@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStack.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// Product information.
-    /// </summary>
     [OutputType]
     public sealed class ProductResponse
     {

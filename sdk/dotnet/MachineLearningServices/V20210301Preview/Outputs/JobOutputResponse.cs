@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Job output definition container information on where to find job output/logs.
-    /// </summary>
     [OutputType]
     public sealed class JobOutputResponse
     {

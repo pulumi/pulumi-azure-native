@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Execution policy for an activity.
-    /// </summary>
     [OutputType]
     public sealed class RetryPolicyResponse
     {

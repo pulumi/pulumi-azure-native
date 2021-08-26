@@ -84,12 +84,6 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationRecoveryServicesProvider"),
 		},
-		{
-			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationRecoveryServicesProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationRecoveryServicesProvider"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationRecoveryServicesProvider
@@ -173,7 +167,9 @@ func (i *ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProvi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryServicesProviderOutput)
 }
 
-type ReplicationRecoveryServicesProviderOutput struct{ *pulumi.OutputState }
+type ReplicationRecoveryServicesProviderOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationRecoveryServicesProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil))

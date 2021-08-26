@@ -101,12 +101,6 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolSensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolSensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolSensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel"),
 		},
 		{
@@ -155,8 +149,8 @@ type sqlPoolSensitivityLabelArgs struct {
 	// The label ID.
 	LabelId *string `pulumi:"labelId"`
 	// The label name.
-	LabelName *string               `pulumi:"labelName"`
-	Rank      *SensitivityLabelRank `pulumi:"rank"`
+	LabelName *string `pulumi:"labelName"`
+	Rank      *string `pulumi:"rank"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the schema.
@@ -183,7 +177,7 @@ type SqlPoolSensitivityLabelArgs struct {
 	LabelId pulumi.StringPtrInput
 	// The label name.
 	LabelName pulumi.StringPtrInput
-	Rank      SensitivityLabelRankPtrInput
+	Rank      *SensitivityLabelRank
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.
@@ -221,7 +215,9 @@ func (i *SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSensitivityLabelOutput)
 }
 
-type SqlPoolSensitivityLabelOutput struct{ *pulumi.OutputState }
+type SqlPoolSensitivityLabelOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolSensitivityLabelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolSensitivityLabel)(nil))

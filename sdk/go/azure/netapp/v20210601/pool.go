@@ -300,7 +300,9 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
 }
 
-type PoolOutput struct{ *pulumi.OutputState }
+type PoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (PoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pool)(nil))

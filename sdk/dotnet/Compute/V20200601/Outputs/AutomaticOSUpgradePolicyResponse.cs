@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200601.Outputs
 {
 
-    /// <summary>
-    /// The configuration parameters used for performing automatic OS upgrade.
-    /// </summary>
     [OutputType]
     public sealed class AutomaticOSUpgradePolicyResponse
     {

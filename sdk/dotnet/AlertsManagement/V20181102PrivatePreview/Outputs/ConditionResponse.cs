@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// condition to trigger an action rule
-    /// </summary>
     [OutputType]
     public sealed class ConditionResponse
     {

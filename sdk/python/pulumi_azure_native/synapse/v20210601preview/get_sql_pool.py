@@ -20,7 +20,7 @@ class GetSqlPoolResult:
     """
     A SQL Analytics pool
     """
-    def __init__(__self__, collation=None, create_mode=None, creation_date=None, id=None, location=None, max_size_bytes=None, name=None, provisioning_state=None, recoverable_database_id=None, restore_point_in_time=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None):
+    def __init__(__self__, collation=None, create_mode=None, creation_date=None, id=None, location=None, max_size_bytes=None, name=None, provisioning_state=None, recoverable_database_id=None, restore_point_in_time=None, sku=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -54,9 +54,6 @@ class GetSqlPoolResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if source_database_deletion_date and not isinstance(source_database_deletion_date, str):
-            raise TypeError("Expected argument 'source_database_deletion_date' to be a str")
-        pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if source_database_id and not isinstance(source_database_id, str):
             raise TypeError("Expected argument 'source_database_id' to be a str")
         pulumi.set(__self__, "source_database_id", source_database_id)
@@ -162,14 +159,6 @@ class GetSqlPoolResult:
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> Optional[str]:
-        """
-        Specifies the time that the sql pool was deleted
-        """
-        return pulumi.get(self, "source_database_deletion_date")
-
-    @property
     @pulumi.getter(name="sourceDatabaseId")
     def source_database_id(self) -> Optional[str]:
         """
@@ -227,7 +216,6 @@ class AwaitableGetSqlPoolResult(GetSqlPoolResult):
             recoverable_database_id=self.recoverable_database_id,
             restore_point_in_time=self.restore_point_in_time,
             sku=self.sku,
-            source_database_deletion_date=self.source_database_deletion_date,
             source_database_id=self.source_database_id,
             status=self.status,
             storage_account_type=self.storage_account_type,
@@ -269,7 +257,6 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
         recoverable_database_id=__ret__.recoverable_database_id,
         restore_point_in_time=__ret__.restore_point_in_time,
         sku=__ret__.sku,
-        source_database_deletion_date=__ret__.source_database_deletion_date,
         source_database_id=__ret__.source_database_id,
         status=__ret__.status,
         storage_account_type=__ret__.storage_account_type,

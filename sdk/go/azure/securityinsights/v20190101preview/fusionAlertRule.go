@@ -182,7 +182,9 @@ func (i *FusionAlertRule) ToFusionAlertRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FusionAlertRuleOutput)
 }
 
-type FusionAlertRuleOutput struct{ *pulumi.OutputState }
+type FusionAlertRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (FusionAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FusionAlertRule)(nil))

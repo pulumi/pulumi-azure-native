@@ -76,12 +76,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time that the sql pool was deleted
-        /// </summary>
-        [Output("sourceDatabaseDeletionDate")]
-        public Output<string?> SourceDatabaseDeletionDate { get; private set; } = null!;
-
-        /// <summary>
         /// Source database to create from
         /// </summary>
         [Output("sourceDatabaseId")]
@@ -151,8 +145,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:SqlPool"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPool"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:SqlPool"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601:SqlPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -235,12 +227,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// Specifies the time that the sql pool was deleted
-        /// </summary>
-        [Input("sourceDatabaseDeletionDate")]
-        public Input<string>? SourceDatabaseDeletionDate { get; set; }
 
         /// <summary>
         /// Source database to create from

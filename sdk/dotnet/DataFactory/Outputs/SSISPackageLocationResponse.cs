@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// SSIS package location.
-    /// </summary>
     [OutputType]
     public sealed class SSISPackageLocationResponse
     {

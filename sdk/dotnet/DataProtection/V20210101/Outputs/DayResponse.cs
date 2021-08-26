@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210101.Outputs
 {
 
-    /// <summary>
-    /// Day of the week
-    /// </summary>
     [OutputType]
     public sealed class DayResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Power query sink.
-    /// </summary>
     [OutputType]
     public sealed class PowerQuerySinkResponse
     {

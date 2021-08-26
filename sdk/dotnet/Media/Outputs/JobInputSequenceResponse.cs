@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// A Sequence contains an ordered list of Clips where each clip is a JobInput.  The Sequence will be treated as a single input.
-    /// </summary>
     [OutputType]
     public sealed class JobInputSequenceResponse
     {

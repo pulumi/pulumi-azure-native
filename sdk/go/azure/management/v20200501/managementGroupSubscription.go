@@ -132,7 +132,9 @@ func (i *ManagementGroupSubscription) ToManagementGroupSubscriptionOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupSubscriptionOutput)
 }
 
-type ManagementGroupSubscriptionOutput struct{ *pulumi.OutputState }
+type ManagementGroupSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagementGroupSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementGroupSubscription)(nil))

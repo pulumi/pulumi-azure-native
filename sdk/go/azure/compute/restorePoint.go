@@ -146,7 +146,9 @@ func (i *RestorePoint) ToRestorePointOutputWithContext(ctx context.Context) Rest
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointOutput)
 }
 
-type RestorePointOutput struct{ *pulumi.OutputState }
+type RestorePointOutput struct {
+	*pulumi.OutputState
+}
 
 func (RestorePointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RestorePoint)(nil))

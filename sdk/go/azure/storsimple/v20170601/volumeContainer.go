@@ -111,7 +111,7 @@ type volumeContainerArgs struct {
 	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
 	EncryptionKey *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -133,7 +133,7 @@ type VolumeContainerArgs struct {
 	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
 	EncryptionKey AsymmetricEncryptedSecretPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
@@ -167,7 +167,9 @@ func (i *VolumeContainer) ToVolumeContainerOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeContainerOutput)
 }
 
-type VolumeContainerOutput struct{ *pulumi.OutputState }
+type VolumeContainerOutput struct {
+	*pulumi.OutputState
+}
 
 func (VolumeContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VolumeContainer)(nil))

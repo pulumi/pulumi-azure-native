@@ -148,7 +148,9 @@ func (i *ApiDiagnosticLogger) ToApiDiagnosticLoggerOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticLoggerOutput)
 }
 
-type ApiDiagnosticLoggerOutput struct{ *pulumi.OutputState }
+type ApiDiagnosticLoggerOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiDiagnosticLoggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiDiagnosticLogger)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// Autoscale notification.
-    /// </summary>
     [OutputType]
     public sealed class AutoscaleNotificationResponse
     {

@@ -182,12 +182,6 @@ func NewIotHubResource(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20210701preview:IotHubResource"),
 		},
-		{
-			Type: pulumi.String("azure-native:devices/v20210901preview:IotHubResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20210901preview:IotHubResource"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource IotHubResource
@@ -283,7 +277,9 @@ func (i *IotHubResource) ToIotHubResourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceOutput)
 }
 
-type IotHubResourceOutput struct{ *pulumi.OutputState }
+type IotHubResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (IotHubResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubResource)(nil))

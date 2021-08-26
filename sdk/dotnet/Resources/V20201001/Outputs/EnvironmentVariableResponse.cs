@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20201001.Outputs
 {
 
-    /// <summary>
-    /// The environment variable to pass to the script in the container instance.
-    /// </summary>
     [OutputType]
     public sealed class EnvironmentVariableResponse
     {

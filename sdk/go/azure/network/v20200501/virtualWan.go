@@ -292,7 +292,9 @@ func (i *VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanOutput)
 }
 
-type VirtualWanOutput struct{ *pulumi.OutputState }
+type VirtualWanOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualWanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualWan)(nil))

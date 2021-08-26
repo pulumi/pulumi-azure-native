@@ -138,7 +138,9 @@ func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerOutput)
 }
 
-type LedgerOutput struct{ *pulumi.OutputState }
+type LedgerOutput struct {
+	*pulumi.OutputState
+}
 
 func (LedgerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Ledger)(nil))

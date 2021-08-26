@@ -232,7 +232,9 @@ func (i *Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MachineOutput)
 }
 
-type MachineOutput struct{ *pulumi.OutputState }
+type MachineOutput struct {
+	*pulumi.OutputState
+}
 
 func (MachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Machine)(nil))

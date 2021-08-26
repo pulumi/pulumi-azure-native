@@ -177,7 +177,9 @@ func (i *Container) ToContainerOutputWithContext(ctx context.Context) ContainerO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerOutput)
 }
 
-type ContainerOutput struct{ *pulumi.OutputState }
+type ContainerOutput struct {
+	*pulumi.OutputState
+}
 
 func (ContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Container)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.Outputs
 {
 
-    /// <summary>
-    /// The information of the target OS to be tested.
-    /// </summary>
     [OutputType]
     public sealed class TargetOSInfoResponse
     {

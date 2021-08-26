@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180801.Outputs
 {
 
-    /// <summary>
-    /// The ID of the ExpressRouteConnection.
-    /// </summary>
     [OutputType]
     public sealed class ExpressRouteConnectionIdResponse
     {

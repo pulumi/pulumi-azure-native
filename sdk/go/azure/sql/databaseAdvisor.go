@@ -45,9 +45,6 @@ func NewDatabaseAdvisor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AutoExecuteStatus == nil {
-		return nil, errors.New("invalid value for required argument 'AutoExecuteStatus'")
-	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
@@ -134,7 +131,7 @@ type databaseAdvisorArgs struct {
 	// The name of the Database Advisor.
 	AdvisorName *string `pulumi:"advisorName"`
 	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteStatus AutoExecuteStatus `pulumi:"autoExecuteStatus"`
+	AutoExecuteStatus string `pulumi:"autoExecuteStatus"`
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -148,7 +145,7 @@ type DatabaseAdvisorArgs struct {
 	// The name of the Database Advisor.
 	AdvisorName pulumi.StringPtrInput
 	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteStatus AutoExecuteStatusInput
+	AutoExecuteStatus AutoExecuteStatus
 	// The name of the database.
 	DatabaseName pulumi.StringInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -180,7 +177,9 @@ func (i *DatabaseAdvisor) ToDatabaseAdvisorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAdvisorOutput)
 }
 
-type DatabaseAdvisorOutput struct{ *pulumi.OutputState }
+type DatabaseAdvisorOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAdvisorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAdvisor)(nil))

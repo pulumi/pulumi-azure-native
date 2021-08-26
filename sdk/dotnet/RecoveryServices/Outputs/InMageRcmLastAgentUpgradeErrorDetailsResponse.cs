@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// InMageRcm last source agent upgrade error details.
-    /// </summary>
     [OutputType]
     public sealed class InMageRcmLastAgentUpgradeErrorDetailsResponse
     {

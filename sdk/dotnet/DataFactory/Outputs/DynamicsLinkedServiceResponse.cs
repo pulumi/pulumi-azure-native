@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Dynamics linked service.
-    /// </summary>
     [OutputType]
     public sealed class DynamicsLinkedServiceResponse
     {

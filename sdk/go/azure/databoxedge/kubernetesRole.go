@@ -223,7 +223,9 @@ func (i *KubernetesRole) ToKubernetesRoleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesRoleOutput)
 }
 
-type KubernetesRoleOutput struct{ *pulumi.OutputState }
+type KubernetesRoleOutput struct {
+	*pulumi.OutputState
+}
 
 func (KubernetesRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubernetesRole)(nil))

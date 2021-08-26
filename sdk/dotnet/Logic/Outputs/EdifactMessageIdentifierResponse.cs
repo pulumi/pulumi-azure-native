@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The Edifact message identifier.
-    /// </summary>
     [OutputType]
     public sealed class EdifactMessageIdentifierResponse
     {

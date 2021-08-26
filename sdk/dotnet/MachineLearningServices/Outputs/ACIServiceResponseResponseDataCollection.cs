@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Details of the data collection options specified.
-    /// </summary>
     [OutputType]
     public sealed class ACIServiceResponseResponseDataCollection
     {

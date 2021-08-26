@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210615.Outputs
 {
 
-    /// <summary>
-    /// The set of data plane operations permitted through this Role Definition.
-    /// </summary>
     [OutputType]
     public sealed class PermissionResponse
     {

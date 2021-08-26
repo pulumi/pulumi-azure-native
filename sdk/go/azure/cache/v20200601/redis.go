@@ -253,7 +253,9 @@ func (i *Redis) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisOutput)
 }
 
-type RedisOutput struct{ *pulumi.OutputState }
+type RedisOutput struct {
+	*pulumi.OutputState
+}
 
 func (RedisOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Redis)(nil))

@@ -158,7 +158,7 @@ type liveEventArgs struct {
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The stream options.
-	StreamOptions []StreamOptionsFlag `pulumi:"streamOptions"`
+	StreamOptions []string `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The Live Event vanity URL flag.
@@ -218,7 +218,9 @@ func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventO
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutput)
 }
 
-type LiveEventOutput struct{ *pulumi.OutputState }
+type LiveEventOutput struct {
+	*pulumi.OutputState
+}
 
 func (LiveEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveEvent)(nil))

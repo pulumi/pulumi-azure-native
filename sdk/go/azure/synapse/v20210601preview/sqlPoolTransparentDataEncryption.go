@@ -81,12 +81,6 @@ func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolTransparentDataEncryption"),
 		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolTransparentDataEncryption"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolTransparentDataEncryption"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlPoolTransparentDataEncryption
@@ -170,7 +164,9 @@ func (i *SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOut
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolTransparentDataEncryptionOutput)
 }
 
-type SqlPoolTransparentDataEncryptionOutput struct{ *pulumi.OutputState }
+type SqlPoolTransparentDataEncryptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolTransparentDataEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil))

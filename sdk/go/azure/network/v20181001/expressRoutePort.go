@@ -286,7 +286,9 @@ func (i *ExpressRoutePort) ToExpressRoutePortOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortOutput)
 }
 
-type ExpressRoutePortOutput struct{ *pulumi.OutputState }
+type ExpressRoutePortOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExpressRoutePortOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRoutePort)(nil))

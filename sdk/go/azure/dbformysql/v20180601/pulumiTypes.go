@@ -103,7 +103,7 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutput() Priv
 }
 
 func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointProperty) *PrivateEndpointProperty {
+	return o.ApplyT(func(v PrivateEndpointProperty) *PrivateEndpointProperty {
 		return &v
 	}).(PrivateEndpointPropertyPtrOutput)
 }
@@ -128,13 +128,7 @@ func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutputWith
 }
 
 func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
-	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointProperty
-		return ret
-	}).(PrivateEndpointPropertyOutput)
+	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty { return *v }).(PrivateEndpointPropertyOutput)
 }
 
 // Resource id of the private endpoint.
@@ -240,7 +234,7 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 }
 
 func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
+	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
 		return &v
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
@@ -265,13 +259,7 @@ func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyRespo
 }
 
 func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointPropertyResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointPropertyResponse
-		return ret
-	}).(PrivateEndpointPropertyResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse { return *v }).(PrivateEndpointPropertyResponseOutput)
 }
 
 // Resource id of the private endpoint.
@@ -381,7 +369,7 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
@@ -412,11 +400,7 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) PrivateLinkServiceConnectionStateProperty {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateProperty
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
@@ -541,7 +525,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
@@ -577,11 +561,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToPrivateLin
 
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) PrivateLinkServiceConnectionStatePropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStatePropertyResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 

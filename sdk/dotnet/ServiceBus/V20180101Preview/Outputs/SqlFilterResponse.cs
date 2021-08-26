@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Outputs
 {
 
-    /// <summary>
-    /// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
-    /// </summary>
     [OutputType]
     public sealed class SqlFilterResponse
     {

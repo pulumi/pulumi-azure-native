@@ -129,7 +129,9 @@ func (i *ChapSetting) ToChapSettingOutputWithContext(ctx context.Context) ChapSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChapSettingOutput)
 }
 
-type ChapSettingOutput struct{ *pulumi.OutputState }
+type ChapSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ChapSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChapSetting)(nil))

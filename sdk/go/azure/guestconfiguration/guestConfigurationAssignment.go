@@ -154,7 +154,9 @@ func (i *GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentOutput)
 }
 
-type GuestConfigurationAssignmentOutput struct{ *pulumi.OutputState }
+type GuestConfigurationAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (GuestConfigurationAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationAssignment)(nil))

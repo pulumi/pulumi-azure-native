@@ -129,7 +129,9 @@ func (i *BackupScheduleGroup) ToBackupScheduleGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleGroupOutput)
 }
 
-type BackupScheduleGroupOutput struct{ *pulumi.OutputState }
+type BackupScheduleGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (BackupScheduleGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupScheduleGroup)(nil))

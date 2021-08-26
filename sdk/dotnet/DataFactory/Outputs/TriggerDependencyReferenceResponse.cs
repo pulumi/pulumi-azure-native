@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Trigger referenced dependency.
-    /// </summary>
     [OutputType]
     public sealed class TriggerDependencyReferenceResponse
     {

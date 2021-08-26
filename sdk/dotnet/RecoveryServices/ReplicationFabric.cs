@@ -80,8 +80,6 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210401:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationFabric"},
                     new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210601:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationFabric"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210701:ReplicationFabric"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

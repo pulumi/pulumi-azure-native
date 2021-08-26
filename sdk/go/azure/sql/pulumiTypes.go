@@ -310,7 +310,7 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPt
 }
 
 func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
@@ -340,13 +340,7 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSetting
 }
 
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ElasticPoolPerDatabaseSettings
-		return ret
-	}).(ElasticPoolPerDatabaseSettingsOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings { return *v }).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
 // The maximum capacity any one database can consume.
@@ -469,7 +463,7 @@ func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSe
 }
 
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
 }
@@ -499,13 +493,7 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) ToElasticPoolPerDatabas
 }
 
 func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) Elem() ElasticPoolPerDatabaseSettingsResponseOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) ElasticPoolPerDatabaseSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ElasticPoolPerDatabaseSettingsResponse
-		return ret
-	}).(ElasticPoolPerDatabaseSettingsResponseOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) ElasticPoolPerDatabaseSettingsResponse { return *v }).(ElasticPoolPerDatabaseSettingsResponseOutput)
 }
 
 // The maximum capacity any one database can consume.
@@ -624,7 +612,7 @@ func (o FailoverGroupReadOnlyEndpointOutput) ToFailoverGroupReadOnlyEndpointPtrO
 }
 
 func (o FailoverGroupReadOnlyEndpointOutput) ToFailoverGroupReadOnlyEndpointPtrOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadOnlyEndpoint) *FailoverGroupReadOnlyEndpoint {
+	return o.ApplyT(func(v FailoverGroupReadOnlyEndpoint) *FailoverGroupReadOnlyEndpoint {
 		return &v
 	}).(FailoverGroupReadOnlyEndpointPtrOutput)
 }
@@ -649,13 +637,7 @@ func (o FailoverGroupReadOnlyEndpointPtrOutput) ToFailoverGroupReadOnlyEndpointP
 }
 
 func (o FailoverGroupReadOnlyEndpointPtrOutput) Elem() FailoverGroupReadOnlyEndpointOutput {
-	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpoint) FailoverGroupReadOnlyEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret FailoverGroupReadOnlyEndpoint
-		return ret
-	}).(FailoverGroupReadOnlyEndpointOutput)
+	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpoint) FailoverGroupReadOnlyEndpoint { return *v }).(FailoverGroupReadOnlyEndpointOutput)
 }
 
 // Failover policy of the read-only endpoint for the failover group.
@@ -764,7 +746,7 @@ func (o FailoverGroupReadOnlyEndpointResponseOutput) ToFailoverGroupReadOnlyEndp
 }
 
 func (o FailoverGroupReadOnlyEndpointResponseOutput) ToFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadOnlyEndpointResponse) *FailoverGroupReadOnlyEndpointResponse {
+	return o.ApplyT(func(v FailoverGroupReadOnlyEndpointResponse) *FailoverGroupReadOnlyEndpointResponse {
 		return &v
 	}).(FailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
@@ -789,13 +771,7 @@ func (o FailoverGroupReadOnlyEndpointResponsePtrOutput) ToFailoverGroupReadOnlyE
 }
 
 func (o FailoverGroupReadOnlyEndpointResponsePtrOutput) Elem() FailoverGroupReadOnlyEndpointResponseOutput {
-	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpointResponse) FailoverGroupReadOnlyEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FailoverGroupReadOnlyEndpointResponse
-		return ret
-	}).(FailoverGroupReadOnlyEndpointResponseOutput)
+	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpointResponse) FailoverGroupReadOnlyEndpointResponse { return *v }).(FailoverGroupReadOnlyEndpointResponseOutput)
 }
 
 // Failover policy of the read-only endpoint for the failover group.
@@ -908,7 +884,7 @@ func (o FailoverGroupReadWriteEndpointOutput) ToFailoverGroupReadWriteEndpointPt
 }
 
 func (o FailoverGroupReadWriteEndpointOutput) ToFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadWriteEndpoint) *FailoverGroupReadWriteEndpoint {
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpoint) *FailoverGroupReadWriteEndpoint {
 		return &v
 	}).(FailoverGroupReadWriteEndpointPtrOutput)
 }
@@ -938,13 +914,7 @@ func (o FailoverGroupReadWriteEndpointPtrOutput) ToFailoverGroupReadWriteEndpoin
 }
 
 func (o FailoverGroupReadWriteEndpointPtrOutput) Elem() FailoverGroupReadWriteEndpointOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpoint) FailoverGroupReadWriteEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret FailoverGroupReadWriteEndpoint
-		return ret
-	}).(FailoverGroupReadWriteEndpointOutput)
+	return o.ApplyT(func(v *FailoverGroupReadWriteEndpoint) FailoverGroupReadWriteEndpoint { return *v }).(FailoverGroupReadWriteEndpointOutput)
 }
 
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -1067,7 +1037,7 @@ func (o FailoverGroupReadWriteEndpointResponseOutput) ToFailoverGroupReadWriteEn
 }
 
 func (o FailoverGroupReadWriteEndpointResponseOutput) ToFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadWriteEndpointResponse) *FailoverGroupReadWriteEndpointResponse {
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointResponse) *FailoverGroupReadWriteEndpointResponse {
 		return &v
 	}).(FailoverGroupReadWriteEndpointResponsePtrOutput)
 }
@@ -1097,13 +1067,7 @@ func (o FailoverGroupReadWriteEndpointResponsePtrOutput) ToFailoverGroupReadWrit
 }
 
 func (o FailoverGroupReadWriteEndpointResponsePtrOutput) Elem() FailoverGroupReadWriteEndpointResponseOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointResponse) FailoverGroupReadWriteEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FailoverGroupReadWriteEndpointResponse
-		return ret
-	}).(FailoverGroupReadWriteEndpointResponseOutput)
+	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointResponse) FailoverGroupReadWriteEndpointResponse { return *v }).(FailoverGroupReadWriteEndpointResponseOutput)
 }
 
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -1222,7 +1186,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointOutput) ToInstanceFailoverGroupRead
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointOutput) ToInstanceFailoverGroupReadOnlyEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadOnlyEndpoint) *InstanceFailoverGroupReadOnlyEndpoint {
+	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpoint) *InstanceFailoverGroupReadOnlyEndpoint {
 		return &v
 	}).(InstanceFailoverGroupReadOnlyEndpointPtrOutput)
 }
@@ -1247,13 +1211,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) ToInstanceFailoverGroupR
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) Elem() InstanceFailoverGroupReadOnlyEndpointOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) InstanceFailoverGroupReadOnlyEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadOnlyEndpoint
-		return ret
-	}).(InstanceFailoverGroupReadOnlyEndpointOutput)
+	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) InstanceFailoverGroupReadOnlyEndpoint { return *v }).(InstanceFailoverGroupReadOnlyEndpointOutput)
 }
 
 // Failover policy of the read-only endpoint for the failover group.
@@ -1362,7 +1320,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverG
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadOnlyEndpointResponse) *InstanceFailoverGroupReadOnlyEndpointResponse {
+	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpointResponse) *InstanceFailoverGroupReadOnlyEndpointResponse {
 		return &v
 	}).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
@@ -1388,11 +1346,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) ToInstanceFailov
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) Elem() InstanceFailoverGroupReadOnlyEndpointResponseOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpointResponse) InstanceFailoverGroupReadOnlyEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadOnlyEndpointResponse
-		return ret
+		return *v
 	}).(InstanceFailoverGroupReadOnlyEndpointResponseOutput)
 }
 
@@ -1506,7 +1460,7 @@ func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupRea
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpoint) *InstanceFailoverGroupReadWriteEndpoint {
+	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) *InstanceFailoverGroupReadWriteEndpoint {
 		return &v
 	}).(InstanceFailoverGroupReadWriteEndpointPtrOutput)
 }
@@ -1536,13 +1490,7 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) ToInstanceFailoverGroup
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) InstanceFailoverGroupReadWriteEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadWriteEndpoint
-		return ret
-	}).(InstanceFailoverGroupReadWriteEndpointOutput)
+	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) InstanceFailoverGroupReadWriteEndpoint { return *v }).(InstanceFailoverGroupReadWriteEndpointOutput)
 }
 
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -1665,7 +1613,7 @@ func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailover
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpointResponse) *InstanceFailoverGroupReadWriteEndpointResponse {
+	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) *InstanceFailoverGroupReadWriteEndpointResponse {
 		return &v
 	}).(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput)
 }
@@ -1698,11 +1646,7 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) ToInstanceFailo
 
 func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointResponseOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) InstanceFailoverGroupReadWriteEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadWriteEndpointResponse
-		return ret
+		return *v
 	}).(InstanceFailoverGroupReadWriteEndpointResponseOutput)
 }
 
@@ -1737,7 +1681,7 @@ type JobSchedule struct {
 	// Schedule start time.
 	StartTime *string `pulumi:"startTime"`
 	// Schedule interval type
-	Type *JobScheduleType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
@@ -1762,7 +1706,7 @@ type JobScheduleArgs struct {
 	// Schedule start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Schedule interval type
-	Type JobScheduleTypePtrInput `pulumi:"type"`
+	Type *JobScheduleType `pulumi:"type"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -1838,7 +1782,7 @@ func (o JobScheduleOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
 }
 
 func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSchedule) *JobSchedule {
+	return o.ApplyT(func(v JobSchedule) *JobSchedule {
 		return &v
 	}).(JobSchedulePtrOutput)
 }
@@ -1864,8 +1808,8 @@ func (o JobScheduleOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Schedule interval type
-func (o JobScheduleOutput) Type() JobScheduleTypePtrOutput {
-	return o.ApplyT(func(v JobSchedule) *JobScheduleType { return v.Type }).(JobScheduleTypePtrOutput)
+func (o JobScheduleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSchedule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type JobSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -1883,13 +1827,7 @@ func (o JobSchedulePtrOutput) ToJobSchedulePtrOutputWithContext(ctx context.Cont
 }
 
 func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
-	return o.ApplyT(func(v *JobSchedule) JobSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret JobSchedule
-		return ret
-	}).(JobScheduleOutput)
+	return o.ApplyT(func(v *JobSchedule) JobSchedule { return *v }).(JobScheduleOutput)
 }
 
 // Whether or not the schedule is enabled.
@@ -1933,13 +1871,13 @@ func (o JobSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Schedule interval type
-func (o JobSchedulePtrOutput) Type() JobScheduleTypePtrOutput {
-	return o.ApplyT(func(v *JobSchedule) *JobScheduleType {
+func (o JobSchedulePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedule) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(JobScheduleTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Scheduling properties of a job.
@@ -2054,7 +1992,7 @@ func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutput() JobScheduleR
 }
 
 func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutputWithContext(ctx context.Context) JobScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobScheduleResponse) *JobScheduleResponse {
+	return o.ApplyT(func(v JobScheduleResponse) *JobScheduleResponse {
 		return &v
 	}).(JobScheduleResponsePtrOutput)
 }
@@ -2099,13 +2037,7 @@ func (o JobScheduleResponsePtrOutput) ToJobScheduleResponsePtrOutputWithContext(
 }
 
 func (o JobScheduleResponsePtrOutput) Elem() JobScheduleResponseOutput {
-	return o.ApplyT(func(v *JobScheduleResponse) JobScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobScheduleResponse
-		return ret
-	}).(JobScheduleResponseOutput)
+	return o.ApplyT(func(v *JobScheduleResponse) JobScheduleResponse { return *v }).(JobScheduleResponseOutput)
 }
 
 // Whether or not the schedule is enabled.
@@ -2262,7 +2194,7 @@ func (o JobStepActionOutput) ToJobStepActionPtrOutput() JobStepActionPtrOutput {
 }
 
 func (o JobStepActionOutput) ToJobStepActionPtrOutputWithContext(ctx context.Context) JobStepActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepAction) *JobStepAction {
+	return o.ApplyT(func(v JobStepAction) *JobStepAction {
 		return &v
 	}).(JobStepActionPtrOutput)
 }
@@ -2297,13 +2229,7 @@ func (o JobStepActionPtrOutput) ToJobStepActionPtrOutputWithContext(ctx context.
 }
 
 func (o JobStepActionPtrOutput) Elem() JobStepActionOutput {
-	return o.ApplyT(func(v *JobStepAction) JobStepAction {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepAction
-		return ret
-	}).(JobStepActionOutput)
+	return o.ApplyT(func(v *JobStepAction) JobStepAction { return *v }).(JobStepActionOutput)
 }
 
 // The source of the action to execute.
@@ -2440,7 +2366,7 @@ func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutput() JobStepA
 }
 
 func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutputWithContext(ctx context.Context) JobStepActionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepActionResponse) *JobStepActionResponse {
+	return o.ApplyT(func(v JobStepActionResponse) *JobStepActionResponse {
 		return &v
 	}).(JobStepActionResponsePtrOutput)
 }
@@ -2475,13 +2401,7 @@ func (o JobStepActionResponsePtrOutput) ToJobStepActionResponsePtrOutputWithCont
 }
 
 func (o JobStepActionResponsePtrOutput) Elem() JobStepActionResponseOutput {
-	return o.ApplyT(func(v *JobStepActionResponse) JobStepActionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepActionResponse
-		return ret
-	}).(JobStepActionResponseOutput)
+	return o.ApplyT(func(v *JobStepActionResponse) JobStepActionResponse { return *v }).(JobStepActionResponseOutput)
 }
 
 // The source of the action to execute.
@@ -2626,7 +2546,7 @@ func (o JobStepExecutionOptionsOutput) ToJobStepExecutionOptionsPtrOutput() JobS
 }
 
 func (o JobStepExecutionOptionsOutput) ToJobStepExecutionOptionsPtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepExecutionOptions) *JobStepExecutionOptions {
+	return o.ApplyT(func(v JobStepExecutionOptions) *JobStepExecutionOptions {
 		return &v
 	}).(JobStepExecutionOptionsPtrOutput)
 }
@@ -2671,13 +2591,7 @@ func (o JobStepExecutionOptionsPtrOutput) ToJobStepExecutionOptionsPtrOutputWith
 }
 
 func (o JobStepExecutionOptionsPtrOutput) Elem() JobStepExecutionOptionsOutput {
-	return o.ApplyT(func(v *JobStepExecutionOptions) JobStepExecutionOptions {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepExecutionOptions
-		return ret
-	}).(JobStepExecutionOptionsOutput)
+	return o.ApplyT(func(v *JobStepExecutionOptions) JobStepExecutionOptions { return *v }).(JobStepExecutionOptionsOutput)
 }
 
 // Initial delay between retries for job step execution.
@@ -2842,7 +2756,7 @@ func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponse
 }
 
 func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponsePtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepExecutionOptionsResponse) *JobStepExecutionOptionsResponse {
+	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *JobStepExecutionOptionsResponse {
 		return &v
 	}).(JobStepExecutionOptionsResponsePtrOutput)
 }
@@ -2887,13 +2801,7 @@ func (o JobStepExecutionOptionsResponsePtrOutput) ToJobStepExecutionOptionsRespo
 }
 
 func (o JobStepExecutionOptionsResponsePtrOutput) Elem() JobStepExecutionOptionsResponseOutput {
-	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) JobStepExecutionOptionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepExecutionOptionsResponse
-		return ret
-	}).(JobStepExecutionOptionsResponseOutput)
+	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) JobStepExecutionOptionsResponse { return *v }).(JobStepExecutionOptionsResponseOutput)
 }
 
 // Initial delay between retries for job step execution.
@@ -3070,7 +2978,7 @@ func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutput() JobStepOutputTyp
 }
 
 func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutputWithContext(ctx context.Context) JobStepOutputTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputType) *JobStepOutputType {
+	return o.ApplyT(func(v JobStepOutputType) *JobStepOutputType {
 		return &v
 	}).(JobStepOutputTypePtrOutput)
 }
@@ -3130,13 +3038,7 @@ func (o JobStepOutputTypePtrOutput) ToJobStepOutputTypePtrOutputWithContext(ctx 
 }
 
 func (o JobStepOutputTypePtrOutput) Elem() JobStepOutputTypeOutput {
-	return o.ApplyT(func(v *JobStepOutputType) JobStepOutputType {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepOutputType
-		return ret
-	}).(JobStepOutputTypeOutput)
+	return o.ApplyT(func(v *JobStepOutputType) JobStepOutputType { return *v }).(JobStepOutputTypeOutput)
 }
 
 // The resource ID of the credential to use to connect to the output destination.
@@ -3343,7 +3245,7 @@ func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutput() JobStepO
 }
 
 func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutputWithContext(ctx context.Context) JobStepOutputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputResponse) *JobStepOutputResponse {
+	return o.ApplyT(func(v JobStepOutputResponse) *JobStepOutputResponse {
 		return &v
 	}).(JobStepOutputResponsePtrOutput)
 }
@@ -3403,13 +3305,7 @@ func (o JobStepOutputResponsePtrOutput) ToJobStepOutputResponsePtrOutputWithCont
 }
 
 func (o JobStepOutputResponsePtrOutput) Elem() JobStepOutputResponseOutput {
-	return o.ApplyT(func(v *JobStepOutputResponse) JobStepOutputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JobStepOutputResponse
-		return ret
-	}).(JobStepOutputResponseOutput)
+	return o.ApplyT(func(v *JobStepOutputResponse) JobStepOutputResponse { return *v }).(JobStepOutputResponseOutput)
 }
 
 // The resource ID of the credential to use to connect to the output destination.
@@ -3499,7 +3395,7 @@ type JobTarget struct {
 	// The target elastic pool name.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
+	MembershipType *string `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential *string `pulumi:"refreshCredential"`
 	// The target server name.
@@ -3528,7 +3424,7 @@ type JobTargetArgs struct {
 	// The target elastic pool name.
 	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType JobTargetGroupMembershipTypePtrInput `pulumi:"membershipType"`
+	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
 	// The target server name.
@@ -3602,8 +3498,8 @@ func (o JobTargetOutput) ElasticPoolName() pulumi.StringPtrOutput {
 }
 
 // Whether the target is included or excluded from the group.
-func (o JobTargetOutput) MembershipType() JobTargetGroupMembershipTypePtrOutput {
-	return o.ApplyT(func(v JobTarget) *JobTargetGroupMembershipType { return v.MembershipType }).(JobTargetGroupMembershipTypePtrOutput)
+func (o JobTargetOutput) MembershipType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTarget) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
 }
 
 // The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
@@ -3916,7 +3812,7 @@ func (o ManagedInstanceExternalAdministratorOutput) ToManagedInstanceExternalAdm
 }
 
 func (o ManagedInstanceExternalAdministratorOutput) ToManagedInstanceExternalAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceExternalAdministratorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceExternalAdministrator) *ManagedInstanceExternalAdministrator {
+	return o.ApplyT(func(v ManagedInstanceExternalAdministrator) *ManagedInstanceExternalAdministrator {
 		return &v
 	}).(ManagedInstanceExternalAdministratorPtrOutput)
 }
@@ -3966,13 +3862,7 @@ func (o ManagedInstanceExternalAdministratorPtrOutput) ToManagedInstanceExternal
 }
 
 func (o ManagedInstanceExternalAdministratorPtrOutput) Elem() ManagedInstanceExternalAdministratorOutput {
-	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) ManagedInstanceExternalAdministrator {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstanceExternalAdministrator
-		return ret
-	}).(ManagedInstanceExternalAdministratorOutput)
+	return o.ApplyT(func(v *ManagedInstanceExternalAdministrator) ManagedInstanceExternalAdministrator { return *v }).(ManagedInstanceExternalAdministratorOutput)
 }
 
 // Type of the sever administrator.
@@ -4151,7 +4041,7 @@ func (o ManagedInstanceExternalAdministratorResponseOutput) ToManagedInstanceExt
 }
 
 func (o ManagedInstanceExternalAdministratorResponseOutput) ToManagedInstanceExternalAdministratorResponsePtrOutputWithContext(ctx context.Context) ManagedInstanceExternalAdministratorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceExternalAdministratorResponse) *ManagedInstanceExternalAdministratorResponse {
+	return o.ApplyT(func(v ManagedInstanceExternalAdministratorResponse) *ManagedInstanceExternalAdministratorResponse {
 		return &v
 	}).(ManagedInstanceExternalAdministratorResponsePtrOutput)
 }
@@ -4202,11 +4092,7 @@ func (o ManagedInstanceExternalAdministratorResponsePtrOutput) ToManagedInstance
 
 func (o ManagedInstanceExternalAdministratorResponsePtrOutput) Elem() ManagedInstanceExternalAdministratorResponseOutput {
 	return o.ApplyT(func(v *ManagedInstanceExternalAdministratorResponse) ManagedInstanceExternalAdministratorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstanceExternalAdministratorResponse
-		return ret
+		return *v
 	}).(ManagedInstanceExternalAdministratorResponseOutput)
 }
 
@@ -4769,7 +4655,7 @@ func (o ManagedInstancePrivateEndpointPropertyOutput) ToManagedInstancePrivateEn
 }
 
 func (o ManagedInstancePrivateEndpointPropertyOutput) ToManagedInstancePrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstancePrivateEndpointProperty) *ManagedInstancePrivateEndpointProperty {
+	return o.ApplyT(func(v ManagedInstancePrivateEndpointProperty) *ManagedInstancePrivateEndpointProperty {
 		return &v
 	}).(ManagedInstancePrivateEndpointPropertyPtrOutput)
 }
@@ -4794,13 +4680,7 @@ func (o ManagedInstancePrivateEndpointPropertyPtrOutput) ToManagedInstancePrivat
 }
 
 func (o ManagedInstancePrivateEndpointPropertyPtrOutput) Elem() ManagedInstancePrivateEndpointPropertyOutput {
-	return o.ApplyT(func(v *ManagedInstancePrivateEndpointProperty) ManagedInstancePrivateEndpointProperty {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstancePrivateEndpointProperty
-		return ret
-	}).(ManagedInstancePrivateEndpointPropertyOutput)
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointProperty) ManagedInstancePrivateEndpointProperty { return *v }).(ManagedInstancePrivateEndpointPropertyOutput)
 }
 
 // Resource id of the private endpoint.
@@ -4906,7 +4786,7 @@ func (o ManagedInstancePrivateEndpointPropertyResponseOutput) ToManagedInstanceP
 }
 
 func (o ManagedInstancePrivateEndpointPropertyResponseOutput) ToManagedInstancePrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstancePrivateEndpointPropertyResponse) *ManagedInstancePrivateEndpointPropertyResponse {
+	return o.ApplyT(func(v ManagedInstancePrivateEndpointPropertyResponse) *ManagedInstancePrivateEndpointPropertyResponse {
 		return &v
 	}).(ManagedInstancePrivateEndpointPropertyResponsePtrOutput)
 }
@@ -4932,11 +4812,7 @@ func (o ManagedInstancePrivateEndpointPropertyResponsePtrOutput) ToManagedInstan
 
 func (o ManagedInstancePrivateEndpointPropertyResponsePtrOutput) Elem() ManagedInstancePrivateEndpointPropertyResponseOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateEndpointPropertyResponse) ManagedInstancePrivateEndpointPropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstancePrivateEndpointPropertyResponse
-		return ret
+		return *v
 	}).(ManagedInstancePrivateEndpointPropertyResponseOutput)
 }
 
@@ -5047,7 +4923,7 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput) ToManage
 }
 
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstancePrivateLinkServiceConnectionStateProperty) *ManagedInstancePrivateLinkServiceConnectionStateProperty {
+	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStateProperty) *ManagedInstancePrivateLinkServiceConnectionStateProperty {
 		return &v
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
@@ -5078,11 +4954,7 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) ToMan
 
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStateProperty) ManagedInstancePrivateLinkServiceConnectionStateProperty {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstancePrivateLinkServiceConnectionStateProperty
-		return ret
+		return *v
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput)
 }
 
@@ -5207,7 +5079,7 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput) 
 }
 
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse {
+	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse {
 		return &v
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
@@ -5245,11 +5117,7 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutpu
 
 func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse) ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse
-		return ret
+		return *v
 	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
@@ -5880,7 +5748,7 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutput() Priv
 }
 
 func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointProperty) *PrivateEndpointProperty {
+	return o.ApplyT(func(v PrivateEndpointProperty) *PrivateEndpointProperty {
 		return &v
 	}).(PrivateEndpointPropertyPtrOutput)
 }
@@ -5905,13 +5773,7 @@ func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutputWith
 }
 
 func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
-	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointProperty
-		return ret
-	}).(PrivateEndpointPropertyOutput)
+	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty { return *v }).(PrivateEndpointPropertyOutput)
 }
 
 // Resource id of the private endpoint.
@@ -6017,7 +5879,7 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 }
 
 func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
+	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
 		return &v
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
@@ -6042,13 +5904,7 @@ func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyRespo
 }
 
 func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointPropertyResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointPropertyResponse
-		return ret
-	}).(PrivateEndpointPropertyResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse { return *v }).(PrivateEndpointPropertyResponseOutput)
 }
 
 // Resource id of the private endpoint.
@@ -6158,7 +6014,7 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
@@ -6189,11 +6045,7 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) PrivateLinkServiceConnectionStateProperty {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateProperty
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
@@ -6318,7 +6170,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
@@ -6354,11 +6206,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToPrivateLin
 
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) PrivateLinkServiceConnectionStatePropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStatePropertyResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
@@ -7310,7 +7158,7 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
@@ -7340,13 +7188,7 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentity
-		return ret
-	}).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -7477,7 +7319,7 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
@@ -7517,13 +7359,7 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentityResponse
-		return ret
-	}).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
 }
 
 // The Azure Active Directory principal id.
@@ -7682,7 +7518,7 @@ func (o ServerExternalAdministratorOutput) ToServerExternalAdministratorPtrOutpu
 }
 
 func (o ServerExternalAdministratorOutput) ToServerExternalAdministratorPtrOutputWithContext(ctx context.Context) ServerExternalAdministratorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerExternalAdministrator) *ServerExternalAdministrator {
+	return o.ApplyT(func(v ServerExternalAdministrator) *ServerExternalAdministrator {
 		return &v
 	}).(ServerExternalAdministratorPtrOutput)
 }
@@ -7732,13 +7568,7 @@ func (o ServerExternalAdministratorPtrOutput) ToServerExternalAdministratorPtrOu
 }
 
 func (o ServerExternalAdministratorPtrOutput) Elem() ServerExternalAdministratorOutput {
-	return o.ApplyT(func(v *ServerExternalAdministrator) ServerExternalAdministrator {
-		if v != nil {
-			return *v
-		}
-		var ret ServerExternalAdministrator
-		return ret
-	}).(ServerExternalAdministratorOutput)
+	return o.ApplyT(func(v *ServerExternalAdministrator) ServerExternalAdministrator { return *v }).(ServerExternalAdministratorOutput)
 }
 
 // Type of the sever administrator.
@@ -7917,7 +7747,7 @@ func (o ServerExternalAdministratorResponseOutput) ToServerExternalAdministrator
 }
 
 func (o ServerExternalAdministratorResponseOutput) ToServerExternalAdministratorResponsePtrOutputWithContext(ctx context.Context) ServerExternalAdministratorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerExternalAdministratorResponse) *ServerExternalAdministratorResponse {
+	return o.ApplyT(func(v ServerExternalAdministratorResponse) *ServerExternalAdministratorResponse {
 		return &v
 	}).(ServerExternalAdministratorResponsePtrOutput)
 }
@@ -7967,13 +7797,7 @@ func (o ServerExternalAdministratorResponsePtrOutput) ToServerExternalAdministra
 }
 
 func (o ServerExternalAdministratorResponsePtrOutput) Elem() ServerExternalAdministratorResponseOutput {
-	return o.ApplyT(func(v *ServerExternalAdministratorResponse) ServerExternalAdministratorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerExternalAdministratorResponse
-		return ret
-	}).(ServerExternalAdministratorResponseOutput)
+	return o.ApplyT(func(v *ServerExternalAdministratorResponse) ServerExternalAdministratorResponse { return *v }).(ServerExternalAdministratorResponseOutput)
 }
 
 // Type of the sever administrator.
@@ -8459,7 +8283,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -8504,13 +8328,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Capacity of the particular SKU.
@@ -8675,7 +8493,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -8720,13 +8538,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Capacity of the particular SKU.
@@ -8879,7 +8691,7 @@ func (o SyncGroupSchemaOutput) ToSyncGroupSchemaPtrOutput() SyncGroupSchemaPtrOu
 }
 
 func (o SyncGroupSchemaOutput) ToSyncGroupSchemaPtrOutputWithContext(ctx context.Context) SyncGroupSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroupSchema) *SyncGroupSchema {
+	return o.ApplyT(func(v SyncGroupSchema) *SyncGroupSchema {
 		return &v
 	}).(SyncGroupSchemaPtrOutput)
 }
@@ -8909,13 +8721,7 @@ func (o SyncGroupSchemaPtrOutput) ToSyncGroupSchemaPtrOutputWithContext(ctx cont
 }
 
 func (o SyncGroupSchemaPtrOutput) Elem() SyncGroupSchemaOutput {
-	return o.ApplyT(func(v *SyncGroupSchema) SyncGroupSchema {
-		if v != nil {
-			return *v
-		}
-		var ret SyncGroupSchema
-		return ret
-	}).(SyncGroupSchemaOutput)
+	return o.ApplyT(func(v *SyncGroupSchema) SyncGroupSchema { return *v }).(SyncGroupSchemaOutput)
 }
 
 // Name of master sync member where the schema is from.
@@ -9038,7 +8844,7 @@ func (o SyncGroupSchemaResponseOutput) ToSyncGroupSchemaResponsePtrOutput() Sync
 }
 
 func (o SyncGroupSchemaResponseOutput) ToSyncGroupSchemaResponsePtrOutputWithContext(ctx context.Context) SyncGroupSchemaResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroupSchemaResponse) *SyncGroupSchemaResponse {
+	return o.ApplyT(func(v SyncGroupSchemaResponse) *SyncGroupSchemaResponse {
 		return &v
 	}).(SyncGroupSchemaResponsePtrOutput)
 }
@@ -9068,13 +8874,7 @@ func (o SyncGroupSchemaResponsePtrOutput) ToSyncGroupSchemaResponsePtrOutputWith
 }
 
 func (o SyncGroupSchemaResponsePtrOutput) Elem() SyncGroupSchemaResponseOutput {
-	return o.ApplyT(func(v *SyncGroupSchemaResponse) SyncGroupSchemaResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SyncGroupSchemaResponse
-		return ret
-	}).(SyncGroupSchemaResponseOutput)
+	return o.ApplyT(func(v *SyncGroupSchemaResponse) SyncGroupSchemaResponse { return *v }).(SyncGroupSchemaResponseOutput)
 }
 
 // Name of master sync member where the schema is from.
@@ -9667,7 +9467,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -9717,13 +9517,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -9999,7 +9793,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAs
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAssessmentRecurringScansPropertiesPtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
@@ -10035,11 +9829,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) ToVulnerabilit
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) VulnerabilityAssessmentRecurringScansProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VulnerabilityAssessmentRecurringScansProperties
-		return ret
+		return *v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesOutput)
 }
 
@@ -10177,7 +9967,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
@@ -10215,11 +10005,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) ToVuln
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) VulnerabilityAssessmentRecurringScansPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VulnerabilityAssessmentRecurringScansPropertiesResponse
-		return ret
+		return *v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
 }
 

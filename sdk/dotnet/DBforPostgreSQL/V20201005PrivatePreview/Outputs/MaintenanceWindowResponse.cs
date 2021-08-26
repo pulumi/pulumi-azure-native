@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Maintenance window of a server group.
-    /// </summary>
     [OutputType]
     public sealed class MaintenanceWindowResponse
     {

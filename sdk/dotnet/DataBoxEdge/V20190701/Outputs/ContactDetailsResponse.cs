@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20190701.Outputs
 {
 
-    /// <summary>
-    /// Contains all the contact details of the customer.
-    /// </summary>
     [OutputType]
     public sealed class ContactDetailsResponse
     {

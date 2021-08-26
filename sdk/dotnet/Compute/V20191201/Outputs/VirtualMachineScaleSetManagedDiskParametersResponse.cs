@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20191201.Outputs
 {
 
-    /// <summary>
-    /// Describes the parameters of a ScaleSet managed disk.
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetManagedDiskParametersResponse
     {

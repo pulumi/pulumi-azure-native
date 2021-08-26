@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines load balancer backend address pool properties.
-    /// </summary>
     [OutputType]
     public sealed class LBBackendAddressPoolResourceSettingsResponse
     {

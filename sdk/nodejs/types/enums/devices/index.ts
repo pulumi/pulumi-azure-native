@@ -28,7 +28,6 @@ import * as v20210303preview from "./v20210303preview";
 import * as v20210331 from "./v20210331";
 import * as v20210701 from "./v20210701";
 import * as v20210701preview from "./v20210701preview";
-import * as v20210901preview from "./v20210901preview";
 
 export {
     v20160203,
@@ -57,7 +56,6 @@ export {
     v20210331,
     v20210701,
     v20210701preview,
-    v20210901preview,
 };
 
 export const AccessRights = {

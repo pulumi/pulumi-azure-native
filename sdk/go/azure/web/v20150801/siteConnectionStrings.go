@@ -213,7 +213,9 @@ func (i *SiteConnectionStrings) ToSiteConnectionStringsOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SiteConnectionStringsOutput)
 }
 
-type SiteConnectionStringsOutput struct{ *pulumi.OutputState }
+type SiteConnectionStringsOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteConnectionStringsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteConnectionStrings)(nil))

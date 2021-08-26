@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
-    /// <summary>
-    /// The parameters to provide for the Enterprise Channel.
-    /// </summary>
     [OutputType]
     public sealed class EnterpriseChannelPropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-    /// </summary>
     [OutputType]
     public sealed class AclResponse
     {

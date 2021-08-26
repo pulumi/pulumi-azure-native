@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// The virtual network configuration.
-    /// </summary>
     [OutputType]
     public sealed class ACIServiceResponseResponseVnetConfiguration
     {

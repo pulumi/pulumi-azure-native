@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.V20170601.Outputs
 {
 
-    /// <summary>
-    /// Health Alert Description
-    /// </summary>
     [OutputType]
     public sealed class HealthAlertResponse
     {

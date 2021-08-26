@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Represents a server role group.
-    /// </summary>
     [OutputType]
     public sealed class ServerRoleGroupResponse
     {

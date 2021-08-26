@@ -160,7 +160,9 @@ func (i *OnlineDeployment) ToOnlineDeploymentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OnlineDeploymentOutput)
 }
 
-type OnlineDeploymentOutput struct{ *pulumi.OutputState }
+type OnlineDeploymentOutput struct {
+	*pulumi.OutputState
+}
 
 func (OnlineDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OnlineDeployment)(nil))

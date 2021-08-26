@@ -245,7 +245,9 @@ func (i *ContainerGroup) ToContainerGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupOutput)
 }
 
-type ContainerGroupOutput struct{ *pulumi.OutputState }
+type ContainerGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ContainerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerGroup)(nil))

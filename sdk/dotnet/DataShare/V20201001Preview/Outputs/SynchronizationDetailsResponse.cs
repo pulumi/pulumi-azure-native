@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20201001Preview.Outputs
 {
 
-    /// <summary>
-    /// Synchronization details at data set level
-    /// </summary>
     [OutputType]
     public sealed class SynchronizationDetailsResponse
     {

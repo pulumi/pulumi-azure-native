@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Xml dataset.
-    /// </summary>
     [OutputType]
     public sealed class XmlDatasetResponse
     {

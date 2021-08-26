@@ -134,7 +134,9 @@ func (i *PrivateEndpointConnectionsForSCCPowershell) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionsForSCCPowershellOutput)
 }
 
-type PrivateEndpointConnectionsForSCCPowershellOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionsForSCCPowershellOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateEndpointConnectionsForSCCPowershellOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionsForSCCPowershell)(nil))

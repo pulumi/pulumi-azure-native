@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
-    /// <summary>
-    /// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-    /// </summary>
     [OutputType]
     public sealed class TransferConfigurationResponseTransferAllDetails
     {

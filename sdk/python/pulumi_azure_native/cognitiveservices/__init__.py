@@ -16,12 +16,9 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cognitiveservices.v20160201preview as __v20160201preview
-    v20160201preview = __v20160201preview
-    import pulumi_azure_native.cognitiveservices.v20170418 as __v20170418
-    v20170418 = __v20170418
-    import pulumi_azure_native.cognitiveservices.v20210430 as __v20210430
-    v20210430 = __v20210430
+    import pulumi_azure_native.cognitiveservices.v20160201preview as v20160201preview
+    import pulumi_azure_native.cognitiveservices.v20170418 as v20170418
+    import pulumi_azure_native.cognitiveservices.v20210430 as v20210430
 else:
     v20160201preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20160201preview')
     v20170418 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20170418')

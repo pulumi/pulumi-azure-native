@@ -151,7 +151,9 @@ func (i *SqlServerRegistration) ToSqlServerRegistrationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerRegistrationOutput)
 }
 
-type SqlServerRegistrationOutput struct{ *pulumi.OutputState }
+type SqlServerRegistrationOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlServerRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServerRegistration)(nil))

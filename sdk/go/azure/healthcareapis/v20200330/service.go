@@ -40,9 +40,6 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Kind == nil {
-		return nil, errors.New("invalid value for required argument 'Kind'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -125,7 +122,7 @@ type serviceArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
-	Kind Kind `pulumi:"kind"`
+	Kind string `pulumi:"kind"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The common properties of a service.
@@ -145,7 +142,7 @@ type ServiceArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.
-	Kind KindInput
+	Kind Kind
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The common properties of a service.
@@ -181,7 +178,9 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct{ *pulumi.OutputState }
+type ServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

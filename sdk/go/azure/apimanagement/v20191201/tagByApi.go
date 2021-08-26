@@ -176,7 +176,9 @@ func (i *TagByApi) ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TagByApiOutput)
 }
 
-type TagByApiOutput struct{ *pulumi.OutputState }
+type TagByApiOutput struct {
+	*pulumi.OutputState
+}
 
 func (TagByApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagByApi)(nil))

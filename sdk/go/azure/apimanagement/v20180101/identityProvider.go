@@ -231,7 +231,9 @@ func (i *IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderOutput)
 }
 
-type IdentityProviderOutput struct{ *pulumi.OutputState }
+type IdentityProviderOutput struct {
+	*pulumi.OutputState
+}
 
 func (IdentityProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IdentityProvider)(nil))

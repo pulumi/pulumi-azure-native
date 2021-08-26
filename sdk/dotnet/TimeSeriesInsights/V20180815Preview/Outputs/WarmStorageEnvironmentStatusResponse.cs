@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview.Outputs
 {
 
-    /// <summary>
-    /// An object that represents the status of warm storage on an environment.
-    /// </summary>
     [OutputType]
     public sealed class WarmStorageEnvironmentStatusResponse
     {

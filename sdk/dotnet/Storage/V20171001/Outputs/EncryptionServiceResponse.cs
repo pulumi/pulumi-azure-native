@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20171001.Outputs
 {
 
-    /// <summary>
-    /// A service that allows server-side encryption to be used.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionServiceResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20170401.Outputs
 {
 
-    /// <summary>
-    /// A pointer to an Azure Action Group.
-    /// </summary>
     [OutputType]
     public sealed class ActivityLogAlertActionGroupResponse
     {

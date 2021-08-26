@@ -119,7 +119,7 @@ type accessPolicyArgs struct {
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of roles the principal is assigned on the environment.
-	Roles []AccessPolicyRole `pulumi:"roles"`
+	Roles []string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
@@ -161,7 +161,9 @@ func (i *AccessPolicy) ToAccessPolicyOutputWithContext(ctx context.Context) Acce
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
 }
 
-type AccessPolicyOutput struct{ *pulumi.OutputState }
+type AccessPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (AccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessPolicy)(nil))

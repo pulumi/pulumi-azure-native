@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ChangeAnalysis.V20200401Preview.Outputs
 {
 
-    /// <summary>
-    /// The identity block returned by ARM resource that supports managed identity.
-    /// </summary>
     [OutputType]
     public sealed class ResourceIdentityResponse
     {

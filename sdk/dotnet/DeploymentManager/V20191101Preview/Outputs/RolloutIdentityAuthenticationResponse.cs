@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Outputs
 {
 
-    /// <summary>
-    /// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
-    /// </summary>
     [OutputType]
     public sealed class RolloutIdentityAuthenticationResponse
     {

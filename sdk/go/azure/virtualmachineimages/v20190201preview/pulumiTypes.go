@@ -271,7 +271,7 @@ func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusRe
 }
 
 func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateLastRunStatusResponse) *ImageTemplateLastRunStatusResponse {
+	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *ImageTemplateLastRunStatusResponse {
 		return &v
 	}).(ImageTemplateLastRunStatusResponsePtrOutput)
 }
@@ -316,13 +316,7 @@ func (o ImageTemplateLastRunStatusResponsePtrOutput) ToImageTemplateLastRunStatu
 }
 
 func (o ImageTemplateLastRunStatusResponsePtrOutput) Elem() ImageTemplateLastRunStatusResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) ImageTemplateLastRunStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ImageTemplateLastRunStatusResponse
-		return ret
-	}).(ImageTemplateLastRunStatusResponseOutput)
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) ImageTemplateLastRunStatusResponse { return *v }).(ImageTemplateLastRunStatusResponseOutput)
 }
 
 // End time of the last run (UTC)
@@ -1862,7 +1856,7 @@ func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutput() 
 }
 
 func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ProvisioningErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningErrorResponse) *ProvisioningErrorResponse {
+	return o.ApplyT(func(v ProvisioningErrorResponse) *ProvisioningErrorResponse {
 		return &v
 	}).(ProvisioningErrorResponsePtrOutput)
 }
@@ -1892,13 +1886,7 @@ func (o ProvisioningErrorResponsePtrOutput) ToProvisioningErrorResponsePtrOutput
 }
 
 func (o ProvisioningErrorResponsePtrOutput) Elem() ProvisioningErrorResponseOutput {
-	return o.ApplyT(func(v *ProvisioningErrorResponse) ProvisioningErrorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ProvisioningErrorResponse
-		return ret
-	}).(ProvisioningErrorResponseOutput)
+	return o.ApplyT(func(v *ProvisioningErrorResponse) ProvisioningErrorResponse { return *v }).(ProvisioningErrorResponseOutput)
 }
 
 // Verbose error message about the provisioning failure

@@ -10,35 +10,13 @@ export * from "./getProtectedItem";
 export * from "./getProtectionContainer";
 export * from "./getProtectionIntent";
 export * from "./getProtectionPolicy";
-export * from "./getReplicationFabric";
-export * from "./getReplicationMigrationItem";
-export * from "./getReplicationNetworkMapping";
-export * from "./getReplicationPolicy";
-export * from "./getReplicationProtectedItem";
-export * from "./getReplicationProtectionContainerMapping";
-export * from "./getReplicationRecoveryPlan";
-export * from "./getReplicationRecoveryServicesProvider";
-export * from "./getReplicationStorageClassificationMapping";
-export * from "./getReplicationvCenter";
 export * from "./getResourceGuardProxy";
-export * from "./getVault";
 export * from "./privateEndpointConnection";
 export * from "./protectedItem";
 export * from "./protectionContainer";
 export * from "./protectionIntent";
 export * from "./protectionPolicy";
-export * from "./replicationFabric";
-export * from "./replicationMigrationItem";
-export * from "./replicationNetworkMapping";
-export * from "./replicationPolicy";
-export * from "./replicationProtectedItem";
-export * from "./replicationProtectionContainerMapping";
-export * from "./replicationRecoveryPlan";
-export * from "./replicationRecoveryServicesProvider";
-export * from "./replicationStorageClassificationMapping";
-export * from "./replicationvCenter";
 export * from "./resourceGuardProxy";
-export * from "./vault";
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20210701";
@@ -49,18 +27,7 @@ import { ProtectedItem } from "./protectedItem";
 import { ProtectionContainer } from "./protectionContainer";
 import { ProtectionIntent } from "./protectionIntent";
 import { ProtectionPolicy } from "./protectionPolicy";
-import { ReplicationFabric } from "./replicationFabric";
-import { ReplicationMigrationItem } from "./replicationMigrationItem";
-import { ReplicationNetworkMapping } from "./replicationNetworkMapping";
-import { ReplicationPolicy } from "./replicationPolicy";
-import { ReplicationProtectedItem } from "./replicationProtectedItem";
-import { ReplicationProtectionContainerMapping } from "./replicationProtectionContainerMapping";
-import { ReplicationRecoveryPlan } from "./replicationRecoveryPlan";
-import { ReplicationRecoveryServicesProvider } from "./replicationRecoveryServicesProvider";
-import { ReplicationStorageClassificationMapping } from "./replicationStorageClassificationMapping";
-import { ReplicationvCenter } from "./replicationvCenter";
 import { ResourceGuardProxy } from "./resourceGuardProxy";
-import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),
@@ -76,30 +43,8 @@ const _module = {
                 return new ProtectionIntent(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20210701:ProtectionPolicy":
                 return new ProtectionPolicy(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationFabric":
-                return new ReplicationFabric(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationMigrationItem":
-                return new ReplicationMigrationItem(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationNetworkMapping":
-                return new ReplicationNetworkMapping(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationPolicy":
-                return new ReplicationPolicy(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationProtectedItem":
-                return new ReplicationProtectedItem(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationProtectionContainerMapping":
-                return new ReplicationProtectionContainerMapping(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan":
-                return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationRecoveryServicesProvider":
-                return new ReplicationRecoveryServicesProvider(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationStorageClassificationMapping":
-                return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:ReplicationvCenter":
-                return new ReplicationvCenter(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20210701:ResourceGuardProxy":
                 return new ResourceGuardProxy(name, <any>undefined, { urn })
-            case "azure-native:recoveryservices/v20210701:Vault":
-                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

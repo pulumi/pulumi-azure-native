@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160601.Outputs
 {
 
-    /// <summary>
-    /// The backup policy for the file or folder container.
-    /// </summary>
     [OutputType]
     public sealed class MabProtectionPolicyResponse
     {

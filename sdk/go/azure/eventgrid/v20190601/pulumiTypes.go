@@ -416,7 +416,7 @@ func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutput() Even
 }
 
 func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilter) *EventSubscriptionFilter {
+	return o.ApplyT(func(v EventSubscriptionFilter) *EventSubscriptionFilter {
 		return &v
 	}).(EventSubscriptionFilterPtrOutput)
 }
@@ -465,13 +465,7 @@ func (o EventSubscriptionFilterPtrOutput) ToEventSubscriptionFilterPtrOutputWith
 }
 
 func (o EventSubscriptionFilterPtrOutput) Elem() EventSubscriptionFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter {
-		if v != nil {
-			return *v
-		}
-		var ret EventSubscriptionFilter
-		return ret
-	}).(EventSubscriptionFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter { return *v }).(EventSubscriptionFilterOutput)
 }
 
 // An array of advanced filters that are used for filtering event subscriptions.
@@ -648,7 +642,7 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 }
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
+	return o.ApplyT(func(v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
 		return &v
 	}).(EventSubscriptionFilterResponsePtrOutput)
 }
@@ -697,13 +691,7 @@ func (o EventSubscriptionFilterResponsePtrOutput) ToEventSubscriptionFilterRespo
 }
 
 func (o EventSubscriptionFilterResponsePtrOutput) Elem() EventSubscriptionFilterResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EventSubscriptionFilterResponse
-		return ret
-	}).(EventSubscriptionFilterResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse { return *v }).(EventSubscriptionFilterResponseOutput)
 }
 
 // An array of advanced filters that are used for filtering event subscriptions.
@@ -1906,7 +1894,7 @@ func (o RetryPolicyOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
 }
 
 func (o RetryPolicyOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicy) *RetryPolicy {
+	return o.ApplyT(func(v RetryPolicy) *RetryPolicy {
 		return &v
 	}).(RetryPolicyPtrOutput)
 }
@@ -1936,13 +1924,7 @@ func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func (o RetryPolicyPtrOutput) Elem() RetryPolicyOutput {
-	return o.ApplyT(func(v *RetryPolicy) RetryPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RetryPolicy
-		return ret
-	}).(RetryPolicyOutput)
+	return o.ApplyT(func(v *RetryPolicy) RetryPolicy { return *v }).(RetryPolicyOutput)
 }
 
 // Time To Live (in minutes) for events.
@@ -2065,7 +2047,7 @@ func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutput() RetryPolicyR
 }
 
 func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicyResponse) *RetryPolicyResponse {
+	return o.ApplyT(func(v RetryPolicyResponse) *RetryPolicyResponse {
 		return &v
 	}).(RetryPolicyResponsePtrOutput)
 }
@@ -2095,13 +2077,7 @@ func (o RetryPolicyResponsePtrOutput) ToRetryPolicyResponsePtrOutputWithContext(
 }
 
 func (o RetryPolicyResponsePtrOutput) Elem() RetryPolicyResponseOutput {
-	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RetryPolicyResponse
-		return ret
-	}).(RetryPolicyResponseOutput)
+	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse { return *v }).(RetryPolicyResponseOutput)
 }
 
 // Time To Live (in minutes) for events.
@@ -2364,7 +2340,7 @@ func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinati
 }
 
 func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
 		return &v
 	}).(StorageBlobDeadLetterDestinationPtrOutput)
 }
@@ -2400,13 +2376,7 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) ToStorageBlobDeadLetterDestin
 }
 
 func (o StorageBlobDeadLetterDestinationPtrOutput) Elem() StorageBlobDeadLetterDestinationOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination {
-		if v != nil {
-			return *v
-		}
-		var ret StorageBlobDeadLetterDestination
-		return ret
-	}).(StorageBlobDeadLetterDestinationOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination { return *v }).(StorageBlobDeadLetterDestinationOutput)
 }
 
 // The name of the Storage blob container that is the destination of the deadletter events
@@ -2546,7 +2516,7 @@ func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterD
 }
 
 func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
 		return &v
 	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
@@ -2582,13 +2552,7 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ToStorageBlobDeadLett
 }
 
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) Elem() StorageBlobDeadLetterDestinationResponseOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageBlobDeadLetterDestinationResponse
-		return ret
-	}).(StorageBlobDeadLetterDestinationResponseOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse { return *v }).(StorageBlobDeadLetterDestinationResponseOutput)
 }
 
 // The name of the Storage blob container that is the destination of the deadletter events

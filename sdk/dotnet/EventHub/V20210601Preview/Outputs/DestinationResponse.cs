@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Capture storage details for capture description
-    /// </summary>
     [OutputType]
     public sealed class DestinationResponse
     {

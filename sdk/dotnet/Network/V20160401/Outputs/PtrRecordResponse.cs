@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160401.Outputs
 {
 
-    /// <summary>
-    /// A PTR record.
-    /// </summary>
     [OutputType]
     public sealed class PtrRecordResponse
     {

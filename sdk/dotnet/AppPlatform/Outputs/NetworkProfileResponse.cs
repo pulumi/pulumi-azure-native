@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.Outputs
 {
 
-    /// <summary>
-    /// Service network profile payload
-    /// </summary>
     [OutputType]
     public sealed class NetworkProfileResponse
     {

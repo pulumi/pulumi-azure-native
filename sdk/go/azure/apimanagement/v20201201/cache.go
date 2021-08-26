@@ -185,7 +185,9 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
 }
 
-type CacheOutput struct{ *pulumi.OutputState }
+type CacheOutput struct {
+	*pulumi.OutputState
+}
 
 func (CacheOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cache)(nil))

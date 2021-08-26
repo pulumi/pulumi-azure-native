@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Custom activity type.
-    /// </summary>
     [OutputType]
     public sealed class CustomActivityResponse
     {

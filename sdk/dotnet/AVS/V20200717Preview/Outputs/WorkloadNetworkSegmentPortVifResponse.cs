@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20200717Preview.Outputs
 {
 
-    /// <summary>
-    /// Ports and any VIF attached to segment.
-    /// </summary>
     [OutputType]
     public sealed class WorkloadNetworkSegmentPortVifResponse
     {

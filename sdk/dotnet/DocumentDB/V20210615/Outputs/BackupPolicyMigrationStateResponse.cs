@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210615.Outputs
 {
 
-    /// <summary>
-    /// The object representing the state of the migration between the backup policies.
-    /// </summary>
     [OutputType]
     public sealed class BackupPolicyMigrationStateResponse
     {

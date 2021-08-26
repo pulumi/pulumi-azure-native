@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20201101.Outputs
 {
 
-    /// <summary>
-    /// Load balancer backend addresses.
-    /// </summary>
     [OutputType]
     public sealed class LoadBalancerBackendAddressResponse
     {

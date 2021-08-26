@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Details of the Credentials used to connect to Backend.
-    /// </summary>
     [OutputType]
     public sealed class BackendCredentialsContractResponse
     {

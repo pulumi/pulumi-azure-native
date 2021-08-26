@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20190601.Outputs
 {
 
-    /// <summary>
-    /// Group specific to the update configuration.
-    /// </summary>
     [OutputType]
     public sealed class TargetPropertiesResponse
     {

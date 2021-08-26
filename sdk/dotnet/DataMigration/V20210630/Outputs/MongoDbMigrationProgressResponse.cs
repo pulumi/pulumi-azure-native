@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
-    /// <summary>
-    /// Describes the progress of the overall migration
-    /// </summary>
     [OutputType]
     public sealed class MongoDbMigrationProgressResponse
     {

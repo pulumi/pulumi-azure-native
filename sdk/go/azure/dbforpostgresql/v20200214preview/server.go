@@ -161,7 +161,7 @@ type serverArgs struct {
 	// The display name of a server.
 	DisplayName *string `pulumi:"displayName"`
 	// stand by count value can be either enabled or disabled
-	HaEnabled *HAEnabledEnum `pulumi:"haEnabled"`
+	HaEnabled *string `pulumi:"haEnabled"`
 	// The Azure Active Directory identity of the server.
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -209,7 +209,7 @@ type ServerArgs struct {
 	// The display name of a server.
 	DisplayName pulumi.StringPtrInput
 	// stand by count value can be either enabled or disabled
-	HaEnabled HAEnabledEnumPtrInput
+	HaEnabled *HAEnabledEnum
 	// The Azure Active Directory identity of the server.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
@@ -266,7 +266,9 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
-type ServerOutput struct{ *pulumi.OutputState }
+type ServerOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Server)(nil))

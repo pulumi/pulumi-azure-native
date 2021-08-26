@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The dataset points to a HTML table in the web page.
-    /// </summary>
     [OutputType]
     public sealed class WebTableDatasetResponse
     {

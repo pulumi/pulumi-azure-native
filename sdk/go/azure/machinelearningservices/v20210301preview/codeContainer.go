@@ -130,7 +130,9 @@ func (i *CodeContainer) ToCodeContainerOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(CodeContainerOutput)
 }
 
-type CodeContainerOutput struct{ *pulumi.OutputState }
+type CodeContainerOutput struct {
+	*pulumi.OutputState
+}
 
 func (CodeContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodeContainer)(nil))

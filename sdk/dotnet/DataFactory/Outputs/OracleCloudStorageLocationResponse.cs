@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The location of Oracle Cloud Storage dataset.
-    /// </summary>
     [OutputType]
     public sealed class OracleCloudStorageLocationResponse
     {

@@ -205,7 +205,9 @@ func (i *ApiIssueComment) ToApiIssueCommentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueCommentOutput)
 }
 
-type ApiIssueCommentOutput struct{ *pulumi.OutputState }
+type ApiIssueCommentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiIssueCommentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiIssueComment)(nil))

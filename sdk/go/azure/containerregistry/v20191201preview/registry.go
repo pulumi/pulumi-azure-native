@@ -246,7 +246,9 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryOutput)
 }
 
-type RegistryOutput struct{ *pulumi.OutputState }
+type RegistryOutput struct {
+	*pulumi.OutputState
+}
 
 func (RegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Registry)(nil))

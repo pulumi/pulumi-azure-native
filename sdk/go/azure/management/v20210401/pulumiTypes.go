@@ -106,7 +106,7 @@ func (o CreateManagementGroupDetailsOutput) ToCreateManagementGroupDetailsPtrOut
 }
 
 func (o CreateManagementGroupDetailsOutput) ToCreateManagementGroupDetailsPtrOutputWithContext(ctx context.Context) CreateManagementGroupDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateManagementGroupDetails) *CreateManagementGroupDetails {
+	return o.ApplyT(func(v CreateManagementGroupDetails) *CreateManagementGroupDetails {
 		return &v
 	}).(CreateManagementGroupDetailsPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o CreateManagementGroupDetailsPtrOutput) ToCreateManagementGroupDetailsPtr
 }
 
 func (o CreateManagementGroupDetailsPtrOutput) Elem() CreateManagementGroupDetailsOutput {
-	return o.ApplyT(func(v *CreateManagementGroupDetails) CreateManagementGroupDetails {
-		if v != nil {
-			return *v
-		}
-		var ret CreateManagementGroupDetails
-		return ret
-	}).(CreateManagementGroupDetailsOutput)
+	return o.ApplyT(func(v *CreateManagementGroupDetails) CreateManagementGroupDetails { return *v }).(CreateManagementGroupDetailsOutput)
 }
 
 // (Optional) The ID of the parent management group used during creation.
@@ -246,7 +240,7 @@ func (o CreateParentGroupInfoOutput) ToCreateParentGroupInfoPtrOutput() CreatePa
 }
 
 func (o CreateParentGroupInfoOutput) ToCreateParentGroupInfoPtrOutputWithContext(ctx context.Context) CreateParentGroupInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateParentGroupInfo) *CreateParentGroupInfo {
+	return o.ApplyT(func(v CreateParentGroupInfo) *CreateParentGroupInfo {
 		return &v
 	}).(CreateParentGroupInfoPtrOutput)
 }
@@ -271,13 +265,7 @@ func (o CreateParentGroupInfoPtrOutput) ToCreateParentGroupInfoPtrOutputWithCont
 }
 
 func (o CreateParentGroupInfoPtrOutput) Elem() CreateParentGroupInfoOutput {
-	return o.ApplyT(func(v *CreateParentGroupInfo) CreateParentGroupInfo {
-		if v != nil {
-			return *v
-		}
-		var ret CreateParentGroupInfo
-		return ret
-	}).(CreateParentGroupInfoOutput)
+	return o.ApplyT(func(v *CreateParentGroupInfo) CreateParentGroupInfo { return *v }).(CreateParentGroupInfoOutput)
 }
 
 // The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
@@ -386,7 +374,7 @@ func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResp
 }
 
 func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DescendantParentGroupInfoResponse) *DescendantParentGroupInfoResponse {
+	return o.ApplyT(func(v DescendantParentGroupInfoResponse) *DescendantParentGroupInfoResponse {
 		return &v
 	}).(DescendantParentGroupInfoResponsePtrOutput)
 }
@@ -411,13 +399,7 @@ func (o DescendantParentGroupInfoResponsePtrOutput) ToDescendantParentGroupInfoR
 }
 
 func (o DescendantParentGroupInfoResponsePtrOutput) Elem() DescendantParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *DescendantParentGroupInfoResponse) DescendantParentGroupInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DescendantParentGroupInfoResponse
-		return ret
-	}).(DescendantParentGroupInfoResponseOutput)
+	return o.ApplyT(func(v *DescendantParentGroupInfoResponse) DescendantParentGroupInfoResponse { return *v }).(DescendantParentGroupInfoResponseOutput)
 }
 
 // The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
@@ -731,7 +713,7 @@ func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponsePtrO
 }
 
 func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) EntityParentGroupInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityParentGroupInfoResponse) *EntityParentGroupInfoResponse {
+	return o.ApplyT(func(v EntityParentGroupInfoResponse) *EntityParentGroupInfoResponse {
 		return &v
 	}).(EntityParentGroupInfoResponsePtrOutput)
 }
@@ -756,13 +738,7 @@ func (o EntityParentGroupInfoResponsePtrOutput) ToEntityParentGroupInfoResponseP
 }
 
 func (o EntityParentGroupInfoResponsePtrOutput) Elem() EntityParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *EntityParentGroupInfoResponse) EntityParentGroupInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EntityParentGroupInfoResponse
-		return ret
-	}).(EntityParentGroupInfoResponseOutput)
+	return o.ApplyT(func(v *EntityParentGroupInfoResponse) EntityParentGroupInfoResponse { return *v }).(EntityParentGroupInfoResponseOutput)
 }
 
 // The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
@@ -1031,7 +1007,7 @@ func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePt
 }
 
 func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementGroupDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementGroupDetailsResponse) *ManagementGroupDetailsResponse {
+	return o.ApplyT(func(v ManagementGroupDetailsResponse) *ManagementGroupDetailsResponse {
 		return &v
 	}).(ManagementGroupDetailsResponsePtrOutput)
 }
@@ -1088,13 +1064,7 @@ func (o ManagementGroupDetailsResponsePtrOutput) ToManagementGroupDetailsRespons
 }
 
 func (o ManagementGroupDetailsResponsePtrOutput) Elem() ManagementGroupDetailsResponseOutput {
-	return o.ApplyT(func(v *ManagementGroupDetailsResponse) ManagementGroupDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementGroupDetailsResponse
-		return ret
-	}).(ManagementGroupDetailsResponseOutput)
+	return o.ApplyT(func(v *ManagementGroupDetailsResponse) ManagementGroupDetailsResponse { return *v }).(ManagementGroupDetailsResponseOutput)
 }
 
 // The ancestors of the management group.
@@ -1380,7 +1350,7 @@ func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutput() Pare
 }
 
 func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParentGroupInfoResponse) *ParentGroupInfoResponse {
+	return o.ApplyT(func(v ParentGroupInfoResponse) *ParentGroupInfoResponse {
 		return &v
 	}).(ParentGroupInfoResponsePtrOutput)
 }
@@ -1415,13 +1385,7 @@ func (o ParentGroupInfoResponsePtrOutput) ToParentGroupInfoResponsePtrOutputWith
 }
 
 func (o ParentGroupInfoResponsePtrOutput) Elem() ParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *ParentGroupInfoResponse) ParentGroupInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ParentGroupInfoResponse
-		return ret
-	}).(ParentGroupInfoResponseOutput)
+	return o.ApplyT(func(v *ParentGroupInfoResponse) ParentGroupInfoResponse { return *v }).(ParentGroupInfoResponseOutput)
 }
 
 // The friendly name of the parent management group.

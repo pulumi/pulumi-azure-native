@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Outputs
 {
 
-    /// <summary>
-    /// IsNotNull Advanced Filter.
-    /// </summary>
     [OutputType]
     public sealed class IsNotNullAdvancedFilterResponse
     {

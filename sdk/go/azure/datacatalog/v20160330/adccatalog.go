@@ -166,7 +166,9 @@ func (i *ADCCatalog) ToADCCatalogOutputWithContext(ctx context.Context) ADCCatal
 	return pulumi.ToOutputWithContext(ctx, i).(ADCCatalogOutput)
 }
 
-type ADCCatalogOutput struct{ *pulumi.OutputState }
+type ADCCatalogOutput struct {
+	*pulumi.OutputState
+}
 
 func (ADCCatalogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADCCatalog)(nil))

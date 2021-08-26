@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// An Activity Log Alert rule condition that is met when all its member conditions are met.
-    /// </summary>
     [OutputType]
     public sealed class AlertRuleAllOfConditionResponse
     {

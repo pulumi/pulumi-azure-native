@@ -35,8 +35,6 @@ type SqlPool struct {
 	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// SQL pool SKU
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Specifies the time that the sql pool was deleted
-	SourceDatabaseDeletionDate pulumi.StringPtrOutput `pulumi:"sourceDatabaseDeletionDate"`
 	// Source database to create from
 	SourceDatabaseId pulumi.StringPtrOutput `pulumi:"sourceDatabaseId"`
 	// Resource status
@@ -108,12 +106,6 @@ func NewSqlPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPool"),
 		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210601:SqlPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPool"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlPool
@@ -168,8 +160,6 @@ type sqlPoolArgs struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// SQL pool SKU
 	Sku *Sku `pulumi:"sku"`
-	// Specifies the time that the sql pool was deleted
-	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// Source database to create from
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// SQL pool name
@@ -206,8 +196,6 @@ type SqlPoolArgs struct {
 	RestorePointInTime pulumi.StringPtrInput
 	// SQL pool SKU
 	Sku SkuPtrInput
-	// Specifies the time that the sql pool was deleted
-	SourceDatabaseDeletionDate pulumi.StringPtrInput
 	// Source database to create from
 	SourceDatabaseId pulumi.StringPtrInput
 	// SQL pool name
@@ -245,7 +233,9 @@ func (i *SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolOutput)
 }
 
-type SqlPoolOutput struct{ *pulumi.OutputState }
+type SqlPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPool)(nil))

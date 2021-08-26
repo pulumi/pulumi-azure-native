@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// Private Endpoint Connection For Private Link Hub - Basic
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionForPrivateLinkHubBasicResponse
     {

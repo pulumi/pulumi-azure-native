@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Data type for TAXII connector.
-    /// </summary>
     [OutputType]
     public sealed class TiTaxiiDataConnectorDataTypesResponseTaxiiClient
     {

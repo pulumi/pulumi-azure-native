@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
 {
 
-    /// <summary>
-    /// The Azure Active Directory principal identifier, Azure built-in role, and just-in-time access policy that describes the just-in-time access the principal will receive on the delegated resource in the managed tenant.
-    /// </summary>
     [OutputType]
     public sealed class EligibleAuthorizationResponse
     {

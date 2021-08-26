@@ -206,7 +206,9 @@ func (i *PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerTopicEventSubscriptionOutput)
 }
 
-type PartnerTopicEventSubscriptionOutput struct{ *pulumi.OutputState }
+type PartnerTopicEventSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (PartnerTopicEventSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PartnerTopicEventSubscription)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// The Managed Network Group resource
-    /// </summary>
     [OutputType]
     public sealed class ManagedNetworkGroupResponse
     {

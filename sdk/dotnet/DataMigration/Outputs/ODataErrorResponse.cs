@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Error information in OData format.
-    /// </summary>
     [OutputType]
     public sealed class ODataErrorResponse
     {

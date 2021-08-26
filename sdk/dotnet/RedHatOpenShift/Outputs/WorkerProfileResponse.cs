@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
 {
 
-    /// <summary>
-    /// WorkerProfile represents a worker profile.
-    /// </summary>
     [OutputType]
     public sealed class WorkerProfileResponse
     {

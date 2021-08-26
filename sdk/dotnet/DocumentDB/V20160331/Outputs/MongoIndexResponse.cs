@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20160331.Outputs
 {
 
-    /// <summary>
-    /// Cosmos DB MongoDB collection index key
-    /// </summary>
     [OutputType]
     public sealed class MongoIndexResponse
     {

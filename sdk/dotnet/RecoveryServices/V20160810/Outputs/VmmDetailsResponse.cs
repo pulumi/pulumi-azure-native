@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160810.Outputs
 {
 
-    /// <summary>
-    /// VMM fabric specific details.
-    /// </summary>
     [OutputType]
     public sealed class VmmDetailsResponse
     {

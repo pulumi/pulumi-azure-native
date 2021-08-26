@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.V20190701.Outputs
 {
 
-    /// <summary>
-    /// JIT approver definition.
-    /// </summary>
     [OutputType]
     public sealed class JitApproverDefinitionResponse
     {

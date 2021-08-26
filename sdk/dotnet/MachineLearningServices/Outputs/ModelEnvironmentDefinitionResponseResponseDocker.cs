@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// The definition of a Docker container.
-    /// </summary>
     [OutputType]
     public sealed class ModelEnvironmentDefinitionResponseResponseDocker
     {

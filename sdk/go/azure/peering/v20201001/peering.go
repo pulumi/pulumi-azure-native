@@ -198,7 +198,9 @@ func (i *Peering) ToPeeringOutputWithContext(ctx context.Context) PeeringOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringOutput)
 }
 
-type PeeringOutput struct{ *pulumi.OutputState }
+type PeeringOutput struct {
+	*pulumi.OutputState
+}
 
 func (PeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Peering)(nil))

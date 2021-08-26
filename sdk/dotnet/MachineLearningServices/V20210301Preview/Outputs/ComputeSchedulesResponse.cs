@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// The list of schedules to be applied on the computes
-    /// </summary>
     [OutputType]
     public sealed class ComputeSchedulesResponse
     {

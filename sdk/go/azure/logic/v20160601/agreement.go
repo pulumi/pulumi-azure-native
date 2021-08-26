@@ -50,9 +50,6 @@ func NewAgreement(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AgreementType == nil {
-		return nil, errors.New("invalid value for required argument 'AgreementType'")
-	}
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
@@ -139,7 +136,7 @@ type agreementArgs struct {
 	// The integration account agreement name.
 	AgreementName *string `pulumi:"agreementName"`
 	// The agreement type.
-	AgreementType AgreementType `pulumi:"agreementType"`
+	AgreementType string `pulumi:"agreementType"`
 	// The agreement content.
 	Content AgreementContent `pulumi:"content"`
 	// The business identity of the guest partner.
@@ -167,7 +164,7 @@ type AgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName pulumi.StringPtrInput
 	// The agreement type.
-	AgreementType AgreementTypeInput
+	AgreementType AgreementType
 	// The agreement content.
 	Content AgreementContentInput
 	// The business identity of the guest partner.
@@ -213,7 +210,9 @@ func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementO
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementOutput)
 }
 
-type AgreementOutput struct{ *pulumi.OutputState }
+type AgreementOutput struct {
+	*pulumi.OutputState
+}
 
 func (AgreementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Agreement)(nil))

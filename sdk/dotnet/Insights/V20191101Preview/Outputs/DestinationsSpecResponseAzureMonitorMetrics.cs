@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20191101Preview.Outputs
 {
 
-    /// <summary>
-    /// Azure Monitor Metrics destination.
-    /// </summary>
     [OutputType]
     public sealed class DestinationsSpecResponseAzureMonitorMetrics
     {

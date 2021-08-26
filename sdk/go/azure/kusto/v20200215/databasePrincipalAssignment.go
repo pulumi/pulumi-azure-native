@@ -189,7 +189,9 @@ func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentOutput)
 }
 
-type DatabasePrincipalAssignmentOutput struct{ *pulumi.OutputState }
+type DatabasePrincipalAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabasePrincipalAssignment)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// The Deflate compression method used on a dataset.
-    /// </summary>
     [OutputType]
     public sealed class DatasetDeflateCompressionResponse
     {

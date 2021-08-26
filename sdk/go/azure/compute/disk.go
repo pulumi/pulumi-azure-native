@@ -242,7 +242,7 @@ type diskArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan *PurchasePlan `pulumi:"purchasePlan"`
 	// The name of the resource group.
@@ -296,7 +296,7 @@ type DiskArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
 	PurchasePlan PurchasePlanPtrInput
 	// The name of the resource group.
@@ -338,7 +338,9 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct{ *pulumi.OutputState }
+type DiskOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

@@ -11,7 +11,7 @@ import (
 )
 
 // The lock level of the management lock.
-type LockLevel string
+type LockLevel pulumi.String
 
 const (
 	LockLevelNotSpecified = LockLevel("NotSpecified")
@@ -20,23 +20,7 @@ const (
 )
 
 func (LockLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*LockLevel)(nil)).Elem()
-}
-
-func (e LockLevel) ToLockLevelOutput() LockLevelOutput {
-	return pulumi.ToOutput(e).(LockLevelOutput)
-}
-
-func (e LockLevel) ToLockLevelOutputWithContext(ctx context.Context) LockLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LockLevelOutput)
-}
-
-func (e LockLevel) ToLockLevelPtrOutput() LockLevelPtrOutput {
-	return e.ToLockLevelPtrOutputWithContext(context.Background())
-}
-
-func (e LockLevel) ToLockLevelPtrOutputWithContext(ctx context.Context) LockLevelPtrOutput {
-	return LockLevel(e).ToLockLevelOutputWithContext(ctx).ToLockLevelPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e LockLevel) ToStringOutput() pulumi.StringOutput {
@@ -53,130 +37,4 @@ func (e LockLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e LockLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type LockLevelOutput struct{ *pulumi.OutputState }
-
-func (LockLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LockLevel)(nil)).Elem()
-}
-
-func (o LockLevelOutput) ToLockLevelOutput() LockLevelOutput {
-	return o
-}
-
-func (o LockLevelOutput) ToLockLevelOutputWithContext(ctx context.Context) LockLevelOutput {
-	return o
-}
-
-func (o LockLevelOutput) ToLockLevelPtrOutput() LockLevelPtrOutput {
-	return o.ToLockLevelPtrOutputWithContext(context.Background())
-}
-
-func (o LockLevelOutput) ToLockLevelPtrOutputWithContext(ctx context.Context) LockLevelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LockLevel) *LockLevel {
-		return &v
-	}).(LockLevelPtrOutput)
-}
-
-func (o LockLevelOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o LockLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LockLevel) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o LockLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LockLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LockLevel) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type LockLevelPtrOutput struct{ *pulumi.OutputState }
-
-func (LockLevelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LockLevel)(nil)).Elem()
-}
-
-func (o LockLevelPtrOutput) ToLockLevelPtrOutput() LockLevelPtrOutput {
-	return o
-}
-
-func (o LockLevelPtrOutput) ToLockLevelPtrOutputWithContext(ctx context.Context) LockLevelPtrOutput {
-	return o
-}
-
-func (o LockLevelPtrOutput) Elem() LockLevelOutput {
-	return o.ApplyT(func(v *LockLevel) LockLevel {
-		if v != nil {
-			return *v
-		}
-		var ret LockLevel
-		return ret
-	}).(LockLevelOutput)
-}
-
-func (o LockLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LockLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LockLevel) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// LockLevelInput is an input type that accepts LockLevelArgs and LockLevelOutput values.
-// You can construct a concrete instance of `LockLevelInput` via:
-//
-//          LockLevelArgs{...}
-type LockLevelInput interface {
-	pulumi.Input
-
-	ToLockLevelOutput() LockLevelOutput
-	ToLockLevelOutputWithContext(context.Context) LockLevelOutput
-}
-
-var lockLevelPtrType = reflect.TypeOf((**LockLevel)(nil)).Elem()
-
-type LockLevelPtrInput interface {
-	pulumi.Input
-
-	ToLockLevelPtrOutput() LockLevelPtrOutput
-	ToLockLevelPtrOutputWithContext(context.Context) LockLevelPtrOutput
-}
-
-type lockLevelPtr string
-
-func LockLevelPtr(v string) LockLevelPtrInput {
-	return (*lockLevelPtr)(&v)
-}
-
-func (*lockLevelPtr) ElementType() reflect.Type {
-	return lockLevelPtrType
-}
-
-func (in *lockLevelPtr) ToLockLevelPtrOutput() LockLevelPtrOutput {
-	return pulumi.ToOutput(in).(LockLevelPtrOutput)
-}
-
-func (in *lockLevelPtr) ToLockLevelPtrOutputWithContext(ctx context.Context) LockLevelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LockLevelPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(LockLevelOutput{})
-	pulumi.RegisterOutputType(LockLevelPtrOutput{})
 }

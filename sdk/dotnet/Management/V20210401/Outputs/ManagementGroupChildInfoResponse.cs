@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Management.V20210401.Outputs
 {
 
-    /// <summary>
-    /// The child information of a management group.
-    /// </summary>
     [OutputType]
     public sealed class ManagementGroupChildInfoResponse
     {

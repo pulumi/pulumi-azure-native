@@ -149,7 +149,9 @@ func (i *AFDCustomDomain) ToAFDCustomDomainOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AFDCustomDomainOutput)
 }
 
-type AFDCustomDomainOutput struct{ *pulumi.OutputState }
+type AFDCustomDomainOutput struct {
+	*pulumi.OutputState
+}
 
 func (AFDCustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AFDCustomDomain)(nil))

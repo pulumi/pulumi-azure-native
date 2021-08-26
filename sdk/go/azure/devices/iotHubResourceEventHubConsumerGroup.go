@@ -178,12 +178,6 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20210701preview:IotHubResourceEventHubConsumerGroup"),
 		},
-		{
-			Type: pulumi.String("azure-native:devices/v20210901preview:IotHubResourceEventHubConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20210901preview:IotHubResourceEventHubConsumerGroup"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource IotHubResourceEventHubConsumerGroup
@@ -267,7 +261,9 @@ func (i *IotHubResourceEventHubConsumerGroup) ToIotHubResourceEventHubConsumerGr
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceEventHubConsumerGroupOutput)
 }
 
-type IotHubResourceEventHubConsumerGroupOutput struct{ *pulumi.OutputState }
+type IotHubResourceEventHubConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (IotHubResourceEventHubConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroup)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
-    /// <summary>
-    /// MAB workload-specific Health Details.
-    /// </summary>
     [OutputType]
     public sealed class MABContainerHealthDetailsResponse
     {

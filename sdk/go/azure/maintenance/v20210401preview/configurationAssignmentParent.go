@@ -64,12 +64,6 @@ func NewConfigurationAssignmentParent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:maintenance:ConfigurationAssignmentParent"),
 		},
-		{
-			Type: pulumi.String("azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20210901preview:ConfigurationAssignmentParent"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationAssignmentParent
@@ -173,7 +167,9 @@ func (i *ConfigurationAssignmentParent) ToConfigurationAssignmentParentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssignmentParentOutput)
 }
 
-type ConfigurationAssignmentParentOutput struct{ *pulumi.OutputState }
+type ConfigurationAssignmentParentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConfigurationAssignmentParentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationAssignmentParent)(nil))

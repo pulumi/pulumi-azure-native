@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20201101.Outputs
 {
 
-    /// <summary>
-    /// Represents a volume that is populated with the contents of a git repository
-    /// </summary>
     [OutputType]
     public sealed class GitRepoVolumeResponse
     {

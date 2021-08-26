@@ -146,7 +146,9 @@ func (i *ContentItem) ToContentItemOutputWithContext(ctx context.Context) Conten
 	return pulumi.ToOutputWithContext(ctx, i).(ContentItemOutput)
 }
 
-type ContentItemOutput struct{ *pulumi.OutputState }
+type ContentItemOutput struct {
+	*pulumi.OutputState
+}
 
 func (ContentItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContentItem)(nil))

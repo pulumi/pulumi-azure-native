@@ -234,7 +234,9 @@ func (i *EventHubEventSource) ToEventHubEventSourceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSourceOutput)
 }
 
-type EventHubEventSourceOutput struct{ *pulumi.OutputState }
+type EventHubEventSourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (EventHubEventSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubEventSource)(nil))

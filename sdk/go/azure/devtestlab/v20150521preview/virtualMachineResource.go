@@ -271,7 +271,9 @@ func (i *VirtualMachineResource) ToVirtualMachineResourceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineResourceOutput)
 }
 
-type VirtualMachineResourceOutput struct{ *pulumi.OutputState }
+type VirtualMachineResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualMachineResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineResource)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200501.Outputs
 {
 
-    /// <summary>
-    /// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionPropertiesResponse
     {

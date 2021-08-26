@@ -221,7 +221,9 @@ func (i *Workbook) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookOutput)
 }
 
-type WorkbookOutput struct{ *pulumi.OutputState }
+type WorkbookOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkbookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workbook)(nil))

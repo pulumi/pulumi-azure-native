@@ -348,7 +348,9 @@ func (i *RouteFilterRule) ToRouteFilterRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterRuleOutput)
 }
 
-type RouteFilterRuleOutput struct{ *pulumi.OutputState }
+type RouteFilterRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (RouteFilterRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteFilterRule)(nil))

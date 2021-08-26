@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20150401.Outputs
 {
 
-    /// <summary>
-    /// A specific date-time for the profile.
-    /// </summary>
     [OutputType]
     public sealed class TimeWindowResponse
     {

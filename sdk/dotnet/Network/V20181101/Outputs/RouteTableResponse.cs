@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181101.Outputs
 {
 
-    /// <summary>
-    /// Route table resource.
-    /// </summary>
     [OutputType]
     public sealed class RouteTableResponse
     {

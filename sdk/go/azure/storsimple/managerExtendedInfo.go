@@ -118,7 +118,7 @@ type managerExtendedInfoArgs struct {
 	// Represents the CIK of the resource.
 	IntegrityKey string `pulumi:"integrityKey"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
@@ -142,7 +142,7 @@ type ManagerExtendedInfoArgs struct {
 	// Represents the CIK of the resource.
 	IntegrityKey pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
@@ -176,7 +176,9 @@ func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoOutput)
 }
 
-type ManagerExtendedInfoOutput struct{ *pulumi.OutputState }
+type ManagerExtendedInfoOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagerExtendedInfo)(nil))

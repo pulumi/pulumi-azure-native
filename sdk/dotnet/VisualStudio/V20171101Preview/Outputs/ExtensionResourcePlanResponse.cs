@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VisualStudio.V20171101Preview.Outputs
 {
 
-    /// <summary>
-    /// Plan data for an extension resource.
-    /// </summary>
     [OutputType]
     public sealed class ExtensionResourcePlanResponse
     {

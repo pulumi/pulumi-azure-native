@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
-    /// <summary>
-    /// The reference information for an Azure Marketplace image.
-    /// </summary>
     [OutputType]
     public sealed class GalleryImageReferenceResponse
     {

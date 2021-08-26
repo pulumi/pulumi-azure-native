@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthBot.Outputs
 {
 
-    /// <summary>
-    /// Read only system data
-    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

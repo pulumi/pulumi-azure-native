@@ -231,7 +231,9 @@ func (i *NetworkVirtualAppliance) ToNetworkVirtualApplianceOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkVirtualApplianceOutput)
 }
 
-type NetworkVirtualApplianceOutput struct{ *pulumi.OutputState }
+type NetworkVirtualApplianceOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkVirtualApplianceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkVirtualAppliance)(nil))

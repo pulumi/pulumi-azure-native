@@ -202,7 +202,9 @@ func (i *VirtualMachineSchedule) ToVirtualMachineScheduleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScheduleOutput)
 }
 
-type VirtualMachineScheduleOutput struct{ *pulumi.OutputState }
+type VirtualMachineScheduleOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualMachineScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineSchedule)(nil))

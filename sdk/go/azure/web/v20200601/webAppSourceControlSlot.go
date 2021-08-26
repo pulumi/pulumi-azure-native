@@ -230,7 +230,9 @@ func (i *WebAppSourceControlSlot) ToWebAppSourceControlSlotOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlSlotOutput)
 }
 
-type WebAppSourceControlSlotOutput struct{ *pulumi.OutputState }
+type WebAppSourceControlSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppSourceControlSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSourceControlSlot)(nil))

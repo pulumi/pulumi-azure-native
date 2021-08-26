@@ -51,9 +51,6 @@ func NewDatabaseBlobAuditingPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.State == nil {
-		return nil, errors.New("invalid value for required argument 'State'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:DatabaseBlobAuditingPolicy"),
@@ -143,7 +140,7 @@ type databaseBlobAuditingPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State BlobAuditingPolicyState `pulumi:"state"`
+	State string `pulumi:"state"`
 	// Specifies the identifier key of the auditing storage account. If state is Enabled, storageAccountAccessKey is required.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage subscription Id.
@@ -169,7 +166,7 @@ type DatabaseBlobAuditingPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State BlobAuditingPolicyStateInput
+	State BlobAuditingPolicyState
 	// Specifies the identifier key of the auditing storage account. If state is Enabled, storageAccountAccessKey is required.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage subscription Id.
@@ -201,7 +198,9 @@ func (i *DatabaseBlobAuditingPolicy) ToDatabaseBlobAuditingPolicyOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBlobAuditingPolicyOutput)
 }
 
-type DatabaseBlobAuditingPolicyOutput struct{ *pulumi.OutputState }
+type DatabaseBlobAuditingPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseBlobAuditingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseBlobAuditingPolicy)(nil))

@@ -115,12 +115,6 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20210701:PrivateEndpointConnection"),
 		},
-		{
-			Type: pulumi.String("azure-native:devices/v20210901preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20210901preview:PrivateEndpointConnection"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection
@@ -200,7 +194,9 @@ func (i *PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
 }
 
-type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnection)(nil))

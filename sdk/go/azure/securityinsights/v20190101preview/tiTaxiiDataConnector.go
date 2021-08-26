@@ -223,7 +223,9 @@ func (i *TiTaxiiDataConnector) ToTiTaxiiDataConnectorOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TiTaxiiDataConnectorOutput)
 }
 
-type TiTaxiiDataConnectorOutput struct{ *pulumi.OutputState }
+type TiTaxiiDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (TiTaxiiDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TiTaxiiDataConnector)(nil))

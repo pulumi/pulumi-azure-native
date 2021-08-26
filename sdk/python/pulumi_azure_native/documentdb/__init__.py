@@ -54,44 +54,25 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.documentdb.v20150401 as __v20150401
-    v20150401 = __v20150401
-    import pulumi_azure_native.documentdb.v20150408 as __v20150408
-    v20150408 = __v20150408
-    import pulumi_azure_native.documentdb.v20151106 as __v20151106
-    v20151106 = __v20151106
-    import pulumi_azure_native.documentdb.v20160319 as __v20160319
-    v20160319 = __v20160319
-    import pulumi_azure_native.documentdb.v20160331 as __v20160331
-    v20160331 = __v20160331
-    import pulumi_azure_native.documentdb.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.documentdb.v20190801preview as __v20190801preview
-    v20190801preview = __v20190801preview
-    import pulumi_azure_native.documentdb.v20191212 as __v20191212
-    v20191212 = __v20191212
-    import pulumi_azure_native.documentdb.v20200301 as __v20200301
-    v20200301 = __v20200301
-    import pulumi_azure_native.documentdb.v20200401 as __v20200401
-    v20200401 = __v20200401
-    import pulumi_azure_native.documentdb.v20200601preview as __v20200601preview
-    v20200601preview = __v20200601preview
-    import pulumi_azure_native.documentdb.v20200901 as __v20200901
-    v20200901 = __v20200901
-    import pulumi_azure_native.documentdb.v20210115 as __v20210115
-    v20210115 = __v20210115
-    import pulumi_azure_native.documentdb.v20210301preview as __v20210301preview
-    v20210301preview = __v20210301preview
-    import pulumi_azure_native.documentdb.v20210315 as __v20210315
-    v20210315 = __v20210315
-    import pulumi_azure_native.documentdb.v20210401preview as __v20210401preview
-    v20210401preview = __v20210401preview
-    import pulumi_azure_native.documentdb.v20210415 as __v20210415
-    v20210415 = __v20210415
-    import pulumi_azure_native.documentdb.v20210515 as __v20210515
-    v20210515 = __v20210515
-    import pulumi_azure_native.documentdb.v20210615 as __v20210615
-    v20210615 = __v20210615
+    import pulumi_azure_native.documentdb.v20150401 as v20150401
+    import pulumi_azure_native.documentdb.v20150408 as v20150408
+    import pulumi_azure_native.documentdb.v20151106 as v20151106
+    import pulumi_azure_native.documentdb.v20160319 as v20160319
+    import pulumi_azure_native.documentdb.v20160331 as v20160331
+    import pulumi_azure_native.documentdb.v20190801 as v20190801
+    import pulumi_azure_native.documentdb.v20190801preview as v20190801preview
+    import pulumi_azure_native.documentdb.v20191212 as v20191212
+    import pulumi_azure_native.documentdb.v20200301 as v20200301
+    import pulumi_azure_native.documentdb.v20200401 as v20200401
+    import pulumi_azure_native.documentdb.v20200601preview as v20200601preview
+    import pulumi_azure_native.documentdb.v20200901 as v20200901
+    import pulumi_azure_native.documentdb.v20210115 as v20210115
+    import pulumi_azure_native.documentdb.v20210301preview as v20210301preview
+    import pulumi_azure_native.documentdb.v20210315 as v20210315
+    import pulumi_azure_native.documentdb.v20210401preview as v20210401preview
+    import pulumi_azure_native.documentdb.v20210415 as v20210415
+    import pulumi_azure_native.documentdb.v20210515 as v20210515
+    import pulumi_azure_native.documentdb.v20210615 as v20210615
 else:
     v20150401 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150401')
     v20150408 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150408')

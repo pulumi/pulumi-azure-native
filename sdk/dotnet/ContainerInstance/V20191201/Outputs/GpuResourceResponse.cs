@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20191201.Outputs
 {
 
-    /// <summary>
-    /// The GPU resource.
-    /// </summary>
     [OutputType]
     public sealed class GpuResourceResponse
     {

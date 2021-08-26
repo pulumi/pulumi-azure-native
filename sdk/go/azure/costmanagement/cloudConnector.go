@@ -173,7 +173,9 @@ func (i *CloudConnector) ToCloudConnectorOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorOutput)
 }
 
-type CloudConnectorOutput struct{ *pulumi.OutputState }
+type CloudConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (CloudConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudConnector)(nil))

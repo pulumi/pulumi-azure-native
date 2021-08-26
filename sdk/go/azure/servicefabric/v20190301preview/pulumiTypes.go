@@ -880,7 +880,7 @@ func (o ApplicationUpgradePolicyOutput) ToApplicationUpgradePolicyPtrOutput() Ap
 }
 
 func (o ApplicationUpgradePolicyOutput) ToApplicationUpgradePolicyPtrOutputWithContext(ctx context.Context) ApplicationUpgradePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationUpgradePolicy) *ApplicationUpgradePolicy {
+	return o.ApplyT(func(v ApplicationUpgradePolicy) *ApplicationUpgradePolicy {
 		return &v
 	}).(ApplicationUpgradePolicyPtrOutput)
 }
@@ -922,13 +922,7 @@ func (o ApplicationUpgradePolicyPtrOutput) ToApplicationUpgradePolicyPtrOutputWi
 }
 
 func (o ApplicationUpgradePolicyPtrOutput) Elem() ApplicationUpgradePolicyOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicy) ApplicationUpgradePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationUpgradePolicy
-		return ret
-	}).(ApplicationUpgradePolicyOutput)
+	return o.ApplyT(func(v *ApplicationUpgradePolicy) ApplicationUpgradePolicy { return *v }).(ApplicationUpgradePolicyOutput)
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
@@ -1079,7 +1073,7 @@ func (o ApplicationUpgradePolicyResponseOutput) ToApplicationUpgradePolicyRespon
 }
 
 func (o ApplicationUpgradePolicyResponseOutput) ToApplicationUpgradePolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationUpgradePolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationUpgradePolicyResponse) *ApplicationUpgradePolicyResponse {
+	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *ApplicationUpgradePolicyResponse {
 		return &v
 	}).(ApplicationUpgradePolicyResponsePtrOutput)
 }
@@ -1123,13 +1117,7 @@ func (o ApplicationUpgradePolicyResponsePtrOutput) ToApplicationUpgradePolicyRes
 }
 
 func (o ApplicationUpgradePolicyResponsePtrOutput) Elem() ApplicationUpgradePolicyResponseOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) ApplicationUpgradePolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationUpgradePolicyResponse
-		return ret
-	}).(ApplicationUpgradePolicyResponseOutput)
+	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) ApplicationUpgradePolicyResponse { return *v }).(ApplicationUpgradePolicyResponseOutput)
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
@@ -1286,7 +1274,7 @@ func (o ArmApplicationHealthPolicyOutput) ToArmApplicationHealthPolicyPtrOutput(
 }
 
 func (o ArmApplicationHealthPolicyOutput) ToArmApplicationHealthPolicyPtrOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmApplicationHealthPolicy) *ArmApplicationHealthPolicy {
+	return o.ApplyT(func(v ArmApplicationHealthPolicy) *ArmApplicationHealthPolicy {
 		return &v
 	}).(ArmApplicationHealthPolicyPtrOutput)
 }
@@ -1333,13 +1321,7 @@ func (o ArmApplicationHealthPolicyPtrOutput) ToArmApplicationHealthPolicyPtrOutp
 }
 
 func (o ArmApplicationHealthPolicyPtrOutput) Elem() ArmApplicationHealthPolicyOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicy) ArmApplicationHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ArmApplicationHealthPolicy
-		return ret
-	}).(ArmApplicationHealthPolicyOutput)
+	return o.ApplyT(func(v *ArmApplicationHealthPolicy) ArmApplicationHealthPolicy { return *v }).(ArmApplicationHealthPolicyOutput)
 }
 
 // Indicates whether warnings are treated with the same severity as errors.
@@ -1499,7 +1481,7 @@ func (o ArmApplicationHealthPolicyResponseOutput) ToArmApplicationHealthPolicyRe
 }
 
 func (o ArmApplicationHealthPolicyResponseOutput) ToArmApplicationHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ArmApplicationHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmApplicationHealthPolicyResponse) *ArmApplicationHealthPolicyResponse {
+	return o.ApplyT(func(v ArmApplicationHealthPolicyResponse) *ArmApplicationHealthPolicyResponse {
 		return &v
 	}).(ArmApplicationHealthPolicyResponsePtrOutput)
 }
@@ -1546,13 +1528,7 @@ func (o ArmApplicationHealthPolicyResponsePtrOutput) ToArmApplicationHealthPolic
 }
 
 func (o ArmApplicationHealthPolicyResponsePtrOutput) Elem() ArmApplicationHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) ArmApplicationHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmApplicationHealthPolicyResponse
-		return ret
-	}).(ArmApplicationHealthPolicyResponseOutput)
+	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) ArmApplicationHealthPolicyResponse { return *v }).(ArmApplicationHealthPolicyResponseOutput)
 }
 
 // Indicates whether warnings are treated with the same severity as errors.
@@ -1714,7 +1690,7 @@ func (o ArmRollingUpgradeMonitoringPolicyOutput) ToArmRollingUpgradeMonitoringPo
 }
 
 func (o ArmRollingUpgradeMonitoringPolicyOutput) ToArmRollingUpgradeMonitoringPolicyPtrOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmRollingUpgradeMonitoringPolicy) *ArmRollingUpgradeMonitoringPolicy {
+	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicy) *ArmRollingUpgradeMonitoringPolicy {
 		return &v
 	}).(ArmRollingUpgradeMonitoringPolicyPtrOutput)
 }
@@ -1764,13 +1740,7 @@ func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) ToArmRollingUpgradeMonitorin
 }
 
 func (o ArmRollingUpgradeMonitoringPolicyPtrOutput) Elem() ArmRollingUpgradeMonitoringPolicyOutput {
-	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) ArmRollingUpgradeMonitoringPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ArmRollingUpgradeMonitoringPolicy
-		return ret
-	}).(ArmRollingUpgradeMonitoringPolicyOutput)
+	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicy) ArmRollingUpgradeMonitoringPolicy { return *v }).(ArmRollingUpgradeMonitoringPolicyOutput)
 }
 
 // The activation Mode of the service package
@@ -1949,7 +1919,7 @@ func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) ToArmRollingUpgradeMoni
 }
 
 func (o ArmRollingUpgradeMonitoringPolicyResponseOutput) ToArmRollingUpgradeMonitoringPolicyResponsePtrOutputWithContext(ctx context.Context) ArmRollingUpgradeMonitoringPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmRollingUpgradeMonitoringPolicyResponse) *ArmRollingUpgradeMonitoringPolicyResponse {
+	return o.ApplyT(func(v ArmRollingUpgradeMonitoringPolicyResponse) *ArmRollingUpgradeMonitoringPolicyResponse {
 		return &v
 	}).(ArmRollingUpgradeMonitoringPolicyResponsePtrOutput)
 }
@@ -2000,11 +1970,7 @@ func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) ToArmRollingUpgradeM
 
 func (o ArmRollingUpgradeMonitoringPolicyResponsePtrOutput) Elem() ArmRollingUpgradeMonitoringPolicyResponseOutput {
 	return o.ApplyT(func(v *ArmRollingUpgradeMonitoringPolicyResponse) ArmRollingUpgradeMonitoringPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmRollingUpgradeMonitoringPolicyResponse
-		return ret
+		return *v
 	}).(ArmRollingUpgradeMonitoringPolicyResponseOutput)
 }
 
@@ -2197,7 +2163,7 @@ func (o ArmServiceTypeHealthPolicyOutput) ToArmServiceTypeHealthPolicyPtrOutput(
 }
 
 func (o ArmServiceTypeHealthPolicyOutput) ToArmServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmServiceTypeHealthPolicy) *ArmServiceTypeHealthPolicy {
+	return o.ApplyT(func(v ArmServiceTypeHealthPolicy) *ArmServiceTypeHealthPolicy {
 		return &v
 	}).(ArmServiceTypeHealthPolicyPtrOutput)
 }
@@ -2232,13 +2198,7 @@ func (o ArmServiceTypeHealthPolicyPtrOutput) ToArmServiceTypeHealthPolicyPtrOutp
 }
 
 func (o ArmServiceTypeHealthPolicyPtrOutput) Elem() ArmServiceTypeHealthPolicyOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicy) ArmServiceTypeHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ArmServiceTypeHealthPolicy
-		return ret
-	}).(ArmServiceTypeHealthPolicyOutput)
+	return o.ApplyT(func(v *ArmServiceTypeHealthPolicy) ArmServiceTypeHealthPolicy { return *v }).(ArmServiceTypeHealthPolicyOutput)
 }
 
 // The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
@@ -2420,7 +2380,7 @@ func (o ArmServiceTypeHealthPolicyResponseOutput) ToArmServiceTypeHealthPolicyRe
 }
 
 func (o ArmServiceTypeHealthPolicyResponseOutput) ToArmServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmServiceTypeHealthPolicyResponse) *ArmServiceTypeHealthPolicyResponse {
+	return o.ApplyT(func(v ArmServiceTypeHealthPolicyResponse) *ArmServiceTypeHealthPolicyResponse {
 		return &v
 	}).(ArmServiceTypeHealthPolicyResponsePtrOutput)
 }
@@ -2455,13 +2415,7 @@ func (o ArmServiceTypeHealthPolicyResponsePtrOutput) ToArmServiceTypeHealthPolic
 }
 
 func (o ArmServiceTypeHealthPolicyResponsePtrOutput) Elem() ArmServiceTypeHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyResponse) ArmServiceTypeHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ArmServiceTypeHealthPolicyResponse
-		return ret
-	}).(ArmServiceTypeHealthPolicyResponseOutput)
+	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyResponse) ArmServiceTypeHealthPolicyResponse { return *v }).(ArmServiceTypeHealthPolicyResponseOutput)
 }
 
 // The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.
@@ -2618,7 +2572,7 @@ func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutput() AzureActiv
 }
 
 func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectory) *AzureActiveDirectory {
+	return o.ApplyT(func(v AzureActiveDirectory) *AzureActiveDirectory {
 		return &v
 	}).(AzureActiveDirectoryPtrOutput)
 }
@@ -2653,13 +2607,7 @@ func (o AzureActiveDirectoryPtrOutput) ToAzureActiveDirectoryPtrOutputWithContex
 }
 
 func (o AzureActiveDirectoryPtrOutput) Elem() AzureActiveDirectoryOutput {
-	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectory
-		return ret
-	}).(AzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory { return *v }).(AzureActiveDirectoryOutput)
 }
 
 // Azure active directory client application id.
@@ -2796,7 +2744,7 @@ func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOut
 }
 
 func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
+	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
 		return &v
 	}).(AzureActiveDirectoryResponsePtrOutput)
 }
@@ -2831,13 +2779,7 @@ func (o AzureActiveDirectoryResponsePtrOutput) ToAzureActiveDirectoryResponsePtr
 }
 
 func (o AzureActiveDirectoryResponsePtrOutput) Elem() AzureActiveDirectoryResponseOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureActiveDirectoryResponse
-		return ret
-	}).(AzureActiveDirectoryResponseOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse { return *v }).(AzureActiveDirectoryResponseOutput)
 }
 
 // Azure active directory client application id.
@@ -2974,7 +2916,7 @@ func (o CertificateDescriptionOutput) ToCertificateDescriptionPtrOutput() Certif
 }
 
 func (o CertificateDescriptionOutput) ToCertificateDescriptionPtrOutputWithContext(ctx context.Context) CertificateDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDescription) *CertificateDescription {
+	return o.ApplyT(func(v CertificateDescription) *CertificateDescription {
 		return &v
 	}).(CertificateDescriptionPtrOutput)
 }
@@ -3009,13 +2951,7 @@ func (o CertificateDescriptionPtrOutput) ToCertificateDescriptionPtrOutputWithCo
 }
 
 func (o CertificateDescriptionPtrOutput) Elem() CertificateDescriptionOutput {
-	return o.ApplyT(func(v *CertificateDescription) CertificateDescription {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateDescription
-		return ret
-	}).(CertificateDescriptionOutput)
+	return o.ApplyT(func(v *CertificateDescription) CertificateDescription { return *v }).(CertificateDescriptionOutput)
 }
 
 // Thumbprint of the primary certificate.
@@ -3152,7 +3088,7 @@ func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponsePt
 }
 
 func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponsePtrOutputWithContext(ctx context.Context) CertificateDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDescriptionResponse) *CertificateDescriptionResponse {
+	return o.ApplyT(func(v CertificateDescriptionResponse) *CertificateDescriptionResponse {
 		return &v
 	}).(CertificateDescriptionResponsePtrOutput)
 }
@@ -3187,13 +3123,7 @@ func (o CertificateDescriptionResponsePtrOutput) ToCertificateDescriptionRespons
 }
 
 func (o CertificateDescriptionResponsePtrOutput) Elem() CertificateDescriptionResponseOutput {
-	return o.ApplyT(func(v *CertificateDescriptionResponse) CertificateDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateDescriptionResponse
-		return ret
-	}).(CertificateDescriptionResponseOutput)
+	return o.ApplyT(func(v *CertificateDescriptionResponse) CertificateDescriptionResponse { return *v }).(CertificateDescriptionResponseOutput)
 }
 
 // Thumbprint of the primary certificate.
@@ -3808,7 +3738,7 @@ func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyPtrOutput() ClusterHealt
 }
 
 func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterHealthPolicy) *ClusterHealthPolicy {
+	return o.ApplyT(func(v ClusterHealthPolicy) *ClusterHealthPolicy {
 		return &v
 	}).(ClusterHealthPolicyPtrOutput)
 }
@@ -3855,13 +3785,7 @@ func (o ClusterHealthPolicyPtrOutput) ToClusterHealthPolicyPtrOutputWithContext(
 }
 
 func (o ClusterHealthPolicyPtrOutput) Elem() ClusterHealthPolicyOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicy) ClusterHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterHealthPolicy
-		return ret
-	}).(ClusterHealthPolicyOutput)
+	return o.ApplyT(func(v *ClusterHealthPolicy) ClusterHealthPolicy { return *v }).(ClusterHealthPolicyOutput)
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
@@ -4034,7 +3958,7 @@ func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponsePtrOutpu
 }
 
 func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterHealthPolicyResponse) *ClusterHealthPolicyResponse {
+	return o.ApplyT(func(v ClusterHealthPolicyResponse) *ClusterHealthPolicyResponse {
 		return &v
 	}).(ClusterHealthPolicyResponsePtrOutput)
 }
@@ -4083,13 +4007,7 @@ func (o ClusterHealthPolicyResponsePtrOutput) ToClusterHealthPolicyResponsePtrOu
 }
 
 func (o ClusterHealthPolicyResponsePtrOutput) Elem() ClusterHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicyResponse) ClusterHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterHealthPolicyResponse
-		return ret
-	}).(ClusterHealthPolicyResponseOutput)
+	return o.ApplyT(func(v *ClusterHealthPolicyResponse) ClusterHealthPolicyResponse { return *v }).(ClusterHealthPolicyResponseOutput)
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
@@ -4254,7 +4172,7 @@ func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicy
 }
 
 func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeDeltaHealthPolicy) *ClusterUpgradeDeltaHealthPolicy {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) *ClusterUpgradeDeltaHealthPolicy {
 		return &v
 	}).(ClusterUpgradeDeltaHealthPolicyPtrOutput)
 }
@@ -4302,13 +4220,7 @@ func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ToClusterUpgradeDeltaHealthPol
 }
 
 func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradeDeltaHealthPolicyOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) ClusterUpgradeDeltaHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradeDeltaHealthPolicy
-		return ret
-	}).(ClusterUpgradeDeltaHealthPolicyOutput)
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) ClusterUpgradeDeltaHealthPolicy { return *v }).(ClusterUpgradeDeltaHealthPolicyOutput)
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
@@ -4477,7 +4389,7 @@ func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHeal
 }
 
 func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeDeltaHealthPolicyResponse) *ClusterUpgradeDeltaHealthPolicyResponse {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) *ClusterUpgradeDeltaHealthPolicyResponse {
 		return &v
 	}).(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput)
 }
@@ -4527,13 +4439,7 @@ func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ToClusterUpgradeDeltaH
 }
 
 func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) Elem() ClusterUpgradeDeltaHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) ClusterUpgradeDeltaHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradeDeltaHealthPolicyResponse
-		return ret
-	}).(ClusterUpgradeDeltaHealthPolicyResponseOutput)
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) ClusterUpgradeDeltaHealthPolicyResponse { return *v }).(ClusterUpgradeDeltaHealthPolicyResponseOutput)
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
@@ -4710,7 +4616,7 @@ func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpg
 }
 
 func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicy) *ClusterUpgradePolicy {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *ClusterUpgradePolicy {
 		return &v
 	}).(ClusterUpgradePolicyPtrOutput)
 }
@@ -4775,13 +4681,7 @@ func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutputWithContex
 }
 
 func (o ClusterUpgradePolicyPtrOutput) Elem() ClusterUpgradePolicyOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicy) ClusterUpgradePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradePolicy
-		return ret
-	}).(ClusterUpgradePolicyOutput)
+	return o.ApplyT(func(v *ClusterUpgradePolicy) ClusterUpgradePolicy { return *v }).(ClusterUpgradePolicyOutput)
 }
 
 // The cluster delta health policy used when upgrading the cluster.
@@ -5002,7 +4902,7 @@ func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponsePtrOut
 }
 
 func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicyResponse) *ClusterUpgradePolicyResponse {
+	return o.ApplyT(func(v ClusterUpgradePolicyResponse) *ClusterUpgradePolicyResponse {
 		return &v
 	}).(ClusterUpgradePolicyResponsePtrOutput)
 }
@@ -5069,13 +4969,7 @@ func (o ClusterUpgradePolicyResponsePtrOutput) ToClusterUpgradePolicyResponsePtr
 }
 
 func (o ClusterUpgradePolicyResponsePtrOutput) Elem() ClusterUpgradePolicyResponseOutput {
-	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) ClusterUpgradePolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterUpgradePolicyResponse
-		return ret
-	}).(ClusterUpgradePolicyResponseOutput)
+	return o.ApplyT(func(v *ClusterUpgradePolicyResponse) ClusterUpgradePolicyResponse { return *v }).(ClusterUpgradePolicyResponseOutput)
 }
 
 // The cluster delta health policy used when upgrading the cluster.
@@ -5398,7 +5292,7 @@ func (o DiagnosticsStorageAccountConfigOutput) ToDiagnosticsStorageAccountConfig
 }
 
 func (o DiagnosticsStorageAccountConfigOutput) ToDiagnosticsStorageAccountConfigPtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsStorageAccountConfig) *DiagnosticsStorageAccountConfig {
+	return o.ApplyT(func(v DiagnosticsStorageAccountConfig) *DiagnosticsStorageAccountConfig {
 		return &v
 	}).(DiagnosticsStorageAccountConfigPtrOutput)
 }
@@ -5443,13 +5337,7 @@ func (o DiagnosticsStorageAccountConfigPtrOutput) ToDiagnosticsStorageAccountCon
 }
 
 func (o DiagnosticsStorageAccountConfigPtrOutput) Elem() DiagnosticsStorageAccountConfigOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) DiagnosticsStorageAccountConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsStorageAccountConfig
-		return ret
-	}).(DiagnosticsStorageAccountConfigOutput)
+	return o.ApplyT(func(v *DiagnosticsStorageAccountConfig) DiagnosticsStorageAccountConfig { return *v }).(DiagnosticsStorageAccountConfigOutput)
 }
 
 // The blob endpoint of the azure storage account.
@@ -5614,7 +5502,7 @@ func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccou
 }
 
 func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsStorageAccountConfigResponse) *DiagnosticsStorageAccountConfigResponse {
+	return o.ApplyT(func(v DiagnosticsStorageAccountConfigResponse) *DiagnosticsStorageAccountConfigResponse {
 		return &v
 	}).(DiagnosticsStorageAccountConfigResponsePtrOutput)
 }
@@ -5659,13 +5547,7 @@ func (o DiagnosticsStorageAccountConfigResponsePtrOutput) ToDiagnosticsStorageAc
 }
 
 func (o DiagnosticsStorageAccountConfigResponsePtrOutput) Elem() DiagnosticsStorageAccountConfigResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) DiagnosticsStorageAccountConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiagnosticsStorageAccountConfigResponse
-		return ret
-	}).(DiagnosticsStorageAccountConfigResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsStorageAccountConfigResponse) DiagnosticsStorageAccountConfigResponse { return *v }).(DiagnosticsStorageAccountConfigResponseOutput)
 }
 
 // The blob endpoint of the azure storage account.
@@ -5818,7 +5700,7 @@ func (o EndpointRangeDescriptionOutput) ToEndpointRangeDescriptionPtrOutput() En
 }
 
 func (o EndpointRangeDescriptionOutput) ToEndpointRangeDescriptionPtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRangeDescription) *EndpointRangeDescription {
+	return o.ApplyT(func(v EndpointRangeDescription) *EndpointRangeDescription {
 		return &v
 	}).(EndpointRangeDescriptionPtrOutput)
 }
@@ -5848,13 +5730,7 @@ func (o EndpointRangeDescriptionPtrOutput) ToEndpointRangeDescriptionPtrOutputWi
 }
 
 func (o EndpointRangeDescriptionPtrOutput) Elem() EndpointRangeDescriptionOutput {
-	return o.ApplyT(func(v *EndpointRangeDescription) EndpointRangeDescription {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointRangeDescription
-		return ret
-	}).(EndpointRangeDescriptionOutput)
+	return o.ApplyT(func(v *EndpointRangeDescription) EndpointRangeDescription { return *v }).(EndpointRangeDescriptionOutput)
 }
 
 // End port of a range of ports
@@ -5977,7 +5853,7 @@ func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionRespon
 }
 
 func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRangeDescriptionResponse) *EndpointRangeDescriptionResponse {
+	return o.ApplyT(func(v EndpointRangeDescriptionResponse) *EndpointRangeDescriptionResponse {
 		return &v
 	}).(EndpointRangeDescriptionResponsePtrOutput)
 }
@@ -6007,13 +5883,7 @@ func (o EndpointRangeDescriptionResponsePtrOutput) ToEndpointRangeDescriptionRes
 }
 
 func (o EndpointRangeDescriptionResponsePtrOutput) Elem() EndpointRangeDescriptionResponseOutput {
-	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) EndpointRangeDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointRangeDescriptionResponse
-		return ret
-	}).(EndpointRangeDescriptionResponseOutput)
+	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) EndpointRangeDescriptionResponse { return *v }).(EndpointRangeDescriptionResponseOutput)
 }
 
 // End port of a range of ports
@@ -6910,7 +6780,7 @@ func (o ServerCertificateCommonNamesOutput) ToServerCertificateCommonNamesPtrOut
 }
 
 func (o ServerCertificateCommonNamesOutput) ToServerCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerCertificateCommonNames) *ServerCertificateCommonNames {
+	return o.ApplyT(func(v ServerCertificateCommonNames) *ServerCertificateCommonNames {
 		return &v
 	}).(ServerCertificateCommonNamesPtrOutput)
 }
@@ -6940,13 +6810,7 @@ func (o ServerCertificateCommonNamesPtrOutput) ToServerCertificateCommonNamesPtr
 }
 
 func (o ServerCertificateCommonNamesPtrOutput) Elem() ServerCertificateCommonNamesOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNames) ServerCertificateCommonNames {
-		if v != nil {
-			return *v
-		}
-		var ret ServerCertificateCommonNames
-		return ret
-	}).(ServerCertificateCommonNamesOutput)
+	return o.ApplyT(func(v *ServerCertificateCommonNames) ServerCertificateCommonNames { return *v }).(ServerCertificateCommonNamesOutput)
 }
 
 // The list of server certificates referenced by common name that are used to secure the cluster.
@@ -7069,7 +6933,7 @@ func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNam
 }
 
 func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNamesResponsePtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerCertificateCommonNamesResponse) *ServerCertificateCommonNamesResponse {
+	return o.ApplyT(func(v ServerCertificateCommonNamesResponse) *ServerCertificateCommonNamesResponse {
 		return &v
 	}).(ServerCertificateCommonNamesResponsePtrOutput)
 }
@@ -7101,13 +6965,7 @@ func (o ServerCertificateCommonNamesResponsePtrOutput) ToServerCertificateCommon
 }
 
 func (o ServerCertificateCommonNamesResponsePtrOutput) Elem() ServerCertificateCommonNamesResponseOutput {
-	return o.ApplyT(func(v *ServerCertificateCommonNamesResponse) ServerCertificateCommonNamesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServerCertificateCommonNamesResponse
-		return ret
-	}).(ServerCertificateCommonNamesResponseOutput)
+	return o.ApplyT(func(v *ServerCertificateCommonNamesResponse) ServerCertificateCommonNamesResponse { return *v }).(ServerCertificateCommonNamesResponseOutput)
 }
 
 // The list of server certificates referenced by common name that are used to secure the cluster.
@@ -7945,7 +7803,7 @@ func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOut
 }
 
 func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTypeDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
 		return &v
 	}).(ServiceTypeDeltaHealthPolicyPtrOutput)
 }
@@ -7972,13 +7830,7 @@ func (o ServiceTypeDeltaHealthPolicyPtrOutput) ToServiceTypeDeltaHealthPolicyPtr
 }
 
 func (o ServiceTypeDeltaHealthPolicyPtrOutput) Elem() ServiceTypeDeltaHealthPolicyOutput {
-	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) ServiceTypeDeltaHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceTypeDeltaHealthPolicy
-		return ret
-	}).(ServiceTypeDeltaHealthPolicyOutput)
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) ServiceTypeDeltaHealthPolicy { return *v }).(ServiceTypeDeltaHealthPolicyOutput)
 }
 
 // The maximum allowed percentage of services health degradation allowed during cluster upgrades.
@@ -8138,7 +7990,7 @@ func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPoli
 }
 
 func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTypeDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
 		return &v
 	}).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
 }
@@ -8165,13 +8017,7 @@ func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) ToServiceTypeDeltaHealthP
 }
 
 func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) Elem() ServiceTypeDeltaHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) ServiceTypeDeltaHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceTypeDeltaHealthPolicyResponse
-		return ret
-	}).(ServiceTypeDeltaHealthPolicyResponseOutput)
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) ServiceTypeDeltaHealthPolicyResponse { return *v }).(ServiceTypeDeltaHealthPolicyResponseOutput)
 }
 
 // The maximum allowed percentage of services health degradation allowed during cluster upgrades.
@@ -8327,7 +8173,7 @@ func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyPtrOutput() Serv
 }
 
 func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTypeHealthPolicy) *ServiceTypeHealthPolicy {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) *ServiceTypeHealthPolicy {
 		return &v
 	}).(ServiceTypeHealthPolicyPtrOutput)
 }
@@ -8352,13 +8198,7 @@ func (o ServiceTypeHealthPolicyPtrOutput) ToServiceTypeHealthPolicyPtrOutputWith
 }
 
 func (o ServiceTypeHealthPolicyPtrOutput) Elem() ServiceTypeHealthPolicyOutput {
-	return o.ApplyT(func(v *ServiceTypeHealthPolicy) ServiceTypeHealthPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceTypeHealthPolicy
-		return ret
-	}).(ServiceTypeHealthPolicyOutput)
+	return o.ApplyT(func(v *ServiceTypeHealthPolicy) ServiceTypeHealthPolicy { return *v }).(ServiceTypeHealthPolicyOutput)
 }
 
 // The maximum percentage of services allowed to be unhealthy before your application is considered in error.
@@ -8512,7 +8352,7 @@ func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponse
 }
 
 func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTypeHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
 		return &v
 	}).(ServiceTypeHealthPolicyResponsePtrOutput)
 }
@@ -8537,13 +8377,7 @@ func (o ServiceTypeHealthPolicyResponsePtrOutput) ToServiceTypeHealthPolicyRespo
 }
 
 func (o ServiceTypeHealthPolicyResponsePtrOutput) Elem() ServiceTypeHealthPolicyResponseOutput {
-	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) ServiceTypeHealthPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceTypeHealthPolicyResponse
-		return ret
-	}).(ServiceTypeHealthPolicyResponseOutput)
+	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) ServiceTypeHealthPolicyResponse { return *v }).(ServiceTypeHealthPolicyResponseOutput)
 }
 
 // The maximum percentage of services allowed to be unhealthy before your application is considered in error.

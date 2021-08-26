@@ -182,7 +182,9 @@ func (i *ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) Prod
 	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupOutput)
 }
 
-type ProductGroupOutput struct{ *pulumi.OutputState }
+type ProductGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ProductGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductGroup)(nil))

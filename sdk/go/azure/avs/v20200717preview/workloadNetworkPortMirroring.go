@@ -165,7 +165,9 @@ func (i *WorkloadNetworkPortMirroring) ToWorkloadNetworkPortMirroringOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkPortMirroringOutput)
 }
 
-type WorkloadNetworkPortMirroringOutput struct{ *pulumi.OutputState }
+type WorkloadNetworkPortMirroringOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadNetworkPortMirroringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkPortMirroring)(nil))

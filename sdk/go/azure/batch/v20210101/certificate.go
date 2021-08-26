@@ -153,7 +153,7 @@ type certificateArgs struct {
 	// The maximum size is 10KB.
 	Data string `pulumi:"data"`
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-	Format *CertificateFormat `pulumi:"format"`
+	Format *string `pulumi:"format"`
 	// This must not be specified if the certificate format is Cer.
 	Password *string `pulumi:"password"`
 	// The name of the resource group that contains the Batch account.
@@ -173,7 +173,7 @@ type CertificateArgs struct {
 	// The maximum size is 10KB.
 	Data pulumi.StringInput
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-	Format CertificateFormatPtrInput
+	Format *CertificateFormat
 	// This must not be specified if the certificate format is Cer.
 	Password pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.
@@ -207,7 +207,9 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct{ *pulumi.OutputState }
+type CertificateOutput struct {
+	*pulumi.OutputState
+}
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

@@ -175,7 +175,9 @@ func (i *ManagedInstanceAdministrator) ToManagedInstanceAdministratorOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAdministratorOutput)
 }
 
-type ManagedInstanceAdministratorOutput struct{ *pulumi.OutputState }
+type ManagedInstanceAdministratorOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedInstanceAdministratorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceAdministrator)(nil))

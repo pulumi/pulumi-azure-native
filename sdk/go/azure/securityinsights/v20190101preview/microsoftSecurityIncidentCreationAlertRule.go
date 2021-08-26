@@ -213,7 +213,9 @@ func (i *MicrosoftSecurityIncidentCreationAlertRule) ToMicrosoftSecurityIncident
 	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftSecurityIncidentCreationAlertRuleOutput)
 }
 
-type MicrosoftSecurityIncidentCreationAlertRuleOutput struct{ *pulumi.OutputState }
+type MicrosoftSecurityIncidentCreationAlertRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (MicrosoftSecurityIncidentCreationAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MicrosoftSecurityIncidentCreationAlertRule)(nil))

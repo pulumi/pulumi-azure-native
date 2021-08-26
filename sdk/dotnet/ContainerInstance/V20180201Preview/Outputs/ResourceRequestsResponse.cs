@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20180201Preview.Outputs
 {
 
-    /// <summary>
-    /// The resource requests.
-    /// </summary>
     [OutputType]
     public sealed class ResourceRequestsResponse
     {

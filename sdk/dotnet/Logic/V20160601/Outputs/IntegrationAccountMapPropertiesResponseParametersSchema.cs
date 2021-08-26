@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20160601.Outputs
 {
 
-    /// <summary>
-    /// The parameters schema of integration account map.
-    /// </summary>
     [OutputType]
     public sealed class IntegrationAccountMapPropertiesResponseParametersSchema
     {

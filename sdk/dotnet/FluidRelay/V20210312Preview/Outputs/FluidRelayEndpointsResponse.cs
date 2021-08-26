@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.FluidRelay.V20210312Preview.Outputs
 {
 
-    /// <summary>
-    /// The Fluid Relay endpoints for this server
-    /// </summary>
     [OutputType]
     public sealed class FluidRelayEndpointsResponse
     {

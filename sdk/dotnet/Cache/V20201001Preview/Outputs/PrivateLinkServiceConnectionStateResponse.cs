@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.V20201001Preview.Outputs
 {
 
-    /// <summary>
-    /// A collection of information about the state of the connection between service consumer and provider.
-    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServiceConnectionStateResponse
     {

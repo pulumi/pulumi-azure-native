@@ -177,7 +177,9 @@ func (i *OfficeDataConnector) ToOfficeDataConnectorOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorOutput)
 }
 
-type OfficeDataConnectorOutput struct{ *pulumi.OutputState }
+type OfficeDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (OfficeDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OfficeDataConnector)(nil))

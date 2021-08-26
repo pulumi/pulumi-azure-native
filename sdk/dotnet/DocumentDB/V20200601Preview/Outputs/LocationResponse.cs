@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// A region in which the Azure Cosmos DB database account is deployed.
-    /// </summary>
     [OutputType]
     public sealed class LocationResponse
     {

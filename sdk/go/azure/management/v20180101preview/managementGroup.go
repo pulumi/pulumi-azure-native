@@ -168,7 +168,9 @@ func (i *ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupOutput)
 }
 
-type ManagementGroupOutput struct{ *pulumi.OutputState }
+type ManagementGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagementGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementGroup)(nil))

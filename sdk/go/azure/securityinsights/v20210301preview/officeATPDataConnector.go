@@ -174,7 +174,9 @@ func (i *OfficeATPDataConnector) ToOfficeATPDataConnectorOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeATPDataConnectorOutput)
 }
 
-type OfficeATPDataConnectorOutput struct{ *pulumi.OutputState }
+type OfficeATPDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (OfficeATPDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OfficeATPDataConnector)(nil))

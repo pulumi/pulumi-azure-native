@@ -311,7 +311,7 @@ type webAppAuthSettingsArgs struct {
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".
-	DefaultProvider *BuiltInAuthenticationProvider `pulumi:"defaultProvider"`
+	DefaultProvider *string `pulumi:"defaultProvider"`
 	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
 	Enabled *bool `pulumi:"enabled"`
 	// The App ID of the Facebook app used for login.
@@ -405,7 +405,7 @@ type webAppAuthSettingsArgs struct {
 	// application used for sign-in.
 	TwitterConsumerSecretSettingName *string `pulumi:"twitterConsumerSecretSettingName"`
 	// The action to take when an unauthenticated client attempts to access the app.
-	UnauthenticatedClientAction *UnauthenticatedClientAction `pulumi:"unauthenticatedClientAction"`
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 	// Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
 	ValidateIssuer *bool `pulumi:"validateIssuer"`
 }
@@ -449,7 +449,7 @@ type WebAppAuthSettingsArgs struct {
 	// The default authentication provider to use when multiple providers are configured.
 	// This setting is only needed if multiple providers are configured and the unauthenticated client
 	// action is set to "RedirectToLoginPage".
-	DefaultProvider BuiltInAuthenticationProviderPtrInput
+	DefaultProvider *BuiltInAuthenticationProvider
 	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
 	Enabled pulumi.BoolPtrInput
 	// The App ID of the Facebook app used for login.
@@ -543,7 +543,7 @@ type WebAppAuthSettingsArgs struct {
 	// application used for sign-in.
 	TwitterConsumerSecretSettingName pulumi.StringPtrInput
 	// The action to take when an unauthenticated client attempts to access the app.
-	UnauthenticatedClientAction UnauthenticatedClientActionPtrInput
+	UnauthenticatedClientAction *UnauthenticatedClientAction
 	// Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
 	ValidateIssuer pulumi.BoolPtrInput
 }
@@ -571,7 +571,9 @@ func (i *WebAppAuthSettings) ToWebAppAuthSettingsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppAuthSettingsOutput)
 }
 
-type WebAppAuthSettingsOutput struct{ *pulumi.OutputState }
+type WebAppAuthSettingsOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppAuthSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppAuthSettings)(nil))

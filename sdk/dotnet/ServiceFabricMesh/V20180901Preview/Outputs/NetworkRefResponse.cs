@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes a network reference in a service.
-    /// </summary>
     [OutputType]
     public sealed class NetworkRefResponse
     {

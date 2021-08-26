@@ -12,10 +12,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.communication.v20200820 as __v20200820
-    v20200820 = __v20200820
-    import pulumi_azure_native.communication.v20200820preview as __v20200820preview
-    v20200820preview = __v20200820preview
+    import pulumi_azure_native.communication.v20200820 as v20200820
+    import pulumi_azure_native.communication.v20200820preview as v20200820preview
 else:
     v20200820 = _utilities.lazy_import('pulumi_azure_native.communication.v20200820')
     v20200820preview = _utilities.lazy_import('pulumi_azure_native.communication.v20200820preview')

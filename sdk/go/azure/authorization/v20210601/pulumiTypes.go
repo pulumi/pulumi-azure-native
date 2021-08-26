@@ -13,7 +13,7 @@ import (
 // Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
 type Identity struct {
 	// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -32,7 +32,7 @@ type IdentityInput interface {
 // Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
 type IdentityArgs struct {
 	// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -110,14 +110,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -140,23 +140,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type. This is the only required field when adding a system or user assigned identity to a resource.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -277,7 +271,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -319,13 +313,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of the resource identity.  This property will only be provided for a system assigned identity
@@ -927,7 +915,7 @@ func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMeta
 }
 
 func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterDefinitionsValueMetadata) *ParameterDefinitionsValueMetadata {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *ParameterDefinitionsValueMetadata {
 		return &v
 	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
@@ -967,13 +955,7 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) ToParameterDefinitionsValueM
 }
 
 func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsValueMetadataOutput {
-	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ParameterDefinitionsValueMetadata
-		return ret
-	}).(ParameterDefinitionsValueMetadataOutput)
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata { return *v }).(ParameterDefinitionsValueMetadataOutput)
 }
 
 // Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
@@ -1253,7 +1235,7 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsV
 }
 
 func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterDefinitionsValueResponseMetadata) *ParameterDefinitionsValueResponseMetadata {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *ParameterDefinitionsValueResponseMetadata {
 		return &v
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
@@ -1294,11 +1276,7 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) ToParameterDefinitio
 
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefinitionsValueResponseMetadataOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) ParameterDefinitionsValueResponseMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret ParameterDefinitionsValueResponseMetadata
-		return ret
+		return *v
 	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 
@@ -2184,7 +2162,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -2234,13 +2212,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
-    /// <summary>
-    /// The SKU of a resource.
-    /// </summary>
     [OutputType]
     public sealed class ResourceSkuResponse
     {
