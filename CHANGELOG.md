@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+## 1.23.1 (2021-08-26)
+
 Rollback code generation changes below to work around
 [#1092](https://github.com/pulumi/pulumi-azure-native/issues/1092).
 This removes the following changes of 1.23.0:
