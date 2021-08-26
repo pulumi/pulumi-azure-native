@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
-    /// </summary>
     [OutputType]
     public sealed class UtcClipTimeResponse
     {

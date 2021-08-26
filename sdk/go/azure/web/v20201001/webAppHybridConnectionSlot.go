@@ -248,7 +248,9 @@ func (i *WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionSlotOutput)
 }
 
-type WebAppHybridConnectionSlotOutput struct{ *pulumi.OutputState }
+type WebAppHybridConnectionSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppHybridConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppHybridConnectionSlot)(nil))

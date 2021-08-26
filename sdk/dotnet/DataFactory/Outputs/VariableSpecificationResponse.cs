@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Definition of a single variable for a Pipeline.
-    /// </summary>
     [OutputType]
     public sealed class VariableSpecificationResponse
     {

@@ -110,7 +110,7 @@ func (o SkuV3Output) ToSkuV3PtrOutput() SkuV3PtrOutput {
 }
 
 func (o SkuV3Output) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3PtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuV3) *SkuV3 {
+	return o.ApplyT(func(v SkuV3) *SkuV3 {
 		return &v
 	}).(SkuV3PtrOutput)
 }
@@ -140,13 +140,7 @@ func (o SkuV3PtrOutput) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3Pt
 }
 
 func (o SkuV3PtrOutput) Elem() SkuV3Output {
-	return o.ApplyT(func(v *SkuV3) SkuV3 {
-		if v != nil {
-			return *v
-		}
-		var ret SkuV3
-		return ret
-	}).(SkuV3Output)
+	return o.ApplyT(func(v *SkuV3) SkuV3 { return *v }).(SkuV3Output)
 }
 
 // The name of the SKU, typically, a letter + Number code, e.g. P3.
@@ -269,7 +263,7 @@ func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
 }
 
 func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuV3Response) *SkuV3Response {
+	return o.ApplyT(func(v SkuV3Response) *SkuV3Response {
 		return &v
 	}).(SkuV3ResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o SkuV3ResponsePtrOutput) ToSkuV3ResponsePtrOutputWithContext(ctx context.
 }
 
 func (o SkuV3ResponsePtrOutput) Elem() SkuV3ResponseOutput {
-	return o.ApplyT(func(v *SkuV3Response) SkuV3Response {
-		if v != nil {
-			return *v
-		}
-		var ret SkuV3Response
-		return ret
-	}).(SkuV3ResponseOutput)
+	return o.ApplyT(func(v *SkuV3Response) SkuV3Response { return *v }).(SkuV3ResponseOutput)
 }
 
 // The name of the SKU, typically, a letter + Number code, e.g. P3.
@@ -444,7 +432,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -494,13 +482,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

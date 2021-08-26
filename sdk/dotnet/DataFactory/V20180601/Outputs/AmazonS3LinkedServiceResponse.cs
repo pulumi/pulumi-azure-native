@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Linked service for Amazon S3.
-    /// </summary>
     [OutputType]
     public sealed class AmazonS3LinkedServiceResponse
     {

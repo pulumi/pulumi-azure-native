@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203.Outputs
 {
 
-    /// <summary>
-    /// The parameters to provide for the EnterpriseKnowledgeGraph.
-    /// </summary>
     [OutputType]
     public sealed class EnterpriseKnowledgeGraphPropertiesResponse
     {

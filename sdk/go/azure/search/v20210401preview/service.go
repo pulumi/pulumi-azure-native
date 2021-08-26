@@ -72,7 +72,8 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.HostingMode == nil {
-		args.HostingMode = HostingMode("default")
+		e := HostingMode("default")
+		args.HostingMode = &e
 	}
 	if args.PartitionCount == nil {
 		args.PartitionCount = pulumi.IntPtr(1)
@@ -166,7 +167,7 @@ type serviceArgs struct {
 	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
 	EncryptionWithCmk *EncryptionWithCmk `pulumi:"encryptionWithCmk"`
 	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-	HostingMode *HostingMode `pulumi:"hostingMode"`
+	HostingMode *string `pulumi:"hostingMode"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -202,7 +203,7 @@ type ServiceArgs struct {
 	// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
 	EncryptionWithCmk EncryptionWithCmkPtrInput
 	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-	HostingMode HostingModePtrInput
+	HostingMode *HostingMode
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
@@ -250,7 +251,9 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct{ *pulumi.OutputState }
+type ServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

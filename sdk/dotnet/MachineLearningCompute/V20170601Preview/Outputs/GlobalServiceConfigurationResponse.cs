@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Outputs
 {
 
-    /// <summary>
-    /// Global configuration for services in the cluster.
-    /// </summary>
     [OutputType]
     public sealed class GlobalServiceConfigurationResponse
     {

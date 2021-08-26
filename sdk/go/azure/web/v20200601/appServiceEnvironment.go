@@ -356,7 +356,9 @@ func (i *AppServiceEnvironment) ToAppServiceEnvironmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentOutput)
 }
 
-type AppServiceEnvironmentOutput struct{ *pulumi.OutputState }
+type AppServiceEnvironmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (AppServiceEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceEnvironment)(nil))

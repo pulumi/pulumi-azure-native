@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The Edifact envelope override settings.
-    /// </summary>
     [OutputType]
     public sealed class EdifactEnvelopeOverrideResponse
     {

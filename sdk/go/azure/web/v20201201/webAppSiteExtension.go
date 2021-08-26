@@ -220,7 +220,9 @@ func (i *WebAppSiteExtension) ToWebAppSiteExtensionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionOutput)
 }
 
-type WebAppSiteExtensionOutput struct{ *pulumi.OutputState }
+type WebAppSiteExtensionOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppSiteExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSiteExtension)(nil))

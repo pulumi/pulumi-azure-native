@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180416.Outputs
 {
 
-    /// <summary>
-    /// A log metrics trigger descriptor.
-    /// </summary>
     [OutputType]
     public sealed class LogMetricTriggerResponse
     {

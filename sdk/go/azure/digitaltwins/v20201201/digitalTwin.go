@@ -159,7 +159,9 @@ func (i *DigitalTwin) ToDigitalTwinOutputWithContext(ctx context.Context) Digita
 	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinOutput)
 }
 
-type DigitalTwinOutput struct{ *pulumi.OutputState }
+type DigitalTwinOutput struct {
+	*pulumi.OutputState
+}
 
 func (DigitalTwinOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DigitalTwin)(nil))

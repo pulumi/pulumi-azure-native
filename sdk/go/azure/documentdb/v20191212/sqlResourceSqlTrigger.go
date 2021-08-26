@@ -232,7 +232,9 @@ func (i *SqlResourceSqlTrigger) ToSqlResourceSqlTriggerOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlTriggerOutput)
 }
 
-type SqlResourceSqlTriggerOutput struct{ *pulumi.OutputState }
+type SqlResourceSqlTriggerOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlResourceSqlTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlTrigger)(nil))

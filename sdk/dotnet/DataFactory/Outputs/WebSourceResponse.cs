@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// A copy activity source for web page table.
-    /// </summary>
     [OutputType]
     public sealed class WebSourceResponse
     {

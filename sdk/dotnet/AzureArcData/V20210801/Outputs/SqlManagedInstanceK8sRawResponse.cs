@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210801.Outputs
 {
 
-    /// <summary>
-    /// The raw kubernetes information.
-    /// </summary>
     [OutputType]
     public sealed class SqlManagedInstanceK8sRawResponse
     {

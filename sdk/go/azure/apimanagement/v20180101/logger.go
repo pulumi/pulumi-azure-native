@@ -212,7 +212,9 @@ func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerOutput)
 }
 
-type LoggerOutput struct{ *pulumi.OutputState }
+type LoggerOutput struct {
+	*pulumi.OutputState
+}
 
 func (LoggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Logger)(nil))

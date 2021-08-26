@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
-    /// <summary>
-    /// Holds details about product hierarchy information
-    /// </summary>
     [OutputType]
     public sealed class HierarchyInformationResponse
     {

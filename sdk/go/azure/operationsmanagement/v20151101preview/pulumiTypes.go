@@ -324,7 +324,7 @@ func (o ManagementAssociationPropertiesOutput) ToManagementAssociationProperties
 }
 
 func (o ManagementAssociationPropertiesOutput) ToManagementAssociationPropertiesPtrOutputWithContext(ctx context.Context) ManagementAssociationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementAssociationProperties) *ManagementAssociationProperties {
+	return o.ApplyT(func(v ManagementAssociationProperties) *ManagementAssociationProperties {
 		return &v
 	}).(ManagementAssociationPropertiesPtrOutput)
 }
@@ -349,13 +349,7 @@ func (o ManagementAssociationPropertiesPtrOutput) ToManagementAssociationPropert
 }
 
 func (o ManagementAssociationPropertiesPtrOutput) Elem() ManagementAssociationPropertiesOutput {
-	return o.ApplyT(func(v *ManagementAssociationProperties) ManagementAssociationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementAssociationProperties
-		return ret
-	}).(ManagementAssociationPropertiesOutput)
+	return o.ApplyT(func(v *ManagementAssociationProperties) ManagementAssociationProperties { return *v }).(ManagementAssociationPropertiesOutput)
 }
 
 // The applicationId of the appliance for this association.
@@ -464,7 +458,7 @@ func (o ManagementAssociationPropertiesResponseOutput) ToManagementAssociationPr
 }
 
 func (o ManagementAssociationPropertiesResponseOutput) ToManagementAssociationPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementAssociationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementAssociationPropertiesResponse) *ManagementAssociationPropertiesResponse {
+	return o.ApplyT(func(v ManagementAssociationPropertiesResponse) *ManagementAssociationPropertiesResponse {
 		return &v
 	}).(ManagementAssociationPropertiesResponsePtrOutput)
 }
@@ -489,13 +483,7 @@ func (o ManagementAssociationPropertiesResponsePtrOutput) ToManagementAssociatio
 }
 
 func (o ManagementAssociationPropertiesResponsePtrOutput) Elem() ManagementAssociationPropertiesResponseOutput {
-	return o.ApplyT(func(v *ManagementAssociationPropertiesResponse) ManagementAssociationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementAssociationPropertiesResponse
-		return ret
-	}).(ManagementAssociationPropertiesResponseOutput)
+	return o.ApplyT(func(v *ManagementAssociationPropertiesResponse) ManagementAssociationPropertiesResponse { return *v }).(ManagementAssociationPropertiesResponseOutput)
 }
 
 // The applicationId of the appliance for this association.
@@ -616,7 +604,7 @@ func (o ManagementConfigurationPropertiesOutput) ToManagementConfigurationProper
 }
 
 func (o ManagementConfigurationPropertiesOutput) ToManagementConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ManagementConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementConfigurationProperties) *ManagementConfigurationProperties {
+	return o.ApplyT(func(v ManagementConfigurationProperties) *ManagementConfigurationProperties {
 		return &v
 	}).(ManagementConfigurationPropertiesPtrOutput)
 }
@@ -656,13 +644,7 @@ func (o ManagementConfigurationPropertiesPtrOutput) ToManagementConfigurationPro
 }
 
 func (o ManagementConfigurationPropertiesPtrOutput) Elem() ManagementConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *ManagementConfigurationProperties) ManagementConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementConfigurationProperties
-		return ret
-	}).(ManagementConfigurationPropertiesOutput)
+	return o.ApplyT(func(v *ManagementConfigurationProperties) ManagementConfigurationProperties { return *v }).(ManagementConfigurationPropertiesOutput)
 }
 
 // The applicationId of the appliance for this Management.
@@ -817,7 +799,7 @@ func (o ManagementConfigurationPropertiesResponseOutput) ToManagementConfigurati
 }
 
 func (o ManagementConfigurationPropertiesResponseOutput) ToManagementConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagementConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementConfigurationPropertiesResponse) *ManagementConfigurationPropertiesResponse {
+	return o.ApplyT(func(v ManagementConfigurationPropertiesResponse) *ManagementConfigurationPropertiesResponse {
 		return &v
 	}).(ManagementConfigurationPropertiesResponsePtrOutput)
 }
@@ -863,11 +845,7 @@ func (o ManagementConfigurationPropertiesResponsePtrOutput) ToManagementConfigur
 
 func (o ManagementConfigurationPropertiesResponsePtrOutput) Elem() ManagementConfigurationPropertiesResponseOutput {
 	return o.ApplyT(func(v *ManagementConfigurationPropertiesResponse) ManagementConfigurationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagementConfigurationPropertiesResponse
-		return ret
+		return *v
 	}).(ManagementConfigurationPropertiesResponseOutput)
 }
 
@@ -1029,7 +1007,7 @@ func (o SolutionPlanOutput) ToSolutionPlanPtrOutput() SolutionPlanPtrOutput {
 }
 
 func (o SolutionPlanOutput) ToSolutionPlanPtrOutputWithContext(ctx context.Context) SolutionPlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPlan) *SolutionPlan {
+	return o.ApplyT(func(v SolutionPlan) *SolutionPlan {
 		return &v
 	}).(SolutionPlanPtrOutput)
 }
@@ -1069,13 +1047,7 @@ func (o SolutionPlanPtrOutput) ToSolutionPlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o SolutionPlanPtrOutput) Elem() SolutionPlanOutput {
-	return o.ApplyT(func(v *SolutionPlan) SolutionPlan {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionPlan
-		return ret
-	}).(SolutionPlanOutput)
+	return o.ApplyT(func(v *SolutionPlan) SolutionPlan { return *v }).(SolutionPlanOutput)
 }
 
 // name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
@@ -1226,7 +1198,7 @@ func (o SolutionPlanResponseOutput) ToSolutionPlanResponsePtrOutput() SolutionPl
 }
 
 func (o SolutionPlanResponseOutput) ToSolutionPlanResponsePtrOutputWithContext(ctx context.Context) SolutionPlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPlanResponse) *SolutionPlanResponse {
+	return o.ApplyT(func(v SolutionPlanResponse) *SolutionPlanResponse {
 		return &v
 	}).(SolutionPlanResponsePtrOutput)
 }
@@ -1266,13 +1238,7 @@ func (o SolutionPlanResponsePtrOutput) ToSolutionPlanResponsePtrOutputWithContex
 }
 
 func (o SolutionPlanResponsePtrOutput) Elem() SolutionPlanResponseOutput {
-	return o.ApplyT(func(v *SolutionPlanResponse) SolutionPlanResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionPlanResponse
-		return ret
-	}).(SolutionPlanResponseOutput)
+	return o.ApplyT(func(v *SolutionPlanResponse) SolutionPlanResponse { return *v }).(SolutionPlanResponseOutput)
 }
 
 // name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
@@ -1419,7 +1385,7 @@ func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutput() SolutionProper
 }
 
 func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionProperties) *SolutionProperties {
+	return o.ApplyT(func(v SolutionProperties) *SolutionProperties {
 		return &v
 	}).(SolutionPropertiesPtrOutput)
 }
@@ -1454,13 +1420,7 @@ func (o SolutionPropertiesPtrOutput) ToSolutionPropertiesPtrOutputWithContext(ct
 }
 
 func (o SolutionPropertiesPtrOutput) Elem() SolutionPropertiesOutput {
-	return o.ApplyT(func(v *SolutionProperties) SolutionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionProperties
-		return ret
-	}).(SolutionPropertiesOutput)
+	return o.ApplyT(func(v *SolutionProperties) SolutionProperties { return *v }).(SolutionPropertiesOutput)
 }
 
 // The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
@@ -1601,7 +1561,7 @@ func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutput(
 }
 
 func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPropertiesResponse) *SolutionPropertiesResponse {
+	return o.ApplyT(func(v SolutionPropertiesResponse) *SolutionPropertiesResponse {
 		return &v
 	}).(SolutionPropertiesResponsePtrOutput)
 }
@@ -1641,13 +1601,7 @@ func (o SolutionPropertiesResponsePtrOutput) ToSolutionPropertiesResponsePtrOutp
 }
 
 func (o SolutionPropertiesResponsePtrOutput) Elem() SolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SolutionPropertiesResponse
-		return ret
-	}).(SolutionPropertiesResponseOutput)
+	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse { return *v }).(SolutionPropertiesResponseOutput)
 }
 
 // The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.

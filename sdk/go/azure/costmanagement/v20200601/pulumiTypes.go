@@ -122,7 +122,7 @@ func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePt
 }
 
 func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePtrOutputWithContext(ctx context.Context) CommonExportPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonExportPropertiesResponse) *CommonExportPropertiesResponse {
+	return o.ApplyT(func(v CommonExportPropertiesResponse) *CommonExportPropertiesResponse {
 		return &v
 	}).(CommonExportPropertiesResponsePtrOutput)
 }
@@ -167,13 +167,7 @@ func (o CommonExportPropertiesResponsePtrOutput) ToCommonExportPropertiesRespons
 }
 
 func (o CommonExportPropertiesResponsePtrOutput) Elem() CommonExportPropertiesResponseOutput {
-	return o.ApplyT(func(v *CommonExportPropertiesResponse) CommonExportPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CommonExportPropertiesResponse
-		return ret
-	}).(CommonExportPropertiesResponseOutput)
+	return o.ApplyT(func(v *CommonExportPropertiesResponse) CommonExportPropertiesResponse { return *v }).(CommonExportPropertiesResponseOutput)
 }
 
 // Has the definition for the export.
@@ -326,7 +320,7 @@ func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutput() ErrorDetai
 }
 
 func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutputWithContext(ctx context.Context) ErrorDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailsResponse) *ErrorDetailsResponse {
+	return o.ApplyT(func(v ErrorDetailsResponse) *ErrorDetailsResponse {
 		return &v
 	}).(ErrorDetailsResponsePtrOutput)
 }
@@ -356,13 +350,7 @@ func (o ErrorDetailsResponsePtrOutput) ToErrorDetailsResponsePtrOutputWithContex
 }
 
 func (o ErrorDetailsResponsePtrOutput) Elem() ErrorDetailsResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailsResponse) ErrorDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorDetailsResponse
-		return ret
-	}).(ErrorDetailsResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailsResponse) ErrorDetailsResponse { return *v }).(ErrorDetailsResponseOutput)
 }
 
 // Error code.
@@ -485,7 +473,7 @@ func (o ExportDatasetOutput) ToExportDatasetPtrOutput() ExportDatasetPtrOutput {
 }
 
 func (o ExportDatasetOutput) ToExportDatasetPtrOutputWithContext(ctx context.Context) ExportDatasetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDataset) *ExportDataset {
+	return o.ApplyT(func(v ExportDataset) *ExportDataset {
 		return &v
 	}).(ExportDatasetPtrOutput)
 }
@@ -515,13 +503,7 @@ func (o ExportDatasetPtrOutput) ToExportDatasetPtrOutputWithContext(ctx context.
 }
 
 func (o ExportDatasetPtrOutput) Elem() ExportDatasetOutput {
-	return o.ApplyT(func(v *ExportDataset) ExportDataset {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDataset
-		return ret
-	}).(ExportDatasetOutput)
+	return o.ApplyT(func(v *ExportDataset) ExportDataset { return *v }).(ExportDatasetOutput)
 }
 
 // The export dataset configuration.
@@ -640,7 +622,7 @@ func (o ExportDatasetConfigurationOutput) ToExportDatasetConfigurationPtrOutput(
 }
 
 func (o ExportDatasetConfigurationOutput) ToExportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetConfiguration) *ExportDatasetConfiguration {
+	return o.ApplyT(func(v ExportDatasetConfiguration) *ExportDatasetConfiguration {
 		return &v
 	}).(ExportDatasetConfigurationPtrOutput)
 }
@@ -665,13 +647,7 @@ func (o ExportDatasetConfigurationPtrOutput) ToExportDatasetConfigurationPtrOutp
 }
 
 func (o ExportDatasetConfigurationPtrOutput) Elem() ExportDatasetConfigurationOutput {
-	return o.ApplyT(func(v *ExportDatasetConfiguration) ExportDatasetConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDatasetConfiguration
-		return ret
-	}).(ExportDatasetConfigurationOutput)
+	return o.ApplyT(func(v *ExportDatasetConfiguration) ExportDatasetConfiguration { return *v }).(ExportDatasetConfigurationOutput)
 }
 
 // Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
@@ -780,7 +756,7 @@ func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationRe
 }
 
 func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetConfigurationResponse) *ExportDatasetConfigurationResponse {
+	return o.ApplyT(func(v ExportDatasetConfigurationResponse) *ExportDatasetConfigurationResponse {
 		return &v
 	}).(ExportDatasetConfigurationResponsePtrOutput)
 }
@@ -805,13 +781,7 @@ func (o ExportDatasetConfigurationResponsePtrOutput) ToExportDatasetConfiguratio
 }
 
 func (o ExportDatasetConfigurationResponsePtrOutput) Elem() ExportDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) ExportDatasetConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDatasetConfigurationResponse
-		return ret
-	}).(ExportDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) ExportDatasetConfigurationResponse { return *v }).(ExportDatasetConfigurationResponseOutput)
 }
 
 // Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
@@ -924,7 +894,7 @@ func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutput() ExportDa
 }
 
 func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutputWithContext(ctx context.Context) ExportDatasetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetResponse) *ExportDatasetResponse {
+	return o.ApplyT(func(v ExportDatasetResponse) *ExportDatasetResponse {
 		return &v
 	}).(ExportDatasetResponsePtrOutput)
 }
@@ -954,13 +924,7 @@ func (o ExportDatasetResponsePtrOutput) ToExportDatasetResponsePtrOutputWithCont
 }
 
 func (o ExportDatasetResponsePtrOutput) Elem() ExportDatasetResponseOutput {
-	return o.ApplyT(func(v *ExportDatasetResponse) ExportDatasetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDatasetResponse
-		return ret
-	}).(ExportDatasetResponseOutput)
+	return o.ApplyT(func(v *ExportDatasetResponse) ExportDatasetResponse { return *v }).(ExportDatasetResponseOutput)
 }
 
 // The export dataset configuration.
@@ -1091,7 +1055,7 @@ func (o ExportDefinitionOutput) ToExportDefinitionPtrOutput() ExportDefinitionPt
 }
 
 func (o ExportDefinitionOutput) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinition) *ExportDefinition {
+	return o.ApplyT(func(v ExportDefinition) *ExportDefinition {
 		return &v
 	}).(ExportDefinitionPtrOutput)
 }
@@ -1131,13 +1095,7 @@ func (o ExportDefinitionPtrOutput) ToExportDefinitionPtrOutputWithContext(ctx co
 }
 
 func (o ExportDefinitionPtrOutput) Elem() ExportDefinitionOutput {
-	return o.ApplyT(func(v *ExportDefinition) ExportDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDefinition
-		return ret
-	}).(ExportDefinitionOutput)
+	return o.ApplyT(func(v *ExportDefinition) ExportDefinition { return *v }).(ExportDefinitionOutput)
 }
 
 // The definition for data in the export.
@@ -1288,7 +1246,7 @@ func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutput() Ex
 }
 
 func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinitionResponse) *ExportDefinitionResponse {
+	return o.ApplyT(func(v ExportDefinitionResponse) *ExportDefinitionResponse {
 		return &v
 	}).(ExportDefinitionResponsePtrOutput)
 }
@@ -1328,13 +1286,7 @@ func (o ExportDefinitionResponsePtrOutput) ToExportDefinitionResponsePtrOutputWi
 }
 
 func (o ExportDefinitionResponsePtrOutput) Elem() ExportDefinitionResponseOutput {
-	return o.ApplyT(func(v *ExportDefinitionResponse) ExportDefinitionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDefinitionResponse
-		return ret
-	}).(ExportDefinitionResponseOutput)
+	return o.ApplyT(func(v *ExportDefinitionResponse) ExportDefinitionResponse { return *v }).(ExportDefinitionResponseOutput)
 }
 
 // The definition for data in the export.
@@ -1481,7 +1433,7 @@ func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutput() 
 }
 
 func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestination) *ExportDeliveryDestination {
+	return o.ApplyT(func(v ExportDeliveryDestination) *ExportDeliveryDestination {
 		return &v
 	}).(ExportDeliveryDestinationPtrOutput)
 }
@@ -1516,13 +1468,7 @@ func (o ExportDeliveryDestinationPtrOutput) ToExportDeliveryDestinationPtrOutput
 }
 
 func (o ExportDeliveryDestinationPtrOutput) Elem() ExportDeliveryDestinationOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDeliveryDestination
-		return ret
-	}).(ExportDeliveryDestinationOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination { return *v }).(ExportDeliveryDestinationOutput)
 }
 
 // The name of the container where exports will be uploaded.
@@ -1659,7 +1605,7 @@ func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResp
 }
 
 func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
+	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
 		return &v
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
@@ -1694,13 +1640,7 @@ func (o ExportDeliveryDestinationResponsePtrOutput) ToExportDeliveryDestinationR
 }
 
 func (o ExportDeliveryDestinationResponsePtrOutput) Elem() ExportDeliveryDestinationResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDeliveryDestinationResponse
-		return ret
-	}).(ExportDeliveryDestinationResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse { return *v }).(ExportDeliveryDestinationResponseOutput)
 }
 
 // The name of the container where exports will be uploaded.
@@ -1829,7 +1769,7 @@ func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutput() ExportDelivery
 }
 
 func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfo) *ExportDeliveryInfo {
+	return o.ApplyT(func(v ExportDeliveryInfo) *ExportDeliveryInfo {
 		return &v
 	}).(ExportDeliveryInfoPtrOutput)
 }
@@ -1854,13 +1794,7 @@ func (o ExportDeliveryInfoPtrOutput) ToExportDeliveryInfoPtrOutputWithContext(ct
 }
 
 func (o ExportDeliveryInfoPtrOutput) Elem() ExportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDeliveryInfo
-		return ret
-	}).(ExportDeliveryInfoOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo { return *v }).(ExportDeliveryInfoOutput)
 }
 
 // Has destination for the export being delivered.
@@ -1969,7 +1903,7 @@ func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutput(
 }
 
 func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
+	return o.ApplyT(func(v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
 		return &v
 	}).(ExportDeliveryInfoResponsePtrOutput)
 }
@@ -1994,13 +1928,7 @@ func (o ExportDeliveryInfoResponsePtrOutput) ToExportDeliveryInfoResponsePtrOutp
 }
 
 func (o ExportDeliveryInfoResponsePtrOutput) Elem() ExportDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDeliveryInfoResponse
-		return ret
-	}).(ExportDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse { return *v }).(ExportDeliveryInfoResponseOutput)
 }
 
 // Has destination for the export being delivered.
@@ -2109,7 +2037,7 @@ func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResp
 }
 
 func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResponsePtrOutputWithContext(ctx context.Context) ExportExecutionListResultResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportExecutionListResultResponse) *ExportExecutionListResultResponse {
+	return o.ApplyT(func(v ExportExecutionListResultResponse) *ExportExecutionListResultResponse {
 		return &v
 	}).(ExportExecutionListResultResponsePtrOutput)
 }
@@ -2134,13 +2062,7 @@ func (o ExportExecutionListResultResponsePtrOutput) ToExportExecutionListResultR
 }
 
 func (o ExportExecutionListResultResponsePtrOutput) Elem() ExportExecutionListResultResponseOutput {
-	return o.ApplyT(func(v *ExportExecutionListResultResponse) ExportExecutionListResultResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportExecutionListResultResponse
-		return ret
-	}).(ExportExecutionListResultResponseOutput)
+	return o.ApplyT(func(v *ExportExecutionListResultResponse) ExportExecutionListResultResponse { return *v }).(ExportExecutionListResultResponseOutput)
 }
 
 // A list of export executions.
@@ -2461,7 +2383,7 @@ func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutput() Export
 }
 
 func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriod) *ExportRecurrencePeriod {
+	return o.ApplyT(func(v ExportRecurrencePeriod) *ExportRecurrencePeriod {
 		return &v
 	}).(ExportRecurrencePeriodPtrOutput)
 }
@@ -2491,13 +2413,7 @@ func (o ExportRecurrencePeriodPtrOutput) ToExportRecurrencePeriodPtrOutputWithCo
 }
 
 func (o ExportRecurrencePeriodPtrOutput) Elem() ExportRecurrencePeriodOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret ExportRecurrencePeriod
-		return ret
-	}).(ExportRecurrencePeriodOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod { return *v }).(ExportRecurrencePeriodOutput)
 }
 
 // The start date of recurrence.
@@ -2620,7 +2536,7 @@ func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePt
 }
 
 func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
+	return o.ApplyT(func(v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
 		return &v
 	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
@@ -2650,13 +2566,7 @@ func (o ExportRecurrencePeriodResponsePtrOutput) ToExportRecurrencePeriodRespons
 }
 
 func (o ExportRecurrencePeriodResponsePtrOutput) Elem() ExportRecurrencePeriodResponseOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportRecurrencePeriodResponse
-		return ret
-	}).(ExportRecurrencePeriodResponseOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse { return *v }).(ExportRecurrencePeriodResponseOutput)
 }
 
 // The start date of recurrence.
@@ -2783,7 +2693,7 @@ func (o ExportScheduleOutput) ToExportSchedulePtrOutput() ExportSchedulePtrOutpu
 }
 
 func (o ExportScheduleOutput) ToExportSchedulePtrOutputWithContext(ctx context.Context) ExportSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportSchedule) *ExportSchedule {
+	return o.ApplyT(func(v ExportSchedule) *ExportSchedule {
 		return &v
 	}).(ExportSchedulePtrOutput)
 }
@@ -2818,13 +2728,7 @@ func (o ExportSchedulePtrOutput) ToExportSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o ExportSchedulePtrOutput) Elem() ExportScheduleOutput {
-	return o.ApplyT(func(v *ExportSchedule) ExportSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret ExportSchedule
-		return ret
-	}).(ExportScheduleOutput)
+	return o.ApplyT(func(v *ExportSchedule) ExportSchedule { return *v }).(ExportScheduleOutput)
 }
 
 // The schedule recurrence.
@@ -2961,7 +2865,7 @@ func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutput() Export
 }
 
 func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutputWithContext(ctx context.Context) ExportScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportScheduleResponse) *ExportScheduleResponse {
+	return o.ApplyT(func(v ExportScheduleResponse) *ExportScheduleResponse {
 		return &v
 	}).(ExportScheduleResponsePtrOutput)
 }
@@ -2996,13 +2900,7 @@ func (o ExportScheduleResponsePtrOutput) ToExportScheduleResponsePtrOutputWithCo
 }
 
 func (o ExportScheduleResponsePtrOutput) Elem() ExportScheduleResponseOutput {
-	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportScheduleResponse
-		return ret
-	}).(ExportScheduleResponseOutput)
+	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse { return *v }).(ExportScheduleResponseOutput)
 }
 
 // The schedule recurrence.
@@ -3135,7 +3033,7 @@ func (o ExportTimePeriodOutput) ToExportTimePeriodPtrOutput() ExportTimePeriodPt
 }
 
 func (o ExportTimePeriodOutput) ToExportTimePeriodPtrOutputWithContext(ctx context.Context) ExportTimePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTimePeriod) *ExportTimePeriod {
+	return o.ApplyT(func(v ExportTimePeriod) *ExportTimePeriod {
 		return &v
 	}).(ExportTimePeriodPtrOutput)
 }
@@ -3165,13 +3063,7 @@ func (o ExportTimePeriodPtrOutput) ToExportTimePeriodPtrOutputWithContext(ctx co
 }
 
 func (o ExportTimePeriodPtrOutput) Elem() ExportTimePeriodOutput {
-	return o.ApplyT(func(v *ExportTimePeriod) ExportTimePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret ExportTimePeriod
-		return ret
-	}).(ExportTimePeriodOutput)
+	return o.ApplyT(func(v *ExportTimePeriod) ExportTimePeriod { return *v }).(ExportTimePeriodOutput)
 }
 
 // The start date for export data.
@@ -3294,7 +3186,7 @@ func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutput() Ex
 }
 
 func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ExportTimePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTimePeriodResponse) *ExportTimePeriodResponse {
+	return o.ApplyT(func(v ExportTimePeriodResponse) *ExportTimePeriodResponse {
 		return &v
 	}).(ExportTimePeriodResponsePtrOutput)
 }
@@ -3324,13 +3216,7 @@ func (o ExportTimePeriodResponsePtrOutput) ToExportTimePeriodResponsePtrOutputWi
 }
 
 func (o ExportTimePeriodResponsePtrOutput) Elem() ExportTimePeriodResponseOutput {
-	return o.ApplyT(func(v *ExportTimePeriodResponse) ExportTimePeriodResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExportTimePeriodResponse
-		return ret
-	}).(ExportTimePeriodResponseOutput)
+	return o.ApplyT(func(v *ExportTimePeriodResponse) ExportTimePeriodResponse { return *v }).(ExportTimePeriodResponseOutput)
 }
 
 // The start date for export data.
@@ -4129,7 +4015,7 @@ func (o ReportConfigComparisonExpressionOutput) ToReportConfigComparisonExpressi
 }
 
 func (o ReportConfigComparisonExpressionOutput) ToReportConfigComparisonExpressionPtrOutputWithContext(ctx context.Context) ReportConfigComparisonExpressionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigComparisonExpression) *ReportConfigComparisonExpression {
+	return o.ApplyT(func(v ReportConfigComparisonExpression) *ReportConfigComparisonExpression {
 		return &v
 	}).(ReportConfigComparisonExpressionPtrOutput)
 }
@@ -4164,13 +4050,7 @@ func (o ReportConfigComparisonExpressionPtrOutput) ToReportConfigComparisonExpre
 }
 
 func (o ReportConfigComparisonExpressionPtrOutput) Elem() ReportConfigComparisonExpressionOutput {
-	return o.ApplyT(func(v *ReportConfigComparisonExpression) ReportConfigComparisonExpression {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigComparisonExpression
-		return ret
-	}).(ReportConfigComparisonExpressionOutput)
+	return o.ApplyT(func(v *ReportConfigComparisonExpression) ReportConfigComparisonExpression { return *v }).(ReportConfigComparisonExpressionOutput)
 }
 
 // The name of the column to use in comparison.
@@ -4307,7 +4187,7 @@ func (o ReportConfigComparisonExpressionResponseOutput) ToReportConfigComparison
 }
 
 func (o ReportConfigComparisonExpressionResponseOutput) ToReportConfigComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportConfigComparisonExpressionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigComparisonExpressionResponse) *ReportConfigComparisonExpressionResponse {
+	return o.ApplyT(func(v ReportConfigComparisonExpressionResponse) *ReportConfigComparisonExpressionResponse {
 		return &v
 	}).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
@@ -4342,13 +4222,7 @@ func (o ReportConfigComparisonExpressionResponsePtrOutput) ToReportConfigCompari
 }
 
 func (o ReportConfigComparisonExpressionResponsePtrOutput) Elem() ReportConfigComparisonExpressionResponseOutput {
-	return o.ApplyT(func(v *ReportConfigComparisonExpressionResponse) ReportConfigComparisonExpressionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigComparisonExpressionResponse
-		return ret
-	}).(ReportConfigComparisonExpressionResponseOutput)
+	return o.ApplyT(func(v *ReportConfigComparisonExpressionResponse) ReportConfigComparisonExpressionResponse { return *v }).(ReportConfigComparisonExpressionResponseOutput)
 }
 
 // The name of the column to use in comparison.
@@ -4497,7 +4371,7 @@ func (o ReportConfigDatasetOutput) ToReportConfigDatasetPtrOutput() ReportConfig
 }
 
 func (o ReportConfigDatasetOutput) ToReportConfigDatasetPtrOutputWithContext(ctx context.Context) ReportConfigDatasetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDataset) *ReportConfigDataset {
+	return o.ApplyT(func(v ReportConfigDataset) *ReportConfigDataset {
 		return &v
 	}).(ReportConfigDatasetPtrOutput)
 }
@@ -4547,13 +4421,7 @@ func (o ReportConfigDatasetPtrOutput) ToReportConfigDatasetPtrOutputWithContext(
 }
 
 func (o ReportConfigDatasetPtrOutput) Elem() ReportConfigDatasetOutput {
-	return o.ApplyT(func(v *ReportConfigDataset) ReportConfigDataset {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigDataset
-		return ret
-	}).(ReportConfigDatasetOutput)
+	return o.ApplyT(func(v *ReportConfigDataset) ReportConfigDataset { return *v }).(ReportConfigDatasetOutput)
 }
 
 // Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
@@ -4712,7 +4580,7 @@ func (o ReportConfigDatasetConfigurationOutput) ToReportConfigDatasetConfigurati
 }
 
 func (o ReportConfigDatasetConfigurationOutput) ToReportConfigDatasetConfigurationPtrOutputWithContext(ctx context.Context) ReportConfigDatasetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDatasetConfiguration) *ReportConfigDatasetConfiguration {
+	return o.ApplyT(func(v ReportConfigDatasetConfiguration) *ReportConfigDatasetConfiguration {
 		return &v
 	}).(ReportConfigDatasetConfigurationPtrOutput)
 }
@@ -4737,13 +4605,7 @@ func (o ReportConfigDatasetConfigurationPtrOutput) ToReportConfigDatasetConfigur
 }
 
 func (o ReportConfigDatasetConfigurationPtrOutput) Elem() ReportConfigDatasetConfigurationOutput {
-	return o.ApplyT(func(v *ReportConfigDatasetConfiguration) ReportConfigDatasetConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigDatasetConfiguration
-		return ret
-	}).(ReportConfigDatasetConfigurationOutput)
+	return o.ApplyT(func(v *ReportConfigDatasetConfiguration) ReportConfigDatasetConfiguration { return *v }).(ReportConfigDatasetConfigurationOutput)
 }
 
 // Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
@@ -4852,7 +4714,7 @@ func (o ReportConfigDatasetConfigurationResponseOutput) ToReportConfigDatasetCon
 }
 
 func (o ReportConfigDatasetConfigurationResponseOutput) ToReportConfigDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportConfigDatasetConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDatasetConfigurationResponse) *ReportConfigDatasetConfigurationResponse {
+	return o.ApplyT(func(v ReportConfigDatasetConfigurationResponse) *ReportConfigDatasetConfigurationResponse {
 		return &v
 	}).(ReportConfigDatasetConfigurationResponsePtrOutput)
 }
@@ -4877,13 +4739,7 @@ func (o ReportConfigDatasetConfigurationResponsePtrOutput) ToReportConfigDataset
 }
 
 func (o ReportConfigDatasetConfigurationResponsePtrOutput) Elem() ReportConfigDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *ReportConfigDatasetConfigurationResponse) ReportConfigDatasetConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigDatasetConfigurationResponse
-		return ret
-	}).(ReportConfigDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *ReportConfigDatasetConfigurationResponse) ReportConfigDatasetConfigurationResponse { return *v }).(ReportConfigDatasetConfigurationResponseOutput)
 }
 
 // Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
@@ -5012,7 +4868,7 @@ func (o ReportConfigDatasetResponseOutput) ToReportConfigDatasetResponsePtrOutpu
 }
 
 func (o ReportConfigDatasetResponseOutput) ToReportConfigDatasetResponsePtrOutputWithContext(ctx context.Context) ReportConfigDatasetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDatasetResponse) *ReportConfigDatasetResponse {
+	return o.ApplyT(func(v ReportConfigDatasetResponse) *ReportConfigDatasetResponse {
 		return &v
 	}).(ReportConfigDatasetResponsePtrOutput)
 }
@@ -5062,13 +4918,7 @@ func (o ReportConfigDatasetResponsePtrOutput) ToReportConfigDatasetResponsePtrOu
 }
 
 func (o ReportConfigDatasetResponsePtrOutput) Elem() ReportConfigDatasetResponseOutput {
-	return o.ApplyT(func(v *ReportConfigDatasetResponse) ReportConfigDatasetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigDatasetResponse
-		return ret
-	}).(ReportConfigDatasetResponseOutput)
+	return o.ApplyT(func(v *ReportConfigDatasetResponse) ReportConfigDatasetResponse { return *v }).(ReportConfigDatasetResponseOutput)
 }
 
 // Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
@@ -5268,7 +5118,7 @@ func (o ReportConfigFilterOutput) ToReportConfigFilterPtrOutput() ReportConfigFi
 }
 
 func (o ReportConfigFilterOutput) ToReportConfigFilterPtrOutputWithContext(ctx context.Context) ReportConfigFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigFilter) *ReportConfigFilter {
+	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigFilter {
 		return &v
 	}).(ReportConfigFilterPtrOutput)
 }
@@ -5313,13 +5163,7 @@ func (o ReportConfigFilterPtrOutput) ToReportConfigFilterPtrOutputWithContext(ct
 }
 
 func (o ReportConfigFilterPtrOutput) Elem() ReportConfigFilterOutput {
-	return o.ApplyT(func(v *ReportConfigFilter) ReportConfigFilter {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigFilter
-		return ret
-	}).(ReportConfigFilterOutput)
+	return o.ApplyT(func(v *ReportConfigFilter) ReportConfigFilter { return *v }).(ReportConfigFilterOutput)
 }
 
 // The logical "AND" expression. Must have at least 2 items.
@@ -5529,7 +5373,7 @@ func (o ReportConfigFilterResponseOutput) ToReportConfigFilterResponsePtrOutput(
 }
 
 func (o ReportConfigFilterResponseOutput) ToReportConfigFilterResponsePtrOutputWithContext(ctx context.Context) ReportConfigFilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigFilterResponse) *ReportConfigFilterResponse {
+	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigFilterResponse {
 		return &v
 	}).(ReportConfigFilterResponsePtrOutput)
 }
@@ -5574,13 +5418,7 @@ func (o ReportConfigFilterResponsePtrOutput) ToReportConfigFilterResponsePtrOutp
 }
 
 func (o ReportConfigFilterResponsePtrOutput) Elem() ReportConfigFilterResponseOutput {
-	return o.ApplyT(func(v *ReportConfigFilterResponse) ReportConfigFilterResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigFilterResponse
-		return ret
-	}).(ReportConfigFilterResponseOutput)
+	return o.ApplyT(func(v *ReportConfigFilterResponse) ReportConfigFilterResponse { return *v }).(ReportConfigFilterResponseOutput)
 }
 
 // The logical "AND" expression. Must have at least 2 items.
@@ -6189,7 +6027,7 @@ func (o ReportConfigTimePeriodOutput) ToReportConfigTimePeriodPtrOutput() Report
 }
 
 func (o ReportConfigTimePeriodOutput) ToReportConfigTimePeriodPtrOutputWithContext(ctx context.Context) ReportConfigTimePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigTimePeriod) *ReportConfigTimePeriod {
+	return o.ApplyT(func(v ReportConfigTimePeriod) *ReportConfigTimePeriod {
 		return &v
 	}).(ReportConfigTimePeriodPtrOutput)
 }
@@ -6219,13 +6057,7 @@ func (o ReportConfigTimePeriodPtrOutput) ToReportConfigTimePeriodPtrOutputWithCo
 }
 
 func (o ReportConfigTimePeriodPtrOutput) Elem() ReportConfigTimePeriodOutput {
-	return o.ApplyT(func(v *ReportConfigTimePeriod) ReportConfigTimePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigTimePeriod
-		return ret
-	}).(ReportConfigTimePeriodOutput)
+	return o.ApplyT(func(v *ReportConfigTimePeriod) ReportConfigTimePeriod { return *v }).(ReportConfigTimePeriodOutput)
 }
 
 // The start date to pull data from.
@@ -6348,7 +6180,7 @@ func (o ReportConfigTimePeriodResponseOutput) ToReportConfigTimePeriodResponsePt
 }
 
 func (o ReportConfigTimePeriodResponseOutput) ToReportConfigTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportConfigTimePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigTimePeriodResponse) *ReportConfigTimePeriodResponse {
+	return o.ApplyT(func(v ReportConfigTimePeriodResponse) *ReportConfigTimePeriodResponse {
 		return &v
 	}).(ReportConfigTimePeriodResponsePtrOutput)
 }
@@ -6378,13 +6210,7 @@ func (o ReportConfigTimePeriodResponsePtrOutput) ToReportConfigTimePeriodRespons
 }
 
 func (o ReportConfigTimePeriodResponsePtrOutput) Elem() ReportConfigTimePeriodResponseOutput {
-	return o.ApplyT(func(v *ReportConfigTimePeriodResponse) ReportConfigTimePeriodResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportConfigTimePeriodResponse
-		return ret
-	}).(ReportConfigTimePeriodResponseOutput)
+	return o.ApplyT(func(v *ReportConfigTimePeriodResponse) ReportConfigTimePeriodResponse { return *v }).(ReportConfigTimePeriodResponseOutput)
 }
 
 // The start date to pull data from.

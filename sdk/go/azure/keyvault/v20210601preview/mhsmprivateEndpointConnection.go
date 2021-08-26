@@ -161,7 +161,9 @@ func (i *MHSMPrivateEndpointConnection) ToMHSMPrivateEndpointConnectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MHSMPrivateEndpointConnectionOutput)
 }
 
-type MHSMPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type MHSMPrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (MHSMPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MHSMPrivateEndpointConnection)(nil))

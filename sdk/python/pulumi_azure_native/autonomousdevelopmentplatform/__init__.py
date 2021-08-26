@@ -14,10 +14,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.autonomousdevelopmentplatform.v20200701preview as __v20200701preview
-    v20200701preview = __v20200701preview
-    import pulumi_azure_native.autonomousdevelopmentplatform.v20210201preview as __v20210201preview
-    v20210201preview = __v20210201preview
+    import pulumi_azure_native.autonomousdevelopmentplatform.v20200701preview as v20200701preview
+    import pulumi_azure_native.autonomousdevelopmentplatform.v20210201preview as v20210201preview
 else:
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.autonomousdevelopmentplatform.v20200701preview')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.autonomousdevelopmentplatform.v20210201preview')

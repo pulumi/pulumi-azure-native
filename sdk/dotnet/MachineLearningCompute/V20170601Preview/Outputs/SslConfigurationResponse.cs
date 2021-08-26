@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.V20170601Preview.Outputs
 {
 
-    /// <summary>
-    /// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
-    /// </summary>
     [OutputType]
     public sealed class SslConfigurationResponse
     {

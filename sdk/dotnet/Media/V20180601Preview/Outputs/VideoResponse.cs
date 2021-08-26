@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the basic properties for encoding the input video.
-    /// </summary>
     [OutputType]
     public sealed class VideoResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
-    /// <summary>
-    /// The properties of the export pipeline target.
-    /// </summary>
     [OutputType]
     public sealed class ExportPipelineTargetPropertiesResponse
     {

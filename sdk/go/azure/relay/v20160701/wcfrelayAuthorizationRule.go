@@ -141,7 +141,9 @@ func (i *WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayAuthorizationRuleOutput)
 }
 
-type WCFRelayAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type WCFRelayAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (WCFRelayAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil))

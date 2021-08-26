@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
-    /// </summary>
     [OutputType]
     public sealed class TumblingWindowTriggerResponse
     {

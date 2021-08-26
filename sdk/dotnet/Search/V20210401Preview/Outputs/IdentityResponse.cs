@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Details about the search service identity. A null value indicates that the search service has no identity assigned.
-    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20201001Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
-    /// </summary>
     [OutputType]
     public sealed class CloudServiceVaultCertificateResponse
     {

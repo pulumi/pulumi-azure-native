@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101.Outputs
 {
 
-    /// <summary>
-    /// Describes properties of an assessment metadata.
-    /// </summary>
     [OutputType]
     public sealed class SecurityAssessmentMetadataPropertiesResponse
     {

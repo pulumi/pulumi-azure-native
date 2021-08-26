@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Outputs
 {
 
-    /// <summary>
-    /// Fields for tracking refresh job on the share or container.
-    /// </summary>
     [OutputType]
     public sealed class RefreshDetailsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20200601.Outputs
 {
 
-    /// <summary>
-    /// ConnectionState information.
-    /// </summary>
     [OutputType]
     public sealed class ConnectionStateResponse
     {

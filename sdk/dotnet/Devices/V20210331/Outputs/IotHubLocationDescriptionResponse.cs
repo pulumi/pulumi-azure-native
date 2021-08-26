@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20210331.Outputs
 {
 
-    /// <summary>
-    /// Public representation of one of the locations where a resource is provisioned.
-    /// </summary>
     [OutputType]
     public sealed class IotHubLocationDescriptionResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200601.Outputs
 {
 
-    /// <summary>
-    /// Describes a data disk.
-    /// </summary>
     [OutputType]
     public sealed class DataDiskResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// The Open Data Protocol (OData) resource dataset.
-    /// </summary>
     [OutputType]
     public sealed class ODataResourceDatasetResponse
     {

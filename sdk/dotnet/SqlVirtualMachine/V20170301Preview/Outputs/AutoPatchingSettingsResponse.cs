@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 {
 
-    /// <summary>
-    /// Set a patching window during which Windows and SQL patches will be applied.
-    /// </summary>
     [OutputType]
     public sealed class AutoPatchingSettingsResponse
     {

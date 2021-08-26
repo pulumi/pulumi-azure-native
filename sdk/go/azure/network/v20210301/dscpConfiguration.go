@@ -210,7 +210,9 @@ func (i *DscpConfiguration) ToDscpConfigurationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DscpConfigurationOutput)
 }
 
-type DscpConfigurationOutput struct{ *pulumi.OutputState }
+type DscpConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (DscpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DscpConfiguration)(nil))

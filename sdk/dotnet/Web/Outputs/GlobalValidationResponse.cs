@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
-    /// </summary>
     [OutputType]
     public sealed class GlobalValidationResponse
     {

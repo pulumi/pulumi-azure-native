@@ -139,7 +139,9 @@ func (i *CustomerSubscription) ToCustomerSubscriptionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionOutput)
 }
 
-type CustomerSubscriptionOutput struct{ *pulumi.OutputState }
+type CustomerSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomerSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomerSubscription)(nil))

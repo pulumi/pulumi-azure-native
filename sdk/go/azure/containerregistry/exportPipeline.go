@@ -163,7 +163,9 @@ func (i *ExportPipeline) ToExportPipelineOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPipelineOutput)
 }
 
-type ExportPipelineOutput struct{ *pulumi.OutputState }
+type ExportPipelineOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExportPipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExportPipeline)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190415.Outputs
 {
 
-    /// <summary>
-    /// Defines the UrlFileName condition for the delivery rule.
-    /// </summary>
     [OutputType]
     public sealed class DeliveryRuleUrlFileNameConditionResponse
     {

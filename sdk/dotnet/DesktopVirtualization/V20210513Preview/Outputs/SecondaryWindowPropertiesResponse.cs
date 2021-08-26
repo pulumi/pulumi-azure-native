@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210513Preview.Outputs
 {
 
-    /// <summary>
-    /// Secondary maintenance windows is a list of days at one specific hour. Maintenance windows are 2 hours long. We try to exercise this only when the primary window update fails.
-    /// </summary>
     [OutputType]
     public sealed class SecondaryWindowPropertiesResponse
     {

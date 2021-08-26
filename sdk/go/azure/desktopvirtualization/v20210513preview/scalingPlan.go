@@ -229,7 +229,9 @@ func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) Scalin
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
 }
 
-type ScalingPlanOutput struct{ *pulumi.OutputState }
+type ScalingPlanOutput struct {
+	*pulumi.OutputState
+}
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScalingPlan)(nil))

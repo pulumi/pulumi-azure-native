@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
-    /// <summary>
-    /// The available data types for MCAS (Microsoft Cloud App Security) data connector.
-    /// </summary>
     [OutputType]
     public sealed class MCASDataConnectorDataTypesResponse
     {

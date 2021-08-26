@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
-    /// <summary>
-    /// Details about the state of the reference virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class VmStateDetailsResponse
     {

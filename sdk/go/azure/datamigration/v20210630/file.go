@@ -146,7 +146,9 @@ func (i *File) ToFileOutputWithContext(ctx context.Context) FileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileOutput)
 }
 
-type FileOutput struct{ *pulumi.OutputState }
+type FileOutput struct {
+	*pulumi.OutputState
+}
 
 func (FileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*File)(nil))

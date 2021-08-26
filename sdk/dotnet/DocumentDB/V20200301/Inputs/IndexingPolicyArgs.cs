@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301.Inputs
         public Input<bool>? Automatic { get; set; }
 
         [Input("compositeIndexes")]
-        private InputList<ImmutableArray<Inputs.CompositePathArgs>>? _compositeIndexes;
+        private InputList<ImmutableArray<Input<Inputs.CompositePathArgs>>>? _compositeIndexes;
 
         /// <summary>
         /// List of composite path list
         /// </summary>
-        public InputList<ImmutableArray<Inputs.CompositePathArgs>> CompositeIndexes
+        public InputList<ImmutableArray<Input<Inputs.CompositePathArgs>>> CompositeIndexes
         {
-            get => _compositeIndexes ?? (_compositeIndexes = new InputList<ImmutableArray<Inputs.CompositePathArgs>>());
+            get => _compositeIndexes ?? (_compositeIndexes = new InputList<ImmutableArray<Input<Inputs.CompositePathArgs>>>());
             set => _compositeIndexes = value;
         }
 

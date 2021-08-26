@@ -222,7 +222,9 @@ func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterOutput)
 }
 
-type ManagedClusterOutput struct{ *pulumi.OutputState }
+type ManagedClusterOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedCluster)(nil))

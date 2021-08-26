@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Outputs
 {
 
-    /// <summary>
-    /// Image repository credential.
-    /// </summary>
     [OutputType]
     public sealed class ImageRepositoryCredentialResponse
     {

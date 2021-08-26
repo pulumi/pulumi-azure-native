@@ -170,7 +170,9 @@ func (i *WorkloadNetworkDnsZone) ToWorkloadNetworkDnsZoneOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDnsZoneOutput)
 }
 
-type WorkloadNetworkDnsZoneOutput struct{ *pulumi.OutputState }
+type WorkloadNetworkDnsZoneOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadNetworkDnsZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDnsZone)(nil))

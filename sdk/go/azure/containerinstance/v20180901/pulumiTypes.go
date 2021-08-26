@@ -118,7 +118,7 @@ func (o AzureFileVolumeOutput) ToAzureFileVolumePtrOutput() AzureFileVolumePtrOu
 }
 
 func (o AzureFileVolumeOutput) ToAzureFileVolumePtrOutputWithContext(ctx context.Context) AzureFileVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileVolume) *AzureFileVolume {
+	return o.ApplyT(func(v AzureFileVolume) *AzureFileVolume {
 		return &v
 	}).(AzureFileVolumePtrOutput)
 }
@@ -158,13 +158,7 @@ func (o AzureFileVolumePtrOutput) ToAzureFileVolumePtrOutputWithContext(ctx cont
 }
 
 func (o AzureFileVolumePtrOutput) Elem() AzureFileVolumeOutput {
-	return o.ApplyT(func(v *AzureFileVolume) AzureFileVolume {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileVolume
-		return ret
-	}).(AzureFileVolumeOutput)
+	return o.ApplyT(func(v *AzureFileVolume) AzureFileVolume { return *v }).(AzureFileVolumeOutput)
 }
 
 // The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -315,7 +309,7 @@ func (o AzureFileVolumeResponseOutput) ToAzureFileVolumeResponsePtrOutput() Azur
 }
 
 func (o AzureFileVolumeResponseOutput) ToAzureFileVolumeResponsePtrOutputWithContext(ctx context.Context) AzureFileVolumeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileVolumeResponse) *AzureFileVolumeResponse {
+	return o.ApplyT(func(v AzureFileVolumeResponse) *AzureFileVolumeResponse {
 		return &v
 	}).(AzureFileVolumeResponsePtrOutput)
 }
@@ -355,13 +349,7 @@ func (o AzureFileVolumeResponsePtrOutput) ToAzureFileVolumeResponsePtrOutputWith
 }
 
 func (o AzureFileVolumeResponsePtrOutput) Elem() AzureFileVolumeResponseOutput {
-	return o.ApplyT(func(v *AzureFileVolumeResponse) AzureFileVolumeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileVolumeResponse
-		return ret
-	}).(AzureFileVolumeResponseOutput)
+	return o.ApplyT(func(v *AzureFileVolumeResponse) AzureFileVolumeResponse { return *v }).(AzureFileVolumeResponseOutput)
 }
 
 // The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -672,7 +660,7 @@ func (o ContainerExecOutput) ToContainerExecPtrOutput() ContainerExecPtrOutput {
 }
 
 func (o ContainerExecOutput) ToContainerExecPtrOutputWithContext(ctx context.Context) ContainerExecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerExec) *ContainerExec {
+	return o.ApplyT(func(v ContainerExec) *ContainerExec {
 		return &v
 	}).(ContainerExecPtrOutput)
 }
@@ -697,13 +685,7 @@ func (o ContainerExecPtrOutput) ToContainerExecPtrOutputWithContext(ctx context.
 }
 
 func (o ContainerExecPtrOutput) Elem() ContainerExecOutput {
-	return o.ApplyT(func(v *ContainerExec) ContainerExec {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerExec
-		return ret
-	}).(ContainerExecOutput)
+	return o.ApplyT(func(v *ContainerExec) ContainerExec { return *v }).(ContainerExecOutput)
 }
 
 // The commands to execute within the container.
@@ -812,7 +794,7 @@ func (o ContainerExecResponseOutput) ToContainerExecResponsePtrOutput() Containe
 }
 
 func (o ContainerExecResponseOutput) ToContainerExecResponsePtrOutputWithContext(ctx context.Context) ContainerExecResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerExecResponse) *ContainerExecResponse {
+	return o.ApplyT(func(v ContainerExecResponse) *ContainerExecResponse {
 		return &v
 	}).(ContainerExecResponsePtrOutput)
 }
@@ -837,13 +819,7 @@ func (o ContainerExecResponsePtrOutput) ToContainerExecResponsePtrOutputWithCont
 }
 
 func (o ContainerExecResponsePtrOutput) Elem() ContainerExecResponseOutput {
-	return o.ApplyT(func(v *ContainerExecResponse) ContainerExecResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerExecResponse
-		return ret
-	}).(ContainerExecResponseOutput)
+	return o.ApplyT(func(v *ContainerExecResponse) ContainerExecResponse { return *v }).(ContainerExecResponseOutput)
 }
 
 // The commands to execute within the container.
@@ -952,7 +928,7 @@ func (o ContainerGroupDiagnosticsOutput) ToContainerGroupDiagnosticsPtrOutput() 
 }
 
 func (o ContainerGroupDiagnosticsOutput) ToContainerGroupDiagnosticsPtrOutputWithContext(ctx context.Context) ContainerGroupDiagnosticsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDiagnostics) *ContainerGroupDiagnostics {
+	return o.ApplyT(func(v ContainerGroupDiagnostics) *ContainerGroupDiagnostics {
 		return &v
 	}).(ContainerGroupDiagnosticsPtrOutput)
 }
@@ -977,13 +953,7 @@ func (o ContainerGroupDiagnosticsPtrOutput) ToContainerGroupDiagnosticsPtrOutput
 }
 
 func (o ContainerGroupDiagnosticsPtrOutput) Elem() ContainerGroupDiagnosticsOutput {
-	return o.ApplyT(func(v *ContainerGroupDiagnostics) ContainerGroupDiagnostics {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupDiagnostics
-		return ret
-	}).(ContainerGroupDiagnosticsOutput)
+	return o.ApplyT(func(v *ContainerGroupDiagnostics) ContainerGroupDiagnostics { return *v }).(ContainerGroupDiagnosticsOutput)
 }
 
 // Container group log analytics information.
@@ -1092,7 +1062,7 @@ func (o ContainerGroupDiagnosticsResponseOutput) ToContainerGroupDiagnosticsResp
 }
 
 func (o ContainerGroupDiagnosticsResponseOutput) ToContainerGroupDiagnosticsResponsePtrOutputWithContext(ctx context.Context) ContainerGroupDiagnosticsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDiagnosticsResponse) *ContainerGroupDiagnosticsResponse {
+	return o.ApplyT(func(v ContainerGroupDiagnosticsResponse) *ContainerGroupDiagnosticsResponse {
 		return &v
 	}).(ContainerGroupDiagnosticsResponsePtrOutput)
 }
@@ -1117,13 +1087,7 @@ func (o ContainerGroupDiagnosticsResponsePtrOutput) ToContainerGroupDiagnosticsR
 }
 
 func (o ContainerGroupDiagnosticsResponsePtrOutput) Elem() ContainerGroupDiagnosticsResponseOutput {
-	return o.ApplyT(func(v *ContainerGroupDiagnosticsResponse) ContainerGroupDiagnosticsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupDiagnosticsResponse
-		return ret
-	}).(ContainerGroupDiagnosticsResponseOutput)
+	return o.ApplyT(func(v *ContainerGroupDiagnosticsResponse) ContainerGroupDiagnosticsResponse { return *v }).(ContainerGroupDiagnosticsResponseOutput)
 }
 
 // Container group log analytics information.
@@ -1232,7 +1196,7 @@ func (o ContainerGroupNetworkProfileOutput) ToContainerGroupNetworkProfilePtrOut
 }
 
 func (o ContainerGroupNetworkProfileOutput) ToContainerGroupNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupNetworkProfile) *ContainerGroupNetworkProfile {
+	return o.ApplyT(func(v ContainerGroupNetworkProfile) *ContainerGroupNetworkProfile {
 		return &v
 	}).(ContainerGroupNetworkProfilePtrOutput)
 }
@@ -1257,13 +1221,7 @@ func (o ContainerGroupNetworkProfilePtrOutput) ToContainerGroupNetworkProfilePtr
 }
 
 func (o ContainerGroupNetworkProfilePtrOutput) Elem() ContainerGroupNetworkProfileOutput {
-	return o.ApplyT(func(v *ContainerGroupNetworkProfile) ContainerGroupNetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupNetworkProfile
-		return ret
-	}).(ContainerGroupNetworkProfileOutput)
+	return o.ApplyT(func(v *ContainerGroupNetworkProfile) ContainerGroupNetworkProfile { return *v }).(ContainerGroupNetworkProfileOutput)
 }
 
 // The identifier for a network profile.
@@ -1372,7 +1330,7 @@ func (o ContainerGroupNetworkProfileResponseOutput) ToContainerGroupNetworkProfi
 }
 
 func (o ContainerGroupNetworkProfileResponseOutput) ToContainerGroupNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupNetworkProfileResponse) *ContainerGroupNetworkProfileResponse {
+	return o.ApplyT(func(v ContainerGroupNetworkProfileResponse) *ContainerGroupNetworkProfileResponse {
 		return &v
 	}).(ContainerGroupNetworkProfileResponsePtrOutput)
 }
@@ -1397,13 +1355,7 @@ func (o ContainerGroupNetworkProfileResponsePtrOutput) ToContainerGroupNetworkPr
 }
 
 func (o ContainerGroupNetworkProfileResponsePtrOutput) Elem() ContainerGroupNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerGroupNetworkProfileResponse) ContainerGroupNetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupNetworkProfileResponse
-		return ret
-	}).(ContainerGroupNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerGroupNetworkProfileResponse) ContainerGroupNetworkProfileResponse { return *v }).(ContainerGroupNetworkProfileResponseOutput)
 }
 
 // The identifier for a network profile.
@@ -1516,7 +1468,7 @@ func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstan
 }
 
 func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupResponseInstanceView) *ContainerGroupResponseInstanceView {
+	return o.ApplyT(func(v ContainerGroupResponseInstanceView) *ContainerGroupResponseInstanceView {
 		return &v
 	}).(ContainerGroupResponseInstanceViewPtrOutput)
 }
@@ -1546,13 +1498,7 @@ func (o ContainerGroupResponseInstanceViewPtrOutput) ToContainerGroupResponseIns
 }
 
 func (o ContainerGroupResponseInstanceViewPtrOutput) Elem() ContainerGroupResponseInstanceViewOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) ContainerGroupResponseInstanceView {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerGroupResponseInstanceView
-		return ret
-	}).(ContainerGroupResponseInstanceViewOutput)
+	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) ContainerGroupResponseInstanceView { return *v }).(ContainerGroupResponseInstanceViewOutput)
 }
 
 // The events of this container group.
@@ -1679,7 +1625,7 @@ func (o ContainerHttpGetOutput) ToContainerHttpGetPtrOutput() ContainerHttpGetPt
 }
 
 func (o ContainerHttpGetOutput) ToContainerHttpGetPtrOutputWithContext(ctx context.Context) ContainerHttpGetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerHttpGet) *ContainerHttpGet {
+	return o.ApplyT(func(v ContainerHttpGet) *ContainerHttpGet {
 		return &v
 	}).(ContainerHttpGetPtrOutput)
 }
@@ -1714,13 +1660,7 @@ func (o ContainerHttpGetPtrOutput) ToContainerHttpGetPtrOutputWithContext(ctx co
 }
 
 func (o ContainerHttpGetPtrOutput) Elem() ContainerHttpGetOutput {
-	return o.ApplyT(func(v *ContainerHttpGet) ContainerHttpGet {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerHttpGet
-		return ret
-	}).(ContainerHttpGetOutput)
+	return o.ApplyT(func(v *ContainerHttpGet) ContainerHttpGet { return *v }).(ContainerHttpGetOutput)
 }
 
 // The path to probe.
@@ -1857,7 +1797,7 @@ func (o ContainerHttpGetResponseOutput) ToContainerHttpGetResponsePtrOutput() Co
 }
 
 func (o ContainerHttpGetResponseOutput) ToContainerHttpGetResponsePtrOutputWithContext(ctx context.Context) ContainerHttpGetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerHttpGetResponse) *ContainerHttpGetResponse {
+	return o.ApplyT(func(v ContainerHttpGetResponse) *ContainerHttpGetResponse {
 		return &v
 	}).(ContainerHttpGetResponsePtrOutput)
 }
@@ -1892,13 +1832,7 @@ func (o ContainerHttpGetResponsePtrOutput) ToContainerHttpGetResponsePtrOutputWi
 }
 
 func (o ContainerHttpGetResponsePtrOutput) Elem() ContainerHttpGetResponseOutput {
-	return o.ApplyT(func(v *ContainerHttpGetResponse) ContainerHttpGetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerHttpGetResponse
-		return ret
-	}).(ContainerHttpGetResponseOutput)
+	return o.ApplyT(func(v *ContainerHttpGetResponse) ContainerHttpGetResponse { return *v }).(ContainerHttpGetResponseOutput)
 }
 
 // The path to probe.
@@ -2269,7 +2203,7 @@ func (o ContainerProbeOutput) ToContainerProbePtrOutput() ContainerProbePtrOutpu
 }
 
 func (o ContainerProbeOutput) ToContainerProbePtrOutputWithContext(ctx context.Context) ContainerProbePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerProbe) *ContainerProbe {
+	return o.ApplyT(func(v ContainerProbe) *ContainerProbe {
 		return &v
 	}).(ContainerProbePtrOutput)
 }
@@ -2324,13 +2258,7 @@ func (o ContainerProbePtrOutput) ToContainerProbePtrOutputWithContext(ctx contex
 }
 
 func (o ContainerProbePtrOutput) Elem() ContainerProbeOutput {
-	return o.ApplyT(func(v *ContainerProbe) ContainerProbe {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerProbe
-		return ret
-	}).(ContainerProbeOutput)
+	return o.ApplyT(func(v *ContainerProbe) ContainerProbe { return *v }).(ContainerProbeOutput)
 }
 
 // The execution command to probe
@@ -2523,7 +2451,7 @@ func (o ContainerProbeResponseOutput) ToContainerProbeResponsePtrOutput() Contai
 }
 
 func (o ContainerProbeResponseOutput) ToContainerProbeResponsePtrOutputWithContext(ctx context.Context) ContainerProbeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerProbeResponse) *ContainerProbeResponse {
+	return o.ApplyT(func(v ContainerProbeResponse) *ContainerProbeResponse {
 		return &v
 	}).(ContainerProbeResponsePtrOutput)
 }
@@ -2578,13 +2506,7 @@ func (o ContainerProbeResponsePtrOutput) ToContainerProbeResponsePtrOutputWithCo
 }
 
 func (o ContainerProbeResponsePtrOutput) Elem() ContainerProbeResponseOutput {
-	return o.ApplyT(func(v *ContainerProbeResponse) ContainerProbeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerProbeResponse
-		return ret
-	}).(ContainerProbeResponseOutput)
+	return o.ApplyT(func(v *ContainerProbeResponse) ContainerProbeResponse { return *v }).(ContainerProbeResponseOutput)
 }
 
 // The execution command to probe
@@ -3496,7 +3418,7 @@ func (o GitRepoVolumeOutput) ToGitRepoVolumePtrOutput() GitRepoVolumePtrOutput {
 }
 
 func (o GitRepoVolumeOutput) ToGitRepoVolumePtrOutputWithContext(ctx context.Context) GitRepoVolumePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitRepoVolume) *GitRepoVolume {
+	return o.ApplyT(func(v GitRepoVolume) *GitRepoVolume {
 		return &v
 	}).(GitRepoVolumePtrOutput)
 }
@@ -3531,13 +3453,7 @@ func (o GitRepoVolumePtrOutput) ToGitRepoVolumePtrOutputWithContext(ctx context.
 }
 
 func (o GitRepoVolumePtrOutput) Elem() GitRepoVolumeOutput {
-	return o.ApplyT(func(v *GitRepoVolume) GitRepoVolume {
-		if v != nil {
-			return *v
-		}
-		var ret GitRepoVolume
-		return ret
-	}).(GitRepoVolumeOutput)
+	return o.ApplyT(func(v *GitRepoVolume) GitRepoVolume { return *v }).(GitRepoVolumeOutput)
 }
 
 // Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
@@ -3674,7 +3590,7 @@ func (o GitRepoVolumeResponseOutput) ToGitRepoVolumeResponsePtrOutput() GitRepoV
 }
 
 func (o GitRepoVolumeResponseOutput) ToGitRepoVolumeResponsePtrOutputWithContext(ctx context.Context) GitRepoVolumeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitRepoVolumeResponse) *GitRepoVolumeResponse {
+	return o.ApplyT(func(v GitRepoVolumeResponse) *GitRepoVolumeResponse {
 		return &v
 	}).(GitRepoVolumeResponsePtrOutput)
 }
@@ -3709,13 +3625,7 @@ func (o GitRepoVolumeResponsePtrOutput) ToGitRepoVolumeResponsePtrOutputWithCont
 }
 
 func (o GitRepoVolumeResponsePtrOutput) Elem() GitRepoVolumeResponseOutput {
-	return o.ApplyT(func(v *GitRepoVolumeResponse) GitRepoVolumeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GitRepoVolumeResponse
-		return ret
-	}).(GitRepoVolumeResponseOutput)
+	return o.ApplyT(func(v *GitRepoVolumeResponse) GitRepoVolumeResponse { return *v }).(GitRepoVolumeResponseOutput)
 }
 
 // Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
@@ -4092,7 +4002,7 @@ func (o IpAddressOutput) ToIpAddressPtrOutput() IpAddressPtrOutput {
 }
 
 func (o IpAddressOutput) ToIpAddressPtrOutputWithContext(ctx context.Context) IpAddressPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddress) *IpAddress {
+	return o.ApplyT(func(v IpAddress) *IpAddress {
 		return &v
 	}).(IpAddressPtrOutput)
 }
@@ -4132,13 +4042,7 @@ func (o IpAddressPtrOutput) ToIpAddressPtrOutputWithContext(ctx context.Context)
 }
 
 func (o IpAddressPtrOutput) Elem() IpAddressOutput {
-	return o.ApplyT(func(v *IpAddress) IpAddress {
-		if v != nil {
-			return *v
-		}
-		var ret IpAddress
-		return ret
-	}).(IpAddressOutput)
+	return o.ApplyT(func(v *IpAddress) IpAddress { return *v }).(IpAddressOutput)
 }
 
 // The Dns name label for the IP.
@@ -4293,7 +4197,7 @@ func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutput() IpAddressRespons
 }
 
 func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutputWithContext(ctx context.Context) IpAddressResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddressResponse) *IpAddressResponse {
+	return o.ApplyT(func(v IpAddressResponse) *IpAddressResponse {
 		return &v
 	}).(IpAddressResponsePtrOutput)
 }
@@ -4338,13 +4242,7 @@ func (o IpAddressResponsePtrOutput) ToIpAddressResponsePtrOutputWithContext(ctx 
 }
 
 func (o IpAddressResponsePtrOutput) Elem() IpAddressResponseOutput {
-	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IpAddressResponse
-		return ret
-	}).(IpAddressResponseOutput)
+	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse { return *v }).(IpAddressResponseOutput)
 }
 
 // The Dns name label for the IP.
@@ -4505,7 +4403,7 @@ func (o LogAnalyticsOutput) ToLogAnalyticsPtrOutput() LogAnalyticsPtrOutput {
 }
 
 func (o LogAnalyticsOutput) ToLogAnalyticsPtrOutputWithContext(ctx context.Context) LogAnalyticsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalytics) *LogAnalytics {
+	return o.ApplyT(func(v LogAnalytics) *LogAnalytics {
 		return &v
 	}).(LogAnalyticsPtrOutput)
 }
@@ -4545,13 +4443,7 @@ func (o LogAnalyticsPtrOutput) ToLogAnalyticsPtrOutputWithContext(ctx context.Co
 }
 
 func (o LogAnalyticsPtrOutput) Elem() LogAnalyticsOutput {
-	return o.ApplyT(func(v *LogAnalytics) LogAnalytics {
-		if v != nil {
-			return *v
-		}
-		var ret LogAnalytics
-		return ret
-	}).(LogAnalyticsOutput)
+	return o.ApplyT(func(v *LogAnalytics) LogAnalytics { return *v }).(LogAnalyticsOutput)
 }
 
 // The log type to be used.
@@ -4702,7 +4594,7 @@ func (o LogAnalyticsResponseOutput) ToLogAnalyticsResponsePtrOutput() LogAnalyti
 }
 
 func (o LogAnalyticsResponseOutput) ToLogAnalyticsResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsResponse) *LogAnalyticsResponse {
+	return o.ApplyT(func(v LogAnalyticsResponse) *LogAnalyticsResponse {
 		return &v
 	}).(LogAnalyticsResponsePtrOutput)
 }
@@ -4742,13 +4634,7 @@ func (o LogAnalyticsResponsePtrOutput) ToLogAnalyticsResponsePtrOutputWithContex
 }
 
 func (o LogAnalyticsResponsePtrOutput) Elem() LogAnalyticsResponseOutput {
-	return o.ApplyT(func(v *LogAnalyticsResponse) LogAnalyticsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LogAnalyticsResponse
-		return ret
-	}).(LogAnalyticsResponseOutput)
+	return o.ApplyT(func(v *LogAnalyticsResponse) LogAnalyticsResponse { return *v }).(LogAnalyticsResponseOutput)
 }
 
 // The log type to be used.
@@ -5109,7 +4995,7 @@ func (o ResourceLimitsOutput) ToResourceLimitsPtrOutput() ResourceLimitsPtrOutpu
 }
 
 func (o ResourceLimitsOutput) ToResourceLimitsPtrOutputWithContext(ctx context.Context) ResourceLimitsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimits) *ResourceLimits {
+	return o.ApplyT(func(v ResourceLimits) *ResourceLimits {
 		return &v
 	}).(ResourceLimitsPtrOutput)
 }
@@ -5139,13 +5025,7 @@ func (o ResourceLimitsPtrOutput) ToResourceLimitsPtrOutputWithContext(ctx contex
 }
 
 func (o ResourceLimitsPtrOutput) Elem() ResourceLimitsOutput {
-	return o.ApplyT(func(v *ResourceLimits) ResourceLimits {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLimits
-		return ret
-	}).(ResourceLimitsOutput)
+	return o.ApplyT(func(v *ResourceLimits) ResourceLimits { return *v }).(ResourceLimitsOutput)
 }
 
 // The CPU limit of this container instance.
@@ -5268,7 +5148,7 @@ func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutput() Resour
 }
 
 func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimitsResponse) *ResourceLimitsResponse {
+	return o.ApplyT(func(v ResourceLimitsResponse) *ResourceLimitsResponse {
 		return &v
 	}).(ResourceLimitsResponsePtrOutput)
 }
@@ -5298,13 +5178,7 @@ func (o ResourceLimitsResponsePtrOutput) ToResourceLimitsResponsePtrOutputWithCo
 }
 
 func (o ResourceLimitsResponsePtrOutput) Elem() ResourceLimitsResponseOutput {
-	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceLimitsResponse
-		return ret
-	}).(ResourceLimitsResponseOutput)
+	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse { return *v }).(ResourceLimitsResponseOutput)
 }
 
 // The CPU limit of this container instance.

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
-    /// <summary>
-    /// SQL Settings in Firewall Policy.
-    /// </summary>
     [OutputType]
     public sealed class FirewallPolicySQLResponse
     {

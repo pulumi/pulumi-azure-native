@@ -150,7 +150,9 @@ func (i *IPSyncer) ToIPSyncerOutputWithContext(ctx context.Context) IPSyncerOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IPSyncerOutput)
 }
 
-type IPSyncerOutput struct{ *pulumi.OutputState }
+type IPSyncerOutput struct {
+	*pulumi.OutputState
+}
 
 func (IPSyncerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IPSyncer)(nil))

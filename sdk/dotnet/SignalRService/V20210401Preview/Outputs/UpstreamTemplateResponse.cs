@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Upstream template item settings. It defines the Upstream URL of the incoming requests.
-    /// The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
-    /// </summary>
     [OutputType]
     public sealed class UpstreamTemplateResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the properties of a secret object value.
-    /// </summary>
     [OutputType]
     public sealed class SecretObjectResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20180101Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties to configure capture description for eventhub
-    /// </summary>
     [OutputType]
     public sealed class CaptureDescriptionResponse
     {

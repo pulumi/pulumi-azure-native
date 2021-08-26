@@ -131,7 +131,9 @@ func (i *Site) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteOutput)
 }
 
-type SiteOutput struct{ *pulumi.OutputState }
+type SiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Site)(nil))

@@ -197,7 +197,9 @@ func (i *WorkloadClassifier) ToWorkloadClassifierOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadClassifierOutput)
 }
 
-type WorkloadClassifierOutput struct{ *pulumi.OutputState }
+type WorkloadClassifierOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadClassifier)(nil))

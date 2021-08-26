@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
-    /// <summary>
-    /// Describes a virtual machine scale set operating system disk.
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetOSDiskResponse
     {

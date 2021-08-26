@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Scope of Network Manager.
-    /// </summary>
     [OutputType]
     public sealed class NetworkManagerPropertiesResponseNetworkManagerScopes
     {

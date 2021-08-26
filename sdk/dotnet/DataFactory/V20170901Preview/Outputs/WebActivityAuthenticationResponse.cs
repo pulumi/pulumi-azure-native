@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Web activity authentication properties.
-    /// </summary>
     [OutputType]
     public sealed class WebActivityAuthenticationResponse
     {

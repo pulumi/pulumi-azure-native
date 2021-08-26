@@ -193,7 +193,9 @@ func (i *WebAppMetadata) ToWebAppMetadataOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppMetadataOutput)
 }
 
-type WebAppMetadataOutput struct{ *pulumi.OutputState }
+type WebAppMetadataOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppMetadata)(nil))

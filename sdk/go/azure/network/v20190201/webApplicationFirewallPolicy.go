@@ -254,7 +254,9 @@ func (i *WebApplicationFirewallPolicy) ToWebApplicationFirewallPolicyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallPolicyOutput)
 }
 
-type WebApplicationFirewallPolicyOutput struct{ *pulumi.OutputState }
+type WebApplicationFirewallPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebApplicationFirewallPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebApplicationFirewallPolicy)(nil))

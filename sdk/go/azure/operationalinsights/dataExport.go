@@ -180,7 +180,9 @@ func (i *DataExport) ToDataExportOutputWithContext(ctx context.Context) DataExpo
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportOutput)
 }
 
-type DataExportOutput struct{ *pulumi.OutputState }
+type DataExportOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataExportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataExport)(nil))

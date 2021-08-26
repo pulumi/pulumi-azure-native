@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
 {
 
-    /// <summary>
-    /// Data type for Microsoft Threat Protection Platforms data connector.
-    /// </summary>
     [OutputType]
     public sealed class MTPDataConnectorDataTypesResponseIncidents
     {

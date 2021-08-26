@@ -181,7 +181,9 @@ func (i *KustoClusterDataSetMapping) ToKustoClusterDataSetMappingOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KustoClusterDataSetMappingOutput)
 }
 
-type KustoClusterDataSetMappingOutput struct{ *pulumi.OutputState }
+type KustoClusterDataSetMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (KustoClusterDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoClusterDataSetMapping)(nil))

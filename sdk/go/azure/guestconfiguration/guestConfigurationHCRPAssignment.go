@@ -148,7 +148,9 @@ func (i *GuestConfigurationHCRPAssignment) ToGuestConfigurationHCRPAssignmentOut
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationHCRPAssignmentOutput)
 }
 
-type GuestConfigurationHCRPAssignmentOutput struct{ *pulumi.OutputState }
+type GuestConfigurationHCRPAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (GuestConfigurationHCRPAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationHCRPAssignment)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20171101.Outputs
 {
 
-    /// <summary>
-    /// Filter that is applied to packet capture request. Multiple filters can be applied.
-    /// </summary>
     [OutputType]
     public sealed class PacketCaptureFilterResponse
     {

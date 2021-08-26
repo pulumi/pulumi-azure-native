@@ -106,7 +106,7 @@ func (o CloudServiceExtensionProfileOutput) ToCloudServiceExtensionProfilePtrOut
 }
 
 func (o CloudServiceExtensionProfileOutput) ToCloudServiceExtensionProfilePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionProfile) *CloudServiceExtensionProfile {
+	return o.ApplyT(func(v CloudServiceExtensionProfile) *CloudServiceExtensionProfile {
 		return &v
 	}).(CloudServiceExtensionProfilePtrOutput)
 }
@@ -131,13 +131,7 @@ func (o CloudServiceExtensionProfilePtrOutput) ToCloudServiceExtensionProfilePtr
 }
 
 func (o CloudServiceExtensionProfilePtrOutput) Elem() CloudServiceExtensionProfileOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionProfile) CloudServiceExtensionProfile {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceExtensionProfile
-		return ret
-	}).(CloudServiceExtensionProfileOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionProfile) CloudServiceExtensionProfile { return *v }).(CloudServiceExtensionProfileOutput)
 }
 
 // List of extensions for the cloud service.
@@ -246,7 +240,7 @@ func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfi
 }
 
 func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionProfileResponse) *CloudServiceExtensionProfileResponse {
+	return o.ApplyT(func(v CloudServiceExtensionProfileResponse) *CloudServiceExtensionProfileResponse {
 		return &v
 	}).(CloudServiceExtensionProfileResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o CloudServiceExtensionProfileResponsePtrOutput) ToCloudServiceExtensionPr
 }
 
 func (o CloudServiceExtensionProfileResponsePtrOutput) Elem() CloudServiceExtensionProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionProfileResponse) CloudServiceExtensionProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceExtensionProfileResponse
-		return ret
-	}).(CloudServiceExtensionProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionProfileResponse) CloudServiceExtensionProfileResponse { return *v }).(CloudServiceExtensionProfileResponseOutput)
 }
 
 // List of extensions for the cloud service.
@@ -424,7 +412,7 @@ func (o CloudServiceExtensionPropertiesOutput) ToCloudServiceExtensionProperties
 }
 
 func (o CloudServiceExtensionPropertiesOutput) ToCloudServiceExtensionPropertiesPtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionProperties) *CloudServiceExtensionProperties {
+	return o.ApplyT(func(v CloudServiceExtensionProperties) *CloudServiceExtensionProperties {
 		return &v
 	}).(CloudServiceExtensionPropertiesPtrOutput)
 }
@@ -494,13 +482,7 @@ func (o CloudServiceExtensionPropertiesPtrOutput) ToCloudServiceExtensionPropert
 }
 
 func (o CloudServiceExtensionPropertiesPtrOutput) Elem() CloudServiceExtensionPropertiesOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionProperties) CloudServiceExtensionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceExtensionProperties
-		return ret
-	}).(CloudServiceExtensionPropertiesOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionProperties) CloudServiceExtensionProperties { return *v }).(CloudServiceExtensionPropertiesOutput)
 }
 
 // Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
@@ -734,7 +716,7 @@ func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPr
 }
 
 func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionPropertiesResponse) *CloudServiceExtensionPropertiesResponse {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *CloudServiceExtensionPropertiesResponse {
 		return &v
 	}).(CloudServiceExtensionPropertiesResponsePtrOutput)
 }
@@ -809,13 +791,7 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) ToCloudServiceExtensio
 }
 
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) Elem() CloudServiceExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) CloudServiceExtensionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceExtensionPropertiesResponse
-		return ret
-	}).(CloudServiceExtensionPropertiesResponseOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) CloudServiceExtensionPropertiesResponse { return *v }).(CloudServiceExtensionPropertiesResponseOutput)
 }
 
 // Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
@@ -1019,7 +995,7 @@ func (o CloudServiceNetworkProfileOutput) ToCloudServiceNetworkProfilePtrOutput(
 }
 
 func (o CloudServiceNetworkProfileOutput) ToCloudServiceNetworkProfilePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceNetworkProfile) *CloudServiceNetworkProfile {
+	return o.ApplyT(func(v CloudServiceNetworkProfile) *CloudServiceNetworkProfile {
 		return &v
 	}).(CloudServiceNetworkProfilePtrOutput)
 }
@@ -1048,13 +1024,7 @@ func (o CloudServiceNetworkProfilePtrOutput) ToCloudServiceNetworkProfilePtrOutp
 }
 
 func (o CloudServiceNetworkProfilePtrOutput) Elem() CloudServiceNetworkProfileOutput {
-	return o.ApplyT(func(v *CloudServiceNetworkProfile) CloudServiceNetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceNetworkProfile
-		return ret
-	}).(CloudServiceNetworkProfileOutput)
+	return o.ApplyT(func(v *CloudServiceNetworkProfile) CloudServiceNetworkProfile { return *v }).(CloudServiceNetworkProfileOutput)
 }
 
 // The list of load balancer configurations for the cloud service.
@@ -1174,7 +1144,7 @@ func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileRe
 }
 
 func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceNetworkProfileResponse) *CloudServiceNetworkProfileResponse {
+	return o.ApplyT(func(v CloudServiceNetworkProfileResponse) *CloudServiceNetworkProfileResponse {
 		return &v
 	}).(CloudServiceNetworkProfileResponsePtrOutput)
 }
@@ -1205,13 +1175,7 @@ func (o CloudServiceNetworkProfileResponsePtrOutput) ToCloudServiceNetworkProfil
 }
 
 func (o CloudServiceNetworkProfileResponsePtrOutput) Elem() CloudServiceNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) CloudServiceNetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceNetworkProfileResponse
-		return ret
-	}).(CloudServiceNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) CloudServiceNetworkProfileResponse { return *v }).(CloudServiceNetworkProfileResponseOutput)
 }
 
 // The list of load balancer configurations for the cloud service.
@@ -1329,7 +1293,7 @@ func (o CloudServiceOsProfileOutput) ToCloudServiceOsProfilePtrOutput() CloudSer
 }
 
 func (o CloudServiceOsProfileOutput) ToCloudServiceOsProfilePtrOutputWithContext(ctx context.Context) CloudServiceOsProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceOsProfile) *CloudServiceOsProfile {
+	return o.ApplyT(func(v CloudServiceOsProfile) *CloudServiceOsProfile {
 		return &v
 	}).(CloudServiceOsProfilePtrOutput)
 }
@@ -1354,13 +1318,7 @@ func (o CloudServiceOsProfilePtrOutput) ToCloudServiceOsProfilePtrOutputWithCont
 }
 
 func (o CloudServiceOsProfilePtrOutput) Elem() CloudServiceOsProfileOutput {
-	return o.ApplyT(func(v *CloudServiceOsProfile) CloudServiceOsProfile {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceOsProfile
-		return ret
-	}).(CloudServiceOsProfileOutput)
+	return o.ApplyT(func(v *CloudServiceOsProfile) CloudServiceOsProfile { return *v }).(CloudServiceOsProfileOutput)
 }
 
 // Specifies set of certificates that should be installed onto the role instances.
@@ -1469,7 +1427,7 @@ func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponsePtrO
 }
 
 func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceOsProfileResponse) *CloudServiceOsProfileResponse {
+	return o.ApplyT(func(v CloudServiceOsProfileResponse) *CloudServiceOsProfileResponse {
 		return &v
 	}).(CloudServiceOsProfileResponsePtrOutput)
 }
@@ -1494,13 +1452,7 @@ func (o CloudServiceOsProfileResponsePtrOutput) ToCloudServiceOsProfileResponseP
 }
 
 func (o CloudServiceOsProfileResponsePtrOutput) Elem() CloudServiceOsProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceOsProfileResponse) CloudServiceOsProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceOsProfileResponse
-		return ret
-	}).(CloudServiceOsProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceOsProfileResponse) CloudServiceOsProfileResponse { return *v }).(CloudServiceOsProfileResponseOutput)
 }
 
 // Specifies set of certificates that should be installed onto the role instances.
@@ -1651,7 +1603,7 @@ func (o CloudServicePropertiesOutput) ToCloudServicePropertiesPtrOutput() CloudS
 }
 
 func (o CloudServicePropertiesOutput) ToCloudServicePropertiesPtrOutputWithContext(ctx context.Context) CloudServicePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceProperties) *CloudServiceProperties {
+	return o.ApplyT(func(v CloudServiceProperties) *CloudServiceProperties {
 		return &v
 	}).(CloudServicePropertiesPtrOutput)
 }
@@ -1721,13 +1673,7 @@ func (o CloudServicePropertiesPtrOutput) ToCloudServicePropertiesPtrOutputWithCo
 }
 
 func (o CloudServicePropertiesPtrOutput) Elem() CloudServicePropertiesOutput {
-	return o.ApplyT(func(v *CloudServiceProperties) CloudServiceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceProperties
-		return ret
-	}).(CloudServicePropertiesOutput)
+	return o.ApplyT(func(v *CloudServiceProperties) CloudServiceProperties { return *v }).(CloudServicePropertiesOutput)
 }
 
 // Specifies the XML service configuration (.cscfg) for the cloud service.
@@ -1971,7 +1917,7 @@ func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponsePt
 }
 
 func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServicePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServicePropertiesResponse) *CloudServicePropertiesResponse {
+	return o.ApplyT(func(v CloudServicePropertiesResponse) *CloudServicePropertiesResponse {
 		return &v
 	}).(CloudServicePropertiesResponsePtrOutput)
 }
@@ -2053,13 +1999,7 @@ func (o CloudServicePropertiesResponsePtrOutput) ToCloudServicePropertiesRespons
 }
 
 func (o CloudServicePropertiesResponsePtrOutput) Elem() CloudServicePropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) CloudServicePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServicePropertiesResponse
-		return ret
-	}).(CloudServicePropertiesResponseOutput)
+	return o.ApplyT(func(v *CloudServicePropertiesResponse) CloudServicePropertiesResponse { return *v }).(CloudServicePropertiesResponseOutput)
 }
 
 // Specifies the XML service configuration (.cscfg) for the cloud service.
@@ -2273,7 +2213,7 @@ func (o CloudServiceRoleProfileOutput) ToCloudServiceRoleProfilePtrOutput() Clou
 }
 
 func (o CloudServiceRoleProfileOutput) ToCloudServiceRoleProfilePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleProfile) *CloudServiceRoleProfile {
+	return o.ApplyT(func(v CloudServiceRoleProfile) *CloudServiceRoleProfile {
 		return &v
 	}).(CloudServiceRoleProfilePtrOutput)
 }
@@ -2298,13 +2238,7 @@ func (o CloudServiceRoleProfilePtrOutput) ToCloudServiceRoleProfilePtrOutputWith
 }
 
 func (o CloudServiceRoleProfilePtrOutput) Elem() CloudServiceRoleProfileOutput {
-	return o.ApplyT(func(v *CloudServiceRoleProfile) CloudServiceRoleProfile {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceRoleProfile
-		return ret
-	}).(CloudServiceRoleProfileOutput)
+	return o.ApplyT(func(v *CloudServiceRoleProfile) CloudServiceRoleProfile { return *v }).(CloudServiceRoleProfileOutput)
 }
 
 // List of roles for the cloud service.
@@ -2631,7 +2565,7 @@ func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponse
 }
 
 func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleProfileResponse) *CloudServiceRoleProfileResponse {
+	return o.ApplyT(func(v CloudServiceRoleProfileResponse) *CloudServiceRoleProfileResponse {
 		return &v
 	}).(CloudServiceRoleProfileResponsePtrOutput)
 }
@@ -2656,13 +2590,7 @@ func (o CloudServiceRoleProfileResponsePtrOutput) ToCloudServiceRoleProfileRespo
 }
 
 func (o CloudServiceRoleProfileResponsePtrOutput) Elem() CloudServiceRoleProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceRoleProfileResponse) CloudServiceRoleProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceRoleProfileResponse
-		return ret
-	}).(CloudServiceRoleProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceRoleProfileResponse) CloudServiceRoleProfileResponse { return *v }).(CloudServiceRoleProfileResponseOutput)
 }
 
 // List of roles for the cloud service.
@@ -2779,7 +2707,7 @@ func (o CloudServiceRoleSkuOutput) ToCloudServiceRoleSkuPtrOutput() CloudService
 }
 
 func (o CloudServiceRoleSkuOutput) ToCloudServiceRoleSkuPtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleSku) *CloudServiceRoleSku {
+	return o.ApplyT(func(v CloudServiceRoleSku) *CloudServiceRoleSku {
 		return &v
 	}).(CloudServiceRoleSkuPtrOutput)
 }
@@ -2814,13 +2742,7 @@ func (o CloudServiceRoleSkuPtrOutput) ToCloudServiceRoleSkuPtrOutputWithContext(
 }
 
 func (o CloudServiceRoleSkuPtrOutput) Elem() CloudServiceRoleSkuOutput {
-	return o.ApplyT(func(v *CloudServiceRoleSku) CloudServiceRoleSku {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceRoleSku
-		return ret
-	}).(CloudServiceRoleSkuOutput)
+	return o.ApplyT(func(v *CloudServiceRoleSku) CloudServiceRoleSku { return *v }).(CloudServiceRoleSkuOutput)
 }
 
 // Specifies the number of role instances in the cloud service.
@@ -2957,7 +2879,7 @@ func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponsePtrOutpu
 }
 
 func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleSkuResponse) *CloudServiceRoleSkuResponse {
+	return o.ApplyT(func(v CloudServiceRoleSkuResponse) *CloudServiceRoleSkuResponse {
 		return &v
 	}).(CloudServiceRoleSkuResponsePtrOutput)
 }
@@ -2992,13 +2914,7 @@ func (o CloudServiceRoleSkuResponsePtrOutput) ToCloudServiceRoleSkuResponsePtrOu
 }
 
 func (o CloudServiceRoleSkuResponsePtrOutput) Elem() CloudServiceRoleSkuResponseOutput {
-	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) CloudServiceRoleSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceRoleSkuResponse
-		return ret
-	}).(CloudServiceRoleSkuResponseOutput)
+	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) CloudServiceRoleSkuResponse { return *v }).(CloudServiceRoleSkuResponseOutput)
 }
 
 // Specifies the number of role instances in the cloud service.
@@ -3124,11 +3040,10 @@ func (o CloudServiceVaultAndSecretReferenceOutput) ToCloudServiceVaultAndSecretR
 }
 
 func (o CloudServiceVaultAndSecretReferenceOutput) ToCloudServiceVaultAndSecretReferencePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceVaultAndSecretReference) *CloudServiceVaultAndSecretReference {
+	return o.ApplyT(func(v CloudServiceVaultAndSecretReference) *CloudServiceVaultAndSecretReference {
 		return &v
 	}).(CloudServiceVaultAndSecretReferencePtrOutput)
 }
-
 func (o CloudServiceVaultAndSecretReferenceOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultAndSecretReference) *string { return v.SecretUrl }).(pulumi.StringPtrOutput)
 }
@@ -3152,13 +3067,7 @@ func (o CloudServiceVaultAndSecretReferencePtrOutput) ToCloudServiceVaultAndSecr
 }
 
 func (o CloudServiceVaultAndSecretReferencePtrOutput) Elem() CloudServiceVaultAndSecretReferenceOutput {
-	return o.ApplyT(func(v *CloudServiceVaultAndSecretReference) CloudServiceVaultAndSecretReference {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceVaultAndSecretReference
-		return ret
-	}).(CloudServiceVaultAndSecretReferenceOutput)
+	return o.ApplyT(func(v *CloudServiceVaultAndSecretReference) CloudServiceVaultAndSecretReference { return *v }).(CloudServiceVaultAndSecretReferenceOutput)
 }
 
 func (o CloudServiceVaultAndSecretReferencePtrOutput) SecretUrl() pulumi.StringPtrOutput {
@@ -3272,11 +3181,10 @@ func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAn
 }
 
 func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceVaultAndSecretReferenceResponse) *CloudServiceVaultAndSecretReferenceResponse {
+	return o.ApplyT(func(v CloudServiceVaultAndSecretReferenceResponse) *CloudServiceVaultAndSecretReferenceResponse {
 		return &v
 	}).(CloudServiceVaultAndSecretReferenceResponsePtrOutput)
 }
-
 func (o CloudServiceVaultAndSecretReferenceResponseOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultAndSecretReferenceResponse) *string { return v.SecretUrl }).(pulumi.StringPtrOutput)
 }
@@ -3301,11 +3209,7 @@ func (o CloudServiceVaultAndSecretReferenceResponsePtrOutput) ToCloudServiceVaul
 
 func (o CloudServiceVaultAndSecretReferenceResponsePtrOutput) Elem() CloudServiceVaultAndSecretReferenceResponseOutput {
 	return o.ApplyT(func(v *CloudServiceVaultAndSecretReferenceResponse) CloudServiceVaultAndSecretReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CloudServiceVaultAndSecretReferenceResponse
-		return ret
+		return *v
 	}).(CloudServiceVaultAndSecretReferenceResponseOutput)
 }
 
@@ -4164,7 +4068,7 @@ func (o LoadBalancerConfigurationPropertiesOutput) ToLoadBalancerConfigurationPr
 }
 
 func (o LoadBalancerConfigurationPropertiesOutput) ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerConfigurationProperties) *LoadBalancerConfigurationProperties {
+	return o.ApplyT(func(v LoadBalancerConfigurationProperties) *LoadBalancerConfigurationProperties {
 		return &v
 	}).(LoadBalancerConfigurationPropertiesPtrOutput)
 }
@@ -4191,13 +4095,7 @@ func (o LoadBalancerConfigurationPropertiesPtrOutput) ToLoadBalancerConfiguratio
 }
 
 func (o LoadBalancerConfigurationPropertiesPtrOutput) Elem() LoadBalancerConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *LoadBalancerConfigurationProperties) LoadBalancerConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerConfigurationProperties
-		return ret
-	}).(LoadBalancerConfigurationPropertiesOutput)
+	return o.ApplyT(func(v *LoadBalancerConfigurationProperties) LoadBalancerConfigurationProperties { return *v }).(LoadBalancerConfigurationPropertiesOutput)
 }
 
 // List of IP
@@ -4303,7 +4201,7 @@ func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigu
 }
 
 func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerConfigurationPropertiesResponse) *LoadBalancerConfigurationPropertiesResponse {
+	return o.ApplyT(func(v LoadBalancerConfigurationPropertiesResponse) *LoadBalancerConfigurationPropertiesResponse {
 		return &v
 	}).(LoadBalancerConfigurationPropertiesResponsePtrOutput)
 }
@@ -4331,11 +4229,7 @@ func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) ToLoadBalancerConf
 
 func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) Elem() LoadBalancerConfigurationPropertiesResponseOutput {
 	return o.ApplyT(func(v *LoadBalancerConfigurationPropertiesResponse) LoadBalancerConfigurationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerConfigurationPropertiesResponse
-		return ret
+		return *v
 	}).(LoadBalancerConfigurationPropertiesResponseOutput)
 }
 
@@ -4662,7 +4556,7 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) ToLoadBalancerFront
 }
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerFrontendIPConfigurationProperties) *LoadBalancerFrontendIPConfigurationProperties {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *LoadBalancerFrontendIPConfigurationProperties {
 		return &v
 	}).(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput)
 }
@@ -4696,11 +4590,7 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) ToLoadBalancerFr
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) Elem() LoadBalancerFrontendIPConfigurationPropertiesOutput {
 	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationProperties) LoadBalancerFrontendIPConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerFrontendIPConfigurationProperties
-		return ret
+		return *v
 	}).(LoadBalancerFrontendIPConfigurationPropertiesOutput)
 }
 
@@ -4832,7 +4722,7 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalan
 }
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerFrontendIPConfigurationPropertiesResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
 		return &v
 	}).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
 }
@@ -4868,11 +4758,7 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) ToLoadBa
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) Elem() LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
 	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesResponse) LoadBalancerFrontendIPConfigurationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LoadBalancerFrontendIPConfigurationPropertiesResponse
-		return ret
+		return *v
 	}).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput)
 }
 
@@ -5102,7 +4988,7 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
+	return o.ApplyT(func(v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
@@ -5127,13 +5013,7 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource {
-		if v != nil {
-			return *v
-		}
-		var ret SubResource
-		return ret
-	}).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
 }
 
 // Resource Id
@@ -5239,7 +5119,7 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
@@ -5264,13 +5144,7 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubResourceResponse
-		return ret
-	}).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
 }
 
 // Resource Id

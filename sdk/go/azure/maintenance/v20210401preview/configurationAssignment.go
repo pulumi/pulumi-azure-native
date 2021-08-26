@@ -159,7 +159,9 @@ func (i *ConfigurationAssignment) ToConfigurationAssignmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssignmentOutput)
 }
 
-type ConfigurationAssignmentOutput struct{ *pulumi.OutputState }
+type ConfigurationAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConfigurationAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationAssignment)(nil))

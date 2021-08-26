@@ -192,7 +192,9 @@ func (i *LabResource) ToLabResourceOutputWithContext(ctx context.Context) LabRes
 	return pulumi.ToOutputWithContext(ctx, i).(LabResourceOutput)
 }
 
-type LabResourceOutput struct{ *pulumi.OutputState }
+type LabResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (LabResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabResource)(nil))

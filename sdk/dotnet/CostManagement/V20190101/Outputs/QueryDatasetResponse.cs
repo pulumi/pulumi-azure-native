@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20190101.Outputs
 {
 
-    /// <summary>
-    /// The definition of data present in the query.
-    /// </summary>
     [OutputType]
     public sealed class QueryDatasetResponse
     {

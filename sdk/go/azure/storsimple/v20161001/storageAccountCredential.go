@@ -40,12 +40,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CloudType == nil {
-		return nil, errors.New("invalid value for required argument 'CloudType'")
-	}
-	if args.EnableSSL == nil {
-		return nil, errors.New("invalid value for required argument 'EnableSSL'")
-	}
 	if args.EndPoint == nil {
 		return nil, errors.New("invalid value for required argument 'EndPoint'")
 	}
@@ -111,11 +105,11 @@ type storageAccountCredentialArgs struct {
 	// The details of the storage account password
 	AccessKey *AsymmetricEncryptedSecret `pulumi:"accessKey"`
 	// The cloud service provider
-	CloudType CloudType `pulumi:"cloudType"`
+	CloudType string `pulumi:"cloudType"`
 	// The credential name.
 	CredentialName *string `pulumi:"credentialName"`
 	// SSL needs to be enabled or not
-	EnableSSL SslStatus `pulumi:"enableSSL"`
+	EnableSSL string `pulumi:"enableSSL"`
 	// The storage endpoint
 	EndPoint string `pulumi:"endPoint"`
 	// The storage account's geo location
@@ -133,11 +127,11 @@ type StorageAccountCredentialArgs struct {
 	// The details of the storage account password
 	AccessKey AsymmetricEncryptedSecretPtrInput
 	// The cloud service provider
-	CloudType CloudTypeInput
+	CloudType CloudType
 	// The credential name.
 	CredentialName pulumi.StringPtrInput
 	// SSL needs to be enabled or not
-	EnableSSL SslStatusInput
+	EnableSSL SslStatus
 	// The storage endpoint
 	EndPoint pulumi.StringInput
 	// The storage account's geo location
@@ -173,7 +167,9 @@ func (i *StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialOutput)
 }
 
-type StorageAccountCredentialOutput struct{ *pulumi.OutputState }
+type StorageAccountCredentialOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageAccountCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountCredential)(nil))

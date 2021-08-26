@@ -265,7 +265,9 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct{ *pulumi.OutputState }
+type SnapshotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

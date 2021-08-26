@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180331Preview.Outputs
 {
 
-    /// <summary>
-    /// Summary of database results in the migration
-    /// </summary>
     [OutputType]
     public sealed class DatabaseSummaryResultResponse
     {

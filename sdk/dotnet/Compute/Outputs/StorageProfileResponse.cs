@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// Specifies the storage settings for the virtual machine disks.
-    /// </summary>
     [OutputType]
     public sealed class StorageProfileResponse
     {

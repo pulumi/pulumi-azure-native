@@ -68,9 +68,6 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseAccountOfferType == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseAccountOfferType'")
-	}
 	if args.Locations == nil {
 		return nil, errors.New("invalid value for required argument 'Locations'")
 	}
@@ -235,7 +232,7 @@ type databaseAccountArgs struct {
 	// The consistency policy for the Cosmos DB account.
 	ConsistencyPolicy *ConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// The offer type for the database
-	DatabaseAccountOfferType DatabaseAccountOfferType `pulumi:"databaseAccountOfferType"`
+	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess *bool `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
@@ -273,7 +270,7 @@ type DatabaseAccountArgs struct {
 	// The consistency policy for the Cosmos DB account.
 	ConsistencyPolicy ConsistencyPolicyPtrInput
 	// The offer type for the database
-	DatabaseAccountOfferType DatabaseAccountOfferTypeInput
+	DatabaseAccountOfferType DatabaseAccountOfferType
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput
 	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
@@ -323,7 +320,9 @@ func (i *DatabaseAccount) ToDatabaseAccountOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountOutput)
 }
 
-type DatabaseAccountOutput struct{ *pulumi.OutputState }
+type DatabaseAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccount)(nil))

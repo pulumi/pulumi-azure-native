@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20210303Preview.Outputs
 {
 
-    /// <summary>
-    /// The encryption properties for the IoT hub.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionPropertiesDescriptionResponse
     {

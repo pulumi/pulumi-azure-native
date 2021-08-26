@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// Configuration values for periodic mode backup
-    /// </summary>
     [OutputType]
     public sealed class PeriodicModePropertiesResponse
     {

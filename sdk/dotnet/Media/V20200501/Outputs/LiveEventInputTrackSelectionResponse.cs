@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
-    /// <summary>
-    /// A track selection condition. This property is reserved for future use, any value set on this property will be ignored.
-    /// </summary>
     [OutputType]
     public sealed class LiveEventInputTrackSelectionResponse
     {

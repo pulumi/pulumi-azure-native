@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// The Key Vault containing the SSL certificate
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultCertificateSourceParametersResponseVault
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.Outputs
 {
 
-    /// <summary>
-    /// The properties that define an exchange connection.
-    /// </summary>
     [OutputType]
     public sealed class ExchangeConnectionResponse
     {

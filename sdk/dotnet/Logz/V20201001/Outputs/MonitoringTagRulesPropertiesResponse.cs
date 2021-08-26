@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001.Outputs
 {
 
-    /// <summary>
-    /// Definition of the properties for a TagRules resource.
-    /// </summary>
     [OutputType]
     public sealed class MonitoringTagRulesPropertiesResponse
     {

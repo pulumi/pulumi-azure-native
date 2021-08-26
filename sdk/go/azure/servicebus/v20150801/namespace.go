@@ -138,7 +138,7 @@ type namespaceArgs struct {
 	// SKU of the namespace.
 	Sku *Sku `pulumi:"sku"`
 	// State of the namespace.
-	Status *NamespaceStateEnum `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Namespace tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -158,7 +158,7 @@ type NamespaceArgs struct {
 	// SKU of the namespace.
 	Sku SkuPtrInput
 	// State of the namespace.
-	Status NamespaceStateEnumPtrInput
+	Status *NamespaceStateEnum
 	// Namespace tags.
 	Tags pulumi.StringMapInput
 }
@@ -186,7 +186,9 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct{ *pulumi.OutputState }
+type NamespaceOutput struct {
+	*pulumi.OutputState
+}
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

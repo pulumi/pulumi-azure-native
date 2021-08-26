@@ -134,7 +134,9 @@ func (i *PrivateEndpointConnectionsForMIPPolicySync) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionsForMIPPolicySyncOutput)
 }
 
-type PrivateEndpointConnectionsForMIPPolicySyncOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionsForMIPPolicySyncOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateEndpointConnectionsForMIPPolicySyncOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionsForMIPPolicySync)(nil))

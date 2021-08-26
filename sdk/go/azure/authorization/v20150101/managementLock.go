@@ -126,7 +126,9 @@ func (i *ManagementLock) ToManagementLockOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOutput)
 }
 
-type ManagementLockOutput struct{ *pulumi.OutputState }
+type ManagementLockOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagementLockOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementLock)(nil))

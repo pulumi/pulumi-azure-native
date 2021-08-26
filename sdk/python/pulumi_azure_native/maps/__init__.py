@@ -17,16 +17,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.maps.v20170101preview as __v20170101preview
-    v20170101preview = __v20170101preview
-    import pulumi_azure_native.maps.v20180501 as __v20180501
-    v20180501 = __v20180501
-    import pulumi_azure_native.maps.v20200201preview as __v20200201preview
-    v20200201preview = __v20200201preview
-    import pulumi_azure_native.maps.v20210201 as __v20210201
-    v20210201 = __v20210201
-    import pulumi_azure_native.maps.v20210701preview as __v20210701preview
-    v20210701preview = __v20210701preview
+    import pulumi_azure_native.maps.v20170101preview as v20170101preview
+    import pulumi_azure_native.maps.v20180501 as v20180501
+    import pulumi_azure_native.maps.v20200201preview as v20200201preview
+    import pulumi_azure_native.maps.v20210201 as v20210201
+    import pulumi_azure_native.maps.v20210701preview as v20210701preview
 else:
     v20170101preview = _utilities.lazy_import('pulumi_azure_native.maps.v20170101preview')
     v20180501 = _utilities.lazy_import('pulumi_azure_native.maps.v20180501')

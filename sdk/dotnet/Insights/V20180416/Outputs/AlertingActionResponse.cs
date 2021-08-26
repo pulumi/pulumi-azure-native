@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180416.Outputs
 {
 
-    /// <summary>
-    /// Specify action need to be taken when rule type is Alert
-    /// </summary>
     [OutputType]
     public sealed class AlertingActionResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
-    /// </summary>
     [OutputType]
     public sealed class CapacityReservationInstanceViewResponse
     {

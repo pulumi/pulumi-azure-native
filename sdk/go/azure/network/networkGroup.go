@@ -156,7 +156,9 @@ func (i *NetworkGroup) ToNetworkGroupOutputWithContext(ctx context.Context) Netw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkGroupOutput)
 }
 
-type NetworkGroupOutput struct{ *pulumi.OutputState }
+type NetworkGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkGroup)(nil))

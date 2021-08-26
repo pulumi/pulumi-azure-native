@@ -198,7 +198,9 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
 }
 
-type VaultOutput struct{ *pulumi.OutputState }
+type VaultOutput struct {
+	*pulumi.OutputState
+}
 
 func (VaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Vault)(nil))

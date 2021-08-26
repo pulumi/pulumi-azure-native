@@ -245,7 +245,9 @@ func (i *DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinDatabaseOutput)
 }
 
-type DatabaseAccountGremlinDatabaseOutput struct{ *pulumi.OutputState }
+type DatabaseAccountGremlinDatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountGremlinDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil))

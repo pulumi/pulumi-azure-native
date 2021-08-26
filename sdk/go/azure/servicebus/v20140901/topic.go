@@ -162,7 +162,7 @@ type topicArgs struct {
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus *EntityAvailabilityStatus `pulumi:"entityAvailabilityStatus"`
+	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
 	// Whether messages should be filtered before publishing.
 	FilteringMessagesBeforePublishing *bool `pulumi:"filteringMessagesBeforePublishing"`
 	// Value that indicates whether the message is accessible anonymously.
@@ -181,7 +181,7 @@ type topicArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
 	// The topic name.
@@ -203,7 +203,7 @@ type TopicArgs struct {
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus EntityAvailabilityStatusPtrInput
+	EntityAvailabilityStatus *EntityAvailabilityStatus
 	// Whether messages should be filtered before publishing.
 	FilteringMessagesBeforePublishing pulumi.BoolPtrInput
 	// Value that indicates whether the message is accessible anonymously.
@@ -222,7 +222,7 @@ type TopicArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatusPtrInput
+	Status *EntityStatus
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 	// The topic name.
@@ -252,7 +252,9 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
 }
 
-type TopicOutput struct{ *pulumi.OutputState }
+type TopicOutput struct {
+	*pulumi.OutputState
+}
 
 func (TopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Topic)(nil))

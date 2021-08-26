@@ -27,30 +27,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cache.v20150801 as __v20150801
-    v20150801 = __v20150801
-    import pulumi_azure_native.cache.v20160401 as __v20160401
-    v20160401 = __v20160401
-    import pulumi_azure_native.cache.v20170201 as __v20170201
-    v20170201 = __v20170201
-    import pulumi_azure_native.cache.v20171001 as __v20171001
-    v20171001 = __v20171001
-    import pulumi_azure_native.cache.v20180301 as __v20180301
-    v20180301 = __v20180301
-    import pulumi_azure_native.cache.v20190701 as __v20190701
-    v20190701 = __v20190701
-    import pulumi_azure_native.cache.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.cache.v20201001preview as __v20201001preview
-    v20201001preview = __v20201001preview
-    import pulumi_azure_native.cache.v20201201 as __v20201201
-    v20201201 = __v20201201
-    import pulumi_azure_native.cache.v20210201preview as __v20210201preview
-    v20210201preview = __v20210201preview
-    import pulumi_azure_native.cache.v20210301 as __v20210301
-    v20210301 = __v20210301
-    import pulumi_azure_native.cache.v20210801 as __v20210801
-    v20210801 = __v20210801
+    import pulumi_azure_native.cache.v20150801 as v20150801
+    import pulumi_azure_native.cache.v20160401 as v20160401
+    import pulumi_azure_native.cache.v20170201 as v20170201
+    import pulumi_azure_native.cache.v20171001 as v20171001
+    import pulumi_azure_native.cache.v20180301 as v20180301
+    import pulumi_azure_native.cache.v20190701 as v20190701
+    import pulumi_azure_native.cache.v20200601 as v20200601
+    import pulumi_azure_native.cache.v20201001preview as v20201001preview
+    import pulumi_azure_native.cache.v20201201 as v20201201
+    import pulumi_azure_native.cache.v20210201preview as v20210201preview
+    import pulumi_azure_native.cache.v20210301 as v20210301
+    import pulumi_azure_native.cache.v20210801 as v20210801
 else:
     v20150801 = _utilities.lazy_import('pulumi_azure_native.cache.v20150801')
     v20160401 = _utilities.lazy_import('pulumi_azure_native.cache.v20160401')

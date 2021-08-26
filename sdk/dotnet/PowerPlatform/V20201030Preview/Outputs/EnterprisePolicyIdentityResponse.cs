@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
 {
 
-    /// <summary>
-    /// The identity of the EnterprisePolicy.
-    /// </summary>
     [OutputType]
     public sealed class EnterprisePolicyIdentityResponse
     {

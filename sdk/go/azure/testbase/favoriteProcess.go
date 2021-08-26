@@ -138,7 +138,9 @@ func (i *FavoriteProcess) ToFavoriteProcessOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FavoriteProcessOutput)
 }
 
-type FavoriteProcessOutput struct{ *pulumi.OutputState }
+type FavoriteProcessOutput struct {
+	*pulumi.OutputState
+}
 
 func (FavoriteProcessOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FavoriteProcess)(nil))

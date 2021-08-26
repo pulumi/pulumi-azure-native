@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// A copy activity source for an Office 365 service.
-    /// </summary>
     [OutputType]
     public sealed class Office365SourceResponse
     {

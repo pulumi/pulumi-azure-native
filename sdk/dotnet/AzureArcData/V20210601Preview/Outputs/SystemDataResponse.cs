@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Read only system data
-    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

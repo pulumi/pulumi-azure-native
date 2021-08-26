@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20161010.Outputs
 {
 
-    /// <summary>
-    /// Custom hostname configuration.
-    /// </summary>
     [OutputType]
     public sealed class HostnameConfigurationResponse
     {

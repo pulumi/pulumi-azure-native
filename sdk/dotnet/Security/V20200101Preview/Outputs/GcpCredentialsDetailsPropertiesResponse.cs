@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101Preview.Outputs
 {
 
-    /// <summary>
-    /// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
-    /// </summary>
     [OutputType]
     public sealed class GcpCredentialsDetailsPropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
-    /// <summary>
-    /// Defines the dependency of the move resource.
-    /// </summary>
     [OutputType]
     public sealed class MoveResourceDependencyResponse
     {

@@ -117,7 +117,9 @@ func (i *UserSettingsWithLocation) ToUserSettingsWithLocationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsWithLocationOutput)
 }
 
-type UserSettingsWithLocationOutput struct{ *pulumi.OutputState }
+type UserSettingsWithLocationOutput struct {
+	*pulumi.OutputState
+}
 
 func (UserSettingsWithLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserSettingsWithLocation)(nil))

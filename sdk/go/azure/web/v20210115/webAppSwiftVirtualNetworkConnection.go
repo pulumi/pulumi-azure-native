@@ -187,7 +187,9 @@ func (i *WebAppSwiftVirtualNetworkConnection) ToWebAppSwiftVirtualNetworkConnect
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSwiftVirtualNetworkConnectionOutput)
 }
 
-type WebAppSwiftVirtualNetworkConnectionOutput struct{ *pulumi.OutputState }
+type WebAppSwiftVirtualNetworkConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppSwiftVirtualNetworkConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnection)(nil))

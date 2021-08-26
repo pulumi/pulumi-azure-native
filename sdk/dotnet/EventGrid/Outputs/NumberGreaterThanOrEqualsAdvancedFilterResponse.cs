@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
-    /// <summary>
-    /// NumberGreaterThanOrEquals Advanced Filter.
-    /// </summary>
     [OutputType]
     public sealed class NumberGreaterThanOrEqualsAdvancedFilterResponse
     {

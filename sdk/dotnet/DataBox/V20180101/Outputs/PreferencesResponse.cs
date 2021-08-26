@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20180101.Outputs
 {
 
-    /// <summary>
-    /// Preferences related to the order
-    /// </summary>
     [OutputType]
     public sealed class PreferencesResponse
     {

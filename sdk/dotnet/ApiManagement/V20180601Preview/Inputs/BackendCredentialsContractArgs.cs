@@ -34,26 +34,26 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview.Inputs
         }
 
         [Input("header")]
-        private InputMap<ImmutableArray<string>>? _header;
+        private InputMap<ImmutableArray<Input<string>>>? _header;
 
         /// <summary>
         /// Header Parameter description.
         /// </summary>
-        public InputMap<ImmutableArray<string>> Header
+        public InputMap<ImmutableArray<Input<string>>> Header
         {
-            get => _header ?? (_header = new InputMap<ImmutableArray<string>>());
+            get => _header ?? (_header = new InputMap<ImmutableArray<Input<string>>>());
             set => _header = value;
         }
 
         [Input("query")]
-        private InputMap<ImmutableArray<string>>? _query;
+        private InputMap<ImmutableArray<Input<string>>>? _query;
 
         /// <summary>
         /// Query Parameter description.
         /// </summary>
-        public InputMap<ImmutableArray<string>> Query
+        public InputMap<ImmutableArray<Input<string>>> Query
         {
-            get => _query ?? (_query = new InputMap<ImmutableArray<string>>());
+            get => _query ?? (_query = new InputMap<ImmutableArray<Input<string>>>());
             set => _query = value;
         }
 

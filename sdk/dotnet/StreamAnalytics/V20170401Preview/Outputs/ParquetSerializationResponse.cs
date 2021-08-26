@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
-    /// </summary>
     [OutputType]
     public sealed class ParquetSerializationResponse
     {

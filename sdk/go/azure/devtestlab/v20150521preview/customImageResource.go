@@ -193,7 +193,9 @@ func (i *CustomImageResource) ToCustomImageResourceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImageResourceOutput)
 }
 
-type CustomImageResourceOutput struct{ *pulumi.OutputState }
+type CustomImageResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomImageResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomImageResource)(nil))

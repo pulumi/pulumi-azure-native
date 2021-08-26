@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20201020.Outputs
 {
 
-    /// <summary>
-    /// Customer Managed Identity
-    /// </summary>
     [OutputType]
     public sealed class MyWorkbookUserAssignedIdentitiesResponse
     {

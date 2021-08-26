@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
-    /// <summary>
-    /// List of properties of a link provider.
-    /// </summary>
     [OutputType]
     public sealed class VpnLinkProviderPropertiesResponse
     {

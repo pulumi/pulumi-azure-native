@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20210601.Outputs
 {
 
-    /// <summary>
-    /// The properties that define a Log Analytics Workspace.
-    /// </summary>
     [OutputType]
     public sealed class LogAnalyticsWorkspacePropertiesResponse
     {

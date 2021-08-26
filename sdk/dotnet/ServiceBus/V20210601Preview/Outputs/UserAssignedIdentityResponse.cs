@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceBus.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Recognized Dictionary value.
-    /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityResponse
     {

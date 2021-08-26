@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Class for content key in Streaming Locator
-    /// </summary>
     [OutputType]
     public sealed class StreamingLocatorContentKeyResponse
     {

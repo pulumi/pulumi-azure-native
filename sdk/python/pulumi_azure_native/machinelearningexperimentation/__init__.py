@@ -16,8 +16,7 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.machinelearningexperimentation.v20170501preview as __v20170501preview
-    v20170501preview = __v20170501preview
+    import pulumi_azure_native.machinelearningexperimentation.v20170501preview as v20170501preview
 else:
     v20170501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningexperimentation.v20170501preview')
 

@@ -176,7 +176,9 @@ func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
 }
 
-type DiskEncryptionSetOutput struct{ *pulumi.OutputState }
+type DiskEncryptionSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiskEncryptionSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskEncryptionSet)(nil))

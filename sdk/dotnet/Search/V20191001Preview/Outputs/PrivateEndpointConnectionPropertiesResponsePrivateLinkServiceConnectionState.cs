@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20191001Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState
     {

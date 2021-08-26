@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181001.Outputs
 {
 
-    /// <summary>
-    /// VpnClientConfiguration for P2S client.
-    /// </summary>
     [OutputType]
     public sealed class VpnClientConfigurationResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20180401.Outputs
 {
 
-    /// <summary>
-    /// The Managed Identity details for storage account.
-    /// </summary>
     [OutputType]
     public sealed class ManagedIdentityConfigurationResponse
     {

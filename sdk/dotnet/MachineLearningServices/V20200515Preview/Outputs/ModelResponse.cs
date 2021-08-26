@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Outputs
 {
 
-    /// <summary>
-    /// An Azure Machine Learning Model.
-    /// </summary>
     [OutputType]
     public sealed class ModelResponse
     {

@@ -230,7 +230,9 @@ func (i *SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionO
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlUserDefinedFunctionOutput)
 }
 
-type SqlResourceSqlUserDefinedFunctionOutput struct{ *pulumi.OutputState }
+type SqlResourceSqlUserDefinedFunctionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlResourceSqlUserDefinedFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil))

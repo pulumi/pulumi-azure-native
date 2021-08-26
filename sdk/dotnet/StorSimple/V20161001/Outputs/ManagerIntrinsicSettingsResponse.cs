@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20161001.Outputs
 {
 
-    /// <summary>
-    /// Intrinsic settings which refers to the type of the StorSimple manager
-    /// </summary>
     [OutputType]
     public sealed class ManagerIntrinsicSettingsResponse
     {

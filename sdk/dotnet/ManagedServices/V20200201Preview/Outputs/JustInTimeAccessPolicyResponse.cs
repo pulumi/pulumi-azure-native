@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
 {
 
-    /// <summary>
-    /// Just-in-time access policy setting.
-    /// </summary>
     [OutputType]
     public sealed class JustInTimeAccessPolicyResponse
     {

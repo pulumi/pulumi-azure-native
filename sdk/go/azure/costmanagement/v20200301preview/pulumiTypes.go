@@ -328,7 +328,7 @@ func (o CostAllocationRuleDetailsOutput) ToCostAllocationRuleDetailsPtrOutput() 
 }
 
 func (o CostAllocationRuleDetailsOutput) ToCostAllocationRuleDetailsPtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRuleDetails) *CostAllocationRuleDetails {
+	return o.ApplyT(func(v CostAllocationRuleDetails) *CostAllocationRuleDetails {
 		return &v
 	}).(CostAllocationRuleDetailsPtrOutput)
 }
@@ -358,13 +358,7 @@ func (o CostAllocationRuleDetailsPtrOutput) ToCostAllocationRuleDetailsPtrOutput
 }
 
 func (o CostAllocationRuleDetailsPtrOutput) Elem() CostAllocationRuleDetailsOutput {
-	return o.ApplyT(func(v *CostAllocationRuleDetails) CostAllocationRuleDetails {
-		if v != nil {
-			return *v
-		}
-		var ret CostAllocationRuleDetails
-		return ret
-	}).(CostAllocationRuleDetailsOutput)
+	return o.ApplyT(func(v *CostAllocationRuleDetails) CostAllocationRuleDetails { return *v }).(CostAllocationRuleDetailsOutput)
 }
 
 // Source resources for cost allocation. At this time, this list can contain no more than one element.
@@ -487,7 +481,7 @@ func (o CostAllocationRuleDetailsResponseOutput) ToCostAllocationRuleDetailsResp
 }
 
 func (o CostAllocationRuleDetailsResponseOutput) ToCostAllocationRuleDetailsResponsePtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRuleDetailsResponse) *CostAllocationRuleDetailsResponse {
+	return o.ApplyT(func(v CostAllocationRuleDetailsResponse) *CostAllocationRuleDetailsResponse {
 		return &v
 	}).(CostAllocationRuleDetailsResponsePtrOutput)
 }
@@ -521,13 +515,7 @@ func (o CostAllocationRuleDetailsResponsePtrOutput) ToCostAllocationRuleDetailsR
 }
 
 func (o CostAllocationRuleDetailsResponsePtrOutput) Elem() CostAllocationRuleDetailsResponseOutput {
-	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) CostAllocationRuleDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CostAllocationRuleDetailsResponse
-		return ret
-	}).(CostAllocationRuleDetailsResponseOutput)
+	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) CostAllocationRuleDetailsResponse { return *v }).(CostAllocationRuleDetailsResponseOutput)
 }
 
 // Source resources for cost allocation. At this time, this list can contain no more than one element.
@@ -654,7 +642,7 @@ func (o CostAllocationRulePropertiesOutput) ToCostAllocationRulePropertiesPtrOut
 }
 
 func (o CostAllocationRulePropertiesOutput) ToCostAllocationRulePropertiesPtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRuleProperties) *CostAllocationRuleProperties {
+	return o.ApplyT(func(v CostAllocationRuleProperties) *CostAllocationRuleProperties {
 		return &v
 	}).(CostAllocationRulePropertiesPtrOutput)
 }
@@ -689,13 +677,7 @@ func (o CostAllocationRulePropertiesPtrOutput) ToCostAllocationRulePropertiesPtr
 }
 
 func (o CostAllocationRulePropertiesPtrOutput) Elem() CostAllocationRulePropertiesOutput {
-	return o.ApplyT(func(v *CostAllocationRuleProperties) CostAllocationRuleProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CostAllocationRuleProperties
-		return ret
-	}).(CostAllocationRulePropertiesOutput)
+	return o.ApplyT(func(v *CostAllocationRuleProperties) CostAllocationRuleProperties { return *v }).(CostAllocationRulePropertiesOutput)
 }
 
 // Description of a cost allocation rule.
@@ -840,7 +822,7 @@ func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRuleProperti
 }
 
 func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRulePropertiesResponse) *CostAllocationRulePropertiesResponse {
+	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) *CostAllocationRulePropertiesResponse {
 		return &v
 	}).(CostAllocationRulePropertiesResponsePtrOutput)
 }
@@ -885,13 +867,7 @@ func (o CostAllocationRulePropertiesResponsePtrOutput) ToCostAllocationRulePrope
 }
 
 func (o CostAllocationRulePropertiesResponsePtrOutput) Elem() CostAllocationRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) CostAllocationRulePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CostAllocationRulePropertiesResponse
-		return ret
-	}).(CostAllocationRulePropertiesResponseOutput)
+	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) CostAllocationRulePropertiesResponse { return *v }).(CostAllocationRulePropertiesResponseOutput)
 }
 
 // Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.

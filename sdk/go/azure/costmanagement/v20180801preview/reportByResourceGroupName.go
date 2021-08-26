@@ -144,7 +144,9 @@ func (i *ReportByResourceGroupName) ToReportByResourceGroupNameOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ReportByResourceGroupNameOutput)
 }
 
-type ReportByResourceGroupNameOutput struct{ *pulumi.OutputState }
+type ReportByResourceGroupNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReportByResourceGroupNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportByResourceGroupName)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes the layer4 configuration for public connectivity for this network.
-    /// </summary>
     [OutputType]
     public sealed class Layer4IngressConfigResponse
     {

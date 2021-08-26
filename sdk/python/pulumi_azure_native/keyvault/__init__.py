@@ -23,22 +23,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.keyvault.v20150601 as __v20150601
-    v20150601 = __v20150601
-    import pulumi_azure_native.keyvault.v20161001 as __v20161001
-    v20161001 = __v20161001
-    import pulumi_azure_native.keyvault.v20180214 as __v20180214
-    v20180214 = __v20180214
-    import pulumi_azure_native.keyvault.v20180214preview as __v20180214preview
-    v20180214preview = __v20180214preview
-    import pulumi_azure_native.keyvault.v20190901 as __v20190901
-    v20190901 = __v20190901
-    import pulumi_azure_native.keyvault.v20200401preview as __v20200401preview
-    v20200401preview = __v20200401preview
-    import pulumi_azure_native.keyvault.v20210401preview as __v20210401preview
-    v20210401preview = __v20210401preview
-    import pulumi_azure_native.keyvault.v20210601preview as __v20210601preview
-    v20210601preview = __v20210601preview
+    import pulumi_azure_native.keyvault.v20150601 as v20150601
+    import pulumi_azure_native.keyvault.v20161001 as v20161001
+    import pulumi_azure_native.keyvault.v20180214 as v20180214
+    import pulumi_azure_native.keyvault.v20180214preview as v20180214preview
+    import pulumi_azure_native.keyvault.v20190901 as v20190901
+    import pulumi_azure_native.keyvault.v20200401preview as v20200401preview
+    import pulumi_azure_native.keyvault.v20210401preview as v20210401preview
+    import pulumi_azure_native.keyvault.v20210601preview as v20210601preview
 else:
     v20150601 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20150601')
     v20161001 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20161001')

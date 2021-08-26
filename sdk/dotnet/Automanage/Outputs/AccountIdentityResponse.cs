@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automanage.Outputs
 {
 
-    /// <summary>
-    /// Identity for the Automanage account.
-    /// </summary>
     [OutputType]
     public sealed class AccountIdentityResponse
     {

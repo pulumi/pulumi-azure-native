@@ -227,7 +227,9 @@ func (i *StreamingJob) ToStreamingJobOutputWithContext(ctx context.Context) Stre
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobOutput)
 }
 
-type StreamingJobOutput struct{ *pulumi.OutputState }
+type StreamingJobOutput struct {
+	*pulumi.OutputState
+}
 
 func (StreamingJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingJob)(nil))

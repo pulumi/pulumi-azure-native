@@ -17,7 +17,7 @@ type CaptureDescription struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
+	Encoding *string `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -44,7 +44,7 @@ type CaptureDescriptionArgs struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding EncodingCaptureDescriptionPtrInput `pulumi:"encoding"`
+	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -126,7 +126,7 @@ func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutput() CaptureDescrip
 }
 
 func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutputWithContext(ctx context.Context) CaptureDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaptureDescription) *CaptureDescription {
+	return o.ApplyT(func(v CaptureDescription) *CaptureDescription {
 		return &v
 	}).(CaptureDescriptionPtrOutput)
 }
@@ -142,8 +142,8 @@ func (o CaptureDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v CaptureDescription) *EncodingCaptureDescription { return v.Encoding }).(EncodingCaptureDescriptionPtrOutput)
+func (o CaptureDescriptionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -176,13 +176,7 @@ func (o CaptureDescriptionPtrOutput) ToCaptureDescriptionPtrOutputWithContext(ct
 }
 
 func (o CaptureDescriptionPtrOutput) Elem() CaptureDescriptionOutput {
-	return o.ApplyT(func(v *CaptureDescription) CaptureDescription {
-		if v != nil {
-			return *v
-		}
-		var ret CaptureDescription
-		return ret
-	}).(CaptureDescriptionOutput)
+	return o.ApplyT(func(v *CaptureDescription) CaptureDescription { return *v }).(CaptureDescriptionOutput)
 }
 
 // Properties of Destination where capture will be stored. (Storage Account, Blob Names)
@@ -206,13 +200,13 @@ func (o CaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionPtrOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v *CaptureDescription) *EncodingCaptureDescription {
+func (o CaptureDescriptionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Encoding
-	}).(EncodingCaptureDescriptionPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -361,7 +355,7 @@ func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutput(
 }
 
 func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutputWithContext(ctx context.Context) CaptureDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CaptureDescriptionResponse) *CaptureDescriptionResponse {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *CaptureDescriptionResponse {
 		return &v
 	}).(CaptureDescriptionResponsePtrOutput)
 }
@@ -411,13 +405,7 @@ func (o CaptureDescriptionResponsePtrOutput) ToCaptureDescriptionResponsePtrOutp
 }
 
 func (o CaptureDescriptionResponsePtrOutput) Elem() CaptureDescriptionResponseOutput {
-	return o.ApplyT(func(v *CaptureDescriptionResponse) CaptureDescriptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CaptureDescriptionResponse
-		return ret
-	}).(CaptureDescriptionResponseOutput)
+	return o.ApplyT(func(v *CaptureDescriptionResponse) CaptureDescriptionResponse { return *v }).(CaptureDescriptionResponseOutput)
 }
 
 // Properties of Destination where capture will be stored. (Storage Account, Blob Names)
@@ -588,7 +576,7 @@ func (o DestinationOutput) ToDestinationPtrOutput() DestinationPtrOutput {
 }
 
 func (o DestinationOutput) ToDestinationPtrOutputWithContext(ctx context.Context) DestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Destination) *Destination {
+	return o.ApplyT(func(v Destination) *Destination {
 		return &v
 	}).(DestinationPtrOutput)
 }
@@ -628,13 +616,7 @@ func (o DestinationPtrOutput) ToDestinationPtrOutputWithContext(ctx context.Cont
 }
 
 func (o DestinationPtrOutput) Elem() DestinationOutput {
-	return o.ApplyT(func(v *Destination) Destination {
-		if v != nil {
-			return *v
-		}
-		var ret Destination
-		return ret
-	}).(DestinationOutput)
+	return o.ApplyT(func(v *Destination) Destination { return *v }).(DestinationOutput)
 }
 
 // Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -785,7 +767,7 @@ func (o DestinationResponseOutput) ToDestinationResponsePtrOutput() DestinationR
 }
 
 func (o DestinationResponseOutput) ToDestinationResponsePtrOutputWithContext(ctx context.Context) DestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationResponse) *DestinationResponse {
+	return o.ApplyT(func(v DestinationResponse) *DestinationResponse {
 		return &v
 	}).(DestinationResponsePtrOutput)
 }
@@ -825,13 +807,7 @@ func (o DestinationResponsePtrOutput) ToDestinationResponsePtrOutputWithContext(
 }
 
 func (o DestinationResponsePtrOutput) Elem() DestinationResponseOutput {
-	return o.ApplyT(func(v *DestinationResponse) DestinationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DestinationResponse
-		return ret
-	}).(DestinationResponseOutput)
+	return o.ApplyT(func(v *DestinationResponse) DestinationResponse { return *v }).(DestinationResponseOutput)
 }
 
 // Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -1414,7 +1390,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1449,13 +1425,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The Event Hubs throughput units, value should be 0 to 20 throughput units.
@@ -1592,7 +1562,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1627,13 +1597,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The Event Hubs throughput units, value should be 0 to 20 throughput units.
@@ -1762,7 +1726,7 @@ func (o SubnetOutput) ToSubnetPtrOutput() SubnetPtrOutput {
 }
 
 func (o SubnetOutput) ToSubnetPtrOutputWithContext(ctx context.Context) SubnetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Subnet) *Subnet {
+	return o.ApplyT(func(v Subnet) *Subnet {
 		return &v
 	}).(SubnetPtrOutput)
 }
@@ -1787,13 +1751,7 @@ func (o SubnetPtrOutput) ToSubnetPtrOutputWithContext(ctx context.Context) Subne
 }
 
 func (o SubnetPtrOutput) Elem() SubnetOutput {
-	return o.ApplyT(func(v *Subnet) Subnet {
-		if v != nil {
-			return *v
-		}
-		var ret Subnet
-		return ret
-	}).(SubnetOutput)
+	return o.ApplyT(func(v *Subnet) Subnet { return *v }).(SubnetOutput)
 }
 
 // Resource ID of Virtual Network Subnet
@@ -1902,7 +1860,7 @@ func (o SubnetResponseOutput) ToSubnetResponsePtrOutput() SubnetResponsePtrOutpu
 }
 
 func (o SubnetResponseOutput) ToSubnetResponsePtrOutputWithContext(ctx context.Context) SubnetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetResponse) *SubnetResponse {
+	return o.ApplyT(func(v SubnetResponse) *SubnetResponse {
 		return &v
 	}).(SubnetResponsePtrOutput)
 }
@@ -1927,13 +1885,7 @@ func (o SubnetResponsePtrOutput) ToSubnetResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SubnetResponsePtrOutput) Elem() SubnetResponseOutput {
-	return o.ApplyT(func(v *SubnetResponse) SubnetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetResponse
-		return ret
-	}).(SubnetResponseOutput)
+	return o.ApplyT(func(v *SubnetResponse) SubnetResponse { return *v }).(SubnetResponseOutput)
 }
 
 // Resource ID of Virtual Network Subnet

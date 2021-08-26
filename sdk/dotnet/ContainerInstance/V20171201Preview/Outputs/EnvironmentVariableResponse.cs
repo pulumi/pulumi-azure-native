@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview.Outputs
 {
 
-    /// <summary>
-    /// The environment variable to set within the container instance.
-    /// </summary>
     [OutputType]
     public sealed class EnvironmentVariableResponse
     {

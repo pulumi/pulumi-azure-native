@@ -137,7 +137,9 @@ func (i *IntegrationRuntime) ToIntegrationRuntimeOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeOutput)
 }
 
-type IntegrationRuntimeOutput struct{ *pulumi.OutputState }
+type IntegrationRuntimeOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationRuntimeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationRuntime)(nil))

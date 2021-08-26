@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.Outputs
 {
 
-    /// <summary>
-    /// IP Rule to be applied as part of Network Rule Set
-    /// </summary>
     [OutputType]
     public sealed class NetworkRuleSetIpRuleResponse
     {

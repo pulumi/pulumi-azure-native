@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
-    /// <summary>
-    /// Describes the hostname properties for http routing.
-    /// </summary>
     [OutputType]
     public sealed class HttpHostConfigResponse
     {

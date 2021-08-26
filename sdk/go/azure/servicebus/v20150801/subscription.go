@@ -156,7 +156,7 @@ type subscriptionArgs struct {
 	// Value that indicates whether server-side batched operations are enabled.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus *EntityAvailabilityStatus `pulumi:"entityAvailabilityStatus"`
+	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
 	// Value that indicates whether the entity description is read-only.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// Subscription data center location.
@@ -172,7 +172,7 @@ type subscriptionArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 	// The subscription name.
 	SubscriptionName *string `pulumi:"subscriptionName"`
 	// The topic name.
@@ -194,7 +194,7 @@ type SubscriptionArgs struct {
 	// Value that indicates whether server-side batched operations are enabled.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus EntityAvailabilityStatusPtrInput
+	EntityAvailabilityStatus *EntityAvailabilityStatus
 	// Value that indicates whether the entity description is read-only.
 	IsReadOnly pulumi.BoolPtrInput
 	// Subscription data center location.
@@ -210,7 +210,7 @@ type SubscriptionArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatusPtrInput
+	Status *EntityStatus
 	// The subscription name.
 	SubscriptionName pulumi.StringPtrInput
 	// The topic name.
@@ -242,7 +242,9 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
 }
 
-type SubscriptionOutput struct{ *pulumi.OutputState }
+type SubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subscription)(nil))

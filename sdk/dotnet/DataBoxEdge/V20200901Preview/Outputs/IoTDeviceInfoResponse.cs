@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// Metadata of IoT device/IoT Edge device to be configured.
-    /// </summary>
     [OutputType]
     public sealed class IoTDeviceInfoResponse
     {

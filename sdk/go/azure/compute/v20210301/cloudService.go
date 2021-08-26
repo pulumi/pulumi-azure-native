@@ -136,7 +136,9 @@ func (i *CloudService) ToCloudServiceOutputWithContext(ctx context.Context) Clou
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOutput)
 }
 
-type CloudServiceOutput struct{ *pulumi.OutputState }
+type CloudServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (CloudServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudService)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
-    /// <summary>
-    /// This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
-    /// </summary>
     [OutputType]
     public sealed class ResourceRequestsResponse
     {

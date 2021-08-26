@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
-    /// <summary>
-    /// SlowRequestsBasedTrigger
-    /// </summary>
     [OutputType]
     public sealed class SlowRequestsBasedTriggerResponse
     {

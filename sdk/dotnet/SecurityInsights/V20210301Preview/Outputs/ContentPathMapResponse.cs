@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// The mapping of content type to a repo path.
-    /// </summary>
     [OutputType]
     public sealed class ContentPathMapResponse
     {

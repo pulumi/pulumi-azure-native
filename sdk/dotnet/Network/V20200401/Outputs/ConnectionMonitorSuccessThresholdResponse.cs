@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200401.Outputs
 {
 
-    /// <summary>
-    /// Describes the threshold for declaring a test successful.
-    /// </summary>
     [OutputType]
     public sealed class ConnectionMonitorSuccessThresholdResponse
     {

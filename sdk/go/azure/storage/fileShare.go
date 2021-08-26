@@ -204,7 +204,9 @@ func (i *FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareO
 	return pulumi.ToOutputWithContext(ctx, i).(FileShareOutput)
 }
 
-type FileShareOutput struct{ *pulumi.OutputState }
+type FileShareOutput struct {
+	*pulumi.OutputState
+}
 
 func (FileShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileShare)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180501Preview.Outputs
 {
 
-    /// <summary>
-    /// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
-    /// </summary>
     [OutputType]
     public sealed class WebTestGeolocationResponse
     {

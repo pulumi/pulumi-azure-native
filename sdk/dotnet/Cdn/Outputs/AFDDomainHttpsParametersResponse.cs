@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
-    /// <summary>
-    /// The JSON object that contains the properties to secure a domain.
-    /// </summary>
     [OutputType]
     public sealed class AFDDomainHttpsParametersResponse
     {

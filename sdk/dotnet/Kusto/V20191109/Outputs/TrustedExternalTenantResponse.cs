@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20191109.Outputs
 {
 
-    /// <summary>
-    /// Represents a tenant ID that is trusted by the cluster.
-    /// </summary>
     [OutputType]
     public sealed class TrustedExternalTenantResponse
     {

@@ -105,7 +105,7 @@ type backupPolicyArgs struct {
 	// The device name
 	DeviceName string `pulumi:"deviceName"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -121,7 +121,7 @@ type BackupPolicyArgs struct {
 	// The device name
 	DeviceName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
@@ -153,7 +153,9 @@ func (i *BackupPolicy) ToBackupPolicyOutputWithContext(ctx context.Context) Back
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyOutput)
 }
 
-type BackupPolicyOutput struct{ *pulumi.OutputState }
+type BackupPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (BackupPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupPolicy)(nil))

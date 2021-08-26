@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201101.Outputs
 {
 
-    /// <summary>
-    /// The credential result response.
-    /// </summary>
     [OutputType]
     public sealed class CredentialResultResponse
     {

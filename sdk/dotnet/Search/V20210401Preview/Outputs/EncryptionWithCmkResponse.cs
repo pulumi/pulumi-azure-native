@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionWithCmkResponse
     {

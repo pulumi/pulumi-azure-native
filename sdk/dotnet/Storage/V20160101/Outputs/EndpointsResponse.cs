@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20160101.Outputs
 {
 
-    /// <summary>
-    /// The URIs that are used to perform a retrieval of a public blob, queue, or table object.
-    /// </summary>
     [OutputType]
     public sealed class EndpointsResponse
     {

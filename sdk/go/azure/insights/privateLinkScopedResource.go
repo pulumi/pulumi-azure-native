@@ -128,7 +128,9 @@ func (i *PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceOutput)
 }
 
-type PrivateLinkScopedResourceOutput struct{ *pulumi.OutputState }
+type PrivateLinkScopedResourceOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateLinkScopedResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkScopedResource)(nil))

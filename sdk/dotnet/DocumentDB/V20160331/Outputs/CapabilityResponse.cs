@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20160331.Outputs
 {
 
-    /// <summary>
-    /// Cosmos DB capability object
-    /// </summary>
     [OutputType]
     public sealed class CapabilityResponse
     {

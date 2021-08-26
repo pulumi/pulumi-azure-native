@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210101Preview.Outputs
 {
 
-    /// <summary>
-    /// An Azure NetApp Files volume from Microsoft.NetApp provider
-    /// </summary>
     [OutputType]
     public sealed class NetAppVolumeResponse
     {

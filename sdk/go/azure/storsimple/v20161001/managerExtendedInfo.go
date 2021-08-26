@@ -169,7 +169,9 @@ func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoOutput)
 }
 
-type ManagerExtendedInfoOutput struct{ *pulumi.OutputState }
+type ManagerExtendedInfoOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagerExtendedInfo)(nil))

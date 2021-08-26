@@ -274,7 +274,9 @@ func (i *VirtualNetworkTap) ToVirtualNetworkTapOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkTapOutput)
 }
 
-type VirtualNetworkTapOutput struct{ *pulumi.OutputState }
+type VirtualNetworkTapOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualNetworkTapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkTap)(nil))

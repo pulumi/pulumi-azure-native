@@ -176,7 +176,9 @@ func (i *NetworkFunction) ToNetworkFunctionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionOutput)
 }
 
-type NetworkFunctionOutput struct{ *pulumi.OutputState }
+type NetworkFunctionOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkFunction)(nil))

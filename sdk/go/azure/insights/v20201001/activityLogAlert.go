@@ -175,7 +175,9 @@ func (i *ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertOutput)
 }
 
-type ActivityLogAlertOutput struct{ *pulumi.OutputState }
+type ActivityLogAlertOutput struct {
+	*pulumi.OutputState
+}
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityLogAlert)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210101.Outputs
 {
 
-    /// <summary>
-    /// Body of the error response returned from the API.
-    /// </summary>
     [OutputType]
     public sealed class ErrorEntityResponse
     {

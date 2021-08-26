@@ -114,7 +114,7 @@ func (o AzureMonitorWorkspacePropertiesOutput) ToAzureMonitorWorkspaceProperties
 }
 
 func (o AzureMonitorWorkspacePropertiesOutput) ToAzureMonitorWorkspacePropertiesPtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureMonitorWorkspaceProperties) *AzureMonitorWorkspaceProperties {
+	return o.ApplyT(func(v AzureMonitorWorkspaceProperties) *AzureMonitorWorkspaceProperties {
 		return &v
 	}).(AzureMonitorWorkspacePropertiesPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) ToAzureMonitorWorkspacePropert
 }
 
 func (o AzureMonitorWorkspacePropertiesPtrOutput) Elem() AzureMonitorWorkspacePropertiesOutput {
-	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) AzureMonitorWorkspaceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AzureMonitorWorkspaceProperties
-		return ret
-	}).(AzureMonitorWorkspacePropertiesOutput)
+	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) AzureMonitorWorkspaceProperties { return *v }).(AzureMonitorWorkspacePropertiesOutput)
 }
 
 // The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
@@ -292,7 +286,7 @@ func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePr
 }
 
 func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureMonitorWorkspacePropertiesResponse) *AzureMonitorWorkspacePropertiesResponse {
+	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesResponse) *AzureMonitorWorkspacePropertiesResponse {
 		return &v
 	}).(AzureMonitorWorkspacePropertiesResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) ToAzureMonitorWorkspac
 }
 
 func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) Elem() AzureMonitorWorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesResponse) AzureMonitorWorkspacePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureMonitorWorkspacePropertiesResponse
-		return ret
-	}).(AzureMonitorWorkspacePropertiesResponseOutput)
+	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesResponse) AzureMonitorWorkspacePropertiesResponse { return *v }).(AzureMonitorWorkspacePropertiesResponseOutput)
 }
 
 // The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
@@ -462,7 +450,7 @@ func (o ConfigurationProfileResourcePropertiesOutput) ToConfigurationProfileReso
 }
 
 func (o ConfigurationProfileResourcePropertiesOutput) ToConfigurationProfileResourcePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileResourceProperties) *ConfigurationProfileResourceProperties {
+	return o.ApplyT(func(v ConfigurationProfileResourceProperties) *ConfigurationProfileResourceProperties {
 		return &v
 	}).(ConfigurationProfileResourcePropertiesPtrOutput)
 }
@@ -487,13 +475,7 @@ func (o ConfigurationProfileResourcePropertiesPtrOutput) ToConfigurationProfileR
 }
 
 func (o ConfigurationProfileResourcePropertiesPtrOutput) Elem() ConfigurationProfileResourcePropertiesOutput {
-	return o.ApplyT(func(v *ConfigurationProfileResourceProperties) ConfigurationProfileResourceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfileResourceProperties
-		return ret
-	}).(ConfigurationProfileResourcePropertiesOutput)
+	return o.ApplyT(func(v *ConfigurationProfileResourceProperties) ConfigurationProfileResourceProperties { return *v }).(ConfigurationProfileResourcePropertiesOutput)
 }
 
 // Settings of change notification configuration for a subscription.
@@ -602,7 +584,7 @@ func (o ConfigurationProfileResourcePropertiesResponseOutput) ToConfigurationPro
 }
 
 func (o ConfigurationProfileResourcePropertiesResponseOutput) ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileResourcePropertiesResponse) *ConfigurationProfileResourcePropertiesResponse {
+	return o.ApplyT(func(v ConfigurationProfileResourcePropertiesResponse) *ConfigurationProfileResourcePropertiesResponse {
 		return &v
 	}).(ConfigurationProfileResourcePropertiesResponsePtrOutput)
 }
@@ -630,11 +612,7 @@ func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) ToConfiguration
 
 func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) Elem() ConfigurationProfileResourcePropertiesResponseOutput {
 	return o.ApplyT(func(v *ConfigurationProfileResourcePropertiesResponse) ConfigurationProfileResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfileResourcePropertiesResponse
-		return ret
+		return *v
 	}).(ConfigurationProfileResourcePropertiesResponseOutput)
 }
 
@@ -748,7 +726,7 @@ func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutput() Notificati
 }
 
 func (o NotificationSettingsOutput) ToNotificationSettingsPtrOutputWithContext(ctx context.Context) NotificationSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettings) *NotificationSettings {
+	return o.ApplyT(func(v NotificationSettings) *NotificationSettings {
 		return &v
 	}).(NotificationSettingsPtrOutput)
 }
@@ -780,13 +758,7 @@ func (o NotificationSettingsPtrOutput) ToNotificationSettingsPtrOutputWithContex
 }
 
 func (o NotificationSettingsPtrOutput) Elem() NotificationSettingsOutput {
-	return o.ApplyT(func(v *NotificationSettings) NotificationSettings {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationSettings
-		return ret
-	}).(NotificationSettingsOutput)
+	return o.ApplyT(func(v *NotificationSettings) NotificationSettings { return *v }).(NotificationSettingsOutput)
 }
 
 // The state of notifications feature.
@@ -909,7 +881,7 @@ func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOut
 }
 
 func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettingsResponse) *NotificationSettingsResponse {
+	return o.ApplyT(func(v NotificationSettingsResponse) *NotificationSettingsResponse {
 		return &v
 	}).(NotificationSettingsResponsePtrOutput)
 }
@@ -941,13 +913,7 @@ func (o NotificationSettingsResponsePtrOutput) ToNotificationSettingsResponsePtr
 }
 
 func (o NotificationSettingsResponsePtrOutput) Elem() NotificationSettingsResponseOutput {
-	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationSettingsResponse
-		return ret
-	}).(NotificationSettingsResponseOutput)
+	return o.ApplyT(func(v *NotificationSettingsResponse) NotificationSettingsResponse { return *v }).(NotificationSettingsResponseOutput)
 }
 
 // The state of notifications feature.
@@ -1066,7 +1032,7 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
@@ -1091,13 +1057,7 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentity
-		return ret
-	}).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
 }
 
 // The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -1214,7 +1174,7 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
@@ -1249,13 +1209,7 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdentityResponse
-		return ret
-	}).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
 }
 
 // The principal id of the identity. This property will only be provided for a system-assigned identity.
@@ -1404,7 +1358,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1454,13 +1408,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC)

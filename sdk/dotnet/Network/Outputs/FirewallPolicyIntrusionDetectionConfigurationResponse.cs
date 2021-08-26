@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// The operation for configuring intrusion detection.
-    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyIntrusionDetectionConfigurationResponse
     {

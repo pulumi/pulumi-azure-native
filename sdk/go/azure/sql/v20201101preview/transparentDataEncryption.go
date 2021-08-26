@@ -39,9 +39,6 @@ func NewTransparentDataEncryption(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.State == nil {
-		return nil, errors.New("invalid value for required argument 'State'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20201101preview:TransparentDataEncryption"),
@@ -117,7 +114,7 @@ type transparentDataEncryptionArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the transparent data encryption.
-	State TransparentDataEncryptionStateEnum `pulumi:"state"`
+	State string `pulumi:"state"`
 	// The name of the transparent data encryption configuration.
 	TdeName *string `pulumi:"tdeName"`
 }
@@ -131,7 +128,7 @@ type TransparentDataEncryptionArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the transparent data encryption.
-	State TransparentDataEncryptionStateEnumInput
+	State TransparentDataEncryptionStateEnum
 	// The name of the transparent data encryption configuration.
 	TdeName pulumi.StringPtrInput
 }
@@ -159,7 +156,9 @@ func (i *TransparentDataEncryption) ToTransparentDataEncryptionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionOutput)
 }
 
-type TransparentDataEncryptionOutput struct{ *pulumi.OutputState }
+type TransparentDataEncryptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (TransparentDataEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TransparentDataEncryption)(nil))

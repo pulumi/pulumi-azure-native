@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Contains the list of gallery applications that should be made available to the VM/VMSS
-    /// </summary>
     [OutputType]
     public sealed class ApplicationProfileResponse
     {

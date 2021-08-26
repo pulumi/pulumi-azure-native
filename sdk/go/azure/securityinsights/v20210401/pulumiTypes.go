@@ -118,7 +118,7 @@ func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutput() ClientInfoResp
 }
 
 func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientInfoResponse) *ClientInfoResponse {
+	return o.ApplyT(func(v ClientInfoResponse) *ClientInfoResponse {
 		return &v
 	}).(ClientInfoResponsePtrOutput)
 }
@@ -158,13 +158,7 @@ func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutputWithContext(ct
 }
 
 func (o ClientInfoResponsePtrOutput) Elem() ClientInfoResponseOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClientInfoResponse
-		return ret
-	}).(ClientInfoResponseOutput)
+	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse { return *v }).(ClientInfoResponseOutput)
 }
 
 // The email of the client.
@@ -319,7 +313,7 @@ func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePt
 }
 
 func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
 		return &v
 	}).(IncidentAdditionalDataResponsePtrOutput)
 }
@@ -364,13 +358,7 @@ func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataRespons
 }
 
 func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataResponseOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentAdditionalDataResponse
-		return ret
-	}).(IncidentAdditionalDataResponseOutput)
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse { return *v }).(IncidentAdditionalDataResponseOutput)
 }
 
 // List of product names of alerts in the incident
@@ -740,7 +728,7 @@ func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInf
 }
 
 func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfo) *IncidentOwnerInfo {
+	return o.ApplyT(func(v IncidentOwnerInfo) *IncidentOwnerInfo {
 		return &v
 	}).(IncidentOwnerInfoPtrOutput)
 }
@@ -780,13 +768,7 @@ func (o IncidentOwnerInfoPtrOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx 
 }
 
 func (o IncidentOwnerInfoPtrOutput) Elem() IncidentOwnerInfoOutput {
-	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentOwnerInfo
-		return ret
-	}).(IncidentOwnerInfoOutput)
+	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo { return *v }).(IncidentOwnerInfoOutput)
 }
 
 // The name of the user the incident is assigned to.
@@ -937,7 +919,7 @@ func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutput() 
 }
 
 func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
 		return &v
 	}).(IncidentOwnerInfoResponsePtrOutput)
 }
@@ -977,13 +959,7 @@ func (o IncidentOwnerInfoResponsePtrOutput) ToIncidentOwnerInfoResponsePtrOutput
 }
 
 func (o IncidentOwnerInfoResponsePtrOutput) Elem() IncidentOwnerInfoResponseOutput {
-	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IncidentOwnerInfoResponse
-		return ret
-	}).(IncidentOwnerInfoResponseOutput)
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse { return *v }).(IncidentOwnerInfoResponseOutput)
 }
 
 // The name of the user the incident is assigned to.
@@ -1142,7 +1118,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1192,13 +1168,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -1940,7 +1910,7 @@ func (o WatchlistUserInfoOutput) ToWatchlistUserInfoPtrOutput() WatchlistUserInf
 }
 
 func (o WatchlistUserInfoOutput) ToWatchlistUserInfoPtrOutputWithContext(ctx context.Context) WatchlistUserInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WatchlistUserInfo) *WatchlistUserInfo {
+	return o.ApplyT(func(v WatchlistUserInfo) *WatchlistUserInfo {
 		return &v
 	}).(WatchlistUserInfoPtrOutput)
 }
@@ -1965,13 +1935,7 @@ func (o WatchlistUserInfoPtrOutput) ToWatchlistUserInfoPtrOutputWithContext(ctx 
 }
 
 func (o WatchlistUserInfoPtrOutput) Elem() WatchlistUserInfoOutput {
-	return o.ApplyT(func(v *WatchlistUserInfo) WatchlistUserInfo {
-		if v != nil {
-			return *v
-		}
-		var ret WatchlistUserInfo
-		return ret
-	}).(WatchlistUserInfoOutput)
+	return o.ApplyT(func(v *WatchlistUserInfo) WatchlistUserInfo { return *v }).(WatchlistUserInfoOutput)
 }
 
 // The object id of the user.
@@ -2088,7 +2052,7 @@ func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutput() 
 }
 
 func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutputWithContext(ctx context.Context) WatchlistUserInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WatchlistUserInfoResponse) *WatchlistUserInfoResponse {
+	return o.ApplyT(func(v WatchlistUserInfoResponse) *WatchlistUserInfoResponse {
 		return &v
 	}).(WatchlistUserInfoResponsePtrOutput)
 }
@@ -2123,13 +2087,7 @@ func (o WatchlistUserInfoResponsePtrOutput) ToWatchlistUserInfoResponsePtrOutput
 }
 
 func (o WatchlistUserInfoResponsePtrOutput) Elem() WatchlistUserInfoResponseOutput {
-	return o.ApplyT(func(v *WatchlistUserInfoResponse) WatchlistUserInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WatchlistUserInfoResponse
-		return ret
-	}).(WatchlistUserInfoResponseOutput)
+	return o.ApplyT(func(v *WatchlistUserInfoResponse) WatchlistUserInfoResponse { return *v }).(WatchlistUserInfoResponseOutput)
 }
 
 // The email of the user.

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20200401.Outputs
 {
 
-    /// <summary>
-    /// Copy progress.
-    /// </summary>
     [OutputType]
     public sealed class CopyProgressResponse
     {

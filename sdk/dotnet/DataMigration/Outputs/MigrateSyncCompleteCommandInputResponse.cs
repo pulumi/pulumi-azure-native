@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Input for command that completes sync migration for a database.
-    /// </summary>
     [OutputType]
     public sealed class MigrateSyncCompleteCommandInputResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20200801Preview.Outputs
 {
 
-    /// <summary>
-    /// The private endpoint resource from Microsoft.Network provider.
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionPropertiesResponsePrivateEndpoint
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The Edifact one way agreement.
-    /// </summary>
     [OutputType]
     public sealed class EdifactOneWayAgreementResponse
     {

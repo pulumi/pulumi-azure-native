@@ -114,7 +114,7 @@ func (o AdvancedScheduleOutput) ToAdvancedSchedulePtrOutput() AdvancedSchedulePt
 }
 
 func (o AdvancedScheduleOutput) ToAdvancedSchedulePtrOutputWithContext(ctx context.Context) AdvancedSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdvancedSchedule) *AdvancedSchedule {
+	return o.ApplyT(func(v AdvancedSchedule) *AdvancedSchedule {
 		return &v
 	}).(AdvancedSchedulePtrOutput)
 }
@@ -149,13 +149,7 @@ func (o AdvancedSchedulePtrOutput) ToAdvancedSchedulePtrOutputWithContext(ctx co
 }
 
 func (o AdvancedSchedulePtrOutput) Elem() AdvancedScheduleOutput {
-	return o.ApplyT(func(v *AdvancedSchedule) AdvancedSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret AdvancedSchedule
-		return ret
-	}).(AdvancedScheduleOutput)
+	return o.ApplyT(func(v *AdvancedSchedule) AdvancedSchedule { return *v }).(AdvancedScheduleOutput)
 }
 
 // Days of the month that the job should execute on. Must be between 1 and 31.
@@ -510,7 +504,7 @@ func (o AdvancedScheduleResponseOutput) ToAdvancedScheduleResponsePtrOutput() Ad
 }
 
 func (o AdvancedScheduleResponseOutput) ToAdvancedScheduleResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdvancedScheduleResponse) *AdvancedScheduleResponse {
+	return o.ApplyT(func(v AdvancedScheduleResponse) *AdvancedScheduleResponse {
 		return &v
 	}).(AdvancedScheduleResponsePtrOutput)
 }
@@ -547,13 +541,7 @@ func (o AdvancedScheduleResponsePtrOutput) ToAdvancedScheduleResponsePtrOutputWi
 }
 
 func (o AdvancedScheduleResponsePtrOutput) Elem() AdvancedScheduleResponseOutput {
-	return o.ApplyT(func(v *AdvancedScheduleResponse) AdvancedScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AdvancedScheduleResponse
-		return ret
-	}).(AdvancedScheduleResponseOutput)
+	return o.ApplyT(func(v *AdvancedScheduleResponse) AdvancedScheduleResponse { return *v }).(AdvancedScheduleResponseOutput)
 }
 
 // Days of the month that the job should execute on. Must be between 1 and 31.
@@ -922,7 +910,7 @@ func (o ErrorResponseOutput) ToErrorResponsePtrOutput() ErrorResponsePtrOutput {
 }
 
 func (o ErrorResponseOutput) ToErrorResponsePtrOutputWithContext(ctx context.Context) ErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponse) *ErrorResponse {
+	return o.ApplyT(func(v ErrorResponse) *ErrorResponse {
 		return &v
 	}).(ErrorResponsePtrOutput)
 }
@@ -952,13 +940,7 @@ func (o ErrorResponsePtrOutput) ToErrorResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ErrorResponsePtrOutput) Elem() ErrorResponseOutput {
-	return o.ApplyT(func(v *ErrorResponse) ErrorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorResponse
-		return ret
-	}).(ErrorResponseOutput)
+	return o.ApplyT(func(v *ErrorResponse) ErrorResponse { return *v }).(ErrorResponseOutput)
 }
 
 // Error code
@@ -1081,7 +1063,7 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutput() ErrorRes
 }
 
 func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponseResponse) *ErrorResponseResponse {
+	return o.ApplyT(func(v ErrorResponseResponse) *ErrorResponseResponse {
 		return &v
 	}).(ErrorResponseResponsePtrOutput)
 }
@@ -1111,13 +1093,7 @@ func (o ErrorResponseResponsePtrOutput) ToErrorResponseResponsePtrOutputWithCont
 }
 
 func (o ErrorResponseResponsePtrOutput) Elem() ErrorResponseResponseOutput {
-	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorResponseResponse
-		return ret
-	}).(ErrorResponseResponseOutput)
+	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse { return *v }).(ErrorResponseResponseOutput)
 }
 
 // Error code
@@ -1248,7 +1224,7 @@ func (o LinuxPropertiesOutput) ToLinuxPropertiesPtrOutput() LinuxPropertiesPtrOu
 }
 
 func (o LinuxPropertiesOutput) ToLinuxPropertiesPtrOutputWithContext(ctx context.Context) LinuxPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxProperties) *LinuxProperties {
+	return o.ApplyT(func(v LinuxProperties) *LinuxProperties {
 		return &v
 	}).(LinuxPropertiesPtrOutput)
 }
@@ -1288,13 +1264,7 @@ func (o LinuxPropertiesPtrOutput) ToLinuxPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o LinuxPropertiesPtrOutput) Elem() LinuxPropertiesOutput {
-	return o.ApplyT(func(v *LinuxProperties) LinuxProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxProperties
-		return ret
-	}).(LinuxPropertiesOutput)
+	return o.ApplyT(func(v *LinuxProperties) LinuxProperties { return *v }).(LinuxPropertiesOutput)
 }
 
 // packages excluded from the software update configuration.
@@ -1445,7 +1415,7 @@ func (o LinuxPropertiesResponseOutput) ToLinuxPropertiesResponsePtrOutput() Linu
 }
 
 func (o LinuxPropertiesResponseOutput) ToLinuxPropertiesResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxPropertiesResponse) *LinuxPropertiesResponse {
+	return o.ApplyT(func(v LinuxPropertiesResponse) *LinuxPropertiesResponse {
 		return &v
 	}).(LinuxPropertiesResponsePtrOutput)
 }
@@ -1485,13 +1455,7 @@ func (o LinuxPropertiesResponsePtrOutput) ToLinuxPropertiesResponsePtrOutputWith
 }
 
 func (o LinuxPropertiesResponsePtrOutput) Elem() LinuxPropertiesResponseOutput {
-	return o.ApplyT(func(v *LinuxPropertiesResponse) LinuxPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxPropertiesResponse
-		return ret
-	}).(LinuxPropertiesResponseOutput)
+	return o.ApplyT(func(v *LinuxPropertiesResponse) LinuxPropertiesResponse { return *v }).(LinuxPropertiesResponseOutput)
 }
 
 // packages excluded from the software update configuration.
@@ -1896,7 +1860,7 @@ func (o SchedulePropertiesOutput) ToSchedulePropertiesPtrOutput() ScheduleProper
 }
 
 func (o SchedulePropertiesOutput) ToSchedulePropertiesPtrOutputWithContext(ctx context.Context) SchedulePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleProperties) *ScheduleProperties {
+	return o.ApplyT(func(v ScheduleProperties) *ScheduleProperties {
 		return &v
 	}).(SchedulePropertiesPtrOutput)
 }
@@ -1981,13 +1945,7 @@ func (o SchedulePropertiesPtrOutput) ToSchedulePropertiesPtrOutputWithContext(ct
 }
 
 func (o SchedulePropertiesPtrOutput) Elem() SchedulePropertiesOutput {
-	return o.ApplyT(func(v *ScheduleProperties) ScheduleProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduleProperties
-		return ret
-	}).(SchedulePropertiesOutput)
+	return o.ApplyT(func(v *ScheduleProperties) ScheduleProperties { return *v }).(SchedulePropertiesOutput)
 }
 
 // Gets or sets the advanced schedule.
@@ -2268,7 +2226,7 @@ func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponsePtrOutput(
 }
 
 func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulePropertiesResponse) *SchedulePropertiesResponse {
+	return o.ApplyT(func(v SchedulePropertiesResponse) *SchedulePropertiesResponse {
 		return &v
 	}).(SchedulePropertiesResponsePtrOutput)
 }
@@ -2358,13 +2316,7 @@ func (o SchedulePropertiesResponsePtrOutput) ToSchedulePropertiesResponsePtrOutp
 }
 
 func (o SchedulePropertiesResponsePtrOutput) Elem() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) SchedulePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SchedulePropertiesResponse
-		return ret
-	}).(SchedulePropertiesResponseOutput)
+	return o.ApplyT(func(v *SchedulePropertiesResponse) SchedulePropertiesResponse { return *v }).(SchedulePropertiesResponseOutput)
 }
 
 // Gets or sets the advanced schedule.
@@ -2607,7 +2559,7 @@ func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTas
 }
 
 func (o SoftwareUpdateConfigurationTasksOutput) ToSoftwareUpdateConfigurationTasksPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationTasks) *SoftwareUpdateConfigurationTasks {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasks) *SoftwareUpdateConfigurationTasks {
 		return &v
 	}).(SoftwareUpdateConfigurationTasksPtrOutput)
 }
@@ -2637,13 +2589,7 @@ func (o SoftwareUpdateConfigurationTasksPtrOutput) ToSoftwareUpdateConfiguration
 }
 
 func (o SoftwareUpdateConfigurationTasksPtrOutput) Elem() SoftwareUpdateConfigurationTasksOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) SoftwareUpdateConfigurationTasks {
-		if v != nil {
-			return *v
-		}
-		var ret SoftwareUpdateConfigurationTasks
-		return ret
-	}).(SoftwareUpdateConfigurationTasksOutput)
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasks) SoftwareUpdateConfigurationTasks { return *v }).(SoftwareUpdateConfigurationTasksOutput)
 }
 
 // Post task properties.
@@ -2766,7 +2712,7 @@ func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigur
 }
 
 func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationTasksResponse) *SoftwareUpdateConfigurationTasksResponse {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksResponse) *SoftwareUpdateConfigurationTasksResponse {
 		return &v
 	}).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
 }
@@ -2796,13 +2742,7 @@ func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) ToSoftwareUpdateConfi
 }
 
 func (o SoftwareUpdateConfigurationTasksResponsePtrOutput) Elem() SoftwareUpdateConfigurationTasksResponseOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) SoftwareUpdateConfigurationTasksResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SoftwareUpdateConfigurationTasksResponse
-		return ret
-	}).(SoftwareUpdateConfigurationTasksResponseOutput)
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationTasksResponse) SoftwareUpdateConfigurationTasksResponse { return *v }).(SoftwareUpdateConfigurationTasksResponseOutput)
 }
 
 // Post task properties.
@@ -2926,7 +2866,7 @@ func (o SourceControlSecurityTokenPropertiesOutput) ToSourceControlSecurityToken
 }
 
 func (o SourceControlSecurityTokenPropertiesOutput) ToSourceControlSecurityTokenPropertiesPtrOutputWithContext(ctx context.Context) SourceControlSecurityTokenPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlSecurityTokenProperties) *SourceControlSecurityTokenProperties {
+	return o.ApplyT(func(v SourceControlSecurityTokenProperties) *SourceControlSecurityTokenProperties {
 		return &v
 	}).(SourceControlSecurityTokenPropertiesPtrOutput)
 }
@@ -2961,13 +2901,7 @@ func (o SourceControlSecurityTokenPropertiesPtrOutput) ToSourceControlSecurityTo
 }
 
 func (o SourceControlSecurityTokenPropertiesPtrOutput) Elem() SourceControlSecurityTokenPropertiesOutput {
-	return o.ApplyT(func(v *SourceControlSecurityTokenProperties) SourceControlSecurityTokenProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SourceControlSecurityTokenProperties
-		return ret
-	}).(SourceControlSecurityTokenPropertiesOutput)
+	return o.ApplyT(func(v *SourceControlSecurityTokenProperties) SourceControlSecurityTokenProperties { return *v }).(SourceControlSecurityTokenPropertiesOutput)
 }
 
 // The access token.
@@ -3003,7 +2937,7 @@ func (o SourceControlSecurityTokenPropertiesPtrOutput) TokenType() pulumi.String
 // Tag filter information for the VM.
 type TagSettingsProperties struct {
 	// Filter VMs by Any or All specified tags.
-	FilterOperator *TagOperators `pulumi:"filterOperator"`
+	FilterOperator *string `pulumi:"filterOperator"`
 	// Dictionary of tags with its list of values.
 	Tags map[string][]string `pulumi:"tags"`
 }
@@ -3022,7 +2956,7 @@ type TagSettingsPropertiesInput interface {
 // Tag filter information for the VM.
 type TagSettingsPropertiesArgs struct {
 	// Filter VMs by Any or All specified tags.
-	FilterOperator TagOperatorsPtrInput `pulumi:"filterOperator"`
+	FilterOperator *TagOperators `pulumi:"filterOperator"`
 	// Dictionary of tags with its list of values.
 	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
 }
@@ -3100,14 +3034,14 @@ func (o TagSettingsPropertiesOutput) ToTagSettingsPropertiesPtrOutput() TagSetti
 }
 
 func (o TagSettingsPropertiesOutput) ToTagSettingsPropertiesPtrOutputWithContext(ctx context.Context) TagSettingsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagSettingsProperties) *TagSettingsProperties {
+	return o.ApplyT(func(v TagSettingsProperties) *TagSettingsProperties {
 		return &v
 	}).(TagSettingsPropertiesPtrOutput)
 }
 
 // Filter VMs by Any or All specified tags.
-func (o TagSettingsPropertiesOutput) FilterOperator() TagOperatorsPtrOutput {
-	return o.ApplyT(func(v TagSettingsProperties) *TagOperators { return v.FilterOperator }).(TagOperatorsPtrOutput)
+func (o TagSettingsPropertiesOutput) FilterOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagSettingsProperties) *string { return v.FilterOperator }).(pulumi.StringPtrOutput)
 }
 
 // Dictionary of tags with its list of values.
@@ -3130,23 +3064,17 @@ func (o TagSettingsPropertiesPtrOutput) ToTagSettingsPropertiesPtrOutputWithCont
 }
 
 func (o TagSettingsPropertiesPtrOutput) Elem() TagSettingsPropertiesOutput {
-	return o.ApplyT(func(v *TagSettingsProperties) TagSettingsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret TagSettingsProperties
-		return ret
-	}).(TagSettingsPropertiesOutput)
+	return o.ApplyT(func(v *TagSettingsProperties) TagSettingsProperties { return *v }).(TagSettingsPropertiesOutput)
 }
 
 // Filter VMs by Any or All specified tags.
-func (o TagSettingsPropertiesPtrOutput) FilterOperator() TagOperatorsPtrOutput {
-	return o.ApplyT(func(v *TagSettingsProperties) *TagOperators {
+func (o TagSettingsPropertiesPtrOutput) FilterOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.FilterOperator
-	}).(TagOperatorsPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Dictionary of tags with its list of values.
@@ -3259,7 +3187,7 @@ func (o TagSettingsPropertiesResponseOutput) ToTagSettingsPropertiesResponsePtrO
 }
 
 func (o TagSettingsPropertiesResponseOutput) ToTagSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagSettingsPropertiesResponse) *TagSettingsPropertiesResponse {
+	return o.ApplyT(func(v TagSettingsPropertiesResponse) *TagSettingsPropertiesResponse {
 		return &v
 	}).(TagSettingsPropertiesResponsePtrOutput)
 }
@@ -3289,13 +3217,7 @@ func (o TagSettingsPropertiesResponsePtrOutput) ToTagSettingsPropertiesResponseP
 }
 
 func (o TagSettingsPropertiesResponsePtrOutput) Elem() TagSettingsPropertiesResponseOutput {
-	return o.ApplyT(func(v *TagSettingsPropertiesResponse) TagSettingsPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TagSettingsPropertiesResponse
-		return ret
-	}).(TagSettingsPropertiesResponseOutput)
+	return o.ApplyT(func(v *TagSettingsPropertiesResponse) TagSettingsPropertiesResponse { return *v }).(TagSettingsPropertiesResponseOutput)
 }
 
 // Filter VMs by Any or All specified tags.
@@ -3418,7 +3340,7 @@ func (o TargetPropertiesOutput) ToTargetPropertiesPtrOutput() TargetPropertiesPt
 }
 
 func (o TargetPropertiesOutput) ToTargetPropertiesPtrOutputWithContext(ctx context.Context) TargetPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetProperties) *TargetProperties {
+	return o.ApplyT(func(v TargetProperties) *TargetProperties {
 		return &v
 	}).(TargetPropertiesPtrOutput)
 }
@@ -3448,13 +3370,7 @@ func (o TargetPropertiesPtrOutput) ToTargetPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o TargetPropertiesPtrOutput) Elem() TargetPropertiesOutput {
-	return o.ApplyT(func(v *TargetProperties) TargetProperties {
-		if v != nil {
-			return *v
-		}
-		var ret TargetProperties
-		return ret
-	}).(TargetPropertiesOutput)
+	return o.ApplyT(func(v *TargetProperties) TargetProperties { return *v }).(TargetPropertiesOutput)
 }
 
 // List of Azure queries in the software update configuration.
@@ -3577,7 +3493,7 @@ func (o TargetPropertiesResponseOutput) ToTargetPropertiesResponsePtrOutput() Ta
 }
 
 func (o TargetPropertiesResponseOutput) ToTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetPropertiesResponse) *TargetPropertiesResponse {
+	return o.ApplyT(func(v TargetPropertiesResponse) *TargetPropertiesResponse {
 		return &v
 	}).(TargetPropertiesResponsePtrOutput)
 }
@@ -3607,13 +3523,7 @@ func (o TargetPropertiesResponsePtrOutput) ToTargetPropertiesResponsePtrOutputWi
 }
 
 func (o TargetPropertiesResponsePtrOutput) Elem() TargetPropertiesResponseOutput {
-	return o.ApplyT(func(v *TargetPropertiesResponse) TargetPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TargetPropertiesResponse
-		return ret
-	}).(TargetPropertiesResponseOutput)
+	return o.ApplyT(func(v *TargetPropertiesResponse) TargetPropertiesResponse { return *v }).(TargetPropertiesResponseOutput)
 }
 
 // List of Azure queries in the software update configuration.
@@ -3736,7 +3646,7 @@ func (o TaskPropertiesOutput) ToTaskPropertiesPtrOutput() TaskPropertiesPtrOutpu
 }
 
 func (o TaskPropertiesOutput) ToTaskPropertiesPtrOutputWithContext(ctx context.Context) TaskPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskProperties) *TaskProperties {
+	return o.ApplyT(func(v TaskProperties) *TaskProperties {
 		return &v
 	}).(TaskPropertiesPtrOutput)
 }
@@ -3766,13 +3676,7 @@ func (o TaskPropertiesPtrOutput) ToTaskPropertiesPtrOutputWithContext(ctx contex
 }
 
 func (o TaskPropertiesPtrOutput) Elem() TaskPropertiesOutput {
-	return o.ApplyT(func(v *TaskProperties) TaskProperties {
-		if v != nil {
-			return *v
-		}
-		var ret TaskProperties
-		return ret
-	}).(TaskPropertiesOutput)
+	return o.ApplyT(func(v *TaskProperties) TaskProperties { return *v }).(TaskPropertiesOutput)
 }
 
 // Gets or sets the parameters of the task.
@@ -3895,7 +3799,7 @@ func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponsePtrOutput() TaskPr
 }
 
 func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskPropertiesResponse) *TaskPropertiesResponse {
+	return o.ApplyT(func(v TaskPropertiesResponse) *TaskPropertiesResponse {
 		return &v
 	}).(TaskPropertiesResponsePtrOutput)
 }
@@ -3925,13 +3829,7 @@ func (o TaskPropertiesResponsePtrOutput) ToTaskPropertiesResponsePtrOutputWithCo
 }
 
 func (o TaskPropertiesResponsePtrOutput) Elem() TaskPropertiesResponseOutput {
-	return o.ApplyT(func(v *TaskPropertiesResponse) TaskPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret TaskPropertiesResponse
-		return ret
-	}).(TaskPropertiesResponseOutput)
+	return o.ApplyT(func(v *TaskPropertiesResponse) TaskPropertiesResponse { return *v }).(TaskPropertiesResponseOutput)
 }
 
 // Gets or sets the parameters of the task.
@@ -3965,7 +3863,7 @@ type UpdateConfiguration struct {
 	// List of names of non-azure machines targeted by the software update configuration.
 	NonAzureComputerNames []string `pulumi:"nonAzureComputerNames"`
 	// operating system of target machines
-	OperatingSystem OperatingSystemType `pulumi:"operatingSystem"`
+	OperatingSystem string `pulumi:"operatingSystem"`
 	// Group targets for the software update configuration.
 	Targets *TargetProperties `pulumi:"targets"`
 	// Windows specific update configuration.
@@ -3994,7 +3892,7 @@ type UpdateConfigurationArgs struct {
 	// List of names of non-azure machines targeted by the software update configuration.
 	NonAzureComputerNames pulumi.StringArrayInput `pulumi:"nonAzureComputerNames"`
 	// operating system of target machines
-	OperatingSystem OperatingSystemTypeInput `pulumi:"operatingSystem"`
+	OperatingSystem OperatingSystemType `pulumi:"operatingSystem"`
 	// Group targets for the software update configuration.
 	Targets TargetPropertiesPtrInput `pulumi:"targets"`
 	// Windows specific update configuration.
@@ -4074,7 +3972,7 @@ func (o UpdateConfigurationOutput) ToUpdateConfigurationPtrOutput() UpdateConfig
 }
 
 func (o UpdateConfigurationOutput) ToUpdateConfigurationPtrOutputWithContext(ctx context.Context) UpdateConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpdateConfiguration) *UpdateConfiguration {
+	return o.ApplyT(func(v UpdateConfiguration) *UpdateConfiguration {
 		return &v
 	}).(UpdateConfigurationPtrOutput)
 }
@@ -4100,8 +3998,8 @@ func (o UpdateConfigurationOutput) NonAzureComputerNames() pulumi.StringArrayOut
 }
 
 // operating system of target machines
-func (o UpdateConfigurationOutput) OperatingSystem() OperatingSystemTypeOutput {
-	return o.ApplyT(func(v UpdateConfiguration) OperatingSystemType { return v.OperatingSystem }).(OperatingSystemTypeOutput)
+func (o UpdateConfigurationOutput) OperatingSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v UpdateConfiguration) string { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
 // Group targets for the software update configuration.
@@ -4129,13 +4027,7 @@ func (o UpdateConfigurationPtrOutput) ToUpdateConfigurationPtrOutputWithContext(
 }
 
 func (o UpdateConfigurationPtrOutput) Elem() UpdateConfigurationOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) UpdateConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret UpdateConfiguration
-		return ret
-	}).(UpdateConfigurationOutput)
+	return o.ApplyT(func(v *UpdateConfiguration) UpdateConfiguration { return *v }).(UpdateConfigurationOutput)
 }
 
 // List of azure resource Ids for azure virtual machines targeted by the software update configuration.
@@ -4179,13 +4071,13 @@ func (o UpdateConfigurationPtrOutput) NonAzureComputerNames() pulumi.StringArray
 }
 
 // operating system of target machines
-func (o UpdateConfigurationPtrOutput) OperatingSystem() OperatingSystemTypePtrOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) *OperatingSystemType {
+func (o UpdateConfigurationPtrOutput) OperatingSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpdateConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.OperatingSystem
-	}).(OperatingSystemTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Group targets for the software update configuration.
@@ -4328,7 +4220,7 @@ func (o UpdateConfigurationResponseOutput) ToUpdateConfigurationResponsePtrOutpu
 }
 
 func (o UpdateConfigurationResponseOutput) ToUpdateConfigurationResponsePtrOutputWithContext(ctx context.Context) UpdateConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpdateConfigurationResponse) *UpdateConfigurationResponse {
+	return o.ApplyT(func(v UpdateConfigurationResponse) *UpdateConfigurationResponse {
 		return &v
 	}).(UpdateConfigurationResponsePtrOutput)
 }
@@ -4383,13 +4275,7 @@ func (o UpdateConfigurationResponsePtrOutput) ToUpdateConfigurationResponsePtrOu
 }
 
 func (o UpdateConfigurationResponsePtrOutput) Elem() UpdateConfigurationResponseOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) UpdateConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UpdateConfigurationResponse
-		return ret
-	}).(UpdateConfigurationResponseOutput)
+	return o.ApplyT(func(v *UpdateConfigurationResponse) UpdateConfigurationResponse { return *v }).(UpdateConfigurationResponseOutput)
 }
 
 // List of azure resource Ids for azure virtual machines targeted by the software update configuration.
@@ -4570,7 +4456,7 @@ func (o WindowsPropertiesOutput) ToWindowsPropertiesPtrOutput() WindowsPropertie
 }
 
 func (o WindowsPropertiesOutput) ToWindowsPropertiesPtrOutputWithContext(ctx context.Context) WindowsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsProperties) *WindowsProperties {
+	return o.ApplyT(func(v WindowsProperties) *WindowsProperties {
 		return &v
 	}).(WindowsPropertiesPtrOutput)
 }
@@ -4610,13 +4496,7 @@ func (o WindowsPropertiesPtrOutput) ToWindowsPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o WindowsPropertiesPtrOutput) Elem() WindowsPropertiesOutput {
-	return o.ApplyT(func(v *WindowsProperties) WindowsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsProperties
-		return ret
-	}).(WindowsPropertiesOutput)
+	return o.ApplyT(func(v *WindowsProperties) WindowsProperties { return *v }).(WindowsPropertiesOutput)
 }
 
 // KB numbers excluded from the software update configuration.
@@ -4767,7 +4647,7 @@ func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutput() 
 }
 
 func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsPropertiesResponse) *WindowsPropertiesResponse {
+	return o.ApplyT(func(v WindowsPropertiesResponse) *WindowsPropertiesResponse {
 		return &v
 	}).(WindowsPropertiesResponsePtrOutput)
 }
@@ -4807,13 +4687,7 @@ func (o WindowsPropertiesResponsePtrOutput) ToWindowsPropertiesResponsePtrOutput
 }
 
 func (o WindowsPropertiesResponsePtrOutput) Elem() WindowsPropertiesResponseOutput {
-	return o.ApplyT(func(v *WindowsPropertiesResponse) WindowsPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsPropertiesResponse
-		return ret
-	}).(WindowsPropertiesResponseOutput)
+	return o.ApplyT(func(v *WindowsPropertiesResponse) WindowsPropertiesResponse { return *v }).(WindowsPropertiesResponseOutput)
 }
 
 // KB numbers excluded from the software update configuration.

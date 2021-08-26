@@ -110,7 +110,7 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
+	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfile
-		return ret
-	}).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
 }
 
 // CIDR of the Vnet to peer.
@@ -269,7 +263,7 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfileResponse
-		return ret
-	}).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
 }
 
 // CIDR of the Vnet to peer.
@@ -442,7 +430,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClus
 }
 
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAADIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
 		return &v
 	}).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
 }
@@ -489,11 +477,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ToOpenShiftManagedC
 
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Elem() OpenShiftManagedClusterAADIdentityProviderOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) OpenShiftManagedClusterAADIdentityProvider {
-		if v != nil {
-			return *v
-		}
-		var ret OpenShiftManagedClusterAADIdentityProvider
-		return ret
+		return *v
 	}).(OpenShiftManagedClusterAADIdentityProviderOutput)
 }
 
@@ -662,7 +646,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftMan
 }
 
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAADIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
 		return &v
 	}).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
 }
@@ -709,11 +693,7 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ToOpenShift
 
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Elem() OpenShiftManagedClusterAADIdentityProviderResponseOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) OpenShiftManagedClusterAADIdentityProviderResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenShiftManagedClusterAADIdentityProviderResponse
-		return ret
+		return *v
 	}).(OpenShiftManagedClusterAADIdentityProviderResponseOutput)
 }
 
@@ -1154,7 +1134,7 @@ func (o OpenShiftManagedClusterAuthProfileOutput) ToOpenShiftManagedClusterAuthP
 }
 
 func (o OpenShiftManagedClusterAuthProfileOutput) ToOpenShiftManagedClusterAuthProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAuthProfile) *OpenShiftManagedClusterAuthProfile {
+	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfile) *OpenShiftManagedClusterAuthProfile {
 		return &v
 	}).(OpenShiftManagedClusterAuthProfilePtrOutput)
 }
@@ -1181,13 +1161,7 @@ func (o OpenShiftManagedClusterAuthProfilePtrOutput) ToOpenShiftManagedClusterAu
 }
 
 func (o OpenShiftManagedClusterAuthProfilePtrOutput) Elem() OpenShiftManagedClusterAuthProfileOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfile) OpenShiftManagedClusterAuthProfile {
-		if v != nil {
-			return *v
-		}
-		var ret OpenShiftManagedClusterAuthProfile
-		return ret
-	}).(OpenShiftManagedClusterAuthProfileOutput)
+	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfile) OpenShiftManagedClusterAuthProfile { return *v }).(OpenShiftManagedClusterAuthProfileOutput)
 }
 
 // Type of authentication profile to use.
@@ -1296,7 +1270,7 @@ func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClus
 }
 
 func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAuthProfileResponse) *OpenShiftManagedClusterAuthProfileResponse {
+	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfileResponse) *OpenShiftManagedClusterAuthProfileResponse {
 		return &v
 	}).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
 }
@@ -1324,11 +1298,7 @@ func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) ToOpenShiftManagedC
 
 func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) Elem() OpenShiftManagedClusterAuthProfileResponseOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfileResponse) OpenShiftManagedClusterAuthProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenShiftManagedClusterAuthProfileResponse
-		return ret
+		return *v
 	}).(OpenShiftManagedClusterAuthProfileResponseOutput)
 }
 
@@ -1676,7 +1646,7 @@ func (o OpenShiftManagedClusterMasterPoolProfileOutput) ToOpenShiftManagedCluste
 }
 
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) ToOpenShiftManagedClusterMasterPoolProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterMasterPoolProfile) *OpenShiftManagedClusterMasterPoolProfile {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *OpenShiftManagedClusterMasterPoolProfile {
 		return &v
 	}).(OpenShiftManagedClusterMasterPoolProfilePtrOutput)
 }
@@ -1721,13 +1691,7 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) ToOpenShiftManagedClu
 }
 
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Elem() OpenShiftManagedClusterMasterPoolProfileOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) OpenShiftManagedClusterMasterPoolProfile {
-		if v != nil {
-			return *v
-		}
-		var ret OpenShiftManagedClusterMasterPoolProfile
-		return ret
-	}).(OpenShiftManagedClusterMasterPoolProfileOutput)
+	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) OpenShiftManagedClusterMasterPoolProfile { return *v }).(OpenShiftManagedClusterMasterPoolProfileOutput)
 }
 
 // Number of masters (VMs) to host docker containers. The default value is 3.
@@ -1892,7 +1856,7 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManag
 }
 
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterMasterPoolProfileResponse) *OpenShiftManagedClusterMasterPoolProfileResponse {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *OpenShiftManagedClusterMasterPoolProfileResponse {
 		return &v
 	}).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
 }
@@ -1938,11 +1902,7 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) ToOpenShiftMa
 
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Elem() OpenShiftManagedClusterMasterPoolProfileResponseOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) OpenShiftManagedClusterMasterPoolProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OpenShiftManagedClusterMasterPoolProfileResponse
-		return ret
+		return *v
 	}).(OpenShiftManagedClusterMasterPoolProfileResponseOutput)
 }
 
@@ -2331,7 +2291,7 @@ func (o PurchasePlanOutput) ToPurchasePlanPtrOutput() PurchasePlanPtrOutput {
 }
 
 func (o PurchasePlanOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Context) PurchasePlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurchasePlan) *PurchasePlan {
+	return o.ApplyT(func(v PurchasePlan) *PurchasePlan {
 		return &v
 	}).(PurchasePlanPtrOutput)
 }
@@ -2371,13 +2331,7 @@ func (o PurchasePlanPtrOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o PurchasePlanPtrOutput) Elem() PurchasePlanOutput {
-	return o.ApplyT(func(v *PurchasePlan) PurchasePlan {
-		if v != nil {
-			return *v
-		}
-		var ret PurchasePlan
-		return ret
-	}).(PurchasePlanOutput)
+	return o.ApplyT(func(v *PurchasePlan) PurchasePlan { return *v }).(PurchasePlanOutput)
 }
 
 // The plan ID.
@@ -2528,7 +2482,7 @@ func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutput() PurchasePl
 }
 
 func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurchasePlanResponse) *PurchasePlanResponse {
+	return o.ApplyT(func(v PurchasePlanResponse) *PurchasePlanResponse {
 		return &v
 	}).(PurchasePlanResponsePtrOutput)
 }
@@ -2568,13 +2522,7 @@ func (o PurchasePlanResponsePtrOutput) ToPurchasePlanResponsePtrOutputWithContex
 }
 
 func (o PurchasePlanResponsePtrOutput) Elem() PurchasePlanResponseOutput {
-	return o.ApplyT(func(v *PurchasePlanResponse) PurchasePlanResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PurchasePlanResponse
-		return ret
-	}).(PurchasePlanResponseOutput)
+	return o.ApplyT(func(v *PurchasePlanResponse) PurchasePlanResponse { return *v }).(PurchasePlanResponseOutput)
 }
 
 // The plan ID.

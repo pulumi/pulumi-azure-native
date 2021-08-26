@@ -129,7 +129,9 @@ func (i *RoleManagementPolicyAssignment) ToRoleManagementPolicyAssignmentOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyAssignmentOutput)
 }
 
-type RoleManagementPolicyAssignmentOutput struct{ *pulumi.OutputState }
+type RoleManagementPolicyAssignmentOutput struct {
+	*pulumi.OutputState
+}
 
 func (RoleManagementPolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleManagementPolicyAssignment)(nil))

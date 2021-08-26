@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// The source trigger that caused a run.
-    /// </summary>
     [OutputType]
     public sealed class SourceTriggerDescriptorResponse
     {

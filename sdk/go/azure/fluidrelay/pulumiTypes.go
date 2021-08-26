@@ -110,7 +110,7 @@ func (o FluidRelayEndpointsResponseOutput) ToFluidRelayEndpointsResponsePtrOutpu
 }
 
 func (o FluidRelayEndpointsResponseOutput) ToFluidRelayEndpointsResponsePtrOutputWithContext(ctx context.Context) FluidRelayEndpointsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluidRelayEndpointsResponse) *FluidRelayEndpointsResponse {
+	return o.ApplyT(func(v FluidRelayEndpointsResponse) *FluidRelayEndpointsResponse {
 		return &v
 	}).(FluidRelayEndpointsResponsePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o FluidRelayEndpointsResponsePtrOutput) ToFluidRelayEndpointsResponsePtrOu
 }
 
 func (o FluidRelayEndpointsResponsePtrOutput) Elem() FluidRelayEndpointsResponseOutput {
-	return o.ApplyT(func(v *FluidRelayEndpointsResponse) FluidRelayEndpointsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FluidRelayEndpointsResponse
-		return ret
-	}).(FluidRelayEndpointsResponseOutput)
+	return o.ApplyT(func(v *FluidRelayEndpointsResponse) FluidRelayEndpointsResponse { return *v }).(FluidRelayEndpointsResponseOutput)
 }
 
 // The Fluid Relay Orderer endpoints.
@@ -285,7 +279,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -335,13 +329,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

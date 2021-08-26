@@ -184,7 +184,9 @@ func (i *ReplicationStorageClassificationMapping) ToReplicationStorageClassifica
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStorageClassificationMappingOutput)
 }
 
-type ReplicationStorageClassificationMappingOutput struct{ *pulumi.OutputState }
+type ReplicationStorageClassificationMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationStorageClassificationMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationStorageClassificationMapping)(nil))

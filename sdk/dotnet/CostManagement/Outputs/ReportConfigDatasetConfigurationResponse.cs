@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
-    /// <summary>
-    /// The configuration of dataset in the report.
-    /// </summary>
     [OutputType]
     public sealed class ReportConfigDatasetConfigurationResponse
     {

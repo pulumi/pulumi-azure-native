@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.V20160901Preview.Outputs
 {
 
-    /// <summary>
-    /// The appliance provider authorization.
-    /// </summary>
     [OutputType]
     public sealed class ApplianceProviderAuthorizationResponse
     {

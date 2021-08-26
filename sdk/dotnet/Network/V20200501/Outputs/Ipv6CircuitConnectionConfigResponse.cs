@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200501.Outputs
 {
 
-    /// <summary>
-    /// IPv6 Circuit Connection properties for global reach.
-    /// </summary>
     [OutputType]
     public sealed class Ipv6CircuitConnectionConfigResponse
     {

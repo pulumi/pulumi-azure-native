@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
-    /// <summary>
-    /// Represents a VM and the setting Id it was created for.
-    /// </summary>
     [OutputType]
     public sealed class ResourceSetResponse
     {

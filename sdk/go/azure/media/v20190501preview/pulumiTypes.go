@@ -106,7 +106,7 @@ func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutput() AkamaiAccess
 }
 
 func (o AkamaiAccessControlOutput) ToAkamaiAccessControlPtrOutputWithContext(ctx context.Context) AkamaiAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControl) *AkamaiAccessControl {
+	return o.ApplyT(func(v AkamaiAccessControl) *AkamaiAccessControl {
 		return &v
 	}).(AkamaiAccessControlPtrOutput)
 }
@@ -133,13 +133,7 @@ func (o AkamaiAccessControlPtrOutput) ToAkamaiAccessControlPtrOutputWithContext(
 }
 
 func (o AkamaiAccessControlPtrOutput) Elem() AkamaiAccessControlOutput {
-	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret AkamaiAccessControl
-		return ret
-	}).(AkamaiAccessControlOutput)
+	return o.ApplyT(func(v *AkamaiAccessControl) AkamaiAccessControl { return *v }).(AkamaiAccessControlOutput)
 }
 
 // authentication key list
@@ -248,7 +242,7 @@ func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutpu
 }
 
 func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
+	return o.ApplyT(func(v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
 		return &v
 	}).(AkamaiAccessControlResponsePtrOutput)
 }
@@ -275,13 +269,7 @@ func (o AkamaiAccessControlResponsePtrOutput) ToAkamaiAccessControlResponsePtrOu
 }
 
 func (o AkamaiAccessControlResponsePtrOutput) Elem() AkamaiAccessControlResponseOutput {
-	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AkamaiAccessControlResponse
-		return ret
-	}).(AkamaiAccessControlResponseOutput)
+	return o.ApplyT(func(v *AkamaiAccessControlResponse) AkamaiAccessControlResponse { return *v }).(AkamaiAccessControlResponseOutput)
 }
 
 // authentication key list
@@ -630,7 +618,7 @@ func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutput() Cros
 }
 
 func (o CrossSiteAccessPoliciesOutput) ToCrossSiteAccessPoliciesPtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
+	return o.ApplyT(func(v CrossSiteAccessPolicies) *CrossSiteAccessPolicies {
 		return &v
 	}).(CrossSiteAccessPoliciesPtrOutput)
 }
@@ -660,13 +648,7 @@ func (o CrossSiteAccessPoliciesPtrOutput) ToCrossSiteAccessPoliciesPtrOutputWith
 }
 
 func (o CrossSiteAccessPoliciesPtrOutput) Elem() CrossSiteAccessPoliciesOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies {
-		if v != nil {
-			return *v
-		}
-		var ret CrossSiteAccessPolicies
-		return ret
-	}).(CrossSiteAccessPoliciesOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPolicies) CrossSiteAccessPolicies { return *v }).(CrossSiteAccessPoliciesOutput)
 }
 
 // The content of clientaccesspolicy.xml used by Silverlight.
@@ -789,7 +771,7 @@ func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponse
 }
 
 func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
+	return o.ApplyT(func(v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
 		return &v
 	}).(CrossSiteAccessPoliciesResponsePtrOutput)
 }
@@ -819,13 +801,7 @@ func (o CrossSiteAccessPoliciesResponsePtrOutput) ToCrossSiteAccessPoliciesRespo
 }
 
 func (o CrossSiteAccessPoliciesResponsePtrOutput) Elem() CrossSiteAccessPoliciesResponseOutput {
-	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CrossSiteAccessPoliciesResponse
-		return ret
-	}).(CrossSiteAccessPoliciesResponseOutput)
+	return o.ApplyT(func(v *CrossSiteAccessPoliciesResponse) CrossSiteAccessPoliciesResponse { return *v }).(CrossSiteAccessPoliciesResponseOutput)
 }
 
 // The content of clientaccesspolicy.xml used by Silverlight.
@@ -944,7 +920,7 @@ func (o HlsOutput) ToHlsPtrOutput() HlsPtrOutput {
 }
 
 func (o HlsOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hls) *Hls {
+	return o.ApplyT(func(v Hls) *Hls {
 		return &v
 	}).(HlsPtrOutput)
 }
@@ -969,13 +945,7 @@ func (o HlsPtrOutput) ToHlsPtrOutputWithContext(ctx context.Context) HlsPtrOutpu
 }
 
 func (o HlsPtrOutput) Elem() HlsOutput {
-	return o.ApplyT(func(v *Hls) Hls {
-		if v != nil {
-			return *v
-		}
-		var ret Hls
-		return ret
-	}).(HlsOutput)
+	return o.ApplyT(func(v *Hls) Hls { return *v }).(HlsOutput)
 }
 
 // The amount of fragments per HTTP Live Streaming (HLS) segment.
@@ -1084,7 +1054,7 @@ func (o HlsResponseOutput) ToHlsResponsePtrOutput() HlsResponsePtrOutput {
 }
 
 func (o HlsResponseOutput) ToHlsResponsePtrOutputWithContext(ctx context.Context) HlsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HlsResponse) *HlsResponse {
+	return o.ApplyT(func(v HlsResponse) *HlsResponse {
 		return &v
 	}).(HlsResponsePtrOutput)
 }
@@ -1109,13 +1079,7 @@ func (o HlsResponsePtrOutput) ToHlsResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o HlsResponsePtrOutput) Elem() HlsResponseOutput {
-	return o.ApplyT(func(v *HlsResponse) HlsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HlsResponse
-		return ret
-	}).(HlsResponseOutput)
+	return o.ApplyT(func(v *HlsResponse) HlsResponse { return *v }).(HlsResponseOutput)
 }
 
 // The amount of fragments per HTTP Live Streaming (HLS) segment.
@@ -1224,7 +1188,7 @@ func (o IPAccessControlOutput) ToIPAccessControlPtrOutput() IPAccessControlPtrOu
 }
 
 func (o IPAccessControlOutput) ToIPAccessControlPtrOutputWithContext(ctx context.Context) IPAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControl) *IPAccessControl {
+	return o.ApplyT(func(v IPAccessControl) *IPAccessControl {
 		return &v
 	}).(IPAccessControlPtrOutput)
 }
@@ -1249,13 +1213,7 @@ func (o IPAccessControlPtrOutput) ToIPAccessControlPtrOutputWithContext(ctx cont
 }
 
 func (o IPAccessControlPtrOutput) Elem() IPAccessControlOutput {
-	return o.ApplyT(func(v *IPAccessControl) IPAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret IPAccessControl
-		return ret
-	}).(IPAccessControlOutput)
+	return o.ApplyT(func(v *IPAccessControl) IPAccessControl { return *v }).(IPAccessControlOutput)
 }
 
 // The IP allow list.
@@ -1364,7 +1322,7 @@ func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutput() IPAc
 }
 
 func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutputWithContext(ctx context.Context) IPAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControlResponse) *IPAccessControlResponse {
+	return o.ApplyT(func(v IPAccessControlResponse) *IPAccessControlResponse {
 		return &v
 	}).(IPAccessControlResponsePtrOutput)
 }
@@ -1389,13 +1347,7 @@ func (o IPAccessControlResponsePtrOutput) ToIPAccessControlResponsePtrOutputWith
 }
 
 func (o IPAccessControlResponsePtrOutput) Elem() IPAccessControlResponseOutput {
-	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IPAccessControlResponse
-		return ret
-	}).(IPAccessControlResponseOutput)
+	return o.ApplyT(func(v *IPAccessControlResponse) IPAccessControlResponse { return *v }).(IPAccessControlResponseOutput)
 }
 
 // The IP allow list.
@@ -1744,7 +1696,7 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutput() LiveEventEncodin
 }
 
 func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncoding) *LiveEventEncoding {
+	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncoding {
 		return &v
 	}).(LiveEventEncodingPtrOutput)
 }
@@ -1774,13 +1726,7 @@ func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutputWithContext(ctx 
 }
 
 func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
-	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventEncoding
-		return ret
-	}).(LiveEventEncodingOutput)
+	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
 }
 
 // The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
@@ -1903,7 +1849,7 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutput() 
 }
 
 func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutputWithContext(ctx context.Context) LiveEventEncodingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncodingResponse) *LiveEventEncodingResponse {
+	return o.ApplyT(func(v LiveEventEncodingResponse) *LiveEventEncodingResponse {
 		return &v
 	}).(LiveEventEncodingResponsePtrOutput)
 }
@@ -1933,13 +1879,7 @@ func (o LiveEventEncodingResponsePtrOutput) ToLiveEventEncodingResponsePtrOutput
 }
 
 func (o LiveEventEncodingResponsePtrOutput) Elem() LiveEventEncodingResponseOutput {
-	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventEncodingResponse
-		return ret
-	}).(LiveEventEncodingResponseOutput)
+	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse { return *v }).(LiveEventEncodingResponseOutput)
 }
 
 // The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
@@ -2292,7 +2232,7 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInput
 }
 
 func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
+	return o.ApplyT(func(v LiveEventInputType) *LiveEventInputType {
 		return &v
 	}).(LiveEventInputTypePtrOutput)
 }
@@ -2337,13 +2277,7 @@ func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ct
 }
 
 func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
-	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputType
-		return ret
-	}).(LiveEventInputTypeOutput)
+	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType { return *v }).(LiveEventInputTypeOutput)
 }
 
 // The access control for LiveEvent Input.
@@ -2492,7 +2426,7 @@ func (o LiveEventInputAccessControlOutput) ToLiveEventInputAccessControlPtrOutpu
 }
 
 func (o LiveEventInputAccessControlOutput) ToLiveEventInputAccessControlPtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputAccessControl) *LiveEventInputAccessControl {
+	return o.ApplyT(func(v LiveEventInputAccessControl) *LiveEventInputAccessControl {
 		return &v
 	}).(LiveEventInputAccessControlPtrOutput)
 }
@@ -2517,13 +2451,7 @@ func (o LiveEventInputAccessControlPtrOutput) ToLiveEventInputAccessControlPtrOu
 }
 
 func (o LiveEventInputAccessControlPtrOutput) Elem() LiveEventInputAccessControlOutput {
-	return o.ApplyT(func(v *LiveEventInputAccessControl) LiveEventInputAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputAccessControl
-		return ret
-	}).(LiveEventInputAccessControlOutput)
+	return o.ApplyT(func(v *LiveEventInputAccessControl) LiveEventInputAccessControl { return *v }).(LiveEventInputAccessControlOutput)
 }
 
 // The IP access control properties.
@@ -2632,7 +2560,7 @@ func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControl
 }
 
 func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputAccessControlResponse) *LiveEventInputAccessControlResponse {
+	return o.ApplyT(func(v LiveEventInputAccessControlResponse) *LiveEventInputAccessControlResponse {
 		return &v
 	}).(LiveEventInputAccessControlResponsePtrOutput)
 }
@@ -2657,13 +2585,7 @@ func (o LiveEventInputAccessControlResponsePtrOutput) ToLiveEventInputAccessCont
 }
 
 func (o LiveEventInputAccessControlResponsePtrOutput) Elem() LiveEventInputAccessControlResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputAccessControlResponse) LiveEventInputAccessControlResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputAccessControlResponse
-		return ret
-	}).(LiveEventInputAccessControlResponseOutput)
+	return o.ApplyT(func(v *LiveEventInputAccessControlResponse) LiveEventInputAccessControlResponse { return *v }).(LiveEventInputAccessControlResponseOutput)
 }
 
 // The IP access control properties.
@@ -2788,7 +2710,7 @@ func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutput() LiveEv
 }
 
 func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputResponse) *LiveEventInputResponse {
+	return o.ApplyT(func(v LiveEventInputResponse) *LiveEventInputResponse {
 		return &v
 	}).(LiveEventInputResponsePtrOutput)
 }
@@ -2833,13 +2755,7 @@ func (o LiveEventInputResponsePtrOutput) ToLiveEventInputResponsePtrOutputWithCo
 }
 
 func (o LiveEventInputResponsePtrOutput) Elem() LiveEventInputResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputResponse
-		return ret
-	}).(LiveEventInputResponseOutput)
+	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse { return *v }).(LiveEventInputResponseOutput)
 }
 
 // The access control for LiveEvent Input.
@@ -3224,7 +3140,7 @@ func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionT
 }
 
 func (o LiveEventOutputTranscriptionTrackOutput) ToLiveEventOutputTranscriptionTrackPtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputTranscriptionTrack) *LiveEventOutputTranscriptionTrack {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrack) *LiveEventOutputTranscriptionTrack {
 		return &v
 	}).(LiveEventOutputTranscriptionTrackPtrOutput)
 }
@@ -3249,13 +3165,7 @@ func (o LiveEventOutputTranscriptionTrackPtrOutput) ToLiveEventOutputTranscripti
 }
 
 func (o LiveEventOutputTranscriptionTrackPtrOutput) Elem() LiveEventOutputTranscriptionTrackOutput {
-	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) LiveEventOutputTranscriptionTrack {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventOutputTranscriptionTrack
-		return ret
-	}).(LiveEventOutputTranscriptionTrackOutput)
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) LiveEventOutputTranscriptionTrack { return *v }).(LiveEventOutputTranscriptionTrackOutput)
 }
 
 // The output track name.
@@ -3364,7 +3274,7 @@ func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTransc
 }
 
 func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
 		return &v
 	}).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
 }
@@ -3390,11 +3300,7 @@ func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) ToLiveEventOutputTra
 
 func (o LiveEventOutputTranscriptionTrackResponsePtrOutput) Elem() LiveEventOutputTranscriptionTrackResponseOutput {
 	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackResponse) LiveEventOutputTranscriptionTrackResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventOutputTranscriptionTrackResponse
-		return ret
+		return *v
 	}).(LiveEventOutputTranscriptionTrackResponseOutput)
 }
 
@@ -3520,7 +3426,7 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutput() LiveEventPreviewPt
 }
 
 func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreview) *LiveEventPreview {
+	return o.ApplyT(func(v LiveEventPreview) *LiveEventPreview {
 		return &v
 	}).(LiveEventPreviewPtrOutput)
 }
@@ -3565,13 +3471,7 @@ func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutputWithContext(ctx co
 }
 
 func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
-	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventPreview
-		return ret
-	}).(LiveEventPreviewOutput)
+	return o.ApplyT(func(v *LiveEventPreview) LiveEventPreview { return *v }).(LiveEventPreviewOutput)
 }
 
 // The access control for LiveEvent preview.
@@ -3720,7 +3620,7 @@ func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrO
 }
 
 func (o LiveEventPreviewAccessControlOutput) ToLiveEventPreviewAccessControlPtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
+	return o.ApplyT(func(v LiveEventPreviewAccessControl) *LiveEventPreviewAccessControl {
 		return &v
 	}).(LiveEventPreviewAccessControlPtrOutput)
 }
@@ -3745,13 +3645,7 @@ func (o LiveEventPreviewAccessControlPtrOutput) ToLiveEventPreviewAccessControlP
 }
 
 func (o LiveEventPreviewAccessControlPtrOutput) Elem() LiveEventPreviewAccessControlOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventPreviewAccessControl
-		return ret
-	}).(LiveEventPreviewAccessControlOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControl) LiveEventPreviewAccessControl { return *v }).(LiveEventPreviewAccessControlOutput)
 }
 
 // The IP access control properties.
@@ -3860,7 +3754,7 @@ func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessCon
 }
 
 func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
+	return o.ApplyT(func(v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
 		return &v
 	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
@@ -3885,13 +3779,7 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) ToLiveEventPreviewAccess
 }
 
 func (o LiveEventPreviewAccessControlResponsePtrOutput) Elem() LiveEventPreviewAccessControlResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventPreviewAccessControlResponse
-		return ret
-	}).(LiveEventPreviewAccessControlResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlResponse) LiveEventPreviewAccessControlResponse { return *v }).(LiveEventPreviewAccessControlResponseOutput)
 }
 
 // The IP access control properties.
@@ -4016,7 +3904,7 @@ func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutput() Li
 }
 
 func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewResponse) *LiveEventPreviewResponse {
+	return o.ApplyT(func(v LiveEventPreviewResponse) *LiveEventPreviewResponse {
 		return &v
 	}).(LiveEventPreviewResponsePtrOutput)
 }
@@ -4061,13 +3949,7 @@ func (o LiveEventPreviewResponsePtrOutput) ToLiveEventPreviewResponsePtrOutputWi
 }
 
 func (o LiveEventPreviewResponsePtrOutput) Elem() LiveEventPreviewResponseOutput {
-	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventPreviewResponse
-		return ret
-	}).(LiveEventPreviewResponseOutput)
+	return o.ApplyT(func(v *LiveEventPreviewResponse) LiveEventPreviewResponse { return *v }).(LiveEventPreviewResponseOutput)
 }
 
 // The access control for LiveEvent preview.
@@ -4460,7 +4342,7 @@ func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPt
 }
 
 func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
+	return o.ApplyT(func(v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
 		return &v
 	}).(StreamingEndpointAccessControlPtrOutput)
 }
@@ -4490,13 +4372,7 @@ func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessContro
 }
 
 func (o StreamingEndpointAccessControlPtrOutput) Elem() StreamingEndpointAccessControlOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl {
-		if v != nil {
-			return *v
-		}
-		var ret StreamingEndpointAccessControl
-		return ret
-	}).(StreamingEndpointAccessControlOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControl) StreamingEndpointAccessControl { return *v }).(StreamingEndpointAccessControlOutput)
 }
 
 // The access control of Akamai
@@ -4619,7 +4495,7 @@ func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessC
 }
 
 func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
+	return o.ApplyT(func(v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
 		return &v
 	}).(StreamingEndpointAccessControlResponsePtrOutput)
 }
@@ -4649,13 +4525,7 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) ToStreamingEndpointAcce
 }
 
 func (o StreamingEndpointAccessControlResponsePtrOutput) Elem() StreamingEndpointAccessControlResponseOutput {
-	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StreamingEndpointAccessControlResponse
-		return ret
-	}).(StreamingEndpointAccessControlResponseOutput)
+	return o.ApplyT(func(v *StreamingEndpointAccessControlResponse) StreamingEndpointAccessControlResponse { return *v }).(StreamingEndpointAccessControlResponseOutput)
 }
 
 // The access control of Akamai

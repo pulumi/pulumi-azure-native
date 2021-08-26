@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
-    /// <summary>
-    /// Describes an image source that is an image version in a shared image gallery.
-    /// </summary>
     [OutputType]
     public sealed class ImageTemplateSharedImageVersionSourceResponse
     {

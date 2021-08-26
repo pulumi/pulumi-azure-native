@@ -21,7 +21,7 @@ type ListMapContentCallbackUrlArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The key type.
-	KeyType *KeyType `pulumi:"keyType"`
+	KeyType *string `pulumi:"keyType"`
 	// The integration account map name.
 	MapName string `pulumi:"mapName"`
 	// The expiry time.

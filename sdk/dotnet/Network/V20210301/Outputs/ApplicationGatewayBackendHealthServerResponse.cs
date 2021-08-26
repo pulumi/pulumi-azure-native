@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Application gateway backendhealth http settings.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayBackendHealthServerResponse
     {

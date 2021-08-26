@@ -151,7 +151,9 @@ func (i *ProductSetting) ToProductSettingOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSettingOutput)
 }
 
-type ProductSettingOutput struct{ *pulumi.OutputState }
+type ProductSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ProductSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductSetting)(nil))

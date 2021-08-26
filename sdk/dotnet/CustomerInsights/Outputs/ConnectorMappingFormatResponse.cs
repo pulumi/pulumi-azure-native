@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
-    /// <summary>
-    /// Connector mapping property format.
-    /// </summary>
     [OutputType]
     public sealed class ConnectorMappingFormatResponse
     {

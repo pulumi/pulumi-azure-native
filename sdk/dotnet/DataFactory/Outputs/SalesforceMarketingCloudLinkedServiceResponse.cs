@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Salesforce Marketing Cloud linked service.
-    /// </summary>
     [OutputType]
     public sealed class SalesforceMarketingCloudLinkedServiceResponse
     {

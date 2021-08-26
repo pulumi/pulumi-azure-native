@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200401.Outputs
 {
 
-    /// <summary>
-    /// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
-    /// </summary>
     [OutputType]
     public sealed class EventHubPropertiesResponse
     {

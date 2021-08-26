@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MixedReality.V20191202Preview.Outputs
 {
 
-    /// <summary>
-    /// Identity for the resource.
-    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

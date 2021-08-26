@@ -106,7 +106,7 @@ func (o DFPInstanceAdministratorsOutput) ToDFPInstanceAdministratorsPtrOutput() 
 }
 
 func (o DFPInstanceAdministratorsOutput) ToDFPInstanceAdministratorsPtrOutputWithContext(ctx context.Context) DFPInstanceAdministratorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DFPInstanceAdministrators) *DFPInstanceAdministrators {
+	return o.ApplyT(func(v DFPInstanceAdministrators) *DFPInstanceAdministrators {
 		return &v
 	}).(DFPInstanceAdministratorsPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o DFPInstanceAdministratorsPtrOutput) ToDFPInstanceAdministratorsPtrOutput
 }
 
 func (o DFPInstanceAdministratorsPtrOutput) Elem() DFPInstanceAdministratorsOutput {
-	return o.ApplyT(func(v *DFPInstanceAdministrators) DFPInstanceAdministrators {
-		if v != nil {
-			return *v
-		}
-		var ret DFPInstanceAdministrators
-		return ret
-	}).(DFPInstanceAdministratorsOutput)
+	return o.ApplyT(func(v *DFPInstanceAdministrators) DFPInstanceAdministrators { return *v }).(DFPInstanceAdministratorsOutput)
 }
 
 // An array of administrator user identities.
@@ -246,7 +240,7 @@ func (o DFPInstanceAdministratorsResponseOutput) ToDFPInstanceAdministratorsResp
 }
 
 func (o DFPInstanceAdministratorsResponseOutput) ToDFPInstanceAdministratorsResponsePtrOutputWithContext(ctx context.Context) DFPInstanceAdministratorsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DFPInstanceAdministratorsResponse) *DFPInstanceAdministratorsResponse {
+	return o.ApplyT(func(v DFPInstanceAdministratorsResponse) *DFPInstanceAdministratorsResponse {
 		return &v
 	}).(DFPInstanceAdministratorsResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o DFPInstanceAdministratorsResponsePtrOutput) ToDFPInstanceAdministratorsR
 }
 
 func (o DFPInstanceAdministratorsResponsePtrOutput) Elem() DFPInstanceAdministratorsResponseOutput {
-	return o.ApplyT(func(v *DFPInstanceAdministratorsResponse) DFPInstanceAdministratorsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DFPInstanceAdministratorsResponse
-		return ret
-	}).(DFPInstanceAdministratorsResponseOutput)
+	return o.ApplyT(func(v *DFPInstanceAdministratorsResponse) DFPInstanceAdministratorsResponse { return *v }).(DFPInstanceAdministratorsResponseOutput)
 }
 
 // An array of administrator user identities.
@@ -406,7 +394,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -456,13 +444,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

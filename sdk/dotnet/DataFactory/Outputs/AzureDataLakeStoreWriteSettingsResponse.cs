@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Azure data lake store write settings.
-    /// </summary>
     [OutputType]
     public sealed class AzureDataLakeStoreWriteSettingsResponse
     {

@@ -177,7 +177,9 @@ func (i *MTPDataConnector) ToMTPDataConnectorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MTPDataConnectorOutput)
 }
 
-type MTPDataConnectorOutput struct{ *pulumi.OutputState }
+type MTPDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (MTPDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MTPDataConnector)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Outputs
 {
 
-    /// <summary>
-    /// The response for an ACI service.
-    /// </summary>
     [OutputType]
     public sealed class ACIServiceResponseResponse
     {

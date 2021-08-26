@@ -62,9 +62,6 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	if args.ConnectorName == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorName'")
 	}
-	if args.EntityType == nil {
-		return nil, errors.New("invalid value for required argument 'EntityType'")
-	}
 	if args.EntityTypeName == nil {
 		return nil, errors.New("invalid value for required argument 'EntityTypeName'")
 	}
@@ -136,7 +133,7 @@ type connectorMappingArgs struct {
 	// Display name for the connector mapping.
 	DisplayName *string `pulumi:"displayName"`
 	// Defines which entity type the file should map to.
-	EntityType EntityTypes `pulumi:"entityType"`
+	EntityType string `pulumi:"entityType"`
 	// The mapping entity name.
 	EntityTypeName string `pulumi:"entityTypeName"`
 	// The name of the hub.
@@ -160,7 +157,7 @@ type ConnectorMappingArgs struct {
 	// Display name for the connector mapping.
 	DisplayName pulumi.StringPtrInput
 	// Defines which entity type the file should map to.
-	EntityType EntityTypesInput
+	EntityType EntityTypes
 	// The mapping entity name.
 	EntityTypeName pulumi.StringInput
 	// The name of the hub.
@@ -196,7 +193,9 @@ func (i *ConnectorMapping) ToConnectorMappingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingOutput)
 }
 
-type ConnectorMappingOutput struct{ *pulumi.OutputState }
+type ConnectorMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConnectorMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectorMapping)(nil))

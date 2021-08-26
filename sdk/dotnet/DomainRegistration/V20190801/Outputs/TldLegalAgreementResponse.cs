@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DomainRegistration.V20190801.Outputs
 {
 
-    /// <summary>
-    /// Legal agreement for a top level domain.
-    /// </summary>
     [OutputType]
     public sealed class TldLegalAgreementResponse
     {

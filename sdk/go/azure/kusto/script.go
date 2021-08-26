@@ -162,7 +162,9 @@ func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptOutput)
 }
 
-type ScriptOutput struct{ *pulumi.OutputState }
+type ScriptOutput struct {
+	*pulumi.OutputState
+}
 
 func (ScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Script)(nil))

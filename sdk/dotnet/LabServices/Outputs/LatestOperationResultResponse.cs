@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
-    /// <summary>
-    /// Details of the status of an operation.
-    /// </summary>
     [OutputType]
     public sealed class LatestOperationResultResponse
     {

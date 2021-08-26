@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The reference to the key vault key.
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultKeyReferenceResponse
     {

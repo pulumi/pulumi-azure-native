@@ -14,16 +14,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.managedservices.v20180601preview as __v20180601preview
-    v20180601preview = __v20180601preview
-    import pulumi_azure_native.managedservices.v20190401preview as __v20190401preview
-    v20190401preview = __v20190401preview
-    import pulumi_azure_native.managedservices.v20190601 as __v20190601
-    v20190601 = __v20190601
-    import pulumi_azure_native.managedservices.v20190901 as __v20190901
-    v20190901 = __v20190901
-    import pulumi_azure_native.managedservices.v20200201preview as __v20200201preview
-    v20200201preview = __v20200201preview
+    import pulumi_azure_native.managedservices.v20180601preview as v20180601preview
+    import pulumi_azure_native.managedservices.v20190401preview as v20190401preview
+    import pulumi_azure_native.managedservices.v20190601 as v20190601
+    import pulumi_azure_native.managedservices.v20190901 as v20190901
+    import pulumi_azure_native.managedservices.v20200201preview as v20200201preview
 else:
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.managedservices.v20180601preview')
     v20190401preview = _utilities.lazy_import('pulumi_azure_native.managedservices.v20190401preview')

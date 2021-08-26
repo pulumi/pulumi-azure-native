@@ -193,7 +193,9 @@ func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationOutput)
 }
 
-type AttachedDatabaseConfigurationOutput struct{ *pulumi.OutputState }
+type AttachedDatabaseConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (AttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil))

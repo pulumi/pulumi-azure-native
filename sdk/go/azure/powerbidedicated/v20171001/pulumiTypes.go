@@ -106,7 +106,7 @@ func (o DedicatedCapacityAdministratorsOutput) ToDedicatedCapacityAdministrators
 }
 
 func (o DedicatedCapacityAdministratorsOutput) ToDedicatedCapacityAdministratorsPtrOutputWithContext(ctx context.Context) DedicatedCapacityAdministratorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DedicatedCapacityAdministrators) *DedicatedCapacityAdministrators {
+	return o.ApplyT(func(v DedicatedCapacityAdministrators) *DedicatedCapacityAdministrators {
 		return &v
 	}).(DedicatedCapacityAdministratorsPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o DedicatedCapacityAdministratorsPtrOutput) ToDedicatedCapacityAdministrat
 }
 
 func (o DedicatedCapacityAdministratorsPtrOutput) Elem() DedicatedCapacityAdministratorsOutput {
-	return o.ApplyT(func(v *DedicatedCapacityAdministrators) DedicatedCapacityAdministrators {
-		if v != nil {
-			return *v
-		}
-		var ret DedicatedCapacityAdministrators
-		return ret
-	}).(DedicatedCapacityAdministratorsOutput)
+	return o.ApplyT(func(v *DedicatedCapacityAdministrators) DedicatedCapacityAdministrators { return *v }).(DedicatedCapacityAdministratorsOutput)
 }
 
 // An array of administrator user identities.
@@ -246,7 +240,7 @@ func (o DedicatedCapacityAdministratorsResponseOutput) ToDedicatedCapacityAdmini
 }
 
 func (o DedicatedCapacityAdministratorsResponseOutput) ToDedicatedCapacityAdministratorsResponsePtrOutputWithContext(ctx context.Context) DedicatedCapacityAdministratorsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DedicatedCapacityAdministratorsResponse) *DedicatedCapacityAdministratorsResponse {
+	return o.ApplyT(func(v DedicatedCapacityAdministratorsResponse) *DedicatedCapacityAdministratorsResponse {
 		return &v
 	}).(DedicatedCapacityAdministratorsResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o DedicatedCapacityAdministratorsResponsePtrOutput) ToDedicatedCapacityAdm
 }
 
 func (o DedicatedCapacityAdministratorsResponsePtrOutput) Elem() DedicatedCapacityAdministratorsResponseOutput {
-	return o.ApplyT(func(v *DedicatedCapacityAdministratorsResponse) DedicatedCapacityAdministratorsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DedicatedCapacityAdministratorsResponse
-		return ret
-	}).(DedicatedCapacityAdministratorsResponseOutput)
+	return o.ApplyT(func(v *DedicatedCapacityAdministratorsResponse) DedicatedCapacityAdministratorsResponse { return *v }).(DedicatedCapacityAdministratorsResponseOutput)
 }
 
 // An array of administrator user identities.
@@ -390,7 +378,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
+	return o.ApplyT(func(v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -420,13 +408,7 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSku
-		return ret
-	}).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
 }
 
 // Name of the SKU level.
@@ -549,7 +531,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -579,13 +561,7 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSkuResponse
-		return ret
-	}).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
 }
 
 // Name of the SKU level.

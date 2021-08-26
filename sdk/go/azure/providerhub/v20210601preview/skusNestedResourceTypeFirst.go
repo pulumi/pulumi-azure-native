@@ -149,7 +149,9 @@ func (i *SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SkusNestedResourceTypeFirstOutput)
 }
 
-type SkusNestedResourceTypeFirstOutput struct{ *pulumi.OutputState }
+type SkusNestedResourceTypeFirstOutput struct {
+	*pulumi.OutputState
+}
 
 func (SkusNestedResourceTypeFirstOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SkusNestedResourceTypeFirst)(nil))

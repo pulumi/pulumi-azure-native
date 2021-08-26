@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
-    /// <summary>
-    /// An IP Configuration of the private endpoint.
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointIPConfigurationResponse
     {

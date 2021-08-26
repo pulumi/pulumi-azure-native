@@ -342,7 +342,9 @@ func (i *ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeerin
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCrossConnectionPeeringOutput)
 }
 
-type ExpressRouteCrossConnectionPeeringOutput struct{ *pulumi.OutputState }
+type ExpressRouteCrossConnectionPeeringOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExpressRouteCrossConnectionPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCrossConnectionPeering)(nil))

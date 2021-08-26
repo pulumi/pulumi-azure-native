@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Purview.V20210701.Outputs
 {
 
-    /// <summary>
-    /// The URIs that are the public endpoints of the account.
-    /// </summary>
     [OutputType]
     public sealed class AccountPropertiesResponseEndpoints
     {

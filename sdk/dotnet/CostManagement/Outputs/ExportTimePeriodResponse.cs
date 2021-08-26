@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
-    /// <summary>
-    /// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
-    /// </summary>
     [OutputType]
     public sealed class ExportTimePeriodResponse
     {

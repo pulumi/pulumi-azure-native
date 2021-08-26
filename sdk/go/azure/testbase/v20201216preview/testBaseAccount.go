@@ -145,7 +145,9 @@ func (i *TestBaseAccount) ToTestBaseAccountOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountOutput)
 }
 
-type TestBaseAccountOutput struct{ *pulumi.OutputState }
+type TestBaseAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (TestBaseAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TestBaseAccount)(nil))

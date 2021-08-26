@@ -137,7 +137,9 @@ func (i *CodeVersion) ToCodeVersionOutputWithContext(ctx context.Context) CodeVe
 	return pulumi.ToOutputWithContext(ctx, i).(CodeVersionOutput)
 }
 
-type CodeVersionOutput struct{ *pulumi.OutputState }
+type CodeVersionOutput struct {
+	*pulumi.OutputState
+}
 
 func (CodeVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodeVersion)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.Outputs
 {
 
-    /// <summary>
-    /// The connection type property associated with the entity.
-    /// </summary>
     [OutputType]
     public sealed class ConnectionTypeAssociationPropertyResponse
     {

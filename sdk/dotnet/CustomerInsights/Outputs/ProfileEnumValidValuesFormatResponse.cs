@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
-    /// <summary>
-    /// Valid enum values in case of an enum property.
-    /// </summary>
     [OutputType]
     public sealed class ProfileEnumValidValuesFormatResponse
     {

@@ -121,7 +121,9 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
 }
 
-type AssociationOutput struct{ *pulumi.OutputState }
+type AssociationOutput struct {
+	*pulumi.OutputState
+}
 
 func (AssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Association)(nil))

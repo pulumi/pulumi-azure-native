@@ -158,7 +158,9 @@ func (i *ObjectAnchorsAccount) ToObjectAnchorsAccountOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountOutput)
 }
 
-type ObjectAnchorsAccountOutput struct{ *pulumi.OutputState }
+type ObjectAnchorsAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (ObjectAnchorsAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ObjectAnchorsAccount)(nil))

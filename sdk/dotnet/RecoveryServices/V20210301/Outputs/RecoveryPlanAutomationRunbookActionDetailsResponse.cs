@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Recovery plan Automation runbook action details.
-    /// </summary>
     [OutputType]
     public sealed class RecoveryPlanAutomationRunbookActionDetailsResponse
     {

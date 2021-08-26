@@ -182,7 +182,9 @@ func (i *MLBehaviorAnalyticsAlertRule) ToMLBehaviorAnalyticsAlertRuleOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(MLBehaviorAnalyticsAlertRuleOutput)
 }
 
-type MLBehaviorAnalyticsAlertRuleOutput struct{ *pulumi.OutputState }
+type MLBehaviorAnalyticsAlertRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (MLBehaviorAnalyticsAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MLBehaviorAnalyticsAlertRule)(nil))

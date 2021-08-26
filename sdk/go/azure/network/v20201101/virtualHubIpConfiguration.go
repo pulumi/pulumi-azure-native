@@ -191,7 +191,9 @@ func (i *VirtualHubIpConfiguration) ToVirtualHubIpConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpConfigurationOutput)
 }
 
-type VirtualHubIpConfigurationOutput struct{ *pulumi.OutputState }
+type VirtualHubIpConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualHubIpConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHubIpConfiguration)(nil))

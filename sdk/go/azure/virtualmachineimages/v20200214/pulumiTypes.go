@@ -201,7 +201,7 @@ func (o ImageTemplateFileCustomizerResponseOutput) Type() pulumi.StringOutput {
 // Identity for the image template.
 type ImageTemplateIdentity struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -220,7 +220,7 @@ type ImageTemplateIdentityInput interface {
 // Identity for the image template.
 type ImageTemplateIdentityArgs struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -298,14 +298,14 @@ func (o ImageTemplateIdentityOutput) ToImageTemplateIdentityPtrOutput() ImageTem
 }
 
 func (o ImageTemplateIdentityOutput) ToImageTemplateIdentityPtrOutputWithContext(ctx context.Context) ImageTemplateIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateIdentity) *ImageTemplateIdentity {
+	return o.ApplyT(func(v ImageTemplateIdentity) *ImageTemplateIdentity {
 		return &v
 	}).(ImageTemplateIdentityPtrOutput)
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-func (o ImageTemplateIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ImageTemplateIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o ImageTemplateIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -328,23 +328,17 @@ func (o ImageTemplateIdentityPtrOutput) ToImageTemplateIdentityPtrOutputWithCont
 }
 
 func (o ImageTemplateIdentityPtrOutput) Elem() ImageTemplateIdentityOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentity) ImageTemplateIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ImageTemplateIdentity
-		return ret
-	}).(ImageTemplateIdentityOutput)
+	return o.ApplyT(func(v *ImageTemplateIdentity) ImageTemplateIdentity { return *v }).(ImageTemplateIdentityOutput)
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-func (o ImageTemplateIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentity) *ResourceIdentityType {
+func (o ImageTemplateIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageTemplateIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -457,7 +451,7 @@ func (o ImageTemplateIdentityResponseOutput) ToImageTemplateIdentityResponsePtrO
 }
 
 func (o ImageTemplateIdentityResponseOutput) ToImageTemplateIdentityResponsePtrOutputWithContext(ctx context.Context) ImageTemplateIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateIdentityResponse) *ImageTemplateIdentityResponse {
+	return o.ApplyT(func(v ImageTemplateIdentityResponse) *ImageTemplateIdentityResponse {
 		return &v
 	}).(ImageTemplateIdentityResponsePtrOutput)
 }
@@ -489,13 +483,7 @@ func (o ImageTemplateIdentityResponsePtrOutput) ToImageTemplateIdentityResponseP
 }
 
 func (o ImageTemplateIdentityResponsePtrOutput) Elem() ImageTemplateIdentityResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentityResponse) ImageTemplateIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ImageTemplateIdentityResponse
-		return ret
-	}).(ImageTemplateIdentityResponseOutput)
+	return o.ApplyT(func(v *ImageTemplateIdentityResponse) ImageTemplateIdentityResponse { return *v }).(ImageTemplateIdentityResponseOutput)
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
@@ -736,7 +724,7 @@ func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusRe
 }
 
 func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateLastRunStatusResponse) *ImageTemplateLastRunStatusResponse {
+	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *ImageTemplateLastRunStatusResponse {
 		return &v
 	}).(ImageTemplateLastRunStatusResponsePtrOutput)
 }
@@ -781,13 +769,7 @@ func (o ImageTemplateLastRunStatusResponsePtrOutput) ToImageTemplateLastRunStatu
 }
 
 func (o ImageTemplateLastRunStatusResponsePtrOutput) Elem() ImageTemplateLastRunStatusResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) ImageTemplateLastRunStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ImageTemplateLastRunStatusResponse
-		return ret
-	}).(ImageTemplateLastRunStatusResponseOutput)
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) ImageTemplateLastRunStatusResponse { return *v }).(ImageTemplateLastRunStatusResponseOutput)
 }
 
 // End time of the last run (UTC)
@@ -2600,7 +2582,7 @@ func (o ImageTemplateVmProfileOutput) ToImageTemplateVmProfilePtrOutput() ImageT
 }
 
 func (o ImageTemplateVmProfileOutput) ToImageTemplateVmProfilePtrOutputWithContext(ctx context.Context) ImageTemplateVmProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateVmProfile) *ImageTemplateVmProfile {
+	return o.ApplyT(func(v ImageTemplateVmProfile) *ImageTemplateVmProfile {
 		return &v
 	}).(ImageTemplateVmProfilePtrOutput)
 }
@@ -2635,13 +2617,7 @@ func (o ImageTemplateVmProfilePtrOutput) ToImageTemplateVmProfilePtrOutputWithCo
 }
 
 func (o ImageTemplateVmProfilePtrOutput) Elem() ImageTemplateVmProfileOutput {
-	return o.ApplyT(func(v *ImageTemplateVmProfile) ImageTemplateVmProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ImageTemplateVmProfile
-		return ret
-	}).(ImageTemplateVmProfileOutput)
+	return o.ApplyT(func(v *ImageTemplateVmProfile) ImageTemplateVmProfile { return *v }).(ImageTemplateVmProfileOutput)
 }
 
 // Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
@@ -2778,7 +2754,7 @@ func (o ImageTemplateVmProfileResponseOutput) ToImageTemplateVmProfileResponsePt
 }
 
 func (o ImageTemplateVmProfileResponseOutput) ToImageTemplateVmProfileResponsePtrOutputWithContext(ctx context.Context) ImageTemplateVmProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateVmProfileResponse) *ImageTemplateVmProfileResponse {
+	return o.ApplyT(func(v ImageTemplateVmProfileResponse) *ImageTemplateVmProfileResponse {
 		return &v
 	}).(ImageTemplateVmProfileResponsePtrOutput)
 }
@@ -2813,13 +2789,7 @@ func (o ImageTemplateVmProfileResponsePtrOutput) ToImageTemplateVmProfileRespons
 }
 
 func (o ImageTemplateVmProfileResponsePtrOutput) Elem() ImageTemplateVmProfileResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateVmProfileResponse) ImageTemplateVmProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ImageTemplateVmProfileResponse
-		return ret
-	}).(ImageTemplateVmProfileResponseOutput)
+	return o.ApplyT(func(v *ImageTemplateVmProfileResponse) ImageTemplateVmProfileResponse { return *v }).(ImageTemplateVmProfileResponseOutput)
 }
 
 // Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
@@ -3144,7 +3114,7 @@ func (o PlatformImagePurchasePlanOutput) ToPlatformImagePurchasePlanPtrOutput() 
 }
 
 func (o PlatformImagePurchasePlanOutput) ToPlatformImagePurchasePlanPtrOutputWithContext(ctx context.Context) PlatformImagePurchasePlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformImagePurchasePlan) *PlatformImagePurchasePlan {
+	return o.ApplyT(func(v PlatformImagePurchasePlan) *PlatformImagePurchasePlan {
 		return &v
 	}).(PlatformImagePurchasePlanPtrOutput)
 }
@@ -3179,13 +3149,7 @@ func (o PlatformImagePurchasePlanPtrOutput) ToPlatformImagePurchasePlanPtrOutput
 }
 
 func (o PlatformImagePurchasePlanPtrOutput) Elem() PlatformImagePurchasePlanOutput {
-	return o.ApplyT(func(v *PlatformImagePurchasePlan) PlatformImagePurchasePlan {
-		if v != nil {
-			return *v
-		}
-		var ret PlatformImagePurchasePlan
-		return ret
-	}).(PlatformImagePurchasePlanOutput)
+	return o.ApplyT(func(v *PlatformImagePurchasePlan) PlatformImagePurchasePlan { return *v }).(PlatformImagePurchasePlanOutput)
 }
 
 // Name of the purchase plan.
@@ -3322,7 +3286,7 @@ func (o PlatformImagePurchasePlanResponseOutput) ToPlatformImagePurchasePlanResp
 }
 
 func (o PlatformImagePurchasePlanResponseOutput) ToPlatformImagePurchasePlanResponsePtrOutputWithContext(ctx context.Context) PlatformImagePurchasePlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformImagePurchasePlanResponse) *PlatformImagePurchasePlanResponse {
+	return o.ApplyT(func(v PlatformImagePurchasePlanResponse) *PlatformImagePurchasePlanResponse {
 		return &v
 	}).(PlatformImagePurchasePlanResponsePtrOutput)
 }
@@ -3357,13 +3321,7 @@ func (o PlatformImagePurchasePlanResponsePtrOutput) ToPlatformImagePurchasePlanR
 }
 
 func (o PlatformImagePurchasePlanResponsePtrOutput) Elem() PlatformImagePurchasePlanResponseOutput {
-	return o.ApplyT(func(v *PlatformImagePurchasePlanResponse) PlatformImagePurchasePlanResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PlatformImagePurchasePlanResponse
-		return ret
-	}).(PlatformImagePurchasePlanResponseOutput)
+	return o.ApplyT(func(v *PlatformImagePurchasePlanResponse) PlatformImagePurchasePlanResponse { return *v }).(PlatformImagePurchasePlanResponseOutput)
 }
 
 // Name of the purchase plan.
@@ -3496,7 +3454,7 @@ func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutput() 
 }
 
 func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ProvisioningErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningErrorResponse) *ProvisioningErrorResponse {
+	return o.ApplyT(func(v ProvisioningErrorResponse) *ProvisioningErrorResponse {
 		return &v
 	}).(ProvisioningErrorResponsePtrOutput)
 }
@@ -3526,13 +3484,7 @@ func (o ProvisioningErrorResponsePtrOutput) ToProvisioningErrorResponsePtrOutput
 }
 
 func (o ProvisioningErrorResponsePtrOutput) Elem() ProvisioningErrorResponseOutput {
-	return o.ApplyT(func(v *ProvisioningErrorResponse) ProvisioningErrorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ProvisioningErrorResponse
-		return ret
-	}).(ProvisioningErrorResponseOutput)
+	return o.ApplyT(func(v *ProvisioningErrorResponse) ProvisioningErrorResponse { return *v }).(ProvisioningErrorResponseOutput)
 }
 
 // Verbose error message about the provisioning failure
@@ -3651,7 +3603,7 @@ func (o VirtualNetworkConfigOutput) ToVirtualNetworkConfigPtrOutput() VirtualNet
 }
 
 func (o VirtualNetworkConfigOutput) ToVirtualNetworkConfigPtrOutputWithContext(ctx context.Context) VirtualNetworkConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfig) *VirtualNetworkConfig {
+	return o.ApplyT(func(v VirtualNetworkConfig) *VirtualNetworkConfig {
 		return &v
 	}).(VirtualNetworkConfigPtrOutput)
 }
@@ -3676,13 +3628,7 @@ func (o VirtualNetworkConfigPtrOutput) ToVirtualNetworkConfigPtrOutputWithContex
 }
 
 func (o VirtualNetworkConfigPtrOutput) Elem() VirtualNetworkConfigOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfig) VirtualNetworkConfig {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfig
-		return ret
-	}).(VirtualNetworkConfigOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfig) VirtualNetworkConfig { return *v }).(VirtualNetworkConfigOutput)
 }
 
 // Resource id of a pre-existing subnet.
@@ -3791,7 +3737,7 @@ func (o VirtualNetworkConfigResponseOutput) ToVirtualNetworkConfigResponsePtrOut
 }
 
 func (o VirtualNetworkConfigResponseOutput) ToVirtualNetworkConfigResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfigResponse) *VirtualNetworkConfigResponse {
+	return o.ApplyT(func(v VirtualNetworkConfigResponse) *VirtualNetworkConfigResponse {
 		return &v
 	}).(VirtualNetworkConfigResponsePtrOutput)
 }
@@ -3816,13 +3762,7 @@ func (o VirtualNetworkConfigResponsePtrOutput) ToVirtualNetworkConfigResponsePtr
 }
 
 func (o VirtualNetworkConfigResponsePtrOutput) Elem() VirtualNetworkConfigResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfigResponse) VirtualNetworkConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNetworkConfigResponse
-		return ret
-	}).(VirtualNetworkConfigResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfigResponse) VirtualNetworkConfigResponse { return *v }).(VirtualNetworkConfigResponseOutput)
 }
 
 // Resource id of a pre-existing subnet.

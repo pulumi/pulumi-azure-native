@@ -188,7 +188,9 @@ func (i *Export) ToExportOutputWithContext(ctx context.Context) ExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExportOutput)
 }
 
-type ExportOutput struct{ *pulumi.OutputState }
+type ExportOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Export)(nil))

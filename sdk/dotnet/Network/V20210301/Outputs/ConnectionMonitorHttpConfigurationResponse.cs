@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Describes the HTTP configuration.
-    /// </summary>
     [OutputType]
     public sealed class ConnectionMonitorHttpConfigurationResponse
     {

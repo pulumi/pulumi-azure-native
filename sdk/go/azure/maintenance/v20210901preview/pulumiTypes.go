@@ -114,7 +114,7 @@ func (o InputLinuxParametersOutput) ToInputLinuxParametersPtrOutput() InputLinux
 }
 
 func (o InputLinuxParametersOutput) ToInputLinuxParametersPtrOutputWithContext(ctx context.Context) InputLinuxParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputLinuxParameters) *InputLinuxParameters {
+	return o.ApplyT(func(v InputLinuxParameters) *InputLinuxParameters {
 		return &v
 	}).(InputLinuxParametersPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o InputLinuxParametersPtrOutput) ToInputLinuxParametersPtrOutputWithContex
 }
 
 func (o InputLinuxParametersPtrOutput) Elem() InputLinuxParametersOutput {
-	return o.ApplyT(func(v *InputLinuxParameters) InputLinuxParameters {
-		if v != nil {
-			return *v
-		}
-		var ret InputLinuxParameters
-		return ret
-	}).(InputLinuxParametersOutput)
+	return o.ApplyT(func(v *InputLinuxParameters) InputLinuxParameters { return *v }).(InputLinuxParametersOutput)
 }
 
 // Classification category of patches to be patched
@@ -292,7 +286,7 @@ func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponsePtrOut
 }
 
 func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponsePtrOutputWithContext(ctx context.Context) InputLinuxParametersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputLinuxParametersResponse) *InputLinuxParametersResponse {
+	return o.ApplyT(func(v InputLinuxParametersResponse) *InputLinuxParametersResponse {
 		return &v
 	}).(InputLinuxParametersResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o InputLinuxParametersResponsePtrOutput) ToInputLinuxParametersResponsePtr
 }
 
 func (o InputLinuxParametersResponsePtrOutput) Elem() InputLinuxParametersResponseOutput {
-	return o.ApplyT(func(v *InputLinuxParametersResponse) InputLinuxParametersResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InputLinuxParametersResponse
-		return ret
-	}).(InputLinuxParametersResponseOutput)
+	return o.ApplyT(func(v *InputLinuxParametersResponse) InputLinuxParametersResponse { return *v }).(InputLinuxParametersResponseOutput)
 }
 
 // Classification category of patches to be patched
@@ -478,7 +466,7 @@ func (o InputPatchConfigurationOutput) ToInputPatchConfigurationPtrOutput() Inpu
 }
 
 func (o InputPatchConfigurationOutput) ToInputPatchConfigurationPtrOutputWithContext(ctx context.Context) InputPatchConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputPatchConfiguration) *InputPatchConfiguration {
+	return o.ApplyT(func(v InputPatchConfiguration) *InputPatchConfiguration {
 		return &v
 	}).(InputPatchConfigurationPtrOutput)
 }
@@ -523,13 +511,7 @@ func (o InputPatchConfigurationPtrOutput) ToInputPatchConfigurationPtrOutputWith
 }
 
 func (o InputPatchConfigurationPtrOutput) Elem() InputPatchConfigurationOutput {
-	return o.ApplyT(func(v *InputPatchConfiguration) InputPatchConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret InputPatchConfiguration
-		return ret
-	}).(InputPatchConfigurationOutput)
+	return o.ApplyT(func(v *InputPatchConfiguration) InputPatchConfiguration { return *v }).(InputPatchConfigurationOutput)
 }
 
 // Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
@@ -694,7 +676,7 @@ func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponse
 }
 
 func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponsePtrOutputWithContext(ctx context.Context) InputPatchConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputPatchConfigurationResponse) *InputPatchConfigurationResponse {
+	return o.ApplyT(func(v InputPatchConfigurationResponse) *InputPatchConfigurationResponse {
 		return &v
 	}).(InputPatchConfigurationResponsePtrOutput)
 }
@@ -739,13 +721,7 @@ func (o InputPatchConfigurationResponsePtrOutput) ToInputPatchConfigurationRespo
 }
 
 func (o InputPatchConfigurationResponsePtrOutput) Elem() InputPatchConfigurationResponseOutput {
-	return o.ApplyT(func(v *InputPatchConfigurationResponse) InputPatchConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InputPatchConfigurationResponse
-		return ret
-	}).(InputPatchConfigurationResponseOutput)
+	return o.ApplyT(func(v *InputPatchConfigurationResponse) InputPatchConfigurationResponse { return *v }).(InputPatchConfigurationResponseOutput)
 }
 
 // Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
@@ -906,7 +882,7 @@ func (o InputWindowsParametersOutput) ToInputWindowsParametersPtrOutput() InputW
 }
 
 func (o InputWindowsParametersOutput) ToInputWindowsParametersPtrOutputWithContext(ctx context.Context) InputWindowsParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputWindowsParameters) *InputWindowsParameters {
+	return o.ApplyT(func(v InputWindowsParameters) *InputWindowsParameters {
 		return &v
 	}).(InputWindowsParametersPtrOutput)
 }
@@ -946,13 +922,7 @@ func (o InputWindowsParametersPtrOutput) ToInputWindowsParametersPtrOutputWithCo
 }
 
 func (o InputWindowsParametersPtrOutput) Elem() InputWindowsParametersOutput {
-	return o.ApplyT(func(v *InputWindowsParameters) InputWindowsParameters {
-		if v != nil {
-			return *v
-		}
-		var ret InputWindowsParameters
-		return ret
-	}).(InputWindowsParametersOutput)
+	return o.ApplyT(func(v *InputWindowsParameters) InputWindowsParameters { return *v }).(InputWindowsParametersOutput)
 }
 
 // Classification category of patches to be patched
@@ -1103,7 +1073,7 @@ func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponsePt
 }
 
 func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponsePtrOutputWithContext(ctx context.Context) InputWindowsParametersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputWindowsParametersResponse) *InputWindowsParametersResponse {
+	return o.ApplyT(func(v InputWindowsParametersResponse) *InputWindowsParametersResponse {
 		return &v
 	}).(InputWindowsParametersResponsePtrOutput)
 }
@@ -1143,13 +1113,7 @@ func (o InputWindowsParametersResponsePtrOutput) ToInputWindowsParametersRespons
 }
 
 func (o InputWindowsParametersResponsePtrOutput) Elem() InputWindowsParametersResponseOutput {
-	return o.ApplyT(func(v *InputWindowsParametersResponse) InputWindowsParametersResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InputWindowsParametersResponse
-		return ret
-	}).(InputWindowsParametersResponseOutput)
+	return o.ApplyT(func(v *InputWindowsParametersResponse) InputWindowsParametersResponse { return *v }).(InputWindowsParametersResponseOutput)
 }
 
 // Classification category of patches to be patched
@@ -1308,7 +1272,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1358,13 +1322,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

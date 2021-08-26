@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Reference to container resource in remote resource provider.
-    /// </summary>
     [OutputType]
     public sealed class ContainerResponse
     {

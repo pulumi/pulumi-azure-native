@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
-    /// <summary>
-    /// Reference to sinks in DiagnosticsDescription.
-    /// </summary>
     [OutputType]
     public sealed class DiagnosticsRefResponse
     {

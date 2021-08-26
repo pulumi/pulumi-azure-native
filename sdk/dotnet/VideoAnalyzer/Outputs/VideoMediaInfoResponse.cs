@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 {
 
-    /// <summary>
-    /// Contains information about the video and audio content.
-    /// </summary>
     [OutputType]
     public sealed class VideoMediaInfoResponse
     {

@@ -153,7 +153,9 @@ func (i *SignalRPrivateEndpointConnection) ToSignalRPrivateEndpointConnectionOut
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRPrivateEndpointConnectionOutput)
 }
 
-type SignalRPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type SignalRPrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (SignalRPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRPrivateEndpointConnection)(nil))

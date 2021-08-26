@@ -189,14 +189,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public Input<bool>? Enabled { get; set; }
 
         [Input("entitiesFilter")]
-        private InputMap<ImmutableArray<string>>? _entitiesFilter;
+        private InputMap<ImmutableArray<Input<string>>>? _entitiesFilter;
 
         /// <summary>
         /// The query applied only to entities matching to all filters
         /// </summary>
-        public InputMap<ImmutableArray<string>> EntitiesFilter
+        public InputMap<ImmutableArray<Input<string>>> EntitiesFilter
         {
-            get => _entitiesFilter ?? (_entitiesFilter = new InputMap<ImmutableArray<string>>());
+            get => _entitiesFilter ?? (_entitiesFilter = new InputMap<ImmutableArray<Input<string>>>());
             set => _entitiesFilter = value;
         }
 
@@ -238,14 +238,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public Input<Inputs.ActivityEntityQueriesPropertiesQueryDefinitionsArgs>? QueryDefinitions { get; set; }
 
         [Input("requiredInputFieldsSets")]
-        private InputList<ImmutableArray<string>>? _requiredInputFieldsSets;
+        private InputList<ImmutableArray<Input<string>>>? _requiredInputFieldsSets;
 
         /// <summary>
         /// List of the fields of the source entity that are required to run the query
         /// </summary>
-        public InputList<ImmutableArray<string>> RequiredInputFieldsSets
+        public InputList<ImmutableArray<Input<string>>> RequiredInputFieldsSets
         {
-            get => _requiredInputFieldsSets ?? (_requiredInputFieldsSets = new InputList<ImmutableArray<string>>());
+            get => _requiredInputFieldsSets ?? (_requiredInputFieldsSets = new InputList<ImmutableArray<Input<string>>>());
             set => _requiredInputFieldsSets = value;
         }
 

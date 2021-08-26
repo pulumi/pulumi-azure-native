@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20190501Preview.Outputs
 {
 
-    /// <summary>
-    /// Required inbound or outbound traffic for Azure Spring Cloud instance.
-    /// </summary>
     [OutputType]
     public sealed class RequiredTrafficResponse
     {

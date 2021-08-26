@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines a specific step on a target service unit.
-    /// </summary>
     [OutputType]
     public sealed class RolloutStepResponse
     {

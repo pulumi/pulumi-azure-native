@@ -130,7 +130,9 @@ func (i *DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowOutput)
 }
 
-type DataFlowOutput struct{ *pulumi.OutputState }
+type DataFlowOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataFlowOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataFlow)(nil))

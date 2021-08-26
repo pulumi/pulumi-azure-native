@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
-    /// <summary>
-    /// Container group diagnostic information.
-    /// </summary>
     [OutputType]
     public sealed class ContainerGroupDiagnosticsResponse
     {

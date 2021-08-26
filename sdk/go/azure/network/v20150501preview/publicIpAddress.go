@@ -400,7 +400,9 @@ func (i *PublicIpAddress) ToPublicIpAddressOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIpAddressOutput)
 }
 
-type PublicIpAddressOutput struct{ *pulumi.OutputState }
+type PublicIpAddressOutput struct {
+	*pulumi.OutputState
+}
 
 func (PublicIpAddressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublicIpAddress)(nil))

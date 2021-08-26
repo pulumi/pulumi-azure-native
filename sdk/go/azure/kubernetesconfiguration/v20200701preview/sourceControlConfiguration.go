@@ -228,7 +228,9 @@ func (i *SourceControlConfiguration) ToSourceControlConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlConfigurationOutput)
 }
 
-type SourceControlConfigurationOutput struct{ *pulumi.OutputState }
+type SourceControlConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (SourceControlConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceControlConfiguration)(nil))

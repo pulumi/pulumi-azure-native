@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20191101.Outputs
 {
 
-    /// <summary>
-    /// Encryption settings for disk or snapshot
-    /// </summary>
     [OutputType]
     public sealed class EncryptionSettingsCollectionResponse
     {

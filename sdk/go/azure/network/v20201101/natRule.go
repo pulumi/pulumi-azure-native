@@ -181,7 +181,9 @@ func (i *NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleOutput)
 }
 
-type NatRuleOutput struct{ *pulumi.OutputState }
+type NatRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (NatRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NatRule)(nil))

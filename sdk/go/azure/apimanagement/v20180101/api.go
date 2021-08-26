@@ -202,7 +202,7 @@ type apiArgs struct {
 	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
 	Path string `pulumi:"path"`
 	// Describes on which protocols the operations in this API can be invoked.
-	Protocols []Protocol `pulumi:"protocols"`
+	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -290,7 +290,9 @@ func (i *Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOutput)
 }
 
-type ApiOutput struct{ *pulumi.OutputState }
+type ApiOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Api)(nil))

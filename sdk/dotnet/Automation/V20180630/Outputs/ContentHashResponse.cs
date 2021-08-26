@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20180630.Outputs
 {
 
-    /// <summary>
-    /// Definition of the runbook property type.
-    /// </summary>
     [OutputType]
     public sealed class ContentHashResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ChangeAnalysis.Outputs
 {
 
-    /// <summary>
-    /// The properties of a configuration profile.
-    /// </summary>
     [OutputType]
     public sealed class ConfigurationProfileResourcePropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20151001.Outputs
 {
 
-    /// <summary>
-    /// The properties for a Media Services REST API endpoint.
-    /// </summary>
     [OutputType]
     public sealed class ApiEndpointResponse
     {

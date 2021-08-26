@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// The network manager effective connectivity configuration
-    /// </summary>
     [OutputType]
     public sealed class EffectiveConnectivityConfigurationResponse
     {

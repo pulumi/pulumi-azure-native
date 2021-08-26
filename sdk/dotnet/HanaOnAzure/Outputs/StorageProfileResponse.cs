@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HanaOnAzure.Outputs
 {
 
-    /// <summary>
-    /// Specifies the storage settings for the HANA instance disks.
-    /// </summary>
     [OutputType]
     public sealed class StorageProfileResponse
     {

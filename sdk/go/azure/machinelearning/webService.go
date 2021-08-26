@@ -140,7 +140,9 @@ func (i *WebService) ToWebServiceOutputWithContext(ctx context.Context) WebServi
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceOutput)
 }
 
-type WebServiceOutput struct{ *pulumi.OutputState }
+type WebServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebService)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
-    /// <summary>
-    /// Specifies a certificate for token validation.
-    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyX509CertificateTokenKeyResponse
     {

@@ -116,7 +116,9 @@ func (i *SubscriptionAlias) ToSubscriptionAliasOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionAliasOutput)
 }
 
-type SubscriptionAliasOutput struct{ *pulumi.OutputState }
+type SubscriptionAliasOutput struct {
+	*pulumi.OutputState
+}
 
 func (SubscriptionAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionAlias)(nil))

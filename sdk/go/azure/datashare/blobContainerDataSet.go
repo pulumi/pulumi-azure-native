@@ -198,7 +198,9 @@ func (i *BlobContainerDataSet) ToBlobContainerDataSetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerDataSetOutput)
 }
 
-type BlobContainerDataSetOutput struct{ *pulumi.OutputState }
+type BlobContainerDataSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (BlobContainerDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobContainerDataSet)(nil))

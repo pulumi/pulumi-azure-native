@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties that describe a base image dependency.
-    /// </summary>
     [OutputType]
     public sealed class BaseImageDependencyResponse
     {

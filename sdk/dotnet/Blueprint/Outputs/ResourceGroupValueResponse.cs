@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blueprint.Outputs
 {
 
-    /// <summary>
-    /// Represents an Azure resource group.
-    /// </summary>
     [OutputType]
     public sealed class ResourceGroupValueResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200501.Outputs
 {
 
-    /// <summary>
-    /// The billing information of the SignalR resource.
-    /// </summary>
     [OutputType]
     public sealed class ResourceSkuResponse
     {

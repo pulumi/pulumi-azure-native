@@ -124,7 +124,9 @@ func (i *EdgeModule) ToEdgeModuleOutputWithContext(ctx context.Context) EdgeModu
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeModuleOutput)
 }
 
-type EdgeModuleOutput struct{ *pulumi.OutputState }
+type EdgeModuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (EdgeModuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EdgeModule)(nil))

@@ -418,7 +418,9 @@ func (i *PublicIPAddress) ToPublicIPAddressOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressOutput)
 }
 
-type PublicIPAddressOutput struct{ *pulumi.OutputState }
+type PublicIPAddressOutput struct {
+	*pulumi.OutputState
+}
 
 func (PublicIPAddressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublicIPAddress)(nil))

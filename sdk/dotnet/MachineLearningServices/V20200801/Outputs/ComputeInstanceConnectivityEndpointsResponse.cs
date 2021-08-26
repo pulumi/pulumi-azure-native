@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Outputs
 {
 
-    /// <summary>
-    /// Defines all connectivity endpoints and properties for a ComputeInstance.
-    /// </summary>
     [OutputType]
     public sealed class ComputeInstanceConnectivityEndpointsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
-    /// </summary>
     [OutputType]
     public sealed class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse
     {

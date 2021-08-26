@@ -134,7 +134,9 @@ func (i *IotDpsResourcePrivateEndpointConnection) ToIotDpsResourcePrivateEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsResourcePrivateEndpointConnectionOutput)
 }
 
-type IotDpsResourcePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type IotDpsResourcePrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (IotDpsResourcePrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotDpsResourcePrivateEndpointConnection)(nil))

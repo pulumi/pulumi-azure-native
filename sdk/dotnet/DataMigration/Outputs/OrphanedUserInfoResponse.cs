@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Information of orphaned users on the SQL server database.
-    /// </summary>
     [OutputType]
     public sealed class OrphanedUserInfoResponse
     {

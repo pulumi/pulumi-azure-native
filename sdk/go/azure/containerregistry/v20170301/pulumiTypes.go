@@ -215,7 +215,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -240,13 +240,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
@@ -359,7 +353,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -389,13 +383,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
@@ -518,7 +506,7 @@ func (o StorageAccountParametersOutput) ToStorageAccountParametersPtrOutput() St
 }
 
 func (o StorageAccountParametersOutput) ToStorageAccountParametersPtrOutputWithContext(ctx context.Context) StorageAccountParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountParameters) *StorageAccountParameters {
+	return o.ApplyT(func(v StorageAccountParameters) *StorageAccountParameters {
 		return &v
 	}).(StorageAccountParametersPtrOutput)
 }
@@ -548,13 +536,7 @@ func (o StorageAccountParametersPtrOutput) ToStorageAccountParametersPtrOutputWi
 }
 
 func (o StorageAccountParametersPtrOutput) Elem() StorageAccountParametersOutput {
-	return o.ApplyT(func(v *StorageAccountParameters) StorageAccountParameters {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountParameters
-		return ret
-	}).(StorageAccountParametersOutput)
+	return o.ApplyT(func(v *StorageAccountParameters) StorageAccountParameters { return *v }).(StorageAccountParametersOutput)
 }
 
 // The access key to the storage account.
@@ -673,7 +655,7 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
@@ -698,13 +680,7 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountPropertiesResponse
-		return ret
-	}).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
 }
 
 // The name of the storage account.

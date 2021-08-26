@@ -516,7 +516,7 @@ func (o DailyScheduleOutput) ToDailySchedulePtrOutput() DailySchedulePtrOutput {
 }
 
 func (o DailyScheduleOutput) ToDailySchedulePtrOutputWithContext(ctx context.Context) DailySchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailySchedule) *DailySchedule {
+	return o.ApplyT(func(v DailySchedule) *DailySchedule {
 		return &v
 	}).(DailySchedulePtrOutput)
 }
@@ -556,13 +556,7 @@ func (o DailySchedulePtrOutput) ToDailySchedulePtrOutputWithContext(ctx context.
 }
 
 func (o DailySchedulePtrOutput) Elem() DailyScheduleOutput {
-	return o.ApplyT(func(v *DailySchedule) DailySchedule {
-		if v != nil {
-			return *v
-		}
-		var ret DailySchedule
-		return ret
-	}).(DailyScheduleOutput)
+	return o.ApplyT(func(v *DailySchedule) DailySchedule { return *v }).(DailyScheduleOutput)
 }
 
 // Indicates which hour in UTC timezone a snapshot should be taken
@@ -713,7 +707,7 @@ func (o DailyScheduleResponseOutput) ToDailyScheduleResponsePtrOutput() DailySch
 }
 
 func (o DailyScheduleResponseOutput) ToDailyScheduleResponsePtrOutputWithContext(ctx context.Context) DailyScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyScheduleResponse) *DailyScheduleResponse {
+	return o.ApplyT(func(v DailyScheduleResponse) *DailyScheduleResponse {
 		return &v
 	}).(DailyScheduleResponsePtrOutput)
 }
@@ -753,13 +747,7 @@ func (o DailyScheduleResponsePtrOutput) ToDailyScheduleResponsePtrOutputWithCont
 }
 
 func (o DailyScheduleResponsePtrOutput) Elem() DailyScheduleResponseOutput {
-	return o.ApplyT(func(v *DailyScheduleResponse) DailyScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DailyScheduleResponse
-		return ret
-	}).(DailyScheduleResponseOutput)
+	return o.ApplyT(func(v *DailyScheduleResponse) DailyScheduleResponse { return *v }).(DailyScheduleResponseOutput)
 }
 
 // Indicates which hour in UTC timezone a snapshot should be taken
@@ -1340,7 +1328,7 @@ func (o HourlyScheduleOutput) ToHourlySchedulePtrOutput() HourlySchedulePtrOutpu
 }
 
 func (o HourlyScheduleOutput) ToHourlySchedulePtrOutputWithContext(ctx context.Context) HourlySchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourlySchedule) *HourlySchedule {
+	return o.ApplyT(func(v HourlySchedule) *HourlySchedule {
 		return &v
 	}).(HourlySchedulePtrOutput)
 }
@@ -1375,13 +1363,7 @@ func (o HourlySchedulePtrOutput) ToHourlySchedulePtrOutputWithContext(ctx contex
 }
 
 func (o HourlySchedulePtrOutput) Elem() HourlyScheduleOutput {
-	return o.ApplyT(func(v *HourlySchedule) HourlySchedule {
-		if v != nil {
-			return *v
-		}
-		var ret HourlySchedule
-		return ret
-	}).(HourlyScheduleOutput)
+	return o.ApplyT(func(v *HourlySchedule) HourlySchedule { return *v }).(HourlyScheduleOutput)
 }
 
 // Indicates which minute snapshot should be taken
@@ -1518,7 +1500,7 @@ func (o HourlyScheduleResponseOutput) ToHourlyScheduleResponsePtrOutput() Hourly
 }
 
 func (o HourlyScheduleResponseOutput) ToHourlyScheduleResponsePtrOutputWithContext(ctx context.Context) HourlyScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HourlyScheduleResponse) *HourlyScheduleResponse {
+	return o.ApplyT(func(v HourlyScheduleResponse) *HourlyScheduleResponse {
 		return &v
 	}).(HourlyScheduleResponsePtrOutput)
 }
@@ -1553,13 +1535,7 @@ func (o HourlyScheduleResponsePtrOutput) ToHourlyScheduleResponsePtrOutputWithCo
 }
 
 func (o HourlyScheduleResponsePtrOutput) Elem() HourlyScheduleResponseOutput {
-	return o.ApplyT(func(v *HourlyScheduleResponse) HourlyScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HourlyScheduleResponse
-		return ret
-	}).(HourlyScheduleResponseOutput)
+	return o.ApplyT(func(v *HourlyScheduleResponse) HourlyScheduleResponse { return *v }).(HourlyScheduleResponseOutput)
 }
 
 // Indicates which minute snapshot should be taken
@@ -1704,7 +1680,7 @@ func (o MonthlyScheduleOutput) ToMonthlySchedulePtrOutput() MonthlySchedulePtrOu
 }
 
 func (o MonthlyScheduleOutput) ToMonthlySchedulePtrOutputWithContext(ctx context.Context) MonthlySchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlySchedule) *MonthlySchedule {
+	return o.ApplyT(func(v MonthlySchedule) *MonthlySchedule {
 		return &v
 	}).(MonthlySchedulePtrOutput)
 }
@@ -1749,13 +1725,7 @@ func (o MonthlySchedulePtrOutput) ToMonthlySchedulePtrOutputWithContext(ctx cont
 }
 
 func (o MonthlySchedulePtrOutput) Elem() MonthlyScheduleOutput {
-	return o.ApplyT(func(v *MonthlySchedule) MonthlySchedule {
-		if v != nil {
-			return *v
-		}
-		var ret MonthlySchedule
-		return ret
-	}).(MonthlyScheduleOutput)
+	return o.ApplyT(func(v *MonthlySchedule) MonthlySchedule { return *v }).(MonthlyScheduleOutput)
 }
 
 // Indicates which days of the month snapshot should be taken. A comma delimited string.
@@ -1920,7 +1890,7 @@ func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponsePtrOutput() Mont
 }
 
 func (o MonthlyScheduleResponseOutput) ToMonthlyScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlyScheduleResponse) *MonthlyScheduleResponse {
+	return o.ApplyT(func(v MonthlyScheduleResponse) *MonthlyScheduleResponse {
 		return &v
 	}).(MonthlyScheduleResponsePtrOutput)
 }
@@ -1965,13 +1935,7 @@ func (o MonthlyScheduleResponsePtrOutput) ToMonthlyScheduleResponsePtrOutputWith
 }
 
 func (o MonthlyScheduleResponsePtrOutput) Elem() MonthlyScheduleResponseOutput {
-	return o.ApplyT(func(v *MonthlyScheduleResponse) MonthlyScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MonthlyScheduleResponse
-		return ret
-	}).(MonthlyScheduleResponseOutput)
+	return o.ApplyT(func(v *MonthlyScheduleResponse) MonthlyScheduleResponse { return *v }).(MonthlyScheduleResponseOutput)
 }
 
 // Indicates which days of the month snapshot should be taken. A comma delimited string.
@@ -2263,7 +2227,7 @@ func (o ReplicationObjectOutput) ToReplicationObjectPtrOutput() ReplicationObjec
 }
 
 func (o ReplicationObjectOutput) ToReplicationObjectPtrOutputWithContext(ctx context.Context) ReplicationObjectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObject) *ReplicationObject {
+	return o.ApplyT(func(v ReplicationObject) *ReplicationObject {
 		return &v
 	}).(ReplicationObjectPtrOutput)
 }
@@ -2308,13 +2272,7 @@ func (o ReplicationObjectPtrOutput) ToReplicationObjectPtrOutputWithContext(ctx 
 }
 
 func (o ReplicationObjectPtrOutput) Elem() ReplicationObjectOutput {
-	return o.ApplyT(func(v *ReplicationObject) ReplicationObject {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationObject
-		return ret
-	}).(ReplicationObjectOutput)
+	return o.ApplyT(func(v *ReplicationObject) ReplicationObject { return *v }).(ReplicationObjectOutput)
 }
 
 // Indicates whether the local volume is the source or destination for the Volume Replication
@@ -2479,7 +2437,7 @@ func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutput() 
 }
 
 func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObjectResponse) *ReplicationObjectResponse {
+	return o.ApplyT(func(v ReplicationObjectResponse) *ReplicationObjectResponse {
 		return &v
 	}).(ReplicationObjectResponsePtrOutput)
 }
@@ -2524,13 +2482,7 @@ func (o ReplicationObjectResponsePtrOutput) ToReplicationObjectResponsePtrOutput
 }
 
 func (o ReplicationObjectResponsePtrOutput) Elem() ReplicationObjectResponseOutput {
-	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationObjectResponse
-		return ret
-	}).(ReplicationObjectResponseOutput)
+	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse { return *v }).(ReplicationObjectResponseOutput)
 }
 
 // Indicates whether the local volume is the source or destination for the Volume Replication
@@ -2691,7 +2643,7 @@ func (o VolumeBackupPropertiesOutput) ToVolumeBackupPropertiesPtrOutput() Volume
 }
 
 func (o VolumeBackupPropertiesOutput) ToVolumeBackupPropertiesPtrOutputWithContext(ctx context.Context) VolumeBackupPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBackupProperties) *VolumeBackupProperties {
+	return o.ApplyT(func(v VolumeBackupProperties) *VolumeBackupProperties {
 		return &v
 	}).(VolumeBackupPropertiesPtrOutput)
 }
@@ -2731,13 +2683,7 @@ func (o VolumeBackupPropertiesPtrOutput) ToVolumeBackupPropertiesPtrOutputWithCo
 }
 
 func (o VolumeBackupPropertiesPtrOutput) Elem() VolumeBackupPropertiesOutput {
-	return o.ApplyT(func(v *VolumeBackupProperties) VolumeBackupProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VolumeBackupProperties
-		return ret
-	}).(VolumeBackupPropertiesOutput)
+	return o.ApplyT(func(v *VolumeBackupProperties) VolumeBackupProperties { return *v }).(VolumeBackupPropertiesOutput)
 }
 
 // Backup Enabled
@@ -2888,7 +2834,7 @@ func (o VolumeBackupPropertiesResponseOutput) ToVolumeBackupPropertiesResponsePt
 }
 
 func (o VolumeBackupPropertiesResponseOutput) ToVolumeBackupPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeBackupPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBackupPropertiesResponse) *VolumeBackupPropertiesResponse {
+	return o.ApplyT(func(v VolumeBackupPropertiesResponse) *VolumeBackupPropertiesResponse {
 		return &v
 	}).(VolumeBackupPropertiesResponsePtrOutput)
 }
@@ -2928,13 +2874,7 @@ func (o VolumeBackupPropertiesResponsePtrOutput) ToVolumeBackupPropertiesRespons
 }
 
 func (o VolumeBackupPropertiesResponsePtrOutput) Elem() VolumeBackupPropertiesResponseOutput {
-	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) VolumeBackupPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VolumeBackupPropertiesResponse
-		return ret
-	}).(VolumeBackupPropertiesResponseOutput)
+	return o.ApplyT(func(v *VolumeBackupPropertiesResponse) VolumeBackupPropertiesResponse { return *v }).(VolumeBackupPropertiesResponseOutput)
 }
 
 // Backup Enabled
@@ -3317,7 +3257,7 @@ func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPt
 }
 
 func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesDataProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
+	return o.ApplyT(func(v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
 		return &v
 	}).(VolumePropertiesDataProtectionPtrOutput)
 }
@@ -3352,13 +3292,7 @@ func (o VolumePropertiesDataProtectionPtrOutput) ToVolumePropertiesDataProtectio
 }
 
 func (o VolumePropertiesDataProtectionPtrOutput) Elem() VolumePropertiesDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection {
-		if v != nil {
-			return *v
-		}
-		var ret VolumePropertiesDataProtection
-		return ret
-	}).(VolumePropertiesDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection { return *v }).(VolumePropertiesDataProtectionOutput)
 }
 
 // Backup Properties
@@ -3487,7 +3421,7 @@ func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOut
 }
 
 func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
+	return o.ApplyT(func(v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
 		return &v
 	}).(VolumePropertiesExportPolicyPtrOutput)
 }
@@ -3512,13 +3446,7 @@ func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtr
 }
 
 func (o VolumePropertiesExportPolicyPtrOutput) Elem() VolumePropertiesExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret VolumePropertiesExportPolicy
-		return ret
-	}).(VolumePropertiesExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy { return *v }).(VolumePropertiesExportPolicyOutput)
 }
 
 // Export policy rule
@@ -3635,7 +3563,7 @@ func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponse
 }
 
 func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
+	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
 		return &v
 	}).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
@@ -3670,13 +3598,7 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) ToVolumePropertiesRespo
 }
 
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Elem() VolumePropertiesResponseDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection {
-		if v != nil {
-			return *v
-		}
-		var ret VolumePropertiesResponseDataProtection
-		return ret
-	}).(VolumePropertiesResponseDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection { return *v }).(VolumePropertiesResponseDataProtectionOutput)
 }
 
 // Backup Properties
@@ -3805,7 +3727,7 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 }
 
 func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
+	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
 		return &v
 	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
@@ -3830,13 +3752,7 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesRespons
 }
 
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret VolumePropertiesResponseExportPolicy
-		return ret
-	}).(VolumePropertiesResponseExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
 }
 
 // Export policy rule
@@ -3945,7 +3861,7 @@ func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutput() Vo
 }
 
 func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnapshotProperties) *VolumeSnapshotProperties {
+	return o.ApplyT(func(v VolumeSnapshotProperties) *VolumeSnapshotProperties {
 		return &v
 	}).(VolumeSnapshotPropertiesPtrOutput)
 }
@@ -3970,13 +3886,7 @@ func (o VolumeSnapshotPropertiesPtrOutput) ToVolumeSnapshotPropertiesPtrOutputWi
 }
 
 func (o VolumeSnapshotPropertiesPtrOutput) Elem() VolumeSnapshotPropertiesOutput {
-	return o.ApplyT(func(v *VolumeSnapshotProperties) VolumeSnapshotProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VolumeSnapshotProperties
-		return ret
-	}).(VolumeSnapshotPropertiesOutput)
+	return o.ApplyT(func(v *VolumeSnapshotProperties) VolumeSnapshotProperties { return *v }).(VolumeSnapshotPropertiesOutput)
 }
 
 // Snapshot Policy ResourceId
@@ -4085,7 +3995,7 @@ func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesRespon
 }
 
 func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnapshotPropertiesResponse) *VolumeSnapshotPropertiesResponse {
+	return o.ApplyT(func(v VolumeSnapshotPropertiesResponse) *VolumeSnapshotPropertiesResponse {
 		return &v
 	}).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
@@ -4110,13 +4020,7 @@ func (o VolumeSnapshotPropertiesResponsePtrOutput) ToVolumeSnapshotPropertiesRes
 }
 
 func (o VolumeSnapshotPropertiesResponsePtrOutput) Elem() VolumeSnapshotPropertiesResponseOutput {
-	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) VolumeSnapshotPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VolumeSnapshotPropertiesResponse
-		return ret
-	}).(VolumeSnapshotPropertiesResponseOutput)
+	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) VolumeSnapshotPropertiesResponse { return *v }).(VolumeSnapshotPropertiesResponseOutput)
 }
 
 // Snapshot Policy ResourceId
@@ -4241,7 +4145,7 @@ func (o WeeklyScheduleOutput) ToWeeklySchedulePtrOutput() WeeklySchedulePtrOutpu
 }
 
 func (o WeeklyScheduleOutput) ToWeeklySchedulePtrOutputWithContext(ctx context.Context) WeeklySchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklySchedule) *WeeklySchedule {
+	return o.ApplyT(func(v WeeklySchedule) *WeeklySchedule {
 		return &v
 	}).(WeeklySchedulePtrOutput)
 }
@@ -4286,13 +4190,7 @@ func (o WeeklySchedulePtrOutput) ToWeeklySchedulePtrOutputWithContext(ctx contex
 }
 
 func (o WeeklySchedulePtrOutput) Elem() WeeklyScheduleOutput {
-	return o.ApplyT(func(v *WeeklySchedule) WeeklySchedule {
-		if v != nil {
-			return *v
-		}
-		var ret WeeklySchedule
-		return ret
-	}).(WeeklyScheduleOutput)
+	return o.ApplyT(func(v *WeeklySchedule) WeeklySchedule { return *v }).(WeeklyScheduleOutput)
 }
 
 // Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
@@ -4457,7 +4355,7 @@ func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponsePtrOutput() Weekly
 }
 
 func (o WeeklyScheduleResponseOutput) ToWeeklyScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyScheduleResponse) *WeeklyScheduleResponse {
+	return o.ApplyT(func(v WeeklyScheduleResponse) *WeeklyScheduleResponse {
 		return &v
 	}).(WeeklyScheduleResponsePtrOutput)
 }
@@ -4502,13 +4400,7 @@ func (o WeeklyScheduleResponsePtrOutput) ToWeeklyScheduleResponsePtrOutputWithCo
 }
 
 func (o WeeklyScheduleResponsePtrOutput) Elem() WeeklyScheduleResponseOutput {
-	return o.ApplyT(func(v *WeeklyScheduleResponse) WeeklyScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WeeklyScheduleResponse
-		return ret
-	}).(WeeklyScheduleResponseOutput)
+	return o.ApplyT(func(v *WeeklyScheduleResponse) WeeklyScheduleResponse { return *v }).(WeeklyScheduleResponseOutput)
 }
 
 // Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english

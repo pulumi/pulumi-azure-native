@@ -490,7 +490,7 @@ func (o AzureBackupParamsOutput) ToAzureBackupParamsPtrOutput() AzureBackupParam
 }
 
 func (o AzureBackupParamsOutput) ToAzureBackupParamsPtrOutputWithContext(ctx context.Context) AzureBackupParamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBackupParams) *AzureBackupParams {
+	return o.ApplyT(func(v AzureBackupParams) *AzureBackupParams {
 		return &v
 	}).(AzureBackupParamsPtrOutput)
 }
@@ -521,13 +521,7 @@ func (o AzureBackupParamsPtrOutput) ToAzureBackupParamsPtrOutputWithContext(ctx 
 }
 
 func (o AzureBackupParamsPtrOutput) Elem() AzureBackupParamsOutput {
-	return o.ApplyT(func(v *AzureBackupParams) AzureBackupParams {
-		if v != nil {
-			return *v
-		}
-		var ret AzureBackupParams
-		return ret
-	}).(AzureBackupParamsOutput)
+	return o.ApplyT(func(v *AzureBackupParams) AzureBackupParams { return *v }).(AzureBackupParamsOutput)
 }
 
 // BackupType ; Full/Incremental etc
@@ -653,7 +647,7 @@ func (o AzureBackupParamsResponseOutput) ToAzureBackupParamsResponsePtrOutput() 
 }
 
 func (o AzureBackupParamsResponseOutput) ToAzureBackupParamsResponsePtrOutputWithContext(ctx context.Context) AzureBackupParamsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBackupParamsResponse) *AzureBackupParamsResponse {
+	return o.ApplyT(func(v AzureBackupParamsResponse) *AzureBackupParamsResponse {
 		return &v
 	}).(AzureBackupParamsResponsePtrOutput)
 }
@@ -684,13 +678,7 @@ func (o AzureBackupParamsResponsePtrOutput) ToAzureBackupParamsResponsePtrOutput
 }
 
 func (o AzureBackupParamsResponsePtrOutput) Elem() AzureBackupParamsResponseOutput {
-	return o.ApplyT(func(v *AzureBackupParamsResponse) AzureBackupParamsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureBackupParamsResponse
-		return ret
-	}).(AzureBackupParamsResponseOutput)
+	return o.ApplyT(func(v *AzureBackupParamsResponse) AzureBackupParamsResponse { return *v }).(AzureBackupParamsResponseOutput)
 }
 
 // BackupType ; Full/Incremental etc
@@ -1392,7 +1380,7 @@ func (o BackupInstanceTypeOutput) ToBackupInstanceTypePtrOutput() BackupInstance
 }
 
 func (o BackupInstanceTypeOutput) ToBackupInstanceTypePtrOutputWithContext(ctx context.Context) BackupInstanceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstanceType) *BackupInstanceType {
+	return o.ApplyT(func(v BackupInstanceType) *BackupInstanceType {
 		return &v
 	}).(BackupInstanceTypePtrOutput)
 }
@@ -1441,13 +1429,7 @@ func (o BackupInstanceTypePtrOutput) ToBackupInstanceTypePtrOutputWithContext(ct
 }
 
 func (o BackupInstanceTypePtrOutput) Elem() BackupInstanceTypeOutput {
-	return o.ApplyT(func(v *BackupInstanceType) BackupInstanceType {
-		if v != nil {
-			return *v
-		}
-		var ret BackupInstanceType
-		return ret
-	}).(BackupInstanceTypeOutput)
+	return o.ApplyT(func(v *BackupInstanceType) BackupInstanceType { return *v }).(BackupInstanceTypeOutput)
 }
 
 // Gets or sets the data source information.
@@ -1639,7 +1621,7 @@ func (o BackupInstanceResponseOutput) ToBackupInstanceResponsePtrOutput() Backup
 }
 
 func (o BackupInstanceResponseOutput) ToBackupInstanceResponsePtrOutputWithContext(ctx context.Context) BackupInstanceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstanceResponse) *BackupInstanceResponse {
+	return o.ApplyT(func(v BackupInstanceResponse) *BackupInstanceResponse {
 		return &v
 	}).(BackupInstanceResponsePtrOutput)
 }
@@ -1710,13 +1692,7 @@ func (o BackupInstanceResponsePtrOutput) ToBackupInstanceResponsePtrOutputWithCo
 }
 
 func (o BackupInstanceResponsePtrOutput) Elem() BackupInstanceResponseOutput {
-	return o.ApplyT(func(v *BackupInstanceResponse) BackupInstanceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackupInstanceResponse
-		return ret
-	}).(BackupInstanceResponseOutput)
+	return o.ApplyT(func(v *BackupInstanceResponse) BackupInstanceResponse { return *v }).(BackupInstanceResponseOutput)
 }
 
 // Specifies the current protection state of the resource
@@ -1922,7 +1898,7 @@ func (o BackupPolicyTypeOutput) ToBackupPolicyTypePtrOutput() BackupPolicyTypePt
 }
 
 func (o BackupPolicyTypeOutput) ToBackupPolicyTypePtrOutputWithContext(ctx context.Context) BackupPolicyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyType) *BackupPolicyType {
+	return o.ApplyT(func(v BackupPolicyType) *BackupPolicyType {
 		return &v
 	}).(BackupPolicyTypePtrOutput)
 }
@@ -1957,13 +1933,7 @@ func (o BackupPolicyTypePtrOutput) ToBackupPolicyTypePtrOutputWithContext(ctx co
 }
 
 func (o BackupPolicyTypePtrOutput) Elem() BackupPolicyTypeOutput {
-	return o.ApplyT(func(v *BackupPolicyType) BackupPolicyType {
-		if v != nil {
-			return *v
-		}
-		var ret BackupPolicyType
-		return ret
-	}).(BackupPolicyTypeOutput)
+	return o.ApplyT(func(v *BackupPolicyType) BackupPolicyType { return *v }).(BackupPolicyTypeOutput)
 }
 
 // Type of datasource for the backup management
@@ -2100,7 +2070,7 @@ func (o BackupPolicyResponseOutput) ToBackupPolicyResponsePtrOutput() BackupPoli
 }
 
 func (o BackupPolicyResponseOutput) ToBackupPolicyResponsePtrOutputWithContext(ctx context.Context) BackupPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyResponse) *BackupPolicyResponse {
+	return o.ApplyT(func(v BackupPolicyResponse) *BackupPolicyResponse {
 		return &v
 	}).(BackupPolicyResponsePtrOutput)
 }
@@ -2135,13 +2105,7 @@ func (o BackupPolicyResponsePtrOutput) ToBackupPolicyResponsePtrOutputWithContex
 }
 
 func (o BackupPolicyResponsePtrOutput) Elem() BackupPolicyResponseOutput {
-	return o.ApplyT(func(v *BackupPolicyResponse) BackupPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackupPolicyResponse
-		return ret
-	}).(BackupPolicyResponseOutput)
+	return o.ApplyT(func(v *BackupPolicyResponse) BackupPolicyResponse { return *v }).(BackupPolicyResponseOutput)
 }
 
 // Type of datasource for the backup management
@@ -2398,7 +2362,7 @@ func (o BackupVaultTypeOutput) ToBackupVaultTypePtrOutput() BackupVaultTypePtrOu
 }
 
 func (o BackupVaultTypeOutput) ToBackupVaultTypePtrOutputWithContext(ctx context.Context) BackupVaultTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultType) *BackupVaultType {
+	return o.ApplyT(func(v BackupVaultType) *BackupVaultType {
 		return &v
 	}).(BackupVaultTypePtrOutput)
 }
@@ -2423,13 +2387,7 @@ func (o BackupVaultTypePtrOutput) ToBackupVaultTypePtrOutputWithContext(ctx cont
 }
 
 func (o BackupVaultTypePtrOutput) Elem() BackupVaultTypeOutput {
-	return o.ApplyT(func(v *BackupVaultType) BackupVaultType {
-		if v != nil {
-			return *v
-		}
-		var ret BackupVaultType
-		return ret
-	}).(BackupVaultTypeOutput)
+	return o.ApplyT(func(v *BackupVaultType) BackupVaultType { return *v }).(BackupVaultTypeOutput)
 }
 
 // Storage Settings
@@ -2550,7 +2508,7 @@ func (o BackupVaultResponseOutput) ToBackupVaultResponsePtrOutput() BackupVaultR
 }
 
 func (o BackupVaultResponseOutput) ToBackupVaultResponsePtrOutputWithContext(ctx context.Context) BackupVaultResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultResponse) *BackupVaultResponse {
+	return o.ApplyT(func(v BackupVaultResponse) *BackupVaultResponse {
 		return &v
 	}).(BackupVaultResponsePtrOutput)
 }
@@ -2590,13 +2548,7 @@ func (o BackupVaultResponsePtrOutput) ToBackupVaultResponsePtrOutputWithContext(
 }
 
 func (o BackupVaultResponsePtrOutput) Elem() BackupVaultResponseOutput {
-	return o.ApplyT(func(v *BackupVaultResponse) BackupVaultResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BackupVaultResponse
-		return ret
-	}).(BackupVaultResponseOutput)
+	return o.ApplyT(func(v *BackupVaultResponse) BackupVaultResponse { return *v }).(BackupVaultResponseOutput)
 }
 
 // Provisioning state of the BackupVault resource
@@ -3137,7 +3089,7 @@ func (o DatasourceOutput) ToDatasourcePtrOutput() DatasourcePtrOutput {
 }
 
 func (o DatasourceOutput) ToDatasourcePtrOutputWithContext(ctx context.Context) DatasourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Datasource) *Datasource {
+	return o.ApplyT(func(v Datasource) *Datasource {
 		return &v
 	}).(DatasourcePtrOutput)
 }
@@ -3192,13 +3144,7 @@ func (o DatasourcePtrOutput) ToDatasourcePtrOutputWithContext(ctx context.Contex
 }
 
 func (o DatasourcePtrOutput) Elem() DatasourceOutput {
-	return o.ApplyT(func(v *Datasource) Datasource {
-		if v != nil {
-			return *v
-		}
-		var ret Datasource
-		return ret
-	}).(DatasourceOutput)
+	return o.ApplyT(func(v *Datasource) Datasource { return *v }).(DatasourceOutput)
 }
 
 // DatasourceType of the resource.
@@ -3391,7 +3337,7 @@ func (o DatasourceResponseOutput) ToDatasourceResponsePtrOutput() DatasourceResp
 }
 
 func (o DatasourceResponseOutput) ToDatasourceResponsePtrOutputWithContext(ctx context.Context) DatasourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasourceResponse) *DatasourceResponse {
+	return o.ApplyT(func(v DatasourceResponse) *DatasourceResponse {
 		return &v
 	}).(DatasourceResponsePtrOutput)
 }
@@ -3446,13 +3392,7 @@ func (o DatasourceResponsePtrOutput) ToDatasourceResponsePtrOutputWithContext(ct
 }
 
 func (o DatasourceResponsePtrOutput) Elem() DatasourceResponseOutput {
-	return o.ApplyT(func(v *DatasourceResponse) DatasourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DatasourceResponse
-		return ret
-	}).(DatasourceResponseOutput)
+	return o.ApplyT(func(v *DatasourceResponse) DatasourceResponse { return *v }).(DatasourceResponseOutput)
 }
 
 // DatasourceType of the resource.
@@ -3645,7 +3585,7 @@ func (o DatasourceSetOutput) ToDatasourceSetPtrOutput() DatasourceSetPtrOutput {
 }
 
 func (o DatasourceSetOutput) ToDatasourceSetPtrOutputWithContext(ctx context.Context) DatasourceSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasourceSet) *DatasourceSet {
+	return o.ApplyT(func(v DatasourceSet) *DatasourceSet {
 		return &v
 	}).(DatasourceSetPtrOutput)
 }
@@ -3700,13 +3640,7 @@ func (o DatasourceSetPtrOutput) ToDatasourceSetPtrOutputWithContext(ctx context.
 }
 
 func (o DatasourceSetPtrOutput) Elem() DatasourceSetOutput {
-	return o.ApplyT(func(v *DatasourceSet) DatasourceSet {
-		if v != nil {
-			return *v
-		}
-		var ret DatasourceSet
-		return ret
-	}).(DatasourceSetOutput)
+	return o.ApplyT(func(v *DatasourceSet) DatasourceSet { return *v }).(DatasourceSetOutput)
 }
 
 // DatasourceType of the resource.
@@ -3899,7 +3833,7 @@ func (o DatasourceSetResponseOutput) ToDatasourceSetResponsePtrOutput() Datasour
 }
 
 func (o DatasourceSetResponseOutput) ToDatasourceSetResponsePtrOutputWithContext(ctx context.Context) DatasourceSetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasourceSetResponse) *DatasourceSetResponse {
+	return o.ApplyT(func(v DatasourceSetResponse) *DatasourceSetResponse {
 		return &v
 	}).(DatasourceSetResponsePtrOutput)
 }
@@ -3954,13 +3888,7 @@ func (o DatasourceSetResponsePtrOutput) ToDatasourceSetResponsePtrOutputWithCont
 }
 
 func (o DatasourceSetResponsePtrOutput) Elem() DatasourceSetResponseOutput {
-	return o.ApplyT(func(v *DatasourceSetResponse) DatasourceSetResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DatasourceSetResponse
-		return ret
-	}).(DatasourceSetResponseOutput)
+	return o.ApplyT(func(v *DatasourceSetResponse) DatasourceSetResponse { return *v }).(DatasourceSetResponseOutput)
 }
 
 // DatasourceType of the resource.
@@ -4347,7 +4275,7 @@ func (o DppIdentityDetailsOutput) ToDppIdentityDetailsPtrOutput() DppIdentityDet
 }
 
 func (o DppIdentityDetailsOutput) ToDppIdentityDetailsPtrOutputWithContext(ctx context.Context) DppIdentityDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DppIdentityDetails) *DppIdentityDetails {
+	return o.ApplyT(func(v DppIdentityDetails) *DppIdentityDetails {
 		return &v
 	}).(DppIdentityDetailsPtrOutput)
 }
@@ -4372,13 +4300,7 @@ func (o DppIdentityDetailsPtrOutput) ToDppIdentityDetailsPtrOutputWithContext(ct
 }
 
 func (o DppIdentityDetailsPtrOutput) Elem() DppIdentityDetailsOutput {
-	return o.ApplyT(func(v *DppIdentityDetails) DppIdentityDetails {
-		if v != nil {
-			return *v
-		}
-		var ret DppIdentityDetails
-		return ret
-	}).(DppIdentityDetailsOutput)
+	return o.ApplyT(func(v *DppIdentityDetails) DppIdentityDetails { return *v }).(DppIdentityDetailsOutput)
 }
 
 // The identityType which can be either SystemAssigned or None
@@ -4495,7 +4417,7 @@ func (o DppIdentityDetailsResponseOutput) ToDppIdentityDetailsResponsePtrOutput(
 }
 
 func (o DppIdentityDetailsResponseOutput) ToDppIdentityDetailsResponsePtrOutputWithContext(ctx context.Context) DppIdentityDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DppIdentityDetailsResponse) *DppIdentityDetailsResponse {
+	return o.ApplyT(func(v DppIdentityDetailsResponse) *DppIdentityDetailsResponse {
 		return &v
 	}).(DppIdentityDetailsResponsePtrOutput)
 }
@@ -4530,13 +4452,7 @@ func (o DppIdentityDetailsResponsePtrOutput) ToDppIdentityDetailsResponsePtrOutp
 }
 
 func (o DppIdentityDetailsResponsePtrOutput) Elem() DppIdentityDetailsResponseOutput {
-	return o.ApplyT(func(v *DppIdentityDetailsResponse) DppIdentityDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DppIdentityDetailsResponse
-		return ret
-	}).(DppIdentityDetailsResponseOutput)
+	return o.ApplyT(func(v *DppIdentityDetailsResponse) DppIdentityDetailsResponse { return *v }).(DppIdentityDetailsResponseOutput)
 }
 
 // The object ID of the service principal object for the managed identity that is used to grant role-based access to an Azure resource.
@@ -4789,7 +4705,7 @@ func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutput() InnerErrorResp
 }
 
 func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InnerErrorResponse) *InnerErrorResponse {
+	return o.ApplyT(func(v InnerErrorResponse) *InnerErrorResponse {
 		return &v
 	}).(InnerErrorResponsePtrOutput)
 }
@@ -4824,13 +4740,7 @@ func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutputWithContext(ct
 }
 
 func (o InnerErrorResponsePtrOutput) Elem() InnerErrorResponseOutput {
-	return o.ApplyT(func(v *InnerErrorResponse) InnerErrorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InnerErrorResponse
-		return ret
-	}).(InnerErrorResponseOutput)
+	return o.ApplyT(func(v *InnerErrorResponse) InnerErrorResponse { return *v }).(InnerErrorResponseOutput)
 }
 
 // Any Key value pairs that can be provided to the client for additional  verbose information.
@@ -4961,11 +4871,10 @@ func (o PolicyInfoOutput) ToPolicyInfoPtrOutput() PolicyInfoPtrOutput {
 }
 
 func (o PolicyInfoOutput) ToPolicyInfoPtrOutputWithContext(ctx context.Context) PolicyInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyInfo) *PolicyInfo {
+	return o.ApplyT(func(v PolicyInfo) *PolicyInfo {
 		return &v
 	}).(PolicyInfoPtrOutput)
 }
-
 func (o PolicyInfoOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyInfo) string { return v.PolicyId }).(pulumi.StringOutput)
 }
@@ -4990,13 +4899,7 @@ func (o PolicyInfoPtrOutput) ToPolicyInfoPtrOutputWithContext(ctx context.Contex
 }
 
 func (o PolicyInfoPtrOutput) Elem() PolicyInfoOutput {
-	return o.ApplyT(func(v *PolicyInfo) PolicyInfo {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyInfo
-		return ret
-	}).(PolicyInfoOutput)
+	return o.ApplyT(func(v *PolicyInfo) PolicyInfo { return *v }).(PolicyInfoOutput)
 }
 
 func (o PolicyInfoPtrOutput) PolicyId() pulumi.StringPtrOutput {
@@ -5118,11 +5021,10 @@ func (o PolicyInfoResponseOutput) ToPolicyInfoResponsePtrOutput() PolicyInfoResp
 }
 
 func (o PolicyInfoResponseOutput) ToPolicyInfoResponsePtrOutputWithContext(ctx context.Context) PolicyInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyInfoResponse) *PolicyInfoResponse {
+	return o.ApplyT(func(v PolicyInfoResponse) *PolicyInfoResponse {
 		return &v
 	}).(PolicyInfoResponsePtrOutput)
 }
-
 func (o PolicyInfoResponseOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyInfoResponse) string { return v.PolicyId }).(pulumi.StringOutput)
 }
@@ -5151,13 +5053,7 @@ func (o PolicyInfoResponsePtrOutput) ToPolicyInfoResponsePtrOutputWithContext(ct
 }
 
 func (o PolicyInfoResponsePtrOutput) Elem() PolicyInfoResponseOutput {
-	return o.ApplyT(func(v *PolicyInfoResponse) PolicyInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyInfoResponse
-		return ret
-	}).(PolicyInfoResponseOutput)
+	return o.ApplyT(func(v *PolicyInfoResponse) PolicyInfoResponse { return *v }).(PolicyInfoResponseOutput)
 }
 
 func (o PolicyInfoResponsePtrOutput) PolicyId() pulumi.StringPtrOutput {
@@ -5284,7 +5180,7 @@ func (o PolicyParametersOutput) ToPolicyParametersPtrOutput() PolicyParametersPt
 }
 
 func (o PolicyParametersOutput) ToPolicyParametersPtrOutputWithContext(ctx context.Context) PolicyParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyParameters) *PolicyParameters {
+	return o.ApplyT(func(v PolicyParameters) *PolicyParameters {
 		return &v
 	}).(PolicyParametersPtrOutput)
 }
@@ -5309,13 +5205,7 @@ func (o PolicyParametersPtrOutput) ToPolicyParametersPtrOutputWithContext(ctx co
 }
 
 func (o PolicyParametersPtrOutput) Elem() PolicyParametersOutput {
-	return o.ApplyT(func(v *PolicyParameters) PolicyParameters {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyParameters
-		return ret
-	}).(PolicyParametersOutput)
+	return o.ApplyT(func(v *PolicyParameters) PolicyParameters { return *v }).(PolicyParametersOutput)
 }
 
 // Gets or sets the DataStore Parameters
@@ -5424,7 +5314,7 @@ func (o PolicyParametersResponseOutput) ToPolicyParametersResponsePtrOutput() Po
 }
 
 func (o PolicyParametersResponseOutput) ToPolicyParametersResponsePtrOutputWithContext(ctx context.Context) PolicyParametersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyParametersResponse) *PolicyParametersResponse {
+	return o.ApplyT(func(v PolicyParametersResponse) *PolicyParametersResponse {
 		return &v
 	}).(PolicyParametersResponsePtrOutput)
 }
@@ -5451,13 +5341,7 @@ func (o PolicyParametersResponsePtrOutput) ToPolicyParametersResponsePtrOutputWi
 }
 
 func (o PolicyParametersResponsePtrOutput) Elem() PolicyParametersResponseOutput {
-	return o.ApplyT(func(v *PolicyParametersResponse) PolicyParametersResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyParametersResponse
-		return ret
-	}).(PolicyParametersResponseOutput)
+	return o.ApplyT(func(v *PolicyParametersResponse) PolicyParametersResponse { return *v }).(PolicyParametersResponseOutput)
 }
 
 // Gets or sets the DataStore Parameters
@@ -5570,7 +5454,7 @@ func (o ProtectionStatusDetailsResponseOutput) ToProtectionStatusDetailsResponse
 }
 
 func (o ProtectionStatusDetailsResponseOutput) ToProtectionStatusDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionStatusDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionStatusDetailsResponse) *ProtectionStatusDetailsResponse {
+	return o.ApplyT(func(v ProtectionStatusDetailsResponse) *ProtectionStatusDetailsResponse {
 		return &v
 	}).(ProtectionStatusDetailsResponsePtrOutput)
 }
@@ -5600,13 +5484,7 @@ func (o ProtectionStatusDetailsResponsePtrOutput) ToProtectionStatusDetailsRespo
 }
 
 func (o ProtectionStatusDetailsResponsePtrOutput) Elem() ProtectionStatusDetailsResponseOutput {
-	return o.ApplyT(func(v *ProtectionStatusDetailsResponse) ProtectionStatusDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectionStatusDetailsResponse
-		return ret
-	}).(ProtectionStatusDetailsResponseOutput)
+	return o.ApplyT(func(v *ProtectionStatusDetailsResponse) ProtectionStatusDetailsResponse { return *v }).(ProtectionStatusDetailsResponseOutput)
 }
 
 // Specifies the protection status error of the resource
@@ -5847,7 +5725,7 @@ func (o ResourceGuardResponseOutput) ToResourceGuardResponsePtrOutput() Resource
 }
 
 func (o ResourceGuardResponseOutput) ToResourceGuardResponsePtrOutputWithContext(ctx context.Context) ResourceGuardResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGuardResponse) *ResourceGuardResponse {
+	return o.ApplyT(func(v ResourceGuardResponse) *ResourceGuardResponse {
 		return &v
 	}).(ResourceGuardResponsePtrOutput)
 }
@@ -5892,13 +5770,7 @@ func (o ResourceGuardResponsePtrOutput) ToResourceGuardResponsePtrOutputWithCont
 }
 
 func (o ResourceGuardResponsePtrOutput) Elem() ResourceGuardResponseOutput {
-	return o.ApplyT(func(v *ResourceGuardResponse) ResourceGuardResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceGuardResponse
-		return ret
-	}).(ResourceGuardResponseOutput)
+	return o.ApplyT(func(v *ResourceGuardResponse) ResourceGuardResponse { return *v }).(ResourceGuardResponseOutput)
 }
 
 // This flag indicates whether auto approval is allowed or not.
@@ -6063,7 +5935,7 @@ func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponsePtrOutpu
 }
 
 func (o ResourceMoveDetailsResponseOutput) ToResourceMoveDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceMoveDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceMoveDetailsResponse) *ResourceMoveDetailsResponse {
+	return o.ApplyT(func(v ResourceMoveDetailsResponse) *ResourceMoveDetailsResponse {
 		return &v
 	}).(ResourceMoveDetailsResponsePtrOutput)
 }
@@ -6108,13 +5980,7 @@ func (o ResourceMoveDetailsResponsePtrOutput) ToResourceMoveDetailsResponsePtrOu
 }
 
 func (o ResourceMoveDetailsResponsePtrOutput) Elem() ResourceMoveDetailsResponseOutput {
-	return o.ApplyT(func(v *ResourceMoveDetailsResponse) ResourceMoveDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceMoveDetailsResponse
-		return ret
-	}).(ResourceMoveDetailsResponseOutput)
+	return o.ApplyT(func(v *ResourceMoveDetailsResponse) ResourceMoveDetailsResponse { return *v }).(ResourceMoveDetailsResponseOutput)
 }
 
 // Completion time in UTC of latest ResourceMove operation attempted. ISO 8601 format.
@@ -6263,7 +6129,7 @@ func (o RetentionTagOutput) ToRetentionTagPtrOutput() RetentionTagPtrOutput {
 }
 
 func (o RetentionTagOutput) ToRetentionTagPtrOutputWithContext(ctx context.Context) RetentionTagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionTag) *RetentionTag {
+	return o.ApplyT(func(v RetentionTag) *RetentionTag {
 		return &v
 	}).(RetentionTagPtrOutput)
 }
@@ -6288,13 +6154,7 @@ func (o RetentionTagPtrOutput) ToRetentionTagPtrOutputWithContext(ctx context.Co
 }
 
 func (o RetentionTagPtrOutput) Elem() RetentionTagOutput {
-	return o.ApplyT(func(v *RetentionTag) RetentionTag {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionTag
-		return ret
-	}).(RetentionTagOutput)
+	return o.ApplyT(func(v *RetentionTag) RetentionTag { return *v }).(RetentionTagOutput)
 }
 
 // Retention Tag Name to relate it to retention rule.
@@ -6411,7 +6271,7 @@ func (o RetentionTagResponseOutput) ToRetentionTagResponsePtrOutput() RetentionT
 }
 
 func (o RetentionTagResponseOutput) ToRetentionTagResponsePtrOutputWithContext(ctx context.Context) RetentionTagResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionTagResponse) *RetentionTagResponse {
+	return o.ApplyT(func(v RetentionTagResponse) *RetentionTagResponse {
 		return &v
 	}).(RetentionTagResponsePtrOutput)
 }
@@ -6446,13 +6306,7 @@ func (o RetentionTagResponsePtrOutput) ToRetentionTagResponsePtrOutputWithContex
 }
 
 func (o RetentionTagResponsePtrOutput) Elem() RetentionTagResponseOutput {
-	return o.ApplyT(func(v *RetentionTagResponse) RetentionTagResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionTagResponse
-		return ret
-	}).(RetentionTagResponseOutput)
+	return o.ApplyT(func(v *RetentionTagResponse) RetentionTagResponse { return *v }).(RetentionTagResponseOutput)
 }
 
 // Retention Tag version.
@@ -7059,7 +6913,7 @@ func (o SecretStoreBasedAuthCredentialsOutput) ToSecretStoreBasedAuthCredentials
 }
 
 func (o SecretStoreBasedAuthCredentialsOutput) ToSecretStoreBasedAuthCredentialsPtrOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretStoreBasedAuthCredentials) *SecretStoreBasedAuthCredentials {
+	return o.ApplyT(func(v SecretStoreBasedAuthCredentials) *SecretStoreBasedAuthCredentials {
 		return &v
 	}).(SecretStoreBasedAuthCredentialsPtrOutput)
 }
@@ -7090,13 +6944,7 @@ func (o SecretStoreBasedAuthCredentialsPtrOutput) ToSecretStoreBasedAuthCredenti
 }
 
 func (o SecretStoreBasedAuthCredentialsPtrOutput) Elem() SecretStoreBasedAuthCredentialsOutput {
-	return o.ApplyT(func(v *SecretStoreBasedAuthCredentials) SecretStoreBasedAuthCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret SecretStoreBasedAuthCredentials
-		return ret
-	}).(SecretStoreBasedAuthCredentialsOutput)
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentials) SecretStoreBasedAuthCredentials { return *v }).(SecretStoreBasedAuthCredentialsOutput)
 }
 
 // Type of the specific object - used for deserializing
@@ -7222,7 +7070,7 @@ func (o SecretStoreBasedAuthCredentialsResponseOutput) ToSecretStoreBasedAuthCre
 }
 
 func (o SecretStoreBasedAuthCredentialsResponseOutput) ToSecretStoreBasedAuthCredentialsResponsePtrOutputWithContext(ctx context.Context) SecretStoreBasedAuthCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretStoreBasedAuthCredentialsResponse) *SecretStoreBasedAuthCredentialsResponse {
+	return o.ApplyT(func(v SecretStoreBasedAuthCredentialsResponse) *SecretStoreBasedAuthCredentialsResponse {
 		return &v
 	}).(SecretStoreBasedAuthCredentialsResponsePtrOutput)
 }
@@ -7255,13 +7103,7 @@ func (o SecretStoreBasedAuthCredentialsResponsePtrOutput) ToSecretStoreBasedAuth
 }
 
 func (o SecretStoreBasedAuthCredentialsResponsePtrOutput) Elem() SecretStoreBasedAuthCredentialsResponseOutput {
-	return o.ApplyT(func(v *SecretStoreBasedAuthCredentialsResponse) SecretStoreBasedAuthCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecretStoreBasedAuthCredentialsResponse
-		return ret
-	}).(SecretStoreBasedAuthCredentialsResponseOutput)
+	return o.ApplyT(func(v *SecretStoreBasedAuthCredentialsResponse) SecretStoreBasedAuthCredentialsResponse { return *v }).(SecretStoreBasedAuthCredentialsResponseOutput)
 }
 
 // Type of the specific object - used for deserializing
@@ -7385,7 +7227,7 @@ func (o SecretStoreResourceOutput) ToSecretStoreResourcePtrOutput() SecretStoreR
 }
 
 func (o SecretStoreResourceOutput) ToSecretStoreResourcePtrOutputWithContext(ctx context.Context) SecretStoreResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretStoreResource) *SecretStoreResource {
+	return o.ApplyT(func(v SecretStoreResource) *SecretStoreResource {
 		return &v
 	}).(SecretStoreResourcePtrOutput)
 }
@@ -7415,13 +7257,7 @@ func (o SecretStoreResourcePtrOutput) ToSecretStoreResourcePtrOutputWithContext(
 }
 
 func (o SecretStoreResourcePtrOutput) Elem() SecretStoreResourceOutput {
-	return o.ApplyT(func(v *SecretStoreResource) SecretStoreResource {
-		if v != nil {
-			return *v
-		}
-		var ret SecretStoreResource
-		return ret
-	}).(SecretStoreResourceOutput)
+	return o.ApplyT(func(v *SecretStoreResource) SecretStoreResource { return *v }).(SecretStoreResourceOutput)
 }
 
 // Gets or sets the type of secret store
@@ -7544,7 +7380,7 @@ func (o SecretStoreResourceResponseOutput) ToSecretStoreResourceResponsePtrOutpu
 }
 
 func (o SecretStoreResourceResponseOutput) ToSecretStoreResourceResponsePtrOutputWithContext(ctx context.Context) SecretStoreResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretStoreResourceResponse) *SecretStoreResourceResponse {
+	return o.ApplyT(func(v SecretStoreResourceResponse) *SecretStoreResourceResponse {
 		return &v
 	}).(SecretStoreResourceResponsePtrOutput)
 }
@@ -7574,13 +7410,7 @@ func (o SecretStoreResourceResponsePtrOutput) ToSecretStoreResourceResponsePtrOu
 }
 
 func (o SecretStoreResourceResponsePtrOutput) Elem() SecretStoreResourceResponseOutput {
-	return o.ApplyT(func(v *SecretStoreResourceResponse) SecretStoreResourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecretStoreResourceResponse
-		return ret
-	}).(SecretStoreResourceResponseOutput)
+	return o.ApplyT(func(v *SecretStoreResourceResponse) SecretStoreResourceResponse { return *v }).(SecretStoreResourceResponseOutput)
 }
 
 // Gets or sets the type of secret store
@@ -8167,7 +7997,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -8217,13 +8047,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -8909,7 +8733,7 @@ func (o UserFacingErrorResponseOutput) ToUserFacingErrorResponsePtrOutput() User
 }
 
 func (o UserFacingErrorResponseOutput) ToUserFacingErrorResponsePtrOutputWithContext(ctx context.Context) UserFacingErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserFacingErrorResponse) *UserFacingErrorResponse {
+	return o.ApplyT(func(v UserFacingErrorResponse) *UserFacingErrorResponse {
 		return &v
 	}).(UserFacingErrorResponsePtrOutput)
 }
@@ -8973,13 +8797,7 @@ func (o UserFacingErrorResponsePtrOutput) ToUserFacingErrorResponsePtrOutputWith
 }
 
 func (o UserFacingErrorResponsePtrOutput) Elem() UserFacingErrorResponseOutput {
-	return o.ApplyT(func(v *UserFacingErrorResponse) UserFacingErrorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserFacingErrorResponse
-		return ret
-	}).(UserFacingErrorResponseOutput)
+	return o.ApplyT(func(v *UserFacingErrorResponse) UserFacingErrorResponse { return *v }).(UserFacingErrorResponseOutput)
 }
 
 // Unique code for this error

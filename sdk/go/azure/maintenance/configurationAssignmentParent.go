@@ -174,7 +174,9 @@ func (i *ConfigurationAssignmentParent) ToConfigurationAssignmentParentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAssignmentParentOutput)
 }
 
-type ConfigurationAssignmentParentOutput struct{ *pulumi.OutputState }
+type ConfigurationAssignmentParentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConfigurationAssignmentParentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationAssignmentParent)(nil))

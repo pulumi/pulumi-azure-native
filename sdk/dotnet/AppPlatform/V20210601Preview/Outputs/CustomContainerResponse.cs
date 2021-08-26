@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Outputs
 {
 
-    /// <summary>
-    /// Custom container payload
-    /// </summary>
     [OutputType]
     public sealed class CustomContainerResponse
     {

@@ -110,7 +110,7 @@ func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutput() Redi
 }
 
 func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisAccessKeysResponse) *RedisAccessKeysResponse {
+	return o.ApplyT(func(v RedisAccessKeysResponse) *RedisAccessKeysResponse {
 		return &v
 	}).(RedisAccessKeysResponsePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o RedisAccessKeysResponsePtrOutput) ToRedisAccessKeysResponsePtrOutputWith
 }
 
 func (o RedisAccessKeysResponsePtrOutput) Elem() RedisAccessKeysResponseOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RedisAccessKeysResponse
-		return ret
-	}).(RedisAccessKeysResponseOutput)
+	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse { return *v }).(RedisAccessKeysResponseOutput)
 }
 
 // The current primary key that clients can use to authenticate with Redis cache.
@@ -265,7 +259,7 @@ func (o RedisLinkedServerListResponseOutput) ToRedisLinkedServerListResponsePtrO
 }
 
 func (o RedisLinkedServerListResponseOutput) ToRedisLinkedServerListResponsePtrOutputWithContext(ctx context.Context) RedisLinkedServerListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisLinkedServerListResponse) *RedisLinkedServerListResponse {
+	return o.ApplyT(func(v RedisLinkedServerListResponse) *RedisLinkedServerListResponse {
 		return &v
 	}).(RedisLinkedServerListResponsePtrOutput)
 }
@@ -290,13 +284,7 @@ func (o RedisLinkedServerListResponsePtrOutput) ToRedisLinkedServerListResponseP
 }
 
 func (o RedisLinkedServerListResponsePtrOutput) Elem() RedisLinkedServerListResponseOutput {
-	return o.ApplyT(func(v *RedisLinkedServerListResponse) RedisLinkedServerListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RedisLinkedServerListResponse
-		return ret
-	}).(RedisLinkedServerListResponseOutput)
+	return o.ApplyT(func(v *RedisLinkedServerListResponse) RedisLinkedServerListResponse { return *v }).(RedisLinkedServerListResponseOutput)
 }
 
 // List of linked server Ids of a Redis cache.
@@ -412,7 +400,7 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 // Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntry struct {
 	// Day of the week when a cache can be patched.
-	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek string `pulumi:"dayOfWeek"`
 	// ISO8601 timespan specifying how much time cache patching can take.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Start hour after which cache patching can start.
@@ -433,7 +421,7 @@ type ScheduleEntryInput interface {
 // Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryArgs struct {
 	// Day of the week when a cache can be patched.
-	DayOfWeek DayOfWeekInput `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
 	// ISO8601 timespan specifying how much time cache patching can take.
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
 	// Start hour after which cache patching can start.
@@ -493,8 +481,8 @@ func (o ScheduleEntryOutput) ToScheduleEntryOutputWithContext(ctx context.Contex
 }
 
 // Day of the week when a cache can be patched.
-func (o ScheduleEntryOutput) DayOfWeek() DayOfWeekOutput {
-	return o.ApplyT(func(v ScheduleEntry) DayOfWeek { return v.DayOfWeek }).(DayOfWeekOutput)
+func (o ScheduleEntryOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleEntry) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
 // ISO8601 timespan specifying how much time cache patching can take.
@@ -749,7 +737,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -784,13 +772,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
@@ -927,7 +909,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -962,13 +944,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).

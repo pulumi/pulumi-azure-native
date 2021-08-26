@@ -124,25 +124,25 @@ type accountArgs struct {
 	// The Key Vault encryption configuration.
 	EncryptionConfig *EncryptionConfig `pulumi:"encryptionConfig"`
 	// The current state of encryption for this Data Lake Store account.
-	EncryptionState *EncryptionState `pulumi:"encryptionState"`
+	EncryptionState *string `pulumi:"encryptionState"`
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps *FirewallAllowAzureIpsState `pulumi:"firewallAllowAzureIps"`
+	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
 	// The list of firewall rules associated with this Data Lake Store account.
 	FirewallRules []CreateFirewallRuleWithAccountParameters `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this Data Lake Store account.
-	FirewallState *FirewallState `pulumi:"firewallState"`
+	FirewallState *string `pulumi:"firewallState"`
 	// The Key Vault encryption identity, if any.
 	Identity *EncryptionIdentity `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The commitment tier to use for next month.
-	NewTier *TierType `pulumi:"newTier"`
+	NewTier *string `pulumi:"newTier"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState *TrustedIdProviderStateEnum `pulumi:"trustedIdProviderState"`
+	TrustedIdProviderState *string `pulumi:"trustedIdProviderState"`
 	// The list of trusted identity providers associated with this Data Lake Store account.
 	TrustedIdProviders []CreateTrustedIdProviderWithAccountParameters `pulumi:"trustedIdProviders"`
 	// The list of virtual network rules associated with this Data Lake Store account.
@@ -158,25 +158,25 @@ type AccountArgs struct {
 	// The Key Vault encryption configuration.
 	EncryptionConfig EncryptionConfigPtrInput
 	// The current state of encryption for this Data Lake Store account.
-	EncryptionState EncryptionStatePtrInput
+	EncryptionState *EncryptionState
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps FirewallAllowAzureIpsStatePtrInput
+	FirewallAllowAzureIps *FirewallAllowAzureIpsState
 	// The list of firewall rules associated with this Data Lake Store account.
 	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
 	// The current state of the IP address firewall for this Data Lake Store account.
-	FirewallState FirewallStatePtrInput
+	FirewallState *FirewallState
 	// The Key Vault encryption identity, if any.
 	Identity EncryptionIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The commitment tier to use for next month.
-	NewTier TierTypePtrInput
+	NewTier *TierType
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState TrustedIdProviderStateEnumPtrInput
+	TrustedIdProviderState *TrustedIdProviderStateEnum
 	// The list of trusted identity providers associated with this Data Lake Store account.
 	TrustedIdProviders CreateTrustedIdProviderWithAccountParametersArrayInput
 	// The list of virtual network rules associated with this Data Lake Store account.
@@ -206,7 +206,9 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct{ *pulumi.OutputState }
+type AccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

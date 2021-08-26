@@ -206,7 +206,9 @@ func (i *LiveOutput) ToLiveOutputOutputWithContext(ctx context.Context) LiveOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LiveOutputOutput)
 }
 
-type LiveOutputOutput struct{ *pulumi.OutputState }
+type LiveOutputOutput struct {
+	*pulumi.OutputState
+}
 
 func (LiveOutputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveOutput)(nil))

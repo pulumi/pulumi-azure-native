@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20200501Preview.Outputs
 {
 
-    /// <summary>
-    /// The rule criteria that defines the conditions of the scheduled query rule.
-    /// </summary>
     [OutputType]
     public sealed class ScheduledQueryRuleCriteriaResponse
     {

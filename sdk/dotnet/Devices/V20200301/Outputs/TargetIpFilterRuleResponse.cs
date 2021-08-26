@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200301.Outputs
 {
 
-    /// <summary>
-    /// The IP filter rules for a provisioning Service.
-    /// </summary>
     [OutputType]
     public sealed class TargetIpFilterRuleResponse
     {

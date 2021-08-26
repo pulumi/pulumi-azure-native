@@ -153,7 +153,9 @@ func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionOutput)
 }
 
-type IntegrationAccountSessionOutput struct{ *pulumi.OutputState }
+type IntegrationAccountSessionOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationAccountSessionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountSession)(nil))

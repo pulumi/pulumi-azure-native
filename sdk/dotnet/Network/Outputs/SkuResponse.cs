@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// The pricing tier of the web application firewall policy.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Outputs
 {
 
-    /// <summary>
-    /// The properties of a overridable value that can be passed to a task template.
-    /// </summary>
     [OutputType]
     public sealed class SetValueResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.V20200701Preview.Outputs
 {
 
-    /// <summary>
-    /// Maintenance window of a server.
-    /// </summary>
     [OutputType]
     public sealed class MaintenanceWindowResponse
     {

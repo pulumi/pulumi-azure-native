@@ -155,7 +155,9 @@ func (i *StaticSitePrivateEndpointConnection) ToStaticSitePrivateEndpointConnect
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSitePrivateEndpointConnectionOutput)
 }
 
-type StaticSitePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type StaticSitePrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (StaticSitePrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSitePrivateEndpointConnection)(nil))

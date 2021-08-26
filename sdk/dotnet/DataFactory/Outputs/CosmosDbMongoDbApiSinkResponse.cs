@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// A copy activity sink for a CosmosDB (MongoDB API) database.
-    /// </summary>
     [OutputType]
     public sealed class CosmosDbMongoDbApiSinkResponse
     {

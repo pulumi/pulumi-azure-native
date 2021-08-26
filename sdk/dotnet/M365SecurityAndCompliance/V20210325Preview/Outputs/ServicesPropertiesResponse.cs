@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview.Outputs
 {
 
-    /// <summary>
-    /// The properties of a service instance.
-    /// </summary>
     [OutputType]
     public sealed class ServicesPropertiesResponse
     {

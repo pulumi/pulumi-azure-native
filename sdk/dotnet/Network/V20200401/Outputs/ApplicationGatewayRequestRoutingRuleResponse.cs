@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200401.Outputs
 {
 
-    /// <summary>
-    /// Request routing rule of an application gateway.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayRequestRoutingRuleResponse
     {

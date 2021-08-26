@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
-    /// <summary>
-    /// Describes the access location for a blob.
-    /// </summary>
     [OutputType]
     public sealed class BlobLocationResponse
     {

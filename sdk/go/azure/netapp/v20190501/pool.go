@@ -47,6 +47,12 @@ func NewPool(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.ServiceLevel == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceLevel'")
+	}
+	if args.Size == nil {
+		return nil, errors.New("invalid value for required argument 'Size'")
+	}
+	if args.ServiceLevel == nil {
 		args.ServiceLevel = pulumi.String("Premium")
 	}
 	if args.Size == nil {
@@ -267,7 +273,9 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
 }
 
-type PoolOutput struct{ *pulumi.OutputState }
+type PoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (PoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pool)(nil))

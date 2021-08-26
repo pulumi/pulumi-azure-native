@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20190501Preview.Outputs
 {
 
-    /// <summary>
-    /// The settings of config server.
-    /// </summary>
     [OutputType]
     public sealed class ConfigServerSettingsResponse
     {

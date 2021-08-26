@@ -192,7 +192,9 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-type JobOutput struct{ *pulumi.OutputState }
+type JobOutput struct {
+	*pulumi.OutputState
+}
 
 func (JobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Job)(nil))

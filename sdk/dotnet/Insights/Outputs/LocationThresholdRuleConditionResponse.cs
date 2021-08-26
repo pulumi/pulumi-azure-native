@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// A rule condition based on a certain number of locations failing.
-    /// </summary>
     [OutputType]
     public sealed class LocationThresholdRuleConditionResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20190601.Outputs
 {
 
-    /// <summary>
-    /// Compute node information related to a AmlCompute.
-    /// </summary>
     [OutputType]
     public sealed class AmlComputeNodeInformationResponse
     {

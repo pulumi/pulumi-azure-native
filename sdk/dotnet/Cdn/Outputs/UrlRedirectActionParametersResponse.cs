@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
-    /// <summary>
-    /// Defines the parameters for the url redirect action.
-    /// </summary>
     [OutputType]
     public sealed class UrlRedirectActionParametersResponse
     {

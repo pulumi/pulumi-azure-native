@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191201.Outputs
 {
 
-    /// <summary>
-    /// The visibility list of the private link service.
-    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServicePropertiesResponseVisibility
     {

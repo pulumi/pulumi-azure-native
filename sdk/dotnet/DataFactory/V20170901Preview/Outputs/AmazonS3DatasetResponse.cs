@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
-    /// </summary>
     [OutputType]
     public sealed class AmazonS3DatasetResponse
     {

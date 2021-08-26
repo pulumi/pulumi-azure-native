@@ -532,7 +532,7 @@ func (o SecretAttributesOutput) ToSecretAttributesPtrOutput() SecretAttributesPt
 }
 
 func (o SecretAttributesOutput) ToSecretAttributesPtrOutputWithContext(ctx context.Context) SecretAttributesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretAttributes) *SecretAttributes {
+	return o.ApplyT(func(v SecretAttributes) *SecretAttributes {
 		return &v
 	}).(SecretAttributesPtrOutput)
 }
@@ -567,13 +567,7 @@ func (o SecretAttributesPtrOutput) ToSecretAttributesPtrOutputWithContext(ctx co
 }
 
 func (o SecretAttributesPtrOutput) Elem() SecretAttributesOutput {
-	return o.ApplyT(func(v *SecretAttributes) SecretAttributes {
-		if v != nil {
-			return *v
-		}
-		var ret SecretAttributes
-		return ret
-	}).(SecretAttributesOutput)
+	return o.ApplyT(func(v *SecretAttributes) SecretAttributes { return *v }).(SecretAttributesOutput)
 }
 
 // Determines whether the object is enabled.
@@ -718,7 +712,7 @@ func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutput() Se
 }
 
 func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutputWithContext(ctx context.Context) SecretAttributesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretAttributesResponse) *SecretAttributesResponse {
+	return o.ApplyT(func(v SecretAttributesResponse) *SecretAttributesResponse {
 		return &v
 	}).(SecretAttributesResponsePtrOutput)
 }
@@ -763,13 +757,7 @@ func (o SecretAttributesResponsePtrOutput) ToSecretAttributesResponsePtrOutputWi
 }
 
 func (o SecretAttributesResponsePtrOutput) Elem() SecretAttributesResponseOutput {
-	return o.ApplyT(func(v *SecretAttributesResponse) SecretAttributesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecretAttributesResponse
-		return ret
-	}).(SecretAttributesResponseOutput)
+	return o.ApplyT(func(v *SecretAttributesResponse) SecretAttributesResponse { return *v }).(SecretAttributesResponseOutput)
 }
 
 // Creation time in seconds since 1970-01-01T00:00:00Z.
@@ -926,7 +914,7 @@ func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutput() SecretPropertiesPt
 }
 
 func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutputWithContext(ctx context.Context) SecretPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretProperties) *SecretProperties {
+	return o.ApplyT(func(v SecretProperties) *SecretProperties {
 		return &v
 	}).(SecretPropertiesPtrOutput)
 }
@@ -961,13 +949,7 @@ func (o SecretPropertiesPtrOutput) ToSecretPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o SecretPropertiesPtrOutput) Elem() SecretPropertiesOutput {
-	return o.ApplyT(func(v *SecretProperties) SecretProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SecretProperties
-		return ret
-	}).(SecretPropertiesOutput)
+	return o.ApplyT(func(v *SecretProperties) SecretProperties { return *v }).(SecretPropertiesOutput)
 }
 
 // The attributes of the secret.
@@ -1112,7 +1094,7 @@ func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutput() Se
 }
 
 func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretPropertiesResponse) *SecretPropertiesResponse {
+	return o.ApplyT(func(v SecretPropertiesResponse) *SecretPropertiesResponse {
 		return &v
 	}).(SecretPropertiesResponsePtrOutput)
 }
@@ -1157,13 +1139,7 @@ func (o SecretPropertiesResponsePtrOutput) ToSecretPropertiesResponsePtrOutputWi
 }
 
 func (o SecretPropertiesResponsePtrOutput) Elem() SecretPropertiesResponseOutput {
-	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SecretPropertiesResponse
-		return ret
-	}).(SecretPropertiesResponseOutput)
+	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse { return *v }).(SecretPropertiesResponseOutput)
 }
 
 // The attributes of the secret.
@@ -1221,7 +1197,7 @@ type Sku struct {
 	// SKU family name
 	Family string `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1240,7 +1216,7 @@ type SkuArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1316,7 +1292,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1327,8 +1303,8 @@ func (o SkuOutput) Family() pulumi.StringOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1346,13 +1322,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // SKU family name
@@ -1366,13 +1336,13 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU details
@@ -1475,7 +1445,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1505,13 +1475,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // SKU family name
@@ -1539,7 +1503,7 @@ type VaultProperties struct {
 	// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies []AccessPolicyEntry `pulumi:"accessPolicies"`
 	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *CreateMode `pulumi:"createMode"`
+	CreateMode *string `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
 	// Property specifying whether recoverable deletion is enabled for this key vault. Setting this property to true activates the soft delete feature, whereby vaults or vault entities can be recovered after deletion. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -1574,7 +1538,7 @@ type VaultPropertiesArgs struct {
 	// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
 	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode CreateModePtrInput `pulumi:"createMode"`
+	CreateMode *CreateMode `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
 	// Property specifying whether recoverable deletion is enabled for this key vault. Setting this property to true activates the soft delete feature, whereby vaults or vault entities can be recovered after deletion. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -1666,7 +1630,7 @@ func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOu
 }
 
 func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultProperties) *VaultProperties {
+	return o.ApplyT(func(v VaultProperties) *VaultProperties {
 		return &v
 	}).(VaultPropertiesPtrOutput)
 }
@@ -1677,8 +1641,8 @@ func (o VaultPropertiesOutput) AccessPolicies() AccessPolicyEntryArrayOutput {
 }
 
 // The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesOutput) CreateMode() CreateModePtrOutput {
-	return o.ApplyT(func(v VaultProperties) *CreateMode { return v.CreateMode }).(CreateModePtrOutput)
+func (o VaultPropertiesOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultProperties) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -1736,13 +1700,7 @@ func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o VaultPropertiesPtrOutput) Elem() VaultPropertiesOutput {
-	return o.ApplyT(func(v *VaultProperties) VaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VaultProperties
-		return ret
-	}).(VaultPropertiesOutput)
+	return o.ApplyT(func(v *VaultProperties) VaultProperties { return *v }).(VaultPropertiesOutput)
 }
 
 // An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
@@ -1756,13 +1714,13 @@ func (o VaultPropertiesPtrOutput) AccessPolicies() AccessPolicyEntryArrayOutput 
 }
 
 // The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesPtrOutput) CreateMode() CreateModePtrOutput {
-	return o.ApplyT(func(v *VaultProperties) *CreateMode {
+func (o VaultPropertiesPtrOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.CreateMode
-	}).(CreateModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -1977,7 +1935,7 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() Vaul
 }
 
 func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponse) *VaultPropertiesResponse {
+	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
 		return &v
 	}).(VaultPropertiesResponsePtrOutput)
 }
@@ -2047,13 +2005,7 @@ func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWith
 }
 
 func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VaultPropertiesResponse
-		return ret
-	}).(VaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
 }
 
 // An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.

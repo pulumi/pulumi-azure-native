@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Outputs
 {
 
-    /// <summary>
-    /// The network function user configuration.
-    /// </summary>
     [OutputType]
     public sealed class NetworkFunctionUserConfigurationResponse
     {

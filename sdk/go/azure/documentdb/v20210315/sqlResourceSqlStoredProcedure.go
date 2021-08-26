@@ -229,7 +229,9 @@ func (i *SqlResourceSqlStoredProcedure) ToSqlResourceSqlStoredProcedureOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlStoredProcedureOutput)
 }
 
-type SqlResourceSqlStoredProcedureOutput struct{ *pulumi.OutputState }
+type SqlResourceSqlStoredProcedureOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlResourceSqlStoredProcedureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlStoredProcedure)(nil))

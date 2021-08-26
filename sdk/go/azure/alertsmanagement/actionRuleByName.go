@@ -137,7 +137,9 @@ func (i *ActionRuleByName) ToActionRuleByNameOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleByNameOutput)
 }
 
-type ActionRuleByNameOutput struct{ *pulumi.OutputState }
+type ActionRuleByNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (ActionRuleByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionRuleByName)(nil))

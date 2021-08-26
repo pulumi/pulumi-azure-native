@@ -25,10 +25,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.blueprint.v20171111preview as __v20171111preview
-    v20171111preview = __v20171111preview
-    import pulumi_azure_native.blueprint.v20181101preview as __v20181101preview
-    v20181101preview = __v20181101preview
+    import pulumi_azure_native.blueprint.v20171111preview as v20171111preview
+    import pulumi_azure_native.blueprint.v20181101preview as v20181101preview
 else:
     v20171111preview = _utilities.lazy_import('pulumi_azure_native.blueprint.v20171111preview')
     v20181101preview = _utilities.lazy_import('pulumi_azure_native.blueprint.v20181101preview')

@@ -153,7 +153,9 @@ func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerO
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
 }
 
-type SqlServerOutput struct{ *pulumi.OutputState }
+type SqlServerOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServer)(nil))

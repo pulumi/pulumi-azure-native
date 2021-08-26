@@ -17,26 +17,16 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.domainregistration.v20150401 as __v20150401
-    v20150401 = __v20150401
-    import pulumi_azure_native.domainregistration.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.domainregistration.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.domainregistration.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.domainregistration.v20200901 as __v20200901
-    v20200901 = __v20200901
-    import pulumi_azure_native.domainregistration.v20201001 as __v20201001
-    v20201001 = __v20201001
-    import pulumi_azure_native.domainregistration.v20201201 as __v20201201
-    v20201201 = __v20201201
-    import pulumi_azure_native.domainregistration.v20210101 as __v20210101
-    v20210101 = __v20210101
-    import pulumi_azure_native.domainregistration.v20210115 as __v20210115
-    v20210115 = __v20210115
-    import pulumi_azure_native.domainregistration.v20210201 as __v20210201
-    v20210201 = __v20210201
+    import pulumi_azure_native.domainregistration.v20150401 as v20150401
+    import pulumi_azure_native.domainregistration.v20180201 as v20180201
+    import pulumi_azure_native.domainregistration.v20190801 as v20190801
+    import pulumi_azure_native.domainregistration.v20200601 as v20200601
+    import pulumi_azure_native.domainregistration.v20200901 as v20200901
+    import pulumi_azure_native.domainregistration.v20201001 as v20201001
+    import pulumi_azure_native.domainregistration.v20201201 as v20201201
+    import pulumi_azure_native.domainregistration.v20210101 as v20210101
+    import pulumi_azure_native.domainregistration.v20210115 as v20210115
+    import pulumi_azure_native.domainregistration.v20210201 as v20210201
 else:
     v20150401 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20150401')
     v20180201 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20180201')

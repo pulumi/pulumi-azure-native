@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200501.Outputs
 {
 
-    /// <summary>
-    /// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
-    /// </summary>
     [OutputType]
     public sealed class SourceVaultResponse
     {

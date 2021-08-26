@@ -114,7 +114,7 @@ func (o ConnectionStateOutput) ToConnectionStatePtrOutput() ConnectionStatePtrOu
 }
 
 func (o ConnectionStateOutput) ToConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionState) *ConnectionState {
+	return o.ApplyT(func(v ConnectionState) *ConnectionState {
 		return &v
 	}).(ConnectionStatePtrOutput)
 }
@@ -149,13 +149,7 @@ func (o ConnectionStatePtrOutput) ToConnectionStatePtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionStatePtrOutput) Elem() ConnectionStateOutput {
-	return o.ApplyT(func(v *ConnectionState) ConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionState
-		return ret
-	}).(ConnectionStateOutput)
+	return o.ApplyT(func(v *ConnectionState) ConnectionState { return *v }).(ConnectionStateOutput)
 }
 
 // Actions required (if any).
@@ -292,7 +286,7 @@ func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutput() Conn
 }
 
 func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutputWithContext(ctx context.Context) ConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionStateResponse) *ConnectionStateResponse {
+	return o.ApplyT(func(v ConnectionStateResponse) *ConnectionStateResponse {
 		return &v
 	}).(ConnectionStateResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o ConnectionStateResponsePtrOutput) ToConnectionStateResponsePtrOutputWith
 }
 
 func (o ConnectionStateResponsePtrOutput) Elem() ConnectionStateResponseOutput {
-	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectionStateResponse
-		return ret
-	}).(ConnectionStateResponseOutput)
+	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse { return *v }).(ConnectionStateResponseOutput)
 }
 
 // Actions required (if any).
@@ -459,7 +447,7 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
@@ -484,13 +472,7 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpoint
-		return ret
-	}).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
 }
 
 // Specifies the id of private endpoint.
@@ -864,7 +846,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -889,13 +871,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // Specifies the id of private endpoint.
@@ -1024,7 +1000,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1074,13 +1050,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

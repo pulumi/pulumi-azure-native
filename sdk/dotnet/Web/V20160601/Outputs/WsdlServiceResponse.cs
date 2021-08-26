@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160601.Outputs
 {
 
-    /// <summary>
-    /// The service with name and endpoint names
-    /// </summary>
     [OutputType]
     public sealed class WsdlServiceResponse
     {

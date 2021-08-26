@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
-    /// <summary>
-    /// Describes the gallery image definition purchase plan. This is used by marketplace images.
-    /// </summary>
     [OutputType]
     public sealed class ImagePurchasePlanResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview.Outputs
 {
 
-    /// <summary>
-    /// Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'script' or 'inline' can be specified.
-    /// </summary>
     [OutputType]
     public sealed class ImageTemplateShellCustomizerResponse
     {

@@ -156,7 +156,9 @@ func (i *GraphQuery) ToGraphQueryOutputWithContext(ctx context.Context) GraphQue
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQueryOutput)
 }
 
-type GraphQueryOutput struct{ *pulumi.OutputState }
+type GraphQueryOutput struct {
+	*pulumi.OutputState
+}
 
 func (GraphQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GraphQuery)(nil))

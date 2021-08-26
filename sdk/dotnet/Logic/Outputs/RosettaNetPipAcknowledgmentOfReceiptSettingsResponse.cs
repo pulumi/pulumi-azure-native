@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
-    /// </summary>
     [OutputType]
     public sealed class RosettaNetPipAcknowledgmentOfReceiptSettingsResponse
     {

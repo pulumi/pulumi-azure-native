@@ -128,7 +128,9 @@ func (i *NotificationRegistration) ToNotificationRegistrationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRegistrationOutput)
 }
 
-type NotificationRegistrationOutput struct{ *pulumi.OutputState }
+type NotificationRegistrationOutput struct {
+	*pulumi.OutputState
+}
 
 func (NotificationRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRegistration)(nil))

@@ -173,7 +173,9 @@ func (i *Rollout) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RolloutOutput)
 }
 
-type RolloutOutput struct{ *pulumi.OutputState }
+type RolloutOutput struct {
+	*pulumi.OutputState
+}
 
 func (RolloutOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Rollout)(nil))

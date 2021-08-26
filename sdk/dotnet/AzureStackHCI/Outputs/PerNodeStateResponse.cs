@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
-    /// <summary>
-    /// Status of Arc agent for a particular node in HCI Cluster.
-    /// </summary>
     [OutputType]
     public sealed class PerNodeStateResponse
     {

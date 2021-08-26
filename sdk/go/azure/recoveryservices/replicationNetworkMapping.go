@@ -184,7 +184,9 @@ func (i *ReplicationNetworkMapping) ToReplicationNetworkMappingOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationNetworkMappingOutput)
 }
 
-type ReplicationNetworkMappingOutput struct{ *pulumi.OutputState }
+type ReplicationNetworkMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationNetworkMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationNetworkMapping)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200801.Outputs
 {
 
-    /// <summary>
-    /// The session detail for a target.
-    /// </summary>
     [OutputType]
     public sealed class BastionActiveSessionResponse
     {

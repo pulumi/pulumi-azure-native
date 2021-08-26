@@ -177,7 +177,9 @@ func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientEmailOutput)
 }
 
-type NotificationRecipientEmailOutput struct{ *pulumi.OutputState }
+type NotificationRecipientEmailOutput struct {
+	*pulumi.OutputState
+}
 
 func (NotificationRecipientEmailOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRecipientEmail)(nil))

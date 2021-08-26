@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20171001.Outputs
 {
 
-    /// <summary>
-    /// The network rule set for a container registry.
-    /// </summary>
     [OutputType]
     public sealed class NetworkRuleSetResponse
     {

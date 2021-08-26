@@ -213,7 +213,9 @@ func (i *SiteAppSettings) ToSiteAppSettingsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAppSettingsOutput)
 }
 
-type SiteAppSettingsOutput struct{ *pulumi.OutputState }
+type SiteAppSettingsOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteAppSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteAppSettings)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Outputs
 {
 
-    /// <summary>
-    /// LinkedWorkspace specific properties.
-    /// </summary>
     [OutputType]
     public sealed class LinkedWorkspacePropsResponse
     {

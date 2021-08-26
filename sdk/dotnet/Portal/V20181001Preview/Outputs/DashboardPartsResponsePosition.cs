@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.V20181001Preview.Outputs
 {
 
-    /// <summary>
-    /// The dashboard's part position.
-    /// </summary>
     [OutputType]
     public sealed class DashboardPartsResponsePosition
     {

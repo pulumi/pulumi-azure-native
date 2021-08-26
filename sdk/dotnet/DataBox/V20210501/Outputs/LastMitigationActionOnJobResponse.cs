@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20210501.Outputs
 {
 
-    /// <summary>
-    /// Last Mitigation Action Performed On Job
-    /// </summary>
     [OutputType]
     public sealed class LastMitigationActionOnJobResponse
     {

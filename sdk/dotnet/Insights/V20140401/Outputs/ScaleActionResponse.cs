@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20140401.Outputs
 {
 
-    /// <summary>
-    /// The parameters for the scaling action.
-    /// </summary>
     [OutputType]
     public sealed class ScaleActionResponse
     {

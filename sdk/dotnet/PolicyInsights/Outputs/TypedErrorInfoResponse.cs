@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PolicyInsights.Outputs
 {
 
-    /// <summary>
-    /// Scenario specific error details.
-    /// </summary>
     [OutputType]
     public sealed class TypedErrorInfoResponse
     {

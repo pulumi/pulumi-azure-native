@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20150501Preview.Outputs
 {
 
-    /// <summary>
-    /// Route resource
-    /// </summary>
     [OutputType]
     public sealed class RouteResponse
     {

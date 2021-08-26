@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20200301Preview.Outputs
 {
 
-    /// <summary>
-    /// Target resources and allocation
-    /// </summary>
     [OutputType]
     public sealed class CostAllocationProportionResponse
     {

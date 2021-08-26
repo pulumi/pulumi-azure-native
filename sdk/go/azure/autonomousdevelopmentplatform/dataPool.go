@@ -141,7 +141,9 @@ func (i *DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolOutput)
 }
 
-type DataPoolOutput struct{ *pulumi.OutputState }
+type DataPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataPool)(nil))

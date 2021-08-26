@@ -114,7 +114,7 @@ func (o APIServerProfileOutput) ToAPIServerProfilePtrOutput() APIServerProfilePt
 }
 
 func (o APIServerProfileOutput) ToAPIServerProfilePtrOutputWithContext(ctx context.Context) APIServerProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v APIServerProfile) *APIServerProfile {
+	return o.ApplyT(func(v APIServerProfile) *APIServerProfile {
 		return &v
 	}).(APIServerProfilePtrOutput)
 }
@@ -149,13 +149,7 @@ func (o APIServerProfilePtrOutput) ToAPIServerProfilePtrOutputWithContext(ctx co
 }
 
 func (o APIServerProfilePtrOutput) Elem() APIServerProfileOutput {
-	return o.ApplyT(func(v *APIServerProfile) APIServerProfile {
-		if v != nil {
-			return *v
-		}
-		var ret APIServerProfile
-		return ret
-	}).(APIServerProfileOutput)
+	return o.ApplyT(func(v *APIServerProfile) APIServerProfile { return *v }).(APIServerProfileOutput)
 }
 
 // The IP of the cluster API server (immutable).
@@ -292,7 +286,7 @@ func (o APIServerProfileResponseOutput) ToAPIServerProfileResponsePtrOutput() AP
 }
 
 func (o APIServerProfileResponseOutput) ToAPIServerProfileResponsePtrOutputWithContext(ctx context.Context) APIServerProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v APIServerProfileResponse) *APIServerProfileResponse {
+	return o.ApplyT(func(v APIServerProfileResponse) *APIServerProfileResponse {
 		return &v
 	}).(APIServerProfileResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o APIServerProfileResponsePtrOutput) ToAPIServerProfileResponsePtrOutputWi
 }
 
 func (o APIServerProfileResponsePtrOutput) Elem() APIServerProfileResponseOutput {
-	return o.ApplyT(func(v *APIServerProfileResponse) APIServerProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret APIServerProfileResponse
-		return ret
-	}).(APIServerProfileResponseOutput)
+	return o.ApplyT(func(v *APIServerProfileResponse) APIServerProfileResponse { return *v }).(APIServerProfileResponseOutput)
 }
 
 // The IP of the cluster API server (immutable).
@@ -474,7 +462,7 @@ func (o ClusterProfileOutput) ToClusterProfilePtrOutput() ClusterProfilePtrOutpu
 }
 
 func (o ClusterProfileOutput) ToClusterProfilePtrOutputWithContext(ctx context.Context) ClusterProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterProfile) *ClusterProfile {
+	return o.ApplyT(func(v ClusterProfile) *ClusterProfile {
 		return &v
 	}).(ClusterProfilePtrOutput)
 }
@@ -514,13 +502,7 @@ func (o ClusterProfilePtrOutput) ToClusterProfilePtrOutputWithContext(ctx contex
 }
 
 func (o ClusterProfilePtrOutput) Elem() ClusterProfileOutput {
-	return o.ApplyT(func(v *ClusterProfile) ClusterProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterProfile
-		return ret
-	}).(ClusterProfileOutput)
+	return o.ApplyT(func(v *ClusterProfile) ClusterProfile { return *v }).(ClusterProfileOutput)
 }
 
 // The domain for the cluster (immutable).
@@ -671,7 +653,7 @@ func (o ClusterProfileResponseOutput) ToClusterProfileResponsePtrOutput() Cluste
 }
 
 func (o ClusterProfileResponseOutput) ToClusterProfileResponsePtrOutputWithContext(ctx context.Context) ClusterProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterProfileResponse) *ClusterProfileResponse {
+	return o.ApplyT(func(v ClusterProfileResponse) *ClusterProfileResponse {
 		return &v
 	}).(ClusterProfileResponsePtrOutput)
 }
@@ -711,13 +693,7 @@ func (o ClusterProfileResponsePtrOutput) ToClusterProfileResponsePtrOutputWithCo
 }
 
 func (o ClusterProfileResponsePtrOutput) Elem() ClusterProfileResponseOutput {
-	return o.ApplyT(func(v *ClusterProfileResponse) ClusterProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterProfileResponse
-		return ret
-	}).(ClusterProfileResponseOutput)
+	return o.ApplyT(func(v *ClusterProfileResponse) ClusterProfileResponse { return *v }).(ClusterProfileResponseOutput)
 }
 
 // The domain for the cluster (immutable).
@@ -856,7 +832,7 @@ func (o ConsoleProfileOutput) ToConsoleProfilePtrOutput() ConsoleProfilePtrOutpu
 }
 
 func (o ConsoleProfileOutput) ToConsoleProfilePtrOutputWithContext(ctx context.Context) ConsoleProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsoleProfile) *ConsoleProfile {
+	return o.ApplyT(func(v ConsoleProfile) *ConsoleProfile {
 		return &v
 	}).(ConsoleProfilePtrOutput)
 }
@@ -881,13 +857,7 @@ func (o ConsoleProfilePtrOutput) ToConsoleProfilePtrOutputWithContext(ctx contex
 }
 
 func (o ConsoleProfilePtrOutput) Elem() ConsoleProfileOutput {
-	return o.ApplyT(func(v *ConsoleProfile) ConsoleProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ConsoleProfile
-		return ret
-	}).(ConsoleProfileOutput)
+	return o.ApplyT(func(v *ConsoleProfile) ConsoleProfile { return *v }).(ConsoleProfileOutput)
 }
 
 // The URL to access the cluster console (immutable).
@@ -996,7 +966,7 @@ func (o ConsoleProfileResponseOutput) ToConsoleProfileResponsePtrOutput() Consol
 }
 
 func (o ConsoleProfileResponseOutput) ToConsoleProfileResponsePtrOutputWithContext(ctx context.Context) ConsoleProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsoleProfileResponse) *ConsoleProfileResponse {
+	return o.ApplyT(func(v ConsoleProfileResponse) *ConsoleProfileResponse {
 		return &v
 	}).(ConsoleProfileResponsePtrOutput)
 }
@@ -1021,13 +991,7 @@ func (o ConsoleProfileResponsePtrOutput) ToConsoleProfileResponsePtrOutputWithCo
 }
 
 func (o ConsoleProfileResponsePtrOutput) Elem() ConsoleProfileResponseOutput {
-	return o.ApplyT(func(v *ConsoleProfileResponse) ConsoleProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConsoleProfileResponse
-		return ret
-	}).(ConsoleProfileResponseOutput)
+	return o.ApplyT(func(v *ConsoleProfileResponse) ConsoleProfileResponse { return *v }).(ConsoleProfileResponseOutput)
 }
 
 // The URL to access the cluster console (immutable).
@@ -1376,7 +1340,7 @@ func (o MasterProfileOutput) ToMasterProfilePtrOutput() MasterProfilePtrOutput {
 }
 
 func (o MasterProfileOutput) ToMasterProfilePtrOutputWithContext(ctx context.Context) MasterProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MasterProfile) *MasterProfile {
+	return o.ApplyT(func(v MasterProfile) *MasterProfile {
 		return &v
 	}).(MasterProfilePtrOutput)
 }
@@ -1406,13 +1370,7 @@ func (o MasterProfilePtrOutput) ToMasterProfilePtrOutputWithContext(ctx context.
 }
 
 func (o MasterProfilePtrOutput) Elem() MasterProfileOutput {
-	return o.ApplyT(func(v *MasterProfile) MasterProfile {
-		if v != nil {
-			return *v
-		}
-		var ret MasterProfile
-		return ret
-	}).(MasterProfileOutput)
+	return o.ApplyT(func(v *MasterProfile) MasterProfile { return *v }).(MasterProfileOutput)
 }
 
 // The Azure resource ID of the master subnet (immutable).
@@ -1535,7 +1493,7 @@ func (o MasterProfileResponseOutput) ToMasterProfileResponsePtrOutput() MasterPr
 }
 
 func (o MasterProfileResponseOutput) ToMasterProfileResponsePtrOutputWithContext(ctx context.Context) MasterProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MasterProfileResponse) *MasterProfileResponse {
+	return o.ApplyT(func(v MasterProfileResponse) *MasterProfileResponse {
 		return &v
 	}).(MasterProfileResponsePtrOutput)
 }
@@ -1565,13 +1523,7 @@ func (o MasterProfileResponsePtrOutput) ToMasterProfileResponsePtrOutputWithCont
 }
 
 func (o MasterProfileResponsePtrOutput) Elem() MasterProfileResponseOutput {
-	return o.ApplyT(func(v *MasterProfileResponse) MasterProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MasterProfileResponse
-		return ret
-	}).(MasterProfileResponseOutput)
+	return o.ApplyT(func(v *MasterProfileResponse) MasterProfileResponse { return *v }).(MasterProfileResponseOutput)
 }
 
 // The Azure resource ID of the master subnet (immutable).
@@ -1694,7 +1646,7 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
+	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
@@ -1724,13 +1676,7 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfile
-		return ret
-	}).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
 }
 
 // The CIDR used for OpenShift/Kubernetes Pods (immutable).
@@ -1853,7 +1799,7 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
@@ -1883,13 +1829,7 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkProfileResponse
-		return ret
-	}).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
 }
 
 // The CIDR used for OpenShift/Kubernetes Pods (immutable).
@@ -2012,7 +1952,7 @@ func (o ServicePrincipalProfileOutput) ToServicePrincipalProfilePtrOutput() Serv
 }
 
 func (o ServicePrincipalProfileOutput) ToServicePrincipalProfilePtrOutputWithContext(ctx context.Context) ServicePrincipalProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalProfile) *ServicePrincipalProfile {
+	return o.ApplyT(func(v ServicePrincipalProfile) *ServicePrincipalProfile {
 		return &v
 	}).(ServicePrincipalProfilePtrOutput)
 }
@@ -2042,13 +1982,7 @@ func (o ServicePrincipalProfilePtrOutput) ToServicePrincipalProfilePtrOutputWith
 }
 
 func (o ServicePrincipalProfilePtrOutput) Elem() ServicePrincipalProfileOutput {
-	return o.ApplyT(func(v *ServicePrincipalProfile) ServicePrincipalProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ServicePrincipalProfile
-		return ret
-	}).(ServicePrincipalProfileOutput)
+	return o.ApplyT(func(v *ServicePrincipalProfile) ServicePrincipalProfile { return *v }).(ServicePrincipalProfileOutput)
 }
 
 // The client ID used for the cluster (immutable).
@@ -2171,7 +2105,7 @@ func (o ServicePrincipalProfileResponseOutput) ToServicePrincipalProfileResponse
 }
 
 func (o ServicePrincipalProfileResponseOutput) ToServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalProfileResponse) *ServicePrincipalProfileResponse {
+	return o.ApplyT(func(v ServicePrincipalProfileResponse) *ServicePrincipalProfileResponse {
 		return &v
 	}).(ServicePrincipalProfileResponsePtrOutput)
 }
@@ -2201,13 +2135,7 @@ func (o ServicePrincipalProfileResponsePtrOutput) ToServicePrincipalProfileRespo
 }
 
 func (o ServicePrincipalProfileResponsePtrOutput) Elem() ServicePrincipalProfileResponseOutput {
-	return o.ApplyT(func(v *ServicePrincipalProfileResponse) ServicePrincipalProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServicePrincipalProfileResponse
-		return ret
-	}).(ServicePrincipalProfileResponseOutput)
+	return o.ApplyT(func(v *ServicePrincipalProfileResponse) ServicePrincipalProfileResponse { return *v }).(ServicePrincipalProfileResponseOutput)
 }
 
 // The client ID used for the cluster (immutable).

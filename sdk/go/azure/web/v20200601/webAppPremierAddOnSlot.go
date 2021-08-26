@@ -240,7 +240,9 @@ func (i *WebAppPremierAddOnSlot) ToWebAppPremierAddOnSlotOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnSlotOutput)
 }
 
-type WebAppPremierAddOnSlotOutput struct{ *pulumi.OutputState }
+type WebAppPremierAddOnSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppPremierAddOnSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppPremierAddOnSlot)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
-    /// <summary>
-    /// Azure backup rule
-    /// </summary>
     [OutputType]
     public sealed class AzureBackupRuleResponse
     {

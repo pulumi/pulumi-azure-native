@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The access control configuration.
-    /// </summary>
     [OutputType]
     public sealed class FlowAccessControlConfigurationResponse
     {

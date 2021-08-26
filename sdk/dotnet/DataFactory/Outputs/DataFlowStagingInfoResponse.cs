@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Staging info for execute data flow activity.
-    /// </summary>
     [OutputType]
     public sealed class DataFlowStagingInfoResponse
     {

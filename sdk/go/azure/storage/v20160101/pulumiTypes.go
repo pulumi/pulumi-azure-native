@@ -110,7 +110,7 @@ func (o CustomDomainOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
 }
 
 func (o CustomDomainOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomain) *CustomDomain {
+	return o.ApplyT(func(v CustomDomain) *CustomDomain {
 		return &v
 	}).(CustomDomainPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o CustomDomainPtrOutput) ToCustomDomainPtrOutputWithContext(ctx context.Co
 }
 
 func (o CustomDomainPtrOutput) Elem() CustomDomainOutput {
-	return o.ApplyT(func(v *CustomDomain) CustomDomain {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDomain
-		return ret
-	}).(CustomDomainOutput)
+	return o.ApplyT(func(v *CustomDomain) CustomDomain { return *v }).(CustomDomainOutput)
 }
 
 // Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -269,7 +263,7 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutput() CustomDoma
 }
 
 func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainResponse) *CustomDomainResponse {
+	return o.ApplyT(func(v CustomDomainResponse) *CustomDomainResponse {
 		return &v
 	}).(CustomDomainResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o CustomDomainResponsePtrOutput) ToCustomDomainResponsePtrOutputWithContex
 }
 
 func (o CustomDomainResponsePtrOutput) Elem() CustomDomainResponseOutput {
-	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDomainResponse
-		return ret
-	}).(CustomDomainResponseOutput)
+	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse { return *v }).(CustomDomainResponseOutput)
 }
 
 // Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -428,7 +416,7 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
+	return o.ApplyT(func(v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
@@ -458,13 +446,7 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption {
-		if v != nil {
-			return *v
-		}
-		var ret Encryption
-		return ret
-	}).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
 }
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
@@ -587,7 +569,7 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
@@ -617,13 +599,7 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionResponse
-		return ret
-	}).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
 }
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
@@ -742,7 +718,7 @@ func (o EncryptionServiceOutput) ToEncryptionServicePtrOutput() EncryptionServic
 }
 
 func (o EncryptionServiceOutput) ToEncryptionServicePtrOutputWithContext(ctx context.Context) EncryptionServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionService) *EncryptionService {
+	return o.ApplyT(func(v EncryptionService) *EncryptionService {
 		return &v
 	}).(EncryptionServicePtrOutput)
 }
@@ -767,13 +743,7 @@ func (o EncryptionServicePtrOutput) ToEncryptionServicePtrOutputWithContext(ctx 
 }
 
 func (o EncryptionServicePtrOutput) Elem() EncryptionServiceOutput {
-	return o.ApplyT(func(v *EncryptionService) EncryptionService {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionService
-		return ret
-	}).(EncryptionServiceOutput)
+	return o.ApplyT(func(v *EncryptionService) EncryptionService { return *v }).(EncryptionServiceOutput)
 }
 
 // A boolean indicating whether or not the service encrypts the data as it is stored.
@@ -886,7 +856,7 @@ func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutput() 
 }
 
 func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServiceResponse) *EncryptionServiceResponse {
+	return o.ApplyT(func(v EncryptionServiceResponse) *EncryptionServiceResponse {
 		return &v
 	}).(EncryptionServiceResponsePtrOutput)
 }
@@ -916,13 +886,7 @@ func (o EncryptionServiceResponsePtrOutput) ToEncryptionServiceResponsePtrOutput
 }
 
 func (o EncryptionServiceResponsePtrOutput) Elem() EncryptionServiceResponseOutput {
-	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionServiceResponse
-		return ret
-	}).(EncryptionServiceResponseOutput)
+	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse { return *v }).(EncryptionServiceResponseOutput)
 }
 
 // A boolean indicating whether or not the service encrypts the data as it is stored.
@@ -1041,7 +1005,7 @@ func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutput() EncryptionServ
 }
 
 func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutputWithContext(ctx context.Context) EncryptionServicesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServices) *EncryptionServices {
+	return o.ApplyT(func(v EncryptionServices) *EncryptionServices {
 		return &v
 	}).(EncryptionServicesPtrOutput)
 }
@@ -1066,13 +1030,7 @@ func (o EncryptionServicesPtrOutput) ToEncryptionServicesPtrOutputWithContext(ct
 }
 
 func (o EncryptionServicesPtrOutput) Elem() EncryptionServicesOutput {
-	return o.ApplyT(func(v *EncryptionServices) EncryptionServices {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionServices
-		return ret
-	}).(EncryptionServicesOutput)
+	return o.ApplyT(func(v *EncryptionServices) EncryptionServices { return *v }).(EncryptionServicesOutput)
 }
 
 // The encryption function of the blob storage service.
@@ -1181,7 +1139,7 @@ func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutput(
 }
 
 func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServicesResponse) *EncryptionServicesResponse {
+	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServicesResponse {
 		return &v
 	}).(EncryptionServicesResponsePtrOutput)
 }
@@ -1206,13 +1164,7 @@ func (o EncryptionServicesResponsePtrOutput) ToEncryptionServicesResponsePtrOutp
 }
 
 func (o EncryptionServicesResponsePtrOutput) Elem() EncryptionServicesResponseOutput {
-	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionServicesResponse
-		return ret
-	}).(EncryptionServicesResponseOutput)
+	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse { return *v }).(EncryptionServicesResponseOutput)
 }
 
 // The encryption function of the blob storage service.
@@ -1333,7 +1285,7 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
@@ -1373,13 +1325,7 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointsResponse
-		return ret
-	}).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
 }
 
 // Gets the blob endpoint.
@@ -1425,7 +1371,7 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 // The SKU of the storage account.
 type Sku struct {
 	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1442,7 +1388,7 @@ type SkuInput interface {
 // The SKU of the storage account.
 type SkuArgs struct {
 	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1518,14 +1464,14 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
 // Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1543,23 +1489,17 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The SKU of the storage account.
@@ -1662,7 +1602,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1692,13 +1632,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.

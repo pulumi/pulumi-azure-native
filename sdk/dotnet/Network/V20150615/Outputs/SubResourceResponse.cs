@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20150615.Outputs
 {
 
-    /// <summary>
-    /// Azure resource manager sub resource properties.
-    /// </summary>
     [OutputType]
     public sealed class SubResourceResponse
     {

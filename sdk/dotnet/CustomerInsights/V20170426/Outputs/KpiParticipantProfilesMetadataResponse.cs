@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.V20170426.Outputs
 {
 
-    /// <summary>
-    /// The KPI participant profile metadata.
-    /// </summary>
     [OutputType]
     public sealed class KpiParticipantProfilesMetadataResponse
     {

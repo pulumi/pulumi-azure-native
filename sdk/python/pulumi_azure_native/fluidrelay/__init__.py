@@ -13,10 +13,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.fluidrelay.v20210312preview as __v20210312preview
-    v20210312preview = __v20210312preview
-    import pulumi_azure_native.fluidrelay.v20210615preview as __v20210615preview
-    v20210615preview = __v20210615preview
+    import pulumi_azure_native.fluidrelay.v20210312preview as v20210312preview
+    import pulumi_azure_native.fluidrelay.v20210615preview as v20210615preview
 else:
     v20210312preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210312preview')
     v20210615preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210615preview')

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210101Preview.Outputs
 {
 
-    /// <summary>
-    /// vCenter Single Sign On Identity Source
-    /// </summary>
     [OutputType]
     public sealed class IdentitySourceResponse
     {

@@ -136,7 +136,9 @@ func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
 }
 
-type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
+type UserAssignedIdentityOutput struct {
+	*pulumi.OutputState
+}
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserAssignedIdentity)(nil))

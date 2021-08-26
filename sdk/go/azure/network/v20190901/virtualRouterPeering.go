@@ -221,7 +221,9 @@ func (i *VirtualRouterPeering) ToVirtualRouterPeeringOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPeeringOutput)
 }
 
-type VirtualRouterPeeringOutput struct{ *pulumi.OutputState }
+type VirtualRouterPeeringOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualRouterPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualRouterPeering)(nil))

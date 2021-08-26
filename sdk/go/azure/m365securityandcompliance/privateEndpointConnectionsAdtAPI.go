@@ -135,7 +135,9 @@ func (i *PrivateEndpointConnectionsAdtAPI) ToPrivateEndpointConnectionsAdtAPIOut
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionsAdtAPIOutput)
 }
 
-type PrivateEndpointConnectionsAdtAPIOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionsAdtAPIOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateEndpointConnectionsAdtAPIOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionsAdtAPI)(nil))

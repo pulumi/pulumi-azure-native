@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
-    /// <summary>
-    /// Gets or sets private link service connection state.
-    /// </summary>
     [OutputType]
     public sealed class VaultPrivateLinkServiceConnectionStateResponse
     {

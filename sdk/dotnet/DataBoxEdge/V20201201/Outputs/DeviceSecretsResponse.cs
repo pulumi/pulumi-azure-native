@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20201201.Outputs
 {
 
-    /// <summary>
-    /// Device Secrets
-    /// </summary>
     [OutputType]
     public sealed class DeviceSecretsResponse
     {

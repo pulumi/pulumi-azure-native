@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210701Preview.Outputs
 {
 
-    /// <summary>
-    /// Postgres Instance properties.
-    /// </summary>
     [OutputType]
     public sealed class PostgresInstancePropertiesResponse
     {

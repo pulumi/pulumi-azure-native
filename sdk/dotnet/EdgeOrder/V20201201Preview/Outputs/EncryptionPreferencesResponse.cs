@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
-    /// <summary>
-    /// Preferences related to the double encryption
-    /// </summary>
     [OutputType]
     public sealed class EncryptionPreferencesResponse
     {

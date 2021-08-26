@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// Contains custom Dns resolution configuration from customer.
-    /// </summary>
     [OutputType]
     public sealed class CustomDnsConfigPropertiesFormatResponse
     {

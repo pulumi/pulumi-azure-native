@@ -140,7 +140,9 @@ func (i *CustomerEvent) ToCustomerEventOutputWithContext(ctx context.Context) Cu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerEventOutput)
 }
 
-type CustomerEventOutput struct{ *pulumi.OutputState }
+type CustomerEventOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomerEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomerEvent)(nil))

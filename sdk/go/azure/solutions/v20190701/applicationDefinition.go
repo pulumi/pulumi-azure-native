@@ -64,9 +64,6 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LockLevel == nil {
-		return nil, errors.New("invalid value for required argument 'LockLevel'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -157,7 +154,7 @@ type applicationDefinitionArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The managed application lock level.
-	LockLevel ApplicationLockLevel `pulumi:"lockLevel"`
+	LockLevel string `pulumi:"lockLevel"`
 	// The managed application locking policy.
 	LockingPolicy *ApplicationPackageLockingPolicyDefinition `pulumi:"lockingPolicy"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
@@ -201,7 +198,7 @@ type ApplicationDefinitionArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The managed application lock level.
-	LockLevel ApplicationLockLevelInput
+	LockLevel ApplicationLockLevel
 	// The managed application locking policy.
 	LockingPolicy ApplicationPackageLockingPolicyDefinitionPtrInput
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
@@ -247,7 +244,9 @@ func (i *ApplicationDefinition) ToApplicationDefinitionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionOutput)
 }
 
-type ApplicationDefinitionOutput struct{ *pulumi.OutputState }
+type ApplicationDefinitionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApplicationDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationDefinition)(nil))

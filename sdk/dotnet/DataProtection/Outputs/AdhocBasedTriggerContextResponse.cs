@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
-    /// <summary>
-    /// Adhoc trigger context
-    /// </summary>
     [OutputType]
     public sealed class AdhocBasedTriggerContextResponse
     {

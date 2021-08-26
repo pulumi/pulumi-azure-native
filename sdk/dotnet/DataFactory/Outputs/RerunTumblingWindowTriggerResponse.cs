@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Trigger that schedules pipeline reruns for all fixed time interval windows from a requested start time to requested end time.
-    /// </summary>
     [OutputType]
     public sealed class RerunTumblingWindowTriggerResponse
     {

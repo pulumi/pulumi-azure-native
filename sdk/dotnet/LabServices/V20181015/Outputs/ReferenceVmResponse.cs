@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.V20181015.Outputs
 {
 
-    /// <summary>
-    /// Details of a Reference Vm
-    /// </summary>
     [OutputType]
     public sealed class ReferenceVmResponse
     {

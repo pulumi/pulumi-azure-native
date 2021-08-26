@@ -138,7 +138,9 @@ func (i *SubAccountTagRule) ToSubAccountTagRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SubAccountTagRuleOutput)
 }
 
-type SubAccountTagRuleOutput struct{ *pulumi.OutputState }
+type SubAccountTagRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (SubAccountTagRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubAccountTagRule)(nil))

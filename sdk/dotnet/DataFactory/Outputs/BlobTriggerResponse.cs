@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Trigger that runs every time the selected Blob container changes.
-    /// </summary>
     [OutputType]
     public sealed class BlobTriggerResponse
     {

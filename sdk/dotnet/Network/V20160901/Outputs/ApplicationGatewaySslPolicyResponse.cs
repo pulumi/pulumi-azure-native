@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160901.Outputs
 {
 
-    /// <summary>
-    /// Application gateway SSL policy.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewaySslPolicyResponse
     {

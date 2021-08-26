@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Amazon Marketplace Web Service dataset.
-    /// </summary>
     [OutputType]
     public sealed class AmazonMWSObjectDatasetResponse
     {

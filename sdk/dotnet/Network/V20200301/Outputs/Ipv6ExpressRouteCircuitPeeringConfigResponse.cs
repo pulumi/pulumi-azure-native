@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200301.Outputs
 {
 
-    /// <summary>
-    /// Contains IPv6 peering config.
-    /// </summary>
     [OutputType]
     public sealed class Ipv6ExpressRouteCircuitPeeringConfigResponse
     {

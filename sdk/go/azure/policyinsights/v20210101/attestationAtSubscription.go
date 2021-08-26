@@ -156,7 +156,9 @@ func (i *AttestationAtSubscription) ToAttestationAtSubscriptionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationAtSubscriptionOutput)
 }
 
-type AttestationAtSubscriptionOutput struct{ *pulumi.OutputState }
+type AttestationAtSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (AttestationAtSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AttestationAtSubscription)(nil))

@@ -155,7 +155,9 @@ func (i *DataConnector) ToDataConnectorOutputWithContext(ctx context.Context) Da
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOutput)
 }
 
-type DataConnectorOutput struct{ *pulumi.OutputState }
+type DataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (DataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataConnector)(nil))

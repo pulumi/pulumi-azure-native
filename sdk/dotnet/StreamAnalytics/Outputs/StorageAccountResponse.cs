@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
-    /// <summary>
-    /// The properties that are associated with an Azure Storage account
-    /// </summary>
     [OutputType]
     public sealed class StorageAccountResponse
     {

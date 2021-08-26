@@ -126,7 +126,7 @@ type linkArgs struct {
 	// The set of properties mappings between the source and target Types.
 	Mappings []TypePropertiesMapping `pulumi:"mappings"`
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-	OperationType *InstanceOperationType `pulumi:"operationType"`
+	OperationType *string `pulumi:"operationType"`
 	// The properties that represent the participating profile.
 	ParticipantPropertyReferences []ParticipantPropertyReference `pulumi:"participantPropertyReferences"`
 	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
@@ -152,7 +152,7 @@ type LinkArgs struct {
 	// The set of properties mappings between the source and target Types.
 	Mappings TypePropertiesMappingArrayInput
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-	OperationType InstanceOperationTypePtrInput
+	OperationType *InstanceOperationType
 	// The properties that represent the participating profile.
 	ParticipantPropertyReferences ParticipantPropertyReferenceArrayInput
 	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
@@ -188,7 +188,9 @@ func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
 }
 
-type LinkOutput struct{ *pulumi.OutputState }
+type LinkOutput struct {
+	*pulumi.OutputState
+}
 
 func (LinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Link)(nil))

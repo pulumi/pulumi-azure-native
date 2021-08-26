@@ -187,7 +187,7 @@ type queueArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -227,7 +227,7 @@ type QueueArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status EntityStatusPtrInput
+	Status *EntityStatus
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -253,7 +253,9 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
-type QueueOutput struct{ *pulumi.OutputState }
+type QueueOutput struct {
+	*pulumi.OutputState
+}
 
 func (QueueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Queue)(nil))

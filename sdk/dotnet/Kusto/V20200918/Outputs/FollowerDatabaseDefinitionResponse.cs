@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20200918.Outputs
 {
 
-    /// <summary>
-    /// A class representing follower database request.
-    /// </summary>
     [OutputType]
     public sealed class FollowerDatabaseDefinitionResponse
     {

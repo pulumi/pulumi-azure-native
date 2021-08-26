@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.Outputs
 {
 
-    /// <summary>
-    /// Specifies the job properties
-    /// </summary>
     [OutputType]
     public sealed class JobDetailsResponse
     {

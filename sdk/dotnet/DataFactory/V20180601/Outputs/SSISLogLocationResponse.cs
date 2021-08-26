@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// SSIS package execution log location
-    /// </summary>
     [OutputType]
     public sealed class SSISLogLocationResponse
     {

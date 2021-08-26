@@ -155,7 +155,9 @@ func (i *Token) ToTokenOutputWithContext(ctx context.Context) TokenOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TokenOutput)
 }
 
-type TokenOutput struct{ *pulumi.OutputState }
+type TokenOutput struct {
+	*pulumi.OutputState
+}
 
 func (TokenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Token)(nil))

@@ -755,7 +755,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -785,13 +785,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Sku name
@@ -930,7 +924,7 @@ func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutput() System
 }
 
 func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutputWithContext(ctx context.Context) SystemMetadataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemMetadataResponse) *SystemMetadataResponse {
+	return o.ApplyT(func(v SystemMetadataResponse) *SystemMetadataResponse {
 		return &v
 	}).(SystemMetadataResponsePtrOutput)
 }
@@ -980,13 +974,7 @@ func (o SystemMetadataResponsePtrOutput) ToSystemMetadataResponsePtrOutputWithCo
 }
 
 func (o SystemMetadataResponsePtrOutput) Elem() SystemMetadataResponseOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemMetadataResponse
-		return ret
-	}).(SystemMetadataResponseOutput)
+	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse { return *v }).(SystemMetadataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

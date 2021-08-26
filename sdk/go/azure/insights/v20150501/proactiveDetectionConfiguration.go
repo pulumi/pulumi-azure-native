@@ -157,7 +157,9 @@ func (i *ProactiveDetectionConfiguration) ToProactiveDetectionConfigurationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ProactiveDetectionConfigurationOutput)
 }
 
-type ProactiveDetectionConfigurationOutput struct{ *pulumi.OutputState }
+type ProactiveDetectionConfigurationOutput struct {
+	*pulumi.OutputState
+}
 
 func (ProactiveDetectionConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProactiveDetectionConfiguration)(nil))

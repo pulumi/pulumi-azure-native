@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160810.Outputs
 {
 
-    /// <summary>
-    /// Azure VM input endpoint details.
-    /// </summary>
     [OutputType]
     public sealed class InputEndpointResponse
     {

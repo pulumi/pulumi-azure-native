@@ -109,7 +109,9 @@ func (i *TrafficManagerUserMetricsKey) ToTrafficManagerUserMetricsKeyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerUserMetricsKeyOutput)
 }
 
-type TrafficManagerUserMetricsKeyOutput struct{ *pulumi.OutputState }
+type TrafficManagerUserMetricsKeyOutput struct {
+	*pulumi.OutputState
+}
 
 func (TrafficManagerUserMetricsKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrafficManagerUserMetricsKey)(nil))

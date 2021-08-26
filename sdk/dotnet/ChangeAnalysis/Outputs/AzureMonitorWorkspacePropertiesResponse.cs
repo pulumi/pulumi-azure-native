@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ChangeAnalysis.Outputs
 {
 
-    /// <summary>
-    /// Configuration properties of an Azure Monitor workspace that receives change notifications.
-    /// </summary>
     [OutputType]
     public sealed class AzureMonitorWorkspacePropertiesResponse
     {

@@ -175,7 +175,9 @@ func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
 }
 
-type WorkspaceSqlAadAdminOutput struct{ *pulumi.OutputState }
+type WorkspaceSqlAadAdminOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil))

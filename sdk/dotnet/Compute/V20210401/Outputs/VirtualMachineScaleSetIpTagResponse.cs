@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
-    /// <summary>
-    /// Contains the IP tag associated with the public IP address.
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetIpTagResponse
     {

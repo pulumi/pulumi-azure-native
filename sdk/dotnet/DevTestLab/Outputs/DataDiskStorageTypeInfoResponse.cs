@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
-    /// <summary>
-    /// Storage information about the data disks present in the custom image
-    /// </summary>
     [OutputType]
     public sealed class DataDiskStorageTypeInfoResponse
     {

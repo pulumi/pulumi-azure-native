@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.Outputs
 {
 
-    /// <summary>
-    /// The schedule recurrence.
-    /// </summary>
     [OutputType]
     public sealed class ScheduleRecurrenceResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// Class for EnvelopeEncryption encryption scheme
-    /// </summary>
     [OutputType]
     public sealed class EnvelopeEncryptionResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maintenance.V20210901Preview.Outputs
 {
 
-    /// <summary>
-    /// Input configuration for a patch run
-    /// </summary>
     [OutputType]
     public sealed class InputPatchConfigurationResponse
     {

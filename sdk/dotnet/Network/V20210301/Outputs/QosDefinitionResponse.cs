@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Quality of Service defines the traffic configuration between endpoints. Mandatory to have one marking.
-    /// </summary>
     [OutputType]
     public sealed class QosDefinitionResponse
     {

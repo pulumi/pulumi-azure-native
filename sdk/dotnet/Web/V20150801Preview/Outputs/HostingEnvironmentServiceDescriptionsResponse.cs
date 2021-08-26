@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801Preview.Outputs
 {
 
-    /// <summary>
-    /// Back end service per ASE
-    /// </summary>
     [OutputType]
     public sealed class HostingEnvironmentServiceDescriptionsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200601.Outputs
 {
 
-    /// <summary>
-    /// Network Virtual Appliance NIC properties.
-    /// </summary>
     [OutputType]
     public sealed class VirtualApplianceNicPropertiesResponse
     {

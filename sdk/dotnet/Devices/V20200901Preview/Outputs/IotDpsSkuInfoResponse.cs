@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200901Preview.Outputs
 {
 
-    /// <summary>
-    /// List of possible provisioning service SKUs.
-    /// </summary>
     [OutputType]
     public sealed class IotDpsSkuInfoResponse
     {

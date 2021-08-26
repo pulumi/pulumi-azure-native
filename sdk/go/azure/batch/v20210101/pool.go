@@ -187,7 +187,7 @@ type poolArgs struct {
 	// The type of identity used for the Batch Pool.
 	Identity *BatchPoolIdentity `pulumi:"identity"`
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
-	InterNodeCommunication *InterNodeCommunicationState `pulumi:"interNodeCommunication"`
+	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata []MetadataItem `pulumi:"metadata"`
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -228,7 +228,7 @@ type PoolArgs struct {
 	// The type of identity used for the Batch Pool.
 	Identity BatchPoolIdentityPtrInput
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
-	InterNodeCommunication InterNodeCommunicationStatePtrInput
+	InterNodeCommunication *InterNodeCommunicationState
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata MetadataItemArrayInput
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
@@ -275,7 +275,9 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
 }
 
-type PoolOutput struct{ *pulumi.OutputState }
+type PoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (PoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pool)(nil))

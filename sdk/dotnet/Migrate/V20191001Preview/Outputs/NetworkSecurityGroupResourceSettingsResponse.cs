@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines the NSG resource settings.
-    /// </summary>
     [OutputType]
     public sealed class NetworkSecurityGroupResourceSettingsResponse
     {

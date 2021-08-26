@@ -110,7 +110,7 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 }
 
 func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
+	return o.ApplyT(func(v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
 		return &v
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
@@ -140,13 +140,7 @@ func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtr
 }
 
 func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceLinuxProfile
-		return ret
-	}).(ContainerServiceLinuxProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile { return *v }).(ContainerServiceLinuxProfileOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -269,7 +263,7 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
+	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
 		return &v
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
@@ -299,13 +293,7 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxPr
 }
 
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceLinuxProfileResponse
-		return ret
-	}).(ContainerServiceLinuxProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse { return *v }).(ContainerServiceLinuxProfileResponseOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -444,7 +432,7 @@ func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePt
 }
 
 func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
+	return o.ApplyT(func(v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
 		return &v
 	}).(ContainerServiceNetworkProfilePtrOutput)
 }
@@ -494,13 +482,7 @@ func (o ContainerServiceNetworkProfilePtrOutput) ToContainerServiceNetworkProfil
 }
 
 func (o ContainerServiceNetworkProfilePtrOutput) Elem() ContainerServiceNetworkProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceNetworkProfile
-		return ret
-	}).(ContainerServiceNetworkProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile { return *v }).(ContainerServiceNetworkProfileOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -679,7 +661,7 @@ func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkP
 }
 
 func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
 		return &v
 	}).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
@@ -729,13 +711,7 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ToContainerServiceNetwo
 }
 
 func (o ContainerServiceNetworkProfileResponsePtrOutput) Elem() ContainerServiceNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceNetworkProfileResponse
-		return ret
-	}).(ContainerServiceNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse { return *v }).(ContainerServiceNetworkProfileResponseOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -894,7 +870,7 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 }
 
 func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
+	return o.ApplyT(func(v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
 		return &v
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
@@ -919,13 +895,7 @@ func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigur
 }
 
 func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceSshConfiguration
-		return ret
-	}).(ContainerServiceSshConfigurationOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration { return *v }).(ContainerServiceSshConfigurationOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -1034,7 +1004,7 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
+	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
 		return &v
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
@@ -1061,13 +1031,7 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSsh
 }
 
 func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceSshConfigurationResponse
-		return ret
-	}).(ContainerServiceSshConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse { return *v }).(ContainerServiceSshConfigurationResponseOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -1497,7 +1461,7 @@ func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutput() Ma
 }
 
 func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfile) *ManagedClusterAADProfile {
+	return o.ApplyT(func(v ManagedClusterAADProfile) *ManagedClusterAADProfile {
 		return &v
 	}).(ManagedClusterAADProfilePtrOutput)
 }
@@ -1537,13 +1501,7 @@ func (o ManagedClusterAADProfilePtrOutput) ToManagedClusterAADProfilePtrOutputWi
 }
 
 func (o ManagedClusterAADProfilePtrOutput) Elem() ManagedClusterAADProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedClusterAADProfile
-		return ret
-	}).(ManagedClusterAADProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile { return *v }).(ManagedClusterAADProfileOutput)
 }
 
 // The client AAD application ID.
@@ -1694,7 +1652,7 @@ func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileRespon
 }
 
 func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
+	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
 		return &v
 	}).(ManagedClusterAADProfileResponsePtrOutput)
 }
@@ -1734,13 +1692,7 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ToManagedClusterAADProfileRes
 }
 
 func (o ManagedClusterAADProfileResponsePtrOutput) Elem() ManagedClusterAADProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedClusterAADProfileResponse
-		return ret
-	}).(ManagedClusterAADProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse { return *v }).(ManagedClusterAADProfileResponseOutput)
 }
 
 // The client AAD application ID.
@@ -2481,7 +2433,7 @@ func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrin
 }
 
 func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrincipalProfilePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
+	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
 		return &v
 	}).(ManagedClusterServicePrincipalProfilePtrOutput)
 }
@@ -2511,13 +2463,7 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) ToManagedClusterServiceP
 }
 
 func (o ManagedClusterServicePrincipalProfilePtrOutput) Elem() ManagedClusterServicePrincipalProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedClusterServicePrincipalProfile
-		return ret
-	}).(ManagedClusterServicePrincipalProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile { return *v }).(ManagedClusterServicePrincipalProfileOutput)
 }
 
 // The ID for the service principal.
@@ -2640,7 +2586,7 @@ func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterSer
 }
 
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
+	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
 		return &v
 	}).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
@@ -2671,11 +2617,7 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ToManagedCluster
 
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Elem() ManagedClusterServicePrincipalProfileResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) ManagedClusterServicePrincipalProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedClusterServicePrincipalProfileResponse
-		return ret
+		return *v
 	}).(ManagedClusterServicePrincipalProfileResponseOutput)
 }
 

@@ -11,7 +11,7 @@ import (
 )
 
 // The failover deployment model.
-type FailoverDeploymentModel string
+type FailoverDeploymentModel pulumi.String
 
 const (
 	FailoverDeploymentModelNotApplicable   = FailoverDeploymentModel("NotApplicable")
@@ -20,23 +20,7 @@ const (
 )
 
 func (FailoverDeploymentModel) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverDeploymentModel)(nil)).Elem()
-}
-
-func (e FailoverDeploymentModel) ToFailoverDeploymentModelOutput() FailoverDeploymentModelOutput {
-	return pulumi.ToOutput(e).(FailoverDeploymentModelOutput)
-}
-
-func (e FailoverDeploymentModel) ToFailoverDeploymentModelOutputWithContext(ctx context.Context) FailoverDeploymentModelOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FailoverDeploymentModelOutput)
-}
-
-func (e FailoverDeploymentModel) ToFailoverDeploymentModelPtrOutput() FailoverDeploymentModelPtrOutput {
-	return e.ToFailoverDeploymentModelPtrOutputWithContext(context.Background())
-}
-
-func (e FailoverDeploymentModel) ToFailoverDeploymentModelPtrOutputWithContext(ctx context.Context) FailoverDeploymentModelPtrOutput {
-	return FailoverDeploymentModel(e).ToFailoverDeploymentModelOutputWithContext(ctx).ToFailoverDeploymentModelPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e FailoverDeploymentModel) ToStringOutput() pulumi.StringOutput {
@@ -55,128 +39,7 @@ func (e FailoverDeploymentModel) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type FailoverDeploymentModelOutput struct{ *pulumi.OutputState }
-
-func (FailoverDeploymentModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverDeploymentModel)(nil)).Elem()
-}
-
-func (o FailoverDeploymentModelOutput) ToFailoverDeploymentModelOutput() FailoverDeploymentModelOutput {
-	return o
-}
-
-func (o FailoverDeploymentModelOutput) ToFailoverDeploymentModelOutputWithContext(ctx context.Context) FailoverDeploymentModelOutput {
-	return o
-}
-
-func (o FailoverDeploymentModelOutput) ToFailoverDeploymentModelPtrOutput() FailoverDeploymentModelPtrOutput {
-	return o.ToFailoverDeploymentModelPtrOutputWithContext(context.Background())
-}
-
-func (o FailoverDeploymentModelOutput) ToFailoverDeploymentModelPtrOutputWithContext(ctx context.Context) FailoverDeploymentModelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverDeploymentModel) *FailoverDeploymentModel {
-		return &v
-	}).(FailoverDeploymentModelPtrOutput)
-}
-
-func (o FailoverDeploymentModelOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o FailoverDeploymentModelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FailoverDeploymentModel) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o FailoverDeploymentModelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FailoverDeploymentModelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FailoverDeploymentModel) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type FailoverDeploymentModelPtrOutput struct{ *pulumi.OutputState }
-
-func (FailoverDeploymentModelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FailoverDeploymentModel)(nil)).Elem()
-}
-
-func (o FailoverDeploymentModelPtrOutput) ToFailoverDeploymentModelPtrOutput() FailoverDeploymentModelPtrOutput {
-	return o
-}
-
-func (o FailoverDeploymentModelPtrOutput) ToFailoverDeploymentModelPtrOutputWithContext(ctx context.Context) FailoverDeploymentModelPtrOutput {
-	return o
-}
-
-func (o FailoverDeploymentModelPtrOutput) Elem() FailoverDeploymentModelOutput {
-	return o.ApplyT(func(v *FailoverDeploymentModel) FailoverDeploymentModel {
-		if v != nil {
-			return *v
-		}
-		var ret FailoverDeploymentModel
-		return ret
-	}).(FailoverDeploymentModelOutput)
-}
-
-func (o FailoverDeploymentModelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FailoverDeploymentModelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FailoverDeploymentModel) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// FailoverDeploymentModelInput is an input type that accepts FailoverDeploymentModelArgs and FailoverDeploymentModelOutput values.
-// You can construct a concrete instance of `FailoverDeploymentModelInput` via:
-//
-//          FailoverDeploymentModelArgs{...}
-type FailoverDeploymentModelInput interface {
-	pulumi.Input
-
-	ToFailoverDeploymentModelOutput() FailoverDeploymentModelOutput
-	ToFailoverDeploymentModelOutputWithContext(context.Context) FailoverDeploymentModelOutput
-}
-
-var failoverDeploymentModelPtrType = reflect.TypeOf((**FailoverDeploymentModel)(nil)).Elem()
-
-type FailoverDeploymentModelPtrInput interface {
-	pulumi.Input
-
-	ToFailoverDeploymentModelPtrOutput() FailoverDeploymentModelPtrOutput
-	ToFailoverDeploymentModelPtrOutputWithContext(context.Context) FailoverDeploymentModelPtrOutput
-}
-
-type failoverDeploymentModelPtr string
-
-func FailoverDeploymentModelPtr(v string) FailoverDeploymentModelPtrInput {
-	return (*failoverDeploymentModelPtr)(&v)
-}
-
-func (*failoverDeploymentModelPtr) ElementType() reflect.Type {
-	return failoverDeploymentModelPtrType
-}
-
-func (in *failoverDeploymentModelPtr) ToFailoverDeploymentModelPtrOutput() FailoverDeploymentModelPtrOutput {
-	return pulumi.ToOutput(in).(FailoverDeploymentModelPtrOutput)
-}
-
-func (in *failoverDeploymentModelPtr) ToFailoverDeploymentModelPtrOutputWithContext(ctx context.Context) FailoverDeploymentModelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FailoverDeploymentModelPtrOutput)
-}
-
-type PossibleOperationsDirections string
+type PossibleOperationsDirections pulumi.String
 
 const (
 	PossibleOperationsDirectionsPrimaryToRecovery = PossibleOperationsDirections("PrimaryToRecovery")
@@ -184,23 +47,7 @@ const (
 )
 
 func (PossibleOperationsDirections) ElementType() reflect.Type {
-	return reflect.TypeOf((*PossibleOperationsDirections)(nil)).Elem()
-}
-
-func (e PossibleOperationsDirections) ToPossibleOperationsDirectionsOutput() PossibleOperationsDirectionsOutput {
-	return pulumi.ToOutput(e).(PossibleOperationsDirectionsOutput)
-}
-
-func (e PossibleOperationsDirections) ToPossibleOperationsDirectionsOutputWithContext(ctx context.Context) PossibleOperationsDirectionsOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PossibleOperationsDirectionsOutput)
-}
-
-func (e PossibleOperationsDirections) ToPossibleOperationsDirectionsPtrOutput() PossibleOperationsDirectionsPtrOutput {
-	return e.ToPossibleOperationsDirectionsPtrOutputWithContext(context.Background())
-}
-
-func (e PossibleOperationsDirections) ToPossibleOperationsDirectionsPtrOutputWithContext(ctx context.Context) PossibleOperationsDirectionsPtrOutput {
-	return PossibleOperationsDirections(e).ToPossibleOperationsDirectionsOutputWithContext(ctx).ToPossibleOperationsDirectionsPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e PossibleOperationsDirections) ToStringOutput() pulumi.StringOutput {
@@ -217,127 +64,6 @@ func (e PossibleOperationsDirections) ToStringPtrOutput() pulumi.StringPtrOutput
 
 func (e PossibleOperationsDirections) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type PossibleOperationsDirectionsOutput struct{ *pulumi.OutputState }
-
-func (PossibleOperationsDirectionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PossibleOperationsDirections)(nil)).Elem()
-}
-
-func (o PossibleOperationsDirectionsOutput) ToPossibleOperationsDirectionsOutput() PossibleOperationsDirectionsOutput {
-	return o
-}
-
-func (o PossibleOperationsDirectionsOutput) ToPossibleOperationsDirectionsOutputWithContext(ctx context.Context) PossibleOperationsDirectionsOutput {
-	return o
-}
-
-func (o PossibleOperationsDirectionsOutput) ToPossibleOperationsDirectionsPtrOutput() PossibleOperationsDirectionsPtrOutput {
-	return o.ToPossibleOperationsDirectionsPtrOutputWithContext(context.Background())
-}
-
-func (o PossibleOperationsDirectionsOutput) ToPossibleOperationsDirectionsPtrOutputWithContext(ctx context.Context) PossibleOperationsDirectionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PossibleOperationsDirections) *PossibleOperationsDirections {
-		return &v
-	}).(PossibleOperationsDirectionsPtrOutput)
-}
-
-func (o PossibleOperationsDirectionsOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PossibleOperationsDirectionsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PossibleOperationsDirections) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PossibleOperationsDirectionsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PossibleOperationsDirectionsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PossibleOperationsDirections) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PossibleOperationsDirectionsPtrOutput struct{ *pulumi.OutputState }
-
-func (PossibleOperationsDirectionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PossibleOperationsDirections)(nil)).Elem()
-}
-
-func (o PossibleOperationsDirectionsPtrOutput) ToPossibleOperationsDirectionsPtrOutput() PossibleOperationsDirectionsPtrOutput {
-	return o
-}
-
-func (o PossibleOperationsDirectionsPtrOutput) ToPossibleOperationsDirectionsPtrOutputWithContext(ctx context.Context) PossibleOperationsDirectionsPtrOutput {
-	return o
-}
-
-func (o PossibleOperationsDirectionsPtrOutput) Elem() PossibleOperationsDirectionsOutput {
-	return o.ApplyT(func(v *PossibleOperationsDirections) PossibleOperationsDirections {
-		if v != nil {
-			return *v
-		}
-		var ret PossibleOperationsDirections
-		return ret
-	}).(PossibleOperationsDirectionsOutput)
-}
-
-func (o PossibleOperationsDirectionsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PossibleOperationsDirectionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PossibleOperationsDirections) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// PossibleOperationsDirectionsInput is an input type that accepts PossibleOperationsDirectionsArgs and PossibleOperationsDirectionsOutput values.
-// You can construct a concrete instance of `PossibleOperationsDirectionsInput` via:
-//
-//          PossibleOperationsDirectionsArgs{...}
-type PossibleOperationsDirectionsInput interface {
-	pulumi.Input
-
-	ToPossibleOperationsDirectionsOutput() PossibleOperationsDirectionsOutput
-	ToPossibleOperationsDirectionsOutputWithContext(context.Context) PossibleOperationsDirectionsOutput
-}
-
-var possibleOperationsDirectionsPtrType = reflect.TypeOf((**PossibleOperationsDirections)(nil)).Elem()
-
-type PossibleOperationsDirectionsPtrInput interface {
-	pulumi.Input
-
-	ToPossibleOperationsDirectionsPtrOutput() PossibleOperationsDirectionsPtrOutput
-	ToPossibleOperationsDirectionsPtrOutputWithContext(context.Context) PossibleOperationsDirectionsPtrOutput
-}
-
-type possibleOperationsDirectionsPtr string
-
-func PossibleOperationsDirectionsPtr(v string) PossibleOperationsDirectionsPtrInput {
-	return (*possibleOperationsDirectionsPtr)(&v)
-}
-
-func (*possibleOperationsDirectionsPtr) ElementType() reflect.Type {
-	return possibleOperationsDirectionsPtrType
-}
-
-func (in *possibleOperationsDirectionsPtr) ToPossibleOperationsDirectionsPtrOutput() PossibleOperationsDirectionsPtrOutput {
-	return pulumi.ToOutput(in).(PossibleOperationsDirectionsPtrOutput)
-}
-
-func (in *possibleOperationsDirectionsPtr) ToPossibleOperationsDirectionsPtrOutputWithContext(ctx context.Context) PossibleOperationsDirectionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PossibleOperationsDirectionsPtrOutput)
 }
 
 // PossibleOperationsDirectionsArrayInput is an input type that accepts PossibleOperationsDirectionsArray and PossibleOperationsDirectionsArrayOutput values.
@@ -379,14 +105,14 @@ func (o PossibleOperationsDirectionsArrayOutput) ToPossibleOperationsDirectionsA
 	return o
 }
 
-func (o PossibleOperationsDirectionsArrayOutput) Index(i pulumi.IntInput) PossibleOperationsDirectionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PossibleOperationsDirections {
-		return vs[0].([]PossibleOperationsDirections)[vs[1].(int)]
-	}).(PossibleOperationsDirectionsOutput)
+func (o PossibleOperationsDirectionsArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]PossibleOperationsDirections)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }
 
 // The group type.
-type RecoveryPlanGroupType string
+type RecoveryPlanGroupType pulumi.String
 
 const (
 	RecoveryPlanGroupTypeShutdown = RecoveryPlanGroupType("Shutdown")
@@ -395,23 +121,7 @@ const (
 )
 
 func (RecoveryPlanGroupType) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanGroupType)(nil)).Elem()
-}
-
-func (e RecoveryPlanGroupType) ToRecoveryPlanGroupTypeOutput() RecoveryPlanGroupTypeOutput {
-	return pulumi.ToOutput(e).(RecoveryPlanGroupTypeOutput)
-}
-
-func (e RecoveryPlanGroupType) ToRecoveryPlanGroupTypeOutputWithContext(ctx context.Context) RecoveryPlanGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RecoveryPlanGroupTypeOutput)
-}
-
-func (e RecoveryPlanGroupType) ToRecoveryPlanGroupTypePtrOutput() RecoveryPlanGroupTypePtrOutput {
-	return e.ToRecoveryPlanGroupTypePtrOutputWithContext(context.Background())
-}
-
-func (e RecoveryPlanGroupType) ToRecoveryPlanGroupTypePtrOutputWithContext(ctx context.Context) RecoveryPlanGroupTypePtrOutput {
-	return RecoveryPlanGroupType(e).ToRecoveryPlanGroupTypeOutputWithContext(ctx).ToRecoveryPlanGroupTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e RecoveryPlanGroupType) ToStringOutput() pulumi.StringOutput {
@@ -430,128 +140,7 @@ func (e RecoveryPlanGroupType) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RecoveryPlanGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanGroupType)(nil)).Elem()
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToRecoveryPlanGroupTypeOutput() RecoveryPlanGroupTypeOutput {
-	return o
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToRecoveryPlanGroupTypeOutputWithContext(ctx context.Context) RecoveryPlanGroupTypeOutput {
-	return o
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToRecoveryPlanGroupTypePtrOutput() RecoveryPlanGroupTypePtrOutput {
-	return o.ToRecoveryPlanGroupTypePtrOutputWithContext(context.Background())
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToRecoveryPlanGroupTypePtrOutputWithContext(ctx context.Context) RecoveryPlanGroupTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecoveryPlanGroupType) *RecoveryPlanGroupType {
-		return &v
-	}).(RecoveryPlanGroupTypePtrOutput)
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecoveryPlanGroupType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RecoveryPlanGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecoveryPlanGroupType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RecoveryPlanGroupTypePtrOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanGroupTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecoveryPlanGroupType)(nil)).Elem()
-}
-
-func (o RecoveryPlanGroupTypePtrOutput) ToRecoveryPlanGroupTypePtrOutput() RecoveryPlanGroupTypePtrOutput {
-	return o
-}
-
-func (o RecoveryPlanGroupTypePtrOutput) ToRecoveryPlanGroupTypePtrOutputWithContext(ctx context.Context) RecoveryPlanGroupTypePtrOutput {
-	return o
-}
-
-func (o RecoveryPlanGroupTypePtrOutput) Elem() RecoveryPlanGroupTypeOutput {
-	return o.ApplyT(func(v *RecoveryPlanGroupType) RecoveryPlanGroupType {
-		if v != nil {
-			return *v
-		}
-		var ret RecoveryPlanGroupType
-		return ret
-	}).(RecoveryPlanGroupTypeOutput)
-}
-
-func (o RecoveryPlanGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RecoveryPlanGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecoveryPlanGroupType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RecoveryPlanGroupTypeInput is an input type that accepts RecoveryPlanGroupTypeArgs and RecoveryPlanGroupTypeOutput values.
-// You can construct a concrete instance of `RecoveryPlanGroupTypeInput` via:
-//
-//          RecoveryPlanGroupTypeArgs{...}
-type RecoveryPlanGroupTypeInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanGroupTypeOutput() RecoveryPlanGroupTypeOutput
-	ToRecoveryPlanGroupTypeOutputWithContext(context.Context) RecoveryPlanGroupTypeOutput
-}
-
-var recoveryPlanGroupTypePtrType = reflect.TypeOf((**RecoveryPlanGroupType)(nil)).Elem()
-
-type RecoveryPlanGroupTypePtrInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanGroupTypePtrOutput() RecoveryPlanGroupTypePtrOutput
-	ToRecoveryPlanGroupTypePtrOutputWithContext(context.Context) RecoveryPlanGroupTypePtrOutput
-}
-
-type recoveryPlanGroupTypePtr string
-
-func RecoveryPlanGroupTypePtr(v string) RecoveryPlanGroupTypePtrInput {
-	return (*recoveryPlanGroupTypePtr)(&v)
-}
-
-func (*recoveryPlanGroupTypePtr) ElementType() reflect.Type {
-	return recoveryPlanGroupTypePtrType
-}
-
-func (in *recoveryPlanGroupTypePtr) ToRecoveryPlanGroupTypePtrOutput() RecoveryPlanGroupTypePtrOutput {
-	return pulumi.ToOutput(in).(RecoveryPlanGroupTypePtrOutput)
-}
-
-func (in *recoveryPlanGroupTypePtr) ToRecoveryPlanGroupTypePtrOutputWithContext(ctx context.Context) RecoveryPlanGroupTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RecoveryPlanGroupTypePtrOutput)
-}
-
-type ReplicationProtectedItemOperation string
+type ReplicationProtectedItemOperation pulumi.String
 
 const (
 	ReplicationProtectedItemOperationReverseReplicate    = ReplicationProtectedItemOperation("ReverseReplicate")
@@ -570,23 +159,7 @@ const (
 )
 
 func (ReplicationProtectedItemOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectedItemOperation)(nil)).Elem()
-}
-
-func (e ReplicationProtectedItemOperation) ToReplicationProtectedItemOperationOutput() ReplicationProtectedItemOperationOutput {
-	return pulumi.ToOutput(e).(ReplicationProtectedItemOperationOutput)
-}
-
-func (e ReplicationProtectedItemOperation) ToReplicationProtectedItemOperationOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ReplicationProtectedItemOperationOutput)
-}
-
-func (e ReplicationProtectedItemOperation) ToReplicationProtectedItemOperationPtrOutput() ReplicationProtectedItemOperationPtrOutput {
-	return e.ToReplicationProtectedItemOperationPtrOutputWithContext(context.Background())
-}
-
-func (e ReplicationProtectedItemOperation) ToReplicationProtectedItemOperationPtrOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationPtrOutput {
-	return ReplicationProtectedItemOperation(e).ToReplicationProtectedItemOperationOutputWithContext(ctx).ToReplicationProtectedItemOperationPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ReplicationProtectedItemOperation) ToStringOutput() pulumi.StringOutput {
@@ -603,127 +176,6 @@ func (e ReplicationProtectedItemOperation) ToStringPtrOutput() pulumi.StringPtrO
 
 func (e ReplicationProtectedItemOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ReplicationProtectedItemOperationOutput struct{ *pulumi.OutputState }
-
-func (ReplicationProtectedItemOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectedItemOperation)(nil)).Elem()
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToReplicationProtectedItemOperationOutput() ReplicationProtectedItemOperationOutput {
-	return o
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToReplicationProtectedItemOperationOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationOutput {
-	return o
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToReplicationProtectedItemOperationPtrOutput() ReplicationProtectedItemOperationPtrOutput {
-	return o.ToReplicationProtectedItemOperationPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToReplicationProtectedItemOperationPtrOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationProtectedItemOperation) *ReplicationProtectedItemOperation {
-		return &v
-	}).(ReplicationProtectedItemOperationPtrOutput)
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationProtectedItemOperation) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationProtectedItemOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationProtectedItemOperation) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ReplicationProtectedItemOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationProtectedItemOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationProtectedItemOperation)(nil)).Elem()
-}
-
-func (o ReplicationProtectedItemOperationPtrOutput) ToReplicationProtectedItemOperationPtrOutput() ReplicationProtectedItemOperationPtrOutput {
-	return o
-}
-
-func (o ReplicationProtectedItemOperationPtrOutput) ToReplicationProtectedItemOperationPtrOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationPtrOutput {
-	return o
-}
-
-func (o ReplicationProtectedItemOperationPtrOutput) Elem() ReplicationProtectedItemOperationOutput {
-	return o.ApplyT(func(v *ReplicationProtectedItemOperation) ReplicationProtectedItemOperation {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationProtectedItemOperation
-		return ret
-	}).(ReplicationProtectedItemOperationOutput)
-}
-
-func (o ReplicationProtectedItemOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationProtectedItemOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationProtectedItemOperation) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ReplicationProtectedItemOperationInput is an input type that accepts ReplicationProtectedItemOperationArgs and ReplicationProtectedItemOperationOutput values.
-// You can construct a concrete instance of `ReplicationProtectedItemOperationInput` via:
-//
-//          ReplicationProtectedItemOperationArgs{...}
-type ReplicationProtectedItemOperationInput interface {
-	pulumi.Input
-
-	ToReplicationProtectedItemOperationOutput() ReplicationProtectedItemOperationOutput
-	ToReplicationProtectedItemOperationOutputWithContext(context.Context) ReplicationProtectedItemOperationOutput
-}
-
-var replicationProtectedItemOperationPtrType = reflect.TypeOf((**ReplicationProtectedItemOperation)(nil)).Elem()
-
-type ReplicationProtectedItemOperationPtrInput interface {
-	pulumi.Input
-
-	ToReplicationProtectedItemOperationPtrOutput() ReplicationProtectedItemOperationPtrOutput
-	ToReplicationProtectedItemOperationPtrOutputWithContext(context.Context) ReplicationProtectedItemOperationPtrOutput
-}
-
-type replicationProtectedItemOperationPtr string
-
-func ReplicationProtectedItemOperationPtr(v string) ReplicationProtectedItemOperationPtrInput {
-	return (*replicationProtectedItemOperationPtr)(&v)
-}
-
-func (*replicationProtectedItemOperationPtr) ElementType() reflect.Type {
-	return replicationProtectedItemOperationPtrType
-}
-
-func (in *replicationProtectedItemOperationPtr) ToReplicationProtectedItemOperationPtrOutput() ReplicationProtectedItemOperationPtrOutput {
-	return pulumi.ToOutput(in).(ReplicationProtectedItemOperationPtrOutput)
-}
-
-func (in *replicationProtectedItemOperationPtr) ToReplicationProtectedItemOperationPtrOutputWithContext(ctx context.Context) ReplicationProtectedItemOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ReplicationProtectedItemOperationPtrOutput)
 }
 
 // ReplicationProtectedItemOperationArrayInput is an input type that accepts ReplicationProtectedItemOperationArray and ReplicationProtectedItemOperationArrayOutput values.
@@ -765,14 +217,14 @@ func (o ReplicationProtectedItemOperationArrayOutput) ToReplicationProtectedItem
 	return o
 }
 
-func (o ReplicationProtectedItemOperationArrayOutput) Index(i pulumi.IntInput) ReplicationProtectedItemOperationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationProtectedItemOperation {
-		return vs[0].([]ReplicationProtectedItemOperation)[vs[1].(int)]
-	}).(ReplicationProtectedItemOperationOutput)
+func (o ReplicationProtectedItemOperationArrayOutput) Index(i pulumi.IntInput) pulumi.StringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) pulumi.StringOutput {
+		return vs[0].([]ReplicationProtectedItemOperation)[vs[1].(int)].ToStringOutput()
+	}).(pulumi.StringOutput)
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-type SetMultiVmSyncStatus string
+type SetMultiVmSyncStatus pulumi.String
 
 const (
 	SetMultiVmSyncStatusEnable  = SetMultiVmSyncStatus("Enable")
@@ -780,23 +232,7 @@ const (
 )
 
 func (SetMultiVmSyncStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*SetMultiVmSyncStatus)(nil)).Elem()
-}
-
-func (e SetMultiVmSyncStatus) ToSetMultiVmSyncStatusOutput() SetMultiVmSyncStatusOutput {
-	return pulumi.ToOutput(e).(SetMultiVmSyncStatusOutput)
-}
-
-func (e SetMultiVmSyncStatus) ToSetMultiVmSyncStatusOutputWithContext(ctx context.Context) SetMultiVmSyncStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SetMultiVmSyncStatusOutput)
-}
-
-func (e SetMultiVmSyncStatus) ToSetMultiVmSyncStatusPtrOutput() SetMultiVmSyncStatusPtrOutput {
-	return e.ToSetMultiVmSyncStatusPtrOutputWithContext(context.Background())
-}
-
-func (e SetMultiVmSyncStatus) ToSetMultiVmSyncStatusPtrOutputWithContext(ctx context.Context) SetMultiVmSyncStatusPtrOutput {
-	return SetMultiVmSyncStatus(e).ToSetMultiVmSyncStatusOutputWithContext(ctx).ToSetMultiVmSyncStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SetMultiVmSyncStatus) ToStringOutput() pulumi.StringOutput {
@@ -813,140 +249,4 @@ func (e SetMultiVmSyncStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SetMultiVmSyncStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SetMultiVmSyncStatusOutput struct{ *pulumi.OutputState }
-
-func (SetMultiVmSyncStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SetMultiVmSyncStatus)(nil)).Elem()
-}
-
-func (o SetMultiVmSyncStatusOutput) ToSetMultiVmSyncStatusOutput() SetMultiVmSyncStatusOutput {
-	return o
-}
-
-func (o SetMultiVmSyncStatusOutput) ToSetMultiVmSyncStatusOutputWithContext(ctx context.Context) SetMultiVmSyncStatusOutput {
-	return o
-}
-
-func (o SetMultiVmSyncStatusOutput) ToSetMultiVmSyncStatusPtrOutput() SetMultiVmSyncStatusPtrOutput {
-	return o.ToSetMultiVmSyncStatusPtrOutputWithContext(context.Background())
-}
-
-func (o SetMultiVmSyncStatusOutput) ToSetMultiVmSyncStatusPtrOutputWithContext(ctx context.Context) SetMultiVmSyncStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SetMultiVmSyncStatus) *SetMultiVmSyncStatus {
-		return &v
-	}).(SetMultiVmSyncStatusPtrOutput)
-}
-
-func (o SetMultiVmSyncStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SetMultiVmSyncStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SetMultiVmSyncStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SetMultiVmSyncStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SetMultiVmSyncStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SetMultiVmSyncStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SetMultiVmSyncStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (SetMultiVmSyncStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SetMultiVmSyncStatus)(nil)).Elem()
-}
-
-func (o SetMultiVmSyncStatusPtrOutput) ToSetMultiVmSyncStatusPtrOutput() SetMultiVmSyncStatusPtrOutput {
-	return o
-}
-
-func (o SetMultiVmSyncStatusPtrOutput) ToSetMultiVmSyncStatusPtrOutputWithContext(ctx context.Context) SetMultiVmSyncStatusPtrOutput {
-	return o
-}
-
-func (o SetMultiVmSyncStatusPtrOutput) Elem() SetMultiVmSyncStatusOutput {
-	return o.ApplyT(func(v *SetMultiVmSyncStatus) SetMultiVmSyncStatus {
-		if v != nil {
-			return *v
-		}
-		var ret SetMultiVmSyncStatus
-		return ret
-	}).(SetMultiVmSyncStatusOutput)
-}
-
-func (o SetMultiVmSyncStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SetMultiVmSyncStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SetMultiVmSyncStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SetMultiVmSyncStatusInput is an input type that accepts SetMultiVmSyncStatusArgs and SetMultiVmSyncStatusOutput values.
-// You can construct a concrete instance of `SetMultiVmSyncStatusInput` via:
-//
-//          SetMultiVmSyncStatusArgs{...}
-type SetMultiVmSyncStatusInput interface {
-	pulumi.Input
-
-	ToSetMultiVmSyncStatusOutput() SetMultiVmSyncStatusOutput
-	ToSetMultiVmSyncStatusOutputWithContext(context.Context) SetMultiVmSyncStatusOutput
-}
-
-var setMultiVmSyncStatusPtrType = reflect.TypeOf((**SetMultiVmSyncStatus)(nil)).Elem()
-
-type SetMultiVmSyncStatusPtrInput interface {
-	pulumi.Input
-
-	ToSetMultiVmSyncStatusPtrOutput() SetMultiVmSyncStatusPtrOutput
-	ToSetMultiVmSyncStatusPtrOutputWithContext(context.Context) SetMultiVmSyncStatusPtrOutput
-}
-
-type setMultiVmSyncStatusPtr string
-
-func SetMultiVmSyncStatusPtr(v string) SetMultiVmSyncStatusPtrInput {
-	return (*setMultiVmSyncStatusPtr)(&v)
-}
-
-func (*setMultiVmSyncStatusPtr) ElementType() reflect.Type {
-	return setMultiVmSyncStatusPtrType
-}
-
-func (in *setMultiVmSyncStatusPtr) ToSetMultiVmSyncStatusPtrOutput() SetMultiVmSyncStatusPtrOutput {
-	return pulumi.ToOutput(in).(SetMultiVmSyncStatusPtrOutput)
-}
-
-func (in *setMultiVmSyncStatusPtr) ToSetMultiVmSyncStatusPtrOutputWithContext(ctx context.Context) SetMultiVmSyncStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SetMultiVmSyncStatusPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(FailoverDeploymentModelOutput{})
-	pulumi.RegisterOutputType(FailoverDeploymentModelPtrOutput{})
-	pulumi.RegisterOutputType(PossibleOperationsDirectionsOutput{})
-	pulumi.RegisterOutputType(PossibleOperationsDirectionsPtrOutput{})
-	pulumi.RegisterOutputType(PossibleOperationsDirectionsArrayOutput{})
-	pulumi.RegisterOutputType(RecoveryPlanGroupTypeOutput{})
-	pulumi.RegisterOutputType(RecoveryPlanGroupTypePtrOutput{})
-	pulumi.RegisterOutputType(ReplicationProtectedItemOperationOutput{})
-	pulumi.RegisterOutputType(ReplicationProtectedItemOperationPtrOutput{})
-	pulumi.RegisterOutputType(ReplicationProtectedItemOperationArrayOutput{})
-	pulumi.RegisterOutputType(SetMultiVmSyncStatusOutput{})
-	pulumi.RegisterOutputType(SetMultiVmSyncStatusPtrOutput{})
 }

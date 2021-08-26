@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210201.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings of the session cookie's expiration.
-    /// </summary>
     [OutputType]
     public sealed class CookieExpirationResponse
     {

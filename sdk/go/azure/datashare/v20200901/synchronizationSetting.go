@@ -157,7 +157,9 @@ func (i *SynchronizationSetting) ToSynchronizationSettingOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationSettingOutput)
 }
 
-type SynchronizationSettingOutput struct{ *pulumi.OutputState }
+type SynchronizationSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (SynchronizationSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynchronizationSetting)(nil))

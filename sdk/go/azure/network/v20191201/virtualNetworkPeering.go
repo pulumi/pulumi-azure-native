@@ -375,7 +375,9 @@ func (i *VirtualNetworkPeering) ToVirtualNetworkPeeringOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringOutput)
 }
 
-type VirtualNetworkPeeringOutput struct{ *pulumi.OutputState }
+type VirtualNetworkPeeringOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualNetworkPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkPeering)(nil))

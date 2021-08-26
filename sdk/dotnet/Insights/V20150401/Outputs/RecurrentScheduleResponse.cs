@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20150401.Outputs
 {
 
-    /// <summary>
-    /// The scheduling constraints for when the profile begins.
-    /// </summary>
     [OutputType]
     public sealed class RecurrentScheduleResponse
     {

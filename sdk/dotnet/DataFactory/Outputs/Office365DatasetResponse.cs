@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The Office365 account.
-    /// </summary>
     [OutputType]
     public sealed class Office365DatasetResponse
     {

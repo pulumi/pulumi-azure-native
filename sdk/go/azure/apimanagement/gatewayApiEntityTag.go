@@ -147,7 +147,7 @@ type gatewayApiEntityTagArgs struct {
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId string `pulumi:"gatewayId"`
 	// Provisioning state.
-	ProvisioningState *ProvisioningState `pulumi:"provisioningState"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -161,7 +161,7 @@ type GatewayApiEntityTagArgs struct {
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId pulumi.StringInput
 	// Provisioning state.
-	ProvisioningState ProvisioningStatePtrInput
+	ProvisioningState *ProvisioningState
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
@@ -191,7 +191,9 @@ func (i *GatewayApiEntityTag) ToGatewayApiEntityTagOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiEntityTagOutput)
 }
 
-type GatewayApiEntityTagOutput struct{ *pulumi.OutputState }
+type GatewayApiEntityTagOutput struct {
+	*pulumi.OutputState
+}
 
 func (GatewayApiEntityTagOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayApiEntityTag)(nil))

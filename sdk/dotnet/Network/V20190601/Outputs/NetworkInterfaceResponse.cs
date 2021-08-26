@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190601.Outputs
 {
 
-    /// <summary>
-    /// A network interface in a resource group.
-    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceResponse
     {

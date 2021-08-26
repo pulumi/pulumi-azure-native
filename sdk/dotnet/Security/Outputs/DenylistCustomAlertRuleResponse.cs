@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
-    /// <summary>
-    /// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
-    /// </summary>
     [OutputType]
     public sealed class DenylistCustomAlertRuleResponse
     {

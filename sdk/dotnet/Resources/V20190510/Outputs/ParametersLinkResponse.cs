@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20190510.Outputs
 {
 
-    /// <summary>
-    /// Entity representing the reference to the deployment parameters.
-    /// </summary>
     [OutputType]
     public sealed class ParametersLinkResponse
     {

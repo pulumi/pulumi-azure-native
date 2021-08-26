@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Specifies VM Size Property settings on the virtual machine.
-    /// </summary>
     [OutputType]
     public sealed class VMSizePropertiesResponse
     {

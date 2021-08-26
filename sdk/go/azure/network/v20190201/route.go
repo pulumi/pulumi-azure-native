@@ -380,7 +380,9 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteOutput)
 }
 
-type RouteOutput struct{ *pulumi.OutputState }
+type RouteOutput struct {
+	*pulumi.OutputState
+}
 
 func (RouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Route)(nil))

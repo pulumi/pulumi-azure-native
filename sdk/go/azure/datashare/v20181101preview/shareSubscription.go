@@ -170,7 +170,9 @@ func (i *ShareSubscription) ToShareSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSubscriptionOutput)
 }
 
-type ShareSubscriptionOutput struct{ *pulumi.OutputState }
+type ShareSubscriptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ShareSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ShareSubscription)(nil))

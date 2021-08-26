@@ -140,7 +140,9 @@ func (i *Network) ToNetworkOutputWithContext(ctx context.Context) NetworkOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkOutput)
 }
 
-type NetworkOutput struct{ *pulumi.OutputState }
+type NetworkOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Network)(nil))

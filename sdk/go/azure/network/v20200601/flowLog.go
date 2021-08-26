@@ -243,7 +243,9 @@ func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
 }
 
-type FlowLogOutput struct{ *pulumi.OutputState }
+type FlowLogOutput struct {
+	*pulumi.OutputState
+}
 
 func (FlowLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FlowLog)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Represents the capacity reservation utilization in terms of resources allocated.
-    /// </summary>
     [OutputType]
     public sealed class CapacityReservationUtilizationResponse
     {

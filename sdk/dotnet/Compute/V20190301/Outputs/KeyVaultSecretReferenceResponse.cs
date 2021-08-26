@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190301.Outputs
 {
 
-    /// <summary>
-    /// Describes a reference to Key Vault Secret
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultSecretReferenceResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401.Outputs
 {
 
-    /// <summary>
-    /// The purchase SKU for CloudSimple paid resources
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

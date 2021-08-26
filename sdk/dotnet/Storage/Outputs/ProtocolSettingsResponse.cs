@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
-    /// <summary>
-    /// Protocol settings for file service
-    /// </summary>
     [OutputType]
     public sealed class ProtocolSettingsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.V20210111.Outputs
 {
 
-    /// <summary>
-    /// The Private Endpoint Connection resource.
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

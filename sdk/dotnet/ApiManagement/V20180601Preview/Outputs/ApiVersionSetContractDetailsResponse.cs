@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20180601Preview.Outputs
 {
 
-    /// <summary>
-    /// An API Version Set contains the common configuration for a set of API Versions relating 
-    /// </summary>
     [OutputType]
     public sealed class ApiVersionSetContractDetailsResponse
     {

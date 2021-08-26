@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Properties of Databricks
-    /// </summary>
     [OutputType]
     public sealed class DatabricksPropertiesResponse
     {

@@ -263,7 +263,9 @@ func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatew
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
 }
 
-type NatGatewayOutput struct{ *pulumi.OutputState }
+type NatGatewayOutput struct {
+	*pulumi.OutputState
+}
 
 func (NatGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NatGateway)(nil))

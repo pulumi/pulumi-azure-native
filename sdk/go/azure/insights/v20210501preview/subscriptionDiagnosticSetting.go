@@ -154,7 +154,9 @@ func (i *SubscriptionDiagnosticSetting) ToSubscriptionDiagnosticSettingOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDiagnosticSettingOutput)
 }
 
-type SubscriptionDiagnosticSettingOutput struct{ *pulumi.OutputState }
+type SubscriptionDiagnosticSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (SubscriptionDiagnosticSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionDiagnosticSetting)(nil))

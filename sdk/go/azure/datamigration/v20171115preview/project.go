@@ -52,12 +52,6 @@ func NewProject(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.SourcePlatform == nil {
-		return nil, errors.New("invalid value for required argument 'SourcePlatform'")
-	}
-	if args.TargetPlatform == nil {
-		return nil, errors.New("invalid value for required argument 'TargetPlatform'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Project"),
@@ -145,13 +139,13 @@ type projectArgs struct {
 	// Information for connecting to source
 	SourceConnectionInfo *SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
-	SourcePlatform ProjectSourcePlatform `pulumi:"sourcePlatform"`
+	SourcePlatform string `pulumi:"sourcePlatform"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target
 	TargetConnectionInfo *SqlConnectionInfo `pulumi:"targetConnectionInfo"`
 	// Target platform for the project
-	TargetPlatform ProjectTargetPlatform `pulumi:"targetPlatform"`
+	TargetPlatform string `pulumi:"targetPlatform"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -169,13 +163,13 @@ type ProjectArgs struct {
 	// Information for connecting to source
 	SourceConnectionInfo SqlConnectionInfoPtrInput
 	// Source platform for the project
-	SourcePlatform ProjectSourcePlatformInput
+	SourcePlatform ProjectSourcePlatform
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Information for connecting to target
 	TargetConnectionInfo SqlConnectionInfoPtrInput
 	// Target platform for the project
-	TargetPlatform ProjectTargetPlatformInput
+	TargetPlatform ProjectTargetPlatform
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -201,7 +195,9 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct{ *pulumi.OutputState }
+type ProjectOutput struct {
+	*pulumi.OutputState
+}
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

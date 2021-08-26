@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210115.Outputs
 {
 
-    /// <summary>
-    /// Trigger based on request execution time.
-    /// </summary>
     [OutputType]
     public sealed class SlowRequestsBasedTriggerResponse
     {

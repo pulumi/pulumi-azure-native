@@ -177,7 +177,9 @@ func (i *MCASDataConnector) ToMCASDataConnectorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorOutput)
 }
 
-type MCASDataConnectorOutput struct{ *pulumi.OutputState }
+type MCASDataConnectorOutput struct {
+	*pulumi.OutputState
+}
 
 func (MCASDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MCASDataConnector)(nil))

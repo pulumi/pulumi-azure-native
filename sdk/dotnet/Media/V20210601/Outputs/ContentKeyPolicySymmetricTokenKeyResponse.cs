@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Specifies a symmetric key for token validation.
-    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicySymmetricTokenKeyResponse
     {

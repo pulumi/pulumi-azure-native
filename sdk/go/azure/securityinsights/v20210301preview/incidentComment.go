@@ -168,7 +168,9 @@ func (i *IncidentComment) ToIncidentCommentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCommentOutput)
 }
 
-type IncidentCommentOutput struct{ *pulumi.OutputState }
+type IncidentCommentOutput struct {
+	*pulumi.OutputState
+}
 
 func (IncidentCommentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IncidentComment)(nil))

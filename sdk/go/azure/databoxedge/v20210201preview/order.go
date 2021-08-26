@@ -196,7 +196,9 @@ func (i *Order) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrderOutput)
 }
 
-type OrderOutput struct{ *pulumi.OutputState }
+type OrderOutput struct {
+	*pulumi.OutputState
+}
 
 func (OrderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Order)(nil))

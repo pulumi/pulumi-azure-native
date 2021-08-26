@@ -456,7 +456,9 @@ func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringOutput)
 }
 
-type ExpressRouteCircuitPeeringOutput struct{ *pulumi.OutputState }
+type ExpressRouteCircuitPeeringOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExpressRouteCircuitPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil))

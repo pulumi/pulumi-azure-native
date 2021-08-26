@@ -221,7 +221,9 @@ func (i *IoMAMPolicyByName) ToIoMAMPolicyByNameOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IoMAMPolicyByNameOutput)
 }
 
-type IoMAMPolicyByNameOutput struct{ *pulumi.OutputState }
+type IoMAMPolicyByNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (IoMAMPolicyByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoMAMPolicyByName)(nil))

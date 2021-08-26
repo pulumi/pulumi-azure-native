@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
-    /// <summary>
-    /// The type of IoT Security recommendation.
-    /// </summary>
     [OutputType]
     public sealed class RecommendationConfigurationPropertiesResponse
     {

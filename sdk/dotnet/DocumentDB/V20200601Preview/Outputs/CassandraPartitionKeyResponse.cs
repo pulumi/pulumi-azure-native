@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Outputs
 {
 
-    /// <summary>
-    /// Cosmos DB Cassandra table partition key
-    /// </summary>
     [OutputType]
     public sealed class CassandraPartitionKeyResponse
     {

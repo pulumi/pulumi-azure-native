@@ -155,7 +155,9 @@ func (i *OrderItemByName) ToOrderItemByNameOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(OrderItemByNameOutput)
 }
 
-type OrderItemByNameOutput struct{ *pulumi.OutputState }
+type OrderItemByNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (OrderItemByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrderItemByName)(nil))

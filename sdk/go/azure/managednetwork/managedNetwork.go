@@ -137,7 +137,9 @@ func (i *ManagedNetwork) ToManagedNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkOutput)
 }
 
-type ManagedNetworkOutput struct{ *pulumi.OutputState }
+type ManagedNetworkOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedNetwork)(nil))

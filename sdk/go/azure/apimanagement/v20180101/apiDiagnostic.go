@@ -183,7 +183,9 @@ func (i *ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) Ap
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticOutput)
 }
 
-type ApiDiagnosticOutput struct{ *pulumi.OutputState }
+type ApiDiagnosticOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiDiagnosticOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiDiagnostic)(nil))

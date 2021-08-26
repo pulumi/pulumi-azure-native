@@ -154,7 +154,9 @@ func (i *OnlineEndpoint) ToOnlineEndpointOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(OnlineEndpointOutput)
 }
 
-type OnlineEndpointOutput struct{ *pulumi.OutputState }
+type OnlineEndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (OnlineEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OnlineEndpoint)(nil))

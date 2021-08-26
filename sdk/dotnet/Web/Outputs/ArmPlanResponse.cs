@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
-    /// <summary>
-    /// The plan object in Azure Resource Manager, represents a marketplace plan.
-    /// </summary>
     [OutputType]
     public sealed class ArmPlanResponse
     {

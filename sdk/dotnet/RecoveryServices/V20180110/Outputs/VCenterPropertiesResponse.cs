@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180110.Outputs
 {
 
-    /// <summary>
-    /// vCenter properties.
-    /// </summary>
     [OutputType]
     public sealed class VCenterPropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
-    /// </summary>
     [OutputType]
     public sealed class SecureStringResponse
     {

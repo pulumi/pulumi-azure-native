@@ -149,7 +149,9 @@ func (i *GlobalReachConnection) ToGlobalReachConnectionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReachConnectionOutput)
 }
 
-type GlobalReachConnectionOutput struct{ *pulumi.OutputState }
+type GlobalReachConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (GlobalReachConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GlobalReachConnection)(nil))

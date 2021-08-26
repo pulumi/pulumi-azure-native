@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool.V20200315Preview.Outputs
 {
 
-    /// <summary>
-    /// Resource metadata required by ARM RPC.
-    /// </summary>
     [OutputType]
     public sealed class SystemMetadataResponse
     {

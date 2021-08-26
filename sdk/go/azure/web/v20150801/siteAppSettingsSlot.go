@@ -220,7 +220,9 @@ func (i *SiteAppSettingsSlot) ToSiteAppSettingsSlotOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAppSettingsSlotOutput)
 }
 
-type SiteAppSettingsSlotOutput struct{ *pulumi.OutputState }
+type SiteAppSettingsSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteAppSettingsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteAppSettingsSlot)(nil))

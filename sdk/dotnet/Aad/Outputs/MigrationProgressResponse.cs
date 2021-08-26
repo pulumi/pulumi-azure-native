@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.Outputs
 {
 
-    /// <summary>
-    /// Migration Progress
-    /// </summary>
     [OutputType]
     public sealed class MigrationProgressResponse
     {

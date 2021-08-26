@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Auto upgrade profile for a managed cluster.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterAutoUpgradeProfileResponse
     {

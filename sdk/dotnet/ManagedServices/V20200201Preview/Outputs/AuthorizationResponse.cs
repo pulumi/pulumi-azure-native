@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
 {
 
-    /// <summary>
-    /// The Azure Active Directory principal identifier and Azure built-in role that describes the access the principal will receive on the delegated resource in the managed tenant.
-    /// </summary>
     [OutputType]
     public sealed class AuthorizationResponse
     {

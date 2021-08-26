@@ -253,7 +253,9 @@ func (i *WebAppDeploymentSlot) ToWebAppDeploymentSlotOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDeploymentSlotOutput)
 }
 
-type WebAppDeploymentSlotOutput struct{ *pulumi.OutputState }
+type WebAppDeploymentSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppDeploymentSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppDeploymentSlot)(nil))

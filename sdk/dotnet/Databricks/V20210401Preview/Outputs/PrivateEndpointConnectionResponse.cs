@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// The private endpoint connection of a workspace
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

@@ -139,7 +139,9 @@ func (i *GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingOutput)
 }
 
-type GuestDiagnosticsSettingOutput struct{ *pulumi.OutputState }
+type GuestDiagnosticsSettingOutput struct {
+	*pulumi.OutputState
+}
 
 func (GuestDiagnosticsSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil))

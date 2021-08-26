@@ -160,7 +160,9 @@ func (i *CognitiveServicesAccount) ToCognitiveServicesAccountOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CognitiveServicesAccountOutput)
 }
 
-type CognitiveServicesAccountOutput struct{ *pulumi.OutputState }
+type CognitiveServicesAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (CognitiveServicesAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CognitiveServicesAccount)(nil))

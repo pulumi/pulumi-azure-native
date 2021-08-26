@@ -263,7 +263,9 @@ func (i *NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput)
 }
 
-type NetworkProfileOutput struct{ *pulumi.OutputState }
+type NetworkProfileOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkProfile)(nil))

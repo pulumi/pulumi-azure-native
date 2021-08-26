@@ -926,7 +926,7 @@ func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutput() System
 }
 
 func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutputWithContext(ctx context.Context) SystemMetadataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemMetadataResponse) *SystemMetadataResponse {
+	return o.ApplyT(func(v SystemMetadataResponse) *SystemMetadataResponse {
 		return &v
 	}).(SystemMetadataResponsePtrOutput)
 }
@@ -976,13 +976,7 @@ func (o SystemMetadataResponsePtrOutput) ToSystemMetadataResponsePtrOutputWithCo
 }
 
 func (o SystemMetadataResponsePtrOutput) Elem() SystemMetadataResponseOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemMetadataResponse
-		return ret
-	}).(SystemMetadataResponseOutput)
+	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse { return *v }).(SystemMetadataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

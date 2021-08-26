@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210401.Outputs
 {
 
-    /// <summary>
-    /// The Mobility Service update details.
-    /// </summary>
     [OutputType]
     public sealed class MobilityServiceUpdateResponse
     {

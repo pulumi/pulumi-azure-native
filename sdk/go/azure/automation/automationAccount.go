@@ -191,7 +191,9 @@ func (i *AutomationAccount) ToAutomationAccountOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationAccountOutput)
 }
 
-type AutomationAccountOutput struct{ *pulumi.OutputState }
+type AutomationAccountOutput struct {
+	*pulumi.OutputState
+}
 
 func (AutomationAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutomationAccount)(nil))

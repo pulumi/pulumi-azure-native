@@ -204,7 +204,9 @@ func (i *CustomImage) ToCustomImageOutputWithContext(ctx context.Context) Custom
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImageOutput)
 }
 
-type CustomImageOutput struct{ *pulumi.OutputState }
+type CustomImageOutput struct {
+	*pulumi.OutputState
+}
 
 func (CustomImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomImage)(nil))

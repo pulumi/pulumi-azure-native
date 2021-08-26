@@ -141,7 +141,9 @@ func (i *HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleOutput)
 }
 
-type HybridConnectionAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type HybridConnectionAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (HybridConnectionAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridConnectionAuthorizationRule)(nil))

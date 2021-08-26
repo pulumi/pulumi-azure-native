@@ -127,7 +127,9 @@ func (i *CloudLink) ToCloudLinkOutputWithContext(ctx context.Context) CloudLinkO
 	return pulumi.ToOutputWithContext(ctx, i).(CloudLinkOutput)
 }
 
-type CloudLinkOutput struct{ *pulumi.OutputState }
+type CloudLinkOutput struct {
+	*pulumi.OutputState
+}
 
 func (CloudLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudLink)(nil))

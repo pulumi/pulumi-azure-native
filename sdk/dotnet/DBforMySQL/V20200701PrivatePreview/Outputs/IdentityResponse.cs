@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Identity for the resource.
-    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

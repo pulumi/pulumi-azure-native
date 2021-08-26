@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20160515.Outputs
 {
 
-    /// <summary>
-    /// Properties of an Azure Resource Manager template parameter.
-    /// </summary>
     [OutputType]
     public sealed class ArmTemplateParameterPropertiesResponse
     {

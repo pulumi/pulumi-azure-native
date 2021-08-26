@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NotificationHubs.V20140901.Outputs
 {
 
-    /// <summary>
-    /// SharedAccessAuthorizationRule properties.
-    /// </summary>
     [OutputType]
     public sealed class SharedAccessAuthorizationRulePropertiesResponse
     {

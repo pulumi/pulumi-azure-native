@@ -201,7 +201,9 @@ func (i *WebAppConnectionStringsSlot) ToWebAppConnectionStringsSlotOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppConnectionStringsSlotOutput)
 }
 
-type WebAppConnectionStringsSlotOutput struct{ *pulumi.OutputState }
+type WebAppConnectionStringsSlotOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppConnectionStringsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppConnectionStringsSlot)(nil))

@@ -65,7 +65,8 @@ func NewServerDetails(ctx *pulumi.Context,
 		args.ManagedMode = pulumi.IntPtr(1)
 	}
 	if args.QuerypoolConnectionMode == nil {
-		args.QuerypoolConnectionMode = ConnectionMode("All")
+		e := ConnectionMode("All")
+		args.QuerypoolConnectionMode = &e
 	}
 	if args.ServerMonitorMode == nil {
 		args.ServerMonitorMode = pulumi.IntPtr(1)
@@ -145,7 +146,7 @@ type serverDetailsArgs struct {
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode *int `pulumi:"managedMode"`
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-	QuerypoolConnectionMode *ConnectionMode `pulumi:"querypoolConnectionMode"`
+	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The server monitor mode for AS server
@@ -173,7 +174,7 @@ type ServerDetailsArgs struct {
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode pulumi.IntPtrInput
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-	QuerypoolConnectionMode ConnectionModePtrInput
+	QuerypoolConnectionMode *ConnectionMode
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The server monitor mode for AS server
@@ -209,7 +210,9 @@ func (i *ServerDetails) ToServerDetailsOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDetailsOutput)
 }
 
-type ServerDetailsOutput struct{ *pulumi.OutputState }
+type ServerDetailsOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerDetails)(nil))

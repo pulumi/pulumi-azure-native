@@ -159,7 +159,9 @@ func (i *ConnectionType) ToConnectionTypeOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeOutput)
 }
 
-type ConnectionTypeOutput struct{ *pulumi.OutputState }
+type ConnectionTypeOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConnectionTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionType)(nil))

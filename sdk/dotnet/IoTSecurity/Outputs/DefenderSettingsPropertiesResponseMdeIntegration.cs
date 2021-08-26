@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.IoTSecurity.Outputs
 {
 
-    /// <summary>
-    /// MDE integration configuration
-    /// </summary>
     [OutputType]
     public sealed class DefenderSettingsPropertiesResponseMdeIntegration
     {

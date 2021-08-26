@@ -181,7 +181,9 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
-type SyncGroupOutput struct{ *pulumi.OutputState }
+type SyncGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (SyncGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncGroup)(nil))

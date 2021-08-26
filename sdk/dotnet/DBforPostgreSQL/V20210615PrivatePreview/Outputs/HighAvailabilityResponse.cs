@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// High availability properties of a server
-    /// </summary>
     [OutputType]
     public sealed class HighAvailabilityResponse
     {

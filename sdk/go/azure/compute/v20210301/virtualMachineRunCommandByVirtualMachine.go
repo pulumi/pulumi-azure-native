@@ -216,7 +216,9 @@ func (i *VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByV
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineRunCommandByVirtualMachineOutput)
 }
 
-type VirtualMachineRunCommandByVirtualMachineOutput struct{ *pulumi.OutputState }
+type VirtualMachineRunCommandByVirtualMachineOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualMachineRunCommandByVirtualMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachine)(nil))

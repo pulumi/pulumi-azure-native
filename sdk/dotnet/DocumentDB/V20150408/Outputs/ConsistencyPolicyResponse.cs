@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20150408.Outputs
 {
 
-    /// <summary>
-    /// The consistency policy for the Cosmos DB database account.
-    /// </summary>
     [OutputType]
     public sealed class ConsistencyPolicyResponse
     {

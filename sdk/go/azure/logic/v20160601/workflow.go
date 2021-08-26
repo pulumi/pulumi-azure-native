@@ -128,7 +128,7 @@ type workflowArgs struct {
 	// The sku.
 	Sku *Sku `pulumi:"sku"`
 	// The state.
-	State *WorkflowStateEnum `pulumi:"state"`
+	State *string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The workflow name.
@@ -148,7 +148,7 @@ type WorkflowArgs struct {
 	// The sku.
 	Sku SkuPtrInput
 	// The state.
-	State WorkflowStateEnumPtrInput
+	State *WorkflowStateEnum
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The workflow name.
@@ -178,7 +178,9 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
-type WorkflowOutput struct{ *pulumi.OutputState }
+type WorkflowOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkflowOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workflow)(nil))

@@ -157,7 +157,9 @@ func (i *WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDhcpOutput)
 }
 
-type WorkloadNetworkDhcpOutput struct{ *pulumi.OutputState }
+type WorkloadNetworkDhcpOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadNetworkDhcpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil))

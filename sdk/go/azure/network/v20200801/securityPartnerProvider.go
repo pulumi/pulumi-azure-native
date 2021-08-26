@@ -194,7 +194,9 @@ func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPartnerProviderOutput)
 }
 
-type SecurityPartnerProviderOutput struct{ *pulumi.OutputState }
+type SecurityPartnerProviderOutput struct {
+	*pulumi.OutputState
+}
 
 func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityPartnerProvider)(nil))

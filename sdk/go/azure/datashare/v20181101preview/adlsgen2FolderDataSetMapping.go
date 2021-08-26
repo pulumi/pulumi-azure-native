@@ -215,7 +215,9 @@ func (i *ADLSGen2FolderDataSetMapping) ToADLSGen2FolderDataSetMappingOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2FolderDataSetMappingOutput)
 }
 
-type ADLSGen2FolderDataSetMappingOutput struct{ *pulumi.OutputState }
+type ADLSGen2FolderDataSetMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (ADLSGen2FolderDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen2FolderDataSetMapping)(nil))

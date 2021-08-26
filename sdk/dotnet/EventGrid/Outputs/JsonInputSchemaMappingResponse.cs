@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
-    /// <summary>
-    /// This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
-    /// </summary>
     [OutputType]
     public sealed class JsonInputSchemaMappingResponse
     {

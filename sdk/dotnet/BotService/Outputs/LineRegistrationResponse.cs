@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
-    /// <summary>
-    /// The properties corresponding to a line channel registration
-    /// </summary>
     [OutputType]
     public sealed class LineRegistrationResponse
     {

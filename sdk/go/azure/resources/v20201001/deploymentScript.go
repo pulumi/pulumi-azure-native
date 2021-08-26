@@ -149,7 +149,9 @@ func (i *DeploymentScript) ToDeploymentScriptOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScriptOutput)
 }
 
-type DeploymentScriptOutput struct{ *pulumi.OutputState }
+type DeploymentScriptOutput struct {
+	*pulumi.OutputState
+}
 
 func (DeploymentScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentScript)(nil))

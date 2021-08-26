@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20201101.Outputs
 {
 
-    /// <summary>
-    /// Contains all the secrets of a Disk.
-    /// </summary>
     [OutputType]
     public sealed class DiskSecretResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// The custom setup of setting environment variable.
-    /// </summary>
     [OutputType]
     public sealed class EnvironmentVariableSetupResponse
     {

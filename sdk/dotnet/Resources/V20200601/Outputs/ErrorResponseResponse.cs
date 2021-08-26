@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20200601.Outputs
 {
 
-    /// <summary>
-    /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
-    /// </summary>
     [OutputType]
     public sealed class ErrorResponseResponse
     {

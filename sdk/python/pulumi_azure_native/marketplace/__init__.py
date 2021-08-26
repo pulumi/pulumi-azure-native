@@ -17,10 +17,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.marketplace.v20200101 as __v20200101
-    v20200101 = __v20200101
-    import pulumi_azure_native.marketplace.v20210601 as __v20210601
-    v20210601 = __v20210601
+    import pulumi_azure_native.marketplace.v20200101 as v20200101
+    import pulumi_azure_native.marketplace.v20210601 as v20210601
 else:
     v20200101 = _utilities.lazy_import('pulumi_azure_native.marketplace.v20200101')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.marketplace.v20210601')

@@ -193,7 +193,9 @@ func (i *WebAppConnectionStrings) ToWebAppConnectionStringsOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppConnectionStringsOutput)
 }
 
-type WebAppConnectionStringsOutput struct{ *pulumi.OutputState }
+type WebAppConnectionStringsOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppConnectionStringsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppConnectionStrings)(nil))

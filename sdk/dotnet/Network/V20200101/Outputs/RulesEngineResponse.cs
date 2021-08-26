@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200101.Outputs
 {
 
-    /// <summary>
-    /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
-    /// </summary>
     [OutputType]
     public sealed class RulesEngineResponse
     {

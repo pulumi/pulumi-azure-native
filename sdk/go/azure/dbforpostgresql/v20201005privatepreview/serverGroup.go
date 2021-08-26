@@ -236,7 +236,9 @@ func (i *ServerGroup) ToServerGroupOutputWithContext(ctx context.Context) Server
 	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupOutput)
 }
 
-type ServerGroupOutput struct{ *pulumi.OutputState }
+type ServerGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerGroup)(nil))

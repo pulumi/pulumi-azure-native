@@ -245,7 +245,9 @@ func (i *WebAppDeployment) ToWebAppDeploymentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDeploymentOutput)
 }
 
-type WebAppDeploymentOutput struct{ *pulumi.OutputState }
+type WebAppDeploymentOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppDeployment)(nil))

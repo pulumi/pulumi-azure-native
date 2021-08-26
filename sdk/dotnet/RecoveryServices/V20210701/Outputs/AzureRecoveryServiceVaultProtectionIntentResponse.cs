@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Azure Recovery Services Vault specific protection intent item.
-    /// </summary>
     [OutputType]
     public sealed class AzureRecoveryServiceVaultProtectionIntentResponse
     {

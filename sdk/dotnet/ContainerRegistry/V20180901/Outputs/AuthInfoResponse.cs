@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Outputs
 {
 
-    /// <summary>
-    /// The authorization properties for accessing the source code repository.
-    /// </summary>
     [OutputType]
     public sealed class AuthInfoResponse
     {

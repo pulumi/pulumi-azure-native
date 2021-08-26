@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
-    /// <summary>
-    /// Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
-    /// </summary>
     [OutputType]
     public sealed class FilterTrackSelectionResponse
     {

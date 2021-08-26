@@ -175,7 +175,9 @@ func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
 }
 
-type ConfigurationStoreOutput struct{ *pulumi.OutputState }
+type ConfigurationStoreOutput struct {
+	*pulumi.OutputState
+}
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStore)(nil))

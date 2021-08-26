@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
-    /// <summary>
-    /// Describes an image source that is a managed image in customer subscription.
-    /// </summary>
     [OutputType]
     public sealed class ImageTemplateManagedImageSourceResponse
     {

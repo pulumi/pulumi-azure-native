@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210301.Outputs
 {
 
-    /// <summary>
-    /// VNet properties for managed integration runtime.
-    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeVNetPropertiesResponse
     {

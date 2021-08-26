@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
 {
 
-    /// <summary>
-    /// See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
-    /// </summary>
     [OutputType]
     public sealed class ManagedClusterPodIdentityExceptionResponse
     {

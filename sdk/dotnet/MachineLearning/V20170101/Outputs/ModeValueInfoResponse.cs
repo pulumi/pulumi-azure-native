@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
-    /// <summary>
-    /// Nested parameter definition.
-    /// </summary>
     [OutputType]
     public sealed class ModeValueInfoResponse
     {

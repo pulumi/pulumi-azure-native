@@ -262,7 +262,9 @@ func (i *DatabaseAccountSqlContainer) ToDatabaseAccountSqlContainerOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlContainerOutput)
 }
 
-type DatabaseAccountSqlContainerOutput struct{ *pulumi.OutputState }
+type DatabaseAccountSqlContainerOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountSqlContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountSqlContainer)(nil))

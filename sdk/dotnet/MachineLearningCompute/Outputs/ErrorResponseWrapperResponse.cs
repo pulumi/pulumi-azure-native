@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
-    /// <summary>
-    /// Wrapper for error response to follow ARM guidelines.
-    /// </summary>
     [OutputType]
     public sealed class ErrorResponseWrapperResponse
     {

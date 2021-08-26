@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
-    /// <summary>
-    /// Describes the parameters for using a user's KeyVault for URL Signing Key.
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultSigningKeyParametersResponse
     {

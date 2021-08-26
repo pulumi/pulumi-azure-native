@@ -146,7 +146,9 @@ func (i *ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDnsAliasOutput)
 }
 
-type ServerDnsAliasOutput struct{ *pulumi.OutputState }
+type ServerDnsAliasOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerDnsAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerDnsAlias)(nil))

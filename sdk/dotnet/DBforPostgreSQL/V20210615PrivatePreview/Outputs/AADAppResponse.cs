@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Outputs
 {
 
-    /// <summary>
-    /// Azure active directory application.
-    /// </summary>
     [OutputType]
     public sealed class AADAppResponse
     {

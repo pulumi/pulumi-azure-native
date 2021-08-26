@@ -192,7 +192,9 @@ func (i *ScheduledTrigger) ToScheduledTriggerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledTriggerOutput)
 }
 
-type ScheduledTriggerOutput struct{ *pulumi.OutputState }
+type ScheduledTriggerOutput struct {
+	*pulumi.OutputState
+}
 
 func (ScheduledTriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledTrigger)(nil))

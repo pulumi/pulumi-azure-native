@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Specifies the required information to reference a compute gallery application version
-    /// </summary>
     [OutputType]
     public sealed class VMGalleryApplicationResponse
     {

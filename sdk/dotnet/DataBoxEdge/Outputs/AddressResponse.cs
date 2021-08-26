@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
-    /// <summary>
-    /// The shipping address of the customer.
-    /// </summary>
     [OutputType]
     public sealed class AddressResponse
     {

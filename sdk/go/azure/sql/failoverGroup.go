@@ -186,7 +186,9 @@ func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) Fa
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupOutput)
 }
 
-type FailoverGroupOutput struct{ *pulumi.OutputState }
+type FailoverGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (FailoverGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FailoverGroup)(nil))

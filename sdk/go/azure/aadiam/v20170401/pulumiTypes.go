@@ -346,7 +346,7 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOu
 }
 
 func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicy) *RetentionPolicy {
+	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
 		return &v
 	}).(RetentionPolicyPtrOutput)
 }
@@ -376,13 +376,7 @@ func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionPolicy
-		return ret
-	}).(RetentionPolicyOutput)
+	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
 }
 
 // The number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -505,7 +499,7 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() Rete
 }
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
+	return o.ApplyT(func(v RetentionPolicyResponse) *RetentionPolicyResponse {
 		return &v
 	}).(RetentionPolicyResponsePtrOutput)
 }
@@ -535,13 +529,7 @@ func (o RetentionPolicyResponsePtrOutput) ToRetentionPolicyResponsePtrOutputWith
 }
 
 func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionPolicyResponse
-		return ret
-	}).(RetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse { return *v }).(RetentionPolicyResponseOutput)
 }
 
 // The number of days for the retention in days. A value of 0 will retain the events indefinitely.

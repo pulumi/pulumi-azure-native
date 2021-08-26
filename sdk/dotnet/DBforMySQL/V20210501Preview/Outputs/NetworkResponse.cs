@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.V20210501Preview.Outputs
 {
 
-    /// <summary>
-    /// Network related properties of a server
-    /// </summary>
     [OutputType]
     public sealed class NetworkResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
-    /// <summary>
-    /// The properties of a cost allocation rule
-    /// </summary>
     [OutputType]
     public sealed class CostAllocationRulePropertiesResponse
     {

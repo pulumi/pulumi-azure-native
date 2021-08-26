@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Virtual Machine image for Windows AML Compute
-    /// </summary>
     [OutputType]
     public sealed class VirtualMachineImageResponse
     {

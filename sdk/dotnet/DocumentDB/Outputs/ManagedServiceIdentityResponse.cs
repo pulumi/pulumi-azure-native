@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.Outputs
 {
 
-    /// <summary>
-    /// Identity for the resource.
-    /// </summary>
     [OutputType]
     public sealed class ManagedServiceIdentityResponse
     {

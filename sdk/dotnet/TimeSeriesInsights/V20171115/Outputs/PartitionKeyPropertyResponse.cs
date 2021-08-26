@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115.Outputs
 {
 
-    /// <summary>
-    /// The structure of the property that a partition key can have. An environment can have multiple such properties.
-    /// </summary>
     [OutputType]
     public sealed class PartitionKeyPropertyResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20180101.Outputs
 {
 
-    /// <summary>
-    /// Details for the destination storage account.
-    /// </summary>
     [OutputType]
     public sealed class DestinationStorageAccountDetailsResponse
     {

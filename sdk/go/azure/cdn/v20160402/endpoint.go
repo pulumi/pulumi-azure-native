@@ -194,7 +194,7 @@ type endpointArgs struct {
 	// Name of the CDN profile within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Defines the query string caching behavior.
-	QueryStringCachingBehavior *QueryStringCachingBehavior `pulumi:"queryStringCachingBehavior"`
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Endpoint tags
@@ -224,7 +224,7 @@ type EndpointArgs struct {
 	// Name of the CDN profile within the resource group.
 	ProfileName pulumi.StringInput
 	// Defines the query string caching behavior.
-	QueryStringCachingBehavior QueryStringCachingBehaviorPtrInput
+	QueryStringCachingBehavior *QueryStringCachingBehavior
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Endpoint tags
@@ -254,7 +254,9 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
-type EndpointOutput struct{ *pulumi.OutputState }
+type EndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (EndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Endpoint)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180710.Outputs
 {
 
-    /// <summary>
-    /// Azure to Azure VM synced configuration details.
-    /// </summary>
     [OutputType]
     public sealed class AzureToAzureVmSyncedConfigDetailsResponse
     {

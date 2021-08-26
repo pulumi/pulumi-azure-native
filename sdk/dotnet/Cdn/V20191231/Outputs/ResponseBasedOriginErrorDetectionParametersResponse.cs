@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20191231.Outputs
 {
 
-    /// <summary>
-    /// The JSON object that contains the properties to determine origin health using real requests/responses.
-    /// </summary>
     [OutputType]
     public sealed class ResponseBasedOriginErrorDetectionParametersResponse
     {

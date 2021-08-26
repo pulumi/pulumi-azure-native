@@ -115,7 +115,7 @@ func (RelationshipState) ElementType() reflect.Type {
 
 type relationshipArgs struct {
 	// The Relationship Cardinality.
-	Cardinality *CardinalityTypes `pulumi:"cardinality"`
+	Cardinality *string `pulumi:"cardinality"`
 	// Localized descriptions for the Relationship.
 	Description map[string]string `pulumi:"description"`
 	// Localized display name for the Relationship.
@@ -141,7 +141,7 @@ type relationshipArgs struct {
 // The set of arguments for constructing a Relationship resource.
 type RelationshipArgs struct {
 	// The Relationship Cardinality.
-	Cardinality CardinalityTypesPtrInput
+	Cardinality *CardinalityTypes
 	// Localized descriptions for the Relationship.
 	Description pulumi.StringMapInput
 	// Localized display name for the Relationship.
@@ -187,7 +187,9 @@ func (i *Relationship) ToRelationshipOutputWithContext(ctx context.Context) Rela
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipOutput)
 }
 
-type RelationshipOutput struct{ *pulumi.OutputState }
+type RelationshipOutput struct {
+	*pulumi.OutputState
+}
 
 func (RelationshipOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Relationship)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// A user that can be assigned to a compute instance.
-    /// </summary>
     [OutputType]
     public sealed class AssignedUserResponse
     {

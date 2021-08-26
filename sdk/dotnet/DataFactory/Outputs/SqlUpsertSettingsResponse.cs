@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Sql upsert option settings
-    /// </summary>
     [OutputType]
     public sealed class SqlUpsertSettingsResponse
     {

@@ -151,7 +151,9 @@ func (i *AccountFilter) ToAccountFilterOutputWithContext(ctx context.Context) Ac
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterOutput)
 }
 
-type AccountFilterOutput struct{ *pulumi.OutputState }
+type AccountFilterOutput struct {
+	*pulumi.OutputState
+}
 
 func (AccountFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountFilter)(nil))

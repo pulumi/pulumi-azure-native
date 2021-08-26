@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-    /// </summary>
     [OutputType]
     public sealed class PipelineResponseFolder
     {

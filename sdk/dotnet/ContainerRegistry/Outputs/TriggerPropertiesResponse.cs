@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
-    /// <summary>
-    /// The properties of a trigger.
-    /// </summary>
     [OutputType]
     public sealed class TriggerPropertiesResponse
     {

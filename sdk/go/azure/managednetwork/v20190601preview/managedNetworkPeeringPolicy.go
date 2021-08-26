@@ -131,7 +131,9 @@ func (i *ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyOutput)
 }
 
-type ManagedNetworkPeeringPolicyOutput struct{ *pulumi.OutputState }
+type ManagedNetworkPeeringPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ManagedNetworkPeeringPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil))

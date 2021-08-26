@@ -11,7 +11,7 @@ import (
 )
 
 // Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-type MaintenanceScope string
+type MaintenanceScope pulumi.String
 
 const (
 	MaintenanceScopeAll        = MaintenanceScope("All")
@@ -21,23 +21,7 @@ const (
 )
 
 func (MaintenanceScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceScope)(nil)).Elem()
-}
-
-func (e MaintenanceScope) ToMaintenanceScopeOutput() MaintenanceScopeOutput {
-	return pulumi.ToOutput(e).(MaintenanceScopeOutput)
-}
-
-func (e MaintenanceScope) ToMaintenanceScopeOutputWithContext(ctx context.Context) MaintenanceScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MaintenanceScopeOutput)
-}
-
-func (e MaintenanceScope) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return e.ToMaintenanceScopePtrOutputWithContext(context.Background())
-}
-
-func (e MaintenanceScope) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return MaintenanceScope(e).ToMaintenanceScopeOutputWithContext(ctx).ToMaintenanceScopePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e MaintenanceScope) ToStringOutput() pulumi.StringOutput {
@@ -54,130 +38,4 @@ func (e MaintenanceScope) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e MaintenanceScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type MaintenanceScopeOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceScope)(nil)).Elem()
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopeOutput() MaintenanceScopeOutput {
-	return o
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopeOutputWithContext(ctx context.Context) MaintenanceScopeOutput {
-	return o
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return o.ToMaintenanceScopePtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceScope) *MaintenanceScope {
-		return &v
-	}).(MaintenanceScopePtrOutput)
-}
-
-func (o MaintenanceScopeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MaintenanceScope) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MaintenanceScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MaintenanceScope) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MaintenanceScopePtrOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaintenanceScope)(nil)).Elem()
-}
-
-func (o MaintenanceScopePtrOutput) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return o
-}
-
-func (o MaintenanceScopePtrOutput) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return o
-}
-
-func (o MaintenanceScopePtrOutput) Elem() MaintenanceScopeOutput {
-	return o.ApplyT(func(v *MaintenanceScope) MaintenanceScope {
-		if v != nil {
-			return *v
-		}
-		var ret MaintenanceScope
-		return ret
-	}).(MaintenanceScopeOutput)
-}
-
-func (o MaintenanceScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MaintenanceScope) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// MaintenanceScopeInput is an input type that accepts MaintenanceScopeArgs and MaintenanceScopeOutput values.
-// You can construct a concrete instance of `MaintenanceScopeInput` via:
-//
-//          MaintenanceScopeArgs{...}
-type MaintenanceScopeInput interface {
-	pulumi.Input
-
-	ToMaintenanceScopeOutput() MaintenanceScopeOutput
-	ToMaintenanceScopeOutputWithContext(context.Context) MaintenanceScopeOutput
-}
-
-var maintenanceScopePtrType = reflect.TypeOf((**MaintenanceScope)(nil)).Elem()
-
-type MaintenanceScopePtrInput interface {
-	pulumi.Input
-
-	ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput
-	ToMaintenanceScopePtrOutputWithContext(context.Context) MaintenanceScopePtrOutput
-}
-
-type maintenanceScopePtr string
-
-func MaintenanceScopePtr(v string) MaintenanceScopePtrInput {
-	return (*maintenanceScopePtr)(&v)
-}
-
-func (*maintenanceScopePtr) ElementType() reflect.Type {
-	return maintenanceScopePtrType
-}
-
-func (in *maintenanceScopePtr) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return pulumi.ToOutput(in).(MaintenanceScopePtrOutput)
-}
-
-func (in *maintenanceScopePtr) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MaintenanceScopePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(MaintenanceScopeOutput{})
-	pulumi.RegisterOutputType(MaintenanceScopePtrOutput{})
 }

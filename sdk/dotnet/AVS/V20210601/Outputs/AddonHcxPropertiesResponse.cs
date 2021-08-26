@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210601.Outputs
 {
 
-    /// <summary>
-    /// The properties of an HCX addon
-    /// </summary>
     [OutputType]
     public sealed class AddonHcxPropertiesResponse
     {

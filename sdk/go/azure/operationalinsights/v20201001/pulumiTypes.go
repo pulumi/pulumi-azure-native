@@ -237,7 +237,7 @@ func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationProper
 }
 
 func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationPropertiesResponsePtrOutputWithContext(ctx context.Context) CapacityReservationPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservationPropertiesResponse) *CapacityReservationPropertiesResponse {
+	return o.ApplyT(func(v CapacityReservationPropertiesResponse) *CapacityReservationPropertiesResponse {
 		return &v
 	}).(CapacityReservationPropertiesResponsePtrOutput)
 }
@@ -267,13 +267,7 @@ func (o CapacityReservationPropertiesResponsePtrOutput) ToCapacityReservationPro
 }
 
 func (o CapacityReservationPropertiesResponsePtrOutput) Elem() CapacityReservationPropertiesResponseOutput {
-	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) CapacityReservationPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CapacityReservationPropertiesResponse
-		return ret
-	}).(CapacityReservationPropertiesResponseOutput)
+	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) CapacityReservationPropertiesResponse { return *v }).(CapacityReservationPropertiesResponseOutput)
 }
 
 // The last time Sku was updated.
@@ -396,7 +390,7 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 }
 
 func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
+	return o.ApplyT(func(v ClusterSku) *ClusterSku {
 		return &v
 	}).(ClusterSkuPtrOutput)
 }
@@ -426,13 +420,7 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func(v *ClusterSku) ClusterSku {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterSku
-		return ret
-	}).(ClusterSkuOutput)
+	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
 }
 
 // The capacity value
@@ -555,7 +543,7 @@ func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutput() ClusterSkuResp
 }
 
 func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSkuResponse) *ClusterSkuResponse {
+	return o.ApplyT(func(v ClusterSkuResponse) *ClusterSkuResponse {
 		return &v
 	}).(ClusterSkuResponsePtrOutput)
 }
@@ -585,13 +573,7 @@ func (o ClusterSkuResponsePtrOutput) ToClusterSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
-	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterSkuResponse
-		return ret
-	}).(ClusterSkuResponseOutput)
+	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse { return *v }).(ClusterSkuResponseOutput)
 }
 
 // The capacity value
@@ -617,7 +599,7 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 // Identity for the resource.
 type Identity struct {
 	// Type of managed service identity.
-	Type IdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -636,7 +618,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// Type of managed service identity.
-	Type IdentityTypeInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -714,14 +696,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // Type of managed service identity.
-func (o IdentityOutput) Type() IdentityTypeOutput {
-	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
+func (o IdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -744,23 +726,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // Type of managed service identity.
-func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *IdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(IdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -881,7 +857,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -921,13 +897,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -1078,7 +1048,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -1118,13 +1088,7 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultProperties
-		return ret
-	}).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
 }
 
 // The name of the key associated with the Log Analytics cluster.
@@ -1275,7 +1239,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -1315,13 +1279,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultPropertiesResponse
-		return ret
-	}).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
 }
 
 // The name of the key associated with the Log Analytics cluster.
@@ -1678,7 +1636,7 @@ func (o WorkspaceCappingOutput) ToWorkspaceCappingPtrOutput() WorkspaceCappingPt
 }
 
 func (o WorkspaceCappingOutput) ToWorkspaceCappingPtrOutputWithContext(ctx context.Context) WorkspaceCappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCapping) *WorkspaceCapping {
+	return o.ApplyT(func(v WorkspaceCapping) *WorkspaceCapping {
 		return &v
 	}).(WorkspaceCappingPtrOutput)
 }
@@ -1703,13 +1661,7 @@ func (o WorkspaceCappingPtrOutput) ToWorkspaceCappingPtrOutputWithContext(ctx co
 }
 
 func (o WorkspaceCappingPtrOutput) Elem() WorkspaceCappingOutput {
-	return o.ApplyT(func(v *WorkspaceCapping) WorkspaceCapping {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceCapping
-		return ret
-	}).(WorkspaceCappingOutput)
+	return o.ApplyT(func(v *WorkspaceCapping) WorkspaceCapping { return *v }).(WorkspaceCappingOutput)
 }
 
 // The workspace daily quota for ingestion.
@@ -1826,7 +1778,7 @@ func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponsePtrOutput() Wo
 }
 
 func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponsePtrOutputWithContext(ctx context.Context) WorkspaceCappingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCappingResponse) *WorkspaceCappingResponse {
+	return o.ApplyT(func(v WorkspaceCappingResponse) *WorkspaceCappingResponse {
 		return &v
 	}).(WorkspaceCappingResponsePtrOutput)
 }
@@ -1861,13 +1813,7 @@ func (o WorkspaceCappingResponsePtrOutput) ToWorkspaceCappingResponsePtrOutputWi
 }
 
 func (o WorkspaceCappingResponsePtrOutput) Elem() WorkspaceCappingResponseOutput {
-	return o.ApplyT(func(v *WorkspaceCappingResponse) WorkspaceCappingResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceCappingResponse
-		return ret
-	}).(WorkspaceCappingResponseOutput)
+	return o.ApplyT(func(v *WorkspaceCappingResponse) WorkspaceCappingResponse { return *v }).(WorkspaceCappingResponseOutput)
 }
 
 // The workspace daily quota for ingestion.
@@ -2012,7 +1958,7 @@ func (o WorkspaceFeaturesOutput) ToWorkspaceFeaturesPtrOutput() WorkspaceFeature
 }
 
 func (o WorkspaceFeaturesOutput) ToWorkspaceFeaturesPtrOutputWithContext(ctx context.Context) WorkspaceFeaturesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceFeatures) *WorkspaceFeatures {
+	return o.ApplyT(func(v WorkspaceFeatures) *WorkspaceFeatures {
 		return &v
 	}).(WorkspaceFeaturesPtrOutput)
 }
@@ -2057,13 +2003,7 @@ func (o WorkspaceFeaturesPtrOutput) ToWorkspaceFeaturesPtrOutputWithContext(ctx 
 }
 
 func (o WorkspaceFeaturesPtrOutput) Elem() WorkspaceFeaturesOutput {
-	return o.ApplyT(func(v *WorkspaceFeatures) WorkspaceFeatures {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceFeatures
-		return ret
-	}).(WorkspaceFeaturesOutput)
+	return o.ApplyT(func(v *WorkspaceFeatures) WorkspaceFeatures { return *v }).(WorkspaceFeaturesOutput)
 }
 
 // Dedicated LA cluster resourceId that is linked to the workspaces.
@@ -2228,7 +2168,7 @@ func (o WorkspaceFeaturesResponseOutput) ToWorkspaceFeaturesResponsePtrOutput() 
 }
 
 func (o WorkspaceFeaturesResponseOutput) ToWorkspaceFeaturesResponsePtrOutputWithContext(ctx context.Context) WorkspaceFeaturesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceFeaturesResponse) *WorkspaceFeaturesResponse {
+	return o.ApplyT(func(v WorkspaceFeaturesResponse) *WorkspaceFeaturesResponse {
 		return &v
 	}).(WorkspaceFeaturesResponsePtrOutput)
 }
@@ -2273,13 +2213,7 @@ func (o WorkspaceFeaturesResponsePtrOutput) ToWorkspaceFeaturesResponsePtrOutput
 }
 
 func (o WorkspaceFeaturesResponsePtrOutput) Elem() WorkspaceFeaturesResponseOutput {
-	return o.ApplyT(func(v *WorkspaceFeaturesResponse) WorkspaceFeaturesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceFeaturesResponse
-		return ret
-	}).(WorkspaceFeaturesResponseOutput)
+	return o.ApplyT(func(v *WorkspaceFeaturesResponse) WorkspaceFeaturesResponse { return *v }).(WorkspaceFeaturesResponseOutput)
 }
 
 // Dedicated LA cluster resourceId that is linked to the workspaces.
@@ -2432,7 +2366,7 @@ func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutput() WorkspaceSkuPtrOutput {
 }
 
 func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context) WorkspaceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSku) *WorkspaceSku {
+	return o.ApplyT(func(v WorkspaceSku) *WorkspaceSku {
 		return &v
 	}).(WorkspaceSkuPtrOutput)
 }
@@ -2462,13 +2396,7 @@ func (o WorkspaceSkuPtrOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Co
 }
 
 func (o WorkspaceSkuPtrOutput) Elem() WorkspaceSkuOutput {
-	return o.ApplyT(func(v *WorkspaceSku) WorkspaceSku {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceSku
-		return ret
-	}).(WorkspaceSkuOutput)
+	return o.ApplyT(func(v *WorkspaceSku) WorkspaceSku { return *v }).(WorkspaceSkuOutput)
 }
 
 // The capacity reservation level for this workspace, when CapacityReservation sku is selected.
@@ -2595,7 +2523,7 @@ func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutput() WorkspaceS
 }
 
 func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutputWithContext(ctx context.Context) WorkspaceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSkuResponse) *WorkspaceSkuResponse {
+	return o.ApplyT(func(v WorkspaceSkuResponse) *WorkspaceSkuResponse {
 		return &v
 	}).(WorkspaceSkuResponsePtrOutput)
 }
@@ -2630,13 +2558,7 @@ func (o WorkspaceSkuResponsePtrOutput) ToWorkspaceSkuResponsePtrOutputWithContex
 }
 
 func (o WorkspaceSkuResponsePtrOutput) Elem() WorkspaceSkuResponseOutput {
-	return o.ApplyT(func(v *WorkspaceSkuResponse) WorkspaceSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceSkuResponse
-		return ret
-	}).(WorkspaceSkuResponseOutput)
+	return o.ApplyT(func(v *WorkspaceSkuResponse) WorkspaceSkuResponse { return *v }).(WorkspaceSkuResponseOutput)
 }
 
 // The capacity reservation level for this workspace, when CapacityReservation sku is selected.

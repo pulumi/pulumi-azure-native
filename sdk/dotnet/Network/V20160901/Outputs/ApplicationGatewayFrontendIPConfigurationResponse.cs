@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160901.Outputs
 {
 
-    /// <summary>
-    /// Frontend IP configuration of an application gateway.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayFrontendIPConfigurationResponse
     {

@@ -183,7 +183,9 @@ func (i *GalleryImageVersion) ToGalleryImageVersionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionOutput)
 }
 
-type GalleryImageVersionOutput struct{ *pulumi.OutputState }
+type GalleryImageVersionOutput struct {
+	*pulumi.OutputState
+}
 
 func (GalleryImageVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GalleryImageVersion)(nil))

@@ -269,7 +269,7 @@ func (o CustomRuleListOutput) ToCustomRuleListPtrOutput() CustomRuleListPtrOutpu
 }
 
 func (o CustomRuleListOutput) ToCustomRuleListPtrOutputWithContext(ctx context.Context) CustomRuleListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleList) *CustomRuleList {
+	return o.ApplyT(func(v CustomRuleList) *CustomRuleList {
 		return &v
 	}).(CustomRuleListPtrOutput)
 }
@@ -294,13 +294,7 @@ func (o CustomRuleListPtrOutput) ToCustomRuleListPtrOutputWithContext(ctx contex
 }
 
 func (o CustomRuleListPtrOutput) Elem() CustomRuleListOutput {
-	return o.ApplyT(func(v *CustomRuleList) CustomRuleList {
-		if v != nil {
-			return *v
-		}
-		var ret CustomRuleList
-		return ret
-	}).(CustomRuleListOutput)
+	return o.ApplyT(func(v *CustomRuleList) CustomRuleList { return *v }).(CustomRuleListOutput)
 }
 
 // List of rules
@@ -409,7 +403,7 @@ func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutput() Custom
 }
 
 func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutputWithContext(ctx context.Context) CustomRuleListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleListResponse) *CustomRuleListResponse {
+	return o.ApplyT(func(v CustomRuleListResponse) *CustomRuleListResponse {
 		return &v
 	}).(CustomRuleListResponsePtrOutput)
 }
@@ -434,13 +428,7 @@ func (o CustomRuleListResponsePtrOutput) ToCustomRuleListResponsePtrOutputWithCo
 }
 
 func (o CustomRuleListResponsePtrOutput) Elem() CustomRuleListResponseOutput {
-	return o.ApplyT(func(v *CustomRuleListResponse) CustomRuleListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CustomRuleListResponse
-		return ret
-	}).(CustomRuleListResponseOutput)
+	return o.ApplyT(func(v *CustomRuleListResponse) CustomRuleListResponse { return *v }).(CustomRuleListResponseOutput)
 }
 
 // List of rules
@@ -1766,7 +1754,7 @@ func (o FrontDoorPolicySettingsOutput) ToFrontDoorPolicySettingsPtrOutput() Fron
 }
 
 func (o FrontDoorPolicySettingsOutput) ToFrontDoorPolicySettingsPtrOutputWithContext(ctx context.Context) FrontDoorPolicySettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorPolicySettings) *FrontDoorPolicySettings {
+	return o.ApplyT(func(v FrontDoorPolicySettings) *FrontDoorPolicySettings {
 		return &v
 	}).(FrontDoorPolicySettingsPtrOutput)
 }
@@ -1811,13 +1799,7 @@ func (o FrontDoorPolicySettingsPtrOutput) ToFrontDoorPolicySettingsPtrOutputWith
 }
 
 func (o FrontDoorPolicySettingsPtrOutput) Elem() FrontDoorPolicySettingsOutput {
-	return o.ApplyT(func(v *FrontDoorPolicySettings) FrontDoorPolicySettings {
-		if v != nil {
-			return *v
-		}
-		var ret FrontDoorPolicySettings
-		return ret
-	}).(FrontDoorPolicySettingsOutput)
+	return o.ApplyT(func(v *FrontDoorPolicySettings) FrontDoorPolicySettings { return *v }).(FrontDoorPolicySettingsOutput)
 }
 
 // If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -1982,7 +1964,7 @@ func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponse
 }
 
 func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponsePtrOutputWithContext(ctx context.Context) FrontDoorPolicySettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorPolicySettingsResponse) *FrontDoorPolicySettingsResponse {
+	return o.ApplyT(func(v FrontDoorPolicySettingsResponse) *FrontDoorPolicySettingsResponse {
 		return &v
 	}).(FrontDoorPolicySettingsResponsePtrOutput)
 }
@@ -2027,13 +2009,7 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) ToFrontDoorPolicySettingsRespo
 }
 
 func (o FrontDoorPolicySettingsResponsePtrOutput) Elem() FrontDoorPolicySettingsResponseOutput {
-	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) FrontDoorPolicySettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FrontDoorPolicySettingsResponse
-		return ret
-	}).(FrontDoorPolicySettingsResponseOutput)
+	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) FrontDoorPolicySettingsResponse { return *v }).(FrontDoorPolicySettingsResponseOutput)
 }
 
 // If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -2518,7 +2494,7 @@ func (o ManagedRuleSetListOutput) ToManagedRuleSetListPtrOutput() ManagedRuleSet
 }
 
 func (o ManagedRuleSetListOutput) ToManagedRuleSetListPtrOutputWithContext(ctx context.Context) ManagedRuleSetListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleSetList) *ManagedRuleSetList {
+	return o.ApplyT(func(v ManagedRuleSetList) *ManagedRuleSetList {
 		return &v
 	}).(ManagedRuleSetListPtrOutput)
 }
@@ -2543,13 +2519,7 @@ func (o ManagedRuleSetListPtrOutput) ToManagedRuleSetListPtrOutputWithContext(ct
 }
 
 func (o ManagedRuleSetListPtrOutput) Elem() ManagedRuleSetListOutput {
-	return o.ApplyT(func(v *ManagedRuleSetList) ManagedRuleSetList {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedRuleSetList
-		return ret
-	}).(ManagedRuleSetListOutput)
+	return o.ApplyT(func(v *ManagedRuleSetList) ManagedRuleSetList { return *v }).(ManagedRuleSetListOutput)
 }
 
 // List of rule sets.
@@ -2658,7 +2628,7 @@ func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutput(
 }
 
 func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutputWithContext(ctx context.Context) ManagedRuleSetListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleSetListResponse) *ManagedRuleSetListResponse {
+	return o.ApplyT(func(v ManagedRuleSetListResponse) *ManagedRuleSetListResponse {
 		return &v
 	}).(ManagedRuleSetListResponsePtrOutput)
 }
@@ -2683,13 +2653,7 @@ func (o ManagedRuleSetListResponsePtrOutput) ToManagedRuleSetListResponsePtrOutp
 }
 
 func (o ManagedRuleSetListResponsePtrOutput) Elem() ManagedRuleSetListResponseOutput {
-	return o.ApplyT(func(v *ManagedRuleSetListResponse) ManagedRuleSetListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedRuleSetListResponse
-		return ret
-	}).(ManagedRuleSetListResponseOutput)
+	return o.ApplyT(func(v *ManagedRuleSetListResponse) ManagedRuleSetListResponse { return *v }).(ManagedRuleSetListResponseOutput)
 }
 
 // List of rule sets.

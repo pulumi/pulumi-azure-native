@@ -151,7 +151,9 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
-type QueueOutput struct{ *pulumi.OutputState }
+type QueueOutput struct {
+	*pulumi.OutputState
+}
 
 func (QueueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Queue)(nil))

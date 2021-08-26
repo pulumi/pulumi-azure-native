@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
-    /// <summary>
-    /// The custom setup of setting environment variable.
-    /// </summary>
     [OutputType]
     public sealed class EnvironmentVariableSetupResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20170801Preview.Outputs
 {
 
-    /// <summary>
-    /// Recommendation configuration
-    /// </summary>
     [OutputType]
     public sealed class RecommendationConfigurationPropertiesResponse
     {

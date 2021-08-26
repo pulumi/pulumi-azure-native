@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The custom setup of installing 3rd party components.
-    /// </summary>
     [OutputType]
     public sealed class ComponentSetupResponse
     {

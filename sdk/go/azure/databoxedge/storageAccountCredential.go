@@ -227,7 +227,9 @@ func (i *StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialOutput)
 }
 
-type StorageAccountCredentialOutput struct{ *pulumi.OutputState }
+type StorageAccountCredentialOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageAccountCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountCredential)(nil))

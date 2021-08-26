@@ -149,7 +149,9 @@ func (i *RegistrationDefinition) ToRegistrationDefinitionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionOutput)
 }
 
-type RegistrationDefinitionOutput struct{ *pulumi.OutputState }
+type RegistrationDefinitionOutput struct {
+	*pulumi.OutputState
+}
 
 func (RegistrationDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistrationDefinition)(nil))

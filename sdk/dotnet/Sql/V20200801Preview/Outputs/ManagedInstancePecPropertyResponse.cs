@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20200801Preview.Outputs
 {
 
-    /// <summary>
-    /// A private endpoint connection under a managed instance
-    /// </summary>
     [OutputType]
     public sealed class ManagedInstancePecPropertyResponse
     {

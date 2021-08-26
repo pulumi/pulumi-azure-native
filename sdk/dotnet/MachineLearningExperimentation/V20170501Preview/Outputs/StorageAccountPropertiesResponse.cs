@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningExperimentation.V20170501Preview.Outputs
 {
 
-    /// <summary>
-    /// The properties of a storage account for a machine learning team account.
-    /// </summary>
     [OutputType]
     public sealed class StorageAccountPropertiesResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210201.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings of the Azure Active Directory default authorization policy.
-    /// </summary>
     [OutputType]
     public sealed class DefaultAuthorizationPolicyResponse
     {

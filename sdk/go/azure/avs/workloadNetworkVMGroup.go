@@ -154,7 +154,9 @@ func (i *WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkVMGroupOutput)
 }
 
-type WorkloadNetworkVMGroupOutput struct{ *pulumi.OutputState }
+type WorkloadNetworkVMGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadNetworkVMGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkVMGroup)(nil))

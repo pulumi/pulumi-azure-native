@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
-    /// <summary>
-    /// The order by expression to be used in the report.
-    /// </summary>
     [OutputType]
     public sealed class ReportConfigSortingResponse
     {

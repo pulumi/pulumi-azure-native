@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Ssis environment.
-    /// </summary>
     [OutputType]
     public sealed class SsisEnvironmentResponse
     {

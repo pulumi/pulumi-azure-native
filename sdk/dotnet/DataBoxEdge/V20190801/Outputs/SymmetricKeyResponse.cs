@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20190801.Outputs
 {
 
-    /// <summary>
-    /// Symmetric key for authentication.
-    /// </summary>
     [OutputType]
     public sealed class SymmetricKeyResponse
     {

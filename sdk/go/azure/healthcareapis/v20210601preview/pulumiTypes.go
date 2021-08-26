@@ -110,7 +110,7 @@ func (o DicomServiceAuthenticationConfigurationResponseOutput) ToDicomServiceAut
 }
 
 func (o DicomServiceAuthenticationConfigurationResponseOutput) ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) DicomServiceAuthenticationConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DicomServiceAuthenticationConfigurationResponse) *DicomServiceAuthenticationConfigurationResponse {
+	return o.ApplyT(func(v DicomServiceAuthenticationConfigurationResponse) *DicomServiceAuthenticationConfigurationResponse {
 		return &v
 	}).(DicomServiceAuthenticationConfigurationResponsePtrOutput)
 }
@@ -141,11 +141,7 @@ func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) ToDicomService
 
 func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) Elem() DicomServiceAuthenticationConfigurationResponseOutput {
 	return o.ApplyT(func(v *DicomServiceAuthenticationConfigurationResponse) DicomServiceAuthenticationConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DicomServiceAuthenticationConfigurationResponse
-		return ret
+		return *v
 	}).(DicomServiceAuthenticationConfigurationResponseOutput)
 }
 
@@ -465,7 +461,7 @@ func (o FhirServiceAcrConfigurationOutput) ToFhirServiceAcrConfigurationPtrOutpu
 }
 
 func (o FhirServiceAcrConfigurationOutput) ToFhirServiceAcrConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceAcrConfiguration) *FhirServiceAcrConfiguration {
+	return o.ApplyT(func(v FhirServiceAcrConfiguration) *FhirServiceAcrConfiguration {
 		return &v
 	}).(FhirServiceAcrConfigurationPtrOutput)
 }
@@ -490,13 +486,7 @@ func (o FhirServiceAcrConfigurationPtrOutput) ToFhirServiceAcrConfigurationPtrOu
 }
 
 func (o FhirServiceAcrConfigurationPtrOutput) Elem() FhirServiceAcrConfigurationOutput {
-	return o.ApplyT(func(v *FhirServiceAcrConfiguration) FhirServiceAcrConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceAcrConfiguration
-		return ret
-	}).(FhirServiceAcrConfigurationOutput)
+	return o.ApplyT(func(v *FhirServiceAcrConfiguration) FhirServiceAcrConfiguration { return *v }).(FhirServiceAcrConfigurationOutput)
 }
 
 // The list of the Azure container registry login servers.
@@ -605,7 +595,7 @@ func (o FhirServiceAcrConfigurationResponseOutput) ToFhirServiceAcrConfiguration
 }
 
 func (o FhirServiceAcrConfigurationResponseOutput) ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceAcrConfigurationResponse) *FhirServiceAcrConfigurationResponse {
+	return o.ApplyT(func(v FhirServiceAcrConfigurationResponse) *FhirServiceAcrConfigurationResponse {
 		return &v
 	}).(FhirServiceAcrConfigurationResponsePtrOutput)
 }
@@ -630,13 +620,7 @@ func (o FhirServiceAcrConfigurationResponsePtrOutput) ToFhirServiceAcrConfigurat
 }
 
 func (o FhirServiceAcrConfigurationResponsePtrOutput) Elem() FhirServiceAcrConfigurationResponseOutput {
-	return o.ApplyT(func(v *FhirServiceAcrConfigurationResponse) FhirServiceAcrConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceAcrConfigurationResponse
-		return ret
-	}).(FhirServiceAcrConfigurationResponseOutput)
+	return o.ApplyT(func(v *FhirServiceAcrConfigurationResponse) FhirServiceAcrConfigurationResponse { return *v }).(FhirServiceAcrConfigurationResponseOutput)
 }
 
 // The list of the Azure container registry login servers.
@@ -753,7 +737,7 @@ func (o FhirServiceAuthenticationConfigurationOutput) ToFhirServiceAuthenticatio
 }
 
 func (o FhirServiceAuthenticationConfigurationOutput) ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceAuthenticationConfiguration) *FhirServiceAuthenticationConfiguration {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfiguration) *FhirServiceAuthenticationConfiguration {
 		return &v
 	}).(FhirServiceAuthenticationConfigurationPtrOutput)
 }
@@ -788,13 +772,7 @@ func (o FhirServiceAuthenticationConfigurationPtrOutput) ToFhirServiceAuthentica
 }
 
 func (o FhirServiceAuthenticationConfigurationPtrOutput) Elem() FhirServiceAuthenticationConfigurationOutput {
-	return o.ApplyT(func(v *FhirServiceAuthenticationConfiguration) FhirServiceAuthenticationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceAuthenticationConfiguration
-		return ret
-	}).(FhirServiceAuthenticationConfigurationOutput)
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfiguration) FhirServiceAuthenticationConfiguration { return *v }).(FhirServiceAuthenticationConfigurationOutput)
 }
 
 // The audience url for the service
@@ -931,7 +909,7 @@ func (o FhirServiceAuthenticationConfigurationResponseOutput) ToFhirServiceAuthe
 }
 
 func (o FhirServiceAuthenticationConfigurationResponseOutput) ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceAuthenticationConfigurationResponse) *FhirServiceAuthenticationConfigurationResponse {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfigurationResponse) *FhirServiceAuthenticationConfigurationResponse {
 		return &v
 	}).(FhirServiceAuthenticationConfigurationResponsePtrOutput)
 }
@@ -967,11 +945,7 @@ func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) ToFhirServiceAu
 
 func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) Elem() FhirServiceAuthenticationConfigurationResponseOutput {
 	return o.ApplyT(func(v *FhirServiceAuthenticationConfigurationResponse) FhirServiceAuthenticationConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceAuthenticationConfigurationResponse
-		return ret
+		return *v
 	}).(FhirServiceAuthenticationConfigurationResponseOutput)
 }
 
@@ -1117,7 +1091,7 @@ func (o FhirServiceCorsConfigurationOutput) ToFhirServiceCorsConfigurationPtrOut
 }
 
 func (o FhirServiceCorsConfigurationOutput) ToFhirServiceCorsConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceCorsConfiguration) *FhirServiceCorsConfiguration {
+	return o.ApplyT(func(v FhirServiceCorsConfiguration) *FhirServiceCorsConfiguration {
 		return &v
 	}).(FhirServiceCorsConfigurationPtrOutput)
 }
@@ -1162,13 +1136,7 @@ func (o FhirServiceCorsConfigurationPtrOutput) ToFhirServiceCorsConfigurationPtr
 }
 
 func (o FhirServiceCorsConfigurationPtrOutput) Elem() FhirServiceCorsConfigurationOutput {
-	return o.ApplyT(func(v *FhirServiceCorsConfiguration) FhirServiceCorsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceCorsConfiguration
-		return ret
-	}).(FhirServiceCorsConfigurationOutput)
+	return o.ApplyT(func(v *FhirServiceCorsConfiguration) FhirServiceCorsConfiguration { return *v }).(FhirServiceCorsConfigurationOutput)
 }
 
 // If credentials are allowed via CORS.
@@ -1333,7 +1301,7 @@ func (o FhirServiceCorsConfigurationResponseOutput) ToFhirServiceCorsConfigurati
 }
 
 func (o FhirServiceCorsConfigurationResponseOutput) ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceCorsConfigurationResponse) *FhirServiceCorsConfigurationResponse {
+	return o.ApplyT(func(v FhirServiceCorsConfigurationResponse) *FhirServiceCorsConfigurationResponse {
 		return &v
 	}).(FhirServiceCorsConfigurationResponsePtrOutput)
 }
@@ -1378,13 +1346,7 @@ func (o FhirServiceCorsConfigurationResponsePtrOutput) ToFhirServiceCorsConfigur
 }
 
 func (o FhirServiceCorsConfigurationResponsePtrOutput) Elem() FhirServiceCorsConfigurationResponseOutput {
-	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) FhirServiceCorsConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceCorsConfigurationResponse
-		return ret
-	}).(FhirServiceCorsConfigurationResponseOutput)
+	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) FhirServiceCorsConfigurationResponse { return *v }).(FhirServiceCorsConfigurationResponseOutput)
 }
 
 // If credentials are allowed via CORS.
@@ -1533,7 +1495,7 @@ func (o FhirServiceExportConfigurationOutput) ToFhirServiceExportConfigurationPt
 }
 
 func (o FhirServiceExportConfigurationOutput) ToFhirServiceExportConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceExportConfiguration) *FhirServiceExportConfiguration {
+	return o.ApplyT(func(v FhirServiceExportConfiguration) *FhirServiceExportConfiguration {
 		return &v
 	}).(FhirServiceExportConfigurationPtrOutput)
 }
@@ -1558,13 +1520,7 @@ func (o FhirServiceExportConfigurationPtrOutput) ToFhirServiceExportConfiguratio
 }
 
 func (o FhirServiceExportConfigurationPtrOutput) Elem() FhirServiceExportConfigurationOutput {
-	return o.ApplyT(func(v *FhirServiceExportConfiguration) FhirServiceExportConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceExportConfiguration
-		return ret
-	}).(FhirServiceExportConfigurationOutput)
+	return o.ApplyT(func(v *FhirServiceExportConfiguration) FhirServiceExportConfiguration { return *v }).(FhirServiceExportConfigurationOutput)
 }
 
 // The name of the default export storage account.
@@ -1673,7 +1629,7 @@ func (o FhirServiceExportConfigurationResponseOutput) ToFhirServiceExportConfigu
 }
 
 func (o FhirServiceExportConfigurationResponseOutput) ToFhirServiceExportConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FhirServiceExportConfigurationResponse) *FhirServiceExportConfigurationResponse {
+	return o.ApplyT(func(v FhirServiceExportConfigurationResponse) *FhirServiceExportConfigurationResponse {
 		return &v
 	}).(FhirServiceExportConfigurationResponsePtrOutput)
 }
@@ -1698,13 +1654,7 @@ func (o FhirServiceExportConfigurationResponsePtrOutput) ToFhirServiceExportConf
 }
 
 func (o FhirServiceExportConfigurationResponsePtrOutput) Elem() FhirServiceExportConfigurationResponseOutput {
-	return o.ApplyT(func(v *FhirServiceExportConfigurationResponse) FhirServiceExportConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret FhirServiceExportConfigurationResponse
-		return ret
-	}).(FhirServiceExportConfigurationResponseOutput)
+	return o.ApplyT(func(v *FhirServiceExportConfigurationResponse) FhirServiceExportConfigurationResponse { return *v }).(FhirServiceExportConfigurationResponseOutput)
 }
 
 // The name of the default export storage account.
@@ -1821,7 +1771,7 @@ func (o IotEventHubIngestionEndpointConfigurationOutput) ToIotEventHubIngestionE
 }
 
 func (o IotEventHubIngestionEndpointConfigurationOutput) ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotEventHubIngestionEndpointConfiguration) *IotEventHubIngestionEndpointConfiguration {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfiguration) *IotEventHubIngestionEndpointConfiguration {
 		return &v
 	}).(IotEventHubIngestionEndpointConfigurationPtrOutput)
 }
@@ -1857,11 +1807,7 @@ func (o IotEventHubIngestionEndpointConfigurationPtrOutput) ToIotEventHubIngesti
 
 func (o IotEventHubIngestionEndpointConfigurationPtrOutput) Elem() IotEventHubIngestionEndpointConfigurationOutput {
 	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfiguration) IotEventHubIngestionEndpointConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret IotEventHubIngestionEndpointConfiguration
-		return ret
+		return *v
 	}).(IotEventHubIngestionEndpointConfigurationOutput)
 }
 
@@ -1999,7 +1945,7 @@ func (o IotEventHubIngestionEndpointConfigurationResponseOutput) ToIotEventHubIn
 }
 
 func (o IotEventHubIngestionEndpointConfigurationResponseOutput) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotEventHubIngestionEndpointConfigurationResponse) *IotEventHubIngestionEndpointConfigurationResponse {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfigurationResponse) *IotEventHubIngestionEndpointConfigurationResponse {
 		return &v
 	}).(IotEventHubIngestionEndpointConfigurationResponsePtrOutput)
 }
@@ -2037,11 +1983,7 @@ func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) ToIotEventHu
 
 func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) Elem() IotEventHubIngestionEndpointConfigurationResponseOutput {
 	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfigurationResponse) IotEventHubIngestionEndpointConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IotEventHubIngestionEndpointConfigurationResponse
-		return ret
+		return *v
 	}).(IotEventHubIngestionEndpointConfigurationResponseOutput)
 }
 
@@ -2171,7 +2113,7 @@ func (o IotMappingPropertiesOutput) ToIotMappingPropertiesPtrOutput() IotMapping
 }
 
 func (o IotMappingPropertiesOutput) ToIotMappingPropertiesPtrOutputWithContext(ctx context.Context) IotMappingPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotMappingProperties) *IotMappingProperties {
+	return o.ApplyT(func(v IotMappingProperties) *IotMappingProperties {
 		return &v
 	}).(IotMappingPropertiesPtrOutput)
 }
@@ -2196,13 +2138,7 @@ func (o IotMappingPropertiesPtrOutput) ToIotMappingPropertiesPtrOutputWithContex
 }
 
 func (o IotMappingPropertiesPtrOutput) Elem() IotMappingPropertiesOutput {
-	return o.ApplyT(func(v *IotMappingProperties) IotMappingProperties {
-		if v != nil {
-			return *v
-		}
-		var ret IotMappingProperties
-		return ret
-	}).(IotMappingPropertiesOutput)
+	return o.ApplyT(func(v *IotMappingProperties) IotMappingProperties { return *v }).(IotMappingPropertiesOutput)
 }
 
 // The mapping.
@@ -2311,7 +2247,7 @@ func (o IotMappingPropertiesResponseOutput) ToIotMappingPropertiesResponsePtrOut
 }
 
 func (o IotMappingPropertiesResponseOutput) ToIotMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) IotMappingPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotMappingPropertiesResponse) *IotMappingPropertiesResponse {
+	return o.ApplyT(func(v IotMappingPropertiesResponse) *IotMappingPropertiesResponse {
 		return &v
 	}).(IotMappingPropertiesResponsePtrOutput)
 }
@@ -2336,13 +2272,7 @@ func (o IotMappingPropertiesResponsePtrOutput) ToIotMappingPropertiesResponsePtr
 }
 
 func (o IotMappingPropertiesResponsePtrOutput) Elem() IotMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v *IotMappingPropertiesResponse) IotMappingPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IotMappingPropertiesResponse
-		return ret
-	}).(IotMappingPropertiesResponseOutput)
+	return o.ApplyT(func(v *IotMappingPropertiesResponse) IotMappingPropertiesResponse { return *v }).(IotMappingPropertiesResponseOutput)
 }
 
 // The mapping.
@@ -2700,7 +2630,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -2725,13 +2655,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -2848,7 +2772,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -2883,13 +2807,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -3026,7 +2944,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -3062,11 +2980,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -3396,7 +3310,7 @@ func (o ServiceAcrConfigurationInfoOutput) ToServiceAcrConfigurationInfoPtrOutpu
 }
 
 func (o ServiceAcrConfigurationInfoOutput) ToServiceAcrConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAcrConfigurationInfo) *ServiceAcrConfigurationInfo {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfo) *ServiceAcrConfigurationInfo {
 		return &v
 	}).(ServiceAcrConfigurationInfoPtrOutput)
 }
@@ -3421,13 +3335,7 @@ func (o ServiceAcrConfigurationInfoPtrOutput) ToServiceAcrConfigurationInfoPtrOu
 }
 
 func (o ServiceAcrConfigurationInfoPtrOutput) Elem() ServiceAcrConfigurationInfoOutput {
-	return o.ApplyT(func(v *ServiceAcrConfigurationInfo) ServiceAcrConfigurationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceAcrConfigurationInfo
-		return ret
-	}).(ServiceAcrConfigurationInfoOutput)
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfo) ServiceAcrConfigurationInfo { return *v }).(ServiceAcrConfigurationInfoOutput)
 }
 
 // The list of the ACR login servers.
@@ -3536,7 +3444,7 @@ func (o ServiceAcrConfigurationInfoResponseOutput) ToServiceAcrConfigurationInfo
 }
 
 func (o ServiceAcrConfigurationInfoResponseOutput) ToServiceAcrConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAcrConfigurationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAcrConfigurationInfoResponse) *ServiceAcrConfigurationInfoResponse {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfoResponse) *ServiceAcrConfigurationInfoResponse {
 		return &v
 	}).(ServiceAcrConfigurationInfoResponsePtrOutput)
 }
@@ -3561,13 +3469,7 @@ func (o ServiceAcrConfigurationInfoResponsePtrOutput) ToServiceAcrConfigurationI
 }
 
 func (o ServiceAcrConfigurationInfoResponsePtrOutput) Elem() ServiceAcrConfigurationInfoResponseOutput {
-	return o.ApplyT(func(v *ServiceAcrConfigurationInfoResponse) ServiceAcrConfigurationInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceAcrConfigurationInfoResponse
-		return ret
-	}).(ServiceAcrConfigurationInfoResponseOutput)
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfoResponse) ServiceAcrConfigurationInfoResponse { return *v }).(ServiceAcrConfigurationInfoResponseOutput)
 }
 
 // The list of the ACR login servers.
@@ -3684,7 +3586,7 @@ func (o ServiceAuthenticationConfigurationInfoOutput) ToServiceAuthenticationCon
 }
 
 func (o ServiceAuthenticationConfigurationInfoOutput) ToServiceAuthenticationConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAuthenticationConfigurationInfo) *ServiceAuthenticationConfigurationInfo {
+	return o.ApplyT(func(v ServiceAuthenticationConfigurationInfo) *ServiceAuthenticationConfigurationInfo {
 		return &v
 	}).(ServiceAuthenticationConfigurationInfoPtrOutput)
 }
@@ -3719,13 +3621,7 @@ func (o ServiceAuthenticationConfigurationInfoPtrOutput) ToServiceAuthentication
 }
 
 func (o ServiceAuthenticationConfigurationInfoPtrOutput) Elem() ServiceAuthenticationConfigurationInfoOutput {
-	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfo) ServiceAuthenticationConfigurationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceAuthenticationConfigurationInfo
-		return ret
-	}).(ServiceAuthenticationConfigurationInfoOutput)
+	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfo) ServiceAuthenticationConfigurationInfo { return *v }).(ServiceAuthenticationConfigurationInfoOutput)
 }
 
 // The audience url for the service
@@ -3862,7 +3758,7 @@ func (o ServiceAuthenticationConfigurationInfoResponseOutput) ToServiceAuthentic
 }
 
 func (o ServiceAuthenticationConfigurationInfoResponseOutput) ToServiceAuthenticationConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAuthenticationConfigurationInfoResponse) *ServiceAuthenticationConfigurationInfoResponse {
+	return o.ApplyT(func(v ServiceAuthenticationConfigurationInfoResponse) *ServiceAuthenticationConfigurationInfoResponse {
 		return &v
 	}).(ServiceAuthenticationConfigurationInfoResponsePtrOutput)
 }
@@ -3898,11 +3794,7 @@ func (o ServiceAuthenticationConfigurationInfoResponsePtrOutput) ToServiceAuthen
 
 func (o ServiceAuthenticationConfigurationInfoResponsePtrOutput) Elem() ServiceAuthenticationConfigurationInfoResponseOutput {
 	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfoResponse) ServiceAuthenticationConfigurationInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceAuthenticationConfigurationInfoResponse
-		return ret
+		return *v
 	}).(ServiceAuthenticationConfigurationInfoResponseOutput)
 }
 
@@ -4048,7 +3940,7 @@ func (o ServiceCorsConfigurationInfoOutput) ToServiceCorsConfigurationInfoPtrOut
 }
 
 func (o ServiceCorsConfigurationInfoOutput) ToServiceCorsConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCorsConfigurationInfo) *ServiceCorsConfigurationInfo {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfo) *ServiceCorsConfigurationInfo {
 		return &v
 	}).(ServiceCorsConfigurationInfoPtrOutput)
 }
@@ -4093,13 +3985,7 @@ func (o ServiceCorsConfigurationInfoPtrOutput) ToServiceCorsConfigurationInfoPtr
 }
 
 func (o ServiceCorsConfigurationInfoPtrOutput) Elem() ServiceCorsConfigurationInfoOutput {
-	return o.ApplyT(func(v *ServiceCorsConfigurationInfo) ServiceCorsConfigurationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceCorsConfigurationInfo
-		return ret
-	}).(ServiceCorsConfigurationInfoOutput)
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfo) ServiceCorsConfigurationInfo { return *v }).(ServiceCorsConfigurationInfoOutput)
 }
 
 // If credentials are allowed via CORS.
@@ -4264,7 +4150,7 @@ func (o ServiceCorsConfigurationInfoResponseOutput) ToServiceCorsConfigurationIn
 }
 
 func (o ServiceCorsConfigurationInfoResponseOutput) ToServiceCorsConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCorsConfigurationInfoResponse) *ServiceCorsConfigurationInfoResponse {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfoResponse) *ServiceCorsConfigurationInfoResponse {
 		return &v
 	}).(ServiceCorsConfigurationInfoResponsePtrOutput)
 }
@@ -4309,13 +4195,7 @@ func (o ServiceCorsConfigurationInfoResponsePtrOutput) ToServiceCorsConfiguratio
 }
 
 func (o ServiceCorsConfigurationInfoResponsePtrOutput) Elem() ServiceCorsConfigurationInfoResponseOutput {
-	return o.ApplyT(func(v *ServiceCorsConfigurationInfoResponse) ServiceCorsConfigurationInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceCorsConfigurationInfoResponse
-		return ret
-	}).(ServiceCorsConfigurationInfoResponseOutput)
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfoResponse) ServiceCorsConfigurationInfoResponse { return *v }).(ServiceCorsConfigurationInfoResponseOutput)
 }
 
 // If credentials are allowed via CORS.
@@ -4468,7 +4348,7 @@ func (o ServiceCosmosDbConfigurationInfoOutput) ToServiceCosmosDbConfigurationIn
 }
 
 func (o ServiceCosmosDbConfigurationInfoOutput) ToServiceCosmosDbConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCosmosDbConfigurationInfo) *ServiceCosmosDbConfigurationInfo {
+	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfo) *ServiceCosmosDbConfigurationInfo {
 		return &v
 	}).(ServiceCosmosDbConfigurationInfoPtrOutput)
 }
@@ -4498,13 +4378,7 @@ func (o ServiceCosmosDbConfigurationInfoPtrOutput) ToServiceCosmosDbConfiguratio
 }
 
 func (o ServiceCosmosDbConfigurationInfoPtrOutput) Elem() ServiceCosmosDbConfigurationInfoOutput {
-	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfo) ServiceCosmosDbConfigurationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceCosmosDbConfigurationInfo
-		return ret
-	}).(ServiceCosmosDbConfigurationInfoOutput)
+	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfo) ServiceCosmosDbConfigurationInfo { return *v }).(ServiceCosmosDbConfigurationInfoOutput)
 }
 
 // The URI of the customer-managed key for the backing database.
@@ -4627,7 +4501,7 @@ func (o ServiceCosmosDbConfigurationInfoResponseOutput) ToServiceCosmosDbConfigu
 }
 
 func (o ServiceCosmosDbConfigurationInfoResponseOutput) ToServiceCosmosDbConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCosmosDbConfigurationInfoResponse) *ServiceCosmosDbConfigurationInfoResponse {
+	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfoResponse) *ServiceCosmosDbConfigurationInfoResponse {
 		return &v
 	}).(ServiceCosmosDbConfigurationInfoResponsePtrOutput)
 }
@@ -4657,13 +4531,7 @@ func (o ServiceCosmosDbConfigurationInfoResponsePtrOutput) ToServiceCosmosDbConf
 }
 
 func (o ServiceCosmosDbConfigurationInfoResponsePtrOutput) Elem() ServiceCosmosDbConfigurationInfoResponseOutput {
-	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfoResponse) ServiceCosmosDbConfigurationInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceCosmosDbConfigurationInfoResponse
-		return ret
-	}).(ServiceCosmosDbConfigurationInfoResponseOutput)
+	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfoResponse) ServiceCosmosDbConfigurationInfoResponse { return *v }).(ServiceCosmosDbConfigurationInfoResponseOutput)
 }
 
 // The URI of the customer-managed key for the backing database.
@@ -4782,7 +4650,7 @@ func (o ServiceExportConfigurationInfoOutput) ToServiceExportConfigurationInfoPt
 }
 
 func (o ServiceExportConfigurationInfoOutput) ToServiceExportConfigurationInfoPtrOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceExportConfigurationInfo) *ServiceExportConfigurationInfo {
+	return o.ApplyT(func(v ServiceExportConfigurationInfo) *ServiceExportConfigurationInfo {
 		return &v
 	}).(ServiceExportConfigurationInfoPtrOutput)
 }
@@ -4807,13 +4675,7 @@ func (o ServiceExportConfigurationInfoPtrOutput) ToServiceExportConfigurationInf
 }
 
 func (o ServiceExportConfigurationInfoPtrOutput) Elem() ServiceExportConfigurationInfoOutput {
-	return o.ApplyT(func(v *ServiceExportConfigurationInfo) ServiceExportConfigurationInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceExportConfigurationInfo
-		return ret
-	}).(ServiceExportConfigurationInfoOutput)
+	return o.ApplyT(func(v *ServiceExportConfigurationInfo) ServiceExportConfigurationInfo { return *v }).(ServiceExportConfigurationInfoOutput)
 }
 
 // The name of the default export storage account.
@@ -4922,7 +4784,7 @@ func (o ServiceExportConfigurationInfoResponseOutput) ToServiceExportConfigurati
 }
 
 func (o ServiceExportConfigurationInfoResponseOutput) ToServiceExportConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceExportConfigurationInfoResponse) *ServiceExportConfigurationInfoResponse {
+	return o.ApplyT(func(v ServiceExportConfigurationInfoResponse) *ServiceExportConfigurationInfoResponse {
 		return &v
 	}).(ServiceExportConfigurationInfoResponsePtrOutput)
 }
@@ -4947,13 +4809,7 @@ func (o ServiceExportConfigurationInfoResponsePtrOutput) ToServiceExportConfigur
 }
 
 func (o ServiceExportConfigurationInfoResponsePtrOutput) Elem() ServiceExportConfigurationInfoResponseOutput {
-	return o.ApplyT(func(v *ServiceExportConfigurationInfoResponse) ServiceExportConfigurationInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceExportConfigurationInfoResponse
-		return ret
-	}).(ServiceExportConfigurationInfoResponseOutput)
+	return o.ApplyT(func(v *ServiceExportConfigurationInfoResponse) ServiceExportConfigurationInfoResponse { return *v }).(ServiceExportConfigurationInfoResponseOutput)
 }
 
 // The name of the default export storage account.
@@ -5062,7 +4918,7 @@ func (o ServiceManagedIdentityIdentityOutput) ToServiceManagedIdentityIdentityPt
 }
 
 func (o ServiceManagedIdentityIdentityOutput) ToServiceManagedIdentityIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceManagedIdentityIdentity) *ServiceManagedIdentityIdentity {
+	return o.ApplyT(func(v ServiceManagedIdentityIdentity) *ServiceManagedIdentityIdentity {
 		return &v
 	}).(ServiceManagedIdentityIdentityPtrOutput)
 }
@@ -5087,13 +4943,7 @@ func (o ServiceManagedIdentityIdentityPtrOutput) ToServiceManagedIdentityIdentit
 }
 
 func (o ServiceManagedIdentityIdentityPtrOutput) Elem() ServiceManagedIdentityIdentityOutput {
-	return o.ApplyT(func(v *ServiceManagedIdentityIdentity) ServiceManagedIdentityIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceManagedIdentityIdentity
-		return ret
-	}).(ServiceManagedIdentityIdentityOutput)
+	return o.ApplyT(func(v *ServiceManagedIdentityIdentity) ServiceManagedIdentityIdentity { return *v }).(ServiceManagedIdentityIdentityOutput)
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -5202,7 +5052,7 @@ func (o ServiceManagedIdentityResponseIdentityOutput) ToServiceManagedIdentityRe
 }
 
 func (o ServiceManagedIdentityResponseIdentityOutput) ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityResponseIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceManagedIdentityResponseIdentity) *ServiceManagedIdentityResponseIdentity {
+	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) *ServiceManagedIdentityResponseIdentity {
 		return &v
 	}).(ServiceManagedIdentityResponseIdentityPtrOutput)
 }
@@ -5227,13 +5077,7 @@ func (o ServiceManagedIdentityResponseIdentityPtrOutput) ToServiceManagedIdentit
 }
 
 func (o ServiceManagedIdentityResponseIdentityPtrOutput) Elem() ServiceManagedIdentityResponseIdentityOutput {
-	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) ServiceManagedIdentityResponseIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceManagedIdentityResponseIdentity
-		return ret
-	}).(ServiceManagedIdentityResponseIdentityOutput)
+	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) ServiceManagedIdentityResponseIdentity { return *v }).(ServiceManagedIdentityResponseIdentityOutput)
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -5370,7 +5214,7 @@ func (o ServicesPropertiesOutput) ToServicesPropertiesPtrOutput() ServicesProper
 }
 
 func (o ServicesPropertiesOutput) ToServicesPropertiesPtrOutputWithContext(ctx context.Context) ServicesPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicesProperties) *ServicesProperties {
+	return o.ApplyT(func(v ServicesProperties) *ServicesProperties {
 		return &v
 	}).(ServicesPropertiesPtrOutput)
 }
@@ -5432,13 +5276,7 @@ func (o ServicesPropertiesPtrOutput) ToServicesPropertiesPtrOutputWithContext(ct
 }
 
 func (o ServicesPropertiesPtrOutput) Elem() ServicesPropertiesOutput {
-	return o.ApplyT(func(v *ServicesProperties) ServicesProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ServicesProperties
-		return ret
-	}).(ServicesPropertiesOutput)
+	return o.ApplyT(func(v *ServicesProperties) ServicesProperties { return *v }).(ServicesPropertiesOutput)
 }
 
 // The access policies of the service instance.
@@ -5649,7 +5487,7 @@ func (o ServicesPropertiesResponseOutput) ToServicesPropertiesResponsePtrOutput(
 }
 
 func (o ServicesPropertiesResponseOutput) ToServicesPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicesPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicesPropertiesResponse) *ServicesPropertiesResponse {
+	return o.ApplyT(func(v ServicesPropertiesResponse) *ServicesPropertiesResponse {
 		return &v
 	}).(ServicesPropertiesResponsePtrOutput)
 }
@@ -5722,13 +5560,7 @@ func (o ServicesPropertiesResponsePtrOutput) ToServicesPropertiesResponsePtrOutp
 }
 
 func (o ServicesPropertiesResponsePtrOutput) Elem() ServicesPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServicesPropertiesResponse) ServicesPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServicesPropertiesResponse
-		return ret
-	}).(ServicesPropertiesResponseOutput)
+	return o.ApplyT(func(v *ServicesPropertiesResponse) ServicesPropertiesResponse { return *v }).(ServicesPropertiesResponseOutput)
 }
 
 // The access policies of the service instance.
@@ -5917,7 +5749,7 @@ func (o ServicesResourceIdentityOutput) ToServicesResourceIdentityPtrOutput() Se
 }
 
 func (o ServicesResourceIdentityOutput) ToServicesResourceIdentityPtrOutputWithContext(ctx context.Context) ServicesResourceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicesResourceIdentity) *ServicesResourceIdentity {
+	return o.ApplyT(func(v ServicesResourceIdentity) *ServicesResourceIdentity {
 		return &v
 	}).(ServicesResourceIdentityPtrOutput)
 }
@@ -5942,13 +5774,7 @@ func (o ServicesResourceIdentityPtrOutput) ToServicesResourceIdentityPtrOutputWi
 }
 
 func (o ServicesResourceIdentityPtrOutput) Elem() ServicesResourceIdentityOutput {
-	return o.ApplyT(func(v *ServicesResourceIdentity) ServicesResourceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ServicesResourceIdentity
-		return ret
-	}).(ServicesResourceIdentityOutput)
+	return o.ApplyT(func(v *ServicesResourceIdentity) ServicesResourceIdentity { return *v }).(ServicesResourceIdentityOutput)
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -6065,7 +5891,7 @@ func (o ServicesResourceResponseIdentityOutput) ToServicesResourceResponseIdenti
 }
 
 func (o ServicesResourceResponseIdentityOutput) ToServicesResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ServicesResourceResponseIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicesResourceResponseIdentity) *ServicesResourceResponseIdentity {
+	return o.ApplyT(func(v ServicesResourceResponseIdentity) *ServicesResourceResponseIdentity {
 		return &v
 	}).(ServicesResourceResponseIdentityPtrOutput)
 }
@@ -6100,13 +5926,7 @@ func (o ServicesResourceResponseIdentityPtrOutput) ToServicesResourceResponseIde
 }
 
 func (o ServicesResourceResponseIdentityPtrOutput) Elem() ServicesResourceResponseIdentityOutput {
-	return o.ApplyT(func(v *ServicesResourceResponseIdentity) ServicesResourceResponseIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ServicesResourceResponseIdentity
-		return ret
-	}).(ServicesResourceResponseIdentityOutput)
+	return o.ApplyT(func(v *ServicesResourceResponseIdentity) ServicesResourceResponseIdentity { return *v }).(ServicesResourceResponseIdentityOutput)
 }
 
 // The principal ID of the resource identity.
@@ -6255,7 +6075,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -6305,13 +6125,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -6470,7 +6284,7 @@ func (o WorkspaceResponsePropertiesOutput) ToWorkspaceResponsePropertiesPtrOutpu
 }
 
 func (o WorkspaceResponsePropertiesOutput) ToWorkspaceResponsePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceResponseProperties) *WorkspaceResponseProperties {
+	return o.ApplyT(func(v WorkspaceResponseProperties) *WorkspaceResponseProperties {
 		return &v
 	}).(WorkspaceResponsePropertiesPtrOutput)
 }
@@ -6495,13 +6309,7 @@ func (o WorkspaceResponsePropertiesPtrOutput) ToWorkspaceResponsePropertiesPtrOu
 }
 
 func (o WorkspaceResponsePropertiesPtrOutput) Elem() WorkspaceResponsePropertiesOutput {
-	return o.ApplyT(func(v *WorkspaceResponseProperties) WorkspaceResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceResponseProperties
-		return ret
-	}).(WorkspaceResponsePropertiesOutput)
+	return o.ApplyT(func(v *WorkspaceResponseProperties) WorkspaceResponseProperties { return *v }).(WorkspaceResponsePropertiesOutput)
 }
 
 // The provisioning state.

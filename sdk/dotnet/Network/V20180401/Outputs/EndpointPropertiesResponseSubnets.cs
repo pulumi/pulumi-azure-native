@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180401.Outputs
 {
 
-    /// <summary>
-    /// Subnet first address, scope, and/or last address.
-    /// </summary>
     [OutputType]
     public sealed class EndpointPropertiesResponseSubnets
     {

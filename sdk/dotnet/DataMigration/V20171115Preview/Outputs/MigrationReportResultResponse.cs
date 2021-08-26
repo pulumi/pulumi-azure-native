@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20171115Preview.Outputs
 {
 
-    /// <summary>
-    /// Migration validation report result, contains the url for downloading the generated report.
-    /// </summary>
     [OutputType]
     public sealed class MigrationReportResultResponse
     {

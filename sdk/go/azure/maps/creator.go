@@ -146,7 +146,9 @@ func (i *Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorOutput)
 }
 
-type CreatorOutput struct{ *pulumi.OutputState }
+type CreatorOutput struct {
+	*pulumi.OutputState
+}
 
 func (CreatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Creator)(nil))

@@ -206,7 +206,9 @@ func (i *FrontDoor) ToFrontDoorOutputWithContext(ctx context.Context) FrontDoorO
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorOutput)
 }
 
-type FrontDoorOutput struct{ *pulumi.OutputState }
+type FrontDoorOutput struct {
+	*pulumi.OutputState
+}
 
 func (FrontDoorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontDoor)(nil))

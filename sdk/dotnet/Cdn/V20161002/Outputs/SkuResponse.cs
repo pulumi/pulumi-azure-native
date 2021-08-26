@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20161002.Outputs
 {
 
-    /// <summary>
-    /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

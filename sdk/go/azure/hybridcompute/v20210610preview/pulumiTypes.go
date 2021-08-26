@@ -351,7 +351,7 @@ func (o HybridComputePrivateLinkScopePropertiesOutput) ToHybridComputePrivateLin
 }
 
 func (o HybridComputePrivateLinkScopePropertiesOutput) ToHybridComputePrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) HybridComputePrivateLinkScopePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridComputePrivateLinkScopeProperties) *HybridComputePrivateLinkScopeProperties {
+	return o.ApplyT(func(v HybridComputePrivateLinkScopeProperties) *HybridComputePrivateLinkScopeProperties {
 		return &v
 	}).(HybridComputePrivateLinkScopePropertiesPtrOutput)
 }
@@ -376,13 +376,7 @@ func (o HybridComputePrivateLinkScopePropertiesPtrOutput) ToHybridComputePrivate
 }
 
 func (o HybridComputePrivateLinkScopePropertiesPtrOutput) Elem() HybridComputePrivateLinkScopePropertiesOutput {
-	return o.ApplyT(func(v *HybridComputePrivateLinkScopeProperties) HybridComputePrivateLinkScopeProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HybridComputePrivateLinkScopeProperties
-		return ret
-	}).(HybridComputePrivateLinkScopePropertiesOutput)
+	return o.ApplyT(func(v *HybridComputePrivateLinkScopeProperties) HybridComputePrivateLinkScopeProperties { return *v }).(HybridComputePrivateLinkScopePropertiesOutput)
 }
 
 // Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
@@ -503,7 +497,7 @@ func (o HybridComputePrivateLinkScopePropertiesResponseOutput) ToHybridComputePr
 }
 
 func (o HybridComputePrivateLinkScopePropertiesResponseOutput) ToHybridComputePrivateLinkScopePropertiesResponsePtrOutputWithContext(ctx context.Context) HybridComputePrivateLinkScopePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridComputePrivateLinkScopePropertiesResponse) *HybridComputePrivateLinkScopePropertiesResponse {
+	return o.ApplyT(func(v HybridComputePrivateLinkScopePropertiesResponse) *HybridComputePrivateLinkScopePropertiesResponse {
 		return &v
 	}).(HybridComputePrivateLinkScopePropertiesResponsePtrOutput)
 }
@@ -546,11 +540,7 @@ func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) ToHybridComput
 
 func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) Elem() HybridComputePrivateLinkScopePropertiesResponseOutput {
 	return o.ApplyT(func(v *HybridComputePrivateLinkScopePropertiesResponse) HybridComputePrivateLinkScopePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HybridComputePrivateLinkScopePropertiesResponse
-		return ret
+		return *v
 	}).(HybridComputePrivateLinkScopePropertiesResponseOutput)
 }
 
@@ -597,7 +587,7 @@ func (o HybridComputePrivateLinkScopePropertiesResponsePtrOutput) PublicNetworkA
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -614,7 +604,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -690,14 +680,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -715,23 +705,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -838,7 +822,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -873,13 +857,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -1020,7 +998,7 @@ func (o LocationDataOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
 }
 
 func (o LocationDataOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationData) *LocationData {
+	return o.ApplyT(func(v LocationData) *LocationData {
 		return &v
 	}).(LocationDataPtrOutput)
 }
@@ -1060,13 +1038,7 @@ func (o LocationDataPtrOutput) ToLocationDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o LocationDataPtrOutput) Elem() LocationDataOutput {
-	return o.ApplyT(func(v *LocationData) LocationData {
-		if v != nil {
-			return *v
-		}
-		var ret LocationData
-		return ret
-	}).(LocationDataOutput)
+	return o.ApplyT(func(v *LocationData) LocationData { return *v }).(LocationDataOutput)
 }
 
 // The city or locality where the resource is located.
@@ -1217,7 +1189,7 @@ func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutput() LocationDa
 }
 
 func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationDataResponse) *LocationDataResponse {
+	return o.ApplyT(func(v LocationDataResponse) *LocationDataResponse {
 		return &v
 	}).(LocationDataResponsePtrOutput)
 }
@@ -1257,13 +1229,7 @@ func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutputWithContex
 }
 
 func (o LocationDataResponsePtrOutput) Elem() LocationDataResponseOutput {
-	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LocationDataResponse
-		return ret
-	}).(LocationDataResponseOutput)
+	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse { return *v }).(LocationDataResponseOutput)
 }
 
 // The city or locality where the resource is located.
@@ -1439,7 +1405,7 @@ func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewPtrOut
 }
 
 func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceView) *MachineExtensionInstanceView {
+	return o.ApplyT(func(v MachineExtensionInstanceView) *MachineExtensionInstanceView {
 		return &v
 	}).(MachineExtensionInstanceViewPtrOutput)
 }
@@ -1479,13 +1445,7 @@ func (o MachineExtensionInstanceViewPtrOutput) ToMachineExtensionInstanceViewPtr
 }
 
 func (o MachineExtensionInstanceViewPtrOutput) Elem() MachineExtensionInstanceViewOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceView) MachineExtensionInstanceView {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceView
-		return ret
-	}).(MachineExtensionInstanceViewOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceView) MachineExtensionInstanceView { return *v }).(MachineExtensionInstanceViewOutput)
 }
 
 // The machine extension name.
@@ -1681,7 +1641,7 @@ func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceVi
 }
 
 func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceViewResponsePtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponse) *MachineExtensionInstanceViewResponse {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *MachineExtensionInstanceViewResponse {
 		return &v
 	}).(MachineExtensionInstanceViewResponsePtrOutput)
 }
@@ -1723,13 +1683,7 @@ func (o MachineExtensionInstanceViewResponsePtrOutput) ToMachineExtensionInstanc
 }
 
 func (o MachineExtensionInstanceViewResponsePtrOutput) Elem() MachineExtensionInstanceViewResponseOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewResponse) MachineExtensionInstanceViewResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceViewResponse
-		return ret
-	}).(MachineExtensionInstanceViewResponseOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponse) MachineExtensionInstanceViewResponse { return *v }).(MachineExtensionInstanceViewResponseOutput)
 }
 
 // The machine extension name.
@@ -1904,7 +1858,7 @@ func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInst
 }
 
 func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
 		return &v
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
@@ -1950,11 +1904,7 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) ToMachineExtensionI
 
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Elem() MachineExtensionInstanceViewResponseStatusOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) MachineExtensionInstanceViewResponseStatus {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceViewResponseStatus
-		return ret
+		return *v
 	}).(MachineExtensionInstanceViewResponseStatusOutput)
 }
 
@@ -2120,7 +2070,7 @@ func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceView
 }
 
 func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
 		return &v
 	}).(MachineExtensionInstanceViewStatusPtrOutput)
 }
@@ -2165,13 +2115,7 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceV
 }
 
 func (o MachineExtensionInstanceViewStatusPtrOutput) Elem() MachineExtensionInstanceViewStatusOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionInstanceViewStatus
-		return ret
-	}).(MachineExtensionInstanceViewStatusOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus { return *v }).(MachineExtensionInstanceViewStatusOutput)
 }
 
 // The status code.
@@ -2348,7 +2292,7 @@ func (o MachineExtensionPropertiesOutput) ToMachineExtensionPropertiesPtrOutput(
 }
 
 func (o MachineExtensionPropertiesOutput) ToMachineExtensionPropertiesPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionProperties) *MachineExtensionProperties {
+	return o.ApplyT(func(v MachineExtensionProperties) *MachineExtensionProperties {
 		return &v
 	}).(MachineExtensionPropertiesPtrOutput)
 }
@@ -2408,13 +2352,7 @@ func (o MachineExtensionPropertiesPtrOutput) ToMachineExtensionPropertiesPtrOutp
 }
 
 func (o MachineExtensionPropertiesPtrOutput) Elem() MachineExtensionPropertiesOutput {
-	return o.ApplyT(func(v *MachineExtensionProperties) MachineExtensionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionProperties
-		return ret
-	}).(MachineExtensionPropertiesOutput)
+	return o.ApplyT(func(v *MachineExtensionProperties) MachineExtensionProperties { return *v }).(MachineExtensionPropertiesOutput)
 }
 
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -2625,7 +2563,7 @@ func (o MachineExtensionPropertiesResponseOutput) ToMachineExtensionPropertiesRe
 }
 
 func (o MachineExtensionPropertiesResponseOutput) ToMachineExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesResponse) *MachineExtensionPropertiesResponse {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponse) *MachineExtensionPropertiesResponse {
 		return &v
 	}).(MachineExtensionPropertiesResponsePtrOutput)
 }
@@ -2692,13 +2630,7 @@ func (o MachineExtensionPropertiesResponsePtrOutput) ToMachineExtensionPropertie
 }
 
 func (o MachineExtensionPropertiesResponsePtrOutput) Elem() MachineExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesResponse) MachineExtensionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MachineExtensionPropertiesResponse
-		return ret
-	}).(MachineExtensionPropertiesResponseOutput)
+	return o.ApplyT(func(v *MachineExtensionPropertiesResponse) MachineExtensionPropertiesResponse { return *v }).(MachineExtensionPropertiesResponseOutput)
 }
 
 // Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -2919,7 +2851,7 @@ func (o MachinePropertiesOutput) ToMachinePropertiesPtrOutput() MachinePropertie
 }
 
 func (o MachinePropertiesOutput) ToMachinePropertiesPtrOutputWithContext(ctx context.Context) MachinePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineProperties) *MachineProperties {
+	return o.ApplyT(func(v MachineProperties) *MachineProperties {
 		return &v
 	}).(MachinePropertiesPtrOutput)
 }
@@ -2984,13 +2916,7 @@ func (o MachinePropertiesPtrOutput) ToMachinePropertiesPtrOutputWithContext(ctx 
 }
 
 func (o MachinePropertiesPtrOutput) Elem() MachinePropertiesOutput {
-	return o.ApplyT(func(v *MachineProperties) MachineProperties {
-		if v != nil {
-			return *v
-		}
-		var ret MachineProperties
-		return ret
-	}).(MachinePropertiesOutput)
+	return o.ApplyT(func(v *MachineProperties) MachineProperties { return *v }).(MachinePropertiesOutput)
 }
 
 // Public Key that the client provides to be used during initial resource onboarding
@@ -3271,7 +3197,7 @@ func (o MachinePropertiesResponseOutput) ToMachinePropertiesResponsePtrOutput() 
 }
 
 func (o MachinePropertiesResponseOutput) ToMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) MachinePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachinePropertiesResponse) *MachinePropertiesResponse {
+	return o.ApplyT(func(v MachinePropertiesResponse) *MachinePropertiesResponse {
 		return &v
 	}).(MachinePropertiesResponsePtrOutput)
 }
@@ -3411,13 +3337,7 @@ func (o MachinePropertiesResponsePtrOutput) ToMachinePropertiesResponsePtrOutput
 }
 
 func (o MachinePropertiesResponsePtrOutput) Elem() MachinePropertiesResponseOutput {
-	return o.ApplyT(func(v *MachinePropertiesResponse) MachinePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MachinePropertiesResponse
-		return ret
-	}).(MachinePropertiesResponseOutput)
+	return o.ApplyT(func(v *MachinePropertiesResponse) MachinePropertiesResponse { return *v }).(MachinePropertiesResponseOutput)
 }
 
 // Specifies the AD fully qualified display name.
@@ -3760,7 +3680,7 @@ func (o OSProfileOutput) ToOSProfilePtrOutput() OSProfilePtrOutput {
 }
 
 func (o OSProfileOutput) ToOSProfilePtrOutputWithContext(ctx context.Context) OSProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfile) *OSProfile {
+	return o.ApplyT(func(v OSProfile) *OSProfile {
 		return &v
 	}).(OSProfilePtrOutput)
 }
@@ -3790,13 +3710,7 @@ func (o OSProfilePtrOutput) ToOSProfilePtrOutputWithContext(ctx context.Context)
 }
 
 func (o OSProfilePtrOutput) Elem() OSProfileOutput {
-	return o.ApplyT(func(v *OSProfile) OSProfile {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfile
-		return ret
-	}).(OSProfileOutput)
+	return o.ApplyT(func(v *OSProfile) OSProfile { return *v }).(OSProfileOutput)
 }
 
 // Specifies the linux configuration for update management.
@@ -3915,7 +3829,7 @@ func (o OSProfileLinuxConfigurationOutput) ToOSProfileLinuxConfigurationPtrOutpu
 }
 
 func (o OSProfileLinuxConfigurationOutput) ToOSProfileLinuxConfigurationPtrOutputWithContext(ctx context.Context) OSProfileLinuxConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileLinuxConfiguration) *OSProfileLinuxConfiguration {
+	return o.ApplyT(func(v OSProfileLinuxConfiguration) *OSProfileLinuxConfiguration {
 		return &v
 	}).(OSProfileLinuxConfigurationPtrOutput)
 }
@@ -3940,13 +3854,7 @@ func (o OSProfileLinuxConfigurationPtrOutput) ToOSProfileLinuxConfigurationPtrOu
 }
 
 func (o OSProfileLinuxConfigurationPtrOutput) Elem() OSProfileLinuxConfigurationOutput {
-	return o.ApplyT(func(v *OSProfileLinuxConfiguration) OSProfileLinuxConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileLinuxConfiguration
-		return ret
-	}).(OSProfileLinuxConfigurationOutput)
+	return o.ApplyT(func(v *OSProfileLinuxConfiguration) OSProfileLinuxConfiguration { return *v }).(OSProfileLinuxConfigurationOutput)
 }
 
 // Specifies the assessment mode.
@@ -4063,7 +3971,7 @@ func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutput() OSProfileRespons
 }
 
 func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponse) *OSProfileResponse {
+	return o.ApplyT(func(v OSProfileResponse) *OSProfileResponse {
 		return &v
 	}).(OSProfileResponsePtrOutput)
 }
@@ -4098,13 +4006,7 @@ func (o OSProfileResponsePtrOutput) ToOSProfileResponsePtrOutputWithContext(ctx 
 }
 
 func (o OSProfileResponsePtrOutput) Elem() OSProfileResponseOutput {
-	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileResponse
-		return ret
-	}).(OSProfileResponseOutput)
+	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse { return *v }).(OSProfileResponseOutput)
 }
 
 // Specifies the host OS name of the hybrid machine.
@@ -4233,7 +4135,7 @@ func (o OSProfileResponseLinuxConfigurationOutput) ToOSProfileResponseLinuxConfi
 }
 
 func (o OSProfileResponseLinuxConfigurationOutput) ToOSProfileResponseLinuxConfigurationPtrOutputWithContext(ctx context.Context) OSProfileResponseLinuxConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponseLinuxConfiguration) *OSProfileResponseLinuxConfiguration {
+	return o.ApplyT(func(v OSProfileResponseLinuxConfiguration) *OSProfileResponseLinuxConfiguration {
 		return &v
 	}).(OSProfileResponseLinuxConfigurationPtrOutput)
 }
@@ -4258,13 +4160,7 @@ func (o OSProfileResponseLinuxConfigurationPtrOutput) ToOSProfileResponseLinuxCo
 }
 
 func (o OSProfileResponseLinuxConfigurationPtrOutput) Elem() OSProfileResponseLinuxConfigurationOutput {
-	return o.ApplyT(func(v *OSProfileResponseLinuxConfiguration) OSProfileResponseLinuxConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileResponseLinuxConfiguration
-		return ret
-	}).(OSProfileResponseLinuxConfigurationOutput)
+	return o.ApplyT(func(v *OSProfileResponseLinuxConfiguration) OSProfileResponseLinuxConfiguration { return *v }).(OSProfileResponseLinuxConfigurationOutput)
 }
 
 // Specifies the assessment mode.
@@ -4373,7 +4269,7 @@ func (o OSProfileResponseWindowsConfigurationOutput) ToOSProfileResponseWindowsC
 }
 
 func (o OSProfileResponseWindowsConfigurationOutput) ToOSProfileResponseWindowsConfigurationPtrOutputWithContext(ctx context.Context) OSProfileResponseWindowsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponseWindowsConfiguration) *OSProfileResponseWindowsConfiguration {
+	return o.ApplyT(func(v OSProfileResponseWindowsConfiguration) *OSProfileResponseWindowsConfiguration {
 		return &v
 	}).(OSProfileResponseWindowsConfigurationPtrOutput)
 }
@@ -4398,13 +4294,7 @@ func (o OSProfileResponseWindowsConfigurationPtrOutput) ToOSProfileResponseWindo
 }
 
 func (o OSProfileResponseWindowsConfigurationPtrOutput) Elem() OSProfileResponseWindowsConfigurationOutput {
-	return o.ApplyT(func(v *OSProfileResponseWindowsConfiguration) OSProfileResponseWindowsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileResponseWindowsConfiguration
-		return ret
-	}).(OSProfileResponseWindowsConfigurationOutput)
+	return o.ApplyT(func(v *OSProfileResponseWindowsConfiguration) OSProfileResponseWindowsConfiguration { return *v }).(OSProfileResponseWindowsConfigurationOutput)
 }
 
 // Specifies the assessment mode.
@@ -4513,7 +4403,7 @@ func (o OSProfileWindowsConfigurationOutput) ToOSProfileWindowsConfigurationPtrO
 }
 
 func (o OSProfileWindowsConfigurationOutput) ToOSProfileWindowsConfigurationPtrOutputWithContext(ctx context.Context) OSProfileWindowsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileWindowsConfiguration) *OSProfileWindowsConfiguration {
+	return o.ApplyT(func(v OSProfileWindowsConfiguration) *OSProfileWindowsConfiguration {
 		return &v
 	}).(OSProfileWindowsConfigurationPtrOutput)
 }
@@ -4538,13 +4428,7 @@ func (o OSProfileWindowsConfigurationPtrOutput) ToOSProfileWindowsConfigurationP
 }
 
 func (o OSProfileWindowsConfigurationPtrOutput) Elem() OSProfileWindowsConfigurationOutput {
-	return o.ApplyT(func(v *OSProfileWindowsConfiguration) OSProfileWindowsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret OSProfileWindowsConfiguration
-		return ret
-	}).(OSProfileWindowsConfigurationOutput)
+	return o.ApplyT(func(v *OSProfileWindowsConfiguration) OSProfileWindowsConfiguration { return *v }).(OSProfileWindowsConfigurationOutput)
 }
 
 // Specifies the assessment mode.
@@ -4786,7 +4670,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -4818,13 +4702,7 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionProperties
-		return ret
-	}).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // Private endpoint which the connection belongs to.
@@ -4951,7 +4829,7 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
@@ -4991,11 +4869,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionPropertiesResponse
-		return ret
+		return *v
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -5125,7 +4999,7 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutput() Priv
 }
 
 func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointProperty) *PrivateEndpointProperty {
+	return o.ApplyT(func(v PrivateEndpointProperty) *PrivateEndpointProperty {
 		return &v
 	}).(PrivateEndpointPropertyPtrOutput)
 }
@@ -5150,13 +5024,7 @@ func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutputWith
 }
 
 func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
-	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointProperty
-		return ret
-	}).(PrivateEndpointPropertyOutput)
+	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty { return *v }).(PrivateEndpointPropertyOutput)
 }
 
 // Resource id of the private endpoint.
@@ -5265,7 +5133,7 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 }
 
 func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
+	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
 		return &v
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
@@ -5290,13 +5158,7 @@ func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyRespo
 }
 
 func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointPropertyResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointPropertyResponse
-		return ret
-	}).(PrivateEndpointPropertyResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse { return *v }).(PrivateEndpointPropertyResponseOutput)
 }
 
 // Resource id of the private endpoint.
@@ -5409,7 +5271,7 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
@@ -5440,11 +5302,7 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) PrivateLinkServiceConnectionStateProperty {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateProperty
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
@@ -5572,7 +5430,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
@@ -5608,11 +5466,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToPrivateLin
 
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) PrivateLinkServiceConnectionStatePropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStatePropertyResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
@@ -5762,7 +5616,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -5812,13 +5666,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

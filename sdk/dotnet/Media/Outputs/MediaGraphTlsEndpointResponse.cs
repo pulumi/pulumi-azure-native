@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// An endpoint which must be connected over TLS/SSL.
-    /// </summary>
     [OutputType]
     public sealed class MediaGraphTlsEndpointResponse
     {

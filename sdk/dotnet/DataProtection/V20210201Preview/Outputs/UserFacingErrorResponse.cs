@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210201Preview.Outputs
 {
 
-    /// <summary>
-    /// Error object used by layers that have access to localized content, and propagate that to user
-    /// </summary>
     [OutputType]
     public sealed class UserFacingErrorResponse
     {

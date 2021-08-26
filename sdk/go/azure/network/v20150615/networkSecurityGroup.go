@@ -392,7 +392,9 @@ func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupOutput)
 }
 
-type NetworkSecurityGroupOutput struct{ *pulumi.OutputState }
+type NetworkSecurityGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (NetworkSecurityGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkSecurityGroup)(nil))

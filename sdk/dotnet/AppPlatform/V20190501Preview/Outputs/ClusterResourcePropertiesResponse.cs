@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20190501Preview.Outputs
 {
 
-    /// <summary>
-    /// Service properties payload
-    /// </summary>
     [OutputType]
     public sealed class ClusterResourcePropertiesResponse
     {

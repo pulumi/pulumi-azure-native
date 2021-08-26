@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
-    /// <summary>
-    /// Oracle Service Cloud dataset.
-    /// </summary>
     [OutputType]
     public sealed class OracleServiceCloudObjectDatasetResponse
     {

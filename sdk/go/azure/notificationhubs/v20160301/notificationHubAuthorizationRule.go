@@ -159,7 +159,9 @@ func (i *NotificationHubAuthorizationRule) ToNotificationHubAuthorizationRuleOut
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubAuthorizationRuleOutput)
 }
 
-type NotificationHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type NotificationHubAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (NotificationHubAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationHubAuthorizationRule)(nil))

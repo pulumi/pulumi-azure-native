@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
-    /// <summary>
-    /// An action that can manipulate an http header.
-    /// </summary>
     [OutputType]
     public sealed class HeaderActionResponse
     {

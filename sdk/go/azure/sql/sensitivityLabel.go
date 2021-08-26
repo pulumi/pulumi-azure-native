@@ -145,8 +145,8 @@ type sensitivityLabelArgs struct {
 	// The label ID.
 	LabelId *string `pulumi:"labelId"`
 	// The label name.
-	LabelName *string               `pulumi:"labelName"`
-	Rank      *SensitivityLabelRank `pulumi:"rank"`
+	LabelName *string `pulumi:"labelName"`
+	Rank      *string `pulumi:"rank"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the schema.
@@ -173,7 +173,7 @@ type SensitivityLabelArgs struct {
 	LabelId pulumi.StringPtrInput
 	// The label name.
 	LabelName pulumi.StringPtrInput
-	Rank      SensitivityLabelRankPtrInput
+	Rank      *SensitivityLabelRank
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.
@@ -209,7 +209,9 @@ func (i *SensitivityLabel) ToSensitivityLabelOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SensitivityLabelOutput)
 }
 
-type SensitivityLabelOutput struct{ *pulumi.OutputState }
+type SensitivityLabelOutput struct {
+	*pulumi.OutputState
+}
 
 func (SensitivityLabelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SensitivityLabel)(nil))

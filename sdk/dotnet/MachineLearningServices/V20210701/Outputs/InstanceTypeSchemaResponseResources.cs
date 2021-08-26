@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Resource requests/limits for this instance type
-    /// </summary>
     [OutputType]
     public sealed class InstanceTypeSchemaResponseResources
     {

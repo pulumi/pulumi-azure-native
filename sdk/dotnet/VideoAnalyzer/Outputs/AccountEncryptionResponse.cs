@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 {
 
-    /// <summary>
-    /// Defines how the Video Analyzer account is (optionally) encrypted.
-    /// </summary>
     [OutputType]
     public sealed class AccountEncryptionResponse
     {

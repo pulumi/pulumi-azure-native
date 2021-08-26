@@ -215,7 +215,7 @@ type diskArgs struct {
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares *int `pulumi:"maxShares"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -253,7 +253,7 @@ type DiskArgs struct {
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
 	MaxShares pulumi.IntPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -287,7 +287,9 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct{ *pulumi.OutputState }
+type DiskOutput struct {
+	*pulumi.OutputState
+}
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

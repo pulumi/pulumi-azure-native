@@ -181,7 +181,9 @@ func (i *BlobStorageAccountDataSet) ToBlobStorageAccountDataSetOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountDataSetOutput)
 }
 
-type BlobStorageAccountDataSetOutput struct{ *pulumi.OutputState }
+type BlobStorageAccountDataSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (BlobStorageAccountDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobStorageAccountDataSet)(nil))

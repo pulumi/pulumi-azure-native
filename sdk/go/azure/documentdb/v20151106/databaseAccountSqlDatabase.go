@@ -249,7 +249,9 @@ func (i *DatabaseAccountSqlDatabase) ToDatabaseAccountSqlDatabaseOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlDatabaseOutput)
 }
 
-type DatabaseAccountSqlDatabaseOutput struct{ *pulumi.OutputState }
+type DatabaseAccountSqlDatabaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatabaseAccountSqlDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountSqlDatabase)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
-    /// <summary>
-    /// The sku of this Bastion Host.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

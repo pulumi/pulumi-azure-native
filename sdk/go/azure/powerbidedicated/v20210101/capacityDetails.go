@@ -161,7 +161,9 @@ func (i *CapacityDetails) ToCapacityDetailsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityDetailsOutput)
 }
 
-type CapacityDetailsOutput struct{ *pulumi.OutputState }
+type CapacityDetailsOutput struct {
+	*pulumi.OutputState
+}
 
 func (CapacityDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CapacityDetails)(nil))

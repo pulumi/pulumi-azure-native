@@ -183,7 +183,9 @@ func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
 }
 
-type ApiSchemaOutput struct{ *pulumi.OutputState }
+type ApiSchemaOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiSchema)(nil))

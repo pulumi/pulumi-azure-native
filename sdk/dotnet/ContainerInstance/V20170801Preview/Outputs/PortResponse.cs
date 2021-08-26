@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview.Outputs
 {
 
-    /// <summary>
-    /// The port exposed on the container group.
-    /// </summary>
     [OutputType]
     public sealed class PortResponse
     {

@@ -170,7 +170,9 @@ func (i *ReplicationFabric) ToReplicationFabricOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationFabricOutput)
 }
 
-type ReplicationFabricOutput struct{ *pulumi.OutputState }
+type ReplicationFabricOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationFabricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationFabric)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog.Outputs
 {
 
-    /// <summary>
-    /// The definition of a linked resource.
-    /// </summary>
     [OutputType]
     public sealed class LinkedResourceResponse
     {

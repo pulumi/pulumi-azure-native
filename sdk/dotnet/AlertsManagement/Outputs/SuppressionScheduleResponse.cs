@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.Outputs
 {
 
-    /// <summary>
-    /// Schedule for a given suppression configuration.
-    /// </summary>
     [OutputType]
     public sealed class SuppressionScheduleResponse
     {

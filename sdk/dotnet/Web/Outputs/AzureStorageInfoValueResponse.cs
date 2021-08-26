@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
-    /// <summary>
-    /// Azure Files or Blob Storage access information value for dictionary storage.
-    /// </summary>
     [OutputType]
     public sealed class AzureStorageInfoValueResponse
     {

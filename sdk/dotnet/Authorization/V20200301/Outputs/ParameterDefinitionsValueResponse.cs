@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20200301.Outputs
 {
 
-    /// <summary>
-    /// The definition of a parameter that can be provided to the policy.
-    /// </summary>
     [OutputType]
     public sealed class ParameterDefinitionsValueResponse
     {

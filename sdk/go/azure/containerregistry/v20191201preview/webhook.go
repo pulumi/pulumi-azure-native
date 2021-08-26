@@ -197,7 +197,9 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
 }
 
-type WebhookOutput struct{ *pulumi.OutputState }
+type WebhookOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebhookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Webhook)(nil))

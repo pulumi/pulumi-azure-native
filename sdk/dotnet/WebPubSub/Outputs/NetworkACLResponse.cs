@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.Outputs
 {
 
-    /// <summary>
-    /// Network ACL
-    /// </summary>
     [OutputType]
     public sealed class NetworkACLResponse
     {

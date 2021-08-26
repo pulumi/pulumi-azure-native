@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Encryption properties for databricks workspace
-    /// </summary>
     [OutputType]
     public sealed class WorkspacePropertiesResponseEncryption
     {

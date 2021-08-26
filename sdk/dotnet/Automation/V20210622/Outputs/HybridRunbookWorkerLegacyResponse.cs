@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20210622.Outputs
 {
 
-    /// <summary>
-    /// Definition of hybrid runbook worker Legacy.
-    /// </summary>
     [OutputType]
     public sealed class HybridRunbookWorkerLegacyResponse
     {

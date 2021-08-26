@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210201.Outputs
 {
 
-    /// <summary>
-    /// This is used to represent the various nodes of the distributed container.
-    /// </summary>
     [OutputType]
     public sealed class DistributedNodesInfoResponse
     {

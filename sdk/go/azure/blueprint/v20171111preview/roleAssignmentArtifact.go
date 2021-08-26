@@ -168,7 +168,9 @@ func (i *RoleAssignmentArtifact) ToRoleAssignmentArtifactOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentArtifactOutput)
 }
 
-type RoleAssignmentArtifactOutput struct{ *pulumi.OutputState }
+type RoleAssignmentArtifactOutput struct {
+	*pulumi.OutputState
+}
 
 func (RoleAssignmentArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignmentArtifact)(nil))

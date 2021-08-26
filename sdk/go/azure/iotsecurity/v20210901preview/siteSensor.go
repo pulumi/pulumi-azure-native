@@ -153,7 +153,9 @@ func (i *SiteSensor) ToSiteSensorOutputWithContext(ctx context.Context) SiteSens
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSensorOutput)
 }
 
-type SiteSensorOutput struct{ *pulumi.OutputState }
+type SiteSensorOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteSensorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteSensor)(nil))

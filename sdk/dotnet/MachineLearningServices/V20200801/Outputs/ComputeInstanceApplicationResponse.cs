@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200801.Outputs
 {
 
-    /// <summary>
-    /// Defines an Aml Instance application and its connectivity endpoint URI.
-    /// </summary>
     [OutputType]
     public sealed class ComputeInstanceApplicationResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Confluent.Outputs
 {
 
-    /// <summary>
-    /// Confluent offer detail
-    /// </summary>
     [OutputType]
     public sealed class OrganizationResourcePropertiesResponseOfferDetail
     {

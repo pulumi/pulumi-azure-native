@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
 {
 
-    /// <summary>
-    /// The details for the Managed Services offer’s plan in Azure Marketplace.
-    /// </summary>
     [OutputType]
     public sealed class PlanResponse
     {

@@ -171,7 +171,9 @@ func (i *WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDnsServiceOutput)
 }
 
-type WorkloadNetworkDnsServiceOutput struct{ *pulumi.OutputState }
+type WorkloadNetworkDnsServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (WorkloadNetworkDnsServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil))

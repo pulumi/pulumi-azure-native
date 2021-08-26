@@ -135,7 +135,9 @@ func (i *InstanceDetails) ToInstanceDetailsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceDetailsOutput)
 }
 
-type InstanceDetailsOutput struct{ *pulumi.OutputState }
+type InstanceDetailsOutput struct {
+	*pulumi.OutputState
+}
 
 func (InstanceDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstanceDetails)(nil))

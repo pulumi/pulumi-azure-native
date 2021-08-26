@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
-    /// <summary>
-    /// Hyper-V host details.
-    /// </summary>
     [OutputType]
     public sealed class HyperVHostDetailsResponse
     {

@@ -415,7 +415,7 @@ type Sku struct {
 	// SKU family name
 	Family string `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -434,7 +434,7 @@ type SkuArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -510,7 +510,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -521,8 +521,8 @@ func (o SkuOutput) Family() pulumi.StringOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -540,13 +540,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // SKU family name
@@ -560,13 +554,13 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU details
@@ -669,7 +663,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -699,13 +693,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // SKU family name
@@ -852,7 +840,7 @@ func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOu
 }
 
 func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultProperties) *VaultProperties {
+	return o.ApplyT(func(v VaultProperties) *VaultProperties {
 		return &v
 	}).(VaultPropertiesPtrOutput)
 }
@@ -912,13 +900,7 @@ func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o VaultPropertiesPtrOutput) Elem() VaultPropertiesOutput {
-	return o.ApplyT(func(v *VaultProperties) VaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VaultProperties
-		return ret
-	}).(VaultPropertiesOutput)
+	return o.ApplyT(func(v *VaultProperties) VaultProperties { return *v }).(VaultPropertiesOutput)
 }
 
 // An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
@@ -1125,7 +1107,7 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() Vaul
 }
 
 func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponse) *VaultPropertiesResponse {
+	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
 		return &v
 	}).(VaultPropertiesResponsePtrOutput)
 }
@@ -1185,13 +1167,7 @@ func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWith
 }
 
 func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VaultPropertiesResponse
-		return ret
-	}).(VaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
 }
 
 // An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.

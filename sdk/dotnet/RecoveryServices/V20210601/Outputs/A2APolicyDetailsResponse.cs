@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
-    /// <summary>
-    /// A2A specific policy details.
-    /// </summary>
     [OutputType]
     public sealed class A2APolicyDetailsResponse
     {

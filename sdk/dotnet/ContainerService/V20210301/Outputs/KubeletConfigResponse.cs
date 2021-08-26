@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Kubelet configurations of agent nodes.
-    /// </summary>
     [OutputType]
     public sealed class KubeletConfigResponse
     {

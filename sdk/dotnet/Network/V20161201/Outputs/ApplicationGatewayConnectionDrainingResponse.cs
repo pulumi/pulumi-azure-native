@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20161201.Outputs
 {
 
-    /// <summary>
-    /// Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.
-    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayConnectionDrainingResponse
     {

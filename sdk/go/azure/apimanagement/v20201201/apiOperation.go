@@ -243,7 +243,9 @@ func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationOutput)
 }
 
-type ApiOperationOutput struct{ *pulumi.OutputState }
+type ApiOperationOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiOperationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperation)(nil))

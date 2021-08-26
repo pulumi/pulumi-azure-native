@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.V20210501.Outputs
 {
 
-    /// <summary>
-    /// Settings for Resource Forest
-    /// </summary>
     [OutputType]
     public sealed class ResourceForestSettingsResponse
     {

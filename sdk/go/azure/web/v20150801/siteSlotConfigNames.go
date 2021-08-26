@@ -219,7 +219,9 @@ func (i *SiteSlotConfigNames) ToSiteSlotConfigNamesOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotConfigNamesOutput)
 }
 
-type SiteSlotConfigNamesOutput struct{ *pulumi.OutputState }
+type SiteSlotConfigNamesOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteSlotConfigNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteSlotConfigNames)(nil))

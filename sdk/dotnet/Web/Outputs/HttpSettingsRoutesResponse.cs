@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings of the paths HTTP requests.
-    /// </summary>
     [OutputType]
     public sealed class HttpSettingsRoutesResponse
     {

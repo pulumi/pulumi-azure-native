@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20180101Preview.Outputs
 {
 
-    /// <summary>
-    /// SKU parameters particular to a cluster instance.
-    /// </summary>
     [OutputType]
     public sealed class ClusterSkuResponse
     {

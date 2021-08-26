@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Definition of CMK for the factory.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionConfigurationResponse
     {

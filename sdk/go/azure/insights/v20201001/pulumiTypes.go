@@ -324,7 +324,7 @@ func (o ActionListOutput) ToActionListPtrOutput() ActionListPtrOutput {
 }
 
 func (o ActionListOutput) ToActionListPtrOutputWithContext(ctx context.Context) ActionListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionList) *ActionList {
+	return o.ApplyT(func(v ActionList) *ActionList {
 		return &v
 	}).(ActionListPtrOutput)
 }
@@ -349,13 +349,7 @@ func (o ActionListPtrOutput) ToActionListPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ActionListPtrOutput) Elem() ActionListOutput {
-	return o.ApplyT(func(v *ActionList) ActionList {
-		if v != nil {
-			return *v
-		}
-		var ret ActionList
-		return ret
-	}).(ActionListOutput)
+	return o.ApplyT(func(v *ActionList) ActionList { return *v }).(ActionListOutput)
 }
 
 // The list of the Action Groups.
@@ -464,7 +458,7 @@ func (o ActionListResponseOutput) ToActionListResponsePtrOutput() ActionListResp
 }
 
 func (o ActionListResponseOutput) ToActionListResponsePtrOutputWithContext(ctx context.Context) ActionListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionListResponse) *ActionListResponse {
+	return o.ApplyT(func(v ActionListResponse) *ActionListResponse {
 		return &v
 	}).(ActionListResponsePtrOutput)
 }
@@ -489,13 +483,7 @@ func (o ActionListResponsePtrOutput) ToActionListResponsePtrOutputWithContext(ct
 }
 
 func (o ActionListResponsePtrOutput) Elem() ActionListResponseOutput {
-	return o.ApplyT(func(v *ActionListResponse) ActionListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActionListResponse
-		return ret
-	}).(ActionListResponseOutput)
+	return o.ApplyT(func(v *ActionListResponse) ActionListResponse { return *v }).(ActionListResponseOutput)
 }
 
 // The list of the Action Groups.
@@ -604,7 +592,7 @@ func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutput() Aler
 }
 
 func (o AlertRuleAllOfConditionOutput) ToAlertRuleAllOfConditionPtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleAllOfCondition) *AlertRuleAllOfCondition {
+	return o.ApplyT(func(v AlertRuleAllOfCondition) *AlertRuleAllOfCondition {
 		return &v
 	}).(AlertRuleAllOfConditionPtrOutput)
 }
@@ -629,13 +617,7 @@ func (o AlertRuleAllOfConditionPtrOutput) ToAlertRuleAllOfConditionPtrOutputWith
 }
 
 func (o AlertRuleAllOfConditionPtrOutput) Elem() AlertRuleAllOfConditionOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfCondition) AlertRuleAllOfCondition {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleAllOfCondition
-		return ret
-	}).(AlertRuleAllOfConditionOutput)
+	return o.ApplyT(func(v *AlertRuleAllOfCondition) AlertRuleAllOfCondition { return *v }).(AlertRuleAllOfConditionOutput)
 }
 
 // The list of Activity Log Alert rule conditions.
@@ -744,7 +726,7 @@ func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponse
 }
 
 func (o AlertRuleAllOfConditionResponseOutput) ToAlertRuleAllOfConditionResponsePtrOutputWithContext(ctx context.Context) AlertRuleAllOfConditionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleAllOfConditionResponse) *AlertRuleAllOfConditionResponse {
+	return o.ApplyT(func(v AlertRuleAllOfConditionResponse) *AlertRuleAllOfConditionResponse {
 		return &v
 	}).(AlertRuleAllOfConditionResponsePtrOutput)
 }
@@ -769,13 +751,7 @@ func (o AlertRuleAllOfConditionResponsePtrOutput) ToAlertRuleAllOfConditionRespo
 }
 
 func (o AlertRuleAllOfConditionResponsePtrOutput) Elem() AlertRuleAllOfConditionResponseOutput {
-	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) AlertRuleAllOfConditionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleAllOfConditionResponse
-		return ret
-	}).(AlertRuleAllOfConditionResponseOutput)
+	return o.ApplyT(func(v *AlertRuleAllOfConditionResponse) AlertRuleAllOfConditionResponse { return *v }).(AlertRuleAllOfConditionResponseOutput)
 }
 
 // The list of Activity Log Alert rule conditions.

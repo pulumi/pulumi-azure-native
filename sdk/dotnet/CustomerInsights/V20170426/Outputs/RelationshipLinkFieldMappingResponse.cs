@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.V20170426.Outputs
 {
 
-    /// <summary>
-    /// The fields mapping for Relationships.
-    /// </summary>
     [OutputType]
     public sealed class RelationshipLinkFieldMappingResponse
     {

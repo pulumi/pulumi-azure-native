@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
-    /// </summary>
     [OutputType]
     public sealed class BanditPolicyResponse
     {

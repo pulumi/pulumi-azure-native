@@ -222,7 +222,9 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
-type EndpointOutput struct{ *pulumi.OutputState }
+type EndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (EndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Endpoint)(nil))

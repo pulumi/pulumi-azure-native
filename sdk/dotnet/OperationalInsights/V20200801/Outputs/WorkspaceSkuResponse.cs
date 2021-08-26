@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.V20200801.Outputs
 {
 
-    /// <summary>
-    /// The SKU (tier) of a workspace.
-    /// </summary>
     [OutputType]
     public sealed class WorkspaceSkuResponse
     {

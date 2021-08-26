@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20180201.Outputs
 {
 
-    /// <summary>
-    /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-    /// </summary>
     [OutputType]
     public sealed class NodeTypeDescriptionResponse
     {

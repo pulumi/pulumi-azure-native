@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Creates a particular correlation between services.
-    /// </summary>
     [OutputType]
     public sealed class ServiceCorrelationDescriptionResponse
     {

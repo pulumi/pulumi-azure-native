@@ -179,7 +179,7 @@ type staticSiteArgs struct {
 	// Description of a SKU for a scalable resource.
 	Sku *SkuDescription `pulumi:"sku"`
 	// State indicating whether staging environments are allowed or not allowed for a static web app.
-	StagingEnvironmentPolicy *StagingEnvironmentPolicy `pulumi:"stagingEnvironmentPolicy"`
+	StagingEnvironmentPolicy *string `pulumi:"stagingEnvironmentPolicy"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Template options for generating a new repository.
@@ -211,7 +211,7 @@ type StaticSiteArgs struct {
 	// Description of a SKU for a scalable resource.
 	Sku SkuDescriptionPtrInput
 	// State indicating whether staging environments are allowed or not allowed for a static web app.
-	StagingEnvironmentPolicy StagingEnvironmentPolicyPtrInput
+	StagingEnvironmentPolicy *StagingEnvironmentPolicy
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Template options for generating a new repository.
@@ -241,7 +241,9 @@ func (i *StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSi
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteOutput)
 }
 
-type StaticSiteOutput struct{ *pulumi.OutputState }
+type StaticSiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (StaticSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSite)(nil))

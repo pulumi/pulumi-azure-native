@@ -194,7 +194,9 @@ func (i *StorageTarget) ToStorageTargetOutputWithContext(ctx context.Context) St
 	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetOutput)
 }
 
-type StorageTargetOutput struct{ *pulumi.OutputState }
+type StorageTargetOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageTarget)(nil))

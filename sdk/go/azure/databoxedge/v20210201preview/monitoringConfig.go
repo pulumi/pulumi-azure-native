@@ -157,7 +157,9 @@ func (i *MonitoringConfig) ToMonitoringConfigOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringConfigOutput)
 }
 
-type MonitoringConfigOutput struct{ *pulumi.OutputState }
+type MonitoringConfigOutput struct {
+	*pulumi.OutputState
+}
 
 func (MonitoringConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MonitoringConfig)(nil))

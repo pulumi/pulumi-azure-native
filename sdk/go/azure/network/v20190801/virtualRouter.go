@@ -236,7 +236,9 @@ func (i *VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
 }
 
-type VirtualRouterOutput struct{ *pulumi.OutputState }
+type VirtualRouterOutput struct {
+	*pulumi.OutputState
+}
 
 func (VirtualRouterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualRouter)(nil))

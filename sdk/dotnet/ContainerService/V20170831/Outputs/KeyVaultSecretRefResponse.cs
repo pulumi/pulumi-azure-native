@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20170831.Outputs
 {
 
-    /// <summary>
-    /// Reference to a secret stored in Azure Key Vault.
-    /// </summary>
     [OutputType]
     public sealed class KeyVaultSecretRefResponse
     {

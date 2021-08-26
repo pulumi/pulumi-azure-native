@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
-    /// <summary>
-    /// Gateway load balancer tunnel interface of a load balancer backend address pool.
-    /// </summary>
     [OutputType]
     public sealed class GatewayLoadBalancerTunnelInterfaceResponse
     {

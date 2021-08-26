@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Azure Databricks linked service.
-    /// </summary>
     [OutputType]
     public sealed class AzureDatabricksLinkedServiceResponse
     {

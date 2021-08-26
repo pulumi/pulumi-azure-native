@@ -13,8 +13,7 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.notebooks.v20191011preview as __v20191011preview
-    v20191011preview = __v20191011preview
+    import pulumi_azure_native.notebooks.v20191011preview as v20191011preview
 else:
     v20191011preview = _utilities.lazy_import('pulumi_azure_native.notebooks.v20191011preview')
 

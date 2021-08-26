@@ -167,7 +167,9 @@ func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) Automati
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationOutput)
 }
 
-type AutomationOutput struct{ *pulumi.OutputState }
+type AutomationOutput struct {
+	*pulumi.OutputState
+}
 
 func (AutomationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Automation)(nil))

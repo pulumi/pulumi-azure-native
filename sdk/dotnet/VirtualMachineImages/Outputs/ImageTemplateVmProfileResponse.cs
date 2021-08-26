@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
-    /// <summary>
-    /// Describes the virtual machine used to build, customize and capture images
-    /// </summary>
     [OutputType]
     public sealed class ImageTemplateVmProfileResponse
     {

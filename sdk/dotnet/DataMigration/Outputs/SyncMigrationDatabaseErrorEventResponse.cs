@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
-    /// <summary>
-    /// Database migration errors for online migration
-    /// </summary>
     [OutputType]
     public sealed class SyncMigrationDatabaseErrorEventResponse
     {

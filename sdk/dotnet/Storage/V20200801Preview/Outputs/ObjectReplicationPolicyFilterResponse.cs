@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20200801Preview.Outputs
 {
 
-    /// <summary>
-    /// Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
-    /// </summary>
     [OutputType]
     public sealed class ObjectReplicationPolicyFilterResponse
     {

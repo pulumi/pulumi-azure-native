@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
-    /// <summary>
-    /// A rule governing the accessibility from a specific ip address or ip range.
-    /// </summary>
     [OutputType]
     public sealed class IpRuleResponse
     {

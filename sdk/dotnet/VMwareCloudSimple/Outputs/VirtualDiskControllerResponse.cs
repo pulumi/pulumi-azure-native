@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VMwareCloudSimple.Outputs
 {
 
-    /// <summary>
-    /// Virtual disk controller model
-    /// </summary>
     [OutputType]
     public sealed class VirtualDiskControllerResponse
     {

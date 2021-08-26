@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Key Vault input properties for encryption.
-    /// </summary>
     [OutputType]
     public sealed class EncryptionV2ResponseKeyVaultProperties
     {

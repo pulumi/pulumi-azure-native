@@ -134,7 +134,7 @@ type integrationAccountSchemaArgs struct {
 	// The integration account schema name.
 	SchemaName *string `pulumi:"schemaName"`
 	// The schema type.
-	SchemaType *SchemaType `pulumi:"schemaType"`
+	SchemaType *string `pulumi:"schemaType"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The target namespace.
@@ -164,7 +164,7 @@ type IntegrationAccountSchemaArgs struct {
 	// The integration account schema name.
 	SchemaName pulumi.StringPtrInput
 	// The schema type.
-	SchemaType SchemaTypePtrInput
+	SchemaType *SchemaType
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The target namespace.
@@ -196,7 +196,9 @@ func (i *IntegrationAccountSchema) ToIntegrationAccountSchemaOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaOutput)
 }
 
-type IntegrationAccountSchemaOutput struct{ *pulumi.OutputState }
+type IntegrationAccountSchemaOutput struct {
+	*pulumi.OutputState
+}
 
 func (IntegrationAccountSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountSchema)(nil))

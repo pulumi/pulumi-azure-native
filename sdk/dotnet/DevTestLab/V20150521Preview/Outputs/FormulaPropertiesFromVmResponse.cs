@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Outputs
 {
 
-    /// <summary>
-    /// Information about a VM from which a formula is to be created.
-    /// </summary>
     [OutputType]
     public sealed class FormulaPropertiesFromVmResponse
     {

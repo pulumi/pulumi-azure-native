@@ -276,7 +276,9 @@ func (i *PrivateEndpoint) ToPrivateEndpointOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
 }
 
-type PrivateEndpointOutput struct{ *pulumi.OutputState }
+type PrivateEndpointOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpoint)(nil))

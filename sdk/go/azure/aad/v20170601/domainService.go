@@ -230,7 +230,9 @@ func (i *DomainService) ToDomainServiceOutputWithContext(ctx context.Context) Do
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceOutput)
 }
 
-type DomainServiceOutput struct{ *pulumi.OutputState }
+type DomainServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (DomainServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainService)(nil))

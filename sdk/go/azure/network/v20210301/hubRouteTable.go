@@ -189,7 +189,9 @@ func (i *HubRouteTable) ToHubRouteTableOutputWithContext(ctx context.Context) Hu
 	return pulumi.ToOutputWithContext(ctx, i).(HubRouteTableOutput)
 }
 
-type HubRouteTableOutput struct{ *pulumi.OutputState }
+type HubRouteTableOutput struct {
+	*pulumi.OutputState
+}
 
 func (HubRouteTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HubRouteTable)(nil))

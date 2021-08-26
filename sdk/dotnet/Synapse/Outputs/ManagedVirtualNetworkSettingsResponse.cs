@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
-    /// <summary>
-    /// Managed Virtual Network Settings
-    /// </summary>
     [OutputType]
     public sealed class ManagedVirtualNetworkSettingsResponse
     {

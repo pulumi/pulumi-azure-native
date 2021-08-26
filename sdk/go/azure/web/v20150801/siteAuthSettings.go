@@ -256,7 +256,7 @@ type siteAuthSettingsArgs struct {
 	// Gets or sets the default authentication provider to use when multiple providers are configured.
 	//             This setting is only needed if multiple providers are configured and the unauthenticated client
 	//             action is set to "RedirectToLoginPage".
-	DefaultProvider *BuiltInAuthenticationProvider `pulumi:"defaultProvider"`
+	DefaultProvider *string `pulumi:"defaultProvider"`
 	// Gets or sets a value indicating whether the Authentication / Authorization feature is enabled for the current app.
 	Enabled *bool `pulumi:"enabled"`
 	// Gets or sets the App ID of the Facebook app used for login.
@@ -323,7 +323,7 @@ type siteAuthSettingsArgs struct {
 	//             Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 	TwitterConsumerSecret *string `pulumi:"twitterConsumerSecret"`
 	// Gets or sets the action to take when an unauthenticated client attempts to access the app.
-	UnauthenticatedClientAction *UnauthenticatedClientAction `pulumi:"unauthenticatedClientAction"`
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 }
 
 // The set of arguments for constructing a SiteAuthSettings resource.
@@ -354,7 +354,7 @@ type SiteAuthSettingsArgs struct {
 	// Gets or sets the default authentication provider to use when multiple providers are configured.
 	//             This setting is only needed if multiple providers are configured and the unauthenticated client
 	//             action is set to "RedirectToLoginPage".
-	DefaultProvider BuiltInAuthenticationProviderPtrInput
+	DefaultProvider *BuiltInAuthenticationProvider
 	// Gets or sets a value indicating whether the Authentication / Authorization feature is enabled for the current app.
 	Enabled pulumi.BoolPtrInput
 	// Gets or sets the App ID of the Facebook app used for login.
@@ -421,7 +421,7 @@ type SiteAuthSettingsArgs struct {
 	//             Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
 	TwitterConsumerSecret pulumi.StringPtrInput
 	// Gets or sets the action to take when an unauthenticated client attempts to access the app.
-	UnauthenticatedClientAction UnauthenticatedClientActionPtrInput
+	UnauthenticatedClientAction *UnauthenticatedClientAction
 }
 
 func (SiteAuthSettingsArgs) ElementType() reflect.Type {
@@ -447,7 +447,9 @@ func (i *SiteAuthSettings) ToSiteAuthSettingsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAuthSettingsOutput)
 }
 
-type SiteAuthSettingsOutput struct{ *pulumi.OutputState }
+type SiteAuthSettingsOutput struct {
+	*pulumi.OutputState
+}
 
 func (SiteAuthSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteAuthSettings)(nil))

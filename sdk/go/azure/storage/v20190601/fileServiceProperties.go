@@ -163,7 +163,9 @@ func (i *FileServiceProperties) ToFileServicePropertiesOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FileServicePropertiesOutput)
 }
 
-type FileServicePropertiesOutput struct{ *pulumi.OutputState }
+type FileServicePropertiesOutput struct {
+	*pulumi.OutputState
+}
 
 func (FileServicePropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileServiceProperties)(nil))

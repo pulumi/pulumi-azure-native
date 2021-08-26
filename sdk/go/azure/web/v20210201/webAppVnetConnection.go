@@ -224,7 +224,9 @@ func (i *WebAppVnetConnection) ToWebAppVnetConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionOutput)
 }
 
-type WebAppVnetConnectionOutput struct{ *pulumi.OutputState }
+type WebAppVnetConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (WebAppVnetConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppVnetConnection)(nil))

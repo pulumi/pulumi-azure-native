@@ -11,30 +11,14 @@ import (
 )
 
 // The type of administrator.
-type AdministratorType string
+type AdministratorType pulumi.String
 
 const (
 	AdministratorTypeActiveDirectory = AdministratorType("ActiveDirectory")
 )
 
 func (AdministratorType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdministratorType)(nil)).Elem()
-}
-
-func (e AdministratorType) ToAdministratorTypeOutput() AdministratorTypeOutput {
-	return pulumi.ToOutput(e).(AdministratorTypeOutput)
-}
-
-func (e AdministratorType) ToAdministratorTypeOutputWithContext(ctx context.Context) AdministratorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AdministratorTypeOutput)
-}
-
-func (e AdministratorType) ToAdministratorTypePtrOutput() AdministratorTypePtrOutput {
-	return e.ToAdministratorTypePtrOutputWithContext(context.Background())
-}
-
-func (e AdministratorType) ToAdministratorTypePtrOutputWithContext(ctx context.Context) AdministratorTypePtrOutput {
-	return AdministratorType(e).ToAdministratorTypeOutputWithContext(ctx).ToAdministratorTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AdministratorType) ToStringOutput() pulumi.StringOutput {
@@ -53,129 +37,8 @@ func (e AdministratorType) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AdministratorTypeOutput struct{ *pulumi.OutputState }
-
-func (AdministratorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdministratorType)(nil)).Elem()
-}
-
-func (o AdministratorTypeOutput) ToAdministratorTypeOutput() AdministratorTypeOutput {
-	return o
-}
-
-func (o AdministratorTypeOutput) ToAdministratorTypeOutputWithContext(ctx context.Context) AdministratorTypeOutput {
-	return o
-}
-
-func (o AdministratorTypeOutput) ToAdministratorTypePtrOutput() AdministratorTypePtrOutput {
-	return o.ToAdministratorTypePtrOutputWithContext(context.Background())
-}
-
-func (o AdministratorTypeOutput) ToAdministratorTypePtrOutputWithContext(ctx context.Context) AdministratorTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdministratorType) *AdministratorType {
-		return &v
-	}).(AdministratorTypePtrOutput)
-}
-
-func (o AdministratorTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AdministratorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AdministratorType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AdministratorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AdministratorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AdministratorType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AdministratorTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AdministratorTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdministratorType)(nil)).Elem()
-}
-
-func (o AdministratorTypePtrOutput) ToAdministratorTypePtrOutput() AdministratorTypePtrOutput {
-	return o
-}
-
-func (o AdministratorTypePtrOutput) ToAdministratorTypePtrOutputWithContext(ctx context.Context) AdministratorTypePtrOutput {
-	return o
-}
-
-func (o AdministratorTypePtrOutput) Elem() AdministratorTypeOutput {
-	return o.ApplyT(func(v *AdministratorType) AdministratorType {
-		if v != nil {
-			return *v
-		}
-		var ret AdministratorType
-		return ret
-	}).(AdministratorTypeOutput)
-}
-
-func (o AdministratorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AdministratorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AdministratorType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AdministratorTypeInput is an input type that accepts AdministratorTypeArgs and AdministratorTypeOutput values.
-// You can construct a concrete instance of `AdministratorTypeInput` via:
-//
-//          AdministratorTypeArgs{...}
-type AdministratorTypeInput interface {
-	pulumi.Input
-
-	ToAdministratorTypeOutput() AdministratorTypeOutput
-	ToAdministratorTypeOutputWithContext(context.Context) AdministratorTypeOutput
-}
-
-var administratorTypePtrType = reflect.TypeOf((**AdministratorType)(nil)).Elem()
-
-type AdministratorTypePtrInput interface {
-	pulumi.Input
-
-	ToAdministratorTypePtrOutput() AdministratorTypePtrOutput
-	ToAdministratorTypePtrOutputWithContext(context.Context) AdministratorTypePtrOutput
-}
-
-type administratorTypePtr string
-
-func AdministratorTypePtr(v string) AdministratorTypePtrInput {
-	return (*administratorTypePtr)(&v)
-}
-
-func (*administratorTypePtr) ElementType() reflect.Type {
-	return administratorTypePtrType
-}
-
-func (in *administratorTypePtr) ToAdministratorTypePtrOutput() AdministratorTypePtrOutput {
-	return pulumi.ToOutput(in).(AdministratorTypePtrOutput)
-}
-
-func (in *administratorTypePtr) ToAdministratorTypePtrOutputWithContext(ctx context.Context) AdministratorTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AdministratorTypePtrOutput)
-}
-
 // The mode to create a new server.
-type CreateMode string
+type CreateMode pulumi.String
 
 const (
 	CreateModeDefault            = CreateMode("Default")
@@ -185,23 +48,7 @@ const (
 )
 
 func (CreateMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateMode)(nil)).Elem()
-}
-
-func (e CreateMode) ToCreateModeOutput() CreateModeOutput {
-	return pulumi.ToOutput(e).(CreateModeOutput)
-}
-
-func (e CreateMode) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CreateModeOutput)
-}
-
-func (e CreateMode) ToCreateModePtrOutput() CreateModePtrOutput {
-	return e.ToCreateModePtrOutputWithContext(context.Background())
-}
-
-func (e CreateMode) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return CreateMode(e).ToCreateModeOutputWithContext(ctx).ToCreateModePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e CreateMode) ToStringOutput() pulumi.StringOutput {
@@ -220,129 +67,8 @@ func (e CreateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CreateModeOutput struct{ *pulumi.OutputState }
-
-func (CreateModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateMode)(nil)).Elem()
-}
-
-func (o CreateModeOutput) ToCreateModeOutput() CreateModeOutput {
-	return o
-}
-
-func (o CreateModeOutput) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
-	return o
-}
-
-func (o CreateModeOutput) ToCreateModePtrOutput() CreateModePtrOutput {
-	return o.ToCreateModePtrOutputWithContext(context.Background())
-}
-
-func (o CreateModeOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateMode) *CreateMode {
-		return &v
-	}).(CreateModePtrOutput)
-}
-
-func (o CreateModeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o CreateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o CreateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CreateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type CreateModePtrOutput struct{ *pulumi.OutputState }
-
-func (CreateModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateMode)(nil)).Elem()
-}
-
-func (o CreateModePtrOutput) ToCreateModePtrOutput() CreateModePtrOutput {
-	return o
-}
-
-func (o CreateModePtrOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return o
-}
-
-func (o CreateModePtrOutput) Elem() CreateModeOutput {
-	return o.ApplyT(func(v *CreateMode) CreateMode {
-		if v != nil {
-			return *v
-		}
-		var ret CreateMode
-		return ret
-	}).(CreateModeOutput)
-}
-
-func (o CreateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CreateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreateMode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// CreateModeInput is an input type that accepts CreateModeArgs and CreateModeOutput values.
-// You can construct a concrete instance of `CreateModeInput` via:
-//
-//          CreateModeArgs{...}
-type CreateModeInput interface {
-	pulumi.Input
-
-	ToCreateModeOutput() CreateModeOutput
-	ToCreateModeOutputWithContext(context.Context) CreateModeOutput
-}
-
-var createModePtrType = reflect.TypeOf((**CreateMode)(nil)).Elem()
-
-type CreateModePtrInput interface {
-	pulumi.Input
-
-	ToCreateModePtrOutput() CreateModePtrOutput
-	ToCreateModePtrOutputWithContext(context.Context) CreateModePtrOutput
-}
-
-type createModePtr string
-
-func CreateModePtr(v string) CreateModePtrInput {
-	return (*createModePtr)(&v)
-}
-
-func (*createModePtr) ElementType() reflect.Type {
-	return createModePtrType
-}
-
-func (in *createModePtr) ToCreateModePtrOutput() CreateModePtrOutput {
-	return pulumi.ToOutput(in).(CreateModePtrOutput)
-}
-
-func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
-}
-
 // Enable Geo-redundant or not for server backup.
-type GeoRedundantBackup string
+type GeoRedundantBackup pulumi.String
 
 const (
 	GeoRedundantBackupEnabled  = GeoRedundantBackup("Enabled")
@@ -350,23 +76,7 @@ const (
 )
 
 func (GeoRedundantBackup) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoRedundantBackup)(nil)).Elem()
-}
-
-func (e GeoRedundantBackup) ToGeoRedundantBackupOutput() GeoRedundantBackupOutput {
-	return pulumi.ToOutput(e).(GeoRedundantBackupOutput)
-}
-
-func (e GeoRedundantBackup) ToGeoRedundantBackupOutputWithContext(ctx context.Context) GeoRedundantBackupOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(GeoRedundantBackupOutput)
-}
-
-func (e GeoRedundantBackup) ToGeoRedundantBackupPtrOutput() GeoRedundantBackupPtrOutput {
-	return e.ToGeoRedundantBackupPtrOutputWithContext(context.Background())
-}
-
-func (e GeoRedundantBackup) ToGeoRedundantBackupPtrOutputWithContext(ctx context.Context) GeoRedundantBackupPtrOutput {
-	return GeoRedundantBackup(e).ToGeoRedundantBackupOutputWithContext(ctx).ToGeoRedundantBackupPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e GeoRedundantBackup) ToStringOutput() pulumi.StringOutput {
@@ -385,129 +95,8 @@ func (e GeoRedundantBackup) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type GeoRedundantBackupOutput struct{ *pulumi.OutputState }
-
-func (GeoRedundantBackupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoRedundantBackup)(nil)).Elem()
-}
-
-func (o GeoRedundantBackupOutput) ToGeoRedundantBackupOutput() GeoRedundantBackupOutput {
-	return o
-}
-
-func (o GeoRedundantBackupOutput) ToGeoRedundantBackupOutputWithContext(ctx context.Context) GeoRedundantBackupOutput {
-	return o
-}
-
-func (o GeoRedundantBackupOutput) ToGeoRedundantBackupPtrOutput() GeoRedundantBackupPtrOutput {
-	return o.ToGeoRedundantBackupPtrOutputWithContext(context.Background())
-}
-
-func (o GeoRedundantBackupOutput) ToGeoRedundantBackupPtrOutputWithContext(ctx context.Context) GeoRedundantBackupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeoRedundantBackup) *GeoRedundantBackup {
-		return &v
-	}).(GeoRedundantBackupPtrOutput)
-}
-
-func (o GeoRedundantBackupOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o GeoRedundantBackupOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeoRedundantBackup) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o GeoRedundantBackupOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o GeoRedundantBackupOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeoRedundantBackup) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type GeoRedundantBackupPtrOutput struct{ *pulumi.OutputState }
-
-func (GeoRedundantBackupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GeoRedundantBackup)(nil)).Elem()
-}
-
-func (o GeoRedundantBackupPtrOutput) ToGeoRedundantBackupPtrOutput() GeoRedundantBackupPtrOutput {
-	return o
-}
-
-func (o GeoRedundantBackupPtrOutput) ToGeoRedundantBackupPtrOutputWithContext(ctx context.Context) GeoRedundantBackupPtrOutput {
-	return o
-}
-
-func (o GeoRedundantBackupPtrOutput) Elem() GeoRedundantBackupOutput {
-	return o.ApplyT(func(v *GeoRedundantBackup) GeoRedundantBackup {
-		if v != nil {
-			return *v
-		}
-		var ret GeoRedundantBackup
-		return ret
-	}).(GeoRedundantBackupOutput)
-}
-
-func (o GeoRedundantBackupPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o GeoRedundantBackupPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GeoRedundantBackup) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// GeoRedundantBackupInput is an input type that accepts GeoRedundantBackupArgs and GeoRedundantBackupOutput values.
-// You can construct a concrete instance of `GeoRedundantBackupInput` via:
-//
-//          GeoRedundantBackupArgs{...}
-type GeoRedundantBackupInput interface {
-	pulumi.Input
-
-	ToGeoRedundantBackupOutput() GeoRedundantBackupOutput
-	ToGeoRedundantBackupOutputWithContext(context.Context) GeoRedundantBackupOutput
-}
-
-var geoRedundantBackupPtrType = reflect.TypeOf((**GeoRedundantBackup)(nil)).Elem()
-
-type GeoRedundantBackupPtrInput interface {
-	pulumi.Input
-
-	ToGeoRedundantBackupPtrOutput() GeoRedundantBackupPtrOutput
-	ToGeoRedundantBackupPtrOutputWithContext(context.Context) GeoRedundantBackupPtrOutput
-}
-
-type geoRedundantBackupPtr string
-
-func GeoRedundantBackupPtr(v string) GeoRedundantBackupPtrInput {
-	return (*geoRedundantBackupPtr)(&v)
-}
-
-func (*geoRedundantBackupPtr) ElementType() reflect.Type {
-	return geoRedundantBackupPtrType
-}
-
-func (in *geoRedundantBackupPtr) ToGeoRedundantBackupPtrOutput() GeoRedundantBackupPtrOutput {
-	return pulumi.ToOutput(in).(GeoRedundantBackupPtrOutput)
-}
-
-func (in *geoRedundantBackupPtr) ToGeoRedundantBackupPtrOutputWithContext(ctx context.Context) GeoRedundantBackupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(GeoRedundantBackupPtrOutput)
-}
-
 // Enforce a minimal Tls version for the server.
-type MinimalTlsVersionEnum string
+type MinimalTlsVersionEnum pulumi.String
 
 const (
 	MinimalTlsVersionEnum_TLS1_0                = MinimalTlsVersionEnum("TLS1_0")
@@ -517,23 +106,7 @@ const (
 )
 
 func (MinimalTlsVersionEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*MinimalTlsVersionEnum)(nil)).Elem()
-}
-
-func (e MinimalTlsVersionEnum) ToMinimalTlsVersionEnumOutput() MinimalTlsVersionEnumOutput {
-	return pulumi.ToOutput(e).(MinimalTlsVersionEnumOutput)
-}
-
-func (e MinimalTlsVersionEnum) ToMinimalTlsVersionEnumOutputWithContext(ctx context.Context) MinimalTlsVersionEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MinimalTlsVersionEnumOutput)
-}
-
-func (e MinimalTlsVersionEnum) ToMinimalTlsVersionEnumPtrOutput() MinimalTlsVersionEnumPtrOutput {
-	return e.ToMinimalTlsVersionEnumPtrOutputWithContext(context.Background())
-}
-
-func (e MinimalTlsVersionEnum) ToMinimalTlsVersionEnumPtrOutputWithContext(ctx context.Context) MinimalTlsVersionEnumPtrOutput {
-	return MinimalTlsVersionEnum(e).ToMinimalTlsVersionEnumOutputWithContext(ctx).ToMinimalTlsVersionEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e MinimalTlsVersionEnum) ToStringOutput() pulumi.StringOutput {
@@ -552,129 +125,8 @@ func (e MinimalTlsVersionEnum) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type MinimalTlsVersionEnumOutput struct{ *pulumi.OutputState }
-
-func (MinimalTlsVersionEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MinimalTlsVersionEnum)(nil)).Elem()
-}
-
-func (o MinimalTlsVersionEnumOutput) ToMinimalTlsVersionEnumOutput() MinimalTlsVersionEnumOutput {
-	return o
-}
-
-func (o MinimalTlsVersionEnumOutput) ToMinimalTlsVersionEnumOutputWithContext(ctx context.Context) MinimalTlsVersionEnumOutput {
-	return o
-}
-
-func (o MinimalTlsVersionEnumOutput) ToMinimalTlsVersionEnumPtrOutput() MinimalTlsVersionEnumPtrOutput {
-	return o.ToMinimalTlsVersionEnumPtrOutputWithContext(context.Background())
-}
-
-func (o MinimalTlsVersionEnumOutput) ToMinimalTlsVersionEnumPtrOutputWithContext(ctx context.Context) MinimalTlsVersionEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MinimalTlsVersionEnum) *MinimalTlsVersionEnum {
-		return &v
-	}).(MinimalTlsVersionEnumPtrOutput)
-}
-
-func (o MinimalTlsVersionEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MinimalTlsVersionEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MinimalTlsVersionEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MinimalTlsVersionEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MinimalTlsVersionEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MinimalTlsVersionEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MinimalTlsVersionEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (MinimalTlsVersionEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MinimalTlsVersionEnum)(nil)).Elem()
-}
-
-func (o MinimalTlsVersionEnumPtrOutput) ToMinimalTlsVersionEnumPtrOutput() MinimalTlsVersionEnumPtrOutput {
-	return o
-}
-
-func (o MinimalTlsVersionEnumPtrOutput) ToMinimalTlsVersionEnumPtrOutputWithContext(ctx context.Context) MinimalTlsVersionEnumPtrOutput {
-	return o
-}
-
-func (o MinimalTlsVersionEnumPtrOutput) Elem() MinimalTlsVersionEnumOutput {
-	return o.ApplyT(func(v *MinimalTlsVersionEnum) MinimalTlsVersionEnum {
-		if v != nil {
-			return *v
-		}
-		var ret MinimalTlsVersionEnum
-		return ret
-	}).(MinimalTlsVersionEnumOutput)
-}
-
-func (o MinimalTlsVersionEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MinimalTlsVersionEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MinimalTlsVersionEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// MinimalTlsVersionEnumInput is an input type that accepts MinimalTlsVersionEnumArgs and MinimalTlsVersionEnumOutput values.
-// You can construct a concrete instance of `MinimalTlsVersionEnumInput` via:
-//
-//          MinimalTlsVersionEnumArgs{...}
-type MinimalTlsVersionEnumInput interface {
-	pulumi.Input
-
-	ToMinimalTlsVersionEnumOutput() MinimalTlsVersionEnumOutput
-	ToMinimalTlsVersionEnumOutputWithContext(context.Context) MinimalTlsVersionEnumOutput
-}
-
-var minimalTlsVersionEnumPtrType = reflect.TypeOf((**MinimalTlsVersionEnum)(nil)).Elem()
-
-type MinimalTlsVersionEnumPtrInput interface {
-	pulumi.Input
-
-	ToMinimalTlsVersionEnumPtrOutput() MinimalTlsVersionEnumPtrOutput
-	ToMinimalTlsVersionEnumPtrOutputWithContext(context.Context) MinimalTlsVersionEnumPtrOutput
-}
-
-type minimalTlsVersionEnumPtr string
-
-func MinimalTlsVersionEnumPtr(v string) MinimalTlsVersionEnumPtrInput {
-	return (*minimalTlsVersionEnumPtr)(&v)
-}
-
-func (*minimalTlsVersionEnumPtr) ElementType() reflect.Type {
-	return minimalTlsVersionEnumPtrType
-}
-
-func (in *minimalTlsVersionEnumPtr) ToMinimalTlsVersionEnumPtrOutput() MinimalTlsVersionEnumPtrOutput {
-	return pulumi.ToOutput(in).(MinimalTlsVersionEnumPtrOutput)
-}
-
-func (in *minimalTlsVersionEnumPtr) ToMinimalTlsVersionEnumPtrOutputWithContext(ctx context.Context) MinimalTlsVersionEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MinimalTlsVersionEnumPtrOutput)
-}
-
 // Server version.
-type ServerVersion string
+type ServerVersion pulumi.String
 
 const (
 	ServerVersion_5_6 = ServerVersion("5.6")
@@ -683,23 +135,7 @@ const (
 )
 
 func (ServerVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerVersion)(nil)).Elem()
-}
-
-func (e ServerVersion) ToServerVersionOutput() ServerVersionOutput {
-	return pulumi.ToOutput(e).(ServerVersionOutput)
-}
-
-func (e ServerVersion) ToServerVersionOutputWithContext(ctx context.Context) ServerVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ServerVersionOutput)
-}
-
-func (e ServerVersion) ToServerVersionPtrOutput() ServerVersionPtrOutput {
-	return e.ToServerVersionPtrOutputWithContext(context.Background())
-}
-
-func (e ServerVersion) ToServerVersionPtrOutputWithContext(ctx context.Context) ServerVersionPtrOutput {
-	return ServerVersion(e).ToServerVersionOutputWithContext(ctx).ToServerVersionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ServerVersion) ToStringOutput() pulumi.StringOutput {
@@ -718,129 +154,8 @@ func (e ServerVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ServerVersionOutput struct{ *pulumi.OutputState }
-
-func (ServerVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerVersion)(nil)).Elem()
-}
-
-func (o ServerVersionOutput) ToServerVersionOutput() ServerVersionOutput {
-	return o
-}
-
-func (o ServerVersionOutput) ToServerVersionOutputWithContext(ctx context.Context) ServerVersionOutput {
-	return o
-}
-
-func (o ServerVersionOutput) ToServerVersionPtrOutput() ServerVersionPtrOutput {
-	return o.ToServerVersionPtrOutputWithContext(context.Background())
-}
-
-func (o ServerVersionOutput) ToServerVersionPtrOutputWithContext(ctx context.Context) ServerVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerVersion) *ServerVersion {
-		return &v
-	}).(ServerVersionPtrOutput)
-}
-
-func (o ServerVersionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ServerVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerVersion) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ServerVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ServerVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerVersion) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ServerVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (ServerVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerVersion)(nil)).Elem()
-}
-
-func (o ServerVersionPtrOutput) ToServerVersionPtrOutput() ServerVersionPtrOutput {
-	return o
-}
-
-func (o ServerVersionPtrOutput) ToServerVersionPtrOutputWithContext(ctx context.Context) ServerVersionPtrOutput {
-	return o
-}
-
-func (o ServerVersionPtrOutput) Elem() ServerVersionOutput {
-	return o.ApplyT(func(v *ServerVersion) ServerVersion {
-		if v != nil {
-			return *v
-		}
-		var ret ServerVersion
-		return ret
-	}).(ServerVersionOutput)
-}
-
-func (o ServerVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ServerVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerVersion) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ServerVersionInput is an input type that accepts ServerVersionArgs and ServerVersionOutput values.
-// You can construct a concrete instance of `ServerVersionInput` via:
-//
-//          ServerVersionArgs{...}
-type ServerVersionInput interface {
-	pulumi.Input
-
-	ToServerVersionOutput() ServerVersionOutput
-	ToServerVersionOutputWithContext(context.Context) ServerVersionOutput
-}
-
-var serverVersionPtrType = reflect.TypeOf((**ServerVersion)(nil)).Elem()
-
-type ServerVersionPtrInput interface {
-	pulumi.Input
-
-	ToServerVersionPtrOutput() ServerVersionPtrOutput
-	ToServerVersionPtrOutputWithContext(context.Context) ServerVersionPtrOutput
-}
-
-type serverVersionPtr string
-
-func ServerVersionPtr(v string) ServerVersionPtrInput {
-	return (*serverVersionPtr)(&v)
-}
-
-func (*serverVersionPtr) ElementType() reflect.Type {
-	return serverVersionPtrType
-}
-
-func (in *serverVersionPtr) ToServerVersionPtrOutput() ServerVersionPtrOutput {
-	return pulumi.ToOutput(in).(ServerVersionPtrOutput)
-}
-
-func (in *serverVersionPtr) ToServerVersionPtrOutputWithContext(ctx context.Context) ServerVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ServerVersionPtrOutput)
-}
-
 // The tier of the particular SKU, e.g. Basic.
-type SkuTier string
+type SkuTier pulumi.String
 
 const (
 	SkuTierBasic           = SkuTier("Basic")
@@ -849,23 +164,7 @@ const (
 )
 
 func (SkuTier) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuTier)(nil)).Elem()
-}
-
-func (e SkuTier) ToSkuTierOutput() SkuTierOutput {
-	return pulumi.ToOutput(e).(SkuTierOutput)
-}
-
-func (e SkuTier) ToSkuTierOutputWithContext(ctx context.Context) SkuTierOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SkuTierOutput)
-}
-
-func (e SkuTier) ToSkuTierPtrOutput() SkuTierPtrOutput {
-	return e.ToSkuTierPtrOutputWithContext(context.Background())
-}
-
-func (e SkuTier) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
-	return SkuTier(e).ToSkuTierOutputWithContext(ctx).ToSkuTierPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SkuTier) ToStringOutput() pulumi.StringOutput {
@@ -884,129 +183,8 @@ func (e SkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SkuTierOutput struct{ *pulumi.OutputState }
-
-func (SkuTierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuTier)(nil)).Elem()
-}
-
-func (o SkuTierOutput) ToSkuTierOutput() SkuTierOutput {
-	return o
-}
-
-func (o SkuTierOutput) ToSkuTierOutputWithContext(ctx context.Context) SkuTierOutput {
-	return o
-}
-
-func (o SkuTierOutput) ToSkuTierPtrOutput() SkuTierPtrOutput {
-	return o.ToSkuTierPtrOutputWithContext(context.Background())
-}
-
-func (o SkuTierOutput) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuTier) *SkuTier {
-		return &v
-	}).(SkuTierPtrOutput)
-}
-
-func (o SkuTierOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SkuTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuTier) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SkuTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SkuTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuTier) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SkuTierPtrOutput struct{ *pulumi.OutputState }
-
-func (SkuTierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuTier)(nil)).Elem()
-}
-
-func (o SkuTierPtrOutput) ToSkuTierPtrOutput() SkuTierPtrOutput {
-	return o
-}
-
-func (o SkuTierPtrOutput) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
-	return o
-}
-
-func (o SkuTierPtrOutput) Elem() SkuTierOutput {
-	return o.ApplyT(func(v *SkuTier) SkuTier {
-		if v != nil {
-			return *v
-		}
-		var ret SkuTier
-		return ret
-	}).(SkuTierOutput)
-}
-
-func (o SkuTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuTier) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SkuTierInput is an input type that accepts SkuTierArgs and SkuTierOutput values.
-// You can construct a concrete instance of `SkuTierInput` via:
-//
-//          SkuTierArgs{...}
-type SkuTierInput interface {
-	pulumi.Input
-
-	ToSkuTierOutput() SkuTierOutput
-	ToSkuTierOutputWithContext(context.Context) SkuTierOutput
-}
-
-var skuTierPtrType = reflect.TypeOf((**SkuTier)(nil)).Elem()
-
-type SkuTierPtrInput interface {
-	pulumi.Input
-
-	ToSkuTierPtrOutput() SkuTierPtrOutput
-	ToSkuTierPtrOutputWithContext(context.Context) SkuTierPtrOutput
-}
-
-type skuTierPtr string
-
-func SkuTierPtr(v string) SkuTierPtrInput {
-	return (*skuTierPtr)(&v)
-}
-
-func (*skuTierPtr) ElementType() reflect.Type {
-	return skuTierPtrType
-}
-
-func (in *skuTierPtr) ToSkuTierPtrOutput() SkuTierPtrOutput {
-	return pulumi.ToOutput(in).(SkuTierPtrOutput)
-}
-
-func (in *skuTierPtr) ToSkuTierPtrOutputWithContext(ctx context.Context) SkuTierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SkuTierPtrOutput)
-}
-
 // Enable ssl enforcement or not when connect to server.
-type SslEnforcementEnum string
+type SslEnforcementEnum pulumi.String
 
 const (
 	SslEnforcementEnumEnabled  = SslEnforcementEnum("Enabled")
@@ -1014,23 +192,7 @@ const (
 )
 
 func (SslEnforcementEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslEnforcementEnum)(nil)).Elem()
-}
-
-func (e SslEnforcementEnum) ToSslEnforcementEnumOutput() SslEnforcementEnumOutput {
-	return pulumi.ToOutput(e).(SslEnforcementEnumOutput)
-}
-
-func (e SslEnforcementEnum) ToSslEnforcementEnumOutputWithContext(ctx context.Context) SslEnforcementEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SslEnforcementEnumOutput)
-}
-
-func (e SslEnforcementEnum) ToSslEnforcementEnumPtrOutput() SslEnforcementEnumPtrOutput {
-	return e.ToSslEnforcementEnumPtrOutputWithContext(context.Background())
-}
-
-func (e SslEnforcementEnum) ToSslEnforcementEnumPtrOutputWithContext(ctx context.Context) SslEnforcementEnumPtrOutput {
-	return SslEnforcementEnum(e).ToSslEnforcementEnumOutputWithContext(ctx).ToSslEnforcementEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SslEnforcementEnum) ToStringOutput() pulumi.StringOutput {
@@ -1049,129 +211,8 @@ func (e SslEnforcementEnum) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SslEnforcementEnumOutput struct{ *pulumi.OutputState }
-
-func (SslEnforcementEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslEnforcementEnum)(nil)).Elem()
-}
-
-func (o SslEnforcementEnumOutput) ToSslEnforcementEnumOutput() SslEnforcementEnumOutput {
-	return o
-}
-
-func (o SslEnforcementEnumOutput) ToSslEnforcementEnumOutputWithContext(ctx context.Context) SslEnforcementEnumOutput {
-	return o
-}
-
-func (o SslEnforcementEnumOutput) ToSslEnforcementEnumPtrOutput() SslEnforcementEnumPtrOutput {
-	return o.ToSslEnforcementEnumPtrOutputWithContext(context.Background())
-}
-
-func (o SslEnforcementEnumOutput) ToSslEnforcementEnumPtrOutputWithContext(ctx context.Context) SslEnforcementEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslEnforcementEnum) *SslEnforcementEnum {
-		return &v
-	}).(SslEnforcementEnumPtrOutput)
-}
-
-func (o SslEnforcementEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SslEnforcementEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SslEnforcementEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SslEnforcementEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SslEnforcementEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SslEnforcementEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SslEnforcementEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (SslEnforcementEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SslEnforcementEnum)(nil)).Elem()
-}
-
-func (o SslEnforcementEnumPtrOutput) ToSslEnforcementEnumPtrOutput() SslEnforcementEnumPtrOutput {
-	return o
-}
-
-func (o SslEnforcementEnumPtrOutput) ToSslEnforcementEnumPtrOutputWithContext(ctx context.Context) SslEnforcementEnumPtrOutput {
-	return o
-}
-
-func (o SslEnforcementEnumPtrOutput) Elem() SslEnforcementEnumOutput {
-	return o.ApplyT(func(v *SslEnforcementEnum) SslEnforcementEnum {
-		if v != nil {
-			return *v
-		}
-		var ret SslEnforcementEnum
-		return ret
-	}).(SslEnforcementEnumOutput)
-}
-
-func (o SslEnforcementEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SslEnforcementEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SslEnforcementEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SslEnforcementEnumInput is an input type that accepts SslEnforcementEnumArgs and SslEnforcementEnumOutput values.
-// You can construct a concrete instance of `SslEnforcementEnumInput` via:
-//
-//          SslEnforcementEnumArgs{...}
-type SslEnforcementEnumInput interface {
-	pulumi.Input
-
-	ToSslEnforcementEnumOutput() SslEnforcementEnumOutput
-	ToSslEnforcementEnumOutputWithContext(context.Context) SslEnforcementEnumOutput
-}
-
-var sslEnforcementEnumPtrType = reflect.TypeOf((**SslEnforcementEnum)(nil)).Elem()
-
-type SslEnforcementEnumPtrInput interface {
-	pulumi.Input
-
-	ToSslEnforcementEnumPtrOutput() SslEnforcementEnumPtrOutput
-	ToSslEnforcementEnumPtrOutputWithContext(context.Context) SslEnforcementEnumPtrOutput
-}
-
-type sslEnforcementEnumPtr string
-
-func SslEnforcementEnumPtr(v string) SslEnforcementEnumPtrInput {
-	return (*sslEnforcementEnumPtr)(&v)
-}
-
-func (*sslEnforcementEnumPtr) ElementType() reflect.Type {
-	return sslEnforcementEnumPtrType
-}
-
-func (in *sslEnforcementEnumPtr) ToSslEnforcementEnumPtrOutput() SslEnforcementEnumPtrOutput {
-	return pulumi.ToOutput(in).(SslEnforcementEnumPtrOutput)
-}
-
-func (in *sslEnforcementEnumPtr) ToSslEnforcementEnumPtrOutputWithContext(ctx context.Context) SslEnforcementEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SslEnforcementEnumPtrOutput)
-}
-
 // Enable Storage Auto Grow.
-type StorageAutogrow string
+type StorageAutogrow pulumi.String
 
 const (
 	StorageAutogrowEnabled  = StorageAutogrow("Enabled")
@@ -1179,23 +220,7 @@ const (
 )
 
 func (StorageAutogrow) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAutogrow)(nil)).Elem()
-}
-
-func (e StorageAutogrow) ToStorageAutogrowOutput() StorageAutogrowOutput {
-	return pulumi.ToOutput(e).(StorageAutogrowOutput)
-}
-
-func (e StorageAutogrow) ToStorageAutogrowOutputWithContext(ctx context.Context) StorageAutogrowOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StorageAutogrowOutput)
-}
-
-func (e StorageAutogrow) ToStorageAutogrowPtrOutput() StorageAutogrowPtrOutput {
-	return e.ToStorageAutogrowPtrOutputWithContext(context.Background())
-}
-
-func (e StorageAutogrow) ToStorageAutogrowPtrOutputWithContext(ctx context.Context) StorageAutogrowPtrOutput {
-	return StorageAutogrow(e).ToStorageAutogrowOutputWithContext(ctx).ToStorageAutogrowPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e StorageAutogrow) ToStringOutput() pulumi.StringOutput {
@@ -1212,144 +237,4 @@ func (e StorageAutogrow) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e StorageAutogrow) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type StorageAutogrowOutput struct{ *pulumi.OutputState }
-
-func (StorageAutogrowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAutogrow)(nil)).Elem()
-}
-
-func (o StorageAutogrowOutput) ToStorageAutogrowOutput() StorageAutogrowOutput {
-	return o
-}
-
-func (o StorageAutogrowOutput) ToStorageAutogrowOutputWithContext(ctx context.Context) StorageAutogrowOutput {
-	return o
-}
-
-func (o StorageAutogrowOutput) ToStorageAutogrowPtrOutput() StorageAutogrowPtrOutput {
-	return o.ToStorageAutogrowPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAutogrowOutput) ToStorageAutogrowPtrOutputWithContext(ctx context.Context) StorageAutogrowPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAutogrow) *StorageAutogrow {
-		return &v
-	}).(StorageAutogrowPtrOutput)
-}
-
-func (o StorageAutogrowOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StorageAutogrowOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAutogrow) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StorageAutogrowOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAutogrowOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAutogrow) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StorageAutogrowPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAutogrowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAutogrow)(nil)).Elem()
-}
-
-func (o StorageAutogrowPtrOutput) ToStorageAutogrowPtrOutput() StorageAutogrowPtrOutput {
-	return o
-}
-
-func (o StorageAutogrowPtrOutput) ToStorageAutogrowPtrOutputWithContext(ctx context.Context) StorageAutogrowPtrOutput {
-	return o
-}
-
-func (o StorageAutogrowPtrOutput) Elem() StorageAutogrowOutput {
-	return o.ApplyT(func(v *StorageAutogrow) StorageAutogrow {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAutogrow
-		return ret
-	}).(StorageAutogrowOutput)
-}
-
-func (o StorageAutogrowPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAutogrowPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageAutogrow) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// StorageAutogrowInput is an input type that accepts StorageAutogrowArgs and StorageAutogrowOutput values.
-// You can construct a concrete instance of `StorageAutogrowInput` via:
-//
-//          StorageAutogrowArgs{...}
-type StorageAutogrowInput interface {
-	pulumi.Input
-
-	ToStorageAutogrowOutput() StorageAutogrowOutput
-	ToStorageAutogrowOutputWithContext(context.Context) StorageAutogrowOutput
-}
-
-var storageAutogrowPtrType = reflect.TypeOf((**StorageAutogrow)(nil)).Elem()
-
-type StorageAutogrowPtrInput interface {
-	pulumi.Input
-
-	ToStorageAutogrowPtrOutput() StorageAutogrowPtrOutput
-	ToStorageAutogrowPtrOutputWithContext(context.Context) StorageAutogrowPtrOutput
-}
-
-type storageAutogrowPtr string
-
-func StorageAutogrowPtr(v string) StorageAutogrowPtrInput {
-	return (*storageAutogrowPtr)(&v)
-}
-
-func (*storageAutogrowPtr) ElementType() reflect.Type {
-	return storageAutogrowPtrType
-}
-
-func (in *storageAutogrowPtr) ToStorageAutogrowPtrOutput() StorageAutogrowPtrOutput {
-	return pulumi.ToOutput(in).(StorageAutogrowPtrOutput)
-}
-
-func (in *storageAutogrowPtr) ToStorageAutogrowPtrOutputWithContext(ctx context.Context) StorageAutogrowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StorageAutogrowPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(AdministratorTypeOutput{})
-	pulumi.RegisterOutputType(AdministratorTypePtrOutput{})
-	pulumi.RegisterOutputType(CreateModeOutput{})
-	pulumi.RegisterOutputType(CreateModePtrOutput{})
-	pulumi.RegisterOutputType(GeoRedundantBackupOutput{})
-	pulumi.RegisterOutputType(GeoRedundantBackupPtrOutput{})
-	pulumi.RegisterOutputType(MinimalTlsVersionEnumOutput{})
-	pulumi.RegisterOutputType(MinimalTlsVersionEnumPtrOutput{})
-	pulumi.RegisterOutputType(ServerVersionOutput{})
-	pulumi.RegisterOutputType(ServerVersionPtrOutput{})
-	pulumi.RegisterOutputType(SkuTierOutput{})
-	pulumi.RegisterOutputType(SkuTierPtrOutput{})
-	pulumi.RegisterOutputType(SslEnforcementEnumOutput{})
-	pulumi.RegisterOutputType(SslEnforcementEnumPtrOutput{})
-	pulumi.RegisterOutputType(StorageAutogrowOutput{})
-	pulumi.RegisterOutputType(StorageAutogrowPtrOutput{})
 }

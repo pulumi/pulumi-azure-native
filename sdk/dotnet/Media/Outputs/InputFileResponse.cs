@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// An InputDefinition for a single file.  TrackSelections are scoped to the file specified.
-    /// </summary>
     [OutputType]
     public sealed class InputFileResponse
     {

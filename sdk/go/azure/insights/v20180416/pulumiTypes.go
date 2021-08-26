@@ -302,7 +302,7 @@ func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOu
 }
 
 func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzNsActionGroup) *AzNsActionGroup {
+	return o.ApplyT(func(v AzNsActionGroup) *AzNsActionGroup {
 		return &v
 	}).(AzNsActionGroupPtrOutput)
 }
@@ -337,13 +337,7 @@ func (o AzNsActionGroupPtrOutput) ToAzNsActionGroupPtrOutputWithContext(ctx cont
 }
 
 func (o AzNsActionGroupPtrOutput) Elem() AzNsActionGroupOutput {
-	return o.ApplyT(func(v *AzNsActionGroup) AzNsActionGroup {
-		if v != nil {
-			return *v
-		}
-		var ret AzNsActionGroup
-		return ret
-	}).(AzNsActionGroupOutput)
+	return o.ApplyT(func(v *AzNsActionGroup) AzNsActionGroup { return *v }).(AzNsActionGroupOutput)
 }
 
 // Azure Action Group reference.
@@ -480,7 +474,7 @@ func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponsePtrOutput() AzNs
 }
 
 func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzNsActionGroupResponse) *AzNsActionGroupResponse {
+	return o.ApplyT(func(v AzNsActionGroupResponse) *AzNsActionGroupResponse {
 		return &v
 	}).(AzNsActionGroupResponsePtrOutput)
 }
@@ -515,13 +509,7 @@ func (o AzNsActionGroupResponsePtrOutput) ToAzNsActionGroupResponsePtrOutputWith
 }
 
 func (o AzNsActionGroupResponsePtrOutput) Elem() AzNsActionGroupResponseOutput {
-	return o.ApplyT(func(v *AzNsActionGroupResponse) AzNsActionGroupResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzNsActionGroupResponse
-		return ret
-	}).(AzNsActionGroupResponseOutput)
+	return o.ApplyT(func(v *AzNsActionGroupResponse) AzNsActionGroupResponse { return *v }).(AzNsActionGroupResponseOutput)
 }
 
 // Azure Action Group reference.
@@ -1116,7 +1104,7 @@ func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutput() LogMetricTriggerPt
 }
 
 func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricTrigger) *LogMetricTrigger {
+	return o.ApplyT(func(v LogMetricTrigger) *LogMetricTrigger {
 		return &v
 	}).(LogMetricTriggerPtrOutput)
 }
@@ -1156,13 +1144,7 @@ func (o LogMetricTriggerPtrOutput) ToLogMetricTriggerPtrOutputWithContext(ctx co
 }
 
 func (o LogMetricTriggerPtrOutput) Elem() LogMetricTriggerOutput {
-	return o.ApplyT(func(v *LogMetricTrigger) LogMetricTrigger {
-		if v != nil {
-			return *v
-		}
-		var ret LogMetricTrigger
-		return ret
-	}).(LogMetricTriggerOutput)
+	return o.ApplyT(func(v *LogMetricTrigger) LogMetricTrigger { return *v }).(LogMetricTriggerOutput)
 }
 
 // Evaluation of metric on a particular column
@@ -1313,7 +1295,7 @@ func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponsePtrOutput() Lo
 }
 
 func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricTriggerResponse) *LogMetricTriggerResponse {
+	return o.ApplyT(func(v LogMetricTriggerResponse) *LogMetricTriggerResponse {
 		return &v
 	}).(LogMetricTriggerResponsePtrOutput)
 }
@@ -1353,13 +1335,7 @@ func (o LogMetricTriggerResponsePtrOutput) ToLogMetricTriggerResponsePtrOutputWi
 }
 
 func (o LogMetricTriggerResponsePtrOutput) Elem() LogMetricTriggerResponseOutput {
-	return o.ApplyT(func(v *LogMetricTriggerResponse) LogMetricTriggerResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LogMetricTriggerResponse
-		return ret
-	}).(LogMetricTriggerResponseOutput)
+	return o.ApplyT(func(v *LogMetricTriggerResponse) LogMetricTriggerResponse { return *v }).(LogMetricTriggerResponseOutput)
 }
 
 // Evaluation of metric on a particular column
@@ -1636,7 +1612,7 @@ func (o ScheduleOutput) ToSchedulePtrOutput() SchedulePtrOutput {
 }
 
 func (o ScheduleOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Schedule) *Schedule {
+	return o.ApplyT(func(v Schedule) *Schedule {
 		return &v
 	}).(SchedulePtrOutput)
 }
@@ -1666,13 +1642,7 @@ func (o SchedulePtrOutput) ToSchedulePtrOutputWithContext(ctx context.Context) S
 }
 
 func (o SchedulePtrOutput) Elem() ScheduleOutput {
-	return o.ApplyT(func(v *Schedule) Schedule {
-		if v != nil {
-			return *v
-		}
-		var ret Schedule
-		return ret
-	}).(ScheduleOutput)
+	return o.ApplyT(func(v *Schedule) Schedule { return *v }).(ScheduleOutput)
 }
 
 // frequency (in minutes) at which rule condition should be evaluated.
@@ -1795,7 +1765,7 @@ func (o ScheduleResponseOutput) ToScheduleResponsePtrOutput() ScheduleResponsePt
 }
 
 func (o ScheduleResponseOutput) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleResponse) *ScheduleResponse {
+	return o.ApplyT(func(v ScheduleResponse) *ScheduleResponse {
 		return &v
 	}).(ScheduleResponsePtrOutput)
 }
@@ -1825,13 +1795,7 @@ func (o ScheduleResponsePtrOutput) ToScheduleResponsePtrOutputWithContext(ctx co
 }
 
 func (o ScheduleResponsePtrOutput) Elem() ScheduleResponseOutput {
-	return o.ApplyT(func(v *ScheduleResponse) ScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduleResponse
-		return ret
-	}).(ScheduleResponseOutput)
+	return o.ApplyT(func(v *ScheduleResponse) ScheduleResponse { return *v }).(ScheduleResponseOutput)
 }
 
 // frequency (in minutes) at which rule condition should be evaluated.
@@ -1962,7 +1926,7 @@ func (o SourceOutput) ToSourcePtrOutput() SourcePtrOutput {
 }
 
 func (o SourceOutput) ToSourcePtrOutputWithContext(ctx context.Context) SourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Source) *Source {
+	return o.ApplyT(func(v Source) *Source {
 		return &v
 	}).(SourcePtrOutput)
 }
@@ -2002,13 +1966,7 @@ func (o SourcePtrOutput) ToSourcePtrOutputWithContext(ctx context.Context) Sourc
 }
 
 func (o SourcePtrOutput) Elem() SourceOutput {
-	return o.ApplyT(func(v *Source) Source {
-		if v != nil {
-			return *v
-		}
-		var ret Source
-		return ret
-	}).(SourceOutput)
+	return o.ApplyT(func(v *Source) Source { return *v }).(SourceOutput)
 }
 
 // List of  Resource referred into query
@@ -2159,7 +2117,7 @@ func (o SourceResponseOutput) ToSourceResponsePtrOutput() SourceResponsePtrOutpu
 }
 
 func (o SourceResponseOutput) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceResponse) *SourceResponse {
+	return o.ApplyT(func(v SourceResponse) *SourceResponse {
 		return &v
 	}).(SourceResponsePtrOutput)
 }
@@ -2199,13 +2157,7 @@ func (o SourceResponsePtrOutput) ToSourceResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SourceResponsePtrOutput) Elem() SourceResponseOutput {
-	return o.ApplyT(func(v *SourceResponse) SourceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SourceResponse
-		return ret
-	}).(SourceResponseOutput)
+	return o.ApplyT(func(v *SourceResponse) SourceResponse { return *v }).(SourceResponseOutput)
 }
 
 // List of  Resource referred into query

@@ -120,7 +120,9 @@ func (i *SupportPlanType) ToSupportPlanTypeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SupportPlanTypeOutput)
 }
 
-type SupportPlanTypeOutput struct{ *pulumi.OutputState }
+type SupportPlanTypeOutput struct {
+	*pulumi.OutputState
+}
 
 func (SupportPlanTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SupportPlanType)(nil))

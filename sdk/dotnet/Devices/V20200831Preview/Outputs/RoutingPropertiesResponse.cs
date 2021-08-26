@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200831Preview.Outputs
 {
 
-    /// <summary>
-    /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-    /// </summary>
     [OutputType]
     public sealed class RoutingPropertiesResponse
     {

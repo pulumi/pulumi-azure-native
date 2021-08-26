@@ -110,7 +110,7 @@ func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDa
 }
 
 func (o ACIServiceCreateRequestDataCollectionOutput) ToACIServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestDataCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceCreateRequestDataCollection) *ACIServiceCreateRequestDataCollection {
+	return o.ApplyT(func(v ACIServiceCreateRequestDataCollection) *ACIServiceCreateRequestDataCollection {
 		return &v
 	}).(ACIServiceCreateRequestDataCollectionPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o ACIServiceCreateRequestDataCollectionPtrOutput) ToACIServiceCreateReques
 }
 
 func (o ACIServiceCreateRequestDataCollectionPtrOutput) Elem() ACIServiceCreateRequestDataCollectionOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) ACIServiceCreateRequestDataCollection {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceCreateRequestDataCollection
-		return ret
-	}).(ACIServiceCreateRequestDataCollectionOutput)
+	return o.ApplyT(func(v *ACIServiceCreateRequestDataCollection) ACIServiceCreateRequestDataCollection { return *v }).(ACIServiceCreateRequestDataCollectionOutput)
 }
 
 // Option for enabling/disabling Event Hub.
@@ -273,7 +267,7 @@ func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateReq
 }
 
 func (o ACIServiceCreateRequestEncryptionPropertiesOutput) ToACIServiceCreateRequestEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestEncryptionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceCreateRequestEncryptionProperties) *ACIServiceCreateRequestEncryptionProperties {
+	return o.ApplyT(func(v ACIServiceCreateRequestEncryptionProperties) *ACIServiceCreateRequestEncryptionProperties {
 		return &v
 	}).(ACIServiceCreateRequestEncryptionPropertiesPtrOutput)
 }
@@ -309,11 +303,7 @@ func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) ToACIServiceCreate
 
 func (o ACIServiceCreateRequestEncryptionPropertiesPtrOutput) Elem() ACIServiceCreateRequestEncryptionPropertiesOutput {
 	return o.ApplyT(func(v *ACIServiceCreateRequestEncryptionProperties) ACIServiceCreateRequestEncryptionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceCreateRequestEncryptionProperties
-		return ret
+		return *v
 	}).(ACIServiceCreateRequestEncryptionPropertiesOutput)
 }
 
@@ -447,7 +437,7 @@ func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateReques
 }
 
 func (o ACIServiceCreateRequestVnetConfigurationOutput) ToACIServiceCreateRequestVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceCreateRequestVnetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceCreateRequestVnetConfiguration) *ACIServiceCreateRequestVnetConfiguration {
+	return o.ApplyT(func(v ACIServiceCreateRequestVnetConfiguration) *ACIServiceCreateRequestVnetConfiguration {
 		return &v
 	}).(ACIServiceCreateRequestVnetConfigurationPtrOutput)
 }
@@ -477,13 +467,7 @@ func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) ToACIServiceCreateReq
 }
 
 func (o ACIServiceCreateRequestVnetConfigurationPtrOutput) Elem() ACIServiceCreateRequestVnetConfigurationOutput {
-	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) ACIServiceCreateRequestVnetConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceCreateRequestVnetConfiguration
-		return ret
-	}).(ACIServiceCreateRequestVnetConfigurationOutput)
+	return o.ApplyT(func(v *ACIServiceCreateRequestVnetConfiguration) ACIServiceCreateRequestVnetConfiguration { return *v }).(ACIServiceCreateRequestVnetConfigurationOutput)
 }
 
 // The name of the virtual network subnet.
@@ -888,7 +872,7 @@ func (o ACIServiceResponseResponseDataCollectionOutput) ToACIServiceResponseResp
 }
 
 func (o ACIServiceResponseResponseDataCollectionOutput) ToACIServiceResponseResponseDataCollectionPtrOutputWithContext(ctx context.Context) ACIServiceResponseResponseDataCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceResponseResponseDataCollection) *ACIServiceResponseResponseDataCollection {
+	return o.ApplyT(func(v ACIServiceResponseResponseDataCollection) *ACIServiceResponseResponseDataCollection {
 		return &v
 	}).(ACIServiceResponseResponseDataCollectionPtrOutput)
 }
@@ -918,13 +902,7 @@ func (o ACIServiceResponseResponseDataCollectionPtrOutput) ToACIServiceResponseR
 }
 
 func (o ACIServiceResponseResponseDataCollectionPtrOutput) Elem() ACIServiceResponseResponseDataCollectionOutput {
-	return o.ApplyT(func(v *ACIServiceResponseResponseDataCollection) ACIServiceResponseResponseDataCollection {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceResponseResponseDataCollection
-		return ret
-	}).(ACIServiceResponseResponseDataCollectionOutput)
+	return o.ApplyT(func(v *ACIServiceResponseResponseDataCollection) ACIServiceResponseResponseDataCollection { return *v }).(ACIServiceResponseResponseDataCollectionOutput)
 }
 
 // Option for enabling/disabling Event Hub.
@@ -1051,7 +1029,7 @@ func (o ACIServiceResponseResponseEncryptionPropertiesOutput) ToACIServiceRespon
 }
 
 func (o ACIServiceResponseResponseEncryptionPropertiesOutput) ToACIServiceResponseResponseEncryptionPropertiesPtrOutputWithContext(ctx context.Context) ACIServiceResponseResponseEncryptionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceResponseResponseEncryptionProperties) *ACIServiceResponseResponseEncryptionProperties {
+	return o.ApplyT(func(v ACIServiceResponseResponseEncryptionProperties) *ACIServiceResponseResponseEncryptionProperties {
 		return &v
 	}).(ACIServiceResponseResponseEncryptionPropertiesPtrOutput)
 }
@@ -1087,11 +1065,7 @@ func (o ACIServiceResponseResponseEncryptionPropertiesPtrOutput) ToACIServiceRes
 
 func (o ACIServiceResponseResponseEncryptionPropertiesPtrOutput) Elem() ACIServiceResponseResponseEncryptionPropertiesOutput {
 	return o.ApplyT(func(v *ACIServiceResponseResponseEncryptionProperties) ACIServiceResponseResponseEncryptionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceResponseResponseEncryptionProperties
-		return ret
+		return *v
 	}).(ACIServiceResponseResponseEncryptionPropertiesOutput)
 }
 
@@ -1241,7 +1215,7 @@ func (o ACIServiceResponseResponseEnvironmentImageRequestOutput) ToACIServiceRes
 }
 
 func (o ACIServiceResponseResponseEnvironmentImageRequestOutput) ToACIServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) ACIServiceResponseResponseEnvironmentImageRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceResponseResponseEnvironmentImageRequest) *ACIServiceResponseResponseEnvironmentImageRequest {
+	return o.ApplyT(func(v ACIServiceResponseResponseEnvironmentImageRequest) *ACIServiceResponseResponseEnvironmentImageRequest {
 		return &v
 	}).(ACIServiceResponseResponseEnvironmentImageRequestPtrOutput)
 }
@@ -1296,11 +1270,7 @@ func (o ACIServiceResponseResponseEnvironmentImageRequestPtrOutput) ToACIService
 
 func (o ACIServiceResponseResponseEnvironmentImageRequestPtrOutput) Elem() ACIServiceResponseResponseEnvironmentImageRequestOutput {
 	return o.ApplyT(func(v *ACIServiceResponseResponseEnvironmentImageRequest) ACIServiceResponseResponseEnvironmentImageRequest {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceResponseResponseEnvironmentImageRequest
-		return ret
+		return *v
 	}).(ACIServiceResponseResponseEnvironmentImageRequestOutput)
 }
 
@@ -1464,7 +1434,7 @@ func (o ACIServiceResponseResponseVnetConfigurationOutput) ToACIServiceResponseR
 }
 
 func (o ACIServiceResponseResponseVnetConfigurationOutput) ToACIServiceResponseResponseVnetConfigurationPtrOutputWithContext(ctx context.Context) ACIServiceResponseResponseVnetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ACIServiceResponseResponseVnetConfiguration) *ACIServiceResponseResponseVnetConfiguration {
+	return o.ApplyT(func(v ACIServiceResponseResponseVnetConfiguration) *ACIServiceResponseResponseVnetConfiguration {
 		return &v
 	}).(ACIServiceResponseResponseVnetConfigurationPtrOutput)
 }
@@ -1495,11 +1465,7 @@ func (o ACIServiceResponseResponseVnetConfigurationPtrOutput) ToACIServiceRespon
 
 func (o ACIServiceResponseResponseVnetConfigurationPtrOutput) Elem() ACIServiceResponseResponseVnetConfigurationOutput {
 	return o.ApplyT(func(v *ACIServiceResponseResponseVnetConfiguration) ACIServiceResponseResponseVnetConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ACIServiceResponseResponseVnetConfiguration
-		return ret
+		return *v
 	}).(ACIServiceResponseResponseVnetConfigurationOutput)
 }
 
@@ -1729,7 +1695,7 @@ func (o AKSPropertiesOutput) ToAKSPropertiesPtrOutput() AKSPropertiesPtrOutput {
 }
 
 func (o AKSPropertiesOutput) ToAKSPropertiesPtrOutputWithContext(ctx context.Context) AKSPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSProperties) *AKSProperties {
+	return o.ApplyT(func(v AKSProperties) *AKSProperties {
 		return &v
 	}).(AKSPropertiesPtrOutput)
 }
@@ -1774,13 +1740,7 @@ func (o AKSPropertiesPtrOutput) ToAKSPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o AKSPropertiesPtrOutput) Elem() AKSPropertiesOutput {
-	return o.ApplyT(func(v *AKSProperties) AKSProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AKSProperties
-		return ret
-	}).(AKSPropertiesOutput)
+	return o.ApplyT(func(v *AKSProperties) AKSProperties { return *v }).(AKSPropertiesOutput)
 }
 
 // Number of agents
@@ -1937,7 +1897,7 @@ func (o AKSReplicaStatusResponseErrorOutput) ToAKSReplicaStatusResponseErrorPtrO
 }
 
 func (o AKSReplicaStatusResponseErrorOutput) ToAKSReplicaStatusResponseErrorPtrOutputWithContext(ctx context.Context) AKSReplicaStatusResponseErrorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSReplicaStatusResponseError) *AKSReplicaStatusResponseError {
+	return o.ApplyT(func(v AKSReplicaStatusResponseError) *AKSReplicaStatusResponseError {
 		return &v
 	}).(AKSReplicaStatusResponseErrorPtrOutput)
 }
@@ -1972,13 +1932,7 @@ func (o AKSReplicaStatusResponseErrorPtrOutput) ToAKSReplicaStatusResponseErrorP
 }
 
 func (o AKSReplicaStatusResponseErrorPtrOutput) Elem() AKSReplicaStatusResponseErrorOutput {
-	return o.ApplyT(func(v *AKSReplicaStatusResponseError) AKSReplicaStatusResponseError {
-		if v != nil {
-			return *v
-		}
-		var ret AKSReplicaStatusResponseError
-		return ret
-	}).(AKSReplicaStatusResponseErrorOutput)
+	return o.ApplyT(func(v *AKSReplicaStatusResponseError) AKSReplicaStatusResponseError { return *v }).(AKSReplicaStatusResponseErrorOutput)
 }
 
 // Error code.
@@ -2266,7 +2220,7 @@ func (o AKSResponsePropertiesOutput) ToAKSResponsePropertiesPtrOutput() AKSRespo
 }
 
 func (o AKSResponsePropertiesOutput) ToAKSResponsePropertiesPtrOutputWithContext(ctx context.Context) AKSResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSResponseProperties) *AKSResponseProperties {
+	return o.ApplyT(func(v AKSResponseProperties) *AKSResponseProperties {
 		return &v
 	}).(AKSResponsePropertiesPtrOutput)
 }
@@ -2316,13 +2270,7 @@ func (o AKSResponsePropertiesPtrOutput) ToAKSResponsePropertiesPtrOutputWithCont
 }
 
 func (o AKSResponsePropertiesPtrOutput) Elem() AKSResponsePropertiesOutput {
-	return o.ApplyT(func(v *AKSResponseProperties) AKSResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AKSResponseProperties
-		return ret
-	}).(AKSResponsePropertiesOutput)
+	return o.ApplyT(func(v *AKSResponseProperties) AKSResponseProperties { return *v }).(AKSResponsePropertiesOutput)
 }
 
 // Number of agents
@@ -2497,7 +2445,7 @@ func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoSc
 }
 
 func (o AKSServiceCreateRequestAutoScalerOutput) ToAKSServiceCreateRequestAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestAutoScalerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceCreateRequestAutoScaler) *AKSServiceCreateRequestAutoScaler {
+	return o.ApplyT(func(v AKSServiceCreateRequestAutoScaler) *AKSServiceCreateRequestAutoScaler {
 		return &v
 	}).(AKSServiceCreateRequestAutoScalerPtrOutput)
 }
@@ -2542,13 +2490,7 @@ func (o AKSServiceCreateRequestAutoScalerPtrOutput) ToAKSServiceCreateRequestAut
 }
 
 func (o AKSServiceCreateRequestAutoScalerPtrOutput) Elem() AKSServiceCreateRequestAutoScalerOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) AKSServiceCreateRequestAutoScaler {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceCreateRequestAutoScaler
-		return ret
-	}).(AKSServiceCreateRequestAutoScalerOutput)
+	return o.ApplyT(func(v *AKSServiceCreateRequestAutoScaler) AKSServiceCreateRequestAutoScaler { return *v }).(AKSServiceCreateRequestAutoScalerOutput)
 }
 
 // Option to enable/disable auto scaling.
@@ -2701,7 +2643,7 @@ func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDa
 }
 
 func (o AKSServiceCreateRequestDataCollectionOutput) ToAKSServiceCreateRequestDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestDataCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceCreateRequestDataCollection) *AKSServiceCreateRequestDataCollection {
+	return o.ApplyT(func(v AKSServiceCreateRequestDataCollection) *AKSServiceCreateRequestDataCollection {
 		return &v
 	}).(AKSServiceCreateRequestDataCollectionPtrOutput)
 }
@@ -2731,13 +2673,7 @@ func (o AKSServiceCreateRequestDataCollectionPtrOutput) ToAKSServiceCreateReques
 }
 
 func (o AKSServiceCreateRequestDataCollectionPtrOutput) Elem() AKSServiceCreateRequestDataCollectionOutput {
-	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) AKSServiceCreateRequestDataCollection {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceCreateRequestDataCollection
-		return ret
-	}).(AKSServiceCreateRequestDataCollectionOutput)
+	return o.ApplyT(func(v *AKSServiceCreateRequestDataCollection) AKSServiceCreateRequestDataCollection { return *v }).(AKSServiceCreateRequestDataCollectionOutput)
 }
 
 // Option for enabling/disabling Event Hub.
@@ -2872,7 +2808,7 @@ func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCrea
 }
 
 func (o AKSServiceCreateRequestLivenessProbeRequirementsOutput) ToAKSServiceCreateRequestLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceCreateRequestLivenessProbeRequirements) *AKSServiceCreateRequestLivenessProbeRequirements {
+	return o.ApplyT(func(v AKSServiceCreateRequestLivenessProbeRequirements) *AKSServiceCreateRequestLivenessProbeRequirements {
 		return &v
 	}).(AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput)
 }
@@ -2918,11 +2854,7 @@ func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) ToAKSServiceC
 
 func (o AKSServiceCreateRequestLivenessProbeRequirementsPtrOutput) Elem() AKSServiceCreateRequestLivenessProbeRequirementsOutput {
 	return o.ApplyT(func(v *AKSServiceCreateRequestLivenessProbeRequirements) AKSServiceCreateRequestLivenessProbeRequirements {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceCreateRequestLivenessProbeRequirements
-		return ret
+		return *v
 	}).(AKSServiceCreateRequestLivenessProbeRequirementsOutput)
 }
 
@@ -3406,7 +3338,7 @@ func (o AKSServiceResponseResponseAutoScalerOutput) ToAKSServiceResponseResponse
 }
 
 func (o AKSServiceResponseResponseAutoScalerOutput) ToAKSServiceResponseResponseAutoScalerPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseAutoScalerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceResponseResponseAutoScaler) *AKSServiceResponseResponseAutoScaler {
+	return o.ApplyT(func(v AKSServiceResponseResponseAutoScaler) *AKSServiceResponseResponseAutoScaler {
 		return &v
 	}).(AKSServiceResponseResponseAutoScalerPtrOutput)
 }
@@ -3451,13 +3383,7 @@ func (o AKSServiceResponseResponseAutoScalerPtrOutput) ToAKSServiceResponseRespo
 }
 
 func (o AKSServiceResponseResponseAutoScalerPtrOutput) Elem() AKSServiceResponseResponseAutoScalerOutput {
-	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) AKSServiceResponseResponseAutoScaler {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceResponseResponseAutoScaler
-		return ret
-	}).(AKSServiceResponseResponseAutoScalerOutput)
+	return o.ApplyT(func(v *AKSServiceResponseResponseAutoScaler) AKSServiceResponseResponseAutoScaler { return *v }).(AKSServiceResponseResponseAutoScalerOutput)
 }
 
 // Option to enable/disable auto scaling.
@@ -3610,7 +3536,7 @@ func (o AKSServiceResponseResponseDataCollectionOutput) ToAKSServiceResponseResp
 }
 
 func (o AKSServiceResponseResponseDataCollectionOutput) ToAKSServiceResponseResponseDataCollectionPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseDataCollectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceResponseResponseDataCollection) *AKSServiceResponseResponseDataCollection {
+	return o.ApplyT(func(v AKSServiceResponseResponseDataCollection) *AKSServiceResponseResponseDataCollection {
 		return &v
 	}).(AKSServiceResponseResponseDataCollectionPtrOutput)
 }
@@ -3640,13 +3566,7 @@ func (o AKSServiceResponseResponseDataCollectionPtrOutput) ToAKSServiceResponseR
 }
 
 func (o AKSServiceResponseResponseDataCollectionPtrOutput) Elem() AKSServiceResponseResponseDataCollectionOutput {
-	return o.ApplyT(func(v *AKSServiceResponseResponseDataCollection) AKSServiceResponseResponseDataCollection {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceResponseResponseDataCollection
-		return ret
-	}).(AKSServiceResponseResponseDataCollectionOutput)
+	return o.ApplyT(func(v *AKSServiceResponseResponseDataCollection) AKSServiceResponseResponseDataCollection { return *v }).(AKSServiceResponseResponseDataCollectionOutput)
 }
 
 // Option for enabling/disabling Event Hub.
@@ -3867,7 +3787,7 @@ func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) ToAKSServiceRes
 }
 
 func (o AKSServiceResponseResponseEnvironmentImageRequestOutput) ToAKSServiceResponseResponseEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseEnvironmentImageRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceResponseResponseEnvironmentImageRequest) *AKSServiceResponseResponseEnvironmentImageRequest {
+	return o.ApplyT(func(v AKSServiceResponseResponseEnvironmentImageRequest) *AKSServiceResponseResponseEnvironmentImageRequest {
 		return &v
 	}).(AKSServiceResponseResponseEnvironmentImageRequestPtrOutput)
 }
@@ -3922,11 +3842,7 @@ func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) ToAKSService
 
 func (o AKSServiceResponseResponseEnvironmentImageRequestPtrOutput) Elem() AKSServiceResponseResponseEnvironmentImageRequestOutput {
 	return o.ApplyT(func(v *AKSServiceResponseResponseEnvironmentImageRequest) AKSServiceResponseResponseEnvironmentImageRequest {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceResponseResponseEnvironmentImageRequest
-		return ret
+		return *v
 	}).(AKSServiceResponseResponseEnvironmentImageRequestOutput)
 }
 
@@ -4102,7 +4018,7 @@ func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) ToAKSServiceR
 }
 
 func (o AKSServiceResponseResponseLivenessProbeRequirementsOutput) ToAKSServiceResponseResponseLivenessProbeRequirementsPtrOutputWithContext(ctx context.Context) AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSServiceResponseResponseLivenessProbeRequirements) *AKSServiceResponseResponseLivenessProbeRequirements {
+	return o.ApplyT(func(v AKSServiceResponseResponseLivenessProbeRequirements) *AKSServiceResponseResponseLivenessProbeRequirements {
 		return &v
 	}).(AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput)
 }
@@ -4148,11 +4064,7 @@ func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) ToAKSServi
 
 func (o AKSServiceResponseResponseLivenessProbeRequirementsPtrOutput) Elem() AKSServiceResponseResponseLivenessProbeRequirementsOutput {
 	return o.ApplyT(func(v *AKSServiceResponseResponseLivenessProbeRequirements) AKSServiceResponseResponseLivenessProbeRequirements {
-		if v != nil {
-			return *v
-		}
-		var ret AKSServiceResponseResponseLivenessProbeRequirements
-		return ret
+		return *v
 	}).(AKSServiceResponseResponseLivenessProbeRequirementsOutput)
 }
 
@@ -4453,7 +4365,7 @@ func (o AksNetworkingConfigurationOutput) ToAksNetworkingConfigurationPtrOutput(
 }
 
 func (o AksNetworkingConfigurationOutput) ToAksNetworkingConfigurationPtrOutputWithContext(ctx context.Context) AksNetworkingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AksNetworkingConfiguration) *AksNetworkingConfiguration {
+	return o.ApplyT(func(v AksNetworkingConfiguration) *AksNetworkingConfiguration {
 		return &v
 	}).(AksNetworkingConfigurationPtrOutput)
 }
@@ -4493,13 +4405,7 @@ func (o AksNetworkingConfigurationPtrOutput) ToAksNetworkingConfigurationPtrOutp
 }
 
 func (o AksNetworkingConfigurationPtrOutput) Elem() AksNetworkingConfigurationOutput {
-	return o.ApplyT(func(v *AksNetworkingConfiguration) AksNetworkingConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AksNetworkingConfiguration
-		return ret
-	}).(AksNetworkingConfigurationOutput)
+	return o.ApplyT(func(v *AksNetworkingConfiguration) AksNetworkingConfiguration { return *v }).(AksNetworkingConfigurationOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -4650,7 +4556,7 @@ func (o AksNetworkingConfigurationResponseOutput) ToAksNetworkingConfigurationRe
 }
 
 func (o AksNetworkingConfigurationResponseOutput) ToAksNetworkingConfigurationResponsePtrOutputWithContext(ctx context.Context) AksNetworkingConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AksNetworkingConfigurationResponse) *AksNetworkingConfigurationResponse {
+	return o.ApplyT(func(v AksNetworkingConfigurationResponse) *AksNetworkingConfigurationResponse {
 		return &v
 	}).(AksNetworkingConfigurationResponsePtrOutput)
 }
@@ -4690,13 +4596,7 @@ func (o AksNetworkingConfigurationResponsePtrOutput) ToAksNetworkingConfiguratio
 }
 
 func (o AksNetworkingConfigurationResponsePtrOutput) Elem() AksNetworkingConfigurationResponseOutput {
-	return o.ApplyT(func(v *AksNetworkingConfigurationResponse) AksNetworkingConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AksNetworkingConfigurationResponse
-		return ret
-	}).(AksNetworkingConfigurationResponseOutput)
+	return o.ApplyT(func(v *AksNetworkingConfigurationResponse) AksNetworkingConfigurationResponse { return *v }).(AksNetworkingConfigurationResponseOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -5110,7 +5010,7 @@ func (o AmlComputePropertiesOutput) ToAmlComputePropertiesPtrOutput() AmlCompute
 }
 
 func (o AmlComputePropertiesOutput) ToAmlComputePropertiesPtrOutputWithContext(ctx context.Context) AmlComputePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AmlComputeProperties) *AmlComputeProperties {
+	return o.ApplyT(func(v AmlComputeProperties) *AmlComputeProperties {
 		return &v
 	}).(AmlComputePropertiesPtrOutput)
 }
@@ -5180,13 +5080,7 @@ func (o AmlComputePropertiesPtrOutput) ToAmlComputePropertiesPtrOutputWithContex
 }
 
 func (o AmlComputePropertiesPtrOutput) Elem() AmlComputePropertiesOutput {
-	return o.ApplyT(func(v *AmlComputeProperties) AmlComputeProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AmlComputeProperties
-		return ret
-	}).(AmlComputePropertiesOutput)
+	return o.ApplyT(func(v *AmlComputeProperties) AmlComputeProperties { return *v }).(AmlComputePropertiesOutput)
 }
 
 // Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
@@ -5584,7 +5478,7 @@ func (o AmlComputeResponsePropertiesOutput) ToAmlComputeResponsePropertiesPtrOut
 }
 
 func (o AmlComputeResponsePropertiesOutput) ToAmlComputeResponsePropertiesPtrOutputWithContext(ctx context.Context) AmlComputeResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AmlComputeResponseProperties) *AmlComputeResponseProperties {
+	return o.ApplyT(func(v AmlComputeResponseProperties) *AmlComputeResponseProperties {
 		return &v
 	}).(AmlComputeResponsePropertiesPtrOutput)
 }
@@ -5684,13 +5578,7 @@ func (o AmlComputeResponsePropertiesPtrOutput) ToAmlComputeResponsePropertiesPtr
 }
 
 func (o AmlComputeResponsePropertiesPtrOutput) Elem() AmlComputeResponsePropertiesOutput {
-	return o.ApplyT(func(v *AmlComputeResponseProperties) AmlComputeResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AmlComputeResponseProperties
-		return ret
-	}).(AmlComputeResponsePropertiesOutput)
+	return o.ApplyT(func(v *AmlComputeResponseProperties) AmlComputeResponseProperties { return *v }).(AmlComputeResponsePropertiesOutput)
 }
 
 // Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
@@ -5953,7 +5841,7 @@ func (o AssignedUserOutput) ToAssignedUserPtrOutput() AssignedUserPtrOutput {
 }
 
 func (o AssignedUserOutput) ToAssignedUserPtrOutputWithContext(ctx context.Context) AssignedUserPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignedUser) *AssignedUser {
+	return o.ApplyT(func(v AssignedUser) *AssignedUser {
 		return &v
 	}).(AssignedUserPtrOutput)
 }
@@ -5983,13 +5871,7 @@ func (o AssignedUserPtrOutput) ToAssignedUserPtrOutputWithContext(ctx context.Co
 }
 
 func (o AssignedUserPtrOutput) Elem() AssignedUserOutput {
-	return o.ApplyT(func(v *AssignedUser) AssignedUser {
-		if v != nil {
-			return *v
-		}
-		var ret AssignedUser
-		return ret
-	}).(AssignedUserOutput)
+	return o.ApplyT(func(v *AssignedUser) AssignedUser { return *v }).(AssignedUserOutput)
 }
 
 // User’s AAD Object Id.
@@ -6112,7 +5994,7 @@ func (o AssignedUserResponseOutput) ToAssignedUserResponsePtrOutput() AssignedUs
 }
 
 func (o AssignedUserResponseOutput) ToAssignedUserResponsePtrOutputWithContext(ctx context.Context) AssignedUserResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignedUserResponse) *AssignedUserResponse {
+	return o.ApplyT(func(v AssignedUserResponse) *AssignedUserResponse {
 		return &v
 	}).(AssignedUserResponsePtrOutput)
 }
@@ -6142,13 +6024,7 @@ func (o AssignedUserResponsePtrOutput) ToAssignedUserResponsePtrOutputWithContex
 }
 
 func (o AssignedUserResponsePtrOutput) Elem() AssignedUserResponseOutput {
-	return o.ApplyT(func(v *AssignedUserResponse) AssignedUserResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AssignedUserResponse
-		return ret
-	}).(AssignedUserResponseOutput)
+	return o.ApplyT(func(v *AssignedUserResponse) AssignedUserResponse { return *v }).(AssignedUserResponseOutput)
 }
 
 // User’s AAD Object Id.
@@ -6271,7 +6147,7 @@ func (o ComputeBindingOutput) ToComputeBindingPtrOutput() ComputeBindingPtrOutpu
 }
 
 func (o ComputeBindingOutput) ToComputeBindingPtrOutputWithContext(ctx context.Context) ComputeBindingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeBinding) *ComputeBinding {
+	return o.ApplyT(func(v ComputeBinding) *ComputeBinding {
 		return &v
 	}).(ComputeBindingPtrOutput)
 }
@@ -6301,13 +6177,7 @@ func (o ComputeBindingPtrOutput) ToComputeBindingPtrOutputWithContext(ctx contex
 }
 
 func (o ComputeBindingPtrOutput) Elem() ComputeBindingOutput {
-	return o.ApplyT(func(v *ComputeBinding) ComputeBinding {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeBinding
-		return ret
-	}).(ComputeBindingOutput)
+	return o.ApplyT(func(v *ComputeBinding) ComputeBinding { return *v }).(ComputeBindingOutput)
 }
 
 // ID of the compute resource.
@@ -6430,7 +6300,7 @@ func (o ComputeBindingResponseOutput) ToComputeBindingResponsePtrOutput() Comput
 }
 
 func (o ComputeBindingResponseOutput) ToComputeBindingResponsePtrOutputWithContext(ctx context.Context) ComputeBindingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeBindingResponse) *ComputeBindingResponse {
+	return o.ApplyT(func(v ComputeBindingResponse) *ComputeBindingResponse {
 		return &v
 	}).(ComputeBindingResponsePtrOutput)
 }
@@ -6460,13 +6330,7 @@ func (o ComputeBindingResponsePtrOutput) ToComputeBindingResponsePtrOutputWithCo
 }
 
 func (o ComputeBindingResponsePtrOutput) Elem() ComputeBindingResponseOutput {
-	return o.ApplyT(func(v *ComputeBindingResponse) ComputeBindingResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeBindingResponse
-		return ret
-	}).(ComputeBindingResponseOutput)
+	return o.ApplyT(func(v *ComputeBindingResponse) ComputeBindingResponse { return *v }).(ComputeBindingResponseOutput)
 }
 
 // ID of the compute resource.
@@ -6792,7 +6656,7 @@ func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceCon
 }
 
 func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceConnectivityEndpointsResponse) *ComputeInstanceConnectivityEndpointsResponse {
+	return o.ApplyT(func(v ComputeInstanceConnectivityEndpointsResponse) *ComputeInstanceConnectivityEndpointsResponse {
 		return &v
 	}).(ComputeInstanceConnectivityEndpointsResponsePtrOutput)
 }
@@ -6823,11 +6687,7 @@ func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) ToComputeInstance
 
 func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) Elem() ComputeInstanceConnectivityEndpointsResponseOutput {
 	return o.ApplyT(func(v *ComputeInstanceConnectivityEndpointsResponse) ComputeInstanceConnectivityEndpointsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceConnectivityEndpointsResponse
-		return ret
+		return *v
 	}).(ComputeInstanceConnectivityEndpointsResponseOutput)
 }
 
@@ -6955,7 +6815,7 @@ func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByRespon
 }
 
 func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceCreatedByResponse) *ComputeInstanceCreatedByResponse {
+	return o.ApplyT(func(v ComputeInstanceCreatedByResponse) *ComputeInstanceCreatedByResponse {
 		return &v
 	}).(ComputeInstanceCreatedByResponsePtrOutput)
 }
@@ -6990,13 +6850,7 @@ func (o ComputeInstanceCreatedByResponsePtrOutput) ToComputeInstanceCreatedByRes
 }
 
 func (o ComputeInstanceCreatedByResponsePtrOutput) Elem() ComputeInstanceCreatedByResponseOutput {
-	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) ComputeInstanceCreatedByResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceCreatedByResponse
-		return ret
-	}).(ComputeInstanceCreatedByResponseOutput)
+	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) ComputeInstanceCreatedByResponse { return *v }).(ComputeInstanceCreatedByResponseOutput)
 }
 
 // Uniquely identifies the user within his/her organization.
@@ -7133,7 +6987,7 @@ func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperati
 }
 
 func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceLastOperationResponse) *ComputeInstanceLastOperationResponse {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *ComputeInstanceLastOperationResponse {
 		return &v
 	}).(ComputeInstanceLastOperationResponsePtrOutput)
 }
@@ -7168,13 +7022,7 @@ func (o ComputeInstanceLastOperationResponsePtrOutput) ToComputeInstanceLastOper
 }
 
 func (o ComputeInstanceLastOperationResponsePtrOutput) Elem() ComputeInstanceLastOperationResponseOutput {
-	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) ComputeInstanceLastOperationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceLastOperationResponse
-		return ret
-	}).(ComputeInstanceLastOperationResponseOutput)
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) ComputeInstanceLastOperationResponse { return *v }).(ComputeInstanceLastOperationResponseOutput)
 }
 
 // Name of the last operation.
@@ -7327,7 +7175,7 @@ func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesPtrOutput() 
 }
 
 func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstancePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceProperties) *ComputeInstanceProperties {
+	return o.ApplyT(func(v ComputeInstanceProperties) *ComputeInstanceProperties {
 		return &v
 	}).(ComputeInstancePropertiesPtrOutput)
 }
@@ -7384,13 +7232,7 @@ func (o ComputeInstancePropertiesPtrOutput) ToComputeInstancePropertiesPtrOutput
 }
 
 func (o ComputeInstancePropertiesPtrOutput) Elem() ComputeInstancePropertiesOutput {
-	return o.ApplyT(func(v *ComputeInstanceProperties) ComputeInstanceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceProperties
-		return ret
-	}).(ComputeInstancePropertiesOutput)
+	return o.ApplyT(func(v *ComputeInstanceProperties) ComputeInstanceProperties { return *v }).(ComputeInstancePropertiesOutput)
 }
 
 // Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
@@ -7746,7 +7588,7 @@ func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponseProper
 }
 
 func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponsePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceResponseProperties) *ComputeInstanceResponseProperties {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ComputeInstanceResponseProperties {
 		return &v
 	}).(ComputeInstanceResponsePropertiesPtrOutput)
 }
@@ -7835,13 +7677,7 @@ func (o ComputeInstanceResponsePropertiesPtrOutput) ToComputeInstanceResponsePro
 }
 
 func (o ComputeInstanceResponsePropertiesPtrOutput) Elem() ComputeInstanceResponsePropertiesOutput {
-	return o.ApplyT(func(v *ComputeInstanceResponseProperties) ComputeInstanceResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceResponseProperties
-		return ret
-	}).(ComputeInstanceResponsePropertiesOutput)
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) ComputeInstanceResponseProperties { return *v }).(ComputeInstanceResponsePropertiesOutput)
 }
 
 // Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
@@ -8074,7 +7910,7 @@ func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsPtrOutput(
 }
 
 func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsPtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceSshSettings) *ComputeInstanceSshSettings {
+	return o.ApplyT(func(v ComputeInstanceSshSettings) *ComputeInstanceSshSettings {
 		return &v
 	}).(ComputeInstanceSshSettingsPtrOutput)
 }
@@ -8104,13 +7940,7 @@ func (o ComputeInstanceSshSettingsPtrOutput) ToComputeInstanceSshSettingsPtrOutp
 }
 
 func (o ComputeInstanceSshSettingsPtrOutput) Elem() ComputeInstanceSshSettingsOutput {
-	return o.ApplyT(func(v *ComputeInstanceSshSettings) ComputeInstanceSshSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceSshSettings
-		return ret
-	}).(ComputeInstanceSshSettingsOutput)
+	return o.ApplyT(func(v *ComputeInstanceSshSettings) ComputeInstanceSshSettings { return *v }).(ComputeInstanceSshSettingsOutput)
 }
 
 // Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
@@ -8241,7 +8071,7 @@ func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsRe
 }
 
 func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceSshSettingsResponse) *ComputeInstanceSshSettingsResponse {
+	return o.ApplyT(func(v ComputeInstanceSshSettingsResponse) *ComputeInstanceSshSettingsResponse {
 		return &v
 	}).(ComputeInstanceSshSettingsResponsePtrOutput)
 }
@@ -8281,13 +8111,7 @@ func (o ComputeInstanceSshSettingsResponsePtrOutput) ToComputeInstanceSshSetting
 }
 
 func (o ComputeInstanceSshSettingsResponsePtrOutput) Elem() ComputeInstanceSshSettingsResponseOutput {
-	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) ComputeInstanceSshSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceSshSettingsResponse
-		return ret
-	}).(ComputeInstanceSshSettingsResponseOutput)
+	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) ComputeInstanceSshSettingsResponse { return *v }).(ComputeInstanceSshSettingsResponseOutput)
 }
 
 // Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
@@ -8438,7 +8262,7 @@ func (o ContainerResourceRequirementsOutput) ToContainerResourceRequirementsPtrO
 }
 
 func (o ContainerResourceRequirementsOutput) ToContainerResourceRequirementsPtrOutputWithContext(ctx context.Context) ContainerResourceRequirementsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerResourceRequirements) *ContainerResourceRequirements {
+	return o.ApplyT(func(v ContainerResourceRequirements) *ContainerResourceRequirements {
 		return &v
 	}).(ContainerResourceRequirementsPtrOutput)
 }
@@ -8478,13 +8302,7 @@ func (o ContainerResourceRequirementsPtrOutput) ToContainerResourceRequirementsP
 }
 
 func (o ContainerResourceRequirementsPtrOutput) Elem() ContainerResourceRequirementsOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirements) ContainerResourceRequirements {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerResourceRequirements
-		return ret
-	}).(ContainerResourceRequirementsOutput)
+	return o.ApplyT(func(v *ContainerResourceRequirements) ContainerResourceRequirements { return *v }).(ContainerResourceRequirementsOutput)
 }
 
 // The number of CPU cores on the container.
@@ -8635,7 +8453,7 @@ func (o ContainerResourceRequirementsResponseOutput) ToContainerResourceRequirem
 }
 
 func (o ContainerResourceRequirementsResponseOutput) ToContainerResourceRequirementsResponsePtrOutputWithContext(ctx context.Context) ContainerResourceRequirementsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerResourceRequirementsResponse) *ContainerResourceRequirementsResponse {
+	return o.ApplyT(func(v ContainerResourceRequirementsResponse) *ContainerResourceRequirementsResponse {
 		return &v
 	}).(ContainerResourceRequirementsResponsePtrOutput)
 }
@@ -8675,13 +8493,7 @@ func (o ContainerResourceRequirementsResponsePtrOutput) ToContainerResourceRequi
 }
 
 func (o ContainerResourceRequirementsResponsePtrOutput) Elem() ContainerResourceRequirementsResponseOutput {
-	return o.ApplyT(func(v *ContainerResourceRequirementsResponse) ContainerResourceRequirementsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerResourceRequirementsResponse
-		return ret
-	}).(ContainerResourceRequirementsResponseOutput)
+	return o.ApplyT(func(v *ContainerResourceRequirementsResponse) ContainerResourceRequirementsResponse { return *v }).(ContainerResourceRequirementsResponseOutput)
 }
 
 // The number of CPU cores on the container.
@@ -8840,7 +8652,7 @@ func (o CreateServiceRequestEnvironmentImageRequestOutput) ToCreateServiceReques
 }
 
 func (o CreateServiceRequestEnvironmentImageRequestOutput) ToCreateServiceRequestEnvironmentImageRequestPtrOutputWithContext(ctx context.Context) CreateServiceRequestEnvironmentImageRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateServiceRequestEnvironmentImageRequest) *CreateServiceRequestEnvironmentImageRequest {
+	return o.ApplyT(func(v CreateServiceRequestEnvironmentImageRequest) *CreateServiceRequestEnvironmentImageRequest {
 		return &v
 	}).(CreateServiceRequestEnvironmentImageRequestPtrOutput)
 }
@@ -8895,11 +8707,7 @@ func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) ToCreateServiceReq
 
 func (o CreateServiceRequestEnvironmentImageRequestPtrOutput) Elem() CreateServiceRequestEnvironmentImageRequestOutput {
 	return o.ApplyT(func(v *CreateServiceRequestEnvironmentImageRequest) CreateServiceRequestEnvironmentImageRequest {
-		if v != nil {
-			return *v
-		}
-		var ret CreateServiceRequestEnvironmentImageRequest
-		return ret
+		return *v
 	}).(CreateServiceRequestEnvironmentImageRequestOutput)
 }
 
@@ -9063,7 +8871,7 @@ func (o CreateServiceRequestKeysOutput) ToCreateServiceRequestKeysPtrOutput() Cr
 }
 
 func (o CreateServiceRequestKeysOutput) ToCreateServiceRequestKeysPtrOutputWithContext(ctx context.Context) CreateServiceRequestKeysPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateServiceRequestKeys) *CreateServiceRequestKeys {
+	return o.ApplyT(func(v CreateServiceRequestKeys) *CreateServiceRequestKeys {
 		return &v
 	}).(CreateServiceRequestKeysPtrOutput)
 }
@@ -9093,13 +8901,7 @@ func (o CreateServiceRequestKeysPtrOutput) ToCreateServiceRequestKeysPtrOutputWi
 }
 
 func (o CreateServiceRequestKeysPtrOutput) Elem() CreateServiceRequestKeysOutput {
-	return o.ApplyT(func(v *CreateServiceRequestKeys) CreateServiceRequestKeys {
-		if v != nil {
-			return *v
-		}
-		var ret CreateServiceRequestKeys
-		return ret
-	}).(CreateServiceRequestKeysOutput)
+	return o.ApplyT(func(v *CreateServiceRequestKeys) CreateServiceRequestKeys { return *v }).(CreateServiceRequestKeysOutput)
 }
 
 // The primary key.
@@ -9521,7 +9323,7 @@ func (o DataLakeAnalyticsPropertiesOutput) ToDataLakeAnalyticsPropertiesPtrOutpu
 }
 
 func (o DataLakeAnalyticsPropertiesOutput) ToDataLakeAnalyticsPropertiesPtrOutputWithContext(ctx context.Context) DataLakeAnalyticsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeAnalyticsProperties) *DataLakeAnalyticsProperties {
+	return o.ApplyT(func(v DataLakeAnalyticsProperties) *DataLakeAnalyticsProperties {
 		return &v
 	}).(DataLakeAnalyticsPropertiesPtrOutput)
 }
@@ -9546,13 +9348,7 @@ func (o DataLakeAnalyticsPropertiesPtrOutput) ToDataLakeAnalyticsPropertiesPtrOu
 }
 
 func (o DataLakeAnalyticsPropertiesPtrOutput) Elem() DataLakeAnalyticsPropertiesOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsProperties) DataLakeAnalyticsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DataLakeAnalyticsProperties
-		return ret
-	}).(DataLakeAnalyticsPropertiesOutput)
+	return o.ApplyT(func(v *DataLakeAnalyticsProperties) DataLakeAnalyticsProperties { return *v }).(DataLakeAnalyticsPropertiesOutput)
 }
 
 // DataLake Store Account Name
@@ -9794,7 +9590,7 @@ func (o DataLakeAnalyticsResponsePropertiesOutput) ToDataLakeAnalyticsResponsePr
 }
 
 func (o DataLakeAnalyticsResponsePropertiesOutput) ToDataLakeAnalyticsResponsePropertiesPtrOutputWithContext(ctx context.Context) DataLakeAnalyticsResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeAnalyticsResponseProperties) *DataLakeAnalyticsResponseProperties {
+	return o.ApplyT(func(v DataLakeAnalyticsResponseProperties) *DataLakeAnalyticsResponseProperties {
 		return &v
 	}).(DataLakeAnalyticsResponsePropertiesPtrOutput)
 }
@@ -9819,13 +9615,7 @@ func (o DataLakeAnalyticsResponsePropertiesPtrOutput) ToDataLakeAnalyticsRespons
 }
 
 func (o DataLakeAnalyticsResponsePropertiesPtrOutput) Elem() DataLakeAnalyticsResponsePropertiesOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsResponseProperties) DataLakeAnalyticsResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DataLakeAnalyticsResponseProperties
-		return ret
-	}).(DataLakeAnalyticsResponsePropertiesOutput)
+	return o.ApplyT(func(v *DataLakeAnalyticsResponseProperties) DataLakeAnalyticsResponseProperties { return *v }).(DataLakeAnalyticsResponsePropertiesOutput)
 }
 
 // DataLake Store Account Name
@@ -10022,7 +9812,7 @@ func (o DatabricksPropertiesOutput) ToDatabricksPropertiesPtrOutput() Databricks
 }
 
 func (o DatabricksPropertiesOutput) ToDatabricksPropertiesPtrOutputWithContext(ctx context.Context) DatabricksPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabricksProperties) *DatabricksProperties {
+	return o.ApplyT(func(v DatabricksProperties) *DatabricksProperties {
 		return &v
 	}).(DatabricksPropertiesPtrOutput)
 }
@@ -10047,13 +9837,7 @@ func (o DatabricksPropertiesPtrOutput) ToDatabricksPropertiesPtrOutputWithContex
 }
 
 func (o DatabricksPropertiesPtrOutput) Elem() DatabricksPropertiesOutput {
-	return o.ApplyT(func(v *DatabricksProperties) DatabricksProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DatabricksProperties
-		return ret
-	}).(DatabricksPropertiesOutput)
+	return o.ApplyT(func(v *DatabricksProperties) DatabricksProperties { return *v }).(DatabricksPropertiesOutput)
 }
 
 // Databricks access token
@@ -10295,7 +10079,7 @@ func (o DatabricksResponsePropertiesOutput) ToDatabricksResponsePropertiesPtrOut
 }
 
 func (o DatabricksResponsePropertiesOutput) ToDatabricksResponsePropertiesPtrOutputWithContext(ctx context.Context) DatabricksResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabricksResponseProperties) *DatabricksResponseProperties {
+	return o.ApplyT(func(v DatabricksResponseProperties) *DatabricksResponseProperties {
 		return &v
 	}).(DatabricksResponsePropertiesPtrOutput)
 }
@@ -10320,13 +10104,7 @@ func (o DatabricksResponsePropertiesPtrOutput) ToDatabricksResponsePropertiesPtr
 }
 
 func (o DatabricksResponsePropertiesPtrOutput) Elem() DatabricksResponsePropertiesOutput {
-	return o.ApplyT(func(v *DatabricksResponseProperties) DatabricksResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DatabricksResponseProperties
-		return ret
-	}).(DatabricksResponsePropertiesOutput)
+	return o.ApplyT(func(v *DatabricksResponseProperties) DatabricksResponseProperties { return *v }).(DatabricksResponsePropertiesOutput)
 }
 
 // Databricks access token
@@ -10654,7 +10432,7 @@ func (o EncryptionPropertyOutput) ToEncryptionPropertyPtrOutput() EncryptionProp
 }
 
 func (o EncryptionPropertyOutput) ToEncryptionPropertyPtrOutputWithContext(ctx context.Context) EncryptionPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionProperty) *EncryptionProperty {
+	return o.ApplyT(func(v EncryptionProperty) *EncryptionProperty {
 		return &v
 	}).(EncryptionPropertyPtrOutput)
 }
@@ -10684,13 +10462,7 @@ func (o EncryptionPropertyPtrOutput) ToEncryptionPropertyPtrOutputWithContext(ct
 }
 
 func (o EncryptionPropertyPtrOutput) Elem() EncryptionPropertyOutput {
-	return o.ApplyT(func(v *EncryptionProperty) EncryptionProperty {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionProperty
-		return ret
-	}).(EncryptionPropertyOutput)
+	return o.ApplyT(func(v *EncryptionProperty) EncryptionProperty { return *v }).(EncryptionPropertyOutput)
 }
 
 // Customer Key vault properties.
@@ -10810,7 +10582,7 @@ func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponsePtrOutput(
 }
 
 func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPropertyResponse) *EncryptionPropertyResponse {
+	return o.ApplyT(func(v EncryptionPropertyResponse) *EncryptionPropertyResponse {
 		return &v
 	}).(EncryptionPropertyResponsePtrOutput)
 }
@@ -10840,13 +10612,7 @@ func (o EncryptionPropertyResponsePtrOutput) ToEncryptionPropertyResponsePtrOutp
 }
 
 func (o EncryptionPropertyResponsePtrOutput) Elem() EncryptionPropertyResponseOutput {
-	return o.ApplyT(func(v *EncryptionPropertyResponse) EncryptionPropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionPropertyResponse
-		return ret
-	}).(EncryptionPropertyResponseOutput)
+	return o.ApplyT(func(v *EncryptionPropertyResponse) EncryptionPropertyResponse { return *v }).(EncryptionPropertyResponseOutput)
 }
 
 // Customer Key vault properties.
@@ -10993,7 +10759,7 @@ func (o EnvironmentImageRequestEnvironmentOutput) ToEnvironmentImageRequestEnvir
 }
 
 func (o EnvironmentImageRequestEnvironmentOutput) ToEnvironmentImageRequestEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentImageRequestEnvironment) *EnvironmentImageRequestEnvironment {
+	return o.ApplyT(func(v EnvironmentImageRequestEnvironment) *EnvironmentImageRequestEnvironment {
 		return &v
 	}).(EnvironmentImageRequestEnvironmentPtrOutput)
 }
@@ -11053,13 +10819,7 @@ func (o EnvironmentImageRequestEnvironmentPtrOutput) ToEnvironmentImageRequestEn
 }
 
 func (o EnvironmentImageRequestEnvironmentPtrOutput) Elem() EnvironmentImageRequestEnvironmentOutput {
-	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) EnvironmentImageRequestEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentImageRequestEnvironment
-		return ret
-	}).(EnvironmentImageRequestEnvironmentOutput)
+	return o.ApplyT(func(v *EnvironmentImageRequestEnvironment) EnvironmentImageRequestEnvironment { return *v }).(EnvironmentImageRequestEnvironmentOutput)
 }
 
 // The definition of a Docker container.
@@ -11242,7 +11002,7 @@ func (o EnvironmentImageRequestEnvironmentReferenceOutput) ToEnvironmentImageReq
 }
 
 func (o EnvironmentImageRequestEnvironmentReferenceOutput) ToEnvironmentImageRequestEnvironmentReferencePtrOutputWithContext(ctx context.Context) EnvironmentImageRequestEnvironmentReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentImageRequestEnvironmentReference) *EnvironmentImageRequestEnvironmentReference {
+	return o.ApplyT(func(v EnvironmentImageRequestEnvironmentReference) *EnvironmentImageRequestEnvironmentReference {
 		return &v
 	}).(EnvironmentImageRequestEnvironmentReferencePtrOutput)
 }
@@ -11273,11 +11033,7 @@ func (o EnvironmentImageRequestEnvironmentReferencePtrOutput) ToEnvironmentImage
 
 func (o EnvironmentImageRequestEnvironmentReferencePtrOutput) Elem() EnvironmentImageRequestEnvironmentReferenceOutput {
 	return o.ApplyT(func(v *EnvironmentImageRequestEnvironmentReference) EnvironmentImageRequestEnvironmentReference {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentImageRequestEnvironmentReference
-		return ret
+		return *v
 	}).(EnvironmentImageRequestEnvironmentReferenceOutput)
 }
 
@@ -11425,7 +11181,7 @@ func (o EnvironmentImageResponseResponseEnvironmentOutput) ToEnvironmentImageRes
 }
 
 func (o EnvironmentImageResponseResponseEnvironmentOutput) ToEnvironmentImageResponseResponseEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentImageResponseResponseEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentImageResponseResponseEnvironment) *EnvironmentImageResponseResponseEnvironment {
+	return o.ApplyT(func(v EnvironmentImageResponseResponseEnvironment) *EnvironmentImageResponseResponseEnvironment {
 		return &v
 	}).(EnvironmentImageResponseResponseEnvironmentPtrOutput)
 }
@@ -11494,11 +11250,7 @@ func (o EnvironmentImageResponseResponseEnvironmentPtrOutput) ToEnvironmentImage
 
 func (o EnvironmentImageResponseResponseEnvironmentPtrOutput) Elem() EnvironmentImageResponseResponseEnvironmentOutput {
 	return o.ApplyT(func(v *EnvironmentImageResponseResponseEnvironment) EnvironmentImageResponseResponseEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentImageResponseResponseEnvironment
-		return ret
+		return *v
 	}).(EnvironmentImageResponseResponseEnvironmentOutput)
 }
 
@@ -11682,7 +11434,7 @@ func (o EnvironmentImageResponseResponseEnvironmentReferenceOutput) ToEnvironmen
 }
 
 func (o EnvironmentImageResponseResponseEnvironmentReferenceOutput) ToEnvironmentImageResponseResponseEnvironmentReferencePtrOutputWithContext(ctx context.Context) EnvironmentImageResponseResponseEnvironmentReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentImageResponseResponseEnvironmentReference) *EnvironmentImageResponseResponseEnvironmentReference {
+	return o.ApplyT(func(v EnvironmentImageResponseResponseEnvironmentReference) *EnvironmentImageResponseResponseEnvironmentReference {
 		return &v
 	}).(EnvironmentImageResponseResponseEnvironmentReferencePtrOutput)
 }
@@ -11713,11 +11465,7 @@ func (o EnvironmentImageResponseResponseEnvironmentReferencePtrOutput) ToEnviron
 
 func (o EnvironmentImageResponseResponseEnvironmentReferencePtrOutput) Elem() EnvironmentImageResponseResponseEnvironmentReferenceOutput {
 	return o.ApplyT(func(v *EnvironmentImageResponseResponseEnvironmentReference) EnvironmentImageResponseResponseEnvironmentReference {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentImageResponseResponseEnvironmentReference
-		return ret
+		return *v
 	}).(EnvironmentImageResponseResponseEnvironmentReferenceOutput)
 }
 
@@ -12115,7 +11863,7 @@ func (o HDInsightPropertiesOutput) ToHDInsightPropertiesPtrOutput() HDInsightPro
 }
 
 func (o HDInsightPropertiesOutput) ToHDInsightPropertiesPtrOutputWithContext(ctx context.Context) HDInsightPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HDInsightProperties) *HDInsightProperties {
+	return o.ApplyT(func(v HDInsightProperties) *HDInsightProperties {
 		return &v
 	}).(HDInsightPropertiesPtrOutput)
 }
@@ -12150,13 +11898,7 @@ func (o HDInsightPropertiesPtrOutput) ToHDInsightPropertiesPtrOutputWithContext(
 }
 
 func (o HDInsightPropertiesPtrOutput) Elem() HDInsightPropertiesOutput {
-	return o.ApplyT(func(v *HDInsightProperties) HDInsightProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HDInsightProperties
-		return ret
-	}).(HDInsightPropertiesOutput)
+	return o.ApplyT(func(v *HDInsightProperties) HDInsightProperties { return *v }).(HDInsightPropertiesOutput)
 }
 
 // Public IP address of the master node of the cluster.
@@ -12426,7 +12168,7 @@ func (o HDInsightResponsePropertiesOutput) ToHDInsightResponsePropertiesPtrOutpu
 }
 
 func (o HDInsightResponsePropertiesOutput) ToHDInsightResponsePropertiesPtrOutputWithContext(ctx context.Context) HDInsightResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HDInsightResponseProperties) *HDInsightResponseProperties {
+	return o.ApplyT(func(v HDInsightResponseProperties) *HDInsightResponseProperties {
 		return &v
 	}).(HDInsightResponsePropertiesPtrOutput)
 }
@@ -12463,13 +12205,7 @@ func (o HDInsightResponsePropertiesPtrOutput) ToHDInsightResponsePropertiesPtrOu
 }
 
 func (o HDInsightResponsePropertiesPtrOutput) Elem() HDInsightResponsePropertiesOutput {
-	return o.ApplyT(func(v *HDInsightResponseProperties) HDInsightResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HDInsightResponseProperties
-		return ret
-	}).(HDInsightResponsePropertiesOutput)
+	return o.ApplyT(func(v *HDInsightResponseProperties) HDInsightResponseProperties { return *v }).(HDInsightResponsePropertiesOutput)
 }
 
 // Public IP address of the master node of the cluster.
@@ -12505,7 +12241,7 @@ func (o HDInsightResponsePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The user assigned identities associated with the resource.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -12524,7 +12260,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The user assigned identities associated with the resource.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -12602,14 +12338,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The user assigned identities associated with the resource.
@@ -12632,23 +12368,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The user assigned identities associated with the resource.
@@ -12769,7 +12499,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -12809,13 +12539,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -13213,7 +12937,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -13248,13 +12972,7 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultProperties
-		return ret
-	}).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
 }
 
 // For future use - The client id of the identity which will be used to access key vault.
@@ -13388,7 +13106,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -13423,13 +13141,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultPropertiesResponse
-		return ret
-	}).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
 }
 
 // For future use - The client id of the identity which will be used to access key vault.
@@ -14020,7 +13732,7 @@ func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationPtrOut
 }
 
 func (o LabelingDatasetConfigurationOutput) ToLabelingDatasetConfigurationPtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingDatasetConfiguration) *LabelingDatasetConfiguration {
+	return o.ApplyT(func(v LabelingDatasetConfiguration) *LabelingDatasetConfiguration {
 		return &v
 	}).(LabelingDatasetConfigurationPtrOutput)
 }
@@ -14055,13 +13767,7 @@ func (o LabelingDatasetConfigurationPtrOutput) ToLabelingDatasetConfigurationPtr
 }
 
 func (o LabelingDatasetConfigurationPtrOutput) Elem() LabelingDatasetConfigurationOutput {
-	return o.ApplyT(func(v *LabelingDatasetConfiguration) LabelingDatasetConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingDatasetConfiguration
-		return ret
-	}).(LabelingDatasetConfigurationOutput)
+	return o.ApplyT(func(v *LabelingDatasetConfiguration) LabelingDatasetConfiguration { return *v }).(LabelingDatasetConfigurationOutput)
 }
 
 // Name of the data asset to perform labeling.
@@ -14198,7 +13904,7 @@ func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurati
 }
 
 func (o LabelingDatasetConfigurationResponseOutput) ToLabelingDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) LabelingDatasetConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingDatasetConfigurationResponse) *LabelingDatasetConfigurationResponse {
+	return o.ApplyT(func(v LabelingDatasetConfigurationResponse) *LabelingDatasetConfigurationResponse {
 		return &v
 	}).(LabelingDatasetConfigurationResponsePtrOutput)
 }
@@ -14233,13 +13939,7 @@ func (o LabelingDatasetConfigurationResponsePtrOutput) ToLabelingDatasetConfigur
 }
 
 func (o LabelingDatasetConfigurationResponsePtrOutput) Elem() LabelingDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *LabelingDatasetConfigurationResponse) LabelingDatasetConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingDatasetConfigurationResponse
-		return ret
-	}).(LabelingDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *LabelingDatasetConfigurationResponse) LabelingDatasetConfigurationResponse { return *v }).(LabelingDatasetConfigurationResponseOutput)
 }
 
 // Name of the data asset to perform labeling.
@@ -14369,7 +14069,7 @@ func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesPtrOutput(
 }
 
 func (o LabelingJobImagePropertiesOutput) ToLabelingJobImagePropertiesPtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobImageProperties) *LabelingJobImageProperties {
+	return o.ApplyT(func(v LabelingJobImageProperties) *LabelingJobImageProperties {
 		return &v
 	}).(LabelingJobImagePropertiesPtrOutput)
 }
@@ -14399,13 +14099,7 @@ func (o LabelingJobImagePropertiesPtrOutput) ToLabelingJobImagePropertiesPtrOutp
 }
 
 func (o LabelingJobImagePropertiesPtrOutput) Elem() LabelingJobImagePropertiesOutput {
-	return o.ApplyT(func(v *LabelingJobImageProperties) LabelingJobImageProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobImageProperties
-		return ret
-	}).(LabelingJobImagePropertiesOutput)
+	return o.ApplyT(func(v *LabelingJobImageProperties) LabelingJobImageProperties { return *v }).(LabelingJobImagePropertiesOutput)
 }
 
 // Annotation type of image labeling tasks.
@@ -14525,7 +14219,7 @@ func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesRe
 }
 
 func (o LabelingJobImagePropertiesResponseOutput) ToLabelingJobImagePropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobImagePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobImagePropertiesResponse) *LabelingJobImagePropertiesResponse {
+	return o.ApplyT(func(v LabelingJobImagePropertiesResponse) *LabelingJobImagePropertiesResponse {
 		return &v
 	}).(LabelingJobImagePropertiesResponsePtrOutput)
 }
@@ -14555,13 +14249,7 @@ func (o LabelingJobImagePropertiesResponsePtrOutput) ToLabelingJobImagePropertie
 }
 
 func (o LabelingJobImagePropertiesResponsePtrOutput) Elem() LabelingJobImagePropertiesResponseOutput {
-	return o.ApplyT(func(v *LabelingJobImagePropertiesResponse) LabelingJobImagePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobImagePropertiesResponse
-		return ret
-	}).(LabelingJobImagePropertiesResponseOutput)
+	return o.ApplyT(func(v *LabelingJobImagePropertiesResponse) LabelingJobImagePropertiesResponse { return *v }).(LabelingJobImagePropertiesResponseOutput)
 }
 
 // Annotation type of image labeling tasks.
@@ -14680,7 +14368,7 @@ func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsPtrOutput() Labe
 }
 
 func (o LabelingJobInstructionsOutput) ToLabelingJobInstructionsPtrOutputWithContext(ctx context.Context) LabelingJobInstructionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInstructions) *LabelingJobInstructions {
+	return o.ApplyT(func(v LabelingJobInstructions) *LabelingJobInstructions {
 		return &v
 	}).(LabelingJobInstructionsPtrOutput)
 }
@@ -14705,13 +14393,7 @@ func (o LabelingJobInstructionsPtrOutput) ToLabelingJobInstructionsPtrOutputWith
 }
 
 func (o LabelingJobInstructionsPtrOutput) Elem() LabelingJobInstructionsOutput {
-	return o.ApplyT(func(v *LabelingJobInstructions) LabelingJobInstructions {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobInstructions
-		return ret
-	}).(LabelingJobInstructionsOutput)
+	return o.ApplyT(func(v *LabelingJobInstructions) LabelingJobInstructions { return *v }).(LabelingJobInstructionsOutput)
 }
 
 // The link to a page with detailed labeling instructions for labelers.
@@ -14820,7 +14502,7 @@ func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponse
 }
 
 func (o LabelingJobInstructionsResponseOutput) ToLabelingJobInstructionsResponsePtrOutputWithContext(ctx context.Context) LabelingJobInstructionsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInstructionsResponse) *LabelingJobInstructionsResponse {
+	return o.ApplyT(func(v LabelingJobInstructionsResponse) *LabelingJobInstructionsResponse {
 		return &v
 	}).(LabelingJobInstructionsResponsePtrOutput)
 }
@@ -14845,13 +14527,7 @@ func (o LabelingJobInstructionsResponsePtrOutput) ToLabelingJobInstructionsRespo
 }
 
 func (o LabelingJobInstructionsResponsePtrOutput) Elem() LabelingJobInstructionsResponseOutput {
-	return o.ApplyT(func(v *LabelingJobInstructionsResponse) LabelingJobInstructionsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobInstructionsResponse
-		return ret
-	}).(LabelingJobInstructionsResponseOutput)
+	return o.ApplyT(func(v *LabelingJobInstructionsResponse) LabelingJobInstructionsResponse { return *v }).(LabelingJobInstructionsResponseOutput)
 }
 
 // The link to a page with detailed labeling instructions for labelers.
@@ -14984,7 +14660,7 @@ func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesPtrOutput() Labeling
 }
 
 func (o LabelingJobPropertiesOutput) ToLabelingJobPropertiesPtrOutputWithContext(ctx context.Context) LabelingJobPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobProperties) *LabelingJobProperties {
+	return o.ApplyT(func(v LabelingJobProperties) *LabelingJobProperties {
 		return &v
 	}).(LabelingJobPropertiesPtrOutput)
 }
@@ -15039,13 +14715,7 @@ func (o LabelingJobPropertiesPtrOutput) ToLabelingJobPropertiesPtrOutputWithCont
 }
 
 func (o LabelingJobPropertiesPtrOutput) Elem() LabelingJobPropertiesOutput {
-	return o.ApplyT(func(v *LabelingJobProperties) LabelingJobProperties {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobProperties
-		return ret
-	}).(LabelingJobPropertiesOutput)
+	return o.ApplyT(func(v *LabelingJobProperties) LabelingJobProperties { return *v }).(LabelingJobPropertiesOutput)
 }
 
 // Dataset configuration for the job.
@@ -15258,7 +14928,7 @@ func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponsePtrO
 }
 
 func (o LabelingJobPropertiesResponseOutput) ToLabelingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) LabelingJobPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobPropertiesResponse) *LabelingJobPropertiesResponse {
+	return o.ApplyT(func(v LabelingJobPropertiesResponse) *LabelingJobPropertiesResponse {
 		return &v
 	}).(LabelingJobPropertiesResponsePtrOutput)
 }
@@ -15342,13 +15012,7 @@ func (o LabelingJobPropertiesResponsePtrOutput) ToLabelingJobPropertiesResponseP
 }
 
 func (o LabelingJobPropertiesResponsePtrOutput) Elem() LabelingJobPropertiesResponseOutput {
-	return o.ApplyT(func(v *LabelingJobPropertiesResponse) LabelingJobPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LabelingJobPropertiesResponse
-		return ret
-	}).(LabelingJobPropertiesResponseOutput)
+	return o.ApplyT(func(v *LabelingJobPropertiesResponse) LabelingJobPropertiesResponse { return *v }).(LabelingJobPropertiesResponseOutput)
 }
 
 // Created time of the job in UTC timezone.
@@ -15476,7 +15140,7 @@ type LinkedServiceProps struct {
 	// The creation time of the linked service.
 	CreatedTime *string `pulumi:"createdTime"`
 	// Type of the link target.
-	LinkType *LinkedServiceLinkType `pulumi:"linkType"`
+	LinkType *string `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
 	LinkedServiceResourceId string `pulumi:"linkedServiceResourceId"`
 	// The last modified time of the linked service.
@@ -15499,7 +15163,7 @@ type LinkedServicePropsArgs struct {
 	// The creation time of the linked service.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// Type of the link target.
-	LinkType LinkedServiceLinkTypePtrInput `pulumi:"linkType"`
+	LinkType *LinkedServiceLinkType `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
 	LinkedServiceResourceId pulumi.StringInput `pulumi:"linkedServiceResourceId"`
 	// The last modified time of the linked service.
@@ -15579,7 +15243,7 @@ func (o LinkedServicePropsOutput) ToLinkedServicePropsPtrOutput() LinkedServiceP
 }
 
 func (o LinkedServicePropsOutput) ToLinkedServicePropsPtrOutputWithContext(ctx context.Context) LinkedServicePropsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceProps) *LinkedServiceProps {
+	return o.ApplyT(func(v LinkedServiceProps) *LinkedServiceProps {
 		return &v
 	}).(LinkedServicePropsPtrOutput)
 }
@@ -15590,8 +15254,8 @@ func (o LinkedServicePropsOutput) CreatedTime() pulumi.StringPtrOutput {
 }
 
 // Type of the link target.
-func (o LinkedServicePropsOutput) LinkType() LinkedServiceLinkTypePtrOutput {
-	return o.ApplyT(func(v LinkedServiceProps) *LinkedServiceLinkType { return v.LinkType }).(LinkedServiceLinkTypePtrOutput)
+func (o LinkedServicePropsOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceProps) *string { return v.LinkType }).(pulumi.StringPtrOutput)
 }
 
 // ResourceId of the link target of the linked service.
@@ -15619,13 +15283,7 @@ func (o LinkedServicePropsPtrOutput) ToLinkedServicePropsPtrOutputWithContext(ct
 }
 
 func (o LinkedServicePropsPtrOutput) Elem() LinkedServicePropsOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) LinkedServiceProps {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceProps
-		return ret
-	}).(LinkedServicePropsOutput)
+	return o.ApplyT(func(v *LinkedServiceProps) LinkedServiceProps { return *v }).(LinkedServicePropsOutput)
 }
 
 // The creation time of the linked service.
@@ -15639,13 +15297,13 @@ func (o LinkedServicePropsPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 }
 
 // Type of the link target.
-func (o LinkedServicePropsPtrOutput) LinkType() LinkedServiceLinkTypePtrOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) *LinkedServiceLinkType {
+func (o LinkedServicePropsPtrOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceProps) *string {
 		if v == nil {
 			return nil
 		}
 		return v.LinkType
-	}).(LinkedServiceLinkTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // ResourceId of the link target of the linked service.
@@ -15776,7 +15434,7 @@ func (o LinkedServicePropsResponseOutput) ToLinkedServicePropsResponsePtrOutput(
 }
 
 func (o LinkedServicePropsResponseOutput) ToLinkedServicePropsResponsePtrOutputWithContext(ctx context.Context) LinkedServicePropsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServicePropsResponse) *LinkedServicePropsResponse {
+	return o.ApplyT(func(v LinkedServicePropsResponse) *LinkedServicePropsResponse {
 		return &v
 	}).(LinkedServicePropsResponsePtrOutput)
 }
@@ -15816,13 +15474,7 @@ func (o LinkedServicePropsResponsePtrOutput) ToLinkedServicePropsResponsePtrOutp
 }
 
 func (o LinkedServicePropsResponsePtrOutput) Elem() LinkedServicePropsResponseOutput {
-	return o.ApplyT(func(v *LinkedServicePropsResponse) LinkedServicePropsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServicePropsResponse
-		return ret
-	}).(LinkedServicePropsResponseOutput)
+	return o.ApplyT(func(v *LinkedServicePropsResponse) LinkedServicePropsResponse { return *v }).(LinkedServicePropsResponseOutput)
 }
 
 // The creation time of the linked service.
@@ -15977,7 +15629,7 @@ func (o MLAssistConfigurationOutput) ToMLAssistConfigurationPtrOutput() MLAssist
 }
 
 func (o MLAssistConfigurationOutput) ToMLAssistConfigurationPtrOutputWithContext(ctx context.Context) MLAssistConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLAssistConfiguration) *MLAssistConfiguration {
+	return o.ApplyT(func(v MLAssistConfiguration) *MLAssistConfiguration {
 		return &v
 	}).(MLAssistConfigurationPtrOutput)
 }
@@ -16022,13 +15674,7 @@ func (o MLAssistConfigurationPtrOutput) ToMLAssistConfigurationPtrOutputWithCont
 }
 
 func (o MLAssistConfigurationPtrOutput) Elem() MLAssistConfigurationOutput {
-	return o.ApplyT(func(v *MLAssistConfiguration) MLAssistConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret MLAssistConfiguration
-		return ret
-	}).(MLAssistConfigurationOutput)
+	return o.ApplyT(func(v *MLAssistConfiguration) MLAssistConfiguration { return *v }).(MLAssistConfigurationOutput)
 }
 
 // The compute designated for inferencing.
@@ -16193,7 +15839,7 @@ func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponsePtrO
 }
 
 func (o MLAssistConfigurationResponseOutput) ToMLAssistConfigurationResponsePtrOutputWithContext(ctx context.Context) MLAssistConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLAssistConfigurationResponse) *MLAssistConfigurationResponse {
+	return o.ApplyT(func(v MLAssistConfigurationResponse) *MLAssistConfigurationResponse {
 		return &v
 	}).(MLAssistConfigurationResponsePtrOutput)
 }
@@ -16238,13 +15884,7 @@ func (o MLAssistConfigurationResponsePtrOutput) ToMLAssistConfigurationResponseP
 }
 
 func (o MLAssistConfigurationResponsePtrOutput) Elem() MLAssistConfigurationResponseOutput {
-	return o.ApplyT(func(v *MLAssistConfigurationResponse) MLAssistConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MLAssistConfigurationResponse
-		return ret
-	}).(MLAssistConfigurationResponseOutput)
+	return o.ApplyT(func(v *MLAssistConfigurationResponse) MLAssistConfigurationResponse { return *v }).(MLAssistConfigurationResponseOutput)
 }
 
 // The compute designated for inferencing.
@@ -16775,11 +16415,10 @@ func (o ModelDockerSectionBaseImageRegistryOutput) ToModelDockerSectionBaseImage
 }
 
 func (o ModelDockerSectionBaseImageRegistryOutput) ToModelDockerSectionBaseImageRegistryPtrOutputWithContext(ctx context.Context) ModelDockerSectionBaseImageRegistryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelDockerSectionBaseImageRegistry) *ModelDockerSectionBaseImageRegistry {
+	return o.ApplyT(func(v ModelDockerSectionBaseImageRegistry) *ModelDockerSectionBaseImageRegistry {
 		return &v
 	}).(ModelDockerSectionBaseImageRegistryPtrOutput)
 }
-
 func (o ModelDockerSectionBaseImageRegistryOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelDockerSectionBaseImageRegistry) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -16807,13 +16446,7 @@ func (o ModelDockerSectionBaseImageRegistryPtrOutput) ToModelDockerSectionBaseIm
 }
 
 func (o ModelDockerSectionBaseImageRegistryPtrOutput) Elem() ModelDockerSectionBaseImageRegistryOutput {
-	return o.ApplyT(func(v *ModelDockerSectionBaseImageRegistry) ModelDockerSectionBaseImageRegistry {
-		if v != nil {
-			return *v
-		}
-		var ret ModelDockerSectionBaseImageRegistry
-		return ret
-	}).(ModelDockerSectionBaseImageRegistryOutput)
+	return o.ApplyT(func(v *ModelDockerSectionBaseImageRegistry) ModelDockerSectionBaseImageRegistry { return *v }).(ModelDockerSectionBaseImageRegistryOutput)
 }
 
 func (o ModelDockerSectionBaseImageRegistryPtrOutput) Address() pulumi.StringPtrOutput {
@@ -16937,11 +16570,10 @@ func (o ModelDockerSectionResponseResponseBaseImageRegistryOutput) ToModelDocker
 }
 
 func (o ModelDockerSectionResponseResponseBaseImageRegistryOutput) ToModelDockerSectionResponseResponseBaseImageRegistryPtrOutputWithContext(ctx context.Context) ModelDockerSectionResponseResponseBaseImageRegistryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelDockerSectionResponseResponseBaseImageRegistry) *ModelDockerSectionResponseResponseBaseImageRegistry {
+	return o.ApplyT(func(v ModelDockerSectionResponseResponseBaseImageRegistry) *ModelDockerSectionResponseResponseBaseImageRegistry {
 		return &v
 	}).(ModelDockerSectionResponseResponseBaseImageRegistryPtrOutput)
 }
-
 func (o ModelDockerSectionResponseResponseBaseImageRegistryOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelDockerSectionResponseResponseBaseImageRegistry) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -16962,11 +16594,7 @@ func (o ModelDockerSectionResponseResponseBaseImageRegistryPtrOutput) ToModelDoc
 
 func (o ModelDockerSectionResponseResponseBaseImageRegistryPtrOutput) Elem() ModelDockerSectionResponseResponseBaseImageRegistryOutput {
 	return o.ApplyT(func(v *ModelDockerSectionResponseResponseBaseImageRegistry) ModelDockerSectionResponseResponseBaseImageRegistry {
-		if v != nil {
-			return *v
-		}
-		var ret ModelDockerSectionResponseResponseBaseImageRegistry
-		return ret
+		return *v
 	}).(ModelDockerSectionResponseResponseBaseImageRegistryOutput)
 }
 
@@ -17083,7 +16711,7 @@ func (o ModelEnvironmentDefinitionDockerOutput) ToModelEnvironmentDefinitionDock
 }
 
 func (o ModelEnvironmentDefinitionDockerOutput) ToModelEnvironmentDefinitionDockerPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionDockerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionDocker) *ModelEnvironmentDefinitionDocker {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionDocker) *ModelEnvironmentDefinitionDocker {
 		return &v
 	}).(ModelEnvironmentDefinitionDockerPtrOutput)
 }
@@ -17120,13 +16748,7 @@ func (o ModelEnvironmentDefinitionDockerPtrOutput) ToModelEnvironmentDefinitionD
 }
 
 func (o ModelEnvironmentDefinitionDockerPtrOutput) Elem() ModelEnvironmentDefinitionDockerOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionDocker) ModelEnvironmentDefinitionDocker {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionDocker
-		return ret
-	}).(ModelEnvironmentDefinitionDockerOutput)
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionDocker) ModelEnvironmentDefinitionDocker { return *v }).(ModelEnvironmentDefinitionDockerOutput)
 }
 
 // Base Dockerfile used for Docker-based runs. Mutually exclusive with BaseImage.
@@ -17265,11 +16887,10 @@ func (o ModelEnvironmentDefinitionPythonOutput) ToModelEnvironmentDefinitionPyth
 }
 
 func (o ModelEnvironmentDefinitionPythonOutput) ToModelEnvironmentDefinitionPythonPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionPythonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionPython) *ModelEnvironmentDefinitionPython {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) *ModelEnvironmentDefinitionPython {
 		return &v
 	}).(ModelEnvironmentDefinitionPythonPtrOutput)
 }
-
 func (o ModelEnvironmentDefinitionPythonOutput) BaseCondaEnvironment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelEnvironmentDefinitionPython) *string { return v.BaseCondaEnvironment }).(pulumi.StringPtrOutput)
 }
@@ -17304,13 +16925,7 @@ func (o ModelEnvironmentDefinitionPythonPtrOutput) ToModelEnvironmentDefinitionP
 }
 
 func (o ModelEnvironmentDefinitionPythonPtrOutput) Elem() ModelEnvironmentDefinitionPythonOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) ModelEnvironmentDefinitionPython {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionPython
-		return ret
-	}).(ModelEnvironmentDefinitionPythonOutput)
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionPython) ModelEnvironmentDefinitionPython { return *v }).(ModelEnvironmentDefinitionPythonOutput)
 }
 
 func (o ModelEnvironmentDefinitionPythonPtrOutput) BaseCondaEnvironment() pulumi.StringPtrOutput {
@@ -17478,7 +17093,7 @@ func (o ModelEnvironmentDefinitionROutput) ToModelEnvironmentDefinitionRPtrOutpu
 }
 
 func (o ModelEnvironmentDefinitionROutput) ToModelEnvironmentDefinitionRPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionRPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionR) *ModelEnvironmentDefinitionR {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionR) *ModelEnvironmentDefinitionR {
 		return &v
 	}).(ModelEnvironmentDefinitionRPtrOutput)
 }
@@ -17539,13 +17154,7 @@ func (o ModelEnvironmentDefinitionRPtrOutput) ToModelEnvironmentDefinitionRPtrOu
 }
 
 func (o ModelEnvironmentDefinitionRPtrOutput) Elem() ModelEnvironmentDefinitionROutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) ModelEnvironmentDefinitionR {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionR
-		return ret
-	}).(ModelEnvironmentDefinitionROutput)
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionR) ModelEnvironmentDefinitionR { return *v }).(ModelEnvironmentDefinitionROutput)
 }
 
 // The packages from Bioconductor.
@@ -17733,7 +17342,7 @@ func (o ModelEnvironmentDefinitionResponseResponseDockerOutput) ToModelEnvironme
 }
 
 func (o ModelEnvironmentDefinitionResponseResponseDockerOutput) ToModelEnvironmentDefinitionResponseResponseDockerPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionResponseResponseDockerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionResponseResponseDocker) *ModelEnvironmentDefinitionResponseResponseDocker {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponseDocker) *ModelEnvironmentDefinitionResponseResponseDocker {
 		return &v
 	}).(ModelEnvironmentDefinitionResponseResponseDockerPtrOutput)
 }
@@ -17771,11 +17380,7 @@ func (o ModelEnvironmentDefinitionResponseResponseDockerPtrOutput) ToModelEnviro
 
 func (o ModelEnvironmentDefinitionResponseResponseDockerPtrOutput) Elem() ModelEnvironmentDefinitionResponseResponseDockerOutput {
 	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponseDocker) ModelEnvironmentDefinitionResponseResponseDocker {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionResponseResponseDocker
-		return ret
+		return *v
 	}).(ModelEnvironmentDefinitionResponseResponseDockerOutput)
 }
 
@@ -17915,11 +17520,10 @@ func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) ToModelEnvironme
 }
 
 func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) ToModelEnvironmentDefinitionResponseResponsePythonPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionResponseResponsePythonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionResponseResponsePython) *ModelEnvironmentDefinitionResponseResponsePython {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponsePython) *ModelEnvironmentDefinitionResponseResponsePython {
 		return &v
 	}).(ModelEnvironmentDefinitionResponseResponsePythonPtrOutput)
 }
-
 func (o ModelEnvironmentDefinitionResponseResponsePythonOutput) BaseCondaEnvironment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponsePython) *string { return v.BaseCondaEnvironment }).(pulumi.StringPtrOutput)
 }
@@ -17955,11 +17559,7 @@ func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) ToModelEnviro
 
 func (o ModelEnvironmentDefinitionResponseResponsePythonPtrOutput) Elem() ModelEnvironmentDefinitionResponseResponsePythonOutput {
 	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponsePython) ModelEnvironmentDefinitionResponseResponsePython {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionResponseResponsePython
-		return ret
+		return *v
 	}).(ModelEnvironmentDefinitionResponseResponsePythonOutput)
 }
 
@@ -18128,7 +17728,7 @@ func (o ModelEnvironmentDefinitionResponseResponseROutput) ToModelEnvironmentDef
 }
 
 func (o ModelEnvironmentDefinitionResponseResponseROutput) ToModelEnvironmentDefinitionResponseResponseRPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionResponseResponseRPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionResponseResponseR) *ModelEnvironmentDefinitionResponseResponseR {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponseR) *ModelEnvironmentDefinitionResponseResponseR {
 		return &v
 	}).(ModelEnvironmentDefinitionResponseResponseRPtrOutput)
 }
@@ -18192,11 +17792,7 @@ func (o ModelEnvironmentDefinitionResponseResponseRPtrOutput) ToModelEnvironment
 
 func (o ModelEnvironmentDefinitionResponseResponseRPtrOutput) Elem() ModelEnvironmentDefinitionResponseResponseROutput {
 	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponseR) ModelEnvironmentDefinitionResponseResponseR {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionResponseResponseR
-		return ret
+		return *v
 	}).(ModelEnvironmentDefinitionResponseResponseROutput)
 }
 
@@ -18385,7 +17981,7 @@ func (o ModelEnvironmentDefinitionResponseResponseSparkOutput) ToModelEnvironmen
 }
 
 func (o ModelEnvironmentDefinitionResponseResponseSparkOutput) ToModelEnvironmentDefinitionResponseResponseSparkPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionResponseResponseSparkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionResponseResponseSpark) *ModelEnvironmentDefinitionResponseResponseSpark {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionResponseResponseSpark) *ModelEnvironmentDefinitionResponseResponseSpark {
 		return &v
 	}).(ModelEnvironmentDefinitionResponseResponseSparkPtrOutput)
 }
@@ -18421,11 +18017,7 @@ func (o ModelEnvironmentDefinitionResponseResponseSparkPtrOutput) ToModelEnviron
 
 func (o ModelEnvironmentDefinitionResponseResponseSparkPtrOutput) Elem() ModelEnvironmentDefinitionResponseResponseSparkOutput {
 	return o.ApplyT(func(v *ModelEnvironmentDefinitionResponseResponseSpark) ModelEnvironmentDefinitionResponseResponseSpark {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionResponseResponseSpark
-		return ret
+		return *v
 	}).(ModelEnvironmentDefinitionResponseResponseSparkOutput)
 }
 
@@ -18563,7 +18155,7 @@ func (o ModelEnvironmentDefinitionSparkOutput) ToModelEnvironmentDefinitionSpark
 }
 
 func (o ModelEnvironmentDefinitionSparkOutput) ToModelEnvironmentDefinitionSparkPtrOutputWithContext(ctx context.Context) ModelEnvironmentDefinitionSparkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelEnvironmentDefinitionSpark) *ModelEnvironmentDefinitionSpark {
+	return o.ApplyT(func(v ModelEnvironmentDefinitionSpark) *ModelEnvironmentDefinitionSpark {
 		return &v
 	}).(ModelEnvironmentDefinitionSparkPtrOutput)
 }
@@ -18598,13 +18190,7 @@ func (o ModelEnvironmentDefinitionSparkPtrOutput) ToModelEnvironmentDefinitionSp
 }
 
 func (o ModelEnvironmentDefinitionSparkPtrOutput) Elem() ModelEnvironmentDefinitionSparkOutput {
-	return o.ApplyT(func(v *ModelEnvironmentDefinitionSpark) ModelEnvironmentDefinitionSpark {
-		if v != nil {
-			return *v
-		}
-		var ret ModelEnvironmentDefinitionSpark
-		return ret
-	}).(ModelEnvironmentDefinitionSparkOutput)
+	return o.ApplyT(func(v *ModelEnvironmentDefinitionSpark) ModelEnvironmentDefinitionSpark { return *v }).(ModelEnvironmentDefinitionSparkOutput)
 }
 
 // The Spark packages to use.
@@ -19033,7 +18619,7 @@ func (o NodeStateCountsResponseOutput) ToNodeStateCountsResponsePtrOutput() Node
 }
 
 func (o NodeStateCountsResponseOutput) ToNodeStateCountsResponsePtrOutputWithContext(ctx context.Context) NodeStateCountsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeStateCountsResponse) *NodeStateCountsResponse {
+	return o.ApplyT(func(v NodeStateCountsResponse) *NodeStateCountsResponse {
 		return &v
 	}).(NodeStateCountsResponsePtrOutput)
 }
@@ -19083,13 +18669,7 @@ func (o NodeStateCountsResponsePtrOutput) ToNodeStateCountsResponsePtrOutputWith
 }
 
 func (o NodeStateCountsResponsePtrOutput) Elem() NodeStateCountsResponseOutput {
-	return o.ApplyT(func(v *NodeStateCountsResponse) NodeStateCountsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NodeStateCountsResponse
-		return ret
-	}).(NodeStateCountsResponseOutput)
+	return o.ApplyT(func(v *NodeStateCountsResponse) NodeStateCountsResponse { return *v }).(NodeStateCountsResponseOutput)
 }
 
 // Number of compute nodes in idle state.
@@ -19348,7 +18928,7 @@ func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettings
 }
 
 func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettingsPtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersonalComputeInstanceSettings) *PersonalComputeInstanceSettings {
+	return o.ApplyT(func(v PersonalComputeInstanceSettings) *PersonalComputeInstanceSettings {
 		return &v
 	}).(PersonalComputeInstanceSettingsPtrOutput)
 }
@@ -19373,13 +18953,7 @@ func (o PersonalComputeInstanceSettingsPtrOutput) ToPersonalComputeInstanceSetti
 }
 
 func (o PersonalComputeInstanceSettingsPtrOutput) Elem() PersonalComputeInstanceSettingsOutput {
-	return o.ApplyT(func(v *PersonalComputeInstanceSettings) PersonalComputeInstanceSettings {
-		if v != nil {
-			return *v
-		}
-		var ret PersonalComputeInstanceSettings
-		return ret
-	}).(PersonalComputeInstanceSettingsOutput)
+	return o.ApplyT(func(v *PersonalComputeInstanceSettings) PersonalComputeInstanceSettings { return *v }).(PersonalComputeInstanceSettingsOutput)
 }
 
 // A user explicitly assigned to a personal compute instance.
@@ -19488,7 +19062,7 @@ func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstance
 }
 
 func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersonalComputeInstanceSettingsResponse) *PersonalComputeInstanceSettingsResponse {
+	return o.ApplyT(func(v PersonalComputeInstanceSettingsResponse) *PersonalComputeInstanceSettingsResponse {
 		return &v
 	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
 }
@@ -19513,13 +19087,7 @@ func (o PersonalComputeInstanceSettingsResponsePtrOutput) ToPersonalComputeInsta
 }
 
 func (o PersonalComputeInstanceSettingsResponsePtrOutput) Elem() PersonalComputeInstanceSettingsResponseOutput {
-	return o.ApplyT(func(v *PersonalComputeInstanceSettingsResponse) PersonalComputeInstanceSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PersonalComputeInstanceSettingsResponse
-		return ret
-	}).(PersonalComputeInstanceSettingsResponseOutput)
+	return o.ApplyT(func(v *PersonalComputeInstanceSettingsResponse) PersonalComputeInstanceSettingsResponse { return *v }).(PersonalComputeInstanceSettingsResponseOutput)
 }
 
 // A user explicitly assigned to a personal compute instance.
@@ -19811,7 +19379,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -19836,13 +19404,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -19959,7 +19521,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -19994,13 +19556,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -20137,7 +19693,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -20173,11 +19729,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -20319,7 +19871,7 @@ func (o ProgressMetricsResponseOutput) ToProgressMetricsResponsePtrOutput() Prog
 }
 
 func (o ProgressMetricsResponseOutput) ToProgressMetricsResponsePtrOutputWithContext(ctx context.Context) ProgressMetricsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgressMetricsResponse) *ProgressMetricsResponse {
+	return o.ApplyT(func(v ProgressMetricsResponse) *ProgressMetricsResponse {
 		return &v
 	}).(ProgressMetricsResponsePtrOutput)
 }
@@ -20359,13 +19911,7 @@ func (o ProgressMetricsResponsePtrOutput) ToProgressMetricsResponsePtrOutputWith
 }
 
 func (o ProgressMetricsResponsePtrOutput) Elem() ProgressMetricsResponseOutput {
-	return o.ApplyT(func(v *ProgressMetricsResponse) ProgressMetricsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ProgressMetricsResponse
-		return ret
-	}).(ProgressMetricsResponseOutput)
+	return o.ApplyT(func(v *ProgressMetricsResponse) ProgressMetricsResponse { return *v }).(ProgressMetricsResponseOutput)
 }
 
 // The completed datapoint count.
@@ -20980,7 +20526,7 @@ func (o ResourceIdOutput) ToResourceIdPtrOutput() ResourceIdPtrOutput {
 }
 
 func (o ResourceIdOutput) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceId) *ResourceId {
+	return o.ApplyT(func(v ResourceId) *ResourceId {
 		return &v
 	}).(ResourceIdPtrOutput)
 }
@@ -21005,13 +20551,7 @@ func (o ResourceIdPtrOutput) ToResourceIdPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ResourceIdPtrOutput) Elem() ResourceIdOutput {
-	return o.ApplyT(func(v *ResourceId) ResourceId {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceId
-		return ret
-	}).(ResourceIdOutput)
+	return o.ApplyT(func(v *ResourceId) ResourceId { return *v }).(ResourceIdOutput)
 }
 
 // The ID of the resource
@@ -21120,7 +20660,7 @@ func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResp
 }
 
 func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
+	return o.ApplyT(func(v ResourceIdResponse) *ResourceIdResponse {
 		return &v
 	}).(ResourceIdResponsePtrOutput)
 }
@@ -21145,13 +20685,7 @@ func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ct
 }
 
 func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
-	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdResponse
-		return ret
-	}).(ResourceIdResponseOutput)
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse { return *v }).(ResourceIdResponseOutput)
 }
 
 // The ID of the resource
@@ -21268,7 +20802,7 @@ func (o ScaleSettingsOutput) ToScaleSettingsPtrOutput() ScaleSettingsPtrOutput {
 }
 
 func (o ScaleSettingsOutput) ToScaleSettingsPtrOutputWithContext(ctx context.Context) ScaleSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettings) *ScaleSettings {
+	return o.ApplyT(func(v ScaleSettings) *ScaleSettings {
 		return &v
 	}).(ScaleSettingsPtrOutput)
 }
@@ -21303,13 +20837,7 @@ func (o ScaleSettingsPtrOutput) ToScaleSettingsPtrOutputWithContext(ctx context.
 }
 
 func (o ScaleSettingsPtrOutput) Elem() ScaleSettingsOutput {
-	return o.ApplyT(func(v *ScaleSettings) ScaleSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSettings
-		return ret
-	}).(ScaleSettingsOutput)
+	return o.ApplyT(func(v *ScaleSettings) ScaleSettings { return *v }).(ScaleSettingsOutput)
 }
 
 // Max number of nodes to use
@@ -21446,7 +20974,7 @@ func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutput() ScaleSet
 }
 
 func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutputWithContext(ctx context.Context) ScaleSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettingsResponse) *ScaleSettingsResponse {
+	return o.ApplyT(func(v ScaleSettingsResponse) *ScaleSettingsResponse {
 		return &v
 	}).(ScaleSettingsResponsePtrOutput)
 }
@@ -21481,13 +21009,7 @@ func (o ScaleSettingsResponsePtrOutput) ToScaleSettingsResponsePtrOutputWithCont
 }
 
 func (o ScaleSettingsResponsePtrOutput) Elem() ScaleSettingsResponseOutput {
-	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSettingsResponse
-		return ret
-	}).(ScaleSettingsResponseOutput)
+	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse { return *v }).(ScaleSettingsResponseOutput)
 }
 
 // Max number of nodes to use
@@ -21628,7 +21150,7 @@ func (o ScriptReferenceOutput) ToScriptReferencePtrOutput() ScriptReferencePtrOu
 }
 
 func (o ScriptReferenceOutput) ToScriptReferencePtrOutputWithContext(ctx context.Context) ScriptReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptReference) *ScriptReference {
+	return o.ApplyT(func(v ScriptReference) *ScriptReference {
 		return &v
 	}).(ScriptReferencePtrOutput)
 }
@@ -21668,13 +21190,7 @@ func (o ScriptReferencePtrOutput) ToScriptReferencePtrOutputWithContext(ctx cont
 }
 
 func (o ScriptReferencePtrOutput) Elem() ScriptReferenceOutput {
-	return o.ApplyT(func(v *ScriptReference) ScriptReference {
-		if v != nil {
-			return *v
-		}
-		var ret ScriptReference
-		return ret
-	}).(ScriptReferenceOutput)
+	return o.ApplyT(func(v *ScriptReference) ScriptReference { return *v }).(ScriptReferenceOutput)
 }
 
 // Optional command line arguments passed to the script to run.
@@ -21825,7 +21341,7 @@ func (o ScriptReferenceResponseOutput) ToScriptReferenceResponsePtrOutput() Scri
 }
 
 func (o ScriptReferenceResponseOutput) ToScriptReferenceResponsePtrOutputWithContext(ctx context.Context) ScriptReferenceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptReferenceResponse) *ScriptReferenceResponse {
+	return o.ApplyT(func(v ScriptReferenceResponse) *ScriptReferenceResponse {
 		return &v
 	}).(ScriptReferenceResponsePtrOutput)
 }
@@ -21865,13 +21381,7 @@ func (o ScriptReferenceResponsePtrOutput) ToScriptReferenceResponsePtrOutputWith
 }
 
 func (o ScriptReferenceResponsePtrOutput) Elem() ScriptReferenceResponseOutput {
-	return o.ApplyT(func(v *ScriptReferenceResponse) ScriptReferenceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScriptReferenceResponse
-		return ret
-	}).(ScriptReferenceResponseOutput)
+	return o.ApplyT(func(v *ScriptReferenceResponse) ScriptReferenceResponse { return *v }).(ScriptReferenceResponseOutput)
 }
 
 // Optional command line arguments passed to the script to run.
@@ -22014,7 +21524,7 @@ func (o ScriptsToExecuteOutput) ToScriptsToExecutePtrOutput() ScriptsToExecutePt
 }
 
 func (o ScriptsToExecuteOutput) ToScriptsToExecutePtrOutputWithContext(ctx context.Context) ScriptsToExecutePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptsToExecute) *ScriptsToExecute {
+	return o.ApplyT(func(v ScriptsToExecute) *ScriptsToExecute {
 		return &v
 	}).(ScriptsToExecutePtrOutput)
 }
@@ -22044,13 +21554,7 @@ func (o ScriptsToExecutePtrOutput) ToScriptsToExecutePtrOutputWithContext(ctx co
 }
 
 func (o ScriptsToExecutePtrOutput) Elem() ScriptsToExecuteOutput {
-	return o.ApplyT(func(v *ScriptsToExecute) ScriptsToExecute {
-		if v != nil {
-			return *v
-		}
-		var ret ScriptsToExecute
-		return ret
-	}).(ScriptsToExecuteOutput)
+	return o.ApplyT(func(v *ScriptsToExecute) ScriptsToExecute { return *v }).(ScriptsToExecuteOutput)
 }
 
 // Script that's run only once during provision of the compute.
@@ -22173,7 +21677,7 @@ func (o ScriptsToExecuteResponseOutput) ToScriptsToExecuteResponsePtrOutput() Sc
 }
 
 func (o ScriptsToExecuteResponseOutput) ToScriptsToExecuteResponsePtrOutputWithContext(ctx context.Context) ScriptsToExecuteResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptsToExecuteResponse) *ScriptsToExecuteResponse {
+	return o.ApplyT(func(v ScriptsToExecuteResponse) *ScriptsToExecuteResponse {
 		return &v
 	}).(ScriptsToExecuteResponsePtrOutput)
 }
@@ -22203,13 +21707,7 @@ func (o ScriptsToExecuteResponsePtrOutput) ToScriptsToExecuteResponsePtrOutputWi
 }
 
 func (o ScriptsToExecuteResponsePtrOutput) Elem() ScriptsToExecuteResponseOutput {
-	return o.ApplyT(func(v *ScriptsToExecuteResponse) ScriptsToExecuteResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScriptsToExecuteResponse
-		return ret
-	}).(ScriptsToExecuteResponseOutput)
+	return o.ApplyT(func(v *ScriptsToExecuteResponse) ScriptsToExecuteResponse { return *v }).(ScriptsToExecuteResponseOutput)
 }
 
 // Script that's run only once during provision of the compute.
@@ -22401,7 +21899,7 @@ func (o SetupScriptsOutput) ToSetupScriptsPtrOutput() SetupScriptsPtrOutput {
 }
 
 func (o SetupScriptsOutput) ToSetupScriptsPtrOutputWithContext(ctx context.Context) SetupScriptsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SetupScripts) *SetupScripts {
+	return o.ApplyT(func(v SetupScripts) *SetupScripts {
 		return &v
 	}).(SetupScriptsPtrOutput)
 }
@@ -22426,13 +21924,7 @@ func (o SetupScriptsPtrOutput) ToSetupScriptsPtrOutputWithContext(ctx context.Co
 }
 
 func (o SetupScriptsPtrOutput) Elem() SetupScriptsOutput {
-	return o.ApplyT(func(v *SetupScripts) SetupScripts {
-		if v != nil {
-			return *v
-		}
-		var ret SetupScripts
-		return ret
-	}).(SetupScriptsOutput)
+	return o.ApplyT(func(v *SetupScripts) SetupScripts { return *v }).(SetupScriptsOutput)
 }
 
 // Customized setup scripts
@@ -22541,7 +22033,7 @@ func (o SetupScriptsResponseOutput) ToSetupScriptsResponsePtrOutput() SetupScrip
 }
 
 func (o SetupScriptsResponseOutput) ToSetupScriptsResponsePtrOutputWithContext(ctx context.Context) SetupScriptsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SetupScriptsResponse) *SetupScriptsResponse {
+	return o.ApplyT(func(v SetupScriptsResponse) *SetupScriptsResponse {
 		return &v
 	}).(SetupScriptsResponsePtrOutput)
 }
@@ -22566,13 +22058,7 @@ func (o SetupScriptsResponsePtrOutput) ToSetupScriptsResponsePtrOutputWithContex
 }
 
 func (o SetupScriptsResponsePtrOutput) Elem() SetupScriptsResponseOutput {
-	return o.ApplyT(func(v *SetupScriptsResponse) SetupScriptsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SetupScriptsResponse
-		return ret
-	}).(SetupScriptsResponseOutput)
+	return o.ApplyT(func(v *SetupScriptsResponse) SetupScriptsResponse { return *v }).(SetupScriptsResponseOutput)
 }
 
 // Customized setup scripts
@@ -22951,7 +22437,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -22981,13 +22467,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Name of the sku
@@ -23110,7 +22590,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -23140,13 +22620,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Name of the sku
@@ -23489,7 +22963,7 @@ func (o SslConfigurationOutput) ToSslConfigurationPtrOutput() SslConfigurationPt
 }
 
 func (o SslConfigurationOutput) ToSslConfigurationPtrOutputWithContext(ctx context.Context) SslConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfiguration) *SslConfiguration {
+	return o.ApplyT(func(v SslConfiguration) *SslConfiguration {
 		return &v
 	}).(SslConfigurationPtrOutput)
 }
@@ -23529,13 +23003,7 @@ func (o SslConfigurationPtrOutput) ToSslConfigurationPtrOutputWithContext(ctx co
 }
 
 func (o SslConfigurationPtrOutput) Elem() SslConfigurationOutput {
-	return o.ApplyT(func(v *SslConfiguration) SslConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret SslConfiguration
-		return ret
-	}).(SslConfigurationOutput)
+	return o.ApplyT(func(v *SslConfiguration) SslConfiguration { return *v }).(SslConfigurationOutput)
 }
 
 // Cert data
@@ -23686,7 +23154,7 @@ func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutput() Ss
 }
 
 func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutputWithContext(ctx context.Context) SslConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfigurationResponse) *SslConfigurationResponse {
+	return o.ApplyT(func(v SslConfigurationResponse) *SslConfigurationResponse {
 		return &v
 	}).(SslConfigurationResponsePtrOutput)
 }
@@ -23726,13 +23194,7 @@ func (o SslConfigurationResponsePtrOutput) ToSslConfigurationResponsePtrOutputWi
 }
 
 func (o SslConfigurationResponsePtrOutput) Elem() SslConfigurationResponseOutput {
-	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SslConfigurationResponse
-		return ret
-	}).(SslConfigurationResponseOutput)
+	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse { return *v }).(SslConfigurationResponseOutput)
 }
 
 // Cert data
@@ -24018,7 +23480,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -24068,13 +23530,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -24359,7 +23815,7 @@ func (o UserAccountCredentialsOutput) ToUserAccountCredentialsPtrOutput() UserAc
 }
 
 func (o UserAccountCredentialsOutput) ToUserAccountCredentialsPtrOutputWithContext(ctx context.Context) UserAccountCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAccountCredentials) *UserAccountCredentials {
+	return o.ApplyT(func(v UserAccountCredentials) *UserAccountCredentials {
 		return &v
 	}).(UserAccountCredentialsPtrOutput)
 }
@@ -24394,13 +23850,7 @@ func (o UserAccountCredentialsPtrOutput) ToUserAccountCredentialsPtrOutputWithCo
 }
 
 func (o UserAccountCredentialsPtrOutput) Elem() UserAccountCredentialsOutput {
-	return o.ApplyT(func(v *UserAccountCredentials) UserAccountCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret UserAccountCredentials
-		return ret
-	}).(UserAccountCredentialsOutput)
+	return o.ApplyT(func(v *UserAccountCredentials) UserAccountCredentials { return *v }).(UserAccountCredentialsOutput)
 }
 
 // Name of the administrator user account which can be used to SSH to nodes.
@@ -24537,7 +23987,7 @@ func (o UserAccountCredentialsResponseOutput) ToUserAccountCredentialsResponsePt
 }
 
 func (o UserAccountCredentialsResponseOutput) ToUserAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) UserAccountCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAccountCredentialsResponse) *UserAccountCredentialsResponse {
+	return o.ApplyT(func(v UserAccountCredentialsResponse) *UserAccountCredentialsResponse {
 		return &v
 	}).(UserAccountCredentialsResponsePtrOutput)
 }
@@ -24572,13 +24022,7 @@ func (o UserAccountCredentialsResponsePtrOutput) ToUserAccountCredentialsRespons
 }
 
 func (o UserAccountCredentialsResponsePtrOutput) Elem() UserAccountCredentialsResponseOutput {
-	return o.ApplyT(func(v *UserAccountCredentialsResponse) UserAccountCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserAccountCredentialsResponse
-		return ret
-	}).(UserAccountCredentialsResponseOutput)
+	return o.ApplyT(func(v *UserAccountCredentialsResponse) UserAccountCredentialsResponse { return *v }).(UserAccountCredentialsResponseOutput)
 }
 
 // Name of the administrator user account which can be used to SSH to nodes.
@@ -24916,7 +24360,7 @@ func (o VirtualMachineImageOutput) ToVirtualMachineImagePtrOutput() VirtualMachi
 }
 
 func (o VirtualMachineImageOutput) ToVirtualMachineImagePtrOutputWithContext(ctx context.Context) VirtualMachineImagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineImage) *VirtualMachineImage {
+	return o.ApplyT(func(v VirtualMachineImage) *VirtualMachineImage {
 		return &v
 	}).(VirtualMachineImagePtrOutput)
 }
@@ -24941,13 +24385,7 @@ func (o VirtualMachineImagePtrOutput) ToVirtualMachineImagePtrOutputWithContext(
 }
 
 func (o VirtualMachineImagePtrOutput) Elem() VirtualMachineImageOutput {
-	return o.ApplyT(func(v *VirtualMachineImage) VirtualMachineImage {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineImage
-		return ret
-	}).(VirtualMachineImageOutput)
+	return o.ApplyT(func(v *VirtualMachineImage) VirtualMachineImage { return *v }).(VirtualMachineImageOutput)
 }
 
 // Virtual Machine image path
@@ -25056,7 +24494,7 @@ func (o VirtualMachineImageResponseOutput) ToVirtualMachineImageResponsePtrOutpu
 }
 
 func (o VirtualMachineImageResponseOutput) ToVirtualMachineImageResponsePtrOutputWithContext(ctx context.Context) VirtualMachineImageResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineImageResponse) *VirtualMachineImageResponse {
+	return o.ApplyT(func(v VirtualMachineImageResponse) *VirtualMachineImageResponse {
 		return &v
 	}).(VirtualMachineImageResponsePtrOutput)
 }
@@ -25081,13 +24519,7 @@ func (o VirtualMachineImageResponsePtrOutput) ToVirtualMachineImageResponsePtrOu
 }
 
 func (o VirtualMachineImageResponsePtrOutput) Elem() VirtualMachineImageResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineImageResponse) VirtualMachineImageResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineImageResponse
-		return ret
-	}).(VirtualMachineImageResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineImageResponse) VirtualMachineImageResponse { return *v }).(VirtualMachineImageResponseOutput)
 }
 
 // Virtual Machine image path
@@ -25205,7 +24637,7 @@ func (o VirtualMachinePropertiesOutput) ToVirtualMachinePropertiesPtrOutput() Vi
 }
 
 func (o VirtualMachinePropertiesOutput) ToVirtualMachinePropertiesPtrOutputWithContext(ctx context.Context) VirtualMachinePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineProperties) *VirtualMachineProperties {
+	return o.ApplyT(func(v VirtualMachineProperties) *VirtualMachineProperties {
 		return &v
 	}).(VirtualMachinePropertiesPtrOutput)
 }
@@ -25245,13 +24677,7 @@ func (o VirtualMachinePropertiesPtrOutput) ToVirtualMachinePropertiesPtrOutputWi
 }
 
 func (o VirtualMachinePropertiesPtrOutput) Elem() VirtualMachinePropertiesOutput {
-	return o.ApplyT(func(v *VirtualMachineProperties) VirtualMachineProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineProperties
-		return ret
-	}).(VirtualMachinePropertiesOutput)
+	return o.ApplyT(func(v *VirtualMachineProperties) VirtualMachineProperties { return *v }).(VirtualMachinePropertiesOutput)
 }
 
 // Public IP address of the virtual machine.
@@ -25535,7 +24961,7 @@ func (o VirtualMachineResponsePropertiesOutput) ToVirtualMachineResponseProperti
 }
 
 func (o VirtualMachineResponsePropertiesOutput) ToVirtualMachineResponsePropertiesPtrOutputWithContext(ctx context.Context) VirtualMachineResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineResponseProperties) *VirtualMachineResponseProperties {
+	return o.ApplyT(func(v VirtualMachineResponseProperties) *VirtualMachineResponseProperties {
 		return &v
 	}).(VirtualMachineResponsePropertiesPtrOutput)
 }
@@ -25577,13 +25003,7 @@ func (o VirtualMachineResponsePropertiesPtrOutput) ToVirtualMachineResponsePrope
 }
 
 func (o VirtualMachineResponsePropertiesPtrOutput) Elem() VirtualMachineResponsePropertiesOutput {
-	return o.ApplyT(func(v *VirtualMachineResponseProperties) VirtualMachineResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineResponseProperties
-		return ret
-	}).(VirtualMachineResponsePropertiesOutput)
+	return o.ApplyT(func(v *VirtualMachineResponseProperties) VirtualMachineResponseProperties { return *v }).(VirtualMachineResponsePropertiesOutput)
 }
 
 // Public IP address of the virtual machine.
@@ -25734,7 +25154,7 @@ func (o VirtualMachineSshCredentialsOutput) ToVirtualMachineSshCredentialsPtrOut
 }
 
 func (o VirtualMachineSshCredentialsOutput) ToVirtualMachineSshCredentialsPtrOutputWithContext(ctx context.Context) VirtualMachineSshCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSshCredentials) *VirtualMachineSshCredentials {
+	return o.ApplyT(func(v VirtualMachineSshCredentials) *VirtualMachineSshCredentials {
 		return &v
 	}).(VirtualMachineSshCredentialsPtrOutput)
 }
@@ -25774,13 +25194,7 @@ func (o VirtualMachineSshCredentialsPtrOutput) ToVirtualMachineSshCredentialsPtr
 }
 
 func (o VirtualMachineSshCredentialsPtrOutput) Elem() VirtualMachineSshCredentialsOutput {
-	return o.ApplyT(func(v *VirtualMachineSshCredentials) VirtualMachineSshCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineSshCredentials
-		return ret
-	}).(VirtualMachineSshCredentialsOutput)
+	return o.ApplyT(func(v *VirtualMachineSshCredentials) VirtualMachineSshCredentials { return *v }).(VirtualMachineSshCredentialsOutput)
 }
 
 // Password of admin account
@@ -25931,7 +25345,7 @@ func (o VirtualMachineSshCredentialsResponseOutput) ToVirtualMachineSshCredentia
 }
 
 func (o VirtualMachineSshCredentialsResponseOutput) ToVirtualMachineSshCredentialsResponsePtrOutputWithContext(ctx context.Context) VirtualMachineSshCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSshCredentialsResponse) *VirtualMachineSshCredentialsResponse {
+	return o.ApplyT(func(v VirtualMachineSshCredentialsResponse) *VirtualMachineSshCredentialsResponse {
 		return &v
 	}).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
@@ -25971,13 +25385,7 @@ func (o VirtualMachineSshCredentialsResponsePtrOutput) ToVirtualMachineSshCreden
 }
 
 func (o VirtualMachineSshCredentialsResponsePtrOutput) Elem() VirtualMachineSshCredentialsResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) VirtualMachineSshCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineSshCredentialsResponse
-		return ret
-	}).(VirtualMachineSshCredentialsResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) VirtualMachineSshCredentialsResponse { return *v }).(VirtualMachineSshCredentialsResponseOutput)
 }
 
 // Password of admin account

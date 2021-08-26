@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
-    /// <summary>
-    /// The endpoints configuration.
-    /// </summary>
     [OutputType]
     public sealed class FlowEndpointsConfigurationResponse
     {

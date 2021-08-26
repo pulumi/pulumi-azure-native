@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20191001.Outputs
 {
 
-    /// <summary>
-    /// Status of the volume free space policy
-    /// </summary>
     [OutputType]
     public sealed class CloudTieringVolumeFreeSpacePolicyStatusResponse
     {

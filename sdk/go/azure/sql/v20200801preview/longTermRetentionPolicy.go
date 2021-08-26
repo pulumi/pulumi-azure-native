@@ -174,7 +174,9 @@ func (i *LongTermRetentionPolicy) ToLongTermRetentionPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermRetentionPolicyOutput)
 }
 
-type LongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
+type LongTermRetentionPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (LongTermRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LongTermRetentionPolicy)(nil))

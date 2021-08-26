@@ -306,7 +306,9 @@ func (i *AzureFirewall) ToAzureFirewallOutputWithContext(ctx context.Context) Az
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFirewallOutput)
 }
 
-type AzureFirewallOutput struct{ *pulumi.OutputState }
+type AzureFirewallOutput struct {
+	*pulumi.OutputState
+}
 
 func (AzureFirewallOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureFirewall)(nil))

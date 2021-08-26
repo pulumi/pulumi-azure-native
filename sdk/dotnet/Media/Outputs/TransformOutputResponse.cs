@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
-    /// <summary>
-    /// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
-    /// </summary>
     [OutputType]
     public sealed class TransformOutputResponse
     {

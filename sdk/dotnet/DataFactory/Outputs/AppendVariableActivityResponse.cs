@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Append value for a Variable of type Array.
-    /// </summary>
     [OutputType]
     public sealed class AppendVariableActivityResponse
     {

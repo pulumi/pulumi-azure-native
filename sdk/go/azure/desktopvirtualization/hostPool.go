@@ -343,7 +343,9 @@ func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
 }
 
-type HostPoolOutput struct{ *pulumi.OutputState }
+type HostPoolOutput struct {
+	*pulumi.OutputState
+}
 
 func (HostPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostPool)(nil))

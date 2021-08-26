@@ -50,9 +50,6 @@ func NewGalleryApplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SupportedOSType == nil {
-		return nil, errors.New("invalid value for required argument 'SupportedOSType'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:compute/v20190301:GalleryApplication"),
@@ -140,7 +137,7 @@ type galleryApplicationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType OperatingSystemTypes `pulumi:"supportedOSType"`
+	SupportedOSType string `pulumi:"supportedOSType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -166,7 +163,7 @@ type GalleryApplicationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType OperatingSystemTypesInput
+	SupportedOSType OperatingSystemTypes
 	// Resource tags
 	Tags pulumi.StringMapInput
 }
@@ -194,7 +191,9 @@ func (i *GalleryApplication) ToGalleryApplicationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationOutput)
 }
 
-type GalleryApplicationOutput struct{ *pulumi.OutputState }
+type GalleryApplicationOutput struct {
+	*pulumi.OutputState
+}
 
 func (GalleryApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GalleryApplication)(nil))

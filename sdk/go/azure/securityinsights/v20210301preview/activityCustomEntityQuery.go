@@ -205,7 +205,9 @@ func (i *ActivityCustomEntityQuery) ToActivityCustomEntityQueryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityCustomEntityQueryOutput)
 }
 
-type ActivityCustomEntityQueryOutput struct{ *pulumi.OutputState }
+type ActivityCustomEntityQueryOutput struct {
+	*pulumi.OutputState
+}
 
 func (ActivityCustomEntityQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityCustomEntityQuery)(nil))

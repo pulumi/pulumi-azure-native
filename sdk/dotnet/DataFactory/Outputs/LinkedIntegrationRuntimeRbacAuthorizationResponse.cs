@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The role based access control (RBAC) authorization type integration runtime.
-    /// </summary>
     [OutputType]
     public sealed class LinkedIntegrationRuntimeRbacAuthorizationResponse
     {

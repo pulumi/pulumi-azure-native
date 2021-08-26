@@ -198,7 +198,9 @@ func (i *SqlDWTableDataSet) ToSqlDWTableDataSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDWTableDataSetOutput)
 }
 
-type SqlDWTableDataSetOutput struct{ *pulumi.OutputState }
+type SqlDWTableDataSetOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlDWTableDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDWTableDataSet)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
-    /// <summary>
-    /// Details of the customer managed key associated with the workspace
-    /// </summary>
     [OutputType]
     public sealed class WorkspaceKeyDetailsResponse
     {

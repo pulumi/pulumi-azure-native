@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160601.Outputs
 {
 
-    /// <summary>
-    /// OAuth settings for the connection provider
-    /// </summary>
     [OutputType]
     public sealed class ApiOAuthSettingsResponse
     {

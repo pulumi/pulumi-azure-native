@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
-    /// <summary>
-    /// Specifying this parameter adds support for reliable collections
-    /// </summary>
     [OutputType]
     public sealed class ReliableCollectionsRefResponse
     {

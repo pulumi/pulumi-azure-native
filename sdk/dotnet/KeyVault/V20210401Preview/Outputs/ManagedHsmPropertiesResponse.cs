@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
 {
 
-    /// <summary>
-    /// Properties of the managed HSM Pool
-    /// </summary>
     [OutputType]
     public sealed class ManagedHsmPropertiesResponse
     {

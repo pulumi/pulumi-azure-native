@@ -106,7 +106,7 @@ func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutput() Contai
 }
 
 func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfiguration) *ContainerConfiguration {
+	return o.ApplyT(func(v ContainerConfiguration) *ContainerConfiguration {
 		return &v
 	}).(ContainerConfigurationPtrOutput)
 }
@@ -131,13 +131,7 @@ func (o ContainerConfigurationPtrOutput) ToContainerConfigurationPtrOutputWithCo
 }
 
 func (o ContainerConfigurationPtrOutput) Elem() ContainerConfigurationOutput {
-	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerConfiguration
-		return ret
-	}).(ContainerConfigurationOutput)
+	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration { return *v }).(ContainerConfigurationOutput)
 }
 
 // Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
@@ -246,7 +240,7 @@ func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePt
 }
 
 func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfigurationResponse) *ContainerConfigurationResponse {
+	return o.ApplyT(func(v ContainerConfigurationResponse) *ContainerConfigurationResponse {
 		return &v
 	}).(ContainerConfigurationResponsePtrOutput)
 }
@@ -271,13 +265,7 @@ func (o ContainerConfigurationResponsePtrOutput) ToContainerConfigurationRespons
 }
 
 func (o ContainerConfigurationResponsePtrOutput) Elem() ContainerConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerConfigurationResponse
-		return ret
-	}).(ContainerConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse { return *v }).(ContainerConfigurationResponseOutput)
 }
 
 // Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
@@ -772,7 +760,7 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutput() ErrorRes
 }
 
 func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponseResponse) *ErrorResponseResponse {
+	return o.ApplyT(func(v ErrorResponseResponse) *ErrorResponseResponse {
 		return &v
 	}).(ErrorResponseResponsePtrOutput)
 }
@@ -817,13 +805,7 @@ func (o ErrorResponseResponsePtrOutput) ToErrorResponseResponsePtrOutputWithCont
 }
 
 func (o ErrorResponseResponsePtrOutput) Elem() ErrorResponseResponseOutput {
-	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorResponseResponse
-		return ret
-	}).(ErrorResponseResponseOutput)
+	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse { return *v }).(ErrorResponseResponseOutput)
 }
 
 // The error additional info.
@@ -996,7 +978,7 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
@@ -1026,13 +1008,7 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedServiceIdentity
-		return ret
-	}).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
 }
 
 // Type of the managed identity.
@@ -1159,7 +1135,7 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
@@ -1196,13 +1172,7 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedServiceIdentityResponse
-		return ret
-	}).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
 }
 
 // ID of the Azure Active Directory.
@@ -1351,7 +1321,7 @@ func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutput() ScriptStat
 }
 
 func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutputWithContext(ctx context.Context) ScriptStatusResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptStatusResponse) *ScriptStatusResponse {
+	return o.ApplyT(func(v ScriptStatusResponse) *ScriptStatusResponse {
 		return &v
 	}).(ScriptStatusResponsePtrOutput)
 }
@@ -1401,13 +1371,7 @@ func (o ScriptStatusResponsePtrOutput) ToScriptStatusResponsePtrOutputWithContex
 }
 
 func (o ScriptStatusResponsePtrOutput) Elem() ScriptStatusResponseOutput {
-	return o.ApplyT(func(v *ScriptStatusResponse) ScriptStatusResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScriptStatusResponse
-		return ret
-	}).(ScriptStatusResponseOutput)
+	return o.ApplyT(func(v *ScriptStatusResponse) ScriptStatusResponse { return *v }).(ScriptStatusResponseOutput)
 }
 
 // ACI resource Id.
@@ -1570,7 +1534,7 @@ func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutpu
 }
 
 func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutputWithContext(ctx context.Context) StorageAccountConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountConfiguration) *StorageAccountConfiguration {
+	return o.ApplyT(func(v StorageAccountConfiguration) *StorageAccountConfiguration {
 		return &v
 	}).(StorageAccountConfigurationPtrOutput)
 }
@@ -1600,13 +1564,7 @@ func (o StorageAccountConfigurationPtrOutput) ToStorageAccountConfigurationPtrOu
 }
 
 func (o StorageAccountConfigurationPtrOutput) Elem() StorageAccountConfigurationOutput {
-	return o.ApplyT(func(v *StorageAccountConfiguration) StorageAccountConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountConfiguration
-		return ret
-	}).(StorageAccountConfigurationOutput)
+	return o.ApplyT(func(v *StorageAccountConfiguration) StorageAccountConfiguration { return *v }).(StorageAccountConfigurationOutput)
 }
 
 // The storage account access key.
@@ -1729,7 +1687,7 @@ func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfiguration
 }
 
 func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx context.Context) StorageAccountConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountConfigurationResponse) *StorageAccountConfigurationResponse {
+	return o.ApplyT(func(v StorageAccountConfigurationResponse) *StorageAccountConfigurationResponse {
 		return &v
 	}).(StorageAccountConfigurationResponsePtrOutput)
 }
@@ -1759,13 +1717,7 @@ func (o StorageAccountConfigurationResponsePtrOutput) ToStorageAccountConfigurat
 }
 
 func (o StorageAccountConfigurationResponsePtrOutput) Elem() StorageAccountConfigurationResponseOutput {
-	return o.ApplyT(func(v *StorageAccountConfigurationResponse) StorageAccountConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountConfigurationResponse
-		return ret
-	}).(StorageAccountConfigurationResponseOutput)
+	return o.ApplyT(func(v *StorageAccountConfigurationResponse) StorageAccountConfigurationResponse { return *v }).(StorageAccountConfigurationResponseOutput)
 }
 
 // The storage account access key.
@@ -1904,7 +1856,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1954,13 +1906,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

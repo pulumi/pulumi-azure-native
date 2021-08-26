@@ -260,7 +260,9 @@ func (i *IotHubResourceEventHubConsumerGroup) ToIotHubResourceEventHubConsumerGr
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceEventHubConsumerGroupOutput)
 }
 
-type IotHubResourceEventHubConsumerGroupOutput struct{ *pulumi.OutputState }
+type IotHubResourceEventHubConsumerGroupOutput struct {
+	*pulumi.OutputState
+}
 
 func (IotHubResourceEventHubConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroup)(nil))

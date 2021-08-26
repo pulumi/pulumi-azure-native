@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200301.Outputs
 {
 
-    /// <summary>
-    /// VPN client connection health detail.
-    /// </summary>
     [OutputType]
     public sealed class VpnClientConnectionHealthDetailResponse
     {

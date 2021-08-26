@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
 {
 
-    /// <summary>
-    /// Represents a configuration for non-DRM keys.
-    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyClearKeyConfigurationResponse
     {

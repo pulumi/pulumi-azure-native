@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20210401.Outputs
 {
 
-    /// <summary>
-    /// Optional throttling information for the alert rule.
-    /// </summary>
     [OutputType]
     public sealed class ThrottlingInformationResponse
     {

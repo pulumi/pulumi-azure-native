@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
-    /// <summary>
-    /// The cluster definition.
-    /// </summary>
     [OutputType]
     public sealed class ClusterDefinitionResponse
     {

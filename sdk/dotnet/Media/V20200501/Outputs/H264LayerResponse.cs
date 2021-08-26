@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
-    /// <summary>
-    /// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
-    /// </summary>
     [OutputType]
     public sealed class H264LayerResponse
     {

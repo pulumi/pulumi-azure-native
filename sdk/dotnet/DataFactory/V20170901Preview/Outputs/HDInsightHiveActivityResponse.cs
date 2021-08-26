@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
-    /// <summary>
-    /// HDInsight Hive activity type.
-    /// </summary>
     [OutputType]
     public sealed class HDInsightHiveActivityResponse
     {

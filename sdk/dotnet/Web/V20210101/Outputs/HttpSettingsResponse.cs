@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210101.Outputs
 {
 
-    /// <summary>
-    /// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-    /// </summary>
     [OutputType]
     public sealed class HttpSettingsResponse
     {

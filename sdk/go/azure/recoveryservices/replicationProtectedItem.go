@@ -184,7 +184,9 @@ func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemOutput)
 }
 
-type ReplicationProtectedItemOutput struct{ *pulumi.OutputState }
+type ReplicationProtectedItemOutput struct {
+	*pulumi.OutputState
+}
 
 func (ReplicationProtectedItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationProtectedItem)(nil))

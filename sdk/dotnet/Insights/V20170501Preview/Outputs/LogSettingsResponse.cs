@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20170501Preview.Outputs
 {
 
-    /// <summary>
-    /// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
-    /// </summary>
     [OutputType]
     public sealed class LogSettingsResponse
     {

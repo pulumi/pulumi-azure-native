@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview.Outputs
 {
 
-    /// <summary>
-    /// This is optional input that contains the authentication that should be used to generate the namespace.
-    /// </summary>
     [OutputType]
     public sealed class CustomLocationPropertiesResponseAuthentication
     {

@@ -114,7 +114,7 @@ func (o ActionGroupsInformationOutput) ToActionGroupsInformationPtrOutput() Acti
 }
 
 func (o ActionGroupsInformationOutput) ToActionGroupsInformationPtrOutputWithContext(ctx context.Context) ActionGroupsInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroupsInformation) *ActionGroupsInformation {
+	return o.ApplyT(func(v ActionGroupsInformation) *ActionGroupsInformation {
 		return &v
 	}).(ActionGroupsInformationPtrOutput)
 }
@@ -149,13 +149,7 @@ func (o ActionGroupsInformationPtrOutput) ToActionGroupsInformationPtrOutputWith
 }
 
 func (o ActionGroupsInformationPtrOutput) Elem() ActionGroupsInformationOutput {
-	return o.ApplyT(func(v *ActionGroupsInformation) ActionGroupsInformation {
-		if v != nil {
-			return *v
-		}
-		var ret ActionGroupsInformation
-		return ret
-	}).(ActionGroupsInformationOutput)
+	return o.ApplyT(func(v *ActionGroupsInformation) ActionGroupsInformation { return *v }).(ActionGroupsInformationOutput)
 }
 
 // An optional custom email subject to use in email notifications.
@@ -292,7 +286,7 @@ func (o ActionGroupsInformationResponseOutput) ToActionGroupsInformationResponse
 }
 
 func (o ActionGroupsInformationResponseOutput) ToActionGroupsInformationResponsePtrOutputWithContext(ctx context.Context) ActionGroupsInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroupsInformationResponse) *ActionGroupsInformationResponse {
+	return o.ApplyT(func(v ActionGroupsInformationResponse) *ActionGroupsInformationResponse {
 		return &v
 	}).(ActionGroupsInformationResponsePtrOutput)
 }
@@ -327,13 +321,7 @@ func (o ActionGroupsInformationResponsePtrOutput) ToActionGroupsInformationRespo
 }
 
 func (o ActionGroupsInformationResponsePtrOutput) Elem() ActionGroupsInformationResponseOutput {
-	return o.ApplyT(func(v *ActionGroupsInformationResponse) ActionGroupsInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActionGroupsInformationResponse
-		return ret
-	}).(ActionGroupsInformationResponseOutput)
+	return o.ApplyT(func(v *ActionGroupsInformationResponse) ActionGroupsInformationResponse { return *v }).(ActionGroupsInformationResponseOutput)
 }
 
 // An optional custom email subject to use in email notifications.
@@ -466,7 +454,7 @@ func (o DetectorOutput) ToDetectorPtrOutput() DetectorPtrOutput {
 }
 
 func (o DetectorOutput) ToDetectorPtrOutputWithContext(ctx context.Context) DetectorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Detector) *Detector {
+	return o.ApplyT(func(v Detector) *Detector {
 		return &v
 	}).(DetectorPtrOutput)
 }
@@ -496,13 +484,7 @@ func (o DetectorPtrOutput) ToDetectorPtrOutputWithContext(ctx context.Context) D
 }
 
 func (o DetectorPtrOutput) Elem() DetectorOutput {
-	return o.ApplyT(func(v *Detector) Detector {
-		if v != nil {
-			return *v
-		}
-		var ret Detector
-		return ret
-	}).(DetectorOutput)
+	return o.ApplyT(func(v *Detector) Detector { return *v }).(DetectorOutput)
 }
 
 // The detector id.
@@ -785,7 +767,7 @@ func (o DetectorResponseOutput) ToDetectorResponsePtrOutput() DetectorResponsePt
 }
 
 func (o DetectorResponseOutput) ToDetectorResponsePtrOutputWithContext(ctx context.Context) DetectorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorResponse) *DetectorResponse {
+	return o.ApplyT(func(v DetectorResponse) *DetectorResponse {
 		return &v
 	}).(DetectorResponsePtrOutput)
 }
@@ -845,13 +827,7 @@ func (o DetectorResponsePtrOutput) ToDetectorResponsePtrOutputWithContext(ctx co
 }
 
 func (o DetectorResponsePtrOutput) Elem() DetectorResponseOutput {
-	return o.ApplyT(func(v *DetectorResponse) DetectorResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DetectorResponse
-		return ret
-	}).(DetectorResponseOutput)
+	return o.ApplyT(func(v *DetectorResponse) DetectorResponse { return *v }).(DetectorResponseOutput)
 }
 
 // The Smart Detector description.
@@ -1030,7 +1006,7 @@ func (o ThrottlingInformationOutput) ToThrottlingInformationPtrOutput() Throttli
 }
 
 func (o ThrottlingInformationOutput) ToThrottlingInformationPtrOutputWithContext(ctx context.Context) ThrottlingInformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThrottlingInformation) *ThrottlingInformation {
+	return o.ApplyT(func(v ThrottlingInformation) *ThrottlingInformation {
 		return &v
 	}).(ThrottlingInformationPtrOutput)
 }
@@ -1055,13 +1031,7 @@ func (o ThrottlingInformationPtrOutput) ToThrottlingInformationPtrOutputWithCont
 }
 
 func (o ThrottlingInformationPtrOutput) Elem() ThrottlingInformationOutput {
-	return o.ApplyT(func(v *ThrottlingInformation) ThrottlingInformation {
-		if v != nil {
-			return *v
-		}
-		var ret ThrottlingInformation
-		return ret
-	}).(ThrottlingInformationOutput)
+	return o.ApplyT(func(v *ThrottlingInformation) ThrottlingInformation { return *v }).(ThrottlingInformationOutput)
 }
 
 // The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
@@ -1170,7 +1140,7 @@ func (o ThrottlingInformationResponseOutput) ToThrottlingInformationResponsePtrO
 }
 
 func (o ThrottlingInformationResponseOutput) ToThrottlingInformationResponsePtrOutputWithContext(ctx context.Context) ThrottlingInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThrottlingInformationResponse) *ThrottlingInformationResponse {
+	return o.ApplyT(func(v ThrottlingInformationResponse) *ThrottlingInformationResponse {
 		return &v
 	}).(ThrottlingInformationResponsePtrOutput)
 }
@@ -1195,13 +1165,7 @@ func (o ThrottlingInformationResponsePtrOutput) ToThrottlingInformationResponseP
 }
 
 func (o ThrottlingInformationResponsePtrOutput) Elem() ThrottlingInformationResponseOutput {
-	return o.ApplyT(func(v *ThrottlingInformationResponse) ThrottlingInformationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ThrottlingInformationResponse
-		return ret
-	}).(ThrottlingInformationResponseOutput)
+	return o.ApplyT(func(v *ThrottlingInformationResponse) ThrottlingInformationResponse { return *v }).(ThrottlingInformationResponseOutput)
 }
 
 // The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes

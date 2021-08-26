@@ -165,7 +165,9 @@ func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
 }
 
-type EventHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
+type EventHubAuthorizationRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))

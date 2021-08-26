@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Azure ML Update Resource management activity.
-    /// </summary>
     [OutputType]
     public sealed class AzureMLUpdateResourceActivityResponse
     {

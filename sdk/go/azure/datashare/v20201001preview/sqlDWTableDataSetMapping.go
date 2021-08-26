@@ -208,7 +208,9 @@ func (i *SqlDWTableDataSetMapping) ToSqlDWTableDataSetMappingOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDWTableDataSetMappingOutput)
 }
 
-type SqlDWTableDataSetMappingOutput struct{ *pulumi.OutputState }
+type SqlDWTableDataSetMappingOutput struct {
+	*pulumi.OutputState
+}
 
 func (SqlDWTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDWTableDataSetMapping)(nil))

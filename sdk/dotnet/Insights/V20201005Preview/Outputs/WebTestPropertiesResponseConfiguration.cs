@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20201005Preview.Outputs
 {
 
-    /// <summary>
-    /// An XML configuration specification for a WebTest.
-    /// </summary>
     [OutputType]
     public sealed class WebTestPropertiesResponseConfiguration
     {

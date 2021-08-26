@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Google AdWords service dataset.
-    /// </summary>
     [OutputType]
     public sealed class GoogleAdWordsObjectDatasetResponse
     {

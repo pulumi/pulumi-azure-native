@@ -310,7 +310,7 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPt
 }
 
 func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
@@ -340,13 +340,7 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSetting
 }
 
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ElasticPoolPerDatabaseSettings
-		return ret
-	}).(ElasticPoolPerDatabaseSettingsOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings { return *v }).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
 // The maximum capacity any one database can consume.
@@ -469,7 +463,7 @@ func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSe
 }
 
 func (o ElasticPoolPerDatabaseSettingsResponseOutput) ToElasticPoolPerDatabaseSettingsResponsePtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsResponse) *ElasticPoolPerDatabaseSettingsResponse {
 		return &v
 	}).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
 }
@@ -499,13 +493,7 @@ func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) ToElasticPoolPerDatabas
 }
 
 func (o ElasticPoolPerDatabaseSettingsResponsePtrOutput) Elem() ElasticPoolPerDatabaseSettingsResponseOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) ElasticPoolPerDatabaseSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ElasticPoolPerDatabaseSettingsResponse
-		return ret
-	}).(ElasticPoolPerDatabaseSettingsResponseOutput)
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettingsResponse) ElasticPoolPerDatabaseSettingsResponse { return *v }).(ElasticPoolPerDatabaseSettingsResponseOutput)
 }
 
 // The maximum capacity any one database can consume.
@@ -624,7 +612,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointOutput) ToInstanceFailoverGroupRead
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointOutput) ToInstanceFailoverGroupReadOnlyEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadOnlyEndpoint) *InstanceFailoverGroupReadOnlyEndpoint {
+	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpoint) *InstanceFailoverGroupReadOnlyEndpoint {
 		return &v
 	}).(InstanceFailoverGroupReadOnlyEndpointPtrOutput)
 }
@@ -649,13 +637,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) ToInstanceFailoverGroupR
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) Elem() InstanceFailoverGroupReadOnlyEndpointOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) InstanceFailoverGroupReadOnlyEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadOnlyEndpoint
-		return ret
-	}).(InstanceFailoverGroupReadOnlyEndpointOutput)
+	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpoint) InstanceFailoverGroupReadOnlyEndpoint { return *v }).(InstanceFailoverGroupReadOnlyEndpointOutput)
 }
 
 // Failover policy of the read-only endpoint for the failover group.
@@ -764,7 +746,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverG
 }
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadOnlyEndpointResponse) *InstanceFailoverGroupReadOnlyEndpointResponse {
+	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpointResponse) *InstanceFailoverGroupReadOnlyEndpointResponse {
 		return &v
 	}).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
@@ -790,11 +772,7 @@ func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) ToInstanceFailov
 
 func (o InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput) Elem() InstanceFailoverGroupReadOnlyEndpointResponseOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadOnlyEndpointResponse) InstanceFailoverGroupReadOnlyEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadOnlyEndpointResponse
-		return ret
+		return *v
 	}).(InstanceFailoverGroupReadOnlyEndpointResponseOutput)
 }
 
@@ -908,7 +886,7 @@ func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupRea
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointOutput) ToInstanceFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpoint) *InstanceFailoverGroupReadWriteEndpoint {
+	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpoint) *InstanceFailoverGroupReadWriteEndpoint {
 		return &v
 	}).(InstanceFailoverGroupReadWriteEndpointPtrOutput)
 }
@@ -938,13 +916,7 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) ToInstanceFailoverGroup
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointOutput {
-	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) InstanceFailoverGroupReadWriteEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadWriteEndpoint
-		return ret
-	}).(InstanceFailoverGroupReadWriteEndpointOutput)
+	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpoint) InstanceFailoverGroupReadWriteEndpoint { return *v }).(InstanceFailoverGroupReadWriteEndpointOutput)
 }
 
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -1067,7 +1039,7 @@ func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailover
 }
 
 func (o InstanceFailoverGroupReadWriteEndpointResponseOutput) ToInstanceFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFailoverGroupReadWriteEndpointResponse) *InstanceFailoverGroupReadWriteEndpointResponse {
+	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointResponse) *InstanceFailoverGroupReadWriteEndpointResponse {
 		return &v
 	}).(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput)
 }
@@ -1100,11 +1072,7 @@ func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) ToInstanceFailo
 
 func (o InstanceFailoverGroupReadWriteEndpointResponsePtrOutput) Elem() InstanceFailoverGroupReadWriteEndpointResponseOutput {
 	return o.ApplyT(func(v *InstanceFailoverGroupReadWriteEndpointResponse) InstanceFailoverGroupReadWriteEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceFailoverGroupReadWriteEndpointResponse
-		return ret
+		return *v
 	}).(InstanceFailoverGroupReadWriteEndpointResponseOutput)
 }
 
@@ -1667,7 +1635,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1712,13 +1680,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Capacity of the particular SKU.
@@ -1883,7 +1845,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1928,13 +1890,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Capacity of the particular SKU.
@@ -2091,7 +2047,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAs
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAssessmentRecurringScansPropertiesPtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
@@ -2127,11 +2083,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) ToVulnerabilit
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) VulnerabilityAssessmentRecurringScansProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VulnerabilityAssessmentRecurringScansProperties
-		return ret
+		return *v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesOutput)
 }
 
@@ -2269,7 +2221,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
@@ -2307,11 +2259,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) ToVuln
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) VulnerabilityAssessmentRecurringScansPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VulnerabilityAssessmentRecurringScansPropertiesResponse
-		return ret
+		return *v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
 }
 

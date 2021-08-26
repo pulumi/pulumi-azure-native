@@ -116,7 +116,9 @@ func (i *SubscriptionFeatureRegistration) ToSubscriptionFeatureRegistrationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionFeatureRegistrationOutput)
 }
 
-type SubscriptionFeatureRegistrationOutput struct{ *pulumi.OutputState }
+type SubscriptionFeatureRegistrationOutput struct {
+	*pulumi.OutputState
+}
 
 func (SubscriptionFeatureRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionFeatureRegistration)(nil))

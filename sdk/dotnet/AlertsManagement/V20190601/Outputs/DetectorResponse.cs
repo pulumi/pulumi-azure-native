@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20190601.Outputs
 {
 
-    /// <summary>
-    /// The detector information. By default this is not populated, unless it's specified in expandDetector
-    /// </summary>
     [OutputType]
     public sealed class DetectorResponse
     {

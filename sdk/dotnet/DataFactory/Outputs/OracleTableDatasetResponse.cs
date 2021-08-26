@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// The on-premises Oracle database dataset.
-    /// </summary>
     [OutputType]
     public sealed class OracleTableDatasetResponse
     {

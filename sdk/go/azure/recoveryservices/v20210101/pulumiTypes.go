@@ -908,7 +908,7 @@ func (o AzureFileshareProtectedItemExtendedInfoOutput) ToAzureFileshareProtected
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoOutput) ToAzureFileshareProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileshareProtectedItemExtendedInfo) *AzureFileshareProtectedItemExtendedInfo {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfo) *AzureFileshareProtectedItemExtendedInfo {
 		return &v
 	}).(AzureFileshareProtectedItemExtendedInfoPtrOutput)
 }
@@ -943,13 +943,7 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) ToAzureFileshareProtec
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) Elem() AzureFileshareProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) AzureFileshareProtectedItemExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileshareProtectedItemExtendedInfo
-		return ret
-	}).(AzureFileshareProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) AzureFileshareProtectedItemExtendedInfo { return *v }).(AzureFileshareProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this item in the service.
@@ -1094,7 +1088,7 @@ func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ToAzureFileshareP
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ToAzureFileshareProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileshareProtectedItemExtendedInfoResponse) *AzureFileshareProtectedItemExtendedInfoResponse {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) *AzureFileshareProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureFileshareProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -1140,11 +1134,7 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ToAzureFilesha
 
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureFileshareProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) AzureFileshareProtectedItemExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureFileshareProtectedItemExtendedInfoResponse
-		return ret
+		return *v
 	}).(AzureFileshareProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -3601,7 +3591,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemEx
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
 		return &v
 	}).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
@@ -3636,13 +3626,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) ToAzureIaaSVMProtectedIte
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret AzureIaaSVMProtectedItemExtendedInfo
-		return ret
-	}).(AzureIaaSVMProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo { return *v }).(AzureIaaSVMProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this backup item.
@@ -3779,7 +3763,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ToAzureIaaSVMProtect
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ToAzureIaaSVMProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIaaSVMProtectedItemExtendedInfoResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -3815,11 +3799,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) ToAzureIaaSVMProt
 
 func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoResponse) AzureIaaSVMProtectedItemExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureIaaSVMProtectedItemExtendedInfoResponse
-		return ret
+		return *v
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -5172,7 +5152,7 @@ func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtended
 }
 
 func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
+	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
 		return &v
 	}).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
@@ -5207,13 +5187,7 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) ToAzureSqlProtectedItemExten
 }
 
 func (o AzureSqlProtectedItemExtendedInfoPtrOutput) Elem() AzureSqlProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret AzureSqlProtectedItemExtendedInfo
-		return ret
-	}).(AzureSqlProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo { return *v }).(AzureSqlProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this item in the service.
@@ -5350,7 +5324,7 @@ func (o AzureSqlProtectedItemExtendedInfoResponseOutput) ToAzureSqlProtectedItem
 }
 
 func (o AzureSqlProtectedItemExtendedInfoResponseOutput) ToAzureSqlProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSqlProtectedItemExtendedInfoResponse) *AzureSqlProtectedItemExtendedInfoResponse {
+	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoResponse) *AzureSqlProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureSqlProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -5386,11 +5360,7 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) ToAzureSqlProtectedI
 
 func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureSqlProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoResponse) AzureSqlProtectedItemExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureSqlProtectedItemExtendedInfoResponse
-		return ret
+		return *v
 	}).(AzureSqlProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -6745,7 +6715,7 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) ToAzureVmWorkloadProtect
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) ToAzureVmWorkloadProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureVmWorkloadProtectedItemExtendedInfo) *AzureVmWorkloadProtectedItemExtendedInfo {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *AzureVmWorkloadProtectedItemExtendedInfo {
 		return &v
 	}).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
@@ -6780,13 +6750,7 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) ToAzureVmWorkloadProt
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) Elem() AzureVmWorkloadProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) AzureVmWorkloadProtectedItemExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret AzureVmWorkloadProtectedItemExtendedInfo
-		return ret
-	}).(AzureVmWorkloadProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) AzureVmWorkloadProtectedItemExtendedInfo { return *v }).(AzureVmWorkloadProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this backup item.
@@ -6923,7 +6887,7 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ToAzureVmWorkloa
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ToAzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureVmWorkloadProtectedItemExtendedInfoResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -6959,11 +6923,7 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) ToAzureVmWork
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureVmWorkloadProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) AzureVmWorkloadProtectedItemExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureVmWorkloadProtectedItemExtendedInfoResponse
-		return ret
+		return *v
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -9526,7 +9486,7 @@ func (o AzureWorkloadContainerExtendedInfoOutput) ToAzureWorkloadContainerExtend
 }
 
 func (o AzureWorkloadContainerExtendedInfoOutput) ToAzureWorkloadContainerExtendedInfoPtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureWorkloadContainerExtendedInfo) *AzureWorkloadContainerExtendedInfo {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfo) *AzureWorkloadContainerExtendedInfo {
 		return &v
 	}).(AzureWorkloadContainerExtendedInfoPtrOutput)
 }
@@ -9561,13 +9521,7 @@ func (o AzureWorkloadContainerExtendedInfoPtrOutput) ToAzureWorkloadContainerExt
 }
 
 func (o AzureWorkloadContainerExtendedInfoPtrOutput) Elem() AzureWorkloadContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfo) AzureWorkloadContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret AzureWorkloadContainerExtendedInfo
-		return ret
-	}).(AzureWorkloadContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfo) AzureWorkloadContainerExtendedInfo { return *v }).(AzureWorkloadContainerExtendedInfoOutput)
 }
 
 // Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
@@ -9704,7 +9658,7 @@ func (o AzureWorkloadContainerExtendedInfoResponseOutput) ToAzureWorkloadContain
 }
 
 func (o AzureWorkloadContainerExtendedInfoResponseOutput) ToAzureWorkloadContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureWorkloadContainerExtendedInfoResponse) *AzureWorkloadContainerExtendedInfoResponse {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfoResponse) *AzureWorkloadContainerExtendedInfoResponse {
 		return &v
 	}).(AzureWorkloadContainerExtendedInfoResponsePtrOutput)
 }
@@ -9740,11 +9694,7 @@ func (o AzureWorkloadContainerExtendedInfoResponsePtrOutput) ToAzureWorkloadCont
 
 func (o AzureWorkloadContainerExtendedInfoResponsePtrOutput) Elem() AzureWorkloadContainerExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfoResponse) AzureWorkloadContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AzureWorkloadContainerExtendedInfoResponse
-		return ret
+		return *v
 	}).(AzureWorkloadContainerExtendedInfoResponseOutput)
 }
 
@@ -10028,7 +9978,7 @@ func (o CmkKekIdentityOutput) ToCmkKekIdentityPtrOutput() CmkKekIdentityPtrOutpu
 }
 
 func (o CmkKekIdentityOutput) ToCmkKekIdentityPtrOutputWithContext(ctx context.Context) CmkKekIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CmkKekIdentity) *CmkKekIdentity {
+	return o.ApplyT(func(v CmkKekIdentity) *CmkKekIdentity {
 		return &v
 	}).(CmkKekIdentityPtrOutput)
 }
@@ -10058,13 +10008,7 @@ func (o CmkKekIdentityPtrOutput) ToCmkKekIdentityPtrOutputWithContext(ctx contex
 }
 
 func (o CmkKekIdentityPtrOutput) Elem() CmkKekIdentityOutput {
-	return o.ApplyT(func(v *CmkKekIdentity) CmkKekIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret CmkKekIdentity
-		return ret
-	}).(CmkKekIdentityOutput)
+	return o.ApplyT(func(v *CmkKekIdentity) CmkKekIdentity { return *v }).(CmkKekIdentityOutput)
 }
 
 // Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
@@ -10187,7 +10131,7 @@ func (o CmkKekIdentityResponseOutput) ToCmkKekIdentityResponsePtrOutput() CmkKek
 }
 
 func (o CmkKekIdentityResponseOutput) ToCmkKekIdentityResponsePtrOutputWithContext(ctx context.Context) CmkKekIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CmkKekIdentityResponse) *CmkKekIdentityResponse {
+	return o.ApplyT(func(v CmkKekIdentityResponse) *CmkKekIdentityResponse {
 		return &v
 	}).(CmkKekIdentityResponsePtrOutput)
 }
@@ -10217,13 +10161,7 @@ func (o CmkKekIdentityResponsePtrOutput) ToCmkKekIdentityResponsePtrOutputWithCo
 }
 
 func (o CmkKekIdentityResponsePtrOutput) Elem() CmkKekIdentityResponseOutput {
-	return o.ApplyT(func(v *CmkKekIdentityResponse) CmkKekIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CmkKekIdentityResponse
-		return ret
-	}).(CmkKekIdentityResponseOutput)
+	return o.ApplyT(func(v *CmkKekIdentityResponse) CmkKekIdentityResponse { return *v }).(CmkKekIdentityResponseOutput)
 }
 
 // Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
@@ -10342,7 +10280,7 @@ func (o CmkKeyVaultPropertiesOutput) ToCmkKeyVaultPropertiesPtrOutput() CmkKeyVa
 }
 
 func (o CmkKeyVaultPropertiesOutput) ToCmkKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CmkKeyVaultProperties) *CmkKeyVaultProperties {
+	return o.ApplyT(func(v CmkKeyVaultProperties) *CmkKeyVaultProperties {
 		return &v
 	}).(CmkKeyVaultPropertiesPtrOutput)
 }
@@ -10367,13 +10305,7 @@ func (o CmkKeyVaultPropertiesPtrOutput) ToCmkKeyVaultPropertiesPtrOutputWithCont
 }
 
 func (o CmkKeyVaultPropertiesPtrOutput) Elem() CmkKeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *CmkKeyVaultProperties) CmkKeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret CmkKeyVaultProperties
-		return ret
-	}).(CmkKeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *CmkKeyVaultProperties) CmkKeyVaultProperties { return *v }).(CmkKeyVaultPropertiesOutput)
 }
 
 // The key uri of the Customer Managed Key
@@ -10482,7 +10414,7 @@ func (o CmkKeyVaultPropertiesResponseOutput) ToCmkKeyVaultPropertiesResponsePtrO
 }
 
 func (o CmkKeyVaultPropertiesResponseOutput) ToCmkKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) CmkKeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CmkKeyVaultPropertiesResponse) *CmkKeyVaultPropertiesResponse {
+	return o.ApplyT(func(v CmkKeyVaultPropertiesResponse) *CmkKeyVaultPropertiesResponse {
 		return &v
 	}).(CmkKeyVaultPropertiesResponsePtrOutput)
 }
@@ -10507,13 +10439,7 @@ func (o CmkKeyVaultPropertiesResponsePtrOutput) ToCmkKeyVaultPropertiesResponseP
 }
 
 func (o CmkKeyVaultPropertiesResponsePtrOutput) Elem() CmkKeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *CmkKeyVaultPropertiesResponse) CmkKeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CmkKeyVaultPropertiesResponse
-		return ret
-	}).(CmkKeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *CmkKeyVaultPropertiesResponse) CmkKeyVaultPropertiesResponse { return *v }).(CmkKeyVaultPropertiesResponseOutput)
 }
 
 // The key uri of the Customer Managed Key
@@ -10634,7 +10560,7 @@ func (o ContainerIdentityInfoOutput) ToContainerIdentityInfoPtrOutput() Containe
 }
 
 func (o ContainerIdentityInfoOutput) ToContainerIdentityInfoPtrOutputWithContext(ctx context.Context) ContainerIdentityInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerIdentityInfo) *ContainerIdentityInfo {
+	return o.ApplyT(func(v ContainerIdentityInfo) *ContainerIdentityInfo {
 		return &v
 	}).(ContainerIdentityInfoPtrOutput)
 }
@@ -10674,13 +10600,7 @@ func (o ContainerIdentityInfoPtrOutput) ToContainerIdentityInfoPtrOutputWithCont
 }
 
 func (o ContainerIdentityInfoPtrOutput) Elem() ContainerIdentityInfoOutput {
-	return o.ApplyT(func(v *ContainerIdentityInfo) ContainerIdentityInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerIdentityInfo
-		return ret
-	}).(ContainerIdentityInfoOutput)
+	return o.ApplyT(func(v *ContainerIdentityInfo) ContainerIdentityInfo { return *v }).(ContainerIdentityInfoOutput)
 }
 
 // Protection container identity - AAD Tenant
@@ -10831,7 +10751,7 @@ func (o ContainerIdentityInfoResponseOutput) ToContainerIdentityInfoResponsePtrO
 }
 
 func (o ContainerIdentityInfoResponseOutput) ToContainerIdentityInfoResponsePtrOutputWithContext(ctx context.Context) ContainerIdentityInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerIdentityInfoResponse) *ContainerIdentityInfoResponse {
+	return o.ApplyT(func(v ContainerIdentityInfoResponse) *ContainerIdentityInfoResponse {
 		return &v
 	}).(ContainerIdentityInfoResponsePtrOutput)
 }
@@ -10871,13 +10791,7 @@ func (o ContainerIdentityInfoResponsePtrOutput) ToContainerIdentityInfoResponseP
 }
 
 func (o ContainerIdentityInfoResponsePtrOutput) Elem() ContainerIdentityInfoResponseOutput {
-	return o.ApplyT(func(v *ContainerIdentityInfoResponse) ContainerIdentityInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerIdentityInfoResponse
-		return ret
-	}).(ContainerIdentityInfoResponseOutput)
+	return o.ApplyT(func(v *ContainerIdentityInfoResponse) ContainerIdentityInfoResponse { return *v }).(ContainerIdentityInfoResponseOutput)
 }
 
 // Protection container identity - AAD Tenant
@@ -11016,7 +10930,7 @@ func (o DPMContainerExtendedInfoOutput) ToDPMContainerExtendedInfoPtrOutput() DP
 }
 
 func (o DPMContainerExtendedInfoOutput) ToDPMContainerExtendedInfoPtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMContainerExtendedInfo) *DPMContainerExtendedInfo {
+	return o.ApplyT(func(v DPMContainerExtendedInfo) *DPMContainerExtendedInfo {
 		return &v
 	}).(DPMContainerExtendedInfoPtrOutput)
 }
@@ -11041,13 +10955,7 @@ func (o DPMContainerExtendedInfoPtrOutput) ToDPMContainerExtendedInfoPtrOutputWi
 }
 
 func (o DPMContainerExtendedInfoPtrOutput) Elem() DPMContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *DPMContainerExtendedInfo) DPMContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret DPMContainerExtendedInfo
-		return ret
-	}).(DPMContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *DPMContainerExtendedInfo) DPMContainerExtendedInfo { return *v }).(DPMContainerExtendedInfoOutput)
 }
 
 // Last refresh time of the DPMContainer.
@@ -11156,7 +11064,7 @@ func (o DPMContainerExtendedInfoResponseOutput) ToDPMContainerExtendedInfoRespon
 }
 
 func (o DPMContainerExtendedInfoResponseOutput) ToDPMContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMContainerExtendedInfoResponse) *DPMContainerExtendedInfoResponse {
+	return o.ApplyT(func(v DPMContainerExtendedInfoResponse) *DPMContainerExtendedInfoResponse {
 		return &v
 	}).(DPMContainerExtendedInfoResponsePtrOutput)
 }
@@ -11181,13 +11089,7 @@ func (o DPMContainerExtendedInfoResponsePtrOutput) ToDPMContainerExtendedInfoRes
 }
 
 func (o DPMContainerExtendedInfoResponsePtrOutput) Elem() DPMContainerExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *DPMContainerExtendedInfoResponse) DPMContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DPMContainerExtendedInfoResponse
-		return ret
-	}).(DPMContainerExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *DPMContainerExtendedInfoResponse) DPMContainerExtendedInfoResponse { return *v }).(DPMContainerExtendedInfoResponseOutput)
 }
 
 // Last refresh time of the DPMContainer.
@@ -11559,7 +11461,7 @@ func (o DPMProtectedItemExtendedInfoOutput) ToDPMProtectedItemExtendedInfoPtrOut
 }
 
 func (o DPMProtectedItemExtendedInfoOutput) ToDPMProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMProtectedItemExtendedInfo) *DPMProtectedItemExtendedInfo {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *DPMProtectedItemExtendedInfo {
 		return &v
 	}).(DPMProtectedItemExtendedInfoPtrOutput)
 }
@@ -11649,13 +11551,7 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) ToDPMProtectedItemExtendedInfoPtr
 }
 
 func (o DPMProtectedItemExtendedInfoPtrOutput) Elem() DPMProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) DPMProtectedItemExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret DPMProtectedItemExtendedInfo
-		return ret
-	}).(DPMProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) DPMProtectedItemExtendedInfo { return *v }).(DPMProtectedItemExtendedInfoOutput)
 }
 
 // Used Disk storage in bytes.
@@ -11946,7 +11842,7 @@ func (o DPMProtectedItemExtendedInfoResponseOutput) ToDPMProtectedItemExtendedIn
 }
 
 func (o DPMProtectedItemExtendedInfoResponseOutput) ToDPMProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMProtectedItemExtendedInfoResponse) *DPMProtectedItemExtendedInfoResponse {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *DPMProtectedItemExtendedInfoResponse {
 		return &v
 	}).(DPMProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -12036,13 +11932,7 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) ToDPMProtectedItemExtende
 }
 
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) Elem() DPMProtectedItemExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) DPMProtectedItemExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DPMProtectedItemExtendedInfoResponse
-		return ret
-	}).(DPMProtectedItemExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) DPMProtectedItemExtendedInfoResponse { return *v }).(DPMProtectedItemExtendedInfoResponseOutput)
 }
 
 // Used Disk storage in bytes.
@@ -12492,7 +12382,7 @@ func (o DailyRetentionFormatOutput) ToDailyRetentionFormatPtrOutput() DailyReten
 }
 
 func (o DailyRetentionFormatOutput) ToDailyRetentionFormatPtrOutputWithContext(ctx context.Context) DailyRetentionFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionFormat) *DailyRetentionFormat {
+	return o.ApplyT(func(v DailyRetentionFormat) *DailyRetentionFormat {
 		return &v
 	}).(DailyRetentionFormatPtrOutput)
 }
@@ -12517,13 +12407,7 @@ func (o DailyRetentionFormatPtrOutput) ToDailyRetentionFormatPtrOutputWithContex
 }
 
 func (o DailyRetentionFormatPtrOutput) Elem() DailyRetentionFormatOutput {
-	return o.ApplyT(func(v *DailyRetentionFormat) DailyRetentionFormat {
-		if v != nil {
-			return *v
-		}
-		var ret DailyRetentionFormat
-		return ret
-	}).(DailyRetentionFormatOutput)
+	return o.ApplyT(func(v *DailyRetentionFormat) DailyRetentionFormat { return *v }).(DailyRetentionFormatOutput)
 }
 
 // List of days of the month.
@@ -12632,7 +12516,7 @@ func (o DailyRetentionFormatResponseOutput) ToDailyRetentionFormatResponsePtrOut
 }
 
 func (o DailyRetentionFormatResponseOutput) ToDailyRetentionFormatResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionFormatResponse) *DailyRetentionFormatResponse {
+	return o.ApplyT(func(v DailyRetentionFormatResponse) *DailyRetentionFormatResponse {
 		return &v
 	}).(DailyRetentionFormatResponsePtrOutput)
 }
@@ -12657,13 +12541,7 @@ func (o DailyRetentionFormatResponsePtrOutput) ToDailyRetentionFormatResponsePtr
 }
 
 func (o DailyRetentionFormatResponsePtrOutput) Elem() DailyRetentionFormatResponseOutput {
-	return o.ApplyT(func(v *DailyRetentionFormatResponse) DailyRetentionFormatResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DailyRetentionFormatResponse
-		return ret
-	}).(DailyRetentionFormatResponseOutput)
+	return o.ApplyT(func(v *DailyRetentionFormatResponse) DailyRetentionFormatResponse { return *v }).(DailyRetentionFormatResponseOutput)
 }
 
 // List of days of the month.
@@ -12776,7 +12654,7 @@ func (o DailyRetentionScheduleOutput) ToDailyRetentionSchedulePtrOutput() DailyR
 }
 
 func (o DailyRetentionScheduleOutput) ToDailyRetentionSchedulePtrOutputWithContext(ctx context.Context) DailyRetentionSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionSchedule) *DailyRetentionSchedule {
+	return o.ApplyT(func(v DailyRetentionSchedule) *DailyRetentionSchedule {
 		return &v
 	}).(DailyRetentionSchedulePtrOutput)
 }
@@ -12806,13 +12684,7 @@ func (o DailyRetentionSchedulePtrOutput) ToDailyRetentionSchedulePtrOutputWithCo
 }
 
 func (o DailyRetentionSchedulePtrOutput) Elem() DailyRetentionScheduleOutput {
-	return o.ApplyT(func(v *DailyRetentionSchedule) DailyRetentionSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret DailyRetentionSchedule
-		return ret
-	}).(DailyRetentionScheduleOutput)
+	return o.ApplyT(func(v *DailyRetentionSchedule) DailyRetentionSchedule { return *v }).(DailyRetentionScheduleOutput)
 }
 
 // Retention duration of retention Policy.
@@ -12935,7 +12807,7 @@ func (o DailyRetentionScheduleResponseOutput) ToDailyRetentionScheduleResponsePt
 }
 
 func (o DailyRetentionScheduleResponseOutput) ToDailyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionScheduleResponse) *DailyRetentionScheduleResponse {
+	return o.ApplyT(func(v DailyRetentionScheduleResponse) *DailyRetentionScheduleResponse {
 		return &v
 	}).(DailyRetentionScheduleResponsePtrOutput)
 }
@@ -12965,13 +12837,7 @@ func (o DailyRetentionScheduleResponsePtrOutput) ToDailyRetentionScheduleRespons
 }
 
 func (o DailyRetentionScheduleResponsePtrOutput) Elem() DailyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *DailyRetentionScheduleResponse) DailyRetentionScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DailyRetentionScheduleResponse
-		return ret
-	}).(DailyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *DailyRetentionScheduleResponse) DailyRetentionScheduleResponse { return *v }).(DailyRetentionScheduleResponseOutput)
 }
 
 // Retention duration of retention Policy.
@@ -13309,7 +13175,7 @@ func (o DiskExclusionPropertiesOutput) ToDiskExclusionPropertiesPtrOutput() Disk
 }
 
 func (o DiskExclusionPropertiesOutput) ToDiskExclusionPropertiesPtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskExclusionProperties) *DiskExclusionProperties {
+	return o.ApplyT(func(v DiskExclusionProperties) *DiskExclusionProperties {
 		return &v
 	}).(DiskExclusionPropertiesPtrOutput)
 }
@@ -13339,13 +13205,7 @@ func (o DiskExclusionPropertiesPtrOutput) ToDiskExclusionPropertiesPtrOutputWith
 }
 
 func (o DiskExclusionPropertiesPtrOutput) Elem() DiskExclusionPropertiesOutput {
-	return o.ApplyT(func(v *DiskExclusionProperties) DiskExclusionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DiskExclusionProperties
-		return ret
-	}).(DiskExclusionPropertiesOutput)
+	return o.ApplyT(func(v *DiskExclusionProperties) DiskExclusionProperties { return *v }).(DiskExclusionPropertiesOutput)
 }
 
 // List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
@@ -13465,7 +13325,7 @@ func (o DiskExclusionPropertiesResponseOutput) ToDiskExclusionPropertiesResponse
 }
 
 func (o DiskExclusionPropertiesResponseOutput) ToDiskExclusionPropertiesResponsePtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskExclusionPropertiesResponse) *DiskExclusionPropertiesResponse {
+	return o.ApplyT(func(v DiskExclusionPropertiesResponse) *DiskExclusionPropertiesResponse {
 		return &v
 	}).(DiskExclusionPropertiesResponsePtrOutput)
 }
@@ -13495,13 +13355,7 @@ func (o DiskExclusionPropertiesResponsePtrOutput) ToDiskExclusionPropertiesRespo
 }
 
 func (o DiskExclusionPropertiesResponsePtrOutput) Elem() DiskExclusionPropertiesResponseOutput {
-	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) DiskExclusionPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DiskExclusionPropertiesResponse
-		return ret
-	}).(DiskExclusionPropertiesResponseOutput)
+	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) DiskExclusionPropertiesResponse { return *v }).(DiskExclusionPropertiesResponseOutput)
 }
 
 // List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
@@ -14211,7 +14065,7 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutput() ErrorDetailR
 }
 
 func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailResponse) *ErrorDetailResponse {
+	return o.ApplyT(func(v ErrorDetailResponse) *ErrorDetailResponse {
 		return &v
 	}).(ErrorDetailResponsePtrOutput)
 }
@@ -14246,13 +14100,7 @@ func (o ErrorDetailResponsePtrOutput) ToErrorDetailResponsePtrOutputWithContext(
 }
 
 func (o ErrorDetailResponsePtrOutput) Elem() ErrorDetailResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ErrorDetailResponse
-		return ret
-	}).(ErrorDetailResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse { return *v }).(ErrorDetailResponseOutput)
 }
 
 // Error code.
@@ -14381,7 +14229,7 @@ func (o ExtendedPropertiesOutput) ToExtendedPropertiesPtrOutput() ExtendedProper
 }
 
 func (o ExtendedPropertiesOutput) ToExtendedPropertiesPtrOutputWithContext(ctx context.Context) ExtendedPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedProperties) *ExtendedProperties {
+	return o.ApplyT(func(v ExtendedProperties) *ExtendedProperties {
 		return &v
 	}).(ExtendedPropertiesPtrOutput)
 }
@@ -14406,13 +14254,7 @@ func (o ExtendedPropertiesPtrOutput) ToExtendedPropertiesPtrOutputWithContext(ct
 }
 
 func (o ExtendedPropertiesPtrOutput) Elem() ExtendedPropertiesOutput {
-	return o.ApplyT(func(v *ExtendedProperties) ExtendedProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ExtendedProperties
-		return ret
-	}).(ExtendedPropertiesOutput)
+	return o.ApplyT(func(v *ExtendedProperties) ExtendedProperties { return *v }).(ExtendedPropertiesOutput)
 }
 
 // Extended Properties for Disk Exclusion.
@@ -14521,7 +14363,7 @@ func (o ExtendedPropertiesResponseOutput) ToExtendedPropertiesResponsePtrOutput(
 }
 
 func (o ExtendedPropertiesResponseOutput) ToExtendedPropertiesResponsePtrOutputWithContext(ctx context.Context) ExtendedPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedPropertiesResponse) *ExtendedPropertiesResponse {
+	return o.ApplyT(func(v ExtendedPropertiesResponse) *ExtendedPropertiesResponse {
 		return &v
 	}).(ExtendedPropertiesResponsePtrOutput)
 }
@@ -14546,13 +14388,7 @@ func (o ExtendedPropertiesResponsePtrOutput) ToExtendedPropertiesResponsePtrOutp
 }
 
 func (o ExtendedPropertiesResponsePtrOutput) Elem() ExtendedPropertiesResponseOutput {
-	return o.ApplyT(func(v *ExtendedPropertiesResponse) ExtendedPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ExtendedPropertiesResponse
-		return ret
-	}).(ExtendedPropertiesResponseOutput)
+	return o.ApplyT(func(v *ExtendedPropertiesResponse) ExtendedPropertiesResponse { return *v }).(ExtendedPropertiesResponseOutput)
 }
 
 // Extended Properties for Disk Exclusion.
@@ -14790,7 +14626,7 @@ func (o GenericContainerExtendedInfoOutput) ToGenericContainerExtendedInfoPtrOut
 }
 
 func (o GenericContainerExtendedInfoOutput) ToGenericContainerExtendedInfoPtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GenericContainerExtendedInfo) *GenericContainerExtendedInfo {
+	return o.ApplyT(func(v GenericContainerExtendedInfo) *GenericContainerExtendedInfo {
 		return &v
 	}).(GenericContainerExtendedInfoPtrOutput)
 }
@@ -14825,13 +14661,7 @@ func (o GenericContainerExtendedInfoPtrOutput) ToGenericContainerExtendedInfoPtr
 }
 
 func (o GenericContainerExtendedInfoPtrOutput) Elem() GenericContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *GenericContainerExtendedInfo) GenericContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret GenericContainerExtendedInfo
-		return ret
-	}).(GenericContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *GenericContainerExtendedInfo) GenericContainerExtendedInfo { return *v }).(GenericContainerExtendedInfoOutput)
 }
 
 // Container identity information
@@ -14968,7 +14798,7 @@ func (o GenericContainerExtendedInfoResponseOutput) ToGenericContainerExtendedIn
 }
 
 func (o GenericContainerExtendedInfoResponseOutput) ToGenericContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GenericContainerExtendedInfoResponse) *GenericContainerExtendedInfoResponse {
+	return o.ApplyT(func(v GenericContainerExtendedInfoResponse) *GenericContainerExtendedInfoResponse {
 		return &v
 	}).(GenericContainerExtendedInfoResponsePtrOutput)
 }
@@ -15005,13 +14835,7 @@ func (o GenericContainerExtendedInfoResponsePtrOutput) ToGenericContainerExtende
 }
 
 func (o GenericContainerExtendedInfoResponsePtrOutput) Elem() GenericContainerExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *GenericContainerExtendedInfoResponse) GenericContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret GenericContainerExtendedInfoResponse
-		return ret
-	}).(GenericContainerExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *GenericContainerExtendedInfoResponse) GenericContainerExtendedInfoResponse { return *v }).(GenericContainerExtendedInfoResponseOutput)
 }
 
 // Container identity information
@@ -16171,7 +15995,7 @@ func (o IdentityDataOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
 }
 
 func (o IdentityDataOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityData) *IdentityData {
+	return o.ApplyT(func(v IdentityData) *IdentityData {
 		return &v
 	}).(IdentityDataPtrOutput)
 }
@@ -16201,13 +16025,7 @@ func (o IdentityDataPtrOutput) ToIdentityDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o IdentityDataPtrOutput) Elem() IdentityDataOutput {
-	return o.ApplyT(func(v *IdentityData) IdentityData {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityData
-		return ret
-	}).(IdentityDataOutput)
+	return o.ApplyT(func(v *IdentityData) IdentityData { return *v }).(IdentityDataOutput)
 }
 
 // The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -16338,7 +16156,7 @@ func (o IdentityDataResponseOutput) ToIdentityDataResponsePtrOutput() IdentityDa
 }
 
 func (o IdentityDataResponseOutput) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityDataResponse) *IdentityDataResponse {
+	return o.ApplyT(func(v IdentityDataResponse) *IdentityDataResponse {
 		return &v
 	}).(IdentityDataResponsePtrOutput)
 }
@@ -16378,13 +16196,7 @@ func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutputWithContex
 }
 
 func (o IdentityDataResponsePtrOutput) Elem() IdentityDataResponseOutput {
-	return o.ApplyT(func(v *IdentityDataResponse) IdentityDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityDataResponse
-		return ret
-	}).(IdentityDataResponseOutput)
+	return o.ApplyT(func(v *IdentityDataResponse) IdentityDataResponse { return *v }).(IdentityDataResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -16531,7 +16343,7 @@ func (o InquiryInfoOutput) ToInquiryInfoPtrOutput() InquiryInfoPtrOutput {
 }
 
 func (o InquiryInfoOutput) ToInquiryInfoPtrOutputWithContext(ctx context.Context) InquiryInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryInfo) *InquiryInfo {
+	return o.ApplyT(func(v InquiryInfo) *InquiryInfo {
 		return &v
 	}).(InquiryInfoPtrOutput)
 }
@@ -16563,13 +16375,7 @@ func (o InquiryInfoPtrOutput) ToInquiryInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o InquiryInfoPtrOutput) Elem() InquiryInfoOutput {
-	return o.ApplyT(func(v *InquiryInfo) InquiryInfo {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryInfo
-		return ret
-	}).(InquiryInfoOutput)
+	return o.ApplyT(func(v *InquiryInfo) InquiryInfo { return *v }).(InquiryInfoOutput)
 }
 
 // Inquiry Details which will have workload specific details.
@@ -16702,7 +16508,7 @@ func (o InquiryInfoResponseOutput) ToInquiryInfoResponsePtrOutput() InquiryInfoR
 }
 
 func (o InquiryInfoResponseOutput) ToInquiryInfoResponsePtrOutputWithContext(ctx context.Context) InquiryInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryInfoResponse) *InquiryInfoResponse {
+	return o.ApplyT(func(v InquiryInfoResponse) *InquiryInfoResponse {
 		return &v
 	}).(InquiryInfoResponsePtrOutput)
 }
@@ -16739,13 +16545,7 @@ func (o InquiryInfoResponsePtrOutput) ToInquiryInfoResponsePtrOutputWithContext(
 }
 
 func (o InquiryInfoResponsePtrOutput) Elem() InquiryInfoResponseOutput {
-	return o.ApplyT(func(v *InquiryInfoResponse) InquiryInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryInfoResponse
-		return ret
-	}).(InquiryInfoResponseOutput)
+	return o.ApplyT(func(v *InquiryInfoResponse) InquiryInfoResponse { return *v }).(InquiryInfoResponseOutput)
 }
 
 // Error Details if the Status is non-success.
@@ -16876,7 +16676,7 @@ func (o InquiryValidationOutput) ToInquiryValidationPtrOutput() InquiryValidatio
 }
 
 func (o InquiryValidationOutput) ToInquiryValidationPtrOutputWithContext(ctx context.Context) InquiryValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryValidation) *InquiryValidation {
+	return o.ApplyT(func(v InquiryValidation) *InquiryValidation {
 		return &v
 	}).(InquiryValidationPtrOutput)
 }
@@ -16901,13 +16701,7 @@ func (o InquiryValidationPtrOutput) ToInquiryValidationPtrOutputWithContext(ctx 
 }
 
 func (o InquiryValidationPtrOutput) Elem() InquiryValidationOutput {
-	return o.ApplyT(func(v *InquiryValidation) InquiryValidation {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryValidation
-		return ret
-	}).(InquiryValidationOutput)
+	return o.ApplyT(func(v *InquiryValidation) InquiryValidation { return *v }).(InquiryValidationOutput)
 }
 
 // Status for the Inquiry Validation.
@@ -17024,7 +16818,7 @@ func (o InquiryValidationResponseOutput) ToInquiryValidationResponsePtrOutput() 
 }
 
 func (o InquiryValidationResponseOutput) ToInquiryValidationResponsePtrOutputWithContext(ctx context.Context) InquiryValidationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InquiryValidationResponse) *InquiryValidationResponse {
+	return o.ApplyT(func(v InquiryValidationResponse) *InquiryValidationResponse {
 		return &v
 	}).(InquiryValidationResponsePtrOutput)
 }
@@ -17059,13 +16853,7 @@ func (o InquiryValidationResponsePtrOutput) ToInquiryValidationResponsePtrOutput
 }
 
 func (o InquiryValidationResponsePtrOutput) Elem() InquiryValidationResponseOutput {
-	return o.ApplyT(func(v *InquiryValidationResponse) InquiryValidationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InquiryValidationResponse
-		return ret
-	}).(InquiryValidationResponseOutput)
+	return o.ApplyT(func(v *InquiryValidationResponse) InquiryValidationResponse { return *v }).(InquiryValidationResponseOutput)
 }
 
 // Error Additional Detail in case the status is non-success.
@@ -17191,11 +16979,10 @@ func (o InstantRPAdditionalDetailsOutput) ToInstantRPAdditionalDetailsPtrOutput(
 }
 
 func (o InstantRPAdditionalDetailsOutput) ToInstantRPAdditionalDetailsPtrOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstantRPAdditionalDetails) *InstantRPAdditionalDetails {
+	return o.ApplyT(func(v InstantRPAdditionalDetails) *InstantRPAdditionalDetails {
 		return &v
 	}).(InstantRPAdditionalDetailsPtrOutput)
 }
-
 func (o InstantRPAdditionalDetailsOutput) AzureBackupRGNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstantRPAdditionalDetails) *string { return v.AzureBackupRGNamePrefix }).(pulumi.StringPtrOutput)
 }
@@ -17219,13 +17006,7 @@ func (o InstantRPAdditionalDetailsPtrOutput) ToInstantRPAdditionalDetailsPtrOutp
 }
 
 func (o InstantRPAdditionalDetailsPtrOutput) Elem() InstantRPAdditionalDetailsOutput {
-	return o.ApplyT(func(v *InstantRPAdditionalDetails) InstantRPAdditionalDetails {
-		if v != nil {
-			return *v
-		}
-		var ret InstantRPAdditionalDetails
-		return ret
-	}).(InstantRPAdditionalDetailsOutput)
+	return o.ApplyT(func(v *InstantRPAdditionalDetails) InstantRPAdditionalDetails { return *v }).(InstantRPAdditionalDetailsOutput)
 }
 
 func (o InstantRPAdditionalDetailsPtrOutput) AzureBackupRGNamePrefix() pulumi.StringPtrOutput {
@@ -17339,11 +17120,10 @@ func (o InstantRPAdditionalDetailsResponseOutput) ToInstantRPAdditionalDetailsRe
 }
 
 func (o InstantRPAdditionalDetailsResponseOutput) ToInstantRPAdditionalDetailsResponsePtrOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstantRPAdditionalDetailsResponse) *InstantRPAdditionalDetailsResponse {
+	return o.ApplyT(func(v InstantRPAdditionalDetailsResponse) *InstantRPAdditionalDetailsResponse {
 		return &v
 	}).(InstantRPAdditionalDetailsResponsePtrOutput)
 }
-
 func (o InstantRPAdditionalDetailsResponseOutput) AzureBackupRGNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstantRPAdditionalDetailsResponse) *string { return v.AzureBackupRGNamePrefix }).(pulumi.StringPtrOutput)
 }
@@ -17367,13 +17147,7 @@ func (o InstantRPAdditionalDetailsResponsePtrOutput) ToInstantRPAdditionalDetail
 }
 
 func (o InstantRPAdditionalDetailsResponsePtrOutput) Elem() InstantRPAdditionalDetailsResponseOutput {
-	return o.ApplyT(func(v *InstantRPAdditionalDetailsResponse) InstantRPAdditionalDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret InstantRPAdditionalDetailsResponse
-		return ret
-	}).(InstantRPAdditionalDetailsResponseOutput)
+	return o.ApplyT(func(v *InstantRPAdditionalDetailsResponse) InstantRPAdditionalDetailsResponse { return *v }).(InstantRPAdditionalDetailsResponseOutput)
 }
 
 func (o InstantRPAdditionalDetailsResponsePtrOutput) AzureBackupRGNamePrefix() pulumi.StringPtrOutput {
@@ -18575,7 +18349,7 @@ func (o MabContainerExtendedInfoOutput) ToMabContainerExtendedInfoPtrOutput() Ma
 }
 
 func (o MabContainerExtendedInfoOutput) ToMabContainerExtendedInfoPtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabContainerExtendedInfo) *MabContainerExtendedInfo {
+	return o.ApplyT(func(v MabContainerExtendedInfo) *MabContainerExtendedInfo {
 		return &v
 	}).(MabContainerExtendedInfoPtrOutput)
 }
@@ -18620,13 +18394,7 @@ func (o MabContainerExtendedInfoPtrOutput) ToMabContainerExtendedInfoPtrOutputWi
 }
 
 func (o MabContainerExtendedInfoPtrOutput) Elem() MabContainerExtendedInfoOutput {
-	return o.ApplyT(func(v *MabContainerExtendedInfo) MabContainerExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret MabContainerExtendedInfo
-		return ret
-	}).(MabContainerExtendedInfoOutput)
+	return o.ApplyT(func(v *MabContainerExtendedInfo) MabContainerExtendedInfo { return *v }).(MabContainerExtendedInfoOutput)
 }
 
 // Type of backup items associated with this container.
@@ -18791,7 +18559,7 @@ func (o MabContainerExtendedInfoResponseOutput) ToMabContainerExtendedInfoRespon
 }
 
 func (o MabContainerExtendedInfoResponseOutput) ToMabContainerExtendedInfoResponsePtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabContainerExtendedInfoResponse) *MabContainerExtendedInfoResponse {
+	return o.ApplyT(func(v MabContainerExtendedInfoResponse) *MabContainerExtendedInfoResponse {
 		return &v
 	}).(MabContainerExtendedInfoResponsePtrOutput)
 }
@@ -18836,13 +18604,7 @@ func (o MabContainerExtendedInfoResponsePtrOutput) ToMabContainerExtendedInfoRes
 }
 
 func (o MabContainerExtendedInfoResponsePtrOutput) Elem() MabContainerExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *MabContainerExtendedInfoResponse) MabContainerExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MabContainerExtendedInfoResponse
-		return ret
-	}).(MabContainerExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *MabContainerExtendedInfoResponse) MabContainerExtendedInfoResponse { return *v }).(MabContainerExtendedInfoResponseOutput)
 }
 
 // Type of backup items associated with this container.
@@ -19403,7 +19165,7 @@ func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedIt
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
+	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
 		return &v
 	}).(MabFileFolderProtectedItemExtendedInfoPtrOutput)
 }
@@ -19438,13 +19200,7 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) ToMabFileFolderProtecte
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo {
-		if v != nil {
-			return *v
-		}
-		var ret MabFileFolderProtectedItemExtendedInfo
-		return ret
-	}).(MabFileFolderProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo { return *v }).(MabFileFolderProtectedItemExtendedInfoOutput)
 }
 
 // Last time when the agent data synced to service.
@@ -19581,7 +19337,7 @@ func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) ToMabFileFolderPro
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) ToMabFileFolderProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabFileFolderProtectedItemExtendedInfoResponse) *MabFileFolderProtectedItemExtendedInfoResponse {
+	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoResponse) *MabFileFolderProtectedItemExtendedInfoResponse {
 		return &v
 	}).(MabFileFolderProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -19617,11 +19373,7 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) ToMabFileFolder
 
 func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoResponse) MabFileFolderProtectedItemExtendedInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MabFileFolderProtectedItemExtendedInfoResponse
-		return ret
+		return *v
 	}).(MabFileFolderProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -20177,7 +19929,7 @@ func (o MonthlyRetentionScheduleOutput) ToMonthlyRetentionSchedulePtrOutput() Mo
 }
 
 func (o MonthlyRetentionScheduleOutput) ToMonthlyRetentionSchedulePtrOutputWithContext(ctx context.Context) MonthlyRetentionSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlyRetentionSchedule) *MonthlyRetentionSchedule {
+	return o.ApplyT(func(v MonthlyRetentionSchedule) *MonthlyRetentionSchedule {
 		return &v
 	}).(MonthlyRetentionSchedulePtrOutput)
 }
@@ -20222,13 +19974,7 @@ func (o MonthlyRetentionSchedulePtrOutput) ToMonthlyRetentionSchedulePtrOutputWi
 }
 
 func (o MonthlyRetentionSchedulePtrOutput) Elem() MonthlyRetentionScheduleOutput {
-	return o.ApplyT(func(v *MonthlyRetentionSchedule) MonthlyRetentionSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret MonthlyRetentionSchedule
-		return ret
-	}).(MonthlyRetentionScheduleOutput)
+	return o.ApplyT(func(v *MonthlyRetentionSchedule) MonthlyRetentionSchedule { return *v }).(MonthlyRetentionScheduleOutput)
 }
 
 // Retention duration of retention Policy.
@@ -20393,7 +20139,7 @@ func (o MonthlyRetentionScheduleResponseOutput) ToMonthlyRetentionScheduleRespon
 }
 
 func (o MonthlyRetentionScheduleResponseOutput) ToMonthlyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlyRetentionScheduleResponse) *MonthlyRetentionScheduleResponse {
+	return o.ApplyT(func(v MonthlyRetentionScheduleResponse) *MonthlyRetentionScheduleResponse {
 		return &v
 	}).(MonthlyRetentionScheduleResponsePtrOutput)
 }
@@ -20442,13 +20188,7 @@ func (o MonthlyRetentionScheduleResponsePtrOutput) ToMonthlyRetentionScheduleRes
 }
 
 func (o MonthlyRetentionScheduleResponsePtrOutput) Elem() MonthlyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *MonthlyRetentionScheduleResponse) MonthlyRetentionScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret MonthlyRetentionScheduleResponse
-		return ret
-	}).(MonthlyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *MonthlyRetentionScheduleResponse) MonthlyRetentionScheduleResponse { return *v }).(MonthlyRetentionScheduleResponseOutput)
 }
 
 // Retention duration of retention Policy.
@@ -20597,7 +20337,7 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
@@ -20622,13 +20362,7 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpoint
-		return ret
-	}).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
 }
 
 // Gets or sets id
@@ -20745,7 +20479,7 @@ func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypePtrO
 }
 
 func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionType) *PrivateEndpointConnectionType {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *PrivateEndpointConnectionType {
 		return &v
 	}).(PrivateEndpointConnectionTypePtrOutput)
 }
@@ -20782,13 +20516,7 @@ func (o PrivateEndpointConnectionTypePtrOutput) ToPrivateEndpointConnectionTypeP
 }
 
 func (o PrivateEndpointConnectionTypePtrOutput) Elem() PrivateEndpointConnectionTypeOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionType) PrivateEndpointConnectionType {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionType
-		return ret
-	}).(PrivateEndpointConnectionTypeOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) PrivateEndpointConnectionType { return *v }).(PrivateEndpointConnectionTypeOutput)
 }
 
 // Gets or sets private endpoint associated with the private endpoint connection
@@ -20925,7 +20653,7 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 }
 
 func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionResponse) *PrivateEndpointConnectionResponse {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointConnectionResponse {
 		return &v
 	}).(PrivateEndpointConnectionResponsePtrOutput)
 }
@@ -20962,13 +20690,7 @@ func (o PrivateEndpointConnectionResponsePtrOutput) ToPrivateEndpointConnectionR
 }
 
 func (o PrivateEndpointConnectionResponsePtrOutput) Elem() PrivateEndpointConnectionResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) PrivateEndpointConnectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointConnectionResponse
-		return ret
-	}).(PrivateEndpointConnectionResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionResponse) PrivateEndpointConnectionResponse { return *v }).(PrivateEndpointConnectionResponseOutput)
 }
 
 // Gets or sets private endpoint associated with the private endpoint connection
@@ -21208,7 +20930,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -21233,13 +20955,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // Gets or sets id.
@@ -21356,7 +21072,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -21391,13 +21107,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // Gets or sets actions required
@@ -21534,7 +21244,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -21570,11 +21280,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -21837,7 +21543,7 @@ func (o RetentionDurationOutput) ToRetentionDurationPtrOutput() RetentionDuratio
 }
 
 func (o RetentionDurationOutput) ToRetentionDurationPtrOutputWithContext(ctx context.Context) RetentionDurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionDuration) *RetentionDuration {
+	return o.ApplyT(func(v RetentionDuration) *RetentionDuration {
 		return &v
 	}).(RetentionDurationPtrOutput)
 }
@@ -21868,13 +21574,7 @@ func (o RetentionDurationPtrOutput) ToRetentionDurationPtrOutputWithContext(ctx 
 }
 
 func (o RetentionDurationPtrOutput) Elem() RetentionDurationOutput {
-	return o.ApplyT(func(v *RetentionDuration) RetentionDuration {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionDuration
-		return ret
-	}).(RetentionDurationOutput)
+	return o.ApplyT(func(v *RetentionDuration) RetentionDuration { return *v }).(RetentionDurationOutput)
 }
 
 // Count of duration types. Retention duration is obtained by the counting the duration type Count times.
@@ -22000,7 +21700,7 @@ func (o RetentionDurationResponseOutput) ToRetentionDurationResponsePtrOutput() 
 }
 
 func (o RetentionDurationResponseOutput) ToRetentionDurationResponsePtrOutputWithContext(ctx context.Context) RetentionDurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionDurationResponse) *RetentionDurationResponse {
+	return o.ApplyT(func(v RetentionDurationResponse) *RetentionDurationResponse {
 		return &v
 	}).(RetentionDurationResponsePtrOutput)
 }
@@ -22031,13 +21731,7 @@ func (o RetentionDurationResponsePtrOutput) ToRetentionDurationResponsePtrOutput
 }
 
 func (o RetentionDurationResponsePtrOutput) Elem() RetentionDurationResponseOutput {
-	return o.ApplyT(func(v *RetentionDurationResponse) RetentionDurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RetentionDurationResponse
-		return ret
-	}).(RetentionDurationResponseOutput)
+	return o.ApplyT(func(v *RetentionDurationResponse) RetentionDurationResponse { return *v }).(RetentionDurationResponseOutput)
 }
 
 // Count of duration types. Retention duration is obtained by the counting the duration type Count times.
@@ -22167,7 +21861,7 @@ func (o SettingsOutput) ToSettingsPtrOutput() SettingsPtrOutput {
 }
 
 func (o SettingsOutput) ToSettingsPtrOutputWithContext(ctx context.Context) SettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings) *Settings {
+	return o.ApplyT(func(v Settings) *Settings {
 		return &v
 	}).(SettingsPtrOutput)
 }
@@ -22203,13 +21897,7 @@ func (o SettingsPtrOutput) ToSettingsPtrOutputWithContext(ctx context.Context) S
 }
 
 func (o SettingsPtrOutput) Elem() SettingsOutput {
-	return o.ApplyT(func(v *Settings) Settings {
-		if v != nil {
-			return *v
-		}
-		var ret Settings
-		return ret
-	}).(SettingsOutput)
+	return o.ApplyT(func(v *Settings) Settings { return *v }).(SettingsOutput)
 }
 
 // Workload compression flag. This has been added so that 'isSqlCompression'
@@ -22349,7 +22037,7 @@ func (o SettingsResponseOutput) ToSettingsResponsePtrOutput() SettingsResponsePt
 }
 
 func (o SettingsResponseOutput) ToSettingsResponsePtrOutputWithContext(ctx context.Context) SettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsResponse) *SettingsResponse {
+	return o.ApplyT(func(v SettingsResponse) *SettingsResponse {
 		return &v
 	}).(SettingsResponsePtrOutput)
 }
@@ -22385,13 +22073,7 @@ func (o SettingsResponsePtrOutput) ToSettingsResponsePtrOutputWithContext(ctx co
 }
 
 func (o SettingsResponsePtrOutput) Elem() SettingsResponseOutput {
-	return o.ApplyT(func(v *SettingsResponse) SettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SettingsResponse
-		return ret
-	}).(SettingsResponseOutput)
+	return o.ApplyT(func(v *SettingsResponse) SettingsResponse { return *v }).(SettingsResponseOutput)
 }
 
 // Workload compression flag. This has been added so that 'isSqlCompression'
@@ -22565,7 +22247,7 @@ type SimpleSchedulePolicy struct {
 	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 	// List of days of week this schedule has to be run.
-	ScheduleRunDays []DayOfWeek `pulumi:"scheduleRunDays"`
+	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
 	// Frequency of the schedule operation of this policy.
 	ScheduleRunFrequency *string `pulumi:"scheduleRunFrequency"`
 	// List of times of day this schedule has to be run.
@@ -22634,8 +22316,8 @@ func (o SimpleSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 }
 
 // List of days of week this schedule has to be run.
-func (o SimpleSchedulePolicyOutput) ScheduleRunDays() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v SimpleSchedulePolicy) []DayOfWeek { return v.ScheduleRunDays }).(DayOfWeekArrayOutput)
+func (o SimpleSchedulePolicyOutput) ScheduleRunDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicy) []string { return v.ScheduleRunDays }).(pulumi.StringArrayOutput)
 }
 
 // Frequency of the schedule operation of this policy.
@@ -22847,7 +22529,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -22877,13 +22559,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // The Sku name.
@@ -23006,7 +22682,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -23036,13 +22712,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // The Sku name.
@@ -23417,7 +23087,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -23467,13 +23137,7 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -23664,7 +23328,7 @@ func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponsePtrOutput() Upgrad
 }
 
 func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpgradeDetailsResponse) *UpgradeDetailsResponse {
+	return o.ApplyT(func(v UpgradeDetailsResponse) *UpgradeDetailsResponse {
 		return &v
 	}).(UpgradeDetailsResponsePtrOutput)
 }
@@ -23729,13 +23393,7 @@ func (o UpgradeDetailsResponsePtrOutput) ToUpgradeDetailsResponsePtrOutputWithCo
 }
 
 func (o UpgradeDetailsResponsePtrOutput) Elem() UpgradeDetailsResponseOutput {
-	return o.ApplyT(func(v *UpgradeDetailsResponse) UpgradeDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UpgradeDetailsResponse
-		return ret
-	}).(UpgradeDetailsResponseOutput)
+	return o.ApplyT(func(v *UpgradeDetailsResponse) UpgradeDetailsResponse { return *v }).(UpgradeDetailsResponseOutput)
 }
 
 // UTC time at which the upgrade operation has ended.
@@ -24181,7 +23839,7 @@ func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOu
 }
 
 func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultProperties) *VaultProperties {
+	return o.ApplyT(func(v VaultProperties) *VaultProperties {
 		return &v
 	}).(VaultPropertiesPtrOutput)
 }
@@ -24206,13 +23864,7 @@ func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o VaultPropertiesPtrOutput) Elem() VaultPropertiesOutput {
-	return o.ApplyT(func(v *VaultProperties) VaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VaultProperties
-		return ret
-	}).(VaultPropertiesOutput)
+	return o.ApplyT(func(v *VaultProperties) VaultProperties { return *v }).(VaultPropertiesOutput)
 }
 
 // Customer Managed Key details of the resource.
@@ -24329,7 +23981,7 @@ func (o VaultPropertiesEncryptionOutput) ToVaultPropertiesEncryptionPtrOutput() 
 }
 
 func (o VaultPropertiesEncryptionOutput) ToVaultPropertiesEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesEncryption) *VaultPropertiesEncryption {
+	return o.ApplyT(func(v VaultPropertiesEncryption) *VaultPropertiesEncryption {
 		return &v
 	}).(VaultPropertiesEncryptionPtrOutput)
 }
@@ -24364,13 +24016,7 @@ func (o VaultPropertiesEncryptionPtrOutput) ToVaultPropertiesEncryptionPtrOutput
 }
 
 func (o VaultPropertiesEncryptionPtrOutput) Elem() VaultPropertiesEncryptionOutput {
-	return o.ApplyT(func(v *VaultPropertiesEncryption) VaultPropertiesEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret VaultPropertiesEncryption
-		return ret
-	}).(VaultPropertiesEncryptionOutput)
+	return o.ApplyT(func(v *VaultPropertiesEncryption) VaultPropertiesEncryption { return *v }).(VaultPropertiesEncryptionOutput)
 }
 
 // Enabling/Disabling the Double Encryption state
@@ -24519,7 +24165,7 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() Vaul
 }
 
 func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponse) *VaultPropertiesResponse {
+	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
 		return &v
 	}).(VaultPropertiesResponsePtrOutput)
 }
@@ -24571,13 +24217,7 @@ func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWith
 }
 
 func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VaultPropertiesResponse
-		return ret
-	}).(VaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
 }
 
 // Customer Managed Key details of the resource.
@@ -24744,7 +24384,7 @@ func (o VaultPropertiesResponseEncryptionOutput) ToVaultPropertiesResponseEncryp
 }
 
 func (o VaultPropertiesResponseEncryptionOutput) ToVaultPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) VaultPropertiesResponseEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponseEncryption) *VaultPropertiesResponseEncryption {
+	return o.ApplyT(func(v VaultPropertiesResponseEncryption) *VaultPropertiesResponseEncryption {
 		return &v
 	}).(VaultPropertiesResponseEncryptionPtrOutput)
 }
@@ -24779,13 +24419,7 @@ func (o VaultPropertiesResponseEncryptionPtrOutput) ToVaultPropertiesResponseEnc
 }
 
 func (o VaultPropertiesResponseEncryptionPtrOutput) Elem() VaultPropertiesResponseEncryptionOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponseEncryption) VaultPropertiesResponseEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret VaultPropertiesResponseEncryption
-		return ret
-	}).(VaultPropertiesResponseEncryptionOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponseEncryption) VaultPropertiesResponseEncryption { return *v }).(VaultPropertiesResponseEncryptionOutput)
 }
 
 // Enabling/Disabling the Double Encryption state
@@ -24821,9 +24455,9 @@ func (o VaultPropertiesResponseEncryptionPtrOutput) KeyVaultProperties() CmkKeyV
 // Weekly retention format.
 type WeeklyRetentionFormat struct {
 	// List of days of the week.
-	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
 	// List of weeks of month.
-	WeeksOfTheMonth []WeekOfMonth `pulumi:"weeksOfTheMonth"`
+	WeeksOfTheMonth []string `pulumi:"weeksOfTheMonth"`
 }
 
 // WeeklyRetentionFormatInput is an input type that accepts WeeklyRetentionFormatArgs and WeeklyRetentionFormatOutput values.
@@ -24918,19 +24552,19 @@ func (o WeeklyRetentionFormatOutput) ToWeeklyRetentionFormatPtrOutput() WeeklyRe
 }
 
 func (o WeeklyRetentionFormatOutput) ToWeeklyRetentionFormatPtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionFormat) *WeeklyRetentionFormat {
+	return o.ApplyT(func(v WeeklyRetentionFormat) *WeeklyRetentionFormat {
 		return &v
 	}).(WeeklyRetentionFormatPtrOutput)
 }
 
 // List of days of the week.
-func (o WeeklyRetentionFormatOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormat) []DayOfWeek { return v.DaysOfTheWeek }).(DayOfWeekArrayOutput)
+func (o WeeklyRetentionFormatOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormat) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
 }
 
 // List of weeks of month.
-func (o WeeklyRetentionFormatOutput) WeeksOfTheMonth() WeekOfMonthArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormat) []WeekOfMonth { return v.WeeksOfTheMonth }).(WeekOfMonthArrayOutput)
+func (o WeeklyRetentionFormatOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormat) []string { return v.WeeksOfTheMonth }).(pulumi.StringArrayOutput)
 }
 
 type WeeklyRetentionFormatPtrOutput struct{ *pulumi.OutputState }
@@ -24948,33 +24582,27 @@ func (o WeeklyRetentionFormatPtrOutput) ToWeeklyRetentionFormatPtrOutputWithCont
 }
 
 func (o WeeklyRetentionFormatPtrOutput) Elem() WeeklyRetentionFormatOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) WeeklyRetentionFormat {
-		if v != nil {
-			return *v
-		}
-		var ret WeeklyRetentionFormat
-		return ret
-	}).(WeeklyRetentionFormatOutput)
+	return o.ApplyT(func(v *WeeklyRetentionFormat) WeeklyRetentionFormat { return *v }).(WeeklyRetentionFormatOutput)
 }
 
 // List of days of the week.
-func (o WeeklyRetentionFormatPtrOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) []DayOfWeek {
+func (o WeeklyRetentionFormatPtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormat) []string {
 		if v == nil {
 			return nil
 		}
 		return v.DaysOfTheWeek
-	}).(DayOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of weeks of month.
-func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() WeekOfMonthArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) []WeekOfMonth {
+func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormat) []string {
 		if v == nil {
 			return nil
 		}
 		return v.WeeksOfTheMonth
-	}).(WeekOfMonthArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Weekly retention format.
@@ -25077,7 +24705,7 @@ func (o WeeklyRetentionFormatResponseOutput) ToWeeklyRetentionFormatResponsePtrO
 }
 
 func (o WeeklyRetentionFormatResponseOutput) ToWeeklyRetentionFormatResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionFormatResponse) *WeeklyRetentionFormatResponse {
+	return o.ApplyT(func(v WeeklyRetentionFormatResponse) *WeeklyRetentionFormatResponse {
 		return &v
 	}).(WeeklyRetentionFormatResponsePtrOutput)
 }
@@ -25107,13 +24735,7 @@ func (o WeeklyRetentionFormatResponsePtrOutput) ToWeeklyRetentionFormatResponseP
 }
 
 func (o WeeklyRetentionFormatResponsePtrOutput) Elem() WeeklyRetentionFormatResponseOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormatResponse) WeeklyRetentionFormatResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WeeklyRetentionFormatResponse
-		return ret
-	}).(WeeklyRetentionFormatResponseOutput)
+	return o.ApplyT(func(v *WeeklyRetentionFormatResponse) WeeklyRetentionFormatResponse { return *v }).(WeeklyRetentionFormatResponseOutput)
 }
 
 // List of days of the week.
@@ -25139,7 +24761,7 @@ func (o WeeklyRetentionFormatResponsePtrOutput) WeeksOfTheMonth() pulumi.StringA
 // Weekly retention schedule.
 type WeeklyRetentionSchedule struct {
 	// List of days of week for weekly retention policy.
-	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// Retention times of retention policy.
@@ -25240,14 +24862,14 @@ func (o WeeklyRetentionScheduleOutput) ToWeeklyRetentionSchedulePtrOutput() Week
 }
 
 func (o WeeklyRetentionScheduleOutput) ToWeeklyRetentionSchedulePtrOutputWithContext(ctx context.Context) WeeklyRetentionSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionSchedule) *WeeklyRetentionSchedule {
+	return o.ApplyT(func(v WeeklyRetentionSchedule) *WeeklyRetentionSchedule {
 		return &v
 	}).(WeeklyRetentionSchedulePtrOutput)
 }
 
 // List of days of week for weekly retention policy.
-func (o WeeklyRetentionScheduleOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionSchedule) []DayOfWeek { return v.DaysOfTheWeek }).(DayOfWeekArrayOutput)
+func (o WeeklyRetentionScheduleOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionSchedule) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.
@@ -25275,23 +24897,17 @@ func (o WeeklyRetentionSchedulePtrOutput) ToWeeklyRetentionSchedulePtrOutputWith
 }
 
 func (o WeeklyRetentionSchedulePtrOutput) Elem() WeeklyRetentionScheduleOutput {
-	return o.ApplyT(func(v *WeeklyRetentionSchedule) WeeklyRetentionSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret WeeklyRetentionSchedule
-		return ret
-	}).(WeeklyRetentionScheduleOutput)
+	return o.ApplyT(func(v *WeeklyRetentionSchedule) WeeklyRetentionSchedule { return *v }).(WeeklyRetentionScheduleOutput)
 }
 
 // List of days of week for weekly retention policy.
-func (o WeeklyRetentionSchedulePtrOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionSchedule) []DayOfWeek {
+func (o WeeklyRetentionSchedulePtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.DaysOfTheWeek
-	}).(DayOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.
@@ -25418,7 +25034,7 @@ func (o WeeklyRetentionScheduleResponseOutput) ToWeeklyRetentionScheduleResponse
 }
 
 func (o WeeklyRetentionScheduleResponseOutput) ToWeeklyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionScheduleResponse) *WeeklyRetentionScheduleResponse {
+	return o.ApplyT(func(v WeeklyRetentionScheduleResponse) *WeeklyRetentionScheduleResponse {
 		return &v
 	}).(WeeklyRetentionScheduleResponsePtrOutput)
 }
@@ -25453,13 +25069,7 @@ func (o WeeklyRetentionScheduleResponsePtrOutput) ToWeeklyRetentionScheduleRespo
 }
 
 func (o WeeklyRetentionScheduleResponsePtrOutput) Elem() WeeklyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *WeeklyRetentionScheduleResponse) WeeklyRetentionScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WeeklyRetentionScheduleResponse
-		return ret
-	}).(WeeklyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *WeeklyRetentionScheduleResponse) WeeklyRetentionScheduleResponse { return *v }).(WeeklyRetentionScheduleResponseOutput)
 }
 
 // List of days of week for weekly retention policy.
@@ -25731,7 +25341,7 @@ func (o WorkloadInquiryDetailsResponseArrayOutput) Index(i pulumi.IntInput) Work
 // Yearly retention schedule.
 type YearlyRetentionSchedule struct {
 	// List of months of year of yearly retention policy.
-	MonthsOfYear []MonthOfYear `pulumi:"monthsOfYear"`
+	MonthsOfYear []string `pulumi:"monthsOfYear"`
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// Daily retention format for yearly retention policy.
@@ -25844,14 +25454,14 @@ func (o YearlyRetentionScheduleOutput) ToYearlyRetentionSchedulePtrOutput() Year
 }
 
 func (o YearlyRetentionScheduleOutput) ToYearlyRetentionSchedulePtrOutputWithContext(ctx context.Context) YearlyRetentionSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v YearlyRetentionSchedule) *YearlyRetentionSchedule {
+	return o.ApplyT(func(v YearlyRetentionSchedule) *YearlyRetentionSchedule {
 		return &v
 	}).(YearlyRetentionSchedulePtrOutput)
 }
 
 // List of months of year of yearly retention policy.
-func (o YearlyRetentionScheduleOutput) MonthsOfYear() MonthOfYearArrayOutput {
-	return o.ApplyT(func(v YearlyRetentionSchedule) []MonthOfYear { return v.MonthsOfYear }).(MonthOfYearArrayOutput)
+func (o YearlyRetentionScheduleOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v YearlyRetentionSchedule) []string { return v.MonthsOfYear }).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.
@@ -25894,23 +25504,17 @@ func (o YearlyRetentionSchedulePtrOutput) ToYearlyRetentionSchedulePtrOutputWith
 }
 
 func (o YearlyRetentionSchedulePtrOutput) Elem() YearlyRetentionScheduleOutput {
-	return o.ApplyT(func(v *YearlyRetentionSchedule) YearlyRetentionSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret YearlyRetentionSchedule
-		return ret
-	}).(YearlyRetentionScheduleOutput)
+	return o.ApplyT(func(v *YearlyRetentionSchedule) YearlyRetentionSchedule { return *v }).(YearlyRetentionScheduleOutput)
 }
 
 // List of months of year of yearly retention policy.
-func (o YearlyRetentionSchedulePtrOutput) MonthsOfYear() MonthOfYearArrayOutput {
-	return o.ApplyT(func(v *YearlyRetentionSchedule) []MonthOfYear {
+func (o YearlyRetentionSchedulePtrOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *YearlyRetentionSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.MonthsOfYear
-	}).(MonthOfYearArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.
@@ -26079,7 +25683,7 @@ func (o YearlyRetentionScheduleResponseOutput) ToYearlyRetentionScheduleResponse
 }
 
 func (o YearlyRetentionScheduleResponseOutput) ToYearlyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v YearlyRetentionScheduleResponse) *YearlyRetentionScheduleResponse {
+	return o.ApplyT(func(v YearlyRetentionScheduleResponse) *YearlyRetentionScheduleResponse {
 		return &v
 	}).(YearlyRetentionScheduleResponsePtrOutput)
 }
@@ -26131,13 +25735,7 @@ func (o YearlyRetentionScheduleResponsePtrOutput) ToYearlyRetentionScheduleRespo
 }
 
 func (o YearlyRetentionScheduleResponsePtrOutput) Elem() YearlyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *YearlyRetentionScheduleResponse) YearlyRetentionScheduleResponse {
-		if v != nil {
-			return *v
-		}
-		var ret YearlyRetentionScheduleResponse
-		return ret
-	}).(YearlyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *YearlyRetentionScheduleResponse) YearlyRetentionScheduleResponse { return *v }).(YearlyRetentionScheduleResponseOutput)
 }
 
 // List of months of year of yearly retention policy.

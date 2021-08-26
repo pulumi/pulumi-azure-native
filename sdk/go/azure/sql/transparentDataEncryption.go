@@ -159,7 +159,9 @@ func (i *TransparentDataEncryption) ToTransparentDataEncryptionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionOutput)
 }
 
-type TransparentDataEncryptionOutput struct{ *pulumi.OutputState }
+type TransparentDataEncryptionOutput struct {
+	*pulumi.OutputState
+}
 
 func (TransparentDataEncryptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TransparentDataEncryption)(nil))

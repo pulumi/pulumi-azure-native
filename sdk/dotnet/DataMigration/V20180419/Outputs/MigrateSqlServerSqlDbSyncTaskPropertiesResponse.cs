@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
-    /// <summary>
-    /// Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlDbSyncTaskPropertiesResponse
     {

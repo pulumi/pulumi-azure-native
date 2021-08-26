@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
-    /// <summary>
-    /// Private endpoint connection properties.
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionPropertiesResponse
     {

@@ -129,7 +129,9 @@ func (i *LocationSite) ToLocationSiteOutputWithContext(ctx context.Context) Loca
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSiteOutput)
 }
 
-type LocationSiteOutput struct{ *pulumi.OutputState }
+type LocationSiteOutput struct {
+	*pulumi.OutputState
+}
 
 func (LocationSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LocationSite)(nil))

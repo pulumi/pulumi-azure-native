@@ -277,7 +277,9 @@ func (i *ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPolicyDefinitionOutput)
 }
 
-type ServiceEndpointPolicyDefinitionOutput struct{ *pulumi.OutputState }
+type ServiceEndpointPolicyDefinitionOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServiceEndpointPolicyDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil))

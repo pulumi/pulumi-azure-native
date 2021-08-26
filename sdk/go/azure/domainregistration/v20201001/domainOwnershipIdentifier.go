@@ -187,7 +187,9 @@ func (i *DomainOwnershipIdentifier) ToDomainOwnershipIdentifierOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOwnershipIdentifierOutput)
 }
 
-type DomainOwnershipIdentifierOutput struct{ *pulumi.OutputState }
+type DomainOwnershipIdentifierOutput struct {
+	*pulumi.OutputState
+}
 
 func (DomainOwnershipIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainOwnershipIdentifier)(nil))

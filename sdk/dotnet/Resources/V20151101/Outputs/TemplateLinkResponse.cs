@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20151101.Outputs
 {
 
-    /// <summary>
-    /// Entity representing the reference to the template.
-    /// </summary>
     [OutputType]
     public sealed class TemplateLinkResponse
     {

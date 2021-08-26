@@ -183,7 +183,9 @@ func (i *FhirService) ToFhirServiceOutputWithContext(ctx context.Context) FhirSe
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceOutput)
 }
 
-type FhirServiceOutput struct{ *pulumi.OutputState }
+type FhirServiceOutput struct {
+	*pulumi.OutputState
+}
 
 func (FhirServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FhirService)(nil))

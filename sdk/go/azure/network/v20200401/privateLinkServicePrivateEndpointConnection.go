@@ -207,7 +207,9 @@ func (i *PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivat
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicePrivateEndpointConnectionOutput)
 }
 
-type PrivateLinkServicePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type PrivateLinkServicePrivateEndpointConnectionOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateLinkServicePrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil))

@@ -110,7 +110,7 @@ func (o AttestationServiceCreationSpecificParamsOutput) ToAttestationServiceCrea
 }
 
 func (o AttestationServiceCreationSpecificParamsOutput) ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(ctx context.Context) AttestationServiceCreationSpecificParamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttestationServiceCreationSpecificParams) *AttestationServiceCreationSpecificParams {
+	return o.ApplyT(func(v AttestationServiceCreationSpecificParams) *AttestationServiceCreationSpecificParams {
 		return &v
 	}).(AttestationServiceCreationSpecificParamsPtrOutput)
 }
@@ -140,13 +140,7 @@ func (o AttestationServiceCreationSpecificParamsPtrOutput) ToAttestationServiceC
 }
 
 func (o AttestationServiceCreationSpecificParamsPtrOutput) Elem() AttestationServiceCreationSpecificParamsOutput {
-	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) AttestationServiceCreationSpecificParams {
-		if v != nil {
-			return *v
-		}
-		var ret AttestationServiceCreationSpecificParams
-		return ret
-	}).(AttestationServiceCreationSpecificParamsOutput)
+	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) AttestationServiceCreationSpecificParams { return *v }).(AttestationServiceCreationSpecificParamsOutput)
 }
 
 // Name of attestation policy.
@@ -586,7 +580,7 @@ func (o JSONWebKeySetOutput) ToJSONWebKeySetPtrOutput() JSONWebKeySetPtrOutput {
 }
 
 func (o JSONWebKeySetOutput) ToJSONWebKeySetPtrOutputWithContext(ctx context.Context) JSONWebKeySetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JSONWebKeySet) *JSONWebKeySet {
+	return o.ApplyT(func(v JSONWebKeySet) *JSONWebKeySet {
 		return &v
 	}).(JSONWebKeySetPtrOutput)
 }
@@ -615,13 +609,7 @@ func (o JSONWebKeySetPtrOutput) ToJSONWebKeySetPtrOutputWithContext(ctx context.
 }
 
 func (o JSONWebKeySetPtrOutput) Elem() JSONWebKeySetOutput {
-	return o.ApplyT(func(v *JSONWebKeySet) JSONWebKeySet {
-		if v != nil {
-			return *v
-		}
-		var ret JSONWebKeySet
-		return ret
-	}).(JSONWebKeySetOutput)
+	return o.ApplyT(func(v *JSONWebKeySet) JSONWebKeySet { return *v }).(JSONWebKeySetOutput)
 }
 
 // The value of the "keys" parameter is an array of JWK values.  By

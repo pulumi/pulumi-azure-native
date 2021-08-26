@@ -216,7 +216,7 @@ func (o AKSPropertiesOutput) ToAKSPropertiesPtrOutput() AKSPropertiesPtrOutput {
 }
 
 func (o AKSPropertiesOutput) ToAKSPropertiesPtrOutputWithContext(ctx context.Context) AKSPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSProperties) *AKSProperties {
+	return o.ApplyT(func(v AKSProperties) *AKSProperties {
 		return &v
 	}).(AKSPropertiesPtrOutput)
 }
@@ -261,13 +261,7 @@ func (o AKSPropertiesPtrOutput) ToAKSPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o AKSPropertiesPtrOutput) Elem() AKSPropertiesOutput {
-	return o.ApplyT(func(v *AKSProperties) AKSProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AKSProperties
-		return ret
-	}).(AKSPropertiesOutput)
+	return o.ApplyT(func(v *AKSProperties) AKSProperties { return *v }).(AKSPropertiesOutput)
 }
 
 // Number of agents
@@ -575,7 +569,7 @@ func (o AKSResponsePropertiesOutput) ToAKSResponsePropertiesPtrOutput() AKSRespo
 }
 
 func (o AKSResponsePropertiesOutput) ToAKSResponsePropertiesPtrOutputWithContext(ctx context.Context) AKSResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AKSResponseProperties) *AKSResponseProperties {
+	return o.ApplyT(func(v AKSResponseProperties) *AKSResponseProperties {
 		return &v
 	}).(AKSResponsePropertiesPtrOutput)
 }
@@ -625,13 +619,7 @@ func (o AKSResponsePropertiesPtrOutput) ToAKSResponsePropertiesPtrOutputWithCont
 }
 
 func (o AKSResponsePropertiesPtrOutput) Elem() AKSResponsePropertiesOutput {
-	return o.ApplyT(func(v *AKSResponseProperties) AKSResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AKSResponseProperties
-		return ret
-	}).(AKSResponsePropertiesOutput)
+	return o.ApplyT(func(v *AKSResponseProperties) AKSResponseProperties { return *v }).(AKSResponsePropertiesOutput)
 }
 
 // Number of agents
@@ -802,7 +790,7 @@ func (o AksNetworkingConfigurationOutput) ToAksNetworkingConfigurationPtrOutput(
 }
 
 func (o AksNetworkingConfigurationOutput) ToAksNetworkingConfigurationPtrOutputWithContext(ctx context.Context) AksNetworkingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AksNetworkingConfiguration) *AksNetworkingConfiguration {
+	return o.ApplyT(func(v AksNetworkingConfiguration) *AksNetworkingConfiguration {
 		return &v
 	}).(AksNetworkingConfigurationPtrOutput)
 }
@@ -842,13 +830,7 @@ func (o AksNetworkingConfigurationPtrOutput) ToAksNetworkingConfigurationPtrOutp
 }
 
 func (o AksNetworkingConfigurationPtrOutput) Elem() AksNetworkingConfigurationOutput {
-	return o.ApplyT(func(v *AksNetworkingConfiguration) AksNetworkingConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AksNetworkingConfiguration
-		return ret
-	}).(AksNetworkingConfigurationOutput)
+	return o.ApplyT(func(v *AksNetworkingConfiguration) AksNetworkingConfiguration { return *v }).(AksNetworkingConfigurationOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -999,7 +981,7 @@ func (o AksNetworkingConfigurationResponseOutput) ToAksNetworkingConfigurationRe
 }
 
 func (o AksNetworkingConfigurationResponseOutput) ToAksNetworkingConfigurationResponsePtrOutputWithContext(ctx context.Context) AksNetworkingConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AksNetworkingConfigurationResponse) *AksNetworkingConfigurationResponse {
+	return o.ApplyT(func(v AksNetworkingConfigurationResponse) *AksNetworkingConfigurationResponse {
 		return &v
 	}).(AksNetworkingConfigurationResponsePtrOutput)
 }
@@ -1039,13 +1021,7 @@ func (o AksNetworkingConfigurationResponsePtrOutput) ToAksNetworkingConfiguratio
 }
 
 func (o AksNetworkingConfigurationResponsePtrOutput) Elem() AksNetworkingConfigurationResponseOutput {
-	return o.ApplyT(func(v *AksNetworkingConfigurationResponse) AksNetworkingConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AksNetworkingConfigurationResponse
-		return ret
-	}).(AksNetworkingConfigurationResponseOutput)
+	return o.ApplyT(func(v *AksNetworkingConfigurationResponse) AksNetworkingConfigurationResponse { return *v }).(AksNetworkingConfigurationResponseOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -1451,7 +1427,7 @@ func (o AmlComputePropertiesOutput) ToAmlComputePropertiesPtrOutput() AmlCompute
 }
 
 func (o AmlComputePropertiesOutput) ToAmlComputePropertiesPtrOutputWithContext(ctx context.Context) AmlComputePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AmlComputeProperties) *AmlComputeProperties {
+	return o.ApplyT(func(v AmlComputeProperties) *AmlComputeProperties {
 		return &v
 	}).(AmlComputePropertiesPtrOutput)
 }
@@ -1511,13 +1487,7 @@ func (o AmlComputePropertiesPtrOutput) ToAmlComputePropertiesPtrOutputWithContex
 }
 
 func (o AmlComputePropertiesPtrOutput) Elem() AmlComputePropertiesOutput {
-	return o.ApplyT(func(v *AmlComputeProperties) AmlComputeProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AmlComputeProperties
-		return ret
-	}).(AmlComputePropertiesOutput)
+	return o.ApplyT(func(v *AmlComputeProperties) AmlComputeProperties { return *v }).(AmlComputePropertiesOutput)
 }
 
 // OS Type.
@@ -1887,7 +1857,7 @@ func (o AmlComputeResponsePropertiesOutput) ToAmlComputeResponsePropertiesPtrOut
 }
 
 func (o AmlComputeResponsePropertiesOutput) ToAmlComputeResponsePropertiesPtrOutputWithContext(ctx context.Context) AmlComputeResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AmlComputeResponseProperties) *AmlComputeResponseProperties {
+	return o.ApplyT(func(v AmlComputeResponseProperties) *AmlComputeResponseProperties {
 		return &v
 	}).(AmlComputeResponsePropertiesPtrOutput)
 }
@@ -1977,13 +1947,7 @@ func (o AmlComputeResponsePropertiesPtrOutput) ToAmlComputeResponsePropertiesPtr
 }
 
 func (o AmlComputeResponsePropertiesPtrOutput) Elem() AmlComputeResponsePropertiesOutput {
-	return o.ApplyT(func(v *AmlComputeResponseProperties) AmlComputeResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AmlComputeResponseProperties
-		return ret
-	}).(AmlComputeResponsePropertiesOutput)
+	return o.ApplyT(func(v *AmlComputeResponseProperties) AmlComputeResponseProperties { return *v }).(AmlComputeResponsePropertiesOutput)
 }
 
 // Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
@@ -2226,7 +2190,7 @@ func (o AssignedUserOutput) ToAssignedUserPtrOutput() AssignedUserPtrOutput {
 }
 
 func (o AssignedUserOutput) ToAssignedUserPtrOutputWithContext(ctx context.Context) AssignedUserPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignedUser) *AssignedUser {
+	return o.ApplyT(func(v AssignedUser) *AssignedUser {
 		return &v
 	}).(AssignedUserPtrOutput)
 }
@@ -2256,13 +2220,7 @@ func (o AssignedUserPtrOutput) ToAssignedUserPtrOutputWithContext(ctx context.Co
 }
 
 func (o AssignedUserPtrOutput) Elem() AssignedUserOutput {
-	return o.ApplyT(func(v *AssignedUser) AssignedUser {
-		if v != nil {
-			return *v
-		}
-		var ret AssignedUser
-		return ret
-	}).(AssignedUserOutput)
+	return o.ApplyT(func(v *AssignedUser) AssignedUser { return *v }).(AssignedUserOutput)
 }
 
 // User’s AAD Object Id.
@@ -2385,7 +2343,7 @@ func (o AssignedUserResponseOutput) ToAssignedUserResponsePtrOutput() AssignedUs
 }
 
 func (o AssignedUserResponseOutput) ToAssignedUserResponsePtrOutputWithContext(ctx context.Context) AssignedUserResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignedUserResponse) *AssignedUserResponse {
+	return o.ApplyT(func(v AssignedUserResponse) *AssignedUserResponse {
 		return &v
 	}).(AssignedUserResponsePtrOutput)
 }
@@ -2415,13 +2373,7 @@ func (o AssignedUserResponsePtrOutput) ToAssignedUserResponsePtrOutputWithContex
 }
 
 func (o AssignedUserResponsePtrOutput) Elem() AssignedUserResponseOutput {
-	return o.ApplyT(func(v *AssignedUserResponse) AssignedUserResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AssignedUserResponse
-		return ret
-	}).(AssignedUserResponseOutput)
+	return o.ApplyT(func(v *AssignedUserResponse) AssignedUserResponse { return *v }).(AssignedUserResponseOutput)
 }
 
 // User’s AAD Object Id.
@@ -2747,7 +2699,7 @@ func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceCon
 }
 
 func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceConnectivityEndpointsResponse) *ComputeInstanceConnectivityEndpointsResponse {
+	return o.ApplyT(func(v ComputeInstanceConnectivityEndpointsResponse) *ComputeInstanceConnectivityEndpointsResponse {
 		return &v
 	}).(ComputeInstanceConnectivityEndpointsResponsePtrOutput)
 }
@@ -2778,11 +2730,7 @@ func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) ToComputeInstance
 
 func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) Elem() ComputeInstanceConnectivityEndpointsResponseOutput {
 	return o.ApplyT(func(v *ComputeInstanceConnectivityEndpointsResponse) ComputeInstanceConnectivityEndpointsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceConnectivityEndpointsResponse
-		return ret
+		return *v
 	}).(ComputeInstanceConnectivityEndpointsResponseOutput)
 }
 
@@ -2910,7 +2858,7 @@ func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByRespon
 }
 
 func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceCreatedByResponse) *ComputeInstanceCreatedByResponse {
+	return o.ApplyT(func(v ComputeInstanceCreatedByResponse) *ComputeInstanceCreatedByResponse {
 		return &v
 	}).(ComputeInstanceCreatedByResponsePtrOutput)
 }
@@ -2945,13 +2893,7 @@ func (o ComputeInstanceCreatedByResponsePtrOutput) ToComputeInstanceCreatedByRes
 }
 
 func (o ComputeInstanceCreatedByResponsePtrOutput) Elem() ComputeInstanceCreatedByResponseOutput {
-	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) ComputeInstanceCreatedByResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceCreatedByResponse
-		return ret
-	}).(ComputeInstanceCreatedByResponseOutput)
+	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) ComputeInstanceCreatedByResponse { return *v }).(ComputeInstanceCreatedByResponseOutput)
 }
 
 // Uniquely identifies the user within his/her organization.
@@ -3100,7 +3042,7 @@ func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesPtrOutput() 
 }
 
 func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstancePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceProperties) *ComputeInstanceProperties {
+	return o.ApplyT(func(v ComputeInstanceProperties) *ComputeInstanceProperties {
 		return &v
 	}).(ComputeInstancePropertiesPtrOutput)
 }
@@ -3152,13 +3094,7 @@ func (o ComputeInstancePropertiesPtrOutput) ToComputeInstancePropertiesPtrOutput
 }
 
 func (o ComputeInstancePropertiesPtrOutput) Elem() ComputeInstancePropertiesOutput {
-	return o.ApplyT(func(v *ComputeInstanceProperties) ComputeInstanceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceProperties
-		return ret
-	}).(ComputeInstancePropertiesOutput)
+	return o.ApplyT(func(v *ComputeInstanceProperties) ComputeInstanceProperties { return *v }).(ComputeInstancePropertiesOutput)
 }
 
 // Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
@@ -3496,7 +3432,7 @@ func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponseProper
 }
 
 func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponsePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceResponseProperties) *ComputeInstanceResponseProperties {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ComputeInstanceResponseProperties {
 		return &v
 	}).(ComputeInstanceResponsePropertiesPtrOutput)
 }
@@ -3575,13 +3511,7 @@ func (o ComputeInstanceResponsePropertiesPtrOutput) ToComputeInstanceResponsePro
 }
 
 func (o ComputeInstanceResponsePropertiesPtrOutput) Elem() ComputeInstanceResponsePropertiesOutput {
-	return o.ApplyT(func(v *ComputeInstanceResponseProperties) ComputeInstanceResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceResponseProperties
-		return ret
-	}).(ComputeInstanceResponsePropertiesOutput)
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) ComputeInstanceResponseProperties { return *v }).(ComputeInstanceResponsePropertiesOutput)
 }
 
 // Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
@@ -3794,7 +3724,7 @@ func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsPtrOutput(
 }
 
 func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsPtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceSshSettings) *ComputeInstanceSshSettings {
+	return o.ApplyT(func(v ComputeInstanceSshSettings) *ComputeInstanceSshSettings {
 		return &v
 	}).(ComputeInstanceSshSettingsPtrOutput)
 }
@@ -3824,13 +3754,7 @@ func (o ComputeInstanceSshSettingsPtrOutput) ToComputeInstanceSshSettingsPtrOutp
 }
 
 func (o ComputeInstanceSshSettingsPtrOutput) Elem() ComputeInstanceSshSettingsOutput {
-	return o.ApplyT(func(v *ComputeInstanceSshSettings) ComputeInstanceSshSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceSshSettings
-		return ret
-	}).(ComputeInstanceSshSettingsOutput)
+	return o.ApplyT(func(v *ComputeInstanceSshSettings) ComputeInstanceSshSettings { return *v }).(ComputeInstanceSshSettingsOutput)
 }
 
 // Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
@@ -3961,7 +3885,7 @@ func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsRe
 }
 
 func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeInstanceSshSettingsResponse) *ComputeInstanceSshSettingsResponse {
+	return o.ApplyT(func(v ComputeInstanceSshSettingsResponse) *ComputeInstanceSshSettingsResponse {
 		return &v
 	}).(ComputeInstanceSshSettingsResponsePtrOutput)
 }
@@ -4001,13 +3925,7 @@ func (o ComputeInstanceSshSettingsResponsePtrOutput) ToComputeInstanceSshSetting
 }
 
 func (o ComputeInstanceSshSettingsResponsePtrOutput) Elem() ComputeInstanceSshSettingsResponseOutput {
-	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) ComputeInstanceSshSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeInstanceSshSettingsResponse
-		return ret
-	}).(ComputeInstanceSshSettingsResponseOutput)
+	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) ComputeInstanceSshSettingsResponse { return *v }).(ComputeInstanceSshSettingsResponseOutput)
 }
 
 // Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
@@ -4449,7 +4367,7 @@ func (o DataLakeAnalyticsPropertiesOutput) ToDataLakeAnalyticsPropertiesPtrOutpu
 }
 
 func (o DataLakeAnalyticsPropertiesOutput) ToDataLakeAnalyticsPropertiesPtrOutputWithContext(ctx context.Context) DataLakeAnalyticsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeAnalyticsProperties) *DataLakeAnalyticsProperties {
+	return o.ApplyT(func(v DataLakeAnalyticsProperties) *DataLakeAnalyticsProperties {
 		return &v
 	}).(DataLakeAnalyticsPropertiesPtrOutput)
 }
@@ -4474,13 +4392,7 @@ func (o DataLakeAnalyticsPropertiesPtrOutput) ToDataLakeAnalyticsPropertiesPtrOu
 }
 
 func (o DataLakeAnalyticsPropertiesPtrOutput) Elem() DataLakeAnalyticsPropertiesOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsProperties) DataLakeAnalyticsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DataLakeAnalyticsProperties
-		return ret
-	}).(DataLakeAnalyticsPropertiesOutput)
+	return o.ApplyT(func(v *DataLakeAnalyticsProperties) DataLakeAnalyticsProperties { return *v }).(DataLakeAnalyticsPropertiesOutput)
 }
 
 // DataLake Store Account Name
@@ -4722,7 +4634,7 @@ func (o DataLakeAnalyticsResponsePropertiesOutput) ToDataLakeAnalyticsResponsePr
 }
 
 func (o DataLakeAnalyticsResponsePropertiesOutput) ToDataLakeAnalyticsResponsePropertiesPtrOutputWithContext(ctx context.Context) DataLakeAnalyticsResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeAnalyticsResponseProperties) *DataLakeAnalyticsResponseProperties {
+	return o.ApplyT(func(v DataLakeAnalyticsResponseProperties) *DataLakeAnalyticsResponseProperties {
 		return &v
 	}).(DataLakeAnalyticsResponsePropertiesPtrOutput)
 }
@@ -4747,13 +4659,7 @@ func (o DataLakeAnalyticsResponsePropertiesPtrOutput) ToDataLakeAnalyticsRespons
 }
 
 func (o DataLakeAnalyticsResponsePropertiesPtrOutput) Elem() DataLakeAnalyticsResponsePropertiesOutput {
-	return o.ApplyT(func(v *DataLakeAnalyticsResponseProperties) DataLakeAnalyticsResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DataLakeAnalyticsResponseProperties
-		return ret
-	}).(DataLakeAnalyticsResponsePropertiesOutput)
+	return o.ApplyT(func(v *DataLakeAnalyticsResponseProperties) DataLakeAnalyticsResponseProperties { return *v }).(DataLakeAnalyticsResponsePropertiesOutput)
 }
 
 // DataLake Store Account Name
@@ -4950,7 +4856,7 @@ func (o DatabricksPropertiesOutput) ToDatabricksPropertiesPtrOutput() Databricks
 }
 
 func (o DatabricksPropertiesOutput) ToDatabricksPropertiesPtrOutputWithContext(ctx context.Context) DatabricksPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabricksProperties) *DatabricksProperties {
+	return o.ApplyT(func(v DatabricksProperties) *DatabricksProperties {
 		return &v
 	}).(DatabricksPropertiesPtrOutput)
 }
@@ -4975,13 +4881,7 @@ func (o DatabricksPropertiesPtrOutput) ToDatabricksPropertiesPtrOutputWithContex
 }
 
 func (o DatabricksPropertiesPtrOutput) Elem() DatabricksPropertiesOutput {
-	return o.ApplyT(func(v *DatabricksProperties) DatabricksProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DatabricksProperties
-		return ret
-	}).(DatabricksPropertiesOutput)
+	return o.ApplyT(func(v *DatabricksProperties) DatabricksProperties { return *v }).(DatabricksPropertiesOutput)
 }
 
 // Databricks access token
@@ -5223,7 +5123,7 @@ func (o DatabricksResponsePropertiesOutput) ToDatabricksResponsePropertiesPtrOut
 }
 
 func (o DatabricksResponsePropertiesOutput) ToDatabricksResponsePropertiesPtrOutputWithContext(ctx context.Context) DatabricksResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabricksResponseProperties) *DatabricksResponseProperties {
+	return o.ApplyT(func(v DatabricksResponseProperties) *DatabricksResponseProperties {
 		return &v
 	}).(DatabricksResponsePropertiesPtrOutput)
 }
@@ -5248,13 +5148,7 @@ func (o DatabricksResponsePropertiesPtrOutput) ToDatabricksResponsePropertiesPtr
 }
 
 func (o DatabricksResponsePropertiesPtrOutput) Elem() DatabricksResponsePropertiesOutput {
-	return o.ApplyT(func(v *DatabricksResponseProperties) DatabricksResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DatabricksResponseProperties
-		return ret
-	}).(DatabricksResponsePropertiesOutput)
+	return o.ApplyT(func(v *DatabricksResponseProperties) DatabricksResponseProperties { return *v }).(DatabricksResponsePropertiesOutput)
 }
 
 // Databricks access token
@@ -5364,7 +5258,7 @@ func (o EncryptionPropertyOutput) ToEncryptionPropertyPtrOutput() EncryptionProp
 }
 
 func (o EncryptionPropertyOutput) ToEncryptionPropertyPtrOutputWithContext(ctx context.Context) EncryptionPropertyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionProperty) *EncryptionProperty {
+	return o.ApplyT(func(v EncryptionProperty) *EncryptionProperty {
 		return &v
 	}).(EncryptionPropertyPtrOutput)
 }
@@ -5394,13 +5288,7 @@ func (o EncryptionPropertyPtrOutput) ToEncryptionPropertyPtrOutputWithContext(ct
 }
 
 func (o EncryptionPropertyPtrOutput) Elem() EncryptionPropertyOutput {
-	return o.ApplyT(func(v *EncryptionProperty) EncryptionProperty {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionProperty
-		return ret
-	}).(EncryptionPropertyOutput)
+	return o.ApplyT(func(v *EncryptionProperty) EncryptionProperty { return *v }).(EncryptionPropertyOutput)
 }
 
 // Customer Key vault properties.
@@ -5520,7 +5408,7 @@ func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponsePtrOutput(
 }
 
 func (o EncryptionPropertyResponseOutput) ToEncryptionPropertyResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPropertyResponse) *EncryptionPropertyResponse {
+	return o.ApplyT(func(v EncryptionPropertyResponse) *EncryptionPropertyResponse {
 		return &v
 	}).(EncryptionPropertyResponsePtrOutput)
 }
@@ -5550,13 +5438,7 @@ func (o EncryptionPropertyResponsePtrOutput) ToEncryptionPropertyResponsePtrOutp
 }
 
 func (o EncryptionPropertyResponsePtrOutput) Elem() EncryptionPropertyResponseOutput {
-	return o.ApplyT(func(v *EncryptionPropertyResponse) EncryptionPropertyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionPropertyResponse
-		return ret
-	}).(EncryptionPropertyResponseOutput)
+	return o.ApplyT(func(v *EncryptionPropertyResponse) EncryptionPropertyResponse { return *v }).(EncryptionPropertyResponseOutput)
 }
 
 // Customer Key vault properties.
@@ -5953,7 +5835,7 @@ func (o HDInsightPropertiesOutput) ToHDInsightPropertiesPtrOutput() HDInsightPro
 }
 
 func (o HDInsightPropertiesOutput) ToHDInsightPropertiesPtrOutputWithContext(ctx context.Context) HDInsightPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HDInsightProperties) *HDInsightProperties {
+	return o.ApplyT(func(v HDInsightProperties) *HDInsightProperties {
 		return &v
 	}).(HDInsightPropertiesPtrOutput)
 }
@@ -5988,13 +5870,7 @@ func (o HDInsightPropertiesPtrOutput) ToHDInsightPropertiesPtrOutputWithContext(
 }
 
 func (o HDInsightPropertiesPtrOutput) Elem() HDInsightPropertiesOutput {
-	return o.ApplyT(func(v *HDInsightProperties) HDInsightProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HDInsightProperties
-		return ret
-	}).(HDInsightPropertiesOutput)
+	return o.ApplyT(func(v *HDInsightProperties) HDInsightProperties { return *v }).(HDInsightPropertiesOutput)
 }
 
 // Public IP address of the master node of the cluster.
@@ -6264,7 +6140,7 @@ func (o HDInsightResponsePropertiesOutput) ToHDInsightResponsePropertiesPtrOutpu
 }
 
 func (o HDInsightResponsePropertiesOutput) ToHDInsightResponsePropertiesPtrOutputWithContext(ctx context.Context) HDInsightResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HDInsightResponseProperties) *HDInsightResponseProperties {
+	return o.ApplyT(func(v HDInsightResponseProperties) *HDInsightResponseProperties {
 		return &v
 	}).(HDInsightResponsePropertiesPtrOutput)
 }
@@ -6301,13 +6177,7 @@ func (o HDInsightResponsePropertiesPtrOutput) ToHDInsightResponsePropertiesPtrOu
 }
 
 func (o HDInsightResponsePropertiesPtrOutput) Elem() HDInsightResponsePropertiesOutput {
-	return o.ApplyT(func(v *HDInsightResponseProperties) HDInsightResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret HDInsightResponseProperties
-		return ret
-	}).(HDInsightResponsePropertiesOutput)
+	return o.ApplyT(func(v *HDInsightResponseProperties) HDInsightResponseProperties { return *v }).(HDInsightResponsePropertiesOutput)
 }
 
 // Public IP address of the master node of the cluster.
@@ -6343,7 +6213,7 @@ func (o HDInsightResponsePropertiesPtrOutput) SshPort() pulumi.IntPtrOutput {
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -6360,7 +6230,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -6436,14 +6306,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+	return o.ApplyT(func(v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -6461,23 +6331,17 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity {
-		if v != nil {
-			return *v
-		}
-		var ret Identity
-		return ret
-	}).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -6584,7 +6448,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -6619,13 +6483,7 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityResponse
-		return ret
-	}).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -6759,7 +6617,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -6794,13 +6652,7 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultProperties
-		return ret
-	}).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
 }
 
 // For future use - The client id of the identity which will be used to access key vault.
@@ -6934,7 +6786,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -6969,13 +6821,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyVaultPropertiesResponse
-		return ret
-	}).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
 }
 
 // For future use - The client id of the identity which will be used to access key vault.
@@ -7224,7 +7070,7 @@ func (o NodeStateCountsResponseOutput) ToNodeStateCountsResponsePtrOutput() Node
 }
 
 func (o NodeStateCountsResponseOutput) ToNodeStateCountsResponsePtrOutputWithContext(ctx context.Context) NodeStateCountsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeStateCountsResponse) *NodeStateCountsResponse {
+	return o.ApplyT(func(v NodeStateCountsResponse) *NodeStateCountsResponse {
 		return &v
 	}).(NodeStateCountsResponsePtrOutput)
 }
@@ -7274,13 +7120,7 @@ func (o NodeStateCountsResponsePtrOutput) ToNodeStateCountsResponsePtrOutputWith
 }
 
 func (o NodeStateCountsResponsePtrOutput) Elem() NodeStateCountsResponseOutput {
-	return o.ApplyT(func(v *NodeStateCountsResponse) NodeStateCountsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret NodeStateCountsResponse
-		return ret
-	}).(NodeStateCountsResponseOutput)
+	return o.ApplyT(func(v *NodeStateCountsResponse) NodeStateCountsResponse { return *v }).(NodeStateCountsResponseOutput)
 }
 
 // Number of compute nodes in idle state.
@@ -7539,7 +7379,7 @@ func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettings
 }
 
 func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettingsPtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersonalComputeInstanceSettings) *PersonalComputeInstanceSettings {
+	return o.ApplyT(func(v PersonalComputeInstanceSettings) *PersonalComputeInstanceSettings {
 		return &v
 	}).(PersonalComputeInstanceSettingsPtrOutput)
 }
@@ -7564,13 +7404,7 @@ func (o PersonalComputeInstanceSettingsPtrOutput) ToPersonalComputeInstanceSetti
 }
 
 func (o PersonalComputeInstanceSettingsPtrOutput) Elem() PersonalComputeInstanceSettingsOutput {
-	return o.ApplyT(func(v *PersonalComputeInstanceSettings) PersonalComputeInstanceSettings {
-		if v != nil {
-			return *v
-		}
-		var ret PersonalComputeInstanceSettings
-		return ret
-	}).(PersonalComputeInstanceSettingsOutput)
+	return o.ApplyT(func(v *PersonalComputeInstanceSettings) PersonalComputeInstanceSettings { return *v }).(PersonalComputeInstanceSettingsOutput)
 }
 
 // A user explicitly assigned to a personal compute instance.
@@ -7679,7 +7513,7 @@ func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstance
 }
 
 func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersonalComputeInstanceSettingsResponse) *PersonalComputeInstanceSettingsResponse {
+	return o.ApplyT(func(v PersonalComputeInstanceSettingsResponse) *PersonalComputeInstanceSettingsResponse {
 		return &v
 	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
 }
@@ -7704,13 +7538,7 @@ func (o PersonalComputeInstanceSettingsResponsePtrOutput) ToPersonalComputeInsta
 }
 
 func (o PersonalComputeInstanceSettingsResponsePtrOutput) Elem() PersonalComputeInstanceSettingsResponseOutput {
-	return o.ApplyT(func(v *PersonalComputeInstanceSettingsResponse) PersonalComputeInstanceSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PersonalComputeInstanceSettingsResponse
-		return ret
-	}).(PersonalComputeInstanceSettingsResponseOutput)
+	return o.ApplyT(func(v *PersonalComputeInstanceSettingsResponse) PersonalComputeInstanceSettingsResponse { return *v }).(PersonalComputeInstanceSettingsResponseOutput)
 }
 
 // A user explicitly assigned to a personal compute instance.
@@ -7819,7 +7647,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -7844,13 +7672,7 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateEndpointResponse
-		return ret
-	}).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -7967,7 +7789,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -8002,13 +7824,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -8145,7 +7961,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -8181,11 +7997,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
+		return *v
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -8376,7 +8188,7 @@ func (o ResourceIdOutput) ToResourceIdPtrOutput() ResourceIdPtrOutput {
 }
 
 func (o ResourceIdOutput) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceId) *ResourceId {
+	return o.ApplyT(func(v ResourceId) *ResourceId {
 		return &v
 	}).(ResourceIdPtrOutput)
 }
@@ -8401,13 +8213,7 @@ func (o ResourceIdPtrOutput) ToResourceIdPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ResourceIdPtrOutput) Elem() ResourceIdOutput {
-	return o.ApplyT(func(v *ResourceId) ResourceId {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceId
-		return ret
-	}).(ResourceIdOutput)
+	return o.ApplyT(func(v *ResourceId) ResourceId { return *v }).(ResourceIdOutput)
 }
 
 // The ID of the resource
@@ -8516,7 +8322,7 @@ func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResp
 }
 
 func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
+	return o.ApplyT(func(v ResourceIdResponse) *ResourceIdResponse {
 		return &v
 	}).(ResourceIdResponsePtrOutput)
 }
@@ -8541,13 +8347,7 @@ func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ct
 }
 
 func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
-	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceIdResponse
-		return ret
-	}).(ResourceIdResponseOutput)
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse { return *v }).(ResourceIdResponseOutput)
 }
 
 // The ID of the resource
@@ -8664,7 +8464,7 @@ func (o ScaleSettingsOutput) ToScaleSettingsPtrOutput() ScaleSettingsPtrOutput {
 }
 
 func (o ScaleSettingsOutput) ToScaleSettingsPtrOutputWithContext(ctx context.Context) ScaleSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettings) *ScaleSettings {
+	return o.ApplyT(func(v ScaleSettings) *ScaleSettings {
 		return &v
 	}).(ScaleSettingsPtrOutput)
 }
@@ -8699,13 +8499,7 @@ func (o ScaleSettingsPtrOutput) ToScaleSettingsPtrOutputWithContext(ctx context.
 }
 
 func (o ScaleSettingsPtrOutput) Elem() ScaleSettingsOutput {
-	return o.ApplyT(func(v *ScaleSettings) ScaleSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSettings
-		return ret
-	}).(ScaleSettingsOutput)
+	return o.ApplyT(func(v *ScaleSettings) ScaleSettings { return *v }).(ScaleSettingsOutput)
 }
 
 // Max number of nodes to use
@@ -8842,7 +8636,7 @@ func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutput() ScaleSet
 }
 
 func (o ScaleSettingsResponseOutput) ToScaleSettingsResponsePtrOutputWithContext(ctx context.Context) ScaleSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSettingsResponse) *ScaleSettingsResponse {
+	return o.ApplyT(func(v ScaleSettingsResponse) *ScaleSettingsResponse {
 		return &v
 	}).(ScaleSettingsResponsePtrOutput)
 }
@@ -8877,13 +8671,7 @@ func (o ScaleSettingsResponsePtrOutput) ToScaleSettingsResponsePtrOutputWithCont
 }
 
 func (o ScaleSettingsResponsePtrOutput) Elem() ScaleSettingsResponseOutput {
-	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSettingsResponse
-		return ret
-	}).(ScaleSettingsResponseOutput)
+	return o.ApplyT(func(v *ScaleSettingsResponse) ScaleSettingsResponse { return *v }).(ScaleSettingsResponseOutput)
 }
 
 // Max number of nodes to use
@@ -9016,7 +8804,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
+	return o.ApplyT(func(v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -9046,13 +8834,7 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku {
-		if v != nil {
-			return *v
-		}
-		var ret Sku
-		return ret
-	}).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
 // Name of the sku
@@ -9175,7 +8957,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
+	return o.ApplyT(func(v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -9205,13 +8987,7 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SkuResponse
-		return ret
-	}).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
 // Name of the sku
@@ -9342,7 +9118,7 @@ func (o SslConfigurationOutput) ToSslConfigurationPtrOutput() SslConfigurationPt
 }
 
 func (o SslConfigurationOutput) ToSslConfigurationPtrOutputWithContext(ctx context.Context) SslConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfiguration) *SslConfiguration {
+	return o.ApplyT(func(v SslConfiguration) *SslConfiguration {
 		return &v
 	}).(SslConfigurationPtrOutput)
 }
@@ -9382,13 +9158,7 @@ func (o SslConfigurationPtrOutput) ToSslConfigurationPtrOutputWithContext(ctx co
 }
 
 func (o SslConfigurationPtrOutput) Elem() SslConfigurationOutput {
-	return o.ApplyT(func(v *SslConfiguration) SslConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret SslConfiguration
-		return ret
-	}).(SslConfigurationOutput)
+	return o.ApplyT(func(v *SslConfiguration) SslConfiguration { return *v }).(SslConfigurationOutput)
 }
 
 // Cert data
@@ -9539,7 +9309,7 @@ func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutput() Ss
 }
 
 func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutputWithContext(ctx context.Context) SslConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfigurationResponse) *SslConfigurationResponse {
+	return o.ApplyT(func(v SslConfigurationResponse) *SslConfigurationResponse {
 		return &v
 	}).(SslConfigurationResponsePtrOutput)
 }
@@ -9579,13 +9349,7 @@ func (o SslConfigurationResponsePtrOutput) ToSslConfigurationResponsePtrOutputWi
 }
 
 func (o SslConfigurationResponsePtrOutput) Elem() SslConfigurationResponseOutput {
-	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SslConfigurationResponse
-		return ret
-	}).(SslConfigurationResponseOutput)
+	return o.ApplyT(func(v *SslConfigurationResponse) SslConfigurationResponse { return *v }).(SslConfigurationResponseOutput)
 }
 
 // Cert data
@@ -9850,7 +9614,7 @@ func (o UserAccountCredentialsOutput) ToUserAccountCredentialsPtrOutput() UserAc
 }
 
 func (o UserAccountCredentialsOutput) ToUserAccountCredentialsPtrOutputWithContext(ctx context.Context) UserAccountCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAccountCredentials) *UserAccountCredentials {
+	return o.ApplyT(func(v UserAccountCredentials) *UserAccountCredentials {
 		return &v
 	}).(UserAccountCredentialsPtrOutput)
 }
@@ -9885,13 +9649,7 @@ func (o UserAccountCredentialsPtrOutput) ToUserAccountCredentialsPtrOutputWithCo
 }
 
 func (o UserAccountCredentialsPtrOutput) Elem() UserAccountCredentialsOutput {
-	return o.ApplyT(func(v *UserAccountCredentials) UserAccountCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret UserAccountCredentials
-		return ret
-	}).(UserAccountCredentialsOutput)
+	return o.ApplyT(func(v *UserAccountCredentials) UserAccountCredentials { return *v }).(UserAccountCredentialsOutput)
 }
 
 // Name of the administrator user account which can be used to SSH to nodes.
@@ -10028,7 +9786,7 @@ func (o UserAccountCredentialsResponseOutput) ToUserAccountCredentialsResponsePt
 }
 
 func (o UserAccountCredentialsResponseOutput) ToUserAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) UserAccountCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAccountCredentialsResponse) *UserAccountCredentialsResponse {
+	return o.ApplyT(func(v UserAccountCredentialsResponse) *UserAccountCredentialsResponse {
 		return &v
 	}).(UserAccountCredentialsResponsePtrOutput)
 }
@@ -10063,13 +9821,7 @@ func (o UserAccountCredentialsResponsePtrOutput) ToUserAccountCredentialsRespons
 }
 
 func (o UserAccountCredentialsResponsePtrOutput) Elem() UserAccountCredentialsResponseOutput {
-	return o.ApplyT(func(v *UserAccountCredentialsResponse) UserAccountCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UserAccountCredentialsResponse
-		return ret
-	}).(UserAccountCredentialsResponseOutput)
+	return o.ApplyT(func(v *UserAccountCredentialsResponse) UserAccountCredentialsResponse { return *v }).(UserAccountCredentialsResponseOutput)
 }
 
 // Name of the administrator user account which can be used to SSH to nodes.
@@ -10298,7 +10050,7 @@ func (o VirtualMachinePropertiesOutput) ToVirtualMachinePropertiesPtrOutput() Vi
 }
 
 func (o VirtualMachinePropertiesOutput) ToVirtualMachinePropertiesPtrOutputWithContext(ctx context.Context) VirtualMachinePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineProperties) *VirtualMachineProperties {
+	return o.ApplyT(func(v VirtualMachineProperties) *VirtualMachineProperties {
 		return &v
 	}).(VirtualMachinePropertiesPtrOutput)
 }
@@ -10338,13 +10090,7 @@ func (o VirtualMachinePropertiesPtrOutput) ToVirtualMachinePropertiesPtrOutputWi
 }
 
 func (o VirtualMachinePropertiesPtrOutput) Elem() VirtualMachinePropertiesOutput {
-	return o.ApplyT(func(v *VirtualMachineProperties) VirtualMachineProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineProperties
-		return ret
-	}).(VirtualMachinePropertiesOutput)
+	return o.ApplyT(func(v *VirtualMachineProperties) VirtualMachineProperties { return *v }).(VirtualMachinePropertiesOutput)
 }
 
 // Public IP address of the virtual machine.
@@ -10628,7 +10374,7 @@ func (o VirtualMachineResponsePropertiesOutput) ToVirtualMachineResponseProperti
 }
 
 func (o VirtualMachineResponsePropertiesOutput) ToVirtualMachineResponsePropertiesPtrOutputWithContext(ctx context.Context) VirtualMachineResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineResponseProperties) *VirtualMachineResponseProperties {
+	return o.ApplyT(func(v VirtualMachineResponseProperties) *VirtualMachineResponseProperties {
 		return &v
 	}).(VirtualMachineResponsePropertiesPtrOutput)
 }
@@ -10670,13 +10416,7 @@ func (o VirtualMachineResponsePropertiesPtrOutput) ToVirtualMachineResponsePrope
 }
 
 func (o VirtualMachineResponsePropertiesPtrOutput) Elem() VirtualMachineResponsePropertiesOutput {
-	return o.ApplyT(func(v *VirtualMachineResponseProperties) VirtualMachineResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineResponseProperties
-		return ret
-	}).(VirtualMachineResponsePropertiesOutput)
+	return o.ApplyT(func(v *VirtualMachineResponseProperties) VirtualMachineResponseProperties { return *v }).(VirtualMachineResponsePropertiesOutput)
 }
 
 // Public IP address of the virtual machine.
@@ -10827,7 +10567,7 @@ func (o VirtualMachineSshCredentialsOutput) ToVirtualMachineSshCredentialsPtrOut
 }
 
 func (o VirtualMachineSshCredentialsOutput) ToVirtualMachineSshCredentialsPtrOutputWithContext(ctx context.Context) VirtualMachineSshCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSshCredentials) *VirtualMachineSshCredentials {
+	return o.ApplyT(func(v VirtualMachineSshCredentials) *VirtualMachineSshCredentials {
 		return &v
 	}).(VirtualMachineSshCredentialsPtrOutput)
 }
@@ -10867,13 +10607,7 @@ func (o VirtualMachineSshCredentialsPtrOutput) ToVirtualMachineSshCredentialsPtr
 }
 
 func (o VirtualMachineSshCredentialsPtrOutput) Elem() VirtualMachineSshCredentialsOutput {
-	return o.ApplyT(func(v *VirtualMachineSshCredentials) VirtualMachineSshCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineSshCredentials
-		return ret
-	}).(VirtualMachineSshCredentialsOutput)
+	return o.ApplyT(func(v *VirtualMachineSshCredentials) VirtualMachineSshCredentials { return *v }).(VirtualMachineSshCredentialsOutput)
 }
 
 // Password of admin account
@@ -11024,7 +10758,7 @@ func (o VirtualMachineSshCredentialsResponseOutput) ToVirtualMachineSshCredentia
 }
 
 func (o VirtualMachineSshCredentialsResponseOutput) ToVirtualMachineSshCredentialsResponsePtrOutputWithContext(ctx context.Context) VirtualMachineSshCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSshCredentialsResponse) *VirtualMachineSshCredentialsResponse {
+	return o.ApplyT(func(v VirtualMachineSshCredentialsResponse) *VirtualMachineSshCredentialsResponse {
 		return &v
 	}).(VirtualMachineSshCredentialsResponsePtrOutput)
 }
@@ -11064,13 +10798,7 @@ func (o VirtualMachineSshCredentialsResponsePtrOutput) ToVirtualMachineSshCreden
 }
 
 func (o VirtualMachineSshCredentialsResponsePtrOutput) Elem() VirtualMachineSshCredentialsResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) VirtualMachineSshCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineSshCredentialsResponse
-		return ret
-	}).(VirtualMachineSshCredentialsResponseOutput)
+	return o.ApplyT(func(v *VirtualMachineSshCredentialsResponse) VirtualMachineSshCredentialsResponse { return *v }).(VirtualMachineSshCredentialsResponseOutput)
 }
 
 // Password of admin account

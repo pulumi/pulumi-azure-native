@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Required permissions for the connector
-    /// </summary>
     [OutputType]
     public sealed class RequiredPermissionsResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
-    /// <summary>
-    /// Linked service for SAP Cloud for Customer.
-    /// </summary>
     [OutputType]
     public sealed class SapCloudForCustomerLinkedServiceResponse
     {

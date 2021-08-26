@@ -147,7 +147,9 @@ func (i *Datastore) ToDatastoreOutputWithContext(ctx context.Context) DatastoreO
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreOutput)
 }
 
-type DatastoreOutput struct{ *pulumi.OutputState }
+type DatastoreOutput struct {
+	*pulumi.OutputState
+}
 
 func (DatastoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Datastore)(nil))

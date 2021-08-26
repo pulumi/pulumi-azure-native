@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
-    /// <summary>
-    /// Describes the settings to produce a PNG image from the input video.
-    /// </summary>
     [OutputType]
     public sealed class PngLayerResponse
     {

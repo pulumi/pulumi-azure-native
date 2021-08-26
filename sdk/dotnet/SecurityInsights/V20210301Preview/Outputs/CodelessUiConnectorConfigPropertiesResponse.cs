@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
-    /// <summary>
-    /// Config to describe the instructions blade
-    /// </summary>
     [OutputType]
     public sealed class CodelessUiConnectorConfigPropertiesResponse
     {

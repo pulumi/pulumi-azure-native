@@ -143,7 +143,9 @@ func (i *CassandraCluster) ToCassandraClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterOutput)
 }
 
-type CassandraClusterOutput struct{ *pulumi.OutputState }
+type CassandraClusterOutput struct {
+	*pulumi.OutputState
+}
 
 func (CassandraClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraCluster)(nil))

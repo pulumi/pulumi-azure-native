@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
-    /// <summary>
-    /// Class of paths for streaming
-    /// </summary>
     [OutputType]
     public sealed class StreamingPathResponse
     {

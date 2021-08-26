@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20200601.Outputs
 {
 
-    /// <summary>
-    /// The start and end date for pulling data for the report.
-    /// </summary>
     [OutputType]
     public sealed class ReportConfigTimePeriodResponse
     {

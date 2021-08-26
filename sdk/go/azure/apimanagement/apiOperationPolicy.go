@@ -200,7 +200,9 @@ func (i *ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyOutput)
 }
 
-type ApiOperationPolicyOutput struct{ *pulumi.OutputState }
+type ApiOperationPolicyOutput struct {
+	*pulumi.OutputState
+}
 
 func (ApiOperationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationPolicy)(nil))

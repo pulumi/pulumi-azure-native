@@ -134,7 +134,9 @@ func (i *PrivateAtlase) ToPrivateAtlaseOutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlaseOutput)
 }
 
-type PrivateAtlaseOutput struct{ *pulumi.OutputState }
+type PrivateAtlaseOutput struct {
+	*pulumi.OutputState
+}
 
 func (PrivateAtlaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateAtlase)(nil))

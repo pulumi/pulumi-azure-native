@@ -220,7 +220,9 @@ func (i *AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AndroidMAMPolicyByNameOutput)
 }
 
-type AndroidMAMPolicyByNameOutput struct{ *pulumi.OutputState }
+type AndroidMAMPolicyByNameOutput struct {
+	*pulumi.OutputState
+}
 
 func (AndroidMAMPolicyByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AndroidMAMPolicyByName)(nil))

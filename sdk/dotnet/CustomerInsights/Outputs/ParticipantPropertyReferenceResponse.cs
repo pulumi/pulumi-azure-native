@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
-    /// <summary>
-    /// The participant property reference.
-    /// </summary>
     [OutputType]
     public sealed class ParticipantPropertyReferenceResponse
     {

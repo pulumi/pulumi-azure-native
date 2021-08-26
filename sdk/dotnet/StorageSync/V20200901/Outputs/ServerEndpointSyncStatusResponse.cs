@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20200901.Outputs
 {
 
-    /// <summary>
-    /// Server Endpoint sync status
-    /// </summary>
     [OutputType]
     public sealed class ServerEndpointSyncStatusResponse
     {

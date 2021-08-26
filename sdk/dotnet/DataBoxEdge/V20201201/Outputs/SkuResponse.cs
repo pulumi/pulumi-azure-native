@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20201201.Outputs
 {
 
-    /// <summary>
-    /// The SKU type.
-    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

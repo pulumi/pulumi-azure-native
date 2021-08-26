@@ -193,7 +193,9 @@ func (i *ServerDetails) ToServerDetailsOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDetailsOutput)
 }
 
-type ServerDetailsOutput struct{ *pulumi.OutputState }
+type ServerDetailsOutput struct {
+	*pulumi.OutputState
+}
 
 func (ServerDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerDetails)(nil))

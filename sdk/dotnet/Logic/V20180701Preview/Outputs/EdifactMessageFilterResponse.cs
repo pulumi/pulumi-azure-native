@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20180701Preview.Outputs
 {
 
-    /// <summary>
-    /// The Edifact message filter for odata query.
-    /// </summary>
     [OutputType]
     public sealed class EdifactMessageFilterResponse
     {

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200501.Outputs
 {
 
-    /// <summary>
-    /// Cross-Origin Resource Sharing (CORS) settings.
-    /// </summary>
     [OutputType]
     public sealed class SignalRCorsSettingsResponse
     {

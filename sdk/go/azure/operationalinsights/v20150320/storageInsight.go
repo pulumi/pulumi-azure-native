@@ -166,7 +166,9 @@ func (i *StorageInsight) ToStorageInsightOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightOutput)
 }
 
-type StorageInsightOutput struct{ *pulumi.OutputState }
+type StorageInsightOutput struct {
+	*pulumi.OutputState
+}
 
 func (StorageInsightOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageInsight)(nil))

@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
-    /// <summary>
-    /// Definition of which syslog data will be collected and how it will be collected.
-    /// Only collected from Linux machines.
-    /// </summary>
     [OutputType]
     public sealed class SyslogDataSourceResponse
     {

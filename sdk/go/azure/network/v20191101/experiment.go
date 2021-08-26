@@ -161,7 +161,9 @@ func (i *Experiment) ToExperimentOutputWithContext(ctx context.Context) Experime
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentOutput)
 }
 
-type ExperimentOutput struct{ *pulumi.OutputState }
+type ExperimentOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExperimentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Experiment)(nil))

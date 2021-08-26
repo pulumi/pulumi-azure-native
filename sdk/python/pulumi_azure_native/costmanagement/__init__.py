@@ -31,30 +31,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.costmanagement.v20180531 as __v20180531
-    v20180531 = __v20180531
-    import pulumi_azure_native.costmanagement.v20180801preview as __v20180801preview
-    v20180801preview = __v20180801preview
-    import pulumi_azure_native.costmanagement.v20190101 as __v20190101
-    v20190101 = __v20190101
-    import pulumi_azure_native.costmanagement.v20190301preview as __v20190301preview
-    v20190301preview = __v20190301preview
-    import pulumi_azure_native.costmanagement.v20190401preview as __v20190401preview
-    v20190401preview = __v20190401preview
-    import pulumi_azure_native.costmanagement.v20190901 as __v20190901
-    v20190901 = __v20190901
-    import pulumi_azure_native.costmanagement.v20191001 as __v20191001
-    v20191001 = __v20191001
-    import pulumi_azure_native.costmanagement.v20191101 as __v20191101
-    v20191101 = __v20191101
-    import pulumi_azure_native.costmanagement.v20200301preview as __v20200301preview
-    v20200301preview = __v20200301preview
-    import pulumi_azure_native.costmanagement.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.costmanagement.v20201201preview as __v20201201preview
-    v20201201preview = __v20201201preview
-    import pulumi_azure_native.costmanagement.v20210101 as __v20210101
-    v20210101 = __v20210101
+    import pulumi_azure_native.costmanagement.v20180531 as v20180531
+    import pulumi_azure_native.costmanagement.v20180801preview as v20180801preview
+    import pulumi_azure_native.costmanagement.v20190101 as v20190101
+    import pulumi_azure_native.costmanagement.v20190301preview as v20190301preview
+    import pulumi_azure_native.costmanagement.v20190401preview as v20190401preview
+    import pulumi_azure_native.costmanagement.v20190901 as v20190901
+    import pulumi_azure_native.costmanagement.v20191001 as v20191001
+    import pulumi_azure_native.costmanagement.v20191101 as v20191101
+    import pulumi_azure_native.costmanagement.v20200301preview as v20200301preview
+    import pulumi_azure_native.costmanagement.v20200601 as v20200601
+    import pulumi_azure_native.costmanagement.v20201201preview as v20201201preview
+    import pulumi_azure_native.costmanagement.v20210101 as v20210101
 else:
     v20180531 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180531')
     v20180801preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180801preview')

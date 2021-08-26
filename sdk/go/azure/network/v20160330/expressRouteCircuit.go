@@ -416,7 +416,9 @@ func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitOutput)
 }
 
-type ExpressRouteCircuitOutput struct{ *pulumi.OutputState }
+type ExpressRouteCircuitOutput struct {
+	*pulumi.OutputState
+}
 
 func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuit)(nil))

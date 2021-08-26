@@ -200,7 +200,9 @@ func (i *ScheduledQueryRule) ToScheduledQueryRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleOutput)
 }
 
-type ScheduledQueryRuleOutput struct{ *pulumi.OutputState }
+type ScheduledQueryRuleOutput struct {
+	*pulumi.OutputState
+}
 
 func (ScheduledQueryRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledQueryRule)(nil))

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200401.Outputs
 {
 
-    /// <summary>
-    /// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
-    /// </summary>
     [OutputType]
     public sealed class RoutePropertiesResponse
     {

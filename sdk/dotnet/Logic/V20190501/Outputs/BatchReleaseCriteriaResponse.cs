@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 {
 
-    /// <summary>
-    /// The batch release criteria.
-    /// </summary>
     [OutputType]
     public sealed class BatchReleaseCriteriaResponse
     {
