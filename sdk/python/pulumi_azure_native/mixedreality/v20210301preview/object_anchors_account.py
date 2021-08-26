@@ -19,14 +19,20 @@ class ObjectAnchorsAccountArgs:
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ObjectAnchorsAccountIdentityArgs']] = None,
+                 kind: Optional[pulumi.Input['SkuArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input['IdentityArgs']] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ObjectAnchorsAccount resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
+        :param pulumi.Input['SkuArgs'] kind: The kind of account, if supported
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['IdentityArgs'] plan: The plan associated with this account
+        :param pulumi.Input['SkuArgs'] sku: The sku associated with this account
         :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -35,8 +41,14 @@ class ObjectAnchorsAccountArgs:
             pulumi.set(__self__, "account_name", account_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
         if tags is not None:
@@ -77,6 +89,18 @@ class ObjectAnchorsAccountArgs:
 
     @property
     @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The kind of account, if supported
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -86,6 +110,30 @@ class ObjectAnchorsAccountArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The plan associated with this account
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The sku associated with this account
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter(name="storageAccountName")
@@ -119,8 +167,11 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ObjectAnchorsAccountIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -130,8 +181,11 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] kind: The kind of account, if supported
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] plan: The plan associated with this account
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku associated with this account
         :param pulumi.Input[str] storage_account_name: The name of the storage account associated with this accountId
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -161,8 +215,11 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ObjectAnchorsAccountIdentityArgs']]] = None,
+                 kind: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -179,10 +236,13 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
 
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_domain"] = None
@@ -217,8 +277,11 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
         __props__.__dict__["account_domain"] = None
         __props__.__dict__["account_id"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["plan"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["storage_account_name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -248,6 +311,14 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The kind of account, if supported
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
@@ -261,6 +332,22 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        The plan associated with this account
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The sku associated with this account
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="storageAccountName")

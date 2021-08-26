@@ -12,7 +12,6 @@ __all__ = [
     'AutomationRuleConditionType',
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
-    'CaseSeverity',
     'ContentType',
     'CustomEntityQueryKind',
     'DataConnectorKind',
@@ -228,22 +227,6 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """The registry key value in string formatted representation"""
     URL = "Url"
     """The url"""
-
-
-class CaseSeverity(str, Enum):
-    """
-    The severity of the incident
-    """
-    CRITICAL = "Critical"
-    """Critical severity"""
-    HIGH = "High"
-    """High severity"""
-    MEDIUM = "Medium"
-    """Medium severity"""
-    LOW = "Low"
-    """Low severity"""
-    INFORMATIONAL = "Informational"
-    """Informational severity"""
 
 
 class ContentType(str, Enum):

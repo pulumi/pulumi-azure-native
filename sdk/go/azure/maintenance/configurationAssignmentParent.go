@@ -65,6 +65,12 @@ func NewConfigurationAssignmentParent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent"),
 		},
+		{
+			Type: pulumi.String("azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:maintenance/v20210901preview:ConfigurationAssignmentParent"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationAssignmentParent

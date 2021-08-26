@@ -145,7 +145,7 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayNatRuleResult:
     """
     VirtualNetworkGatewayNatRule Resource.
-    API Version: 2021-02-01.
+    API Version: 2021-03-01.
 
 
     :param str nat_rule_name: The name of the nat rule.

@@ -197,7 +197,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
                  __props__=None):
         """
         VirtualNetworkGatewayNatRule Resource.
-        API Version: 2021-02-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +220,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VirtualNetworkGatewayNatRule Resource.
-        API Version: 2021-02-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayNatRuleArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +275,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20210201:VirtualNetworkGatewayNatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-nextgen:network/v20210301:VirtualNetworkGatewayNatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkGatewayNatRule, __self__).__init__(
             'azure-native:network:VirtualNetworkGatewayNatRule',

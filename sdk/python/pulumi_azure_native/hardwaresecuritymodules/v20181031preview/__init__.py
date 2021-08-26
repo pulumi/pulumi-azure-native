@@ -5,6 +5,7 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .dedicated_hsm import *
 from .get_dedicated_hsm import *
 from ._inputs import *

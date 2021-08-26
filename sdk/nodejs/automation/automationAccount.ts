@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the automation account type.
- * API Version: 2019-06-01.
+ * API Version: 2021-06-22.
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class AutomationAccount extends pulumi.CustomResource {
     }
 
     /**
+     * URL of automation hybrid service which is used for hybrid worker on-boarding.
+     */
+    public /*out*/ readonly automationHybridServiceUrl!: pulumi.Output<string | undefined>;
+    /**
      * Gets the creation time.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
@@ -45,9 +49,21 @@ export class AutomationAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether requests using non-AAD authentication are blocked
+     */
+    public /*out*/ readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * Encryption properties for the automation account
+     */
+    public readonly encryption!: pulumi.Output<outputs.automation.EncryptionPropertiesResponse | undefined>;
+    /**
      * Gets or sets the etag of the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.automation.IdentityResponse | undefined>;
     /**
      * Gets or sets the last modified by.
      */
@@ -65,6 +81,14 @@ export class AutomationAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * List of Automation operations supported by the Automation resource provider.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.automation.PrivateEndpointConnectionResponse[] | undefined>;
+    /**
+     * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets or sets the SKU of account.
      */
     public readonly sku!: pulumi.Output<outputs.automation.SkuResponse | undefined>;
@@ -72,6 +96,10 @@ export class AutomationAccount extends pulumi.CustomResource {
      * Gets status of account.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Resource system metadata.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -96,35 +124,49 @@ export class AutomationAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["automationHybridServiceUrl"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["disableLocalAuth"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["lastModifiedBy"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["automationHybridServiceUrl"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["disableLocalAuth"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
             inputs["lastModifiedBy"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:AutomationAccount" }, { type: "azure-native:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-native:automation/v20190601:AutomationAccount" }, { type: "azure-nextgen:automation/v20190601:AutomationAccount" }, { type: "azure-native:automation/v20200113preview:AutomationAccount" }, { type: "azure-nextgen:automation/v20200113preview:AutomationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation:AutomationAccount" }, { type: "azure-native:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-native:automation/v20190601:AutomationAccount" }, { type: "azure-nextgen:automation/v20190601:AutomationAccount" }, { type: "azure-native:automation/v20200113preview:AutomationAccount" }, { type: "azure-nextgen:automation/v20200113preview:AutomationAccount" }, { type: "azure-native:automation/v20210622:AutomationAccount" }, { type: "azure-nextgen:automation/v20210622:AutomationAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutomationAccount.__pulumiType, name, inputs, opts);
     }
@@ -139,6 +181,14 @@ export interface AutomationAccountArgs {
      */
     automationAccountName?: pulumi.Input<string>;
     /**
+     * Set the encryption properties for the automation account
+     */
+    encryption?: pulumi.Input<inputs.automation.EncryptionPropertiesArgs>;
+    /**
+     * Sets the identity property for automation account
+     */
+    identity?: pulumi.Input<inputs.automation.IdentityArgs>;
+    /**
      * Gets or sets the location of the resource.
      */
     location?: pulumi.Input<string>;
@@ -146,6 +196,10 @@ export interface AutomationAccountArgs {
      * Gets or sets name of the resource.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+     */
+    publicNetworkAccess?: pulumi.Input<boolean>;
     /**
      * Name of an Azure Resource group.
      */

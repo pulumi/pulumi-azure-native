@@ -8,6 +8,7 @@ import * as v20180115 from "./v20180115";
 import * as v20180630 from "./v20180630";
 import * as v20190601 from "./v20190601";
 import * as v20200113preview from "./v20200113preview";
+import * as v20210622 from "./v20210622";
 
 export {
     v20151031,
@@ -16,6 +17,7 @@ export {
     v20180630,
     v20190601,
     v20200113preview,
+    v20210622,
 };
 
 export const ContentSourceType = {
@@ -27,6 +29,16 @@ export const ContentSourceType = {
  * Gets or sets the content source type.
  */
 export type ContentSourceType = (typeof ContentSourceType)[keyof typeof ContentSourceType];
+
+export const EncryptionKeySourceType = {
+    Microsoft_Automation: "Microsoft.Automation",
+    Microsoft_Keyvault: "Microsoft.Keyvault",
+} as const;
+
+/**
+ * Encryption Key Source
+ */
+export type EncryptionKeySourceType = (typeof EncryptionKeySourceType)[keyof typeof EncryptionKeySourceType];
 
 export const LinuxUpdateClasses = {
     Unclassified: "Unclassified",
@@ -49,6 +61,18 @@ export const OperatingSystemType = {
  * operating system of target machines
  */
 export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RunbookTypeEnum = {
     Script: "Script",

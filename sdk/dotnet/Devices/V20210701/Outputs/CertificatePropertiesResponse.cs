@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Devices.V20210701.Outputs
         /// <summary>
         /// Determines whether certificate has been verified.
         /// </summary>
-        public readonly bool IsVerified;
+        public readonly bool? IsVerified;
         /// <summary>
         /// The certificate's subject name.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Devices.V20210701.Outputs
 
             string expiry,
 
-            bool isVerified,
+            bool? isVerified,
 
             string subject,
 

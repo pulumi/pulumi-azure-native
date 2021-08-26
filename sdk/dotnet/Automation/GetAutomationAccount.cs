@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Definition of the automation account type.
-        /// API Version: 2019-06-01.
+        /// API Version: 2021-06-22.
         /// </summary>
         public static Task<GetAutomationAccountResult> InvokeAsync(GetAutomationAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-native:automation:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithVersion());
@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetAutomationAccountResult
     {
         /// <summary>
+        /// URL of automation hybrid service which is used for hybrid worker on-boarding.
+        /// </summary>
+        public readonly string? AutomationHybridServiceUrl;
+        /// <summary>
         /// Gets the creation time.
         /// </summary>
         public readonly string CreationTime;
@@ -52,6 +56,14 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Indicates whether requests using non-AAD authentication are blocked
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// Encryption properties for the automation account
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponse? Encryption;
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
@@ -59,6 +71,10 @@ namespace Pulumi.AzureNative.Automation
         /// Fully qualified resource Id for the resource
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Gets or sets the last modified by.
         /// </summary>
@@ -76,6 +92,14 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of Automation operations supported by the Automation resource provider.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+        /// </summary>
+        public readonly bool? PublicNetworkAccess;
+        /// <summary>
         /// Gets or sets the SKU of account.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -83,6 +107,10 @@ namespace Pulumi.AzureNative.Automation
         /// Gets status of account.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Resource system metadata.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -94,13 +122,21 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetAutomationAccountResult(
+            string? automationHybridServiceUrl,
+
             string creationTime,
 
             string? description,
 
+            bool? disableLocalAuth,
+
+            Outputs.EncryptionPropertiesResponse? encryption,
+
             string? etag,
 
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             string? lastModifiedBy,
 
@@ -110,24 +146,37 @@ namespace Pulumi.AzureNative.Automation
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            bool? publicNetworkAccess,
+
             Outputs.SkuResponse? sku,
 
             string state,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AutomationHybridServiceUrl = automationHybridServiceUrl;
             CreationTime = creationTime;
             Description = description;
+            DisableLocalAuth = disableLocalAuth;
+            Encryption = encryption;
             Etag = etag;
             Id = id;
+            Identity = identity;
             LastModifiedBy = lastModifiedBy;
             LastModifiedTime = lastModifiedTime;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             State = state;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

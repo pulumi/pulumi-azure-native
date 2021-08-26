@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./dedicatedHsm";
 export * from "./getDedicatedHsm";
 
+// Export enums:
+export * from "../types/enums/hardwaresecuritymodules";
+
 // Export sub-modules:
 import * as v20181031preview from "./v20181031preview";
 

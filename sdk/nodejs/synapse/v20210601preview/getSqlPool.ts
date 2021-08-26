@@ -87,6 +87,10 @@ export interface GetSqlPoolResult {
      */
     readonly sku?: outputs.synapse.v20210601preview.SkuResponse;
     /**
+     * Specifies the time that the sql pool was deleted
+     */
+    readonly sourceDatabaseDeletionDate?: string;
+    /**
      * Source database to create from
      */
     readonly sourceDatabaseId?: string;

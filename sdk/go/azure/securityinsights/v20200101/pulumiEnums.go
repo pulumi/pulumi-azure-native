@@ -111,42 +111,6 @@ func (e AttackTactic) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The severity of the incident
-type CaseSeverity pulumi.String
-
-const (
-	// Critical severity
-	CaseSeverityCritical = CaseSeverity("Critical")
-	// High severity
-	CaseSeverityHigh = CaseSeverity("High")
-	// Medium severity
-	CaseSeverityMedium = CaseSeverity("Medium")
-	// Low severity
-	CaseSeverityLow = CaseSeverity("Low")
-	// Informational severity
-	CaseSeverityInformational = CaseSeverity("Informational")
-)
-
-func (CaseSeverity) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e CaseSeverity) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CaseSeverity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CaseSeverity) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e CaseSeverity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The data connector kind
 type DataConnectorKind pulumi.String
 

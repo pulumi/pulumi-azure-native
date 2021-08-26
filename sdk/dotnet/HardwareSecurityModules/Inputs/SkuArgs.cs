@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.Inputs
         /// SKU of the dedicated HSM
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.HardwareSecurityModules.SkuName>? Name { get; set; }
 
         public SkuArgs()
         {

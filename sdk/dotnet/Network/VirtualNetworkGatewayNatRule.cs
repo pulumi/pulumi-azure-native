@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VirtualNetworkGatewayNatRule Resource.
-    /// API Version: 2021-02-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGatewayNatRule")]
     public partial class VirtualNetworkGatewayNatRule : Pulumi.CustomResource
@@ -92,6 +92,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network:VirtualNetworkGatewayNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkGatewayNatRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:VirtualNetworkGatewayNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

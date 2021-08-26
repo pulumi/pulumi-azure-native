@@ -6,8 +6,10 @@ from enum import Enum
 
 __all__ = [
     'ContentSourceType',
+    'EncryptionKeySourceType',
     'LinuxUpdateClasses',
     'OperatingSystemType',
+    'ResourceIdentityType',
     'RunbookTypeEnum',
     'ScheduleDay',
     'ScheduleFrequency',
@@ -27,6 +29,14 @@ class ContentSourceType(str, Enum):
     URI = "uri"
 
 
+class EncryptionKeySourceType(str, Enum):
+    """
+    Encryption Key Source
+    """
+    MICROSOFT_AUTOMATION = "Microsoft.Automation"
+    MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+
+
 class LinuxUpdateClasses(str, Enum):
     """
     Update classifications included in the software update configuration.
@@ -43,6 +53,16 @@ class OperatingSystemType(str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
 
 
 class RunbookTypeEnum(str, Enum):

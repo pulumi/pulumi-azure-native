@@ -150,3 +150,61 @@ func (e RequestSource) ToStringPtrOutput() pulumi.StringPtrOutput {
 func (e RequestSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
+
+// The kind of WebTest that this web test watches. Choices are ping and multistep.
+type WebTestKind pulumi.String
+
+const (
+	WebTestKindPing      = WebTestKind("ping")
+	WebTestKindMultistep = WebTestKind("multistep")
+)
+
+func (WebTestKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WebTestKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebTestKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebTestKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebTestKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
+type WebTestKindEnum pulumi.String
+
+const (
+	WebTestKindEnumPing      = WebTestKindEnum("ping")
+	WebTestKindEnumMultistep = WebTestKindEnum("multistep")
+	WebTestKindEnumBasic     = WebTestKindEnum("basic")
+	WebTestKindEnumStandard  = WebTestKindEnum("standard")
+)
+
+func (WebTestKindEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e WebTestKindEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebTestKindEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebTestKindEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebTestKindEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}

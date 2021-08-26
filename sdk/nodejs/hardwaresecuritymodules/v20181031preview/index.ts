@@ -8,6 +8,9 @@ import * as utilities from "../../utilities";
 export * from "./dedicatedHsm";
 export * from "./getDedicatedHsm";
 
+// Export enums:
+export * from "../../types/enums/hardwaresecuritymodules/v20181031preview";
+
 // Import resources to register:
 import { DedicatedHsm } from "./dedicatedHsm";
 

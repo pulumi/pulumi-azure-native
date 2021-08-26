@@ -50,6 +50,8 @@ type LookupSqlPoolResult struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// SQL pool SKU
 	Sku *SkuResponse `pulumi:"sku"`
+	// Specifies the time that the sql pool was deleted
+	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// Source database to create from
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// Resource status

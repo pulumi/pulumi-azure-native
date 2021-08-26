@@ -76,6 +76,10 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.synapse.v20210601preview.SkuResponse | undefined>;
     /**
+     * Specifies the time that the sql pool was deleted
+     */
+    public readonly sourceDatabaseDeletionDate!: pulumi.Output<string | undefined>;
+    /**
      * Source database to create from
      */
     public readonly sourceDatabaseId!: pulumi.Output<string | undefined>;
@@ -123,6 +127,7 @@ export class SqlPool extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
             inputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -142,6 +147,7 @@ export class SqlPool extends pulumi.CustomResource {
             inputs["recoverableDatabaseId"] = undefined /*out*/;
             inputs["restorePointInTime"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
             inputs["sourceDatabaseId"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["storageAccountType"] = undefined /*out*/;
@@ -151,7 +157,7 @@ export class SqlPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20210601preview:SqlPool" }, { type: "azure-native:synapse:SqlPool" }, { type: "azure-nextgen:synapse:SqlPool" }, { type: "azure-native:synapse/v20190601preview:SqlPool" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPool" }, { type: "azure-native:synapse/v20200401preview:SqlPool" }, { type: "azure-nextgen:synapse/v20200401preview:SqlPool" }, { type: "azure-native:synapse/v20201201:SqlPool" }, { type: "azure-nextgen:synapse/v20201201:SqlPool" }, { type: "azure-native:synapse/v20210301:SqlPool" }, { type: "azure-nextgen:synapse/v20210301:SqlPool" }, { type: "azure-native:synapse/v20210401preview:SqlPool" }, { type: "azure-nextgen:synapse/v20210401preview:SqlPool" }, { type: "azure-native:synapse/v20210501:SqlPool" }, { type: "azure-nextgen:synapse/v20210501:SqlPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20210601preview:SqlPool" }, { type: "azure-native:synapse:SqlPool" }, { type: "azure-nextgen:synapse:SqlPool" }, { type: "azure-native:synapse/v20190601preview:SqlPool" }, { type: "azure-nextgen:synapse/v20190601preview:SqlPool" }, { type: "azure-native:synapse/v20200401preview:SqlPool" }, { type: "azure-nextgen:synapse/v20200401preview:SqlPool" }, { type: "azure-native:synapse/v20201201:SqlPool" }, { type: "azure-nextgen:synapse/v20201201:SqlPool" }, { type: "azure-native:synapse/v20210301:SqlPool" }, { type: "azure-nextgen:synapse/v20210301:SqlPool" }, { type: "azure-native:synapse/v20210401preview:SqlPool" }, { type: "azure-nextgen:synapse/v20210401preview:SqlPool" }, { type: "azure-native:synapse/v20210501:SqlPool" }, { type: "azure-nextgen:synapse/v20210501:SqlPool" }, { type: "azure-native:synapse/v20210601:SqlPool" }, { type: "azure-nextgen:synapse/v20210601:SqlPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlPool.__pulumiType, name, inputs, opts);
     }
@@ -201,6 +207,10 @@ export interface SqlPoolArgs {
      * SQL pool SKU
      */
     sku?: pulumi.Input<inputs.synapse.v20210601preview.SkuArgs>;
+    /**
+     * Specifies the time that the sql pool was deleted
+     */
+    sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
      * Source database to create from
      */

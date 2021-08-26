@@ -134,6 +134,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualRouter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualRouter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:VirtualRouter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

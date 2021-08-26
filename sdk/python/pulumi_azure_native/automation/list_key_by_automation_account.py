@@ -44,7 +44,7 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKeyByAutomationAccountResult:
     """
-    API Version: 2019-06-01.
+    API Version: 2021-06-22.
 
 
     :param str automation_account_name: The name of the automation account.

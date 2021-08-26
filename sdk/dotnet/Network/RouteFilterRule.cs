@@ -148,6 +148,8 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:RouteFilterRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:RouteFilterRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:RouteFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

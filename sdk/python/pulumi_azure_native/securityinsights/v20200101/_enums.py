@@ -8,7 +8,6 @@ __all__ = [
     'AlertRuleKind',
     'AlertSeverity',
     'AttackTactic',
-    'CaseSeverity',
     'DataConnectorKind',
     'DataTypeState',
     'IncidentClassification',
@@ -59,22 +58,6 @@ class AttackTactic(str, Enum):
     EXFILTRATION = "Exfiltration"
     COMMAND_AND_CONTROL = "CommandAndControl"
     IMPACT = "Impact"
-
-
-class CaseSeverity(str, Enum):
-    """
-    The severity of the incident
-    """
-    CRITICAL = "Critical"
-    """Critical severity"""
-    HIGH = "High"
-    """High severity"""
-    MEDIUM = "Medium"
-    """Medium severity"""
-    LOW = "Low"
-    """Low severity"""
-    INFORMATIONAL = "Informational"
-    """Informational severity"""
 
 
 class DataConnectorKind(str, Enum):

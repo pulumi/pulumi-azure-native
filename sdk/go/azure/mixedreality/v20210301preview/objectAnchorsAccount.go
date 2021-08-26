@@ -20,10 +20,16 @@ type ObjectAnchorsAccount struct {
 	// unique id of certain account.
 	AccountId pulumi.StringOutput                           `pulumi:"accountId"`
 	Identity  ObjectAnchorsAccountResponseIdentityPtrOutput `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind SkuResponsePtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The plan associated with this account
+	Plan IdentityResponsePtrOutput `pulumi:"plan"`
+	// The sku associated with this account
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The name of the storage account associated with this accountId
 	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
 	// The system metadata related to an object anchors account.
@@ -91,10 +97,16 @@ type objectAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
 	AccountName *string                       `pulumi:"accountName"`
 	Identity    *ObjectAnchorsAccountIdentity `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind *Sku `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The plan associated with this account
+	Plan *Identity `pulumi:"plan"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The sku associated with this account
+	Sku *Sku `pulumi:"sku"`
 	// The name of the storage account associated with this accountId
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// Resource tags.
@@ -106,10 +118,16 @@ type ObjectAnchorsAccountArgs struct {
 	// Name of an Mixed Reality Account.
 	AccountName pulumi.StringPtrInput
 	Identity    ObjectAnchorsAccountIdentityPtrInput
+	// The kind of account, if supported
+	Kind SkuPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The plan associated with this account
+	Plan IdentityPtrInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// The sku associated with this account
+	Sku SkuPtrInput
 	// The name of the storage account associated with this accountId
 	StorageAccountName pulumi.StringPtrInput
 	// Resource tags.

@@ -8,7 +8,7 @@ import (
 )
 
 // VirtualNetworkGatewayNatRule Resource.
-// API Version: 2021-02-01.
+// API Version: 2021-03-01.
 func LookupVirtualNetworkGatewayNatRule(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayNatRuleResult, error) {
 	var rv LookupVirtualNetworkGatewayNatRuleResult
 	err := ctx.Invoke("azure-native:network:getVirtualNetworkGatewayNatRule", args, &rv, opts...)

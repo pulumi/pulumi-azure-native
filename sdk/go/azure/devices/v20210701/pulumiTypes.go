@@ -444,6 +444,8 @@ func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUser
 type CertificateProperties struct {
 	// The certificate content
 	Certificate *string `pulumi:"certificate"`
+	// Determines whether certificate has been verified.
+	IsVerified *bool `pulumi:"isVerified"`
 }
 
 // CertificatePropertiesInput is an input type that accepts CertificatePropertiesArgs and CertificatePropertiesOutput values.
@@ -461,6 +463,8 @@ type CertificatePropertiesInput interface {
 type CertificatePropertiesArgs struct {
 	// The certificate content
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// Determines whether certificate has been verified.
+	IsVerified pulumi.BoolPtrInput `pulumi:"isVerified"`
 }
 
 func (CertificatePropertiesArgs) ElementType() reflect.Type {
@@ -546,6 +550,11 @@ func (o CertificatePropertiesOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateProperties) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether certificate has been verified.
+func (o CertificatePropertiesOutput) IsVerified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateProperties) *bool { return v.IsVerified }).(pulumi.BoolPtrOutput)
+}
+
 type CertificatePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesPtrOutput) ElementType() reflect.Type {
@@ -574,6 +583,16 @@ func (o CertificatePropertiesPtrOutput) Certificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether certificate has been verified.
+func (o CertificatePropertiesPtrOutput) IsVerified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsVerified
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
 	// The certificate content
@@ -583,7 +602,7 @@ type CertificatePropertiesResponse struct {
 	// The certificate's expiration date and time.
 	Expiry string `pulumi:"expiry"`
 	// Determines whether certificate has been verified.
-	IsVerified bool `pulumi:"isVerified"`
+	IsVerified *bool `pulumi:"isVerified"`
 	// The certificate's subject name.
 	Subject string `pulumi:"subject"`
 	// The certificate's thumbprint.
@@ -612,7 +631,7 @@ type CertificatePropertiesResponseArgs struct {
 	// The certificate's expiration date and time.
 	Expiry pulumi.StringInput `pulumi:"expiry"`
 	// Determines whether certificate has been verified.
-	IsVerified pulumi.BoolInput `pulumi:"isVerified"`
+	IsVerified pulumi.BoolPtrInput `pulumi:"isVerified"`
 	// The certificate's subject name.
 	Subject pulumi.StringInput `pulumi:"subject"`
 	// The certificate's thumbprint.
@@ -715,8 +734,8 @@ func (o CertificatePropertiesResponseOutput) Expiry() pulumi.StringOutput {
 }
 
 // Determines whether certificate has been verified.
-func (o CertificatePropertiesResponseOutput) IsVerified() pulumi.BoolOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) bool { return v.IsVerified }).(pulumi.BoolOutput)
+func (o CertificatePropertiesResponseOutput) IsVerified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificatePropertiesResponse) *bool { return v.IsVerified }).(pulumi.BoolPtrOutput)
 }
 
 // The certificate's subject name.
@@ -788,7 +807,7 @@ func (o CertificatePropertiesResponsePtrOutput) IsVerified() pulumi.BoolPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.IsVerified
+		return v.IsVerified
 	}).(pulumi.BoolPtrOutput)
 }
 

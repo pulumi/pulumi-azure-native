@@ -131,6 +131,8 @@ namespace Pulumi.AzureNative.Network.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:DdosCustomPolicy"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:DdosCustomPolicy"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:DdosCustomPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

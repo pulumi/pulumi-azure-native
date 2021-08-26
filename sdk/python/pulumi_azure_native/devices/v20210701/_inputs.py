@@ -77,13 +77,17 @@ class ArmIdentityArgs:
 @pulumi.input_type
 class CertificatePropertiesArgs:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input[str]] = None):
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 is_verified: Optional[pulumi.Input[bool]] = None):
         """
         The description of an X509 CA Certificate.
         :param pulumi.Input[str] certificate: The certificate content
+        :param pulumi.Input[bool] is_verified: Determines whether certificate has been verified.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if is_verified is not None:
+            pulumi.set(__self__, "is_verified", is_verified)
 
     @property
     @pulumi.getter
@@ -96,6 +100,18 @@ class CertificatePropertiesArgs:
     @certificate.setter
     def certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="isVerified")
+    def is_verified(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether certificate has been verified.
+        """
+        return pulumi.get(self, "is_verified")
+
+    @is_verified.setter
+    def is_verified(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_verified", value)
 
 
 @pulumi.input_type

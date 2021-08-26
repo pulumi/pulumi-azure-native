@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DscConfiguration{}
 	case "azure-native:automation:DscNodeConfiguration":
 		r = &DscNodeConfiguration{}
+	case "azure-native:automation:HybridRunbookWorker":
+		r = &HybridRunbookWorker{}
+	case "azure-native:automation:HybridRunbookWorkerGroup":
+		r = &HybridRunbookWorkerGroup{}
 	case "azure-native:automation:JobSchedule":
 		r = &JobSchedule{}
 	case "azure-native:automation:Module":

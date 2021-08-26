@@ -87,6 +87,8 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:WorkspaceAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:WorkspaceAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:WorkspaceAadAdmin"},
                 },

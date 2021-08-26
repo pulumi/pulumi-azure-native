@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// 
-        /// API Version: 2019-06-01.
+        /// API Version: 2021-06-22.
         /// </summary>
         public static Task<ListKeyByAutomationAccountResult> InvokeAsync(ListKeyByAutomationAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListKeyByAutomationAccountResult>("azure-native:automation:listKeyByAutomationAccount", args ?? new ListKeyByAutomationAccountArgs(), options.WithVersion());

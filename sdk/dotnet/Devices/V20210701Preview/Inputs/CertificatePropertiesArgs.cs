@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview.Inputs
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        /// <summary>
+        /// Determines whether certificate has been verified.
+        /// </summary>
+        [Input("isVerified")]
+        public Input<bool>? IsVerified { get; set; }
+
         public CertificatePropertiesArgs()
         {
         }

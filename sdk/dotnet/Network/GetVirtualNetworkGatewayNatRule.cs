@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VirtualNetworkGatewayNatRule Resource.
-        /// API Version: 2021-02-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayNatRuleResult> InvokeAsync(GetVirtualNetworkGatewayNatRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayNatRuleResult>("azure-native:network:getVirtualNetworkGatewayNatRule", args ?? new GetVirtualNetworkGatewayNatRuleArgs(), options.WithVersion());

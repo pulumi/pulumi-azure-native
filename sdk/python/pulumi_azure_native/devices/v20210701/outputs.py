@@ -175,29 +175,30 @@ class CertificatePropertiesResponse(dict):
     def __init__(__self__, *,
                  created: str,
                  expiry: str,
-                 is_verified: bool,
                  subject: str,
                  thumbprint: str,
                  updated: str,
-                 certificate: Optional[str] = None):
+                 certificate: Optional[str] = None,
+                 is_verified: Optional[bool] = None):
         """
         The description of an X509 CA Certificate.
         :param str created: The certificate's create date and time.
         :param str expiry: The certificate's expiration date and time.
-        :param bool is_verified: Determines whether certificate has been verified.
         :param str subject: The certificate's subject name.
         :param str thumbprint: The certificate's thumbprint.
         :param str updated: The certificate's last update date and time.
         :param str certificate: The certificate content
+        :param bool is_verified: Determines whether certificate has been verified.
         """
         pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "expiry", expiry)
-        pulumi.set(__self__, "is_verified", is_verified)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "thumbprint", thumbprint)
         pulumi.set(__self__, "updated", updated)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if is_verified is not None:
+            pulumi.set(__self__, "is_verified", is_verified)
 
     @property
     @pulumi.getter
@@ -214,14 +215,6 @@ class CertificatePropertiesResponse(dict):
         The certificate's expiration date and time.
         """
         return pulumi.get(self, "expiry")
-
-    @property
-    @pulumi.getter(name="isVerified")
-    def is_verified(self) -> bool:
-        """
-        Determines whether certificate has been verified.
-        """
-        return pulumi.get(self, "is_verified")
 
     @property
     @pulumi.getter
@@ -254,6 +247,14 @@ class CertificatePropertiesResponse(dict):
         The certificate content
         """
         return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="isVerified")
+    def is_verified(self) -> Optional[bool]:
+        """
+        Determines whether certificate has been verified.
+        """
+        return pulumi.get(self, "is_verified")
 
 
 @pulumi.output_type

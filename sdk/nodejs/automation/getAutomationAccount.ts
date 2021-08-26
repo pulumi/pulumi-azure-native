@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the automation account type.
- * API Version: 2019-06-01.
+ * API Version: 2021-06-22.
  */
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
     if (!opts) {
@@ -39,6 +39,10 @@ export interface GetAutomationAccountArgs {
  */
 export interface GetAutomationAccountResult {
     /**
+     * URL of automation hybrid service which is used for hybrid worker on-boarding.
+     */
+    readonly automationHybridServiceUrl?: string;
+    /**
      * Gets the creation time.
      */
     readonly creationTime: string;
@@ -47,6 +51,14 @@ export interface GetAutomationAccountResult {
      */
     readonly description?: string;
     /**
+     * Indicates whether requests using non-AAD authentication are blocked
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * Encryption properties for the automation account
+     */
+    readonly encryption?: outputs.automation.EncryptionPropertiesResponse;
+    /**
      * Gets or sets the etag of the resource.
      */
     readonly etag?: string;
@@ -54,6 +66,10 @@ export interface GetAutomationAccountResult {
      * Fully qualified resource Id for the resource
      */
     readonly id: string;
+    /**
+     * Identity for the resource.
+     */
+    readonly identity?: outputs.automation.IdentityResponse;
     /**
      * Gets or sets the last modified by.
      */
@@ -71,6 +87,14 @@ export interface GetAutomationAccountResult {
      */
     readonly name: string;
     /**
+     * List of Automation operations supported by the Automation resource provider.
+     */
+    readonly privateEndpointConnections?: outputs.automation.PrivateEndpointConnectionResponse[];
+    /**
+     * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+     */
+    readonly publicNetworkAccess?: boolean;
+    /**
      * Gets or sets the SKU of account.
      */
     readonly sku?: outputs.automation.SkuResponse;
@@ -78,6 +102,10 @@ export interface GetAutomationAccountResult {
      * Gets status of account.
      */
     readonly state: string;
+    /**
+     * Resource system metadata.
+     */
+    readonly systemData: outputs.automation.SystemDataResponse;
     /**
      * Resource tags.
      */

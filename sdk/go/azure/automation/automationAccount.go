@@ -12,16 +12,24 @@ import (
 )
 
 // Definition of the automation account type.
-// API Version: 2019-06-01.
+// API Version: 2021-06-22.
 type AutomationAccount struct {
 	pulumi.CustomResourceState
 
+	// URL of automation hybrid service which is used for hybrid worker on-boarding.
+	AutomationHybridServiceUrl pulumi.StringPtrOutput `pulumi:"automationHybridServiceUrl"`
 	// Gets the creation time.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// Gets or sets the description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether requests using non-AAD authentication are blocked
+	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
+	// Encryption properties for the automation account
+	Encryption EncryptionPropertiesResponsePtrOutput `pulumi:"encryption"`
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Identity for the resource.
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// Gets or sets the last modified by.
 	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
 	// Gets the last modified time.
@@ -30,10 +38,16 @@ type AutomationAccount struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of Automation operations supported by the Automation resource provider.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+	PublicNetworkAccess pulumi.BoolPtrOutput `pulumi:"publicNetworkAccess"`
 	// Gets or sets the SKU of account.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Gets status of account.
 	State pulumi.StringOutput `pulumi:"state"`
+	// Resource system metadata.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -72,6 +86,12 @@ func NewAutomationAccount(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automation/v20200113preview:AutomationAccount"),
 		},
+		{
+			Type: pulumi.String("azure-native:automation/v20210622:AutomationAccount"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:automation/v20210622:AutomationAccount"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AutomationAccount
@@ -108,10 +128,16 @@ func (AutomationAccountState) ElementType() reflect.Type {
 type automationAccountArgs struct {
 	// The name of the automation account.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
+	// Set the encryption properties for the automation account
+	Encryption *EncryptionProperties `pulumi:"encryption"`
+	// Sets the identity property for automation account
+	Identity *Identity `pulumi:"identity"`
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
 	// Gets or sets name of the resource.
 	Name *string `pulumi:"name"`
+	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+	PublicNetworkAccess *bool `pulumi:"publicNetworkAccess"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets account SKU.
@@ -124,10 +150,16 @@ type automationAccountArgs struct {
 type AutomationAccountArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringPtrInput
+	// Set the encryption properties for the automation account
+	Encryption EncryptionPropertiesPtrInput
+	// Sets the identity property for automation account
+	Identity IdentityPtrInput
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
 	// Gets or sets name of the resource.
 	Name pulumi.StringPtrInput
+	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+	PublicNetworkAccess pulumi.BoolPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets account SKU.

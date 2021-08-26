@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Component{}
 	case "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration":
 		r = &ProactiveDetectionConfiguration{}
+	case "azure-native:insights/v20180501preview:WebTest":
+		r = &WebTest{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

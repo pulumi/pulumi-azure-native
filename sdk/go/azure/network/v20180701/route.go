@@ -271,6 +271,12 @@ func NewRoute(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20210201:Route"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210301:Route"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210301:Route"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Route

@@ -19,6 +19,8 @@ export * from "./getConnectionType";
 export * from "./getCredential";
 export * from "./getDscConfiguration";
 export * from "./getDscNodeConfiguration";
+export * from "./getHybridRunbookWorker";
+export * from "./getHybridRunbookWorkerGroup";
 export * from "./getJobSchedule";
 export * from "./getModule";
 export * from "./getPrivateEndpointConnection";
@@ -30,6 +32,8 @@ export * from "./getSourceControl";
 export * from "./getVariable";
 export * from "./getWatcher";
 export * from "./getWebhook";
+export * from "./hybridRunbookWorker";
+export * from "./hybridRunbookWorkerGroup";
 export * from "./jobSchedule";
 export * from "./listKeyByAutomationAccount";
 export * from "./module";
@@ -53,6 +57,7 @@ import * as v20180115 from "./v20180115";
 import * as v20180630 from "./v20180630";
 import * as v20190601 from "./v20190601";
 import * as v20200113preview from "./v20200113preview";
+import * as v20210622 from "./v20210622";
 
 export {
     v20151031,
@@ -61,6 +66,7 @@ export {
     v20180630,
     v20190601,
     v20200113preview,
+    v20210622,
 };
 
 // Import resources to register:
@@ -71,6 +77,8 @@ import { ConnectionType } from "./connectionType";
 import { Credential } from "./credential";
 import { DscConfiguration } from "./dscConfiguration";
 import { DscNodeConfiguration } from "./dscNodeConfiguration";
+import { HybridRunbookWorker } from "./hybridRunbookWorker";
+import { HybridRunbookWorkerGroup } from "./hybridRunbookWorkerGroup";
 import { JobSchedule } from "./jobSchedule";
 import { Module } from "./module";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
@@ -101,6 +109,10 @@ const _module = {
                 return new DscConfiguration(name, <any>undefined, { urn })
             case "azure-native:automation:DscNodeConfiguration":
                 return new DscNodeConfiguration(name, <any>undefined, { urn })
+            case "azure-native:automation:HybridRunbookWorker":
+                return new HybridRunbookWorker(name, <any>undefined, { urn })
+            case "azure-native:automation:HybridRunbookWorkerGroup":
+                return new HybridRunbookWorkerGroup(name, <any>undefined, { urn })
             case "azure-native:automation:JobSchedule":
                 return new JobSchedule(name, <any>undefined, { urn })
             case "azure-native:automation:Module":

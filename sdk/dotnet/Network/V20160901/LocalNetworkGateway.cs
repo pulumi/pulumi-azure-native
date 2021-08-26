@@ -173,6 +173,8 @@ namespace Pulumi.AzureNative.Network.V20160901
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:LocalNetworkGateway"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:LocalNetworkGateway"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:LocalNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

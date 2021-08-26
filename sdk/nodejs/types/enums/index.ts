@@ -71,6 +71,7 @@ import * as extendedlocation from "./extendedlocation";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
 import * as guestconfiguration from "./guestconfiguration";
+import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
 import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
@@ -218,6 +219,7 @@ export {
     features,
     fluidrelay,
     guestconfiguration,
+    hardwaresecuritymodules,
     hdinsight,
     healthbot,
     healthcareapis,

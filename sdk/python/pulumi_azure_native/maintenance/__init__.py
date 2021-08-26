@@ -21,10 +21,12 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.maintenance.v20200701preview as v20200701preview
     import pulumi_azure_native.maintenance.v20210401preview as v20210401preview
     import pulumi_azure_native.maintenance.v20210501 as v20210501
+    import pulumi_azure_native.maintenance.v20210901preview as v20210901preview
 else:
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.maintenance.v20180601preview')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.maintenance.v20200401')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.maintenance.v20200701preview')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.maintenance.v20210401preview')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.maintenance.v20210501')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.maintenance.v20210901preview')
 

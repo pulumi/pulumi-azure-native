@@ -123,7 +123,7 @@ export class AutomationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20190601:AutomationAccount" }, { type: "azure-native:automation:AutomationAccount" }, { type: "azure-nextgen:automation:AutomationAccount" }, { type: "azure-native:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-native:automation/v20200113preview:AutomationAccount" }, { type: "azure-nextgen:automation/v20200113preview:AutomationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20190601:AutomationAccount" }, { type: "azure-native:automation:AutomationAccount" }, { type: "azure-nextgen:automation:AutomationAccount" }, { type: "azure-native:automation/v20151031:AutomationAccount" }, { type: "azure-nextgen:automation/v20151031:AutomationAccount" }, { type: "azure-native:automation/v20200113preview:AutomationAccount" }, { type: "azure-nextgen:automation/v20200113preview:AutomationAccount" }, { type: "azure-native:automation/v20210622:AutomationAccount" }, { type: "azure-nextgen:automation/v20210622:AutomationAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutomationAccount.__pulumiType, name, inputs, opts);
     }

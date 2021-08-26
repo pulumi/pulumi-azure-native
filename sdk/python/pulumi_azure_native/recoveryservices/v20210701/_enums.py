@@ -5,31 +5,52 @@
 from enum import Enum
 
 __all__ = [
+    'AgentAutoUpdateStatus',
     'BackupItemType',
     'BackupManagementType',
     'ContainerType',
     'CreateMode',
     'DataSourceType',
     'DayOfWeek',
+    'DiskAccountType',
+    'FailoverDeploymentModel',
     'HealthStatus',
+    'InfrastructureEncryptionState',
     'LastBackupStatus',
+    'LicenseType',
     'MonthOfYear',
     'OperationType',
     'PolicyType',
+    'PossibleOperationsDirections',
     'PrivateEndpointConnectionStatus',
     'ProtectedItemHealthStatus',
     'ProtectedItemState',
     'ProtectionState',
     'ProtectionStatus',
     'ProvisioningState',
+    'RecoveryPlanActionLocation',
+    'RecoveryPlanGroupType',
+    'ReplicationProtectedItemOperation',
     'ResourceHealthStatus',
+    'ResourceIdentityType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
+    'SetMultiVmSyncStatus',
+    'SkuName',
+    'SqlServerLicenseType',
     'WeekOfMonth',
     'WorkloadItemType',
     'WorkloadType',
 ]
+
+
+class AgentAutoUpdateStatus(str, Enum):
+    """
+    A value indicating whether the auto update is enabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class BackupItemType(str, Enum):
@@ -132,6 +153,24 @@ class DayOfWeek(str, Enum):
     SATURDAY = "Saturday"
 
 
+class DiskAccountType(str, Enum):
+    """
+    The disk type.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+
+
+class FailoverDeploymentModel(str, Enum):
+    """
+    The failover deployment model.
+    """
+    NOT_APPLICABLE = "NotApplicable"
+    CLASSIC = "Classic"
+    RESOURCE_MANAGER = "ResourceManager"
+
+
 class HealthStatus(str, Enum):
     """
     Health status of protected item.
@@ -142,6 +181,14 @@ class HealthStatus(str, Enum):
     INVALID = "Invalid"
 
 
+class InfrastructureEncryptionState(str, Enum):
+    """
+    Enabling/Disabling the Double Encryption state
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class LastBackupStatus(str, Enum):
     """
     Last backup operation status. Possible values: Healthy, Unhealthy.
@@ -150,6 +197,15 @@ class LastBackupStatus(str, Enum):
     HEALTHY = "Healthy"
     UNHEALTHY = "Unhealthy"
     IR_PENDING = "IRPending"
+
+
+class LicenseType(str, Enum):
+    """
+    The license type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    WINDOWS_SERVER = "WindowsServer"
 
 
 class MonthOfYear(str, Enum):
@@ -187,6 +243,11 @@ class PolicyType(str, Enum):
     LOG = "Log"
     COPY_ONLY_FULL = "CopyOnlyFull"
     INCREMENTAL = "Incremental"
+
+
+class PossibleOperationsDirections(str, Enum):
+    PRIMARY_TO_RECOVERY = "PrimaryToRecovery"
+    RECOVERY_TO_PRIMARY = "RecoveryToPrimary"
 
 
 class PrivateEndpointConnectionStatus(str, Enum):
@@ -255,6 +316,40 @@ class ProvisioningState(str, Enum):
     PENDING = "Pending"
 
 
+class RecoveryPlanActionLocation(str, Enum):
+    """
+    The fabric location.
+    """
+    PRIMARY = "Primary"
+    RECOVERY = "Recovery"
+
+
+class RecoveryPlanGroupType(str, Enum):
+    """
+    The group type.
+    """
+    SHUTDOWN = "Shutdown"
+    BOOT = "Boot"
+    FAILOVER = "Failover"
+
+
+class ReplicationProtectedItemOperation(str, Enum):
+    REVERSE_REPLICATE = "ReverseReplicate"
+    COMMIT = "Commit"
+    PLANNED_FAILOVER = "PlannedFailover"
+    UNPLANNED_FAILOVER = "UnplannedFailover"
+    DISABLE_PROTECTION = "DisableProtection"
+    TEST_FAILOVER = "TestFailover"
+    TEST_FAILOVER_CLEANUP = "TestFailoverCleanup"
+    FAILBACK = "Failback"
+    FINALIZE_FAILBACK = "FinalizeFailback"
+    CANCEL_FAILOVER = "CancelFailover"
+    CHANGE_PIT = "ChangePit"
+    REPAIR_REPLICATION = "RepairReplication"
+    SWITCH_PROTECTION = "SwitchProtection"
+    COMPLETE_MIGRATION = "CompleteMigration"
+
+
 class ResourceHealthStatus(str, Enum):
     """
     Resource Health Status
@@ -265,6 +360,16 @@ class ResourceHealthStatus(str, Enum):
     TRANSIENT_UNHEALTHY = "TransientUnhealthy"
     PERSISTENT_UNHEALTHY = "PersistentUnhealthy"
     INVALID = "Invalid"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 class RetentionDurationType(str, Enum):
@@ -294,6 +399,32 @@ class ScheduleRunType(str, Enum):
     INVALID = "Invalid"
     DAILY = "Daily"
     WEEKLY = "Weekly"
+
+
+class SetMultiVmSyncStatus(str, Enum):
+    """
+    A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"
+
+
+class SkuName(str, Enum):
+    """
+    The Sku name.
+    """
+    STANDARD = "Standard"
+    RS0 = "RS0"
+
+
+class SqlServerLicenseType(str, Enum):
+    """
+    The SQL Server license type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    PAYG = "PAYG"
+    AHUB = "AHUB"
 
 
 class WeekOfMonth(str, Enum):

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the automation account type.
-    /// API Version: 2019-06-01.
+    /// API Version: 2021-06-22.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:AutomationAccount")]
     public partial class AutomationAccount : Pulumi.CustomResource
     {
+        /// <summary>
+        /// URL of automation hybrid service which is used for hybrid worker on-boarding.
+        /// </summary>
+        [Output("automationHybridServiceUrl")]
+        public Output<string?> AutomationHybridServiceUrl { get; private set; } = null!;
+
         /// <summary>
         /// Gets the creation time.
         /// </summary>
@@ -29,10 +35,28 @@ namespace Pulumi.AzureNative.Automation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether requests using non-AAD authentication are blocked
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption properties for the automation account
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionPropertiesResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the last modified by.
@@ -59,6 +83,18 @@ namespace Pulumi.AzureNative.Automation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of Automation operations supported by the Automation resource provider.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<bool?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the SKU of account.
         /// </summary>
         [Output("sku")]
@@ -69,6 +105,12 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource system metadata.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -114,6 +156,8 @@ namespace Pulumi.AzureNative.Automation
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
                     new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount"},
+                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20210622:AutomationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,6 +188,18 @@ namespace Pulumi.AzureNative.Automation
         public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
+        /// Set the encryption properties for the automation account
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Sets the identity property for automation account
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Gets or sets the location of the resource.
         /// </summary>
         [Input("location")]
@@ -154,6 +210,12 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<bool>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

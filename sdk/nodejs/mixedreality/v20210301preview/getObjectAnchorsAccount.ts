@@ -51,6 +51,10 @@ export interface GetObjectAnchorsAccountResult {
     readonly id: string;
     readonly identity?: outputs.mixedreality.v20210301preview.ObjectAnchorsAccountResponseIdentity;
     /**
+     * The kind of account, if supported
+     */
+    readonly kind?: outputs.mixedreality.v20210301preview.SkuResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -58,6 +62,14 @@ export interface GetObjectAnchorsAccountResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The plan associated with this account
+     */
+    readonly plan?: outputs.mixedreality.v20210301preview.IdentityResponse;
+    /**
+     * The sku associated with this account
+     */
+    readonly sku?: outputs.mixedreality.v20210301preview.SkuResponse;
     /**
      * The name of the storage account associated with this accountId
      */

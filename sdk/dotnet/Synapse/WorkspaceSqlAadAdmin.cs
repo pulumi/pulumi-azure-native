@@ -90,6 +90,8 @@ namespace Pulumi.AzureNative.Synapse
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"},
+                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"},
                     new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:WorkspaceSqlAadAdmin"},
                 },

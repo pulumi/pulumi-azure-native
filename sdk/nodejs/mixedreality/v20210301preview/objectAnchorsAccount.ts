@@ -45,6 +45,10 @@ export class ObjectAnchorsAccount extends pulumi.CustomResource {
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     public readonly identity!: pulumi.Output<outputs.mixedreality.v20210301preview.ObjectAnchorsAccountResponseIdentity | undefined>;
     /**
+     * The kind of account, if supported
+     */
+    public readonly kind!: pulumi.Output<outputs.mixedreality.v20210301preview.SkuResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -52,6 +56,14 @@ export class ObjectAnchorsAccount extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The plan associated with this account
+     */
+    public readonly plan!: pulumi.Output<outputs.mixedreality.v20210301preview.IdentityResponse | undefined>;
+    /**
+     * The sku associated with this account
+     */
+    public readonly sku!: pulumi.Output<outputs.mixedreality.v20210301preview.SkuResponse | undefined>;
     /**
      * The name of the storage account associated with this accountId
      */
@@ -85,8 +97,11 @@ export class ObjectAnchorsAccount extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["accountDomain"] = undefined /*out*/;
@@ -98,8 +113,11 @@ export class ObjectAnchorsAccount extends pulumi.CustomResource {
             inputs["accountDomain"] = undefined /*out*/;
             inputs["accountId"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
             inputs["storageAccountName"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -124,13 +142,25 @@ export interface ObjectAnchorsAccountArgs {
     accountName?: pulumi.Input<string>;
     identity?: pulumi.Input<inputs.mixedreality.v20210301preview.ObjectAnchorsAccountIdentityArgs>;
     /**
+     * The kind of account, if supported
+     */
+    kind?: pulumi.Input<inputs.mixedreality.v20210301preview.SkuArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
+     * The plan associated with this account
+     */
+    plan?: pulumi.Input<inputs.mixedreality.v20210301preview.IdentityArgs>;
+    /**
      * Name of an Azure resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The sku associated with this account
+     */
+    sku?: pulumi.Input<inputs.mixedreality.v20210301preview.SkuArgs>;
     /**
      * The name of the storage account associated with this accountId
      */

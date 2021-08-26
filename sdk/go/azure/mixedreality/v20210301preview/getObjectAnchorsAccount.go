@@ -33,10 +33,16 @@ type LookupObjectAnchorsAccountResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id       string                                `pulumi:"id"`
 	Identity *ObjectAnchorsAccountResponseIdentity `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind *SkuResponse `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// The plan associated with this account
+	Plan *IdentityResponse `pulumi:"plan"`
+	// The sku associated with this account
+	Sku *SkuResponse `pulumi:"sku"`
 	// The name of the storage account associated with this accountId
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The system metadata related to an object anchors account.

@@ -20,6 +20,8 @@ from .get_connection_type import *
 from .get_credential import *
 from .get_dsc_configuration import *
 from .get_dsc_node_configuration import *
+from .get_hybrid_runbook_worker import *
+from .get_hybrid_runbook_worker_group import *
 from .get_job_schedule import *
 from .get_module import *
 from .get_private_endpoint_connection import *
@@ -31,6 +33,8 @@ from .get_source_control import *
 from .get_variable import *
 from .get_watcher import *
 from .get_webhook import *
+from .hybrid_runbook_worker import *
+from .hybrid_runbook_worker_group import *
 from .job_schedule import *
 from .list_key_by_automation_account import *
 from .module import *
@@ -54,6 +58,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.automation.v20180630 as v20180630
     import pulumi_azure_native.automation.v20190601 as v20190601
     import pulumi_azure_native.automation.v20200113preview as v20200113preview
+    import pulumi_azure_native.automation.v20210622 as v20210622
 else:
     v20151031 = _utilities.lazy_import('pulumi_azure_native.automation.v20151031')
     v20170515preview = _utilities.lazy_import('pulumi_azure_native.automation.v20170515preview')
@@ -61,4 +66,5 @@ else:
     v20180630 = _utilities.lazy_import('pulumi_azure_native.automation.v20180630')
     v20190601 = _utilities.lazy_import('pulumi_azure_native.automation.v20190601')
     v20200113preview = _utilities.lazy_import('pulumi_azure_native.automation.v20200113preview')
+    v20210622 = _utilities.lazy_import('pulumi_azure_native.automation.v20210622')
 

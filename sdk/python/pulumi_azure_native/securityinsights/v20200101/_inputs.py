@@ -128,13 +128,13 @@ class IncidentInfoArgs:
     def __init__(__self__, *,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  relation_name: Optional[pulumi.Input[str]] = None,
-                 severity: Optional[pulumi.Input[Union[str, 'CaseSeverity']]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
         Describes related incident information for the bookmark
         :param pulumi.Input[str] incident_id: Incident Id
         :param pulumi.Input[str] relation_name: Relation Name
-        :param pulumi.Input[Union[str, 'CaseSeverity']] severity: The severity of the incident
+        :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
         :param pulumi.Input[str] title: The title of the incident
         """
         if incident_id is not None:
@@ -172,14 +172,14 @@ class IncidentInfoArgs:
 
     @property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[Union[str, 'CaseSeverity']]]:
+    def severity(self) -> Optional[pulumi.Input[Union[str, 'IncidentSeverity']]]:
         """
         The severity of the incident
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[Union[str, 'CaseSeverity']]]):
+    def severity(self, value: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]]):
         pulumi.set(self, "severity", value)
 
     @property

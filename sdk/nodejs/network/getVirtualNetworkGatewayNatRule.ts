@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualNetworkGatewayNatRule Resource.
- * API Version: 2021-02-01.
+ * API Version: 2021-03-01.
  */
 export function getVirtualNetworkGatewayNatRule(args: GetVirtualNetworkGatewayNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayNatRuleResult> {
     if (!opts) {

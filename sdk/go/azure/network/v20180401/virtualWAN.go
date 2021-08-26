@@ -186,6 +186,12 @@ func NewVirtualWAN(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualWAN"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210301:VirtualWAN"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210301:VirtualWAN"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualWAN

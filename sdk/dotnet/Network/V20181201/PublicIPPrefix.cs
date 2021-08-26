@@ -173,6 +173,8 @@ namespace Pulumi.AzureNative.Network.V20181201
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:PublicIPPrefix"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:PublicIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210301:PublicIPPrefix"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:PublicIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

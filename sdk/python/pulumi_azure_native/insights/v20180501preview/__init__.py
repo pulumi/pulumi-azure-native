@@ -9,6 +9,8 @@ from ._enums import *
 from .component import *
 from .get_component import *
 from .get_proactive_detection_configuration import *
+from .get_web_test import *
 from .proactive_detection_configuration import *
+from .web_test import *
 from ._inputs import *
 from . import outputs

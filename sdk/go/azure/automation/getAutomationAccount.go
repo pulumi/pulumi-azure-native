@@ -8,7 +8,7 @@ import (
 )
 
 // Definition of the automation account type.
-// API Version: 2019-06-01.
+// API Version: 2021-06-22.
 func LookupAutomationAccount(ctx *pulumi.Context, args *LookupAutomationAccountArgs, opts ...pulumi.InvokeOption) (*LookupAutomationAccountResult, error) {
 	var rv LookupAutomationAccountResult
 	err := ctx.Invoke("azure-native:automation:getAutomationAccount", args, &rv, opts...)
@@ -27,14 +27,22 @@ type LookupAutomationAccountArgs struct {
 
 // Definition of the automation account type.
 type LookupAutomationAccountResult struct {
+	// URL of automation hybrid service which is used for hybrid worker on-boarding.
+	AutomationHybridServiceUrl *string `pulumi:"automationHybridServiceUrl"`
 	// Gets the creation time.
 	CreationTime string `pulumi:"creationTime"`
 	// Gets or sets the description.
 	Description *string `pulumi:"description"`
+	// Indicates whether requests using non-AAD authentication are blocked
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// Encryption properties for the automation account
+	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Fully qualified resource Id for the resource
 	Id string `pulumi:"id"`
+	// Identity for the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Gets or sets the last modified by.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// Gets the last modified time.
@@ -43,10 +51,16 @@ type LookupAutomationAccountResult struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// List of Automation operations supported by the Automation resource provider.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+	PublicNetworkAccess *bool `pulumi:"publicNetworkAccess"`
 	// Gets or sets the SKU of account.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Gets status of account.
 	State string `pulumi:"state"`
+	// Resource system metadata.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

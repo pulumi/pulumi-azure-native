@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 export * from "./component";
 export * from "./getComponent";
 export * from "./getProactiveDetectionConfiguration";
+export * from "./getWebTest";
 export * from "./proactiveDetectionConfiguration";
+export * from "./webTest";
 
 // Export enums:
 export * from "../../types/enums/insights/v20180501preview";
@@ -16,6 +18,7 @@ export * from "../../types/enums/insights/v20180501preview";
 // Import resources to register:
 import { Component } from "./component";
 import { ProactiveDetectionConfiguration } from "./proactiveDetectionConfiguration";
+import { WebTest } from "./webTest";
 
 const _module = {
     version: utilities.getVersion(),
@@ -25,6 +28,8 @@ const _module = {
                 return new Component(name, <any>undefined, { urn })
             case "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration":
                 return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
+            case "azure-native:insights/v20180501preview:WebTest":
+                return new WebTest(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

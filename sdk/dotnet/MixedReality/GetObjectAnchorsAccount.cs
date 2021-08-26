@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.MixedReality
         public readonly string Id;
         public readonly Outputs.ObjectAnchorsAccountResponseIdentity? Identity;
         /// <summary>
+        /// The kind of account, if supported
+        /// </summary>
+        public readonly Outputs.SkuResponse? Kind;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -64,6 +68,14 @@ namespace Pulumi.AzureNative.MixedReality
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The plan associated with this account
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Plan;
+        /// <summary>
+        /// The sku associated with this account
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The name of the storage account associated with this accountId
         /// </summary>
@@ -91,9 +103,15 @@ namespace Pulumi.AzureNative.MixedReality
 
             Outputs.ObjectAnchorsAccountResponseIdentity? identity,
 
+            Outputs.SkuResponse? kind,
+
             string location,
 
             string name,
+
+            Outputs.IdentityResponse? plan,
+
+            Outputs.SkuResponse? sku,
 
             string? storageAccountName,
 
@@ -107,8 +125,11 @@ namespace Pulumi.AzureNative.MixedReality
             AccountId = accountId;
             Id = id;
             Identity = identity;
+            Kind = kind;
             Location = location;
             Name = name;
+            Plan = plan;
+            Sku = sku;
             StorageAccountName = storageAccountName;
             SystemData = systemData;
             Tags = tags;
