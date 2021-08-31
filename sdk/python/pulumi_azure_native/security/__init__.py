@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .adaptive_application_control import *
+from .advanced_threat_protection import *
 from .alerts_suppression_rule import *
 from .assessment import *
 from .assessment_metadata_in_subscription import *
@@ -14,6 +15,7 @@ from .automation import *
 from .connector import *
 from .device_security_group import *
 from .get_adaptive_application_control import *
+from .get_advanced_threat_protection import *
 from .get_alerts_suppression_rule import *
 from .get_assessment import *
 from .get_assessment_metadata_in_subscription import *
@@ -43,6 +45,7 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.security.v20150601preview as v20150601preview
     import pulumi_azure_native.security.v20170801preview as v20170801preview
+    import pulumi_azure_native.security.v20190101 as v20190101
     import pulumi_azure_native.security.v20190101preview as v20190101preview
     import pulumi_azure_native.security.v20190801 as v20190801
     import pulumi_azure_native.security.v20200101 as v20200101
@@ -53,6 +56,7 @@ if typing.TYPE_CHECKING:
 else:
     v20150601preview = _utilities.lazy_import('pulumi_azure_native.security.v20150601preview')
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
+    v20190101 = _utilities.lazy_import('pulumi_azure_native.security.v20190101')
     v20190101preview = _utilities.lazy_import('pulumi_azure_native.security.v20190101preview')
     v20190801 = _utilities.lazy_import('pulumi_azure_native.security.v20190801')
     v20200101 = _utilities.lazy_import('pulumi_azure_native.security.v20200101')
