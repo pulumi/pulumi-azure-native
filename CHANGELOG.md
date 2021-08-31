@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.24.0 (2021-08-31)
+
 #### New resources:
 
 - `automation.HybridRunbookWorker`
@@ -21,8 +27,6 @@ CHANGELOG
 
 - Enum `securityinsights:CaseSeverity` renamed to `securityinsights:IncidentSeverityEnum`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15761))
-
----
 
 ## 1.23.1 (2021-08-26)
 
