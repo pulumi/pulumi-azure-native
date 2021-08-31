@@ -21,33 +21,43 @@ class ManagedClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
+                 allow_rdp_access: Optional[pulumi.Input[bool]] = None,
+                 application_type_versions_cleanup_policy: Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']] = None,
                  azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
                  client_connection_port: Optional[pulumi.Input[int]] = None,
                  clients: Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
+                 enable_auto_os_upgrade: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ManagedCluster resource.
-        :param pulumi.Input[str] admin_user_name: vm admin user name.
+        :param pulumi.Input[str] admin_user_name: VM admin user name.
         :param pulumi.Input[str] dns_name: The cluster dns name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addon_features: client certificates for the cluster.
-        :param pulumi.Input[str] admin_password: vm admin user password.
-        :param pulumi.Input['AzureActiveDirectoryArgs'] azure_active_directory: Azure active directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addon_features: List of add-on features to enable on the cluster.
+        :param pulumi.Input[str] admin_password: VM admin user password.
+        :param pulumi.Input[bool] allow_rdp_access: Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+        :param pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs'] application_type_versions_cleanup_policy: The policy used to clean up unused versions.
+        :param pulumi.Input['AzureActiveDirectoryArgs'] azure_active_directory: The AAD authentication settings of the cluster.
         :param pulumi.Input[int] client_connection_port: The port used for client connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]] clients: client certificates for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]] clients: Client certificates that are allowed to manage the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
+        :param pulumi.Input[Union[str, 'ClusterUpgradeCadence']] cluster_upgrade_cadence: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0.
+        :param pulumi.Input[bool] enable_auto_os_upgrade: Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
         :param pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]] fabric_settings: The list of custom fabric settings to configure the cluster.
-        :param pulumi.Input[int] http_gateway_connection_port: The port used for http connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]] load_balancing_rules: Describes load balancing rules.
+        :param pulumi.Input[int] http_gateway_connection_port: The port used for HTTP connections to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
         :param pulumi.Input[str] location: Azure resource location.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: Custom Network Security Rules that are applied to the virtual network of the cluster.
         :param pulumi.Input['SkuArgs'] sku: The sku of the managed cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
@@ -58,6 +68,10 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "addon_features", addon_features)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
+        if allow_rdp_access is not None:
+            pulumi.set(__self__, "allow_rdp_access", allow_rdp_access)
+        if application_type_versions_cleanup_policy is not None:
+            pulumi.set(__self__, "application_type_versions_cleanup_policy", application_type_versions_cleanup_policy)
         if azure_active_directory is not None:
             pulumi.set(__self__, "azure_active_directory", azure_active_directory)
         if client_connection_port is None:
@@ -70,6 +84,10 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "cluster_code_version", cluster_code_version)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_upgrade_cadence is not None:
+            pulumi.set(__self__, "cluster_upgrade_cadence", cluster_upgrade_cadence)
+        if enable_auto_os_upgrade is not None:
+            pulumi.set(__self__, "enable_auto_os_upgrade", enable_auto_os_upgrade)
         if fabric_settings is not None:
             pulumi.set(__self__, "fabric_settings", fabric_settings)
         if http_gateway_connection_port is None:
@@ -80,6 +98,8 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_security_rules is not None:
+            pulumi.set(__self__, "network_security_rules", network_security_rules)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -89,7 +109,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Input[str]:
         """
-        vm admin user name.
+        VM admin user name.
         """
         return pulumi.get(self, "admin_user_name")
 
@@ -125,7 +145,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="addonFeatures")
     def addon_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        client certificates for the cluster.
+        List of add-on features to enable on the cluster.
         """
         return pulumi.get(self, "addon_features")
 
@@ -137,7 +157,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        vm admin user password.
+        VM admin user password.
         """
         return pulumi.get(self, "admin_password")
 
@@ -146,10 +166,34 @@ class ManagedClusterArgs:
         pulumi.set(self, "admin_password", value)
 
     @property
+    @pulumi.getter(name="allowRdpAccess")
+    def allow_rdp_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+        """
+        return pulumi.get(self, "allow_rdp_access")
+
+    @allow_rdp_access.setter
+    def allow_rdp_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_rdp_access", value)
+
+    @property
+    @pulumi.getter(name="applicationTypeVersionsCleanupPolicy")
+    def application_type_versions_cleanup_policy(self) -> Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']]:
+        """
+        The policy used to clean up unused versions.
+        """
+        return pulumi.get(self, "application_type_versions_cleanup_policy")
+
+    @application_type_versions_cleanup_policy.setter
+    def application_type_versions_cleanup_policy(self, value: Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']]):
+        pulumi.set(self, "application_type_versions_cleanup_policy", value)
+
+    @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> Optional[pulumi.Input['AzureActiveDirectoryArgs']]:
         """
-        Azure active directory.
+        The AAD authentication settings of the cluster.
         """
         return pulumi.get(self, "azure_active_directory")
 
@@ -173,7 +217,7 @@ class ManagedClusterArgs:
     @pulumi.getter
     def clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]]]:
         """
-        client certificates for the cluster.
+        Client certificates that are allowed to manage the cluster.
         """
         return pulumi.get(self, "clients")
 
@@ -206,6 +250,30 @@ class ManagedClusterArgs:
         pulumi.set(self, "cluster_name", value)
 
     @property
+    @pulumi.getter(name="clusterUpgradeCadence")
+    def cluster_upgrade_cadence(self) -> Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]]:
+        """
+        Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0.
+        """
+        return pulumi.get(self, "cluster_upgrade_cadence")
+
+    @cluster_upgrade_cadence.setter
+    def cluster_upgrade_cadence(self, value: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]]):
+        pulumi.set(self, "cluster_upgrade_cadence", value)
+
+    @property
+    @pulumi.getter(name="enableAutoOSUpgrade")
+    def enable_auto_os_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+        """
+        return pulumi.get(self, "enable_auto_os_upgrade")
+
+    @enable_auto_os_upgrade.setter
+    def enable_auto_os_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_auto_os_upgrade", value)
+
+    @property
     @pulumi.getter(name="fabricSettings")
     def fabric_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]]:
         """
@@ -221,7 +289,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="httpGatewayConnectionPort")
     def http_gateway_connection_port(self) -> Optional[pulumi.Input[int]]:
         """
-        The port used for http connections to the cluster.
+        The port used for HTTP connections to the cluster.
         """
         return pulumi.get(self, "http_gateway_connection_port")
 
@@ -233,7 +301,7 @@ class ManagedClusterArgs:
     @pulumi.getter(name="loadBalancingRules")
     def load_balancing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]]:
         """
-        Describes load balancing rules.
+        Load balancing rules that are applied to the public load balancer of the cluster.
         """
         return pulumi.get(self, "load_balancing_rules")
 
@@ -252,6 +320,18 @@ class ManagedClusterArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkSecurityRules")
+    def network_security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]:
+        """
+        Custom Network Security Rules that are applied to the virtual network of the cluster.
+        """
+        return pulumi.get(self, "network_security_rules")
+
+    @network_security_rules.setter
+    def network_security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]]):
+        pulumi.set(self, "network_security_rules", value)
 
     @property
     @pulumi.getter
@@ -286,16 +366,21 @@ class ManagedCluster(pulumi.CustomResource):
                  addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
+                 allow_rdp_access: Optional[pulumi.Input[bool]] = None,
+                 application_type_versions_cleanup_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']]] = None,
                  azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
                  client_connection_port: Optional[pulumi.Input[int]] = None,
                  clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
+                 enable_auto_os_upgrade: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -305,19 +390,24 @@ class ManagedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addon_features: client certificates for the cluster.
-        :param pulumi.Input[str] admin_password: vm admin user password.
-        :param pulumi.Input[str] admin_user_name: vm admin user name.
-        :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: Azure active directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addon_features: List of add-on features to enable on the cluster.
+        :param pulumi.Input[str] admin_password: VM admin user password.
+        :param pulumi.Input[str] admin_user_name: VM admin user name.
+        :param pulumi.Input[bool] allow_rdp_access: Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+        :param pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']] application_type_versions_cleanup_policy: The policy used to clean up unused versions.
+        :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: The AAD authentication settings of the cluster.
         :param pulumi.Input[int] client_connection_port: The port used for client connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]] clients: client certificates for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]] clients: Client certificates that are allowed to manage the cluster.
         :param pulumi.Input[str] cluster_code_version: The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
+        :param pulumi.Input[Union[str, 'ClusterUpgradeCadence']] cluster_upgrade_cadence: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0.
         :param pulumi.Input[str] dns_name: The cluster dns name.
+        :param pulumi.Input[bool] enable_auto_os_upgrade: Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
-        :param pulumi.Input[int] http_gateway_connection_port: The port used for http connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Describes load balancing rules.
+        :param pulumi.Input[int] http_gateway_connection_port: The port used for HTTP connections to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
         :param pulumi.Input[str] location: Azure resource location.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]] network_security_rules: Custom Network Security Rules that are applied to the virtual network of the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the managed cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
@@ -349,16 +439,21 @@ class ManagedCluster(pulumi.CustomResource):
                  addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_user_name: Optional[pulumi.Input[str]] = None,
+                 allow_rdp_access: Optional[pulumi.Input[bool]] = None,
+                 application_type_versions_cleanup_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationTypeVersionsCleanupPolicyArgs']]] = None,
                  azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
                  client_connection_port: Optional[pulumi.Input[int]] = None,
                  clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateArgs']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
+                 enable_auto_os_upgrade: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSecurityRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -379,6 +474,8 @@ class ManagedCluster(pulumi.CustomResource):
             if admin_user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_user_name'")
             __props__.__dict__["admin_user_name"] = admin_user_name
+            __props__.__dict__["allow_rdp_access"] = allow_rdp_access
+            __props__.__dict__["application_type_versions_cleanup_policy"] = application_type_versions_cleanup_policy
             __props__.__dict__["azure_active_directory"] = azure_active_directory
             if client_connection_port is None:
                 client_connection_port = 19000
@@ -386,32 +483,37 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["clients"] = clients
             __props__.__dict__["cluster_code_version"] = cluster_code_version
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["cluster_upgrade_cadence"] = cluster_upgrade_cadence
             if dns_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_name'")
             __props__.__dict__["dns_name"] = dns_name
+            __props__.__dict__["enable_auto_os_upgrade"] = enable_auto_os_upgrade
             __props__.__dict__["fabric_settings"] = fabric_settings
             if http_gateway_connection_port is None:
                 http_gateway_connection_port = 19080
             __props__.__dict__["http_gateway_connection_port"] = http_gateway_connection_port
             __props__.__dict__["load_balancing_rules"] = load_balancing_rules
             __props__.__dict__["location"] = location
+            __props__.__dict__["network_security_rules"] = network_security_rules
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["cluster_certificate_thumbprint"] = None
+            __props__.__dict__["cluster_certificate_thumbprints"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["cluster_state"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["fqdn"] = None
+            __props__.__dict__["ipv4_address"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20200101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210501:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210701preview:ManagedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20210101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200101preview:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210501:ManagedCluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ManagedCluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210701preview:ManagedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCluster, __self__).__init__(
-            'azure-native:servicefabric/v20200101preview:ManagedCluster',
+            'azure-native:servicefabric/v20210101preview:ManagedCluster',
             resource_name,
             __props__,
             opts)
@@ -435,23 +537,30 @@ class ManagedCluster(pulumi.CustomResource):
         __props__.__dict__["addon_features"] = None
         __props__.__dict__["admin_password"] = None
         __props__.__dict__["admin_user_name"] = None
+        __props__.__dict__["allow_rdp_access"] = None
+        __props__.__dict__["application_type_versions_cleanup_policy"] = None
         __props__.__dict__["azure_active_directory"] = None
         __props__.__dict__["client_connection_port"] = None
         __props__.__dict__["clients"] = None
-        __props__.__dict__["cluster_certificate_thumbprint"] = None
+        __props__.__dict__["cluster_certificate_thumbprints"] = None
         __props__.__dict__["cluster_code_version"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["cluster_state"] = None
+        __props__.__dict__["cluster_upgrade_cadence"] = None
         __props__.__dict__["dns_name"] = None
+        __props__.__dict__["enable_auto_os_upgrade"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["fabric_settings"] = None
         __props__.__dict__["fqdn"] = None
         __props__.__dict__["http_gateway_connection_port"] = None
+        __props__.__dict__["ipv4_address"] = None
         __props__.__dict__["load_balancing_rules"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_security_rules"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ManagedCluster(resource_name, opts=opts, __props__=__props__)
@@ -460,7 +569,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="addonFeatures")
     def addon_features(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        client certificates for the cluster.
+        List of add-on features to enable on the cluster.
         """
         return pulumi.get(self, "addon_features")
 
@@ -468,7 +577,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Output[Optional[str]]:
         """
-        vm admin user password.
+        VM admin user password.
         """
         return pulumi.get(self, "admin_password")
 
@@ -476,15 +585,31 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Output[str]:
         """
-        vm admin user name.
+        VM admin user name.
         """
         return pulumi.get(self, "admin_user_name")
+
+    @property
+    @pulumi.getter(name="allowRdpAccess")
+    def allow_rdp_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+        """
+        return pulumi.get(self, "allow_rdp_access")
+
+    @property
+    @pulumi.getter(name="applicationTypeVersionsCleanupPolicy")
+    def application_type_versions_cleanup_policy(self) -> pulumi.Output[Optional['outputs.ApplicationTypeVersionsCleanupPolicyResponse']]:
+        """
+        The policy used to clean up unused versions.
+        """
+        return pulumi.get(self, "application_type_versions_cleanup_policy")
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
     def azure_active_directory(self) -> pulumi.Output[Optional['outputs.AzureActiveDirectoryResponse']]:
         """
-        Azure active directory.
+        The AAD authentication settings of the cluster.
         """
         return pulumi.get(self, "azure_active_directory")
 
@@ -500,17 +625,17 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def clients(self) -> pulumi.Output[Optional[Sequence['outputs.ClientCertificateResponse']]]:
         """
-        client certificates for the cluster.
+        Client certificates that are allowed to manage the cluster.
         """
         return pulumi.get(self, "clients")
 
     @property
-    @pulumi.getter(name="clusterCertificateThumbprint")
-    def cluster_certificate_thumbprint(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="clusterCertificateThumbprints")
+    def cluster_certificate_thumbprints(self) -> pulumi.Output[Sequence[str]]:
         """
-        The cluster certificate thumbprint used node to node communication.
+        List of thumbprints of the cluster certificates.
         """
-        return pulumi.get(self, "cluster_certificate_thumbprint")
+        return pulumi.get(self, "cluster_certificate_thumbprints")
 
     @property
     @pulumi.getter(name="clusterCodeVersion")
@@ -537,12 +662,28 @@ class ManagedCluster(pulumi.CustomResource):
         return pulumi.get(self, "cluster_state")
 
     @property
+    @pulumi.getter(name="clusterUpgradeCadence")
+    def cluster_upgrade_cadence(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0.
+        """
+        return pulumi.get(self, "cluster_upgrade_cadence")
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         """
         The cluster dns name.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="enableAutoOSUpgrade")
+    def enable_auto_os_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+        """
+        return pulumi.get(self, "enable_auto_os_upgrade")
 
     @property
     @pulumi.getter
@@ -564,7 +705,7 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter
     def fqdn(self) -> pulumi.Output[str]:
         """
-        the cluster Fully qualified domain name.
+        The fully qualified domain name associated with the public load balancer of the cluster.
         """
         return pulumi.get(self, "fqdn")
 
@@ -572,15 +713,23 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="httpGatewayConnectionPort")
     def http_gateway_connection_port(self) -> pulumi.Output[Optional[int]]:
         """
-        The port used for http connections to the cluster.
+        The port used for HTTP connections to the cluster.
         """
         return pulumi.get(self, "http_gateway_connection_port")
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> pulumi.Output[str]:
+        """
+        The IPv4 address associated with the public load balancer of the cluster.
+        """
+        return pulumi.get(self, "ipv4_address")
 
     @property
     @pulumi.getter(name="loadBalancingRules")
     def load_balancing_rules(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancingRuleResponse']]]:
         """
-        Describes load balancing rules.
+        Load balancing rules that are applied to the public load balancer of the cluster.
         """
         return pulumi.get(self, "load_balancing_rules")
 
@@ -601,6 +750,14 @@ class ManagedCluster(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkSecurityRules")
+    def network_security_rules(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkSecurityRuleResponse']]]:
+        """
+        Custom Network Security Rules that are applied to the virtual network of the cluster.
+        """
+        return pulumi.get(self, "network_security_rules")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -615,6 +772,14 @@ class ManagedCluster(pulumi.CustomResource):
         The sku of the managed cluster
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

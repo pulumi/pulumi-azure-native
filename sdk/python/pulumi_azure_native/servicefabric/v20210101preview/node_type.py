@@ -31,6 +31,7 @@ class NodeTypeArgs:
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
                  vm_image_version: Optional[pulumi.Input[str]] = None,
+                 vm_managed_identity: Optional[pulumi.Input['VmManagedIdentityArgs']] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
@@ -51,6 +52,7 @@ class NodeTypeArgs:
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         :param pulumi.Input[str] vm_image_version: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+        :param pulumi.Input['VmManagedIdentityArgs'] vm_managed_identity: Identities for the virtual machine scale set under the node type.
         :param pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]] vm_secrets: The secrets to install in the virtual machines.
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
@@ -81,6 +83,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "vm_image_sku", vm_image_sku)
         if vm_image_version is not None:
             pulumi.set(__self__, "vm_image_version", vm_image_version)
+        if vm_managed_identity is not None:
+            pulumi.set(__self__, "vm_managed_identity", vm_managed_identity)
         if vm_secrets is not None:
             pulumi.set(__self__, "vm_secrets", vm_secrets)
         if vm_size is not None:
@@ -279,6 +283,18 @@ class NodeTypeArgs:
         pulumi.set(self, "vm_image_version", value)
 
     @property
+    @pulumi.getter(name="vmManagedIdentity")
+    def vm_managed_identity(self) -> Optional[pulumi.Input['VmManagedIdentityArgs']]:
+        """
+        Identities for the virtual machine scale set under the node type.
+        """
+        return pulumi.get(self, "vm_managed_identity")
+
+    @vm_managed_identity.setter
+    def vm_managed_identity(self, value: Optional[pulumi.Input['VmManagedIdentityArgs']]):
+        pulumi.set(self, "vm_managed_identity", value)
+
+    @property
     @pulumi.getter(name="vmSecrets")
     def vm_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]:
         """
@@ -324,6 +340,7 @@ class NodeType(pulumi.CustomResource):
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
                  vm_image_version: Optional[pulumi.Input[str]] = None,
                  vm_instance_count: Optional[pulumi.Input[int]] = None,
+                 vm_managed_identity: Optional[pulumi.Input[pulumi.InputType['VmManagedIdentityArgs']]] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -348,6 +365,7 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         :param pulumi.Input[str] vm_image_version: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
         :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type.
+        :param pulumi.Input[pulumi.InputType['VmManagedIdentityArgs']] vm_managed_identity: Identities for the virtual machine scale set under the node type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]] vm_secrets: The secrets to install in the virtual machines.
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
@@ -391,6 +409,7 @@ class NodeType(pulumi.CustomResource):
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
                  vm_image_version: Optional[pulumi.Input[str]] = None,
                  vm_instance_count: Optional[pulumi.Input[int]] = None,
+                 vm_managed_identity: Optional[pulumi.Input[pulumi.InputType['VmManagedIdentityArgs']]] = None,
                  vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -431,15 +450,17 @@ class NodeType(pulumi.CustomResource):
             if vm_instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_instance_count'")
             __props__.__dict__["vm_instance_count"] = vm_instance_count
+            __props__.__dict__["vm_managed_identity"] = vm_managed_identity
             __props__.__dict__["vm_secrets"] = vm_secrets
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20200101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210501:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210701preview:NodeType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric/v20210101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20200101preview:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200101preview:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210501:NodeType"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:NodeType"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210701preview:NodeType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NodeType, __self__).__init__(
-            'azure-native:servicefabric/v20200101preview:NodeType',
+            'azure-native:servicefabric/v20210101preview:NodeType',
             resource_name,
             __props__,
             opts)
@@ -468,6 +489,7 @@ class NodeType(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["placement_properties"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vm_extensions"] = None
@@ -476,6 +498,7 @@ class NodeType(pulumi.CustomResource):
         __props__.__dict__["vm_image_sku"] = None
         __props__.__dict__["vm_image_version"] = None
         __props__.__dict__["vm_instance_count"] = None
+        __props__.__dict__["vm_managed_identity"] = None
         __props__.__dict__["vm_secrets"] = None
         __props__.__dict__["vm_size"] = None
         return NodeType(resource_name, opts=opts, __props__=__props__)
@@ -545,6 +568,14 @@ class NodeType(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -607,6 +638,14 @@ class NodeType(pulumi.CustomResource):
         The number of nodes in the node type.
         """
         return pulumi.get(self, "vm_instance_count")
+
+    @property
+    @pulumi.getter(name="vmManagedIdentity")
+    def vm_managed_identity(self) -> pulumi.Output[Optional['outputs.VmManagedIdentityResponse']]:
+        """
+        Identities for the virtual machine scale set under the node type.
+        """
+        return pulumi.get(self, "vm_managed_identity")
 
     @property
     @pulumi.getter(name="vmSecrets")
