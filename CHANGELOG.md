@@ -3,6 +3,27 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New resources:
+
+- `automation.HybridRunbookWorker`
+- `automation.HybridRunbookWorkerGroup`
+
+#### New functions:
+
+- `automation.getHybridRunbookWorker`
+- `automation.getHybridRunbookWorkerGroup`
+
+#### Updated API versions for top-level resources
+
+- `logz` resources and functions updated from `2020-10-01-preview` to `2020-10-01`
+
+#### Breaking Changes published by Microsoft:
+
+- Enum `securityinsights:CaseSeverity` renamed to `securityinsights:IncidentSeverityEnum`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15761))
+
+---
+
 ## 1.23.1 (2021-08-26)
 
 Rollback code generation changes below to work around
@@ -11,8 +32,6 @@ This removes the following changes of 1.23.0:
 
 - The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
 - Support inputty Go enums
-
----
 
 ## 1.23.0 (2021-08-20)
 
