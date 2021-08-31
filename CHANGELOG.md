@@ -19,6 +19,12 @@ CHANGELOG
 - `automation.getHybridRunbookWorker`
 - `automation.getHybridRunbookWorkerGroup`
 
+
+#### Enhancements:
+
+- Add missing API versions of Service Fabric
+  [#922](https://github.com/pulumi/pulumi-azure-native/issues/922).
+
 #### Updated API versions for top-level resources
 
 - `logz` resources and functions updated from `2020-10-01-preview` to `2020-10-01`

@@ -24,6 +24,7 @@ type AzureAPIParameter struct {
 }
 
 type AutoNameKind string
+
 const (
 	AutoNameRandom AutoNameKind = "random"
 	AutoNameCopy   AutoNameKind = "copy"
@@ -122,13 +123,14 @@ type AzureAPIMetadata struct {
 // same spelling so that folder names and namespaces are consistent. The map below provides such
 // canonical names based on which names seems to be used prominently as of 2020.
 var wellKnownProviderNames = map[string]string{
-	"aad":             "Aad",
-	"aadiam":          "AadIam",
-	"dbformariadb":    "DBforMariaDB",
-	"dbformysql":      "DBforMySQL",
-	"dbforpostgresql": "DBforPostgreSQL",
-	"powerbidedicated":"PowerBIDedicated",
-	"visualstudio":    "VisualStudio",
+	"aad":                          "Aad",
+	"aadiam":                       "AadIam",
+	"dbformariadb":                 "DBforMariaDB",
+	"dbformysql":                   "DBforMySQL",
+	"dbforpostgresql":              "DBforPostgreSQL",
+	"powerbidedicated":             "PowerBIDedicated",
+	"servicefabricmanagedclusters": "ServiceFabric", // https://github.com/Azure/azure-rest-api-specs/issues/15867
+	"visualstudio":                 "VisualStudio",
 }
 
 // For the cases below, we use folder (SDK) name for module names instead of the ARM name.
