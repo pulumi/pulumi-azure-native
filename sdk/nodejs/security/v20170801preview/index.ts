@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./advancedThreatProtection";
 export * from "./deviceSecurityGroup";
+export * from "./getAdvancedThreatProtection";
 export * from "./getDeviceSecurityGroup";
 export * from "./getIotSecuritySolution";
 export * from "./getSecurityContact";
@@ -18,6 +20,7 @@ export * from "./workspaceSetting";
 export * from "../../types/enums/security/v20170801preview";
 
 // Import resources to register:
+import { AdvancedThreatProtection } from "./advancedThreatProtection";
 import { DeviceSecurityGroup } from "./deviceSecurityGroup";
 import { IotSecuritySolution } from "./iotSecuritySolution";
 import { SecurityContact } from "./securityContact";
@@ -27,6 +30,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:security/v20170801preview:AdvancedThreatProtection":
+                return new AdvancedThreatProtection(name, <any>undefined, { urn })
             case "azure-native:security/v20170801preview:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:security/v20170801preview:IotSecuritySolution":

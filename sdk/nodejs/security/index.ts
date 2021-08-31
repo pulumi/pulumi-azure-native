@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./adaptiveApplicationControl";
+export * from "./advancedThreatProtection";
 export * from "./alertsSuppressionRule";
 export * from "./assessment";
 export * from "./assessmentMetadataInSubscription";
@@ -13,6 +14,7 @@ export * from "./automation";
 export * from "./connector";
 export * from "./deviceSecurityGroup";
 export * from "./getAdaptiveApplicationControl";
+export * from "./getAdvancedThreatProtection";
 export * from "./getAlertsSuppressionRule";
 export * from "./getAssessment";
 export * from "./getAssessmentMetadataInSubscription";
@@ -42,6 +44,7 @@ export * from "../types/enums/security";
 // Export sub-modules:
 import * as v20150601preview from "./v20150601preview";
 import * as v20170801preview from "./v20170801preview";
+import * as v20190101 from "./v20190101";
 import * as v20190101preview from "./v20190101preview";
 import * as v20190801 from "./v20190801";
 import * as v20200101 from "./v20200101";
@@ -53,6 +56,7 @@ import * as v20210601 from "./v20210601";
 export {
     v20150601preview,
     v20170801preview,
+    v20190101,
     v20190101preview,
     v20190801,
     v20200101,
@@ -64,6 +68,7 @@ export {
 
 // Import resources to register:
 import { AdaptiveApplicationControl } from "./adaptiveApplicationControl";
+import { AdvancedThreatProtection } from "./advancedThreatProtection";
 import { AlertsSuppressionRule } from "./alertsSuppressionRule";
 import { Assessment } from "./assessment";
 import { AssessmentMetadataInSubscription } from "./assessmentMetadataInSubscription";
@@ -84,6 +89,8 @@ const _module = {
         switch (type) {
             case "azure-native:security:AdaptiveApplicationControl":
                 return new AdaptiveApplicationControl(name, <any>undefined, { urn })
+            case "azure-native:security:AdvancedThreatProtection":
+                return new AdvancedThreatProtection(name, <any>undefined, { urn })
             case "azure-native:security:AlertsSuppressionRule":
                 return new AlertsSuppressionRule(name, <any>undefined, { urn })
             case "azure-native:security:Assessment":
