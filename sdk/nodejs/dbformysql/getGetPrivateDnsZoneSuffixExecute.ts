@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The response of get private dns zone suffix.
- * API Version: 2021-05-01.
+ * API Version: 2021-05-01-preview.
  */
 export function getGetPrivateDnsZoneSuffixExecute(args?: GetGetPrivateDnsZoneSuffixExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetPrivateDnsZoneSuffixExecuteResult> {
     args = args || {};

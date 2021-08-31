@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Represents a server.
-        /// API Version: 2021-05-01.
+        /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformysql:getServer", args ?? new GetServerArgs(), options.WithVersion());
@@ -48,47 +48,59 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// availability Zone information of the server.
+        /// Status showing whether the server data encryption is enabled with customer-managed keys.
         /// </summary>
-        public readonly string? AvailabilityZone;
+        public readonly string ByokEnforcement;
         /// <summary>
-        /// Backup related properties of a server.
+        /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
-        public readonly Outputs.BackupResponse? Backup;
+        public readonly string? EarliestRestoreDate;
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
-        public readonly string FullyQualifiedDomainName;
-        /// <summary>
-        /// High availability related properties of a server.
-        /// </summary>
-        public readonly Outputs.HighAvailabilityResponse? HighAvailability;
+        public readonly string? FullyQualifiedDomainName;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The Azure Active Directory identity of the server.
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponse? Identity;
+        /// <summary>
+        /// Status showing whether the server enabled infrastructure encryption.
+        /// </summary>
+        public readonly string? InfrastructureEncryption;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Maintenance window of a server.
+        /// The master server id of a replica server.
         /// </summary>
-        public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
+        public readonly string? MasterServerId;
+        /// <summary>
+        /// Enforce a minimal Tls version for the server.
+        /// </summary>
+        public readonly string? MinimalTlsVersion;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network related properties of a server.
+        /// List of private endpoint connections on a server
         /// </summary>
-        public readonly Outputs.NetworkResponse? Network;
+        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
-        /// The maximum number of replicas that a primary server can have.
+        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
-        public readonly int ReplicaCapacity;
+        public readonly string? PublicNetworkAccess;
         /// <summary>
-        /// The replication role.
+        /// The maximum number of replicas that a master server can have.
+        /// </summary>
+        public readonly int? ReplicaCapacity;
+        /// <summary>
+        /// The replication role of the server.
         /// </summary>
         public readonly string? ReplicationRole;
         /// <summary>
@@ -96,21 +108,13 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// The source MySQL server id.
+        /// Enable ssl enforcement or not when connect to server.
         /// </summary>
-        public readonly string? SourceServerResourceId;
+        public readonly string? SslEnforcement;
         /// <summary>
-        /// The state of a server.
+        /// Storage profile of a server.
         /// </summary>
-        public readonly string State;
-        /// <summary>
-        /// Storage related properties of a server.
-        /// </summary>
-        public readonly Outputs.StorageResponse? Storage;
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
+        public readonly Outputs.StorageProfileResponse? StorageProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -120,6 +124,10 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// A state of a server that is visible to user.
+        /// </summary>
+        public readonly string? UserVisibleState;
+        /// <summary>
         /// Server version.
         /// </summary>
         public readonly string? Version;
@@ -128,63 +136,69 @@ namespace Pulumi.AzureNative.DBforMySQL
         private GetServerResult(
             string? administratorLogin,
 
-            string? availabilityZone,
+            string byokEnforcement,
 
-            Outputs.BackupResponse? backup,
+            string? earliestRestoreDate,
 
-            string fullyQualifiedDomainName,
-
-            Outputs.HighAvailabilityResponse? highAvailability,
+            string? fullyQualifiedDomainName,
 
             string id,
 
+            Outputs.ResourceIdentityResponse? identity,
+
+            string? infrastructureEncryption,
+
             string location,
 
-            Outputs.MaintenanceWindowResponse? maintenanceWindow,
+            string? masterServerId,
+
+            string? minimalTlsVersion,
 
             string name,
 
-            Outputs.NetworkResponse? network,
+            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse> privateEndpointConnections,
 
-            int replicaCapacity,
+            string? publicNetworkAccess,
+
+            int? replicaCapacity,
 
             string? replicationRole,
 
             Outputs.SkuResponse? sku,
 
-            string? sourceServerResourceId,
+            string? sslEnforcement,
 
-            string state,
-
-            Outputs.StorageResponse? storage,
-
-            Outputs.SystemDataResponse systemData,
+            Outputs.StorageProfileResponse? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
+            string? userVisibleState,
+
             string? version)
         {
             AdministratorLogin = administratorLogin;
-            AvailabilityZone = availabilityZone;
-            Backup = backup;
+            ByokEnforcement = byokEnforcement;
+            EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
-            HighAvailability = highAvailability;
             Id = id;
+            Identity = identity;
+            InfrastructureEncryption = infrastructureEncryption;
             Location = location;
-            MaintenanceWindow = maintenanceWindow;
+            MasterServerId = masterServerId;
+            MinimalTlsVersion = minimalTlsVersion;
             Name = name;
-            Network = network;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
             Sku = sku;
-            SourceServerResourceId = sourceServerResourceId;
-            State = state;
-            Storage = storage;
-            SystemData = systemData;
+            SslEnforcement = sslEnforcement;
+            StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
+            UserVisibleState = userVisibleState;
             Version = version;
         }
     }

@@ -8,7 +8,7 @@ import (
 )
 
 // The response of get private dns zone suffix.
-// API Version: 2021-05-01.
+// API Version: 2021-05-01-preview.
 func GetGetPrivateDnsZoneSuffixExecute(ctx *pulumi.Context, args *GetGetPrivateDnsZoneSuffixExecuteArgs, opts ...pulumi.InvokeOption) (*GetGetPrivateDnsZoneSuffixExecuteResult, error) {
 	var rv GetGetPrivateDnsZoneSuffixExecuteResult
 	err := ctx.Invoke("azure-native:dbformysql:getGetPrivateDnsZoneSuffixExecute", args, &rv, opts...)

@@ -91,7 +91,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql:Database" }, { type: "azure-nextgen:dbformysql:Database" }, { type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-nextgen:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-nextgen:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-nextgen:dbformysql/v20210501:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-nextgen:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-nextgen:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-nextgen:dbformysql/v20210501:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, inputs, opts);
     }

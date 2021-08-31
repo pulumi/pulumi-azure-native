@@ -7,12 +7,16 @@ from enum import Enum
 __all__ = [
     'AdministratorType',
     'CreateMode',
-    'EnableStatusEnum',
-    'HighAvailabilityMode',
-    'ReplicationRole',
+    'GeoRedundantBackup',
+    'IdentityType',
+    'InfrastructureEncryption',
+    'MinimalTlsVersionEnum',
+    'PublicNetworkAccessEnum',
     'ServerKeyType',
     'ServerVersion',
     'SkuTier',
+    'SslEnforcementEnum',
+    'StorageAutogrow',
 ]
 
 
@@ -25,38 +29,55 @@ class AdministratorType(str, Enum):
 
 class CreateMode(str, Enum):
     """
-    The mode to create a new MySQL server.
+    The mode to create a new server.
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
-    REPLICA = "Replica"
     GEO_RESTORE = "GeoRestore"
+    REPLICA = "Replica"
 
 
-class EnableStatusEnum(str, Enum):
+class GeoRedundantBackup(str, Enum):
     """
-    Enable Storage Auto Grow or not.
+    Enable Geo-redundant or not for server backup.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
-class HighAvailabilityMode(str, Enum):
+class IdentityType(str, Enum):
     """
-    High availability mode for a server.
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
     """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class InfrastructureEncryption(str, Enum):
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    ENABLED = "Enabled"
+    """Default value for single layer of encryption for data at rest."""
     DISABLED = "Disabled"
-    ZONE_REDUNDANT = "ZoneRedundant"
-    SAME_ZONE = "SameZone"
+    """Additional (2nd) layer of encryption for data at rest"""
 
 
-class ReplicationRole(str, Enum):
+class MinimalTlsVersionEnum(str, Enum):
     """
-    The replication role.
+    Enforce a minimal Tls version for the server.
     """
-    NONE = "None"
-    SOURCE = "Source"
-    REPLICA = "Replica"
+    TLS1_0 = "TLS1_0"
+    TLS1_1 = "TLS1_1"
+    TLS1_2 = "TLS1_2"
+    TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
+
+
+class PublicNetworkAccessEnum(str, Enum):
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ServerKeyType(str, Enum):
@@ -70,14 +91,31 @@ class ServerVersion(str, Enum):
     """
     Server version.
     """
+    SERVER_VERSION_5_6 = "5.6"
     SERVER_VERSION_5_7 = "5.7"
-    SERVER_VERSION_8_0_21 = "8.0.21"
+    SERVER_VERSION_8_0 = "8.0"
 
 
 class SkuTier(str, Enum):
     """
-    The tier of the particular SKU, e.g. GeneralPurpose.
+    The tier of the particular SKU, e.g. Basic.
     """
-    BURSTABLE = "Burstable"
+    BASIC = "Basic"
     GENERAL_PURPOSE = "GeneralPurpose"
     MEMORY_OPTIMIZED = "MemoryOptimized"
+
+
+class SslEnforcementEnum(str, Enum):
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class StorageAutogrow(str, Enum):
+    """
+    Enable Storage Auto Grow.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

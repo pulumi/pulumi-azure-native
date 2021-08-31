@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a server firewall rule.
-// API Version: 2021-05-01.
+// API Version: 2017-12-01.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type FirewallRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -52,28 +50,16 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/v20200701preview:FirewallRule"),
+			Type: pulumi.String("azure-native:dbformysql/v20171201:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20200701preview:FirewallRule"),
+			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/v20200701privatepreview:FirewallRule"),
+			Type: pulumi.String("azure-native:dbformysql/v20171201preview:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20200701privatepreview:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:dbformysql/v20210501:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20210501:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-native:dbformysql/v20210501preview:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20210501preview:FirewallRule"),
+			Type: pulumi.String("azure-nextgen:dbformysql/v20171201preview:FirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

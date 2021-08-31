@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
     /// <summary>
     /// Storage Profile properties of a server
     /// </summary>
-    public sealed class BackupArgs : Pulumi.ResourceArgs
+    public sealed class StorageProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Backup retention days for the server.
@@ -22,12 +22,24 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// Whether or not geo redundant backup is enabled.
+        /// Enable Geo-redundant or not for server backup.
         /// </summary>
         [Input("geoRedundantBackup")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.EnableStatusEnum>? GeoRedundantBackup { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.GeoRedundantBackup>? GeoRedundantBackup { get; set; }
 
-        public BackupArgs()
+        /// <summary>
+        /// Enable Storage Auto Grow.
+        /// </summary>
+        [Input("storageAutogrow")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.StorageAutogrow>? StorageAutogrow { get; set; }
+
+        /// <summary>
+        /// Max storage allowed for a server.
+        /// </summary>
+        [Input("storageMB")]
+        public Input<int>? StorageMB { get; set; }
+
+        public StorageProfileArgs()
         {
         }
     }

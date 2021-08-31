@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Represents a server firewall rule.
-        /// API Version: 2021-05-01.
+        /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformysql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithVersion());
@@ -66,10 +66,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string StartIpAddress;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -84,15 +80,12 @@ namespace Pulumi.AzureNative.DBforMySQL
 
             string startIpAddress,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             EndIpAddress = endIpAddress;
             Id = id;
             Name = name;
             StartIpAddress = startIpAddress;
-            SystemData = systemData;
             Type = type;
         }
     }

@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a Database.
-// API Version: 2021-05-01.
+// API Version: 2017-12-01.
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type Database struct {
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -46,28 +44,16 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/v20200701preview:Database"),
+			Type: pulumi.String("azure-native:dbformysql/v20171201:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20200701preview:Database"),
+			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:Database"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql/v20200701privatepreview:Database"),
+			Type: pulumi.String("azure-native:dbformysql/v20171201preview:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20200701privatepreview:Database"),
-		},
-		{
-			Type: pulumi.String("azure-native:dbformysql/v20210501:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20210501:Database"),
-		},
-		{
-			Type: pulumi.String("azure-native:dbformysql/v20210501preview:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20210501preview:Database"),
+			Type: pulumi.String("azure-nextgen:dbformysql/v20171201preview:Database"),
 		},
 	})
 	opts = append(opts, aliases)

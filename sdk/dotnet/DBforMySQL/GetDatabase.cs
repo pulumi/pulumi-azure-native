@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Represents a Database.
-        /// API Version: 2021-05-01.
+        /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbformysql:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
@@ -66,10 +66,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -84,15 +80,12 @@ namespace Pulumi.AzureNative.DBforMySQL
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Charset = charset;
             Collation = collation;
             Id = id;
             Name = name;
-            SystemData = systemData;
             Type = type;
         }
     }

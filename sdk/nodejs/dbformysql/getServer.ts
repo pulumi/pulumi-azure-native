@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a server.
- * API Version: 2021-05-01.
+ * API Version: 2017-12-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
@@ -43,47 +43,59 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * availability Zone information of the server.
+     * Status showing whether the server data encryption is enabled with customer-managed keys.
      */
-    readonly availabilityZone?: string;
+    readonly byokEnforcement: string;
     /**
-     * Backup related properties of a server.
+     * Earliest restore point creation time (ISO8601 format)
      */
-    readonly backup?: outputs.dbformysql.BackupResponse;
+    readonly earliestRestoreDate?: string;
     /**
      * The fully qualified domain name of a server.
      */
-    readonly fullyQualifiedDomainName: string;
-    /**
-     * High availability related properties of a server.
-     */
-    readonly highAvailability?: outputs.dbformysql.HighAvailabilityResponse;
+    readonly fullyQualifiedDomainName?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
+     * The Azure Active Directory identity of the server.
+     */
+    readonly identity?: outputs.dbformysql.ResourceIdentityResponse;
+    /**
+     * Status showing whether the server enabled infrastructure encryption.
+     */
+    readonly infrastructureEncryption?: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Maintenance window of a server.
+     * The master server id of a replica server.
      */
-    readonly maintenanceWindow?: outputs.dbformysql.MaintenanceWindowResponse;
+    readonly masterServerId?: string;
+    /**
+     * Enforce a minimal Tls version for the server.
+     */
+    readonly minimalTlsVersion?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Network related properties of a server.
+     * List of private endpoint connections on a server
      */
-    readonly network?: outputs.dbformysql.NetworkResponse;
+    readonly privateEndpointConnections: outputs.dbformysql.ServerPrivateEndpointConnectionResponse[];
     /**
-     * The maximum number of replicas that a primary server can have.
+     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    readonly replicaCapacity: number;
+    readonly publicNetworkAccess?: string;
     /**
-     * The replication role.
+     * The maximum number of replicas that a master server can have.
+     */
+    readonly replicaCapacity?: number;
+    /**
+     * The replication role of the server.
      */
     readonly replicationRole?: string;
     /**
@@ -91,21 +103,13 @@ export interface GetServerResult {
      */
     readonly sku?: outputs.dbformysql.SkuResponse;
     /**
-     * The source MySQL server id.
+     * Enable ssl enforcement or not when connect to server.
      */
-    readonly sourceServerResourceId?: string;
+    readonly sslEnforcement?: string;
     /**
-     * The state of a server.
+     * Storage profile of a server.
      */
-    readonly state: string;
-    /**
-     * Storage related properties of a server.
-     */
-    readonly storage?: outputs.dbformysql.StorageResponse;
-    /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.dbformysql.SystemDataResponse;
+    readonly storageProfile?: outputs.dbformysql.StorageProfileResponse;
     /**
      * Resource tags.
      */
@@ -114,6 +118,10 @@ export interface GetServerResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * A state of a server that is visible to user.
+     */
+    readonly userVisibleState?: string;
     /**
      * Server version.
      */

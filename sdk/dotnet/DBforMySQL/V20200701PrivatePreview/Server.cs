@@ -185,8 +185,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server"},

@@ -82,12 +82,6 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:dbformysql/v20200701preview:Server"),
 		},
 		{
-			Type: pulumi.String("azure-native:dbformysql:Server"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql:Server"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20200701privatepreview:Server"),
 		},
 		{

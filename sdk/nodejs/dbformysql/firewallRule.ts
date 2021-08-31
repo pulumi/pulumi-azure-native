@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Represents a server firewall rule.
- * API Version: 2021-05-01.
+ * API Version: 2017-12-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -49,10 +48,6 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly startIpAddress!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -86,19 +81,17 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["endIpAddress"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["startIpAddress"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql:FirewallRule" }, { type: "azure-native:dbformysql/v20200701preview:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20200701preview:FirewallRule" }, { type: "azure-native:dbformysql/v20200701privatepreview:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20200701privatepreview:FirewallRule" }, { type: "azure-native:dbformysql/v20210501:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20210501:FirewallRule" }, { type: "azure-native:dbformysql/v20210501preview:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20210501preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql:FirewallRule" }, { type: "azure-native:dbformysql/v20171201:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20171201:FirewallRule" }, { type: "azure-native:dbformysql/v20171201preview:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20171201preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

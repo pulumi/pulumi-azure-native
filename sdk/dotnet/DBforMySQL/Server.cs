@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a server.
-    /// API Version: 2021-05-01.
+    /// API Version: 2017-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Server")]
     public partial class Server : Pulumi.CustomResource
@@ -23,28 +23,34 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// availability Zone information of the server.
+        /// Status showing whether the server data encryption is enabled with customer-managed keys.
         /// </summary>
-        [Output("availabilityZone")]
-        public Output<string?> AvailabilityZone { get; private set; } = null!;
+        [Output("byokEnforcement")]
+        public Output<string> ByokEnforcement { get; private set; } = null!;
 
         /// <summary>
-        /// Backup related properties of a server.
+        /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
-        [Output("backup")]
-        public Output<Outputs.BackupResponse?> Backup { get; private set; } = null!;
+        [Output("earliestRestoreDate")]
+        public Output<string?> EarliestRestoreDate { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
-        public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
+        public Output<string?> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// High availability related properties of a server.
+        /// The Azure Active Directory identity of the server.
         /// </summary>
-        [Output("highAvailability")]
-        public Output<Outputs.HighAvailabilityResponse?> HighAvailability { get; private set; } = null!;
+        [Output("identity")]
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Status showing whether the server enabled infrastructure encryption.
+        /// </summary>
+        [Output("infrastructureEncryption")]
+        public Output<string?> InfrastructureEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -53,10 +59,16 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Maintenance window of a server.
+        /// The master server id of a replica server.
         /// </summary>
-        [Output("maintenanceWindow")]
-        public Output<Outputs.MaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
+        [Output("masterServerId")]
+        public Output<string?> MasterServerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Enforce a minimal Tls version for the server.
+        /// </summary>
+        [Output("minimalTlsVersion")]
+        public Output<string?> MinimalTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -65,19 +77,25 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network related properties of a server.
+        /// List of private endpoint connections on a server
         /// </summary>
-        [Output("network")]
-        public Output<Outputs.NetworkResponse?> Network { get; private set; } = null!;
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of replicas that a primary server can have.
+        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum number of replicas that a master server can have.
         /// </summary>
         [Output("replicaCapacity")]
-        public Output<int> ReplicaCapacity { get; private set; } = null!;
+        public Output<int?> ReplicaCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The replication role.
+        /// The replication role of the server.
         /// </summary>
         [Output("replicationRole")]
         public Output<string?> ReplicationRole { get; private set; } = null!;
@@ -89,28 +107,16 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The source MySQL server id.
+        /// Enable ssl enforcement or not when connect to server.
         /// </summary>
-        [Output("sourceServerResourceId")]
-        public Output<string?> SourceServerResourceId { get; private set; } = null!;
+        [Output("sslEnforcement")]
+        public Output<string?> SslEnforcement { get; private set; } = null!;
 
         /// <summary>
-        /// The state of a server.
+        /// Storage profile of a server.
         /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
-
-        /// <summary>
-        /// Storage related properties of a server.
-        /// </summary>
-        [Output("storage")]
-        public Output<Outputs.StorageResponse?> Storage { get; private set; } = null!;
-
-        /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        [Output("storageProfile")]
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -123,6 +129,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A state of a server that is visible to user.
+        /// </summary>
+        [Output("userVisibleState")]
+        public Output<string?> UserVisibleState { get; private set; } = null!;
 
         /// <summary>
         /// Server version.
@@ -156,14 +168,10 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:dbformysql:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701preview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701privatepreview:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20210501:Server"},
-                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20210501preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -188,76 +196,28 @@ namespace Pulumi.AzureNative.DBforMySQL
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        /// The Azure Active Directory identity of the server.
         /// </summary>
-        [Input("administratorLogin")]
-        public Input<string>? AdministratorLogin { get; set; }
+        [Input("identity")]
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The password of the administrator login (required for server creation).
-        /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
-
-        /// <summary>
-        /// availability Zone information of the server.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        /// <summary>
-        /// Backup related properties of a server.
-        /// </summary>
-        [Input("backup")]
-        public Input<Inputs.BackupArgs>? Backup { get; set; }
-
-        /// <summary>
-        /// The mode to create a new MySQL server.
-        /// </summary>
-        [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.CreateMode>? CreateMode { get; set; }
-
-        /// <summary>
-        /// High availability related properties of a server.
-        /// </summary>
-        [Input("highAvailability")]
-        public Input<Inputs.HighAvailabilityArgs>? HighAvailability { get; set; }
-
-        /// <summary>
-        /// The geo-location where the resource lives
+        /// The location the resource resides in.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Maintenance window of a server.
+        /// Properties of the server.
         /// </summary>
-        [Input("maintenanceWindow")]
-        public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
-
-        /// <summary>
-        /// Network related properties of a server.
-        /// </summary>
-        [Input("network")]
-        public Input<Inputs.NetworkArgs>? Network { get; set; }
-
-        /// <summary>
-        /// The replication role.
-        /// </summary>
-        [Input("replicationRole")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.ReplicationRole>? ReplicationRole { get; set; }
+        [Input("properties", required: true)]
+        public object Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Restore point creation time (ISO8601 format), specifying the time to restore from.
-        /// </summary>
-        [Input("restorePointInTime")]
-        public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
         /// The name of the server.
@@ -271,35 +231,17 @@ namespace Pulumi.AzureNative.DBforMySQL
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
-        /// <summary>
-        /// The source MySQL server id.
-        /// </summary>
-        [Input("sourceServerResourceId")]
-        public Input<string>? SourceServerResourceId { get; set; }
-
-        /// <summary>
-        /// Storage related properties of a server.
-        /// </summary>
-        [Input("storage")]
-        public Input<Inputs.StorageArgs>? Storage { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// Application-specific metadata in the form of key-value pairs.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Server version.
-        /// </summary>
-        [Input("version")]
-        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {
