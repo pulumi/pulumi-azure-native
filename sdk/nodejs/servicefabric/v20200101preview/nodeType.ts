@@ -178,7 +178,7 @@ export class NodeType extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/v20200101preview:NodeType" }, { type: "azure-native:servicefabric:NodeType" }, { type: "azure-nextgen:servicefabric:NodeType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/v20200101preview:NodeType" }, { type: "azure-native:servicefabric:NodeType" }, { type: "azure-nextgen:servicefabric:NodeType" }, { type: "azure-native:servicefabric/v20210101preview:NodeType" }, { type: "azure-nextgen:servicefabric/v20210101preview:NodeType" }, { type: "azure-native:servicefabric/v20210501:NodeType" }, { type: "azure-nextgen:servicefabric/v20210501:NodeType" }, { type: "azure-native:servicefabric/v20210701preview:NodeType" }, { type: "azure-nextgen:servicefabric/v20210701preview:NodeType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NodeType.__pulumiType, name, inputs, opts);
     }
