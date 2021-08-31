@@ -20,5 +20,4 @@ package-lock.json
 **/*.tar.gz
 
 ci-scripts/
-provider/cmd/pulumi-resource-azure-native/metadata.json
 provider/cmd/pulumi-resource-azure-native/schema-full.json

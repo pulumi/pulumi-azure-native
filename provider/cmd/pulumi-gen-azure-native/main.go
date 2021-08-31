@@ -153,11 +153,6 @@ func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackage
 		return err
 	}
 
-	formatted, err := json.MarshalIndent(metadata, "", "    ")
-	if err != nil {
-		return errors.Wrap(err, "marshaling metadata")
-	}
-
 	err = emitFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package %s
 var azureApiResources = %#v
 `, goPackageName, compressedMeta.Bytes())))
@@ -166,7 +161,13 @@ var azureApiResources = %#v
 	}
 
 	if emitJSON {
-		err := emitFile(outDir, "metadata.json", formatted)
+		// To reduce the size, blank out
+		formatted, err := json.MarshalIndent(metadata, "", "  ")
+		if err != nil {
+			return errors.Wrap(err, "marshaling metadata")
+		}
+
+		err = emitFile(outDir, "metadata.json", formatted)
 		if err != nil {
 			return err
 		}
