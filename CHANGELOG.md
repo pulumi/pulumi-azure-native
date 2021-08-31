@@ -13,11 +13,13 @@ CHANGELOG
 
 - `automation.HybridRunbookWorker`
 - `automation.HybridRunbookWorkerGroup`
+- `security.AdvancedThreatProtection`
 
 #### New functions:
 
 - `automation.getHybridRunbookWorker`
 - `automation.getHybridRunbookWorkerGroup`
+- `security.getAdvancedThreatProtection`
 
 
 #### Enhancements:

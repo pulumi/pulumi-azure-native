@@ -4,6 +4,7 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as insights from "@pulumi/azure-native/insights";
 import * as resources from "@pulumi/azure-native/resources";
+import * as security from "@pulumi/azure-native/security";
 import * as sql from "@pulumi/azure-native/sql";
 import * as storage from "@pulumi/azure-native/storage";
 import * as web from "@pulumi/azure-native/web";
@@ -16,6 +17,12 @@ const storageAccount = new storage.StorageAccount("sa", {
         name: storage.SkuName.Standard_LRS,
     },
     kind: storage.Kind.StorageV2,
+});
+
+new security.AdvancedThreatProtection("atp", {
+    settingName: "current",
+    resourceId: storageAccount.id,
+    isEnabled: true,
 });
 
 const appServicePlan  = new web.AppServicePlan("asp", {
