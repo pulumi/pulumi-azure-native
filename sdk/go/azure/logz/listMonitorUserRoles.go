@@ -8,7 +8,7 @@ import (
 )
 
 // Response for list of user's role for Logz.io account.
-// API Version: 2020-10-01-preview.
+// API Version: 2020-10-01.
 func ListMonitorUserRoles(ctx *pulumi.Context, args *ListMonitorUserRolesArgs, opts ...pulumi.InvokeOption) (*ListMonitorUserRolesResult, error) {
 	var rv ListMonitorUserRolesResult
 	err := ctx.Invoke("azure-native:logz:listMonitorUserRoles", args, &rv, opts...)

@@ -33,7 +33,7 @@ export interface GetSnapshotPolicyArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the snapshot policy target
+     * The name of the snapshot policy
      */
     snapshotPolicyName: string;
 }

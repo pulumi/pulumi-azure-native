@@ -64,6 +64,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly encryptionKeySource!: pulumi.Output<string | undefined>;
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Set of export policy rules
      */
     public readonly exportPolicy!: pulumi.Output<outputs.netapp.v20210401.VolumePropertiesResponseExportPolicy | undefined>;
@@ -206,11 +210,12 @@ export class Volume extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["throughputMibps"] = (args ? args.throughputMibps : undefined) ?? 0;
-            inputs["unixPermissions"] = args ? args.unixPermissions : undefined;
+            inputs["unixPermissions"] = (args ? args.unixPermissions : undefined) ?? "0770";
             inputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
             inputs["volumeName"] = args ? args.volumeName : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["baremetalTenantId"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["mountTargets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -224,6 +229,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["creationToken"] = undefined /*out*/;
             inputs["dataProtection"] = undefined /*out*/;
             inputs["encryptionKeySource"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["exportPolicy"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["isRestoring"] = undefined /*out*/;

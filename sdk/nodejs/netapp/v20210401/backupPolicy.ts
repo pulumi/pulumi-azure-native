@@ -36,6 +36,10 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Backup Policy Resource ID
+     */
+    public /*out*/ readonly backupPolicyId!: pulumi.Output<string>;
+    /**
      * Daily backups count to keep
      */
     public readonly dailyBackupsToKeep!: pulumi.Output<number | undefined>;
@@ -43,6 +47,10 @@ export class BackupPolicy extends pulumi.CustomResource {
      * The property to decide policy is enabled or not
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -117,13 +125,17 @@ export class BackupPolicy extends pulumi.CustomResource {
             inputs["volumesAssigned"] = args ? args.volumesAssigned : undefined;
             inputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
             inputs["yearlyBackupsToKeep"] = args ? args.yearlyBackupsToKeep : undefined;
+            inputs["backupPolicyId"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["backupPolicyId"] = undefined /*out*/;
             inputs["dailyBackupsToKeep"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["monthlyBackupsToKeep"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * API Version: 2020-10-01-preview.
+ * API Version: 2020-10-01.
  */
 export class TagRule extends pulumi.CustomResource {
     /**

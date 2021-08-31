@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
     public sealed class GetBackupPolicyResult
     {
         /// <summary>
+        /// Backup Policy Resource ID
+        /// </summary>
+        public readonly string BackupPolicyId;
+        /// <summary>
         /// Daily backups count to keep
         /// </summary>
         public readonly int? DailyBackupsToKeep;
@@ -56,6 +60,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// The property to decide policy is enabled or not
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -107,9 +115,13 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
         [OutputConstructor]
         private GetBackupPolicyResult(
+            string backupPolicyId,
+
             int? dailyBackupsToKeep,
 
             bool? enabled,
+
+            string etag,
 
             string id,
 
@@ -135,8 +147,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
             int? yearlyBackupsToKeep)
         {
+            BackupPolicyId = backupPolicyId;
             DailyBackupsToKeep = dailyBackupsToKeep;
             Enabled = enabled;
+            Etag = etag;
             Id = id;
             Location = location;
             MonthlyBackupsToKeep = monthlyBackupsToKeep;

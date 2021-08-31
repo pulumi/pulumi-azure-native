@@ -168,7 +168,7 @@ type snapshotPolicyArgs struct {
 	MonthlySchedule *MonthlySchedule `pulumi:"monthlySchedule"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot policy target
+	// The name of the snapshot policy
 	SnapshotPolicyName *string `pulumi:"snapshotPolicyName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -192,7 +192,7 @@ type SnapshotPolicyArgs struct {
 	MonthlySchedule MonthlySchedulePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The name of the snapshot policy target
+	// The name of the snapshot policy
 	SnapshotPolicyName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput

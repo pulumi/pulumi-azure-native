@@ -33,7 +33,7 @@ export interface GetSnapshotPolicyArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the snapshot policy target
+     * The name of the snapshot policy
      */
     snapshotPolicyName: string;
 }
@@ -50,6 +50,10 @@ export interface GetSnapshotPolicyResult {
      * The property to decide policy is enabled or not
      */
     readonly enabled?: boolean;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
     /**
      * Schedule for hourly snapshots
      */

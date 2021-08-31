@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.NetApp.V20200201
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the mount target
+        /// The name of the snapshot
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }

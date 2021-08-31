@@ -846,21 +846,33 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cleanup: Optional[bool] = None,
                  compute_type: Optional[str] = None,
                  core_count: Optional[int] = None,
                  time_to_live: Optional[int] = None):
         """
         Data flow properties for managed integration runtime.
+        :param bool cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param str compute_type: Compute type of the cluster which will execute data flow job.
         :param int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         :param int time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
+        if cleanup is not None:
+            pulumi.set(__self__, "cleanup", cleanup)
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
         if time_to_live is not None:
             pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter
+    def cleanup(self) -> Optional[bool]:
+        """
+        Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+        """
+        return pulumi.get(self, "cleanup")
 
     @property
     @pulumi.getter(name="computeType")
@@ -1221,10 +1233,10 @@ class LibraryInfoResponse(dict):
             suggest = "creator_id"
         elif key == "provisioningStatus":
             suggest = "provisioning_status"
-        elif key == "uploadedTimestamp":
-            suggest = "uploaded_timestamp"
         elif key == "containerName":
             suggest = "container_name"
+        elif key == "uploadedTimestamp":
+            suggest = "uploaded_timestamp"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LibraryInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1240,24 +1252,23 @@ class LibraryInfoResponse(dict):
     def __init__(__self__, *,
                  creator_id: str,
                  provisioning_status: str,
-                 uploaded_timestamp: str,
                  container_name: Optional[str] = None,
                  name: Optional[str] = None,
                  path: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 uploaded_timestamp: Optional[str] = None):
         """
         Library/package information of a Big Data pool powered by Apache Spark
         :param str creator_id: Creator Id of the library/package.
         :param str provisioning_status: Provisioning status of the library/package.
-        :param str uploaded_timestamp: The last update time of the library.
         :param str container_name: Storage blob container name.
         :param str name: Name of the library.
         :param str path: Storage blob path of library.
         :param str type: Type of the library.
+        :param str uploaded_timestamp: The last update time of the library.
         """
         pulumi.set(__self__, "creator_id", creator_id)
         pulumi.set(__self__, "provisioning_status", provisioning_status)
-        pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
         if name is not None:
@@ -1266,6 +1277,8 @@ class LibraryInfoResponse(dict):
             pulumi.set(__self__, "path", path)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if uploaded_timestamp is not None:
+            pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
 
     @property
     @pulumi.getter(name="creatorId")
@@ -1282,14 +1295,6 @@ class LibraryInfoResponse(dict):
         Provisioning status of the library/package.
         """
         return pulumi.get(self, "provisioning_status")
-
-    @property
-    @pulumi.getter(name="uploadedTimestamp")
-    def uploaded_timestamp(self) -> str:
-        """
-        The last update time of the library.
-        """
-        return pulumi.get(self, "uploaded_timestamp")
 
     @property
     @pulumi.getter(name="containerName")
@@ -1322,6 +1327,14 @@ class LibraryInfoResponse(dict):
         Type of the library.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uploadedTimestamp")
+    def uploaded_timestamp(self) -> Optional[str]:
+        """
+        The last update time of the library.
+        """
+        return pulumi.get(self, "uploaded_timestamp")
 
 
 @pulumi.output_type

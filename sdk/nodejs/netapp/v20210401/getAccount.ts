@@ -46,6 +46,10 @@ export interface GetAccountResult {
      */
     readonly encryption?: outputs.netapp.v20210401.AccountEncryptionResponse;
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
+    /**
      * Resource Id
      */
     readonly id: string;

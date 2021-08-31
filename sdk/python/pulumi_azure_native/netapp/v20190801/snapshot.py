@@ -29,7 +29,7 @@ class SnapshotArgs:
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] file_system_id: UUID v4 used to identify the FileSystem
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] snapshot_name: The name of the mount target
+        :param pulumi.Input[str] snapshot_name: The name of the snapshot
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -121,7 +121,7 @@ class SnapshotArgs:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the mount target
+        The name of the snapshot
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -166,7 +166,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] snapshot_name: The name of the mount target
+        :param pulumi.Input[str] snapshot_name: The name of the snapshot
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] volume_name: The name of the volume
         """

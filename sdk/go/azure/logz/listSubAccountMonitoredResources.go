@@ -8,7 +8,7 @@ import (
 )
 
 // Response of a list operation.
-// API Version: 2020-10-01-preview.
+// API Version: 2020-10-01.
 func ListSubAccountMonitoredResources(ctx *pulumi.Context, args *ListSubAccountMonitoredResourcesArgs, opts ...pulumi.InvokeOption) (*ListSubAccountMonitoredResourcesResult, error) {
 	var rv ListSubAccountMonitoredResourcesResult
 	err := ctx.Invoke("azure-native:logz:listSubAccountMonitoredResources", args, &rv, opts...)

@@ -26,7 +26,7 @@ class SnapshotArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] snapshot_name: The name of the mount target
+        :param pulumi.Input[str] snapshot_name: The name of the snapshot
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
@@ -101,7 +101,7 @@ class SnapshotArgs:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the mount target
+        The name of the snapshot
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -131,7 +131,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] snapshot_name: The name of the mount target
+        :param pulumi.Input[str] snapshot_name: The name of the snapshot
         :param pulumi.Input[str] volume_name: The name of the volume
         """
         ...

@@ -310,6 +310,8 @@ class BackupPolicy(pulumi.CustomResource):
             __props__.__dict__["volumes_assigned"] = volumes_assigned
             __props__.__dict__["weekly_backups_to_keep"] = weekly_backups_to_keep
             __props__.__dict__["yearly_backups_to_keep"] = yearly_backups_to_keep
+            __props__.__dict__["backup_policy_id"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -338,8 +340,10 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
+        __props__.__dict__["backup_policy_id"] = None
         __props__.__dict__["daily_backups_to_keep"] = None
         __props__.__dict__["enabled"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["monthly_backups_to_keep"] = None
         __props__.__dict__["name"] = None
@@ -352,6 +356,14 @@ class BackupPolicy(pulumi.CustomResource):
         __props__.__dict__["weekly_backups_to_keep"] = None
         __props__.__dict__["yearly_backups_to_keep"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> pulumi.Output[str]:
+        """
+        Backup Policy Resource ID
+        """
+        return pulumi.get(self, "backup_policy_id")
 
     @property
     @pulumi.getter(name="dailyBackupsToKeep")
@@ -368,6 +380,14 @@ class BackupPolicy(pulumi.CustomResource):
         The property to decide policy is enabled or not
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

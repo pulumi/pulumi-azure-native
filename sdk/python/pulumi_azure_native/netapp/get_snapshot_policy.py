@@ -174,7 +174,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
 
     :param str account_name: The name of the NetApp account
     :param str resource_group_name: The name of the resource group.
-    :param str snapshot_policy_name: The name of the snapshot policy target
+    :param str snapshot_policy_name: The name of the snapshot policy
     """
     __args__ = dict()
     __args__['accountName'] = account_name

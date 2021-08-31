@@ -40,6 +40,14 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly coolAccess!: pulumi.Output<boolean | undefined>;
     /**
+     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+     */
+    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -109,6 +117,7 @@ export class Pool extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
+            inputs["encryptionType"] = (args ? args.encryptionType : undefined) ?? "Single";
             inputs["location"] = args ? args.location : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["qosType"] = (args ? args.qosType : undefined) ?? "Auto";
@@ -116,6 +125,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["serviceLevel"] = (args ? args.serviceLevel : undefined) ?? "Premium";
             inputs["size"] = args ? args.size : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["poolId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -124,6 +134,8 @@ export class Pool extends pulumi.CustomResource {
             inputs["utilizedThroughputMibps"] = undefined /*out*/;
         } else {
             inputs["coolAccess"] = undefined /*out*/;
+            inputs["encryptionType"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["poolId"] = undefined /*out*/;
@@ -157,6 +169,10 @@ export interface PoolArgs {
      * If enabled (true) the pool can contain cool Access enabled volumes.
      */
     coolAccess?: pulumi.Input<boolean>;
+    /**
+     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+     */
+    encryptionType?: pulumi.Input<string | enums.netapp.v20210401.EncryptionType>;
     /**
      * Resource location
      */

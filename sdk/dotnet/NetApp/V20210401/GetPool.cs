@@ -53,6 +53,14 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         public readonly bool? CoolAccess;
         /// <summary>
+        /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        /// </summary>
+        public readonly string? EncryptionType;
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -105,6 +113,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         private GetPoolResult(
             bool? coolAccess,
 
+            string? encryptionType,
+
+            string etag,
+
             string id,
 
             string location,
@@ -130,6 +142,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
             double utilizedThroughputMibps)
         {
             CoolAccess = coolAccess;
+            EncryptionType = encryptionType;
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;

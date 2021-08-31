@@ -133,7 +133,7 @@ class SubAccount(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2020-10-01-preview.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,7 +149,7 @@ class SubAccount(pulumi.CustomResource):
                  args: SubAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2020-10-01-preview.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param SubAccountArgs args: The arguments to use to populate this resource's properties.

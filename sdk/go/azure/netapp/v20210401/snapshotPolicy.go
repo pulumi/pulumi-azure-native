@@ -19,6 +19,8 @@ type SnapshotPolicy struct {
 	DailySchedule DailyScheduleResponsePtrOutput `pulumi:"dailySchedule"`
 	// The property to decide policy is enabled or not
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Schedule for hourly snapshots
 	HourlySchedule HourlyScheduleResponsePtrOutput `pulumi:"hourlySchedule"`
 	// Resource location
@@ -168,7 +170,7 @@ type snapshotPolicyArgs struct {
 	MonthlySchedule *MonthlySchedule `pulumi:"monthlySchedule"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot policy target
+	// The name of the snapshot policy
 	SnapshotPolicyName *string `pulumi:"snapshotPolicyName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -192,7 +194,7 @@ type SnapshotPolicyArgs struct {
 	MonthlySchedule MonthlySchedulePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The name of the snapshot policy target
+	// The name of the snapshot policy
 	SnapshotPolicyName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput

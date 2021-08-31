@@ -76,6 +76,10 @@ export interface GetVolumeResult {
      */
     readonly encryptionKeySource?: string;
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
+    /**
      * Set of export policy rules
      */
     readonly exportPolicy?: outputs.netapp.v20210401.VolumePropertiesResponseExportPolicy;

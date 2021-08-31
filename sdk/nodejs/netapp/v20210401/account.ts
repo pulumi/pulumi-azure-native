@@ -44,6 +44,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.netapp.v20210401.AccountEncryptionResponse | undefined>;
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
@@ -95,6 +100,7 @@ export class Account extends pulumi.CustomResource {
         } else {
             inputs["activeDirectories"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * API Version: 2020-10-01-preview.
+ * API Version: 2020-10-01.
  */
 export function getSubAccountTagRule(args: GetSubAccountTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountTagRuleResult> {
     if (!opts) {

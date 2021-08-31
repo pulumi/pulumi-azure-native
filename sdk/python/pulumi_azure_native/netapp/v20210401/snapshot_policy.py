@@ -34,7 +34,7 @@ class SnapshotPolicyArgs:
         :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Schedule for hourly snapshots
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['MonthlyScheduleArgs'] monthly_schedule: Schedule for monthly snapshots
-        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy target
+        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Schedule for weekly snapshots
         """
@@ -145,7 +145,7 @@ class SnapshotPolicyArgs:
     @pulumi.getter(name="snapshotPolicyName")
     def snapshot_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the snapshot policy target
+        The name of the snapshot policy
         """
         return pulumi.get(self, "snapshot_policy_name")
 
@@ -206,7 +206,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']] monthly_schedule: Schedule for monthly snapshots
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy target
+        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']] weekly_schedule: Schedule for weekly snapshots
         """
@@ -270,6 +270,7 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__.__dict__["snapshot_policy_name"] = snapshot_policy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["weekly_schedule"] = weekly_schedule
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -299,6 +300,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
         __props__.__dict__["daily_schedule"] = None
         __props__.__dict__["enabled"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["hourly_schedule"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["monthly_schedule"] = None
@@ -324,6 +326,14 @@ class SnapshotPolicy(pulumi.CustomResource):
         The property to decide policy is enabled or not
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="hourlySchedule")

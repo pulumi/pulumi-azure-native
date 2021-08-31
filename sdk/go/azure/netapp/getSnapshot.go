@@ -25,7 +25,7 @@ type LookupSnapshotArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the mount target
+	// The name of the snapshot
 	SnapshotName string `pulumi:"snapshotName"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`

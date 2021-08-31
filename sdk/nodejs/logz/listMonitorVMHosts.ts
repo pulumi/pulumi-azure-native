@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list VM Host Update Operation.
- * API Version: 2020-10-01-preview.
+ * API Version: 2020-10-01.
  */
 export function listMonitorVMHosts(args: ListMonitorVMHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorVMHostsResult> {
     if (!opts) {

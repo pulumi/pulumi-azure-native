@@ -127,7 +127,7 @@ def get_snapshot(account_name: Optional[str] = None,
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
     :param str resource_group_name: The name of the resource group.
-    :param str snapshot_name: The name of the mount target
+    :param str snapshot_name: The name of the snapshot
     :param str volume_name: The name of the volume
     """
     __args__ = dict()

@@ -3672,6 +3672,8 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput) SasToken
 
 // Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowProperties struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+	Cleanup *bool `pulumi:"cleanup"`
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType *string `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
@@ -3693,6 +3695,8 @@ type IntegrationRuntimeDataFlowPropertiesInput interface {
 
 // Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesArgs struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+	Cleanup pulumi.BoolPtrInput `pulumi:"cleanup"`
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType pulumi.StringPtrInput `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
@@ -3779,6 +3783,11 @@ func (o IntegrationRuntimeDataFlowPropertiesOutput) ToIntegrationRuntimeDataFlow
 	}).(IntegrationRuntimeDataFlowPropertiesPtrOutput)
 }
 
+// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+func (o IntegrationRuntimeDataFlowPropertiesOutput) Cleanup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeDataFlowProperties) *bool { return v.Cleanup }).(pulumi.BoolPtrOutput)
+}
+
 // Compute type of the cluster which will execute data flow job.
 func (o IntegrationRuntimeDataFlowPropertiesOutput) ComputeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeDataFlowProperties) *string { return v.ComputeType }).(pulumi.StringPtrOutput)
@@ -3810,6 +3819,16 @@ func (o IntegrationRuntimeDataFlowPropertiesPtrOutput) ToIntegrationRuntimeDataF
 
 func (o IntegrationRuntimeDataFlowPropertiesPtrOutput) Elem() IntegrationRuntimeDataFlowPropertiesOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeDataFlowProperties) IntegrationRuntimeDataFlowProperties { return *v }).(IntegrationRuntimeDataFlowPropertiesOutput)
+}
+
+// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+func (o IntegrationRuntimeDataFlowPropertiesPtrOutput) Cleanup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeDataFlowProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Cleanup
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Compute type of the cluster which will execute data flow job.
@@ -3844,6 +3863,8 @@ func (o IntegrationRuntimeDataFlowPropertiesPtrOutput) TimeToLive() pulumi.IntPt
 
 // Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesResponse struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+	Cleanup *bool `pulumi:"cleanup"`
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType *string `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
@@ -3865,6 +3886,8 @@ type IntegrationRuntimeDataFlowPropertiesResponseInput interface {
 
 // Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowPropertiesResponseArgs struct {
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+	Cleanup pulumi.BoolPtrInput `pulumi:"cleanup"`
 	// Compute type of the cluster which will execute data flow job.
 	ComputeType pulumi.StringPtrInput `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
@@ -3951,6 +3974,11 @@ func (o IntegrationRuntimeDataFlowPropertiesResponseOutput) ToIntegrationRuntime
 	}).(IntegrationRuntimeDataFlowPropertiesResponsePtrOutput)
 }
 
+// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+func (o IntegrationRuntimeDataFlowPropertiesResponseOutput) Cleanup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeDataFlowPropertiesResponse) *bool { return v.Cleanup }).(pulumi.BoolPtrOutput)
+}
+
 // Compute type of the cluster which will execute data flow job.
 func (o IntegrationRuntimeDataFlowPropertiesResponseOutput) ComputeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeDataFlowPropertiesResponse) *string { return v.ComputeType }).(pulumi.StringPtrOutput)
@@ -3984,6 +4012,16 @@ func (o IntegrationRuntimeDataFlowPropertiesResponsePtrOutput) Elem() Integratio
 	return o.ApplyT(func(v *IntegrationRuntimeDataFlowPropertiesResponse) IntegrationRuntimeDataFlowPropertiesResponse {
 		return *v
 	}).(IntegrationRuntimeDataFlowPropertiesResponseOutput)
+}
+
+// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+func (o IntegrationRuntimeDataFlowPropertiesResponsePtrOutput) Cleanup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeDataFlowPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Cleanup
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Compute type of the cluster which will execute data flow job.
@@ -5570,6 +5608,8 @@ type LibraryInfo struct {
 	Path *string `pulumi:"path"`
 	// Type of the library.
 	Type *string `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp *string `pulumi:"uploadedTimestamp"`
 }
 
 // LibraryInfoInput is an input type that accepts LibraryInfoArgs and LibraryInfoOutput values.
@@ -5593,6 +5633,8 @@ type LibraryInfoArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Type of the library.
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The last update time of the library.
+	UploadedTimestamp pulumi.StringPtrInput `pulumi:"uploadedTimestamp"`
 }
 
 func (LibraryInfoArgs) ElementType() reflect.Type {
@@ -5667,6 +5709,11 @@ func (o LibraryInfoOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LibraryInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The last update time of the library.
+func (o LibraryInfoOutput) UploadedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfo) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
+}
+
 type LibraryInfoArrayOutput struct{ *pulumi.OutputState }
 
 func (LibraryInfoArrayOutput) ElementType() reflect.Type {
@@ -5702,7 +5749,7 @@ type LibraryInfoResponse struct {
 	// Type of the library.
 	Type *string `pulumi:"type"`
 	// The last update time of the library.
-	UploadedTimestamp string `pulumi:"uploadedTimestamp"`
+	UploadedTimestamp *string `pulumi:"uploadedTimestamp"`
 }
 
 // LibraryInfoResponseInput is an input type that accepts LibraryInfoResponseArgs and LibraryInfoResponseOutput values.
@@ -5731,7 +5778,7 @@ type LibraryInfoResponseArgs struct {
 	// Type of the library.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The last update time of the library.
-	UploadedTimestamp pulumi.StringInput `pulumi:"uploadedTimestamp"`
+	UploadedTimestamp pulumi.StringPtrInput `pulumi:"uploadedTimestamp"`
 }
 
 func (LibraryInfoResponseArgs) ElementType() reflect.Type {
@@ -5817,8 +5864,8 @@ func (o LibraryInfoResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The last update time of the library.
-func (o LibraryInfoResponseOutput) UploadedTimestamp() pulumi.StringOutput {
-	return o.ApplyT(func(v LibraryInfoResponse) string { return v.UploadedTimestamp }).(pulumi.StringOutput)
+func (o LibraryInfoResponseOutput) UploadedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LibraryInfoResponse) *string { return v.UploadedTimestamp }).(pulumi.StringPtrOutput)
 }
 
 type LibraryInfoResponseArrayOutput struct{ *pulumi.OutputState }

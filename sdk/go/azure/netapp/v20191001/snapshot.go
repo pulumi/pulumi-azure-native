@@ -220,7 +220,7 @@ type snapshotArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the mount target
+	// The name of the snapshot
 	SnapshotName *string `pulumi:"snapshotName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -240,7 +240,7 @@ type SnapshotArgs struct {
 	PoolName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The name of the mount target
+	// The name of the snapshot
 	SnapshotName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput

@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot policy target
+        /// The name of the snapshot policy
         /// </summary>
         [Input("snapshotPolicyName", required: true)]
         public string SnapshotPolicyName { get; set; } = null!;
@@ -56,6 +56,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// The property to decide policy is enabled or not
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Schedule for hourly snapshots
         /// </summary>
@@ -99,6 +103,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
             bool? enabled,
 
+            string etag,
+
             Outputs.HourlyScheduleResponse? hourlySchedule,
 
             string id,
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         {
             DailySchedule = dailySchedule;
             Enabled = enabled;
+            Etag = etag;
             HourlySchedule = hourlySchedule;
             Id = id;
             Location = location;

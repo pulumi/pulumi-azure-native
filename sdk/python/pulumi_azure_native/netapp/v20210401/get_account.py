@@ -20,13 +20,16 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, active_directories=None, encryption=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, active_directories=None, encryption=None, etag=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if active_directories and not isinstance(active_directories, list):
             raise TypeError("Expected argument 'active_directories' to be a list")
         pulumi.set(__self__, "active_directories", active_directories)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,6 +67,14 @@ class GetAccountResult:
         Encryption settings
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         return GetAccountResult(
             active_directories=self.active_directories,
             encryption=self.encryption,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -161,6 +173,7 @@ def get_account(account_name: Optional[str] = None,
     return AwaitableGetAccountResult(
         active_directories=__ret__.active_directories,
         encryption=__ret__.encryption,
+        etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

@@ -43,6 +43,10 @@ export interface GetBackupPolicyArgs {
  */
 export interface GetBackupPolicyResult {
     /**
+     * Backup Policy Resource ID
+     */
+    readonly backupPolicyId: string;
+    /**
      * Daily backups count to keep
      */
     readonly dailyBackupsToKeep?: number;
@@ -50,6 +54,10 @@ export interface GetBackupPolicyResult {
      * The property to decide policy is enabled or not
      */
     readonly enabled?: boolean;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
     /**
      * Resource Id
      */

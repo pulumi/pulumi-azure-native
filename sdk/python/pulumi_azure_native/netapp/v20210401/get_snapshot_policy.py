@@ -20,13 +20,16 @@ class GetSnapshotPolicyResult:
     """
     Snapshot policy information
     """
-    def __init__(__self__, daily_schedule=None, enabled=None, hourly_schedule=None, id=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, tags=None, type=None, weekly_schedule=None):
+    def __init__(__self__, daily_schedule=None, enabled=None, etag=None, hourly_schedule=None, id=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, tags=None, type=None, weekly_schedule=None):
         if daily_schedule and not isinstance(daily_schedule, dict):
             raise TypeError("Expected argument 'daily_schedule' to be a dict")
         pulumi.set(__self__, "daily_schedule", daily_schedule)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if hourly_schedule and not isinstance(hourly_schedule, dict):
             raise TypeError("Expected argument 'hourly_schedule' to be a dict")
         pulumi.set(__self__, "hourly_schedule", hourly_schedule)
@@ -70,6 +73,14 @@ class GetSnapshotPolicyResult:
         The property to decide policy is enabled or not
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="hourlySchedule")
@@ -152,6 +163,7 @@ class AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
         return GetSnapshotPolicyResult(
             daily_schedule=self.daily_schedule,
             enabled=self.enabled,
+            etag=self.etag,
             hourly_schedule=self.hourly_schedule,
             id=self.id,
             location=self.location,
@@ -173,7 +185,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
 
     :param str account_name: The name of the NetApp account
     :param str resource_group_name: The name of the resource group.
-    :param str snapshot_policy_name: The name of the snapshot policy target
+    :param str snapshot_policy_name: The name of the snapshot policy
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -188,6 +200,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     return AwaitableGetSnapshotPolicyResult(
         daily_schedule=__ret__.daily_schedule,
         enabled=__ret__.enabled,
+        etag=__ret__.etag,
         hourly_schedule=__ret__.hourly_schedule,
         id=__ret__.id,
         location=__ret__.location,

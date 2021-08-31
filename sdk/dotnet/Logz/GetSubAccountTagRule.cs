@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetSubAccountTagRuleResult> InvokeAsync(GetSubAccountTagRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountTagRuleResult>("azure-native:logz:getSubAccountTagRule", args ?? new GetSubAccountTagRuleArgs(), options.WithVersion());

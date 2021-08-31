@@ -34,7 +34,7 @@ class SnapshotPolicyArgs:
         :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Schedule for hourly snapshots
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['MonthlyScheduleArgs'] monthly_schedule: Schedule for monthly snapshots
-        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy target
+        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Schedule for weekly snapshots
         """
@@ -145,7 +145,7 @@ class SnapshotPolicyArgs:
     @pulumi.getter(name="snapshotPolicyName")
     def snapshot_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the snapshot policy target
+        The name of the snapshot policy
         """
         return pulumi.get(self, "snapshot_policy_name")
 
@@ -206,7 +206,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']] monthly_schedule: Schedule for monthly snapshots
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy target
+        :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']] weekly_schedule: Schedule for weekly snapshots
         """

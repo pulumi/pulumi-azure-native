@@ -12,7 +12,7 @@ import (
 )
 
 // Capture logs and metrics of Azure resources based on ARM tags.
-// API Version: 2020-10-01-preview.
+// API Version: 2020-10-01.
 type TagRule struct {
 	pulumi.CustomResourceState
 

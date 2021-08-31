@@ -15,10 +15,14 @@ import (
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
+	// Backup Policy Resource ID
+	BackupPolicyId pulumi.StringOutput `pulumi:"backupPolicyId"`
 	// Daily backups count to keep
 	DailyBackupsToKeep pulumi.IntPtrOutput `pulumi:"dailyBackupsToKeep"`
 	// The property to decide policy is enabled or not
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Monthly backups count to keep

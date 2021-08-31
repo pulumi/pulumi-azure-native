@@ -44,6 +44,10 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Schedule for hourly snapshots
      */
     public readonly hourlySchedule!: pulumi.Output<outputs.netapp.v20210401.HourlyScheduleResponse | undefined>;
@@ -103,12 +107,14 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             inputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["dailySchedule"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["hourlySchedule"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["monthlySchedule"] = undefined /*out*/;
@@ -160,7 +166,7 @@ export interface SnapshotPolicyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the snapshot policy target
+     * The name of the snapshot policy
      */
     snapshotPolicyName?: pulumi.Input<string>;
     /**

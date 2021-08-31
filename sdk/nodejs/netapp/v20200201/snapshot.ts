@@ -131,7 +131,7 @@ export interface SnapshotArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the mount target
+     * The name of the snapshot
      */
     snapshotName?: pulumi.Input<string>;
     /**

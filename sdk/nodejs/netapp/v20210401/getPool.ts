@@ -47,6 +47,14 @@ export interface GetPoolResult {
      */
     readonly coolAccess?: boolean;
     /**
+     * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+     */
+    readonly encryptionType?: string;
+    /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag: string;
+    /**
      * Resource Id
      */
     readonly id: string;

@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.NetApp
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot policy target
+        /// The name of the snapshot policy
         /// </summary>
         [Input("snapshotPolicyName", required: true)]
         public string SnapshotPolicyName { get; set; } = null!;

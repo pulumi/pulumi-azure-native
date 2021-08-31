@@ -187,6 +187,12 @@ namespace Pulumi.AzureNative.Automation.V20210622
         public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
+        /// Indicates whether requests using non-AAD authentication are blocked
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// Set the encryption properties for the automation account
         /// </summary>
         [Input("encryption")]

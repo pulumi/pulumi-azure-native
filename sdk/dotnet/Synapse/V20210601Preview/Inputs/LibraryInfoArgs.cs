@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The last update time of the library.
+        /// </summary>
+        [Input("uploadedTimestamp")]
+        public Input<string>? UploadedTimestamp { get; set; }
+
         public LibraryInfoArgs()
         {
         }

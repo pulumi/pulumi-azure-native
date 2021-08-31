@@ -160,7 +160,7 @@ export interface SnapshotPolicyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the snapshot policy target
+     * The name of the snapshot policy
      */
     snapshotPolicyName?: pulumi.Input<string>;
     /**

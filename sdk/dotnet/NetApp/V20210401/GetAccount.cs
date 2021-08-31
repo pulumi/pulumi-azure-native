@@ -51,6 +51,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         public readonly Outputs.AccountEncryptionResponse? Encryption;
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -85,6 +89,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
             Outputs.AccountEncryptionResponse? encryption,
 
+            string etag,
+
             string id,
 
             string location,
@@ -101,6 +107,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         {
             ActiveDirectories = activeDirectories;
             Encryption = encryption;
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;

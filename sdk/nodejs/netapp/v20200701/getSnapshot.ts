@@ -39,7 +39,7 @@ export interface GetSnapshotArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the mount target
+     * The name of the snapshot
      */
     snapshotName: string;
     /**

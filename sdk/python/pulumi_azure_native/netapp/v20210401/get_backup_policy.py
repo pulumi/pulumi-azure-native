@@ -20,13 +20,19 @@ class GetBackupPolicyResult:
     """
     Backup policy information
     """
-    def __init__(__self__, daily_backups_to_keep=None, enabled=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
+    def __init__(__self__, backup_policy_id=None, daily_backups_to_keep=None, enabled=None, etag=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
+        if backup_policy_id and not isinstance(backup_policy_id, str):
+            raise TypeError("Expected argument 'backup_policy_id' to be a str")
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if daily_backups_to_keep and not isinstance(daily_backups_to_keep, int):
             raise TypeError("Expected argument 'daily_backups_to_keep' to be a int")
         pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -65,6 +71,14 @@ class GetBackupPolicyResult:
         pulumi.set(__self__, "yearly_backups_to_keep", yearly_backups_to_keep)
 
     @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> str:
+        """
+        Backup Policy Resource ID
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @property
     @pulumi.getter(name="dailyBackupsToKeep")
     def daily_backups_to_keep(self) -> Optional[int]:
         """
@@ -79,6 +93,14 @@ class GetBackupPolicyResult:
         The property to decide policy is enabled or not
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -183,8 +205,10 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
         if False:
             yield self
         return GetBackupPolicyResult(
+            backup_policy_id=self.backup_policy_id,
             daily_backups_to_keep=self.daily_backups_to_keep,
             enabled=self.enabled,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             monthly_backups_to_keep=self.monthly_backups_to_keep,
@@ -222,8 +246,10 @@ def get_backup_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20210401:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
     return AwaitableGetBackupPolicyResult(
+        backup_policy_id=__ret__.backup_policy_id,
         daily_backups_to_keep=__ret__.daily_backups_to_keep,
         enabled=__ret__.enabled,
+        etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         monthly_backups_to_keep=__ret__.monthly_backups_to_keep,

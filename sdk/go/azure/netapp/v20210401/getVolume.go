@@ -44,6 +44,8 @@ type LookupVolumeResult struct {
 	DataProtection *VolumePropertiesResponseDataProtection `pulumi:"dataProtection"`
 	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
 	// Set of export policy rules
 	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.

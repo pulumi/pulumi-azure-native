@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Output<bool?> CoolAccess { get; private set; } = null!;
 
         /// <summary>
+        /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        /// </summary>
+        [Output("encryptionType")]
+        public Output<string?> EncryptionType { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -189,6 +201,12 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Input<bool>? CoolAccess { get; set; }
 
         /// <summary>
+        /// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        /// </summary>
+        [Input("encryptionType")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.V20210401.EncryptionType>? EncryptionType { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
@@ -239,6 +257,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public PoolArgs()
         {
             CoolAccess = false;
+            EncryptionType = "Single";
             QosType = "Auto";
             ServiceLevel = "Premium";
         }

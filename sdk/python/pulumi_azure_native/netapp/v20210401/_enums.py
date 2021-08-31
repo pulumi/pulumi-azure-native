@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ChownMode',
+    'EncryptionType',
     'EndpointType',
     'QosType',
     'ReplicationSchedule',
@@ -20,6 +21,16 @@ class ChownMode(str, Enum):
     """
     RESTRICTED = "Restricted"
     UNRESTRICTED = "Unrestricted"
+
+
+class EncryptionType(str, Enum):
+    """
+    Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+    """
+    SINGLE = "Single"
+    """EncryptionType Single, volumes will use single encryption at rest"""
+    DOUBLE = "Double"
+    """EncryptionType Double, volumes will use double encryption at rest"""
 
 
 class EndpointType(str, Enum):

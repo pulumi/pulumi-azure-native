@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
         /// <summary>
         /// The last update time of the library.
         /// </summary>
-        public readonly string UploadedTimestamp;
+        public readonly string? UploadedTimestamp;
 
         [OutputConstructor]
         private LibraryInfoResponse(
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
 
             string? type,
 
-            string uploadedTimestamp)
+            string? uploadedTimestamp)
         {
             ContainerName = containerName;
             CreatorId = creatorId;

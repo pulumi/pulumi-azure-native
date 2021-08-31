@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Response of a list operation.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListSubAccountMonitoredResourcesResult> InvokeAsync(ListSubAccountMonitoredResourcesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountMonitoredResourcesResult>("azure-native:logz:listSubAccountMonitoredResources", args ?? new ListSubAccountMonitoredResourcesArgs(), options.WithVersion());

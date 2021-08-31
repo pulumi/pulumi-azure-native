@@ -2538,7 +2538,7 @@ type ReplicationObject struct {
 	// Id
 	ReplicationId *string `pulumi:"replicationId"`
 	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	ReplicationSchedule *string `pulumi:"replicationSchedule"`
 }
 
 // ReplicationObjectInput is an input type that accepts ReplicationObjectArgs and ReplicationObjectOutput values.
@@ -2563,7 +2563,7 @@ type ReplicationObjectArgs struct {
 	// Id
 	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
 	// Schedule
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	ReplicationSchedule pulumi.StringPtrInput `pulumi:"replicationSchedule"`
 }
 
 func (ReplicationObjectArgs) ElementType() reflect.Type {
@@ -2665,8 +2665,8 @@ func (o ReplicationObjectOutput) ReplicationId() pulumi.StringPtrOutput {
 }
 
 // Schedule
-func (o ReplicationObjectOutput) ReplicationSchedule() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationObject) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
+func (o ReplicationObjectOutput) ReplicationSchedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationObject) *string { return v.ReplicationSchedule }).(pulumi.StringPtrOutput)
 }
 
 type ReplicationObjectPtrOutput struct{ *pulumi.OutputState }
@@ -2733,7 +2733,7 @@ func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return &v.ReplicationSchedule
+		return v.ReplicationSchedule
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2748,7 +2748,7 @@ type ReplicationObjectResponse struct {
 	// Id
 	ReplicationId *string `pulumi:"replicationId"`
 	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	ReplicationSchedule *string `pulumi:"replicationSchedule"`
 }
 
 // ReplicationObjectResponseInput is an input type that accepts ReplicationObjectResponseArgs and ReplicationObjectResponseOutput values.
@@ -2773,7 +2773,7 @@ type ReplicationObjectResponseArgs struct {
 	// Id
 	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
 	// Schedule
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	ReplicationSchedule pulumi.StringPtrInput `pulumi:"replicationSchedule"`
 }
 
 func (ReplicationObjectResponseArgs) ElementType() reflect.Type {
@@ -2875,8 +2875,8 @@ func (o ReplicationObjectResponseOutput) ReplicationId() pulumi.StringPtrOutput 
 }
 
 // Schedule
-func (o ReplicationObjectResponseOutput) ReplicationSchedule() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationObjectResponse) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
+func (o ReplicationObjectResponseOutput) ReplicationSchedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.ReplicationSchedule }).(pulumi.StringPtrOutput)
 }
 
 type ReplicationObjectResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2943,7 +2943,7 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return &v.ReplicationSchedule
+		return v.ReplicationSchedule
 	}).(pulumi.StringPtrOutput)
 }
 

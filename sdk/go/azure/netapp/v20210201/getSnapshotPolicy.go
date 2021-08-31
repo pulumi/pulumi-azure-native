@@ -22,7 +22,7 @@ type LookupSnapshotPolicyArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot policy target
+	// The name of the snapshot policy
 	SnapshotPolicyName string `pulumi:"snapshotPolicyName"`
 }
 

@@ -8,7 +8,7 @@ import (
 )
 
 // Response of a list VM Host Update Operation.
-// API Version: 2020-10-01-preview.
+// API Version: 2020-10-01.
 func ListSubAccountVMHosts(ctx *pulumi.Context, args *ListSubAccountVMHostsArgs, opts ...pulumi.InvokeOption) (*ListSubAccountVMHostsResult, error) {
 	var rv ListSubAccountVMHostsResult
 	err := ctx.Invoke("azure-native:logz:listSubAccountVMHosts", args, &rv, opts...)

@@ -19,6 +19,8 @@ type Account struct {
 	ActiveDirectories ActiveDirectoryResponseArrayOutput `pulumi:"activeDirectories"`
 	// Encryption settings
 	Encryption AccountEncryptionResponsePtrOutput `pulumi:"encryption"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name

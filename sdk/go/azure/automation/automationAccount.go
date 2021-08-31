@@ -128,6 +128,8 @@ func (AutomationAccountState) ElementType() reflect.Type {
 type automationAccountArgs struct {
 	// The name of the automation account.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
+	// Indicates whether requests using non-AAD authentication are blocked
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Set the encryption properties for the automation account
 	Encryption *EncryptionProperties `pulumi:"encryption"`
 	// Sets the identity property for automation account
@@ -150,6 +152,8 @@ type automationAccountArgs struct {
 type AutomationAccountArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringPtrInput
+	// Indicates whether requests using non-AAD authentication are blocked
+	DisableLocalAuth pulumi.BoolPtrInput
 	// Set the encryption properties for the automation account
 	Encryption EncryptionPropertiesPtrInput
 	// Sets the identity property for automation account

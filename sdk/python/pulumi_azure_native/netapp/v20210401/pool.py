@@ -19,6 +19,7 @@ class PoolArgs:
                  service_level: pulumi.Input[Union[str, 'ServiceLevel']],
                  size: pulumi.Input[float],
                  cool_access: Optional[pulumi.Input[bool]] = None,
+                 encryption_type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  qos_type: Optional[pulumi.Input[Union[str, 'QosType']]] = None,
@@ -30,6 +31,7 @@ class PoolArgs:
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         :param pulumi.Input[bool] cool_access: If enabled (true) the pool can contain cool Access enabled volumes.
+        :param pulumi.Input[Union[str, 'EncryptionType']] encryption_type: Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[Union[str, 'QosType']] qos_type: The qos type of the pool
@@ -45,6 +47,10 @@ class PoolArgs:
             cool_access = False
         if cool_access is not None:
             pulumi.set(__self__, "cool_access", cool_access)
+        if encryption_type is None:
+            encryption_type = 'Single'
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if pool_name is not None:
@@ -117,6 +123,18 @@ class PoolArgs:
         pulumi.set(self, "cool_access", value)
 
     @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
+        """
+        Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
+        pulumi.set(self, "encryption_type", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -172,6 +190,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  cool_access: Optional[pulumi.Input[bool]] = None,
+                 encryption_type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  qos_type: Optional[pulumi.Input[Union[str, 'QosType']]] = None,
@@ -187,6 +206,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[bool] cool_access: If enabled (true) the pool can contain cool Access enabled volumes.
+        :param pulumi.Input[Union[str, 'EncryptionType']] encryption_type: Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[Union[str, 'QosType']] qos_type: The qos type of the pool
@@ -221,6 +241,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  cool_access: Optional[pulumi.Input[bool]] = None,
+                 encryption_type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  qos_type: Optional[pulumi.Input[Union[str, 'QosType']]] = None,
@@ -246,6 +267,9 @@ class Pool(pulumi.CustomResource):
             if cool_access is None:
                 cool_access = False
             __props__.__dict__["cool_access"] = cool_access
+            if encryption_type is None:
+                encryption_type = 'Single'
+            __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["location"] = location
             __props__.__dict__["pool_name"] = pool_name
             if qos_type is None:
@@ -263,6 +287,7 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["pool_id"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -294,6 +319,8 @@ class Pool(pulumi.CustomResource):
         __props__ = PoolArgs.__new__(PoolArgs)
 
         __props__.__dict__["cool_access"] = None
+        __props__.__dict__["encryption_type"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["pool_id"] = None
@@ -314,6 +341,22 @@ class Pool(pulumi.CustomResource):
         If enabled (true) the pool can contain cool Access enabled volumes.
         """
         return pulumi.get(self, "cool_access")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

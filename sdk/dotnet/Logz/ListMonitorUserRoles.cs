@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Response for list of user's role for Logz.io account.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListMonitorUserRolesResult> InvokeAsync(ListMonitorUserRolesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorUserRolesResult>("azure-native:logz:listMonitorUserRoles", args ?? new ListMonitorUserRolesArgs(), options.WithVersion());

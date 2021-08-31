@@ -50,7 +50,7 @@ export class AutomationAccount extends pulumi.CustomResource {
     /**
      * Indicates whether requests using non-AAD authentication are blocked
      */
-    public /*out*/ readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
     /**
      * Encryption properties for the automation account
      */
@@ -123,6 +123,7 @@ export class AutomationAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -134,7 +135,6 @@ export class AutomationAccount extends pulumi.CustomResource {
             inputs["automationHybridServiceUrl"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["disableLocalAuth"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
             inputs["lastModifiedBy"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
@@ -179,6 +179,10 @@ export interface AutomationAccountArgs {
      * The name of the automation account.
      */
     automationAccountName?: pulumi.Input<string>;
+    /**
+     * Indicates whether requests using non-AAD authentication are blocked
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Set the encryption properties for the automation account
      */

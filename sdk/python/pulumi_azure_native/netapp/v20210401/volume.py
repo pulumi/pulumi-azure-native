@@ -138,6 +138,8 @@ class VolumeArgs:
             throughput_mibps = 0
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
+        if unix_permissions is None:
+            unix_permissions = '0770'
         if unix_permissions is not None:
             pulumi.set(__self__, "unix_permissions", unix_permissions)
         if volume_name is not None:
@@ -662,6 +664,8 @@ class Volume(pulumi.CustomResource):
             if throughput_mibps is None:
                 throughput_mibps = 0
             __props__.__dict__["throughput_mibps"] = throughput_mibps
+            if unix_permissions is None:
+                unix_permissions = '0770'
             __props__.__dict__["unix_permissions"] = unix_permissions
             if usage_threshold is None:
                 usage_threshold = 107374182400
@@ -671,6 +675,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["volume_name"] = volume_name
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["baremetal_tenant_id"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["file_system_id"] = None
             __props__.__dict__["mount_targets"] = None
             __props__.__dict__["name"] = None
@@ -707,6 +712,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["creation_token"] = None
         __props__.__dict__["data_protection"] = None
         __props__.__dict__["encryption_key_source"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["export_policy"] = None
         __props__.__dict__["file_system_id"] = None
         __props__.__dict__["is_restoring"] = None
@@ -787,6 +793,14 @@ class Volume(pulumi.CustomResource):
         Encryption Key Source. Possible values are: 'Microsoft.NetApp'
         """
         return pulumi.get(self, "encryption_key_source")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="exportPolicy")

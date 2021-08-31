@@ -28,10 +28,14 @@ type LookupBackupPolicyArgs struct {
 
 // Backup policy information
 type LookupBackupPolicyResult struct {
+	// Backup Policy Resource ID
+	BackupPolicyId string `pulumi:"backupPolicyId"`
 	// Daily backups count to keep
 	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
 	// The property to decide policy is enabled or not
 	Enabled *bool `pulumi:"enabled"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location

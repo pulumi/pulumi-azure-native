@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         public readonly string? EncryptionKeySource;
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Set of export policy rules
         /// </summary>
         public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
@@ -192,6 +196,8 @@ namespace Pulumi.AzureNative.NetApp.V20210401
 
             string? encryptionKeySource,
 
+            string etag,
+
             Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
 
             string fileSystemId,
@@ -247,6 +253,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
             CreationToken = creationToken;
             DataProtection = dataProtection;
             EncryptionKeySource = encryptionKeySource;
+            Etag = etag;
             ExportPolicy = exportPolicy;
             FileSystemId = fileSystemId;
             Id = id;

@@ -17,6 +17,10 @@ type Pool struct {
 
 	// If enabled (true) the pool can contain cool Access enabled volumes.
 	CoolAccess pulumi.BoolPtrOutput `pulumi:"coolAccess"`
+	// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
@@ -62,6 +66,9 @@ func NewPool(ctx *pulumi.Context,
 	}
 	if args.CoolAccess == nil {
 		args.CoolAccess = pulumi.BoolPtr(false)
+	}
+	if args.EncryptionType == nil {
+		args.EncryptionType = pulumi.StringPtr("Single")
 	}
 	if args.QosType == nil {
 		args.QosType = pulumi.StringPtr("Auto")
@@ -231,6 +238,8 @@ type poolArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// If enabled (true) the pool can contain cool Access enabled volumes.
 	CoolAccess *bool `pulumi:"coolAccess"`
+	// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+	EncryptionType *string `pulumi:"encryptionType"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the capacity pool
@@ -253,6 +262,8 @@ type PoolArgs struct {
 	AccountName pulumi.StringInput
 	// If enabled (true) the pool can contain cool Access enabled volumes.
 	CoolAccess pulumi.BoolPtrInput
+	// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+	EncryptionType pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the capacity pool

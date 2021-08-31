@@ -18,6 +18,7 @@ class AutomationAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  automation_account_name: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class AutomationAccountArgs:
         The set of arguments for constructing a AutomationAccount resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[bool] disable_local_auth: Indicates whether requests using non-AAD authentication are blocked
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: Set the encryption properties for the automation account
         :param pulumi.Input['IdentityArgs'] identity: Sets the identity property for automation account
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
@@ -40,6 +42,8 @@ class AutomationAccountArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if automation_account_name is not None:
             pulumi.set(__self__, "automation_account_name", automation_account_name)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
@@ -78,6 +82,18 @@ class AutomationAccountArgs:
     @automation_account_name.setter
     def automation_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether requests using non-AAD authentication are blocked
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
 
     @property
     @pulumi.getter
@@ -170,6 +186,7 @@ class AutomationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -185,6 +202,7 @@ class AutomationAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[bool] disable_local_auth: Indicates whether requests using non-AAD authentication are blocked
         :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: Set the encryption properties for the automation account
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Sets the identity property for automation account
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
@@ -219,6 +237,7 @@ class AutomationAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -240,6 +259,7 @@ class AutomationAccount(pulumi.CustomResource):
             __props__ = AutomationAccountArgs.__new__(AutomationAccountArgs)
 
             __props__.__dict__["automation_account_name"] = automation_account_name
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -253,7 +273,6 @@ class AutomationAccount(pulumi.CustomResource):
             __props__.__dict__["automation_hybrid_service_url"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["description"] = None
-            __props__.__dict__["disable_local_auth"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_by"] = None
             __props__.__dict__["last_modified_time"] = None

@@ -30,6 +30,8 @@ type LookupAccountResult struct {
 	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
 	// Encryption settings
 	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location

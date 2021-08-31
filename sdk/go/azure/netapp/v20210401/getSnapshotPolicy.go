@@ -22,7 +22,7 @@ type LookupSnapshotPolicyArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot policy target
+	// The name of the snapshot policy
 	SnapshotPolicyName string `pulumi:"snapshotPolicyName"`
 }
 
@@ -32,6 +32,8 @@ type LookupSnapshotPolicyResult struct {
 	DailySchedule *DailyScheduleResponse `pulumi:"dailySchedule"`
 	// The property to decide policy is enabled or not
 	Enabled *bool `pulumi:"enabled"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
 	// Schedule for hourly snapshots
 	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
 	// Resource Id

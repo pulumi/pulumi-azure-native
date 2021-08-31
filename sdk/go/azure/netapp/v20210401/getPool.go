@@ -30,6 +30,10 @@ type LookupPoolArgs struct {
 type LookupPoolResult struct {
 	// If enabled (true) the pool can contain cool Access enabled volumes.
 	CoolAccess *bool `pulumi:"coolAccess"`
+	// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+	EncryptionType *string `pulumi:"encryptionType"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location

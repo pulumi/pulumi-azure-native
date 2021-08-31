@@ -19,10 +19,16 @@ class GetPoolResult:
     """
     Capacity pool resource
     """
-    def __init__(__self__, cool_access=None, id=None, location=None, name=None, pool_id=None, provisioning_state=None, qos_type=None, service_level=None, size=None, tags=None, total_throughput_mibps=None, type=None, utilized_throughput_mibps=None):
+    def __init__(__self__, cool_access=None, encryption_type=None, etag=None, id=None, location=None, name=None, pool_id=None, provisioning_state=None, qos_type=None, service_level=None, size=None, tags=None, total_throughput_mibps=None, type=None, utilized_throughput_mibps=None):
         if cool_access and not isinstance(cool_access, bool):
             raise TypeError("Expected argument 'cool_access' to be a bool")
         pulumi.set(__self__, "cool_access", cool_access)
+        if encryption_type and not isinstance(encryption_type, str):
+            raise TypeError("Expected argument 'encryption_type' to be a str")
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -67,6 +73,22 @@ class GetPoolResult:
         If enabled (true) the pool can contain cool Access enabled volumes.
         """
         return pulumi.get(self, "cool_access")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[str]:
+        """
+        Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -172,6 +194,8 @@ class AwaitableGetPoolResult(GetPoolResult):
             yield self
         return GetPoolResult(
             cool_access=self.cool_access,
+            encryption_type=self.encryption_type,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -210,6 +234,8 @@ def get_pool(account_name: Optional[str] = None,
 
     return AwaitableGetPoolResult(
         cool_access=__ret__.cool_access,
+        encryption_type=__ret__.encryption_type,
+        etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

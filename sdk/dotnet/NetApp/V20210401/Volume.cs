@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Output<string?> EncryptionKeySource { get; private set; } = null!;
 
         /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Set of export policy rules
         /// </summary>
         [Output("exportPolicy")]
@@ -469,6 +475,7 @@ namespace Pulumi.AzureNative.NetApp.V20210401
             SmbEncryption = false;
             SnapshotDirectoryVisible = true;
             ThroughputMibps = 0;
+            UnixPermissions = "0770";
             UsageThreshold = 107374182400;
         }
     }

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.NetApp.V20210401
     public partial class BackupPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Backup Policy Resource ID
+        /// </summary>
+        [Output("backupPolicyId")]
+        public Output<string> BackupPolicyId { get; private set; } = null!;
+
+        /// <summary>
         /// Daily backups count to keep
         /// </summary>
         [Output("dailyBackupsToKeep")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

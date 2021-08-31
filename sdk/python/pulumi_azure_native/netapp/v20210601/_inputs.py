@@ -830,26 +830,27 @@ class MonthlyScheduleArgs:
 class ReplicationObjectArgs:
     def __init__(__self__, *,
                  remote_volume_resource_id: pulumi.Input[str],
-                 replication_schedule: pulumi.Input[Union[str, 'ReplicationSchedule']],
                  endpoint_type: Optional[pulumi.Input[Union[str, 'EndpointType']]] = None,
                  remote_volume_region: Optional[pulumi.Input[str]] = None,
-                 replication_id: Optional[pulumi.Input[str]] = None):
+                 replication_id: Optional[pulumi.Input[str]] = None,
+                 replication_schedule: Optional[pulumi.Input[Union[str, 'ReplicationSchedule']]] = None):
         """
         Replication properties
         :param pulumi.Input[str] remote_volume_resource_id: The resource ID of the remote volume.
-        :param pulumi.Input[Union[str, 'ReplicationSchedule']] replication_schedule: Schedule
         :param pulumi.Input[Union[str, 'EndpointType']] endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
         :param pulumi.Input[str] remote_volume_region: The remote region for the other end of the Volume Replication.
         :param pulumi.Input[str] replication_id: Id
+        :param pulumi.Input[Union[str, 'ReplicationSchedule']] replication_schedule: Schedule
         """
         pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
-        pulumi.set(__self__, "replication_schedule", replication_schedule)
         if endpoint_type is not None:
             pulumi.set(__self__, "endpoint_type", endpoint_type)
         if remote_volume_region is not None:
             pulumi.set(__self__, "remote_volume_region", remote_volume_region)
         if replication_id is not None:
             pulumi.set(__self__, "replication_id", replication_id)
+        if replication_schedule is not None:
+            pulumi.set(__self__, "replication_schedule", replication_schedule)
 
     @property
     @pulumi.getter(name="remoteVolumeResourceId")
@@ -862,18 +863,6 @@ class ReplicationObjectArgs:
     @remote_volume_resource_id.setter
     def remote_volume_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "remote_volume_resource_id", value)
-
-    @property
-    @pulumi.getter(name="replicationSchedule")
-    def replication_schedule(self) -> pulumi.Input[Union[str, 'ReplicationSchedule']]:
-        """
-        Schedule
-        """
-        return pulumi.get(self, "replication_schedule")
-
-    @replication_schedule.setter
-    def replication_schedule(self, value: pulumi.Input[Union[str, 'ReplicationSchedule']]):
-        pulumi.set(self, "replication_schedule", value)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -910,6 +899,18 @@ class ReplicationObjectArgs:
     @replication_id.setter
     def replication_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replication_id", value)
+
+    @property
+    @pulumi.getter(name="replicationSchedule")
+    def replication_schedule(self) -> Optional[pulumi.Input[Union[str, 'ReplicationSchedule']]]:
+        """
+        Schedule
+        """
+        return pulumi.get(self, "replication_schedule")
+
+    @replication_schedule.setter
+    def replication_schedule(self, value: Optional[pulumi.Input[Union[str, 'ReplicationSchedule']]]):
+        pulumi.set(self, "replication_schedule", value)
 
 
 @pulumi.input_type

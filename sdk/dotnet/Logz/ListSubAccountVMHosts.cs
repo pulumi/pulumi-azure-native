@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Logz
     {
         /// <summary>
         /// Response of a list VM Host Update Operation.
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListSubAccountVMHostsResult> InvokeAsync(ListSubAccountVMHostsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsArgs(), options.WithVersion());

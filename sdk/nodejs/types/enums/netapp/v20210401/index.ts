@@ -12,6 +12,22 @@ export const ChownMode = {
  */
 export type ChownMode = (typeof ChownMode)[keyof typeof ChownMode];
 
+export const EncryptionType = {
+    /**
+     * EncryptionType Single, volumes will use single encryption at rest
+     */
+    Single: "Single",
+    /**
+     * EncryptionType Double, volumes will use double encryption at rest
+     */
+    Double: "Double",
+} as const;
+
+/**
+ * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
 export const EndpointType = {
     Src: "src",
     Dst: "dst",

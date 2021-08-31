@@ -120,7 +120,7 @@ def get_sub_account(monitor_name: Optional[str] = None,
                     sub_account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubAccountResult:
     """
-    API Version: 2020-10-01-preview.
+    API Version: 2020-10-01.
 
 
     :param str monitor_name: Monitor resource name

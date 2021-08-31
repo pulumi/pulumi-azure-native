@@ -189,6 +189,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -219,6 +220,7 @@ class Account(pulumi.CustomResource):
 
         __props__.__dict__["active_directories"] = None
         __props__.__dict__["encryption"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -242,6 +244,14 @@ class Account(pulumi.CustomResource):
         Encryption settings
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter

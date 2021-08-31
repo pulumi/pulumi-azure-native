@@ -91,7 +91,7 @@ class TagRule(pulumi.CustomResource):
                  __props__=None):
         """
         Capture logs and metrics of Azure resources based on ARM tags.
-        API Version: 2020-10-01-preview.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,7 +107,7 @@ class TagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Capture logs and metrics of Azure resources based on ARM tags.
-        API Version: 2020-10-01-preview.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param TagRuleArgs args: The arguments to use to populate this resource's properties.

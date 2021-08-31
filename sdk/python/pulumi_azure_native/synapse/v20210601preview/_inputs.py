@@ -755,21 +755,37 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
 @pulumi.input_type
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
+                 cleanup: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  time_to_live: Optional[pulumi.Input[int]] = None):
         """
         Data flow properties for managed integration runtime.
+        :param pulumi.Input[bool] cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param pulumi.Input[Union[str, 'DataFlowComputeType']] compute_type: Compute type of the cluster which will execute data flow job.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
+        if cleanup is not None:
+            pulumi.set(__self__, "cleanup", cleanup)
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
         if time_to_live is not None:
             pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter
+    def cleanup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+        """
+        return pulumi.get(self, "cleanup")
+
+    @cleanup.setter
+    def cleanup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup", value)
 
     @property
     @pulumi.getter(name="computeType")
@@ -1158,13 +1174,15 @@ class LibraryInfoArgs:
                  container_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 uploaded_timestamp: Optional[pulumi.Input[str]] = None):
         """
         Library/package information of a Big Data pool powered by Apache Spark
         :param pulumi.Input[str] container_name: Storage blob container name.
         :param pulumi.Input[str] name: Name of the library.
         :param pulumi.Input[str] path: Storage blob path of library.
         :param pulumi.Input[str] type: Type of the library.
+        :param pulumi.Input[str] uploaded_timestamp: The last update time of the library.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -1174,6 +1192,8 @@ class LibraryInfoArgs:
             pulumi.set(__self__, "path", path)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if uploaded_timestamp is not None:
+            pulumi.set(__self__, "uploaded_timestamp", uploaded_timestamp)
 
     @property
     @pulumi.getter(name="containerName")
@@ -1222,6 +1242,18 @@ class LibraryInfoArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="uploadedTimestamp")
+    def uploaded_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last update time of the library.
+        """
+        return pulumi.get(self, "uploaded_timestamp")
+
+    @uploaded_timestamp.setter
+    def uploaded_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uploaded_timestamp", value)
 
 
 @pulumi.input_type

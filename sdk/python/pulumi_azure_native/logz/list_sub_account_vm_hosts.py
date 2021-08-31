@@ -61,7 +61,7 @@ def list_sub_account_vm_hosts(monitor_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSubAccountVMHostsResult:
     """
     Response of a list VM Host Update Operation.
-    API Version: 2020-10-01-preview.
+    API Version: 2020-10-01.
 
 
     :param str monitor_name: Monitor resource name
