@@ -39280,17 +39280,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "containerGroups"
@@ -39335,17 +39338,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "serviceAssociationLinks"
@@ -39415,17 +39421,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/capabilities"
@@ -39470,17 +39479,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/usages"
@@ -39525,17 +39537,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/operations"
@@ -39580,17 +39595,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/operationresults"
@@ -39660,17 +39678,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/cachedImages"
@@ -39716,17 +39737,20 @@
           "North Central US",
           "North Europe",
           "Norway East",
+          "South Africa North",
           "South Central US",
           "Southeast Asia",
           "South India",
           "Switzerland North",
+          "Switzerland West",
           "UAE North",
           "UK South",
           "UK West",
           "West Central US",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/deleteVirtualNetworkOrSubnets"
@@ -65665,23 +65689,6 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-07-01",
-          "2021-06-01-preview",
-          "2021-02-01-preview",
-          "2021-01-01",
-          "2020-01-01-alpha"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
         "locations": [
           "South Central US",
           "East US",
@@ -65982,7 +65989,8 @@
           "Norway East",
           "South Africa North",
           "UK West",
-          "Japan West"
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "configurationStores"
@@ -66025,7 +66033,8 @@
           "Norway East",
           "South Africa North",
           "UK West",
-          "Japan West"
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "configurationStores/keyValues"
@@ -66072,7 +66081,8 @@
           "Norway East",
           "South Africa North",
           "UK West",
-          "Japan West"
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "configurationStores/eventGridFilters"
@@ -66119,7 +66129,8 @@
           "Norway East",
           "South Africa North",
           "UK West",
-          "Japan West"
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -66166,7 +66177,8 @@
           "Norway East",
           "South Africa North",
           "UK West",
-          "Japan West"
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -66213,7 +66225,8 @@
           "Norway East",
           "South Africa North",
           "UK West",
-          "Japan West"
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/operationsStatus"
@@ -66260,7 +66273,8 @@
           "Norway East",
           "South Africa North",
           "UK West",
-          "Japan West"
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -75977,6 +75991,7 @@
         "locationMappings": null,
         "locations": [
           "West US",
+          "West US 2",
           "North Europe"
         ],
         "properties": null,
@@ -77982,6 +77997,24 @@
         ],
         "properties": null,
         "resourceType": "images"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": [
+          {
+            "apiVersion": "2020-05-07",
+            "profileVersion": "2019-03-01-hybrid"
+          }
+        ],
+        "apiVersions": [
+          "2020-05-07"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity",
+        "defaultApiVersion": "2020-05-07",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations"
       },
       {
         "aliases": null,
@@ -88080,6 +88113,13 @@
     ]
   },
   {
+    "authorizations": [
+      {
+        "applicationId": "8b5a06b3-efd5-4511-b112-5caf390d1b92",
+        "managedByRoleDefinitionId": "1e86f807-6ec0-40b3-8b5f-686b7e43a0a2",
+        "roleDefinitionId": "94553153-3875-4545-8c17-9f2d3828c5fd"
+      }
+    ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ProviderHub",
     "namespace": "Microsoft.ProviderHub",
     "providerAuthorizationConsentState": null,
@@ -88090,6 +88130,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
@@ -88108,6 +88149,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-05-01-preview",
           "2020-11-20",
           "2020-06-01-preview",
@@ -88144,6 +88186,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
@@ -88162,6 +88205,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-05-01-preview",
           "2020-11-20",
           "2020-10-01-preview",
@@ -88180,6 +88224,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-05-01-preview",
           "2021-01-01",
           "2020-11-20",
@@ -88199,6 +88244,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-05-01-preview",
           "2020-06-01-preview",
           "2019-02-01-preview",
@@ -88494,47 +88540,6 @@
         "locations": [],
         "properties": null,
         "resourceType": "Locations/checkNameAvailability"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
-        "applicationId": "fbc197b7-9e9c-4f98-823f-93cb1cb554e6",
-        "roleDefinitionId": "941F67D2-083A-4B78-AF91-9B3B30B9B150"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Quota",
-    "namespace": "Microsoft.Quota",
-    "providerAuthorizationConsentState": null,
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-03-15-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "quotaLimitProviders"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-03-15-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "operations"
       }
     ]
   },
