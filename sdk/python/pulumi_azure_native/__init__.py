@@ -13101,6 +13101,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security",
   "classes": {
    "azure-native:security:AdaptiveApplicationControl": "AdaptiveApplicationControl",
+   "azure-native:security:AdvancedThreatProtection": "AdvancedThreatProtection",
    "azure-native:security:AlertsSuppressionRule": "AlertsSuppressionRule",
    "azure-native:security:Assessment": "Assessment",
    "azure-native:security:AssessmentMetadataInSubscription": "AssessmentMetadataInSubscription",
@@ -13130,10 +13131,19 @@ _utilities.register(
   "mod": "security/v20170801preview",
   "fqn": "pulumi_azure_native.security.v20170801preview",
   "classes": {
+   "azure-native:security/v20170801preview:AdvancedThreatProtection": "AdvancedThreatProtection",
    "azure-native:security/v20170801preview:DeviceSecurityGroup": "DeviceSecurityGroup",
    "azure-native:security/v20170801preview:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security/v20170801preview:SecurityContact": "SecurityContact",
    "azure-native:security/v20170801preview:WorkspaceSetting": "WorkspaceSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20190101",
+  "fqn": "pulumi_azure_native.security.v20190101",
+  "classes": {
+   "azure-native:security/v20190101:AdvancedThreatProtection": "AdvancedThreatProtection"
   }
  },
  {

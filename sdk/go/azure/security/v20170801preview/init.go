@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:security/v20170801preview:AdvancedThreatProtection":
+		r = &AdvancedThreatProtection{}
 	case "azure-native:security/v20170801preview:DeviceSecurityGroup":
 		r = &DeviceSecurityGroup{}
 	case "azure-native:security/v20170801preview:IotSecuritySolution":
