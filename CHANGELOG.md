@@ -7,25 +7,32 @@ CHANGELOG
 
 ---
 
+## 1.25.0 (2021-09-01)
+
+#### New resources:
+
+- `security.AdvancedThreatProtection`
+
+#### New functions:
+
+- `security.getAdvancedThreatProtection`
+
+#### Enhancements:
+
+- Add missing API versions of Service Fabric
+  [#922](https://github.com/pulumi/pulumi-azure-native/issues/922).
+
 ## 1.24.0 (2021-08-31)
 
 #### New resources:
 
 - `automation.HybridRunbookWorker`
 - `automation.HybridRunbookWorkerGroup`
-- `security.AdvancedThreatProtection`
 
 #### New functions:
 
 - `automation.getHybridRunbookWorker`
 - `automation.getHybridRunbookWorkerGroup`
-- `security.getAdvancedThreatProtection`
-
-
-#### Enhancements:
-
-- Add missing API versions of Service Fabric
-  [#922](https://github.com/pulumi/pulumi-azure-native/issues/922).
 
 #### Updated API versions for top-level resources
 
