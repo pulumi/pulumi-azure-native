@@ -83,6 +83,12 @@ func NewServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:dbformysql/v20200701privatepreview:Server"),
 		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20210501:Server"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dbformysql/v20210501:Server"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Server

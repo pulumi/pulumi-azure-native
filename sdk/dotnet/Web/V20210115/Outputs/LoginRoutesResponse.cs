@@ -14,43 +14,14 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
     public sealed class LoginRoutesResponse
     {
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
         /// The endpoint at which a logout request should be made.
         /// </summary>
         public readonly string? LogoutEndpoint;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private LoginRoutesResponse(
-            string id,
-
-            string? kind,
-
-            string? logoutEndpoint,
-
-            string name,
-
-            string type)
+        private LoginRoutesResponse(string? logoutEndpoint)
         {
-            Id = id;
-            Kind = kind;
             LogoutEndpoint = logoutEndpoint;
-            Name = name;
-            Type = type;
         }
     }
 }

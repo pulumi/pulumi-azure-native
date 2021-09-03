@@ -74,9 +74,9 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The hub vnet Id.
+        /// List of hubItems
         /// </summary>
-        public readonly string? HubId;
+        public readonly ImmutableArray<Outputs.HubResponse> Hubs;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Network
 
             string etag,
 
-            string? hubId,
+            ImmutableArray<Outputs.HubResponse> hubs,
 
             string id,
 
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Network
             Description = description;
             DisplayName = displayName;
             Etag = etag;
-            HubId = hubId;
+            Hubs = hubs;
             Id = id;
             IsGlobal = isGlobal;
             Name = name;

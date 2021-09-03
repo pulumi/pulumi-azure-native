@@ -16,16 +16,10 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class GroupMembersItemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Subnet Id.
+        /// Resource Id.
         /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        /// <summary>
-        /// Vnet Id.
-        /// </summary>
-        [Input("vnetId")]
-        public Input<string>? VnetId { get; set; }
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
 
         public GroupMembersItemArgs()
         {

@@ -682,17 +682,17 @@ class FollowerDatabaseDefinitionResponse(dict):
     """
     def __init__(__self__, *,
                  attached_database_configuration_name: str,
-                 cluster_resource_id: str,
-                 database_name: str):
+                 database_name: str,
+                 kusto_pool_resource_id: str):
         """
         A class representing follower database request.
         :param str attached_database_configuration_name: Resource name of the attached database configuration in the follower cluster.
-        :param str cluster_resource_id: Resource id of the cluster that follows a database owned by this cluster.
         :param str database_name: The database name owned by this cluster that was followed. * in case following all databases.
+        :param str kusto_pool_resource_id: Resource id of the cluster that follows a database owned by this cluster.
         """
         pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "kusto_pool_resource_id", kusto_pool_resource_id)
 
     @property
     @pulumi.getter(name="attachedDatabaseConfigurationName")
@@ -703,20 +703,20 @@ class FollowerDatabaseDefinitionResponse(dict):
         return pulumi.get(self, "attached_database_configuration_name")
 
     @property
-    @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> str:
-        """
-        Resource id of the cluster that follows a database owned by this cluster.
-        """
-        return pulumi.get(self, "cluster_resource_id")
-
-    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
         """
         The database name owned by this cluster that was followed. * in case following all databases.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="kustoPoolResourceId")
+    def kusto_pool_resource_id(self) -> str:
+        """
+        Resource id of the cluster that follows a database owned by this cluster.
+        """
+        return pulumi.get(self, "kusto_pool_resource_id")
 
 
 @pulumi.output_type

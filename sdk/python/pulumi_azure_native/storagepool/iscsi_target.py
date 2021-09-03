@@ -177,7 +177,7 @@ class IscsiTarget(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagepool:IscsiTarget"), pulumi.Alias(type_="azure-native:storagepool/v20200315preview:IscsiTarget"), pulumi.Alias(type_="azure-nextgen:storagepool/v20200315preview:IscsiTarget"), pulumi.Alias(type_="azure-native:storagepool/v20210401preview:IscsiTarget"), pulumi.Alias(type_="azure-nextgen:storagepool/v20210401preview:IscsiTarget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagepool:IscsiTarget"), pulumi.Alias(type_="azure-native:storagepool/v20200315preview:IscsiTarget"), pulumi.Alias(type_="azure-nextgen:storagepool/v20200315preview:IscsiTarget"), pulumi.Alias(type_="azure-native:storagepool/v20210401preview:IscsiTarget"), pulumi.Alias(type_="azure-nextgen:storagepool/v20210401preview:IscsiTarget"), pulumi.Alias(type_="azure-native:storagepool/v20210801:IscsiTarget"), pulumi.Alias(type_="azure-nextgen:storagepool/v20210801:IscsiTarget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IscsiTarget, __self__).__init__(
             'azure-native:storagepool:IscsiTarget',

@@ -43,6 +43,8 @@ type Queue struct {
 	LockDuration pulumi.StringPtrOutput `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes pulumi.Float64PtrOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrOutput `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.
@@ -174,6 +176,8 @@ type queueArgs struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The namespace name
@@ -214,6 +218,8 @@ type QueueArgs struct {
 	LockDuration pulumi.StringPtrInput
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount pulumi.IntPtrInput
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes pulumi.Float64PtrInput
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// The namespace name

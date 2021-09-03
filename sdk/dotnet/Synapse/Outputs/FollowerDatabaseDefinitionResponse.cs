@@ -18,25 +18,25 @@ namespace Pulumi.AzureNative.Synapse.Outputs
         /// </summary>
         public readonly string AttachedDatabaseConfigurationName;
         /// <summary>
-        /// Resource id of the cluster that follows a database owned by this cluster.
-        /// </summary>
-        public readonly string ClusterResourceId;
-        /// <summary>
         /// The database name owned by this cluster that was followed. * in case following all databases.
         /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Resource id of the cluster that follows a database owned by this cluster.
+        /// </summary>
+        public readonly string KustoPoolResourceId;
 
         [OutputConstructor]
         private FollowerDatabaseDefinitionResponse(
             string attachedDatabaseConfigurationName,
 
-            string clusterResourceId,
+            string databaseName,
 
-            string databaseName)
+            string kustoPoolResourceId)
         {
             AttachedDatabaseConfigurationName = attachedDatabaseConfigurationName;
-            ClusterResourceId = clusterResourceId;
             DatabaseName = databaseName;
+            KustoPoolResourceId = kustoPoolResourceId;
         }
     }
 }

@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The hub vnet Id.
+        /// List of hubItems
         /// </summary>
-        [Output("hubId")]
-        public Output<string?> HubId { get; private set; } = null!;
+        [Output("hubs")]
+        public Output<ImmutableArray<Outputs.HubResponse>> Hubs { get; private set; } = null!;
 
         /// <summary>
         /// Flag if global mesh is supported.
@@ -180,11 +180,17 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        [Input("hubs")]
+        private InputList<Inputs.HubArgs>? _hubs;
+
         /// <summary>
-        /// The hub vnet Id.
+        /// List of hubItems
         /// </summary>
-        [Input("hubId")]
-        public Input<string>? HubId { get; set; }
+        public InputList<Inputs.HubArgs> Hubs
+        {
+            get => _hubs ?? (_hubs = new InputList<Inputs.HubArgs>());
+            set => _hubs = value;
+        }
 
         /// <summary>
         /// Flag if global mesh is supported.

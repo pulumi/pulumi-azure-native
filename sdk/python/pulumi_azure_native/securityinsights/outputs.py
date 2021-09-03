@@ -2032,19 +2032,19 @@ class RepoResponse(dict):
     def __init__(__self__, *,
                  branches: Optional[Sequence[str]] = None,
                  full_name: Optional[str] = None,
-                 repo_url: Optional[str] = None):
+                 url: Optional[str] = None):
         """
         Represents a repository.
         :param Sequence[str] branches: Array of branches.
         :param str full_name: The name of the repository.
-        :param str repo_url: The url to access the repository.
+        :param str url: The url to access the repository.
         """
         if branches is not None:
             pulumi.set(__self__, "branches", branches)
         if full_name is not None:
             pulumi.set(__self__, "full_name", full_name)
-        if repo_url is not None:
-            pulumi.set(__self__, "repo_url", repo_url)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -2063,12 +2063,12 @@ class RepoResponse(dict):
         return pulumi.get(self, "full_name")
 
     @property
-    @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> Optional[str]:
+    @pulumi.getter
+    def url(self) -> Optional[str]:
         """
         The url to access the repository.
         """
-        return pulumi.get(self, "repo_url")
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

@@ -5,18 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./attachedDatabaseConfiguration";
 export * from "./bigDataPool";
-export * from "./dataConnection";
-export * from "./database";
-export * from "./databasePrincipalAssignment";
 export * from "./eventGridDataConnection";
 export * from "./eventHubDataConnection";
-export * from "./getAttachedDatabaseConfiguration";
 export * from "./getBigDataPool";
-export * from "./getDataConnection";
-export * from "./getDatabase";
-export * from "./getDatabasePrincipalAssignment";
 export * from "./getEventGridDataConnection";
 export * from "./getEventHubDataConnection";
 export * from "./getIntegrationRuntime";
@@ -26,6 +18,10 @@ export * from "./getIntegrationRuntimeStatus";
 export * from "./getIotHubDataConnection";
 export * from "./getIpFirewallRule";
 export * from "./getKey";
+export * from "./getKustoPoolAttachedDatabaseConfiguration";
+export * from "./getKustoPoolDataConnection";
+export * from "./getKustoPoolDatabase";
+export * from "./getKustoPoolDatabasePrincipalAssignment";
 export * from "./getKustoPoolPrincipalAssignment";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkHub";
@@ -47,6 +43,10 @@ export * from "./iotHubDataConnection";
 export * from "./ipFirewallRule";
 export * from "./key";
 export * from "./kustoPool";
+export * from "./kustoPoolAttachedDatabaseConfiguration";
+export * from "./kustoPoolDataConnection";
+export * from "./kustoPoolDatabase";
+export * from "./kustoPoolDatabasePrincipalAssignment";
 export * from "./kustoPoolPrincipalAssignment";
 export * from "./listIntegrationRuntimeAuthKey";
 export * from "./listKustoPoolFollowerDatabases";
@@ -70,17 +70,17 @@ export * from "./workspaceSqlAadAdmin";
 export * from "../../types/enums/synapse/v20210601preview";
 
 // Import resources to register:
-import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
 import { BigDataPool } from "./bigDataPool";
-import { DataConnection } from "./dataConnection";
-import { Database } from "./database";
-import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
 import { EventGridDataConnection } from "./eventGridDataConnection";
 import { EventHubDataConnection } from "./eventHubDataConnection";
 import { IntegrationRuntime } from "./integrationRuntime";
 import { IotHubDataConnection } from "./iotHubDataConnection";
 import { IpFirewallRule } from "./ipFirewallRule";
 import { Key } from "./key";
+import { KustoPoolAttachedDatabaseConfiguration } from "./kustoPoolAttachedDatabaseConfiguration";
+import { KustoPoolDataConnection } from "./kustoPoolDataConnection";
+import { KustoPoolDatabase } from "./kustoPoolDatabase";
+import { KustoPoolDatabasePrincipalAssignment } from "./kustoPoolDatabasePrincipalAssignment";
 import { KustoPoolPrincipalAssignment } from "./kustoPoolPrincipalAssignment";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkHub } from "./privateLinkHub";
@@ -102,16 +102,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:synapse/v20210601preview:AttachedDatabaseConfiguration":
-                return new AttachedDatabaseConfiguration(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:BigDataPool":
                 return new BigDataPool(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210601preview:DataConnection":
-                return new DataConnection(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210601preview:Database":
-                return new Database(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment":
-                return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:EventGridDataConnection":
                 return new EventGridDataConnection(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:EventHubDataConnection":
@@ -124,6 +116,14 @@ const _module = {
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration":
+                return new KustoPoolAttachedDatabaseConfiguration(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210601preview:KustoPoolDataConnection":
+                return new KustoPoolDataConnection(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210601preview:KustoPoolDatabase":
+                return new KustoPoolDatabase(name, <any>undefined, { urn })
+            case "azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment":
+                return new KustoPoolDatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment":
                 return new KustoPoolPrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:PrivateEndpointConnection":

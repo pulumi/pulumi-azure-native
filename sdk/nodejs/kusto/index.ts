@@ -24,6 +24,8 @@ export * from "./getEventGridDataConnection";
 export * from "./getEventHubConnection";
 export * from "./getEventHubDataConnection";
 export * from "./getIotHubDataConnection";
+export * from "./getManagedPrivateEndpoint";
+export * from "./getPrivateEndpointConnection";
 export * from "./getReadOnlyFollowingDatabase";
 export * from "./getReadWriteDatabase";
 export * from "./getScript";
@@ -31,6 +33,8 @@ export * from "./iotHubDataConnection";
 export * from "./listClusterFollowerDatabases";
 export * from "./listClusterLanguageExtensions";
 export * from "./listDatabasePrincipals";
+export * from "./managedPrivateEndpoint";
+export * from "./privateEndpointConnection";
 export * from "./readOnlyFollowingDatabase";
 export * from "./readWriteDatabase";
 export * from "./script";
@@ -49,6 +53,7 @@ import * as v20200215 from "./v20200215";
 import * as v20200614 from "./v20200614";
 import * as v20200918 from "./v20200918";
 import * as v20210101 from "./v20210101";
+import * as v20210827 from "./v20210827";
 
 export {
     v20170907privatepreview,
@@ -61,6 +66,7 @@ export {
     v20200614,
     v20200918,
     v20210101,
+    v20210827,
 };
 
 // Import resources to register:
@@ -74,6 +80,8 @@ import { EventGridDataConnection } from "./eventGridDataConnection";
 import { EventHubConnection } from "./eventHubConnection";
 import { EventHubDataConnection } from "./eventHubDataConnection";
 import { IotHubDataConnection } from "./iotHubDataConnection";
+import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { ReadOnlyFollowingDatabase } from "./readOnlyFollowingDatabase";
 import { ReadWriteDatabase } from "./readWriteDatabase";
 import { Script } from "./script";
@@ -102,6 +110,10 @@ const _module = {
                 return new EventHubDataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:IotHubDataConnection":
                 return new IotHubDataConnection(name, <any>undefined, { urn })
+            case "azure-native:kusto:ManagedPrivateEndpoint":
+                return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
+            case "azure-native:kusto:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:kusto:ReadOnlyFollowingDatabase":
                 return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
             case "azure-native:kusto:ReadWriteDatabase":

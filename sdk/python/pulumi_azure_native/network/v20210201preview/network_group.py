@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['NetworkGroupArgs', 'NetworkGroup']
@@ -22,7 +21,7 @@ class NetworkGroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  group_members: Optional[pulumi.Input[Sequence[pulumi.Input['GroupMembersItemArgs']]]] = None,
-                 member_type: Optional[pulumi.Input[Union[str, 'MemberType']]] = None,
+                 member_type: Optional[pulumi.Input[str]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkGroup resource.
@@ -32,7 +31,7 @@ class NetworkGroupArgs:
         :param pulumi.Input[str] description: A description of the network group.
         :param pulumi.Input[str] display_name: A friendly name for the network group.
         :param pulumi.Input[Sequence[pulumi.Input['GroupMembersItemArgs']]] group_members: Group members of network group.
-        :param pulumi.Input[Union[str, 'MemberType']] member_type: Group member type.
+        :param pulumi.Input[str] member_type: Group member type.
         :param pulumi.Input[str] network_group_name: The name of the network group to get.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
@@ -124,14 +123,14 @@ class NetworkGroupArgs:
 
     @property
     @pulumi.getter(name="memberType")
-    def member_type(self) -> Optional[pulumi.Input[Union[str, 'MemberType']]]:
+    def member_type(self) -> Optional[pulumi.Input[str]]:
         """
         Group member type.
         """
         return pulumi.get(self, "member_type")
 
     @member_type.setter
-    def member_type(self, value: Optional[pulumi.Input[Union[str, 'MemberType']]]):
+    def member_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "member_type", value)
 
     @property
@@ -156,7 +155,7 @@ class NetworkGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  group_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupMembersItemArgs']]]]] = None,
-                 member_type: Optional[pulumi.Input[Union[str, 'MemberType']]] = None,
+                 member_type: Optional[pulumi.Input[str]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -170,7 +169,7 @@ class NetworkGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the network group.
         :param pulumi.Input[str] display_name: A friendly name for the network group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupMembersItemArgs']]]] group_members: Group members of network group.
-        :param pulumi.Input[Union[str, 'MemberType']] member_type: Group member type.
+        :param pulumi.Input[str] member_type: Group member type.
         :param pulumi.Input[str] network_group_name: The name of the network group to get.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -203,7 +202,7 @@ class NetworkGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  group_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupMembersItemArgs']]]]] = None,
-                 member_type: Optional[pulumi.Input[Union[str, 'MemberType']]] = None,
+                 member_type: Optional[pulumi.Input[str]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,

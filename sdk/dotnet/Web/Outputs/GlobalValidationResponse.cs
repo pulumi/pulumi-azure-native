@@ -18,18 +18,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The default authentication provider to use when multiple providers are configured.
         /// This setting is only needed if multiple providers are configured and the unauthenticated client
         /// action is set to "RedirectToLoginPage".
@@ -40,10 +28,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly bool? RequireAuthentication;
         /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
         /// The action to take when an unauthenticated client attempts to access the app.
         /// </summary>
         public readonly string? UnauthenticatedClientAction;
@@ -52,27 +36,15 @@ namespace Pulumi.AzureNative.Web.Outputs
         private GlobalValidationResponse(
             ImmutableArray<string> excludedPaths,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
             string? redirectToProvider,
 
             bool? requireAuthentication,
 
-            string type,
-
             string? unauthenticatedClientAction)
         {
             ExcludedPaths = excludedPaths;
-            Id = id;
-            Kind = kind;
-            Name = name;
             RedirectToProvider = redirectToProvider;
             RequireAuthentication = requireAuthentication;
-            Type = type;
             UnauthenticatedClientAction = unauthenticatedClientAction;
         }
     }

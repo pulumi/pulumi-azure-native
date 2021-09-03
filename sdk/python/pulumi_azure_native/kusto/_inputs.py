@@ -14,6 +14,7 @@ __all__ = [
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'OptimizedAutoscaleArgs',
+    'PrivateLinkServiceConnectionStatePropertyArgs',
     'TableLevelSharingPropertiesArgs',
     'TrustedExternalTenantArgs',
     'VirtualNetworkConfigurationArgs',
@@ -248,6 +249,46 @@ class OptimizedAutoscaleArgs:
     @version.setter
     def version(self, value: pulumi.Input[int]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStatePropertyArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Connection State of the Private Endpoint Connection.
+        :param pulumi.Input[str] description: The private link service connection description.
+        :param pulumi.Input[str] status: The private link service connection status.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     public sealed class NonceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The time after the request is made when the nonce should expire.
         /// </summary>
         [Input("nonceExpirationInterval")]

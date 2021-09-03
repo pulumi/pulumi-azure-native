@@ -14,43 +14,14 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
     public sealed class LoginScopesResponse
     {
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// A list of the scopes that should be requested while authenticating.
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private LoginScopesResponse(
-            string id,
-
-            string? kind,
-
-            string name,
-
-            ImmutableArray<string> scopes,
-
-            string type)
+        private LoginScopesResponse(ImmutableArray<string> scopes)
         {
-            Id = id;
-            Kind = kind;
-            Name = name;
             Scopes = scopes;
-            Type = type;
         }
     }
 }

@@ -18,53 +18,25 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
         /// The configuration settings of the login flow.
         /// </summary>
         public readonly Outputs.LoginScopesResponse? Login;
         /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The configuration settings of the app registration for the GitHub provider.
         /// </summary>
         public readonly Outputs.ClientRegistrationResponse? Registration;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private GitHubResponse(
             bool? enabled,
 
-            string id,
-
-            string? kind,
-
             Outputs.LoginScopesResponse? login,
 
-            string name,
-
-            Outputs.ClientRegistrationResponse? registration,
-
-            string type)
+            Outputs.ClientRegistrationResponse? registration)
         {
             Enabled = enabled;
-            Id = id;
-            Kind = kind;
             Login = login;
-            Name = name;
             Registration = registration;
-            Type = type;
         }
     }
 }

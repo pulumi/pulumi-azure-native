@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<Inputs.ForwardProxyArgs>? ForwardProxy { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, &lt;code&gt;true&lt;/code&gt;.
         /// </summary>
         [Input("requireHttps")]

@@ -161,7 +161,7 @@ namespace Pulumi.AzureNative.Network
         /// Group member type.
         /// </summary>
         [Input("memberType")]
-        public InputUnion<string, Pulumi.AzureNative.Network.MemberType>? MemberType { get; set; }
+        public Input<string>? MemberType { get; set; }
 
         /// <summary>
         /// The name of the network group to get.

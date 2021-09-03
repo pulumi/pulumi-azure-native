@@ -62,6 +62,12 @@ func NewIscsiTarget(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:storagepool/v20210401preview:IscsiTarget"),
 		},
+		{
+			Type: pulumi.String("azure-native:storagepool/v20210801:IscsiTarget"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:storagepool/v20210801:IscsiTarget"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IscsiTarget

@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         [Input("apiPrefix")]
         public Input<string>? ApiPrefix { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public HttpSettingsRoutesArgs()
         {
         }

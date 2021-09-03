@@ -15,14 +15,11 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
     /// </summary>
     public sealed class AzureActiveDirectoryLoginArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the www-authenticate provider should be omitted from the request; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
         [Input("disableWWWAuthenticate")]
         public Input<bool>? DisableWWWAuthenticate { get; set; }
-
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
 
         [Input("loginParameters")]
         private InputList<string>? _loginParameters;

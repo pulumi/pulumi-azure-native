@@ -12,6 +12,7 @@ from ._enums import *
 __all__ = [
     'ConnectivityGroupItemArgs',
     'GroupMembersItemArgs',
+    'HubArgs',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
     'NetworkManagerSecurityGroupItemArgs',
 ]
@@ -90,41 +91,65 @@ class ConnectivityGroupItemArgs:
 @pulumi.input_type
 class GroupMembersItemArgs:
     def __init__(__self__, *,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
-                 vnet_id: Optional[pulumi.Input[str]] = None):
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
         GroupMembers Item.
-        :param pulumi.Input[str] subnet_id: Subnet Id.
-        :param pulumi.Input[str] vnet_id: Vnet Id.
+        :param pulumi.Input[str] resource_id: Resource Id.
         """
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if vnet_id is not None:
-            pulumi.set(__self__, "vnet_id", vnet_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Subnet Id.
+        Resource Id.
         """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "resource_id")
 
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class HubArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None):
+        """
+        Hub Item.
+        :param pulumi.Input[str] resource_id: Resource Id.
+        :param pulumi.Input[str] resource_type: Resource Type.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
 
     @property
-    @pulumi.getter(name="vnetId")
-    def vnet_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Vnet Id.
+        Resource Id.
         """
-        return pulumi.get(self, "vnet_id")
+        return pulumi.get(self, "resource_id")
 
-    @vnet_id.setter
-    def vnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vnet_id", value)
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Type.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
 
 
 @pulumi.input_type

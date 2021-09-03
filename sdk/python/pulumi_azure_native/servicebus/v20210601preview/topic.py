@@ -23,6 +23,7 @@ class TopicArgs:
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
@@ -38,6 +39,7 @@ class TopicArgs:
         :param pulumi.Input[bool] enable_batched_operations: Value that indicates whether server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+        :param pulumi.Input[float] max_message_size_in_kilobytes: Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
         :param pulumi.Input[int] max_size_in_megabytes: Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         :param pulumi.Input[bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
@@ -58,6 +60,8 @@ class TopicArgs:
             pulumi.set(__self__, "enable_express", enable_express)
         if enable_partitioning is not None:
             pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+        if max_message_size_in_kilobytes is not None:
+            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if requires_duplicate_detection is not None:
@@ -166,6 +170,18 @@ class TopicArgs:
         pulumi.set(self, "enable_partitioning", value)
 
     @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
+
+    @max_message_size_in_kilobytes.setter
+    def max_message_size_in_kilobytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_message_size_in_kilobytes", value)
+
+    @property
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -237,6 +253,7 @@ class Topic(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
@@ -256,6 +273,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_batched_operations: Value that indicates whether server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+        :param pulumi.Input[float] max_message_size_in_kilobytes: Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
         :param pulumi.Input[int] max_size_in_megabytes: Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
@@ -294,6 +312,7 @@ class Topic(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
@@ -319,6 +338,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["enable_batched_operations"] = enable_batched_operations
             __props__.__dict__["enable_express"] = enable_express
             __props__.__dict__["enable_partitioning"] = enable_partitioning
+            __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
             __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
@@ -372,6 +392,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["enable_batched_operations"] = None
         __props__.__dict__["enable_express"] = None
         __props__.__dict__["enable_partitioning"] = None
+        __props__.__dict__["max_message_size_in_kilobytes"] = None
         __props__.__dict__["max_size_in_megabytes"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["requires_duplicate_detection"] = None
@@ -455,6 +476,14 @@ class Topic(pulumi.CustomResource):
         Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
         """
         return pulumi.get(self, "enable_partitioning")
+
+    @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> pulumi.Output[Optional[float]]:
+        """
+        Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")

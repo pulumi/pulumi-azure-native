@@ -22,29 +22,13 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
         /// </summary>
         public readonly string? CertificationUri;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The endpoint that issues the token.
         /// </summary>
         public readonly string? Issuer;
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The endpoint to be used to request a token.
         /// </summary>
         public readonly string? TokenEndpoint;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
         /// <summary>
         /// The endpoint that contains all the configuration endpoints for the provider.
         /// </summary>
@@ -56,28 +40,16 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
 
             string? certificationUri,
 
-            string id,
-
             string? issuer,
 
-            string? kind,
-
-            string name,
-
             string? tokenEndpoint,
-
-            string type,
 
             string? wellKnownOpenIdConfiguration)
         {
             AuthorizationEndpoint = authorizationEndpoint;
             CertificationUri = certificationUri;
-            Id = id;
             Issuer = issuer;
-            Kind = kind;
-            Name = name;
             TokenEndpoint = tokenEndpoint;
-            Type = type;
             WellKnownOpenIdConfiguration = wellKnownOpenIdConfiguration;
         }
     }

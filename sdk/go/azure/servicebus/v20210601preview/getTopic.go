@@ -48,6 +48,8 @@ type LookupTopicResult struct {
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Resource name

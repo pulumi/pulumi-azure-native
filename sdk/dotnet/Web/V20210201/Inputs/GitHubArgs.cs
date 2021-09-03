@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The configuration settings of the login flow.
         /// </summary>
         [Input("login")]

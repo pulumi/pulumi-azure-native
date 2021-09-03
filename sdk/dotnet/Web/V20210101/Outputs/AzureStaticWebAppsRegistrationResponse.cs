@@ -17,40 +17,11 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// The Client ID of the app used for login.
         /// </summary>
         public readonly string? ClientId;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private AzureStaticWebAppsRegistrationResponse(
-            string? clientId,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+        private AzureStaticWebAppsRegistrationResponse(string? clientId)
         {
             ClientId = clientId;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

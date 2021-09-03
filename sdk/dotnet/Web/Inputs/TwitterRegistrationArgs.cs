@@ -30,12 +30,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("consumerSecretSettingName")]
         public Input<string>? ConsumerSecretSettingName { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public TwitterRegistrationArgs()
         {
         }

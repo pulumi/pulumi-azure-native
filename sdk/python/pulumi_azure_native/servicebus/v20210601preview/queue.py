@@ -28,6 +28,7 @@ class QueueArgs:
                  forward_to: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
@@ -48,6 +49,7 @@ class QueueArgs:
         :param pulumi.Input[str] forward_to: Queue/Topic name to forward the messages
         :param pulumi.Input[str] lock_duration: ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
         :param pulumi.Input[int] max_delivery_count: The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
+        :param pulumi.Input[float] max_message_size_in_kilobytes: Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
         :param pulumi.Input[int] max_size_in_megabytes: The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
         :param pulumi.Input[str] queue_name: The queue name.
         :param pulumi.Input[bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
@@ -78,6 +80,8 @@ class QueueArgs:
             pulumi.set(__self__, "lock_duration", lock_duration)
         if max_delivery_count is not None:
             pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+        if max_message_size_in_kilobytes is not None:
+            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if queue_name is not None:
@@ -246,6 +250,18 @@ class QueueArgs:
         pulumi.set(self, "max_delivery_count", value)
 
     @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
+
+    @max_message_size_in_kilobytes.setter
+    def max_message_size_in_kilobytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_message_size_in_kilobytes", value)
+
+    @property
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -322,6 +338,7 @@ class Queue(pulumi.CustomResource):
                  forward_to: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
@@ -346,6 +363,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] forward_to: Queue/Topic name to forward the messages
         :param pulumi.Input[str] lock_duration: ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
         :param pulumi.Input[int] max_delivery_count: The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
+        :param pulumi.Input[float] max_message_size_in_kilobytes: Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
         :param pulumi.Input[int] max_size_in_megabytes: The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] queue_name: The queue name.
@@ -389,6 +407,7 @@ class Queue(pulumi.CustomResource):
                  forward_to: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
@@ -419,6 +438,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["forward_to"] = forward_to
             __props__.__dict__["lock_duration"] = lock_duration
             __props__.__dict__["max_delivery_count"] = max_delivery_count
+            __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
             __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
@@ -477,6 +497,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["forward_to"] = None
         __props__.__dict__["lock_duration"] = None
         __props__.__dict__["max_delivery_count"] = None
+        __props__.__dict__["max_message_size_in_kilobytes"] = None
         __props__.__dict__["max_size_in_megabytes"] = None
         __props__.__dict__["message_count"] = None
         __props__.__dict__["name"] = None
@@ -600,6 +621,14 @@ class Queue(pulumi.CustomResource):
         The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
         """
         return pulumi.get(self, "max_delivery_count")
+
+    @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> pulumi.Output[Optional[float]]:
+        """
+        Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")

@@ -26,8 +26,8 @@ type ActiveConnectivityConfigurationResponse struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the resource.
 	DisplayName *string `pulumi:"displayName"`
-	// The hub vnet Id.
-	HubId *string `pulumi:"hubId"`
+	// List of hubItems
+	Hubs []HubResponse `pulumi:"hubs"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Flag if global mesh is supported.
@@ -65,8 +65,8 @@ type ActiveConnectivityConfigurationResponseArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// A friendly name for the resource.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The hub vnet Id.
-	HubId pulumi.StringPtrInput `pulumi:"hubId"`
+	// List of hubItems
+	Hubs HubResponseArrayInput `pulumi:"hubs"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Flag if global mesh is supported.
@@ -168,9 +168,9 @@ func (o ActiveConnectivityConfigurationResponseOutput) DisplayName() pulumi.Stri
 	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The hub vnet Id.
-func (o ActiveConnectivityConfigurationResponseOutput) HubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.HubId }).(pulumi.StringPtrOutput)
+// List of hubItems
+func (o ActiveConnectivityConfigurationResponseOutput) Hubs() HubResponseArrayOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) []HubResponse { return v.Hubs }).(HubResponseArrayOutput)
 }
 
 // Resource ID.
@@ -1744,8 +1744,8 @@ type EffectiveConnectivityConfigurationResponse struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the resource.
 	DisplayName *string `pulumi:"displayName"`
-	// The hub vnet Id.
-	HubId *string `pulumi:"hubId"`
+	// List of hubItems
+	Hubs []HubResponse `pulumi:"hubs"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Flag if global mesh is supported.
@@ -1779,8 +1779,8 @@ type EffectiveConnectivityConfigurationResponseArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// A friendly name for the resource.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The hub vnet Id.
-	HubId pulumi.StringPtrInput `pulumi:"hubId"`
+	// List of hubItems
+	Hubs HubResponseArrayInput `pulumi:"hubs"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Flag if global mesh is supported.
@@ -1875,9 +1875,9 @@ func (o EffectiveConnectivityConfigurationResponseOutput) DisplayName() pulumi.S
 	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The hub vnet Id.
-func (o EffectiveConnectivityConfigurationResponseOutput) HubId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.HubId }).(pulumi.StringPtrOutput)
+// List of hubItems
+func (o EffectiveConnectivityConfigurationResponseOutput) Hubs() HubResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) []HubResponse { return v.Hubs }).(HubResponseArrayOutput)
 }
 
 // Resource ID.
@@ -2488,10 +2488,8 @@ func (o EffectiveVirtualNetworkResponseArrayOutput) Index(i pulumi.IntInput) Eff
 
 // GroupMembers Item.
 type GroupMembersItem struct {
-	// Subnet Id.
-	SubnetId *string `pulumi:"subnetId"`
-	// Vnet Id.
-	VnetId *string `pulumi:"vnetId"`
+	// Resource Id.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 // GroupMembersItemInput is an input type that accepts GroupMembersItemArgs and GroupMembersItemOutput values.
@@ -2507,10 +2505,8 @@ type GroupMembersItemInput interface {
 
 // GroupMembers Item.
 type GroupMembersItemArgs struct {
-	// Subnet Id.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Vnet Id.
-	VnetId pulumi.StringPtrInput `pulumi:"vnetId"`
+	// Resource Id.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (GroupMembersItemArgs) ElementType() reflect.Type {
@@ -2565,14 +2561,9 @@ func (o GroupMembersItemOutput) ToGroupMembersItemOutputWithContext(ctx context.
 	return o
 }
 
-// Subnet Id.
-func (o GroupMembersItemOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupMembersItem) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
-// Vnet Id.
-func (o GroupMembersItemOutput) VnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupMembersItem) *string { return v.VnetId }).(pulumi.StringPtrOutput)
+// Resource Id.
+func (o GroupMembersItemOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupMembersItem) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type GroupMembersItemArrayOutput struct{ *pulumi.OutputState }
@@ -2597,10 +2588,8 @@ func (o GroupMembersItemArrayOutput) Index(i pulumi.IntInput) GroupMembersItemOu
 
 // GroupMembers Item.
 type GroupMembersItemResponse struct {
-	// Subnet Id.
-	SubnetId *string `pulumi:"subnetId"`
-	// Vnet Id.
-	VnetId *string `pulumi:"vnetId"`
+	// Resource Id.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 // GroupMembersItemResponseInput is an input type that accepts GroupMembersItemResponseArgs and GroupMembersItemResponseOutput values.
@@ -2616,10 +2605,8 @@ type GroupMembersItemResponseInput interface {
 
 // GroupMembers Item.
 type GroupMembersItemResponseArgs struct {
-	// Subnet Id.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Vnet Id.
-	VnetId pulumi.StringPtrInput `pulumi:"vnetId"`
+	// Resource Id.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (GroupMembersItemResponseArgs) ElementType() reflect.Type {
@@ -2674,14 +2661,9 @@ func (o GroupMembersItemResponseOutput) ToGroupMembersItemResponseOutputWithCont
 	return o
 }
 
-// Subnet Id.
-func (o GroupMembersItemResponseOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupMembersItemResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
-// Vnet Id.
-func (o GroupMembersItemResponseOutput) VnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupMembersItemResponse) *string { return v.VnetId }).(pulumi.StringPtrOutput)
+// Resource Id.
+func (o GroupMembersItemResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupMembersItemResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type GroupMembersItemResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2702,6 +2684,224 @@ func (o GroupMembersItemResponseArrayOutput) Index(i pulumi.IntInput) GroupMembe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupMembersItemResponse {
 		return vs[0].([]GroupMembersItemResponse)[vs[1].(int)]
 	}).(GroupMembersItemResponseOutput)
+}
+
+// Hub Item.
+type Hub struct {
+	// Resource Id.
+	ResourceId *string `pulumi:"resourceId"`
+	// Resource Type.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// HubInput is an input type that accepts HubArgs and HubOutput values.
+// You can construct a concrete instance of `HubInput` via:
+//
+//          HubArgs{...}
+type HubInput interface {
+	pulumi.Input
+
+	ToHubOutput() HubOutput
+	ToHubOutputWithContext(context.Context) HubOutput
+}
+
+// Hub Item.
+type HubArgs struct {
+	// Resource Id.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Resource Type.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (HubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hub)(nil)).Elem()
+}
+
+func (i HubArgs) ToHubOutput() HubOutput {
+	return i.ToHubOutputWithContext(context.Background())
+}
+
+func (i HubArgs) ToHubOutputWithContext(ctx context.Context) HubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
+}
+
+// HubArrayInput is an input type that accepts HubArray and HubArrayOutput values.
+// You can construct a concrete instance of `HubArrayInput` via:
+//
+//          HubArray{ HubArgs{...} }
+type HubArrayInput interface {
+	pulumi.Input
+
+	ToHubArrayOutput() HubArrayOutput
+	ToHubArrayOutputWithContext(context.Context) HubArrayOutput
+}
+
+type HubArray []HubInput
+
+func (HubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Hub)(nil)).Elem()
+}
+
+func (i HubArray) ToHubArrayOutput() HubArrayOutput {
+	return i.ToHubArrayOutputWithContext(context.Background())
+}
+
+func (i HubArray) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubArrayOutput)
+}
+
+// Hub Item.
+type HubOutput struct{ *pulumi.OutputState }
+
+func (HubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Hub)(nil)).Elem()
+}
+
+func (o HubOutput) ToHubOutput() HubOutput {
+	return o
+}
+
+func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
+	return o
+}
+
+// Resource Id.
+func (o HubOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Hub) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Type.
+func (o HubOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Hub) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type HubArrayOutput struct{ *pulumi.OutputState }
+
+func (HubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Hub)(nil)).Elem()
+}
+
+func (o HubArrayOutput) ToHubArrayOutput() HubArrayOutput {
+	return o
+}
+
+func (o HubArrayOutput) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutput {
+	return o
+}
+
+func (o HubArrayOutput) Index(i pulumi.IntInput) HubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Hub {
+		return vs[0].([]Hub)[vs[1].(int)]
+	}).(HubOutput)
+}
+
+// Hub Item.
+type HubResponse struct {
+	// Resource Id.
+	ResourceId *string `pulumi:"resourceId"`
+	// Resource Type.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// HubResponseInput is an input type that accepts HubResponseArgs and HubResponseOutput values.
+// You can construct a concrete instance of `HubResponseInput` via:
+//
+//          HubResponseArgs{...}
+type HubResponseInput interface {
+	pulumi.Input
+
+	ToHubResponseOutput() HubResponseOutput
+	ToHubResponseOutputWithContext(context.Context) HubResponseOutput
+}
+
+// Hub Item.
+type HubResponseArgs struct {
+	// Resource Id.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Resource Type.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (HubResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubResponse)(nil)).Elem()
+}
+
+func (i HubResponseArgs) ToHubResponseOutput() HubResponseOutput {
+	return i.ToHubResponseOutputWithContext(context.Background())
+}
+
+func (i HubResponseArgs) ToHubResponseOutputWithContext(ctx context.Context) HubResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubResponseOutput)
+}
+
+// HubResponseArrayInput is an input type that accepts HubResponseArray and HubResponseArrayOutput values.
+// You can construct a concrete instance of `HubResponseArrayInput` via:
+//
+//          HubResponseArray{ HubResponseArgs{...} }
+type HubResponseArrayInput interface {
+	pulumi.Input
+
+	ToHubResponseArrayOutput() HubResponseArrayOutput
+	ToHubResponseArrayOutputWithContext(context.Context) HubResponseArrayOutput
+}
+
+type HubResponseArray []HubResponseInput
+
+func (HubResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HubResponse)(nil)).Elem()
+}
+
+func (i HubResponseArray) ToHubResponseArrayOutput() HubResponseArrayOutput {
+	return i.ToHubResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HubResponseArray) ToHubResponseArrayOutputWithContext(ctx context.Context) HubResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubResponseArrayOutput)
+}
+
+// Hub Item.
+type HubResponseOutput struct{ *pulumi.OutputState }
+
+func (HubResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubResponse)(nil)).Elem()
+}
+
+func (o HubResponseOutput) ToHubResponseOutput() HubResponseOutput {
+	return o
+}
+
+func (o HubResponseOutput) ToHubResponseOutputWithContext(ctx context.Context) HubResponseOutput {
+	return o
+}
+
+// Resource Id.
+func (o HubResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HubResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Type.
+func (o HubResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HubResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type HubResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HubResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HubResponse)(nil)).Elem()
+}
+
+func (o HubResponseArrayOutput) ToHubResponseArrayOutput() HubResponseArrayOutput {
+	return o
+}
+
+func (o HubResponseArrayOutput) ToHubResponseArrayOutputWithContext(ctx context.Context) HubResponseArrayOutput {
+	return o
+}
+
+func (o HubResponseArrayOutput) Index(i pulumi.IntInput) HubResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HubResponse {
+		return vs[0].([]HubResponse)[vs[1].(int)]
+	}).(HubResponseOutput)
 }
 
 // Network Manager Deployment Status.
@@ -3614,6 +3814,10 @@ func init() {
 	pulumi.RegisterOutputType(GroupMembersItemArrayOutput{})
 	pulumi.RegisterOutputType(GroupMembersItemResponseOutput{})
 	pulumi.RegisterOutputType(GroupMembersItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(HubOutput{})
+	pulumi.RegisterOutputType(HubArrayOutput{})
+	pulumi.RegisterOutputType(HubResponseOutput{})
+	pulumi.RegisterOutputType(HubResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerDeploymentStatusResponseOutput{})
 	pulumi.RegisterOutputType(NetworkManagerDeploymentStatusResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerPropertiesNetworkManagerScopesOutput{})

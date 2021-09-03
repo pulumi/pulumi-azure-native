@@ -10246,6 +10246,8 @@ type ComputeInstanceProperties struct {
 	ApplicationSharingPolicy *string `pulumi:"applicationSharingPolicy"`
 	// The Compute Instance Authorization type. Available values are personal (default).
 	ComputeInstanceAuthorizationType *string `pulumi:"computeInstanceAuthorizationType"`
+	// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings *PersonalComputeInstanceSettings `pulumi:"personalComputeInstanceSettings"`
 	// The list of schedules to be applied on the compute instance.
@@ -10277,6 +10279,8 @@ type ComputeInstancePropertiesArgs struct {
 	ApplicationSharingPolicy pulumi.StringPtrInput `pulumi:"applicationSharingPolicy"`
 	// The Compute Instance Authorization type. Available values are personal (default).
 	ComputeInstanceAuthorizationType pulumi.StringPtrInput `pulumi:"computeInstanceAuthorizationType"`
+	// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Settings for a personal compute instance.
 	PersonalComputeInstanceSettings PersonalComputeInstanceSettingsPtrInput `pulumi:"personalComputeInstanceSettings"`
 	// The list of schedules to be applied on the compute instance.
@@ -10379,6 +10383,11 @@ func (o ComputeInstancePropertiesOutput) ComputeInstanceAuthorizationType() pulu
 	return o.ApplyT(func(v ComputeInstanceProperties) *string { return v.ComputeInstanceAuthorizationType }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+func (o ComputeInstancePropertiesOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+}
+
 // Settings for a personal compute instance.
 func (o ComputeInstancePropertiesOutput) PersonalComputeInstanceSettings() PersonalComputeInstanceSettingsPtrOutput {
 	return o.ApplyT(func(v ComputeInstanceProperties) *PersonalComputeInstanceSettings {
@@ -10447,6 +10456,16 @@ func (o ComputeInstancePropertiesPtrOutput) ComputeInstanceAuthorizationType() p
 		}
 		return v.ComputeInstanceAuthorizationType
 	}).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+func (o ComputeInstancePropertiesPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableNodePublicIp
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Settings for a personal compute instance.
@@ -10669,6 +10688,8 @@ type ComputeInstanceResponseProperties struct {
 	ConnectivityEndpoints ComputeInstanceConnectivityEndpointsResponse `pulumi:"connectivityEndpoints"`
 	// Describes information on user who created this ComputeInstance.
 	CreatedBy ComputeInstanceCreatedByResponse `pulumi:"createdBy"`
+	// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Collection of errors encountered on this ComputeInstance.
 	Errors []ErrorResponseResponse `pulumi:"errors"`
 	// The last operation on ComputeInstance.
@@ -10712,6 +10733,8 @@ type ComputeInstanceResponsePropertiesArgs struct {
 	ConnectivityEndpoints ComputeInstanceConnectivityEndpointsResponseInput `pulumi:"connectivityEndpoints"`
 	// Describes information on user who created this ComputeInstance.
 	CreatedBy ComputeInstanceCreatedByResponseInput `pulumi:"createdBy"`
+	// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Collection of errors encountered on this ComputeInstance.
 	Errors ErrorResponseResponseArrayInput `pulumi:"errors"`
 	// The last operation on ComputeInstance.
@@ -10837,6 +10860,11 @@ func (o ComputeInstanceResponsePropertiesOutput) CreatedBy() ComputeInstanceCrea
 	return o.ApplyT(func(v ComputeInstanceResponseProperties) ComputeInstanceCreatedByResponse { return v.CreatedBy }).(ComputeInstanceCreatedByResponseOutput)
 }
 
+// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+func (o ComputeInstanceResponsePropertiesOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+}
+
 // Collection of errors encountered on this ComputeInstance.
 func (o ComputeInstanceResponsePropertiesOutput) Errors() ErrorResponseResponseArrayOutput {
 	return o.ApplyT(func(v ComputeInstanceResponseProperties) []ErrorResponseResponse { return v.Errors }).(ErrorResponseResponseArrayOutput)
@@ -10950,6 +10978,16 @@ func (o ComputeInstanceResponsePropertiesPtrOutput) CreatedBy() ComputeInstanceC
 		}
 		return &v.CreatedBy
 	}).(ComputeInstanceCreatedByResponsePtrOutput)
+}
+
+// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+func (o ComputeInstanceResponsePropertiesPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableNodePublicIp
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Collection of errors encountered on this ComputeInstance.

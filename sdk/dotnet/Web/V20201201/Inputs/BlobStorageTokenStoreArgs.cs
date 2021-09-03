@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
     public sealed class BlobStorageTokenStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         /// </summary>
         [Input("sasUrlSettingName")]

@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public Input<string>? ClientSecretSettingName { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The method that should be used to authenticate the user.
         /// </summary>
         [Input("method")]

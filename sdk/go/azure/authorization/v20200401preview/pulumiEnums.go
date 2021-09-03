@@ -14,16 +14,10 @@ import (
 type PrincipalType pulumi.String
 
 const (
-	PrincipalTypeUser                   = PrincipalType("User")
-	PrincipalTypeGroup                  = PrincipalType("Group")
-	PrincipalTypeServicePrincipal       = PrincipalType("ServicePrincipal")
-	PrincipalTypeUnknown                = PrincipalType("Unknown")
-	PrincipalTypeDirectoryRoleTemplate  = PrincipalType("DirectoryRoleTemplate")
-	PrincipalTypeForeignGroup           = PrincipalType("ForeignGroup")
-	PrincipalTypeApplication            = PrincipalType("Application")
-	PrincipalTypeMSI                    = PrincipalType("MSI")
-	PrincipalTypeDirectoryObjectOrGroup = PrincipalType("DirectoryObjectOrGroup")
-	PrincipalTypeEveryone               = PrincipalType("Everyone")
+	PrincipalTypeUser             = PrincipalType("User")
+	PrincipalTypeGroup            = PrincipalType("Group")
+	PrincipalTypeServicePrincipal = PrincipalType("ServicePrincipal")
+	PrincipalTypeForeignGroup     = PrincipalType("ForeignGroup")
 )
 
 func (PrincipalType) ElementType() reflect.Type {

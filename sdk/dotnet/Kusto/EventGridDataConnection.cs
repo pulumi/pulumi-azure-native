@@ -144,6 +144,8 @@ namespace Pulumi.AzureNative.Kusto
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:EventGridDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:EventGridDataConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210827:EventGridDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

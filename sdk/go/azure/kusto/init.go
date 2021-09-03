@@ -41,6 +41,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventHubDataConnection{}
 	case "azure-native:kusto:IotHubDataConnection":
 		r = &IotHubDataConnection{}
+	case "azure-native:kusto:ManagedPrivateEndpoint":
+		r = &ManagedPrivateEndpoint{}
+	case "azure-native:kusto:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
 	case "azure-native:kusto:ReadOnlyFollowingDatabase":
 		r = &ReadOnlyFollowingDatabase{}
 	case "azure-native:kusto:ReadWriteDatabase":

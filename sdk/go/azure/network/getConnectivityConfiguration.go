@@ -41,8 +41,8 @@ type LookupConnectivityConfigurationResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
-	// The hub vnet Id.
-	HubId *string `pulumi:"hubId"`
+	// List of hubItems
+	Hubs []HubResponse `pulumi:"hubs"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Flag if global mesh is supported.

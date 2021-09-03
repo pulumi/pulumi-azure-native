@@ -23,13 +23,7 @@ namespace Pulumi.AzureNative.Authorization.V20200301Preview
         public static PrincipalType User { get; } = new PrincipalType("User");
         public static PrincipalType Group { get; } = new PrincipalType("Group");
         public static PrincipalType ServicePrincipal { get; } = new PrincipalType("ServicePrincipal");
-        public static PrincipalType Unknown { get; } = new PrincipalType("Unknown");
-        public static PrincipalType DirectoryRoleTemplate { get; } = new PrincipalType("DirectoryRoleTemplate");
         public static PrincipalType ForeignGroup { get; } = new PrincipalType("ForeignGroup");
-        public static PrincipalType Application { get; } = new PrincipalType("Application");
-        public static PrincipalType MSI { get; } = new PrincipalType("MSI");
-        public static PrincipalType DirectoryObjectOrGroup { get; } = new PrincipalType("DirectoryObjectOrGroup");
-        public static PrincipalType Everyone { get; } = new PrincipalType("Everyone");
 
         public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
         public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);

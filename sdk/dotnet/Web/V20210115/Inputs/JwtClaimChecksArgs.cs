@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
             set => _allowedGroups = value;
         }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public JwtClaimChecksArgs()
         {
         }

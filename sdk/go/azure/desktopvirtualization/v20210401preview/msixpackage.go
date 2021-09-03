@@ -109,12 +109,6 @@ func NewMSIXPackage(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210309preview:MSIXPackage"),
 		},
 		{
-			Type: pulumi.String("azure-native:desktopvirtualization/v20210513preview:MSIXPackage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210513preview:MSIXPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:MSIXPackage"),
 		},
 		{

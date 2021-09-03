@@ -21,43 +21,15 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// The app setting name that contains the app secret.
         /// </summary>
         public readonly string? AppSecretSettingName;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private AppRegistrationResponse(
             string? appId,
 
-            string? appSecretSettingName,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+            string? appSecretSettingName)
         {
             AppId = appId;
             AppSecretSettingName = appSecretSettingName;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

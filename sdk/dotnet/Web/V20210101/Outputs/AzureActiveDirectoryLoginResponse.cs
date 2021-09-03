@@ -13,49 +13,24 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
     [OutputType]
     public sealed class AzureActiveDirectoryLoginResponse
     {
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the www-authenticate provider should be omitted from the request; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
         public readonly bool? DisableWWWAuthenticate;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
         /// <summary>
         /// Login parameters to send to the OpenID Connect authorization endpoint when
         /// a user logs in. Each parameter must be in the form "key=value".
         /// </summary>
         public readonly ImmutableArray<string> LoginParameters;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private AzureActiveDirectoryLoginResponse(
             bool? disableWWWAuthenticate,
 
-            string id,
-
-            string? kind,
-
-            ImmutableArray<string> loginParameters,
-
-            string name,
-
-            string type)
+            ImmutableArray<string> loginParameters)
         {
             DisableWWWAuthenticate = disableWWWAuthenticate;
-            Id = id;
-            Kind = kind;
             LoginParameters = loginParameters;
-            Name = name;
-            Type = type;
         }
     }
 }

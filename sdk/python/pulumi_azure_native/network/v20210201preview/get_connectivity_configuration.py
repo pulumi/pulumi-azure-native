@@ -20,7 +20,7 @@ class GetConnectivityConfigurationResult:
     """
     The network manager connectivity configuration resource
     """
-    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering=None, description=None, display_name=None, etag=None, hub_id=None, id=None, is_global=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering=None, description=None, display_name=None, etag=None, hubs=None, id=None, is_global=None, name=None, provisioning_state=None, system_data=None, type=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
@@ -39,9 +39,9 @@ class GetConnectivityConfigurationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if hub_id and not isinstance(hub_id, str):
-            raise TypeError("Expected argument 'hub_id' to be a str")
-        pulumi.set(__self__, "hub_id", hub_id)
+        if hubs and not isinstance(hubs, list):
+            raise TypeError("Expected argument 'hubs' to be a list")
+        pulumi.set(__self__, "hubs", hubs)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -110,12 +110,12 @@ class GetConnectivityConfigurationResult:
         return pulumi.get(self, "etag")
 
     @property
-    @pulumi.getter(name="hubId")
-    def hub_id(self) -> Optional[str]:
+    @pulumi.getter
+    def hubs(self) -> Optional[Sequence['outputs.HubResponse']]:
         """
-        The hub vnet Id.
+        List of hubItems
         """
-        return pulumi.get(self, "hub_id")
+        return pulumi.get(self, "hubs")
 
     @property
     @pulumi.getter
@@ -178,7 +178,7 @@ class AwaitableGetConnectivityConfigurationResult(GetConnectivityConfigurationRe
             description=self.description,
             display_name=self.display_name,
             etag=self.etag,
-            hub_id=self.hub_id,
+            hubs=self.hubs,
             id=self.id,
             is_global=self.is_global,
             name=self.name,
@@ -216,7 +216,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
         description=__ret__.description,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
-        hub_id=__ret__.hub_id,
+        hubs=__ret__.hubs,
         id=__ret__.id,
         is_global=__ret__.is_global,
         name=__ret__.name,

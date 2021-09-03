@@ -24,6 +24,7 @@ __all__ = [
     'EnvironmentVariableSetupResponse',
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
+    'IntegrationRuntimeCustomerVirtualNetworkResponse',
     'IntegrationRuntimeDataFlowPropertiesResponse',
     'IntegrationRuntimeDataProxyPropertiesResponse',
     'IntegrationRuntimeSsisCatalogInfoResponse',
@@ -861,6 +862,46 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
         The SAS token of the Azure blob container.
         """
         return pulumi.get(self, "sas_token")
+
+
+@pulumi.output_type
+class IntegrationRuntimeCustomerVirtualNetworkResponse(dict):
+    """
+    The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeCustomerVirtualNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeCustomerVirtualNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeCustomerVirtualNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: Optional[str] = None):
+        """
+        The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+        :param str subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -1919,6 +1960,8 @@ class ManagedIntegrationRuntimeResponse(dict):
         suggest = None
         if key == "computeProperties":
             suggest = "compute_properties"
+        elif key == "customerVirtualNetwork":
+            suggest = "customer_virtual_network"
         elif key == "ssisProperties":
             suggest = "ssis_properties"
 
@@ -1937,6 +1980,7 @@ class ManagedIntegrationRuntimeResponse(dict):
                  state: str,
                  type: str,
                  compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
+                 customer_virtual_network: Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse'] = None,
                  description: Optional[str] = None,
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
@@ -1945,6 +1989,7 @@ class ManagedIntegrationRuntimeResponse(dict):
         :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeCustomerVirtualNetworkResponse' customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param str description: Integration runtime description.
         :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
@@ -1952,6 +1997,8 @@ class ManagedIntegrationRuntimeResponse(dict):
         pulumi.set(__self__, "type", 'Managed')
         if compute_properties is not None:
             pulumi.set(__self__, "compute_properties", compute_properties)
+        if customer_virtual_network is not None:
+            pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ssis_properties is not None:
@@ -1981,6 +2028,14 @@ class ManagedIntegrationRuntimeResponse(dict):
         The compute resource for managed integration runtime.
         """
         return pulumi.get(self, "compute_properties")
+
+    @property
+    @pulumi.getter(name="customerVirtualNetwork")
+    def customer_virtual_network(self) -> Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse']:
+        """
+        The name of virtual network to which Azure-SSIS integration runtime will join
+        """
+        return pulumi.get(self, "customer_virtual_network")
 
     @property
     @pulumi.getter

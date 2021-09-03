@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public AzureStaticWebAppsRegistrationArgs()
         {
         }

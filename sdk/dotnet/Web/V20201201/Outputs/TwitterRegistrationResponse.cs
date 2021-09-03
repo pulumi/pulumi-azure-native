@@ -24,43 +24,15 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// application used for sign-in.
         /// </summary>
         public readonly string? ConsumerSecretSettingName;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private TwitterRegistrationResponse(
             string? consumerKey,
 
-            string? consumerSecretSettingName,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+            string? consumerSecretSettingName)
         {
             ConsumerKey = consumerKey;
             ConsumerSecretSettingName = consumerSecretSettingName;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

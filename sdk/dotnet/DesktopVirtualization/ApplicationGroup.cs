@@ -163,8 +163,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210309preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210401preview:ApplicationGroup"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210513preview:ApplicationGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210513preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210712:ApplicationGroup"},
                 },

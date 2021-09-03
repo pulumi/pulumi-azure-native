@@ -83,6 +83,10 @@ export interface GetTopicResult {
      */
     readonly id: string;
     /**
+     * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+     */
+    readonly maxMessageSizeInKilobytes?: number;
+    /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */
     readonly maxSizeInMegabytes?: number;

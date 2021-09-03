@@ -34,6 +34,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly Outputs.ComputeInstanceCreatedByResponse CreatedBy;
         /// <summary>
+        /// Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        /// </summary>
+        public readonly bool? EnableNodePublicIp;
+        /// <summary>
         /// Collection of errors encountered on this ComputeInstance.
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorResponseResponse> Errors;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 
             Outputs.ComputeInstanceCreatedByResponse createdBy,
 
+            bool? enableNodePublicIp,
+
             ImmutableArray<Outputs.ErrorResponseResponse> errors,
 
             Outputs.ComputeInstanceLastOperationResponse lastOperation,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
             ComputeInstanceAuthorizationType = computeInstanceAuthorizationType;
             ConnectivityEndpoints = connectivityEndpoints;
             CreatedBy = createdBy;
+            EnableNodePublicIp = enableNodePublicIp;
             Errors = errors;
             LastOperation = lastOperation;
             PersonalComputeInstanceSettings = personalComputeInstanceSettings;

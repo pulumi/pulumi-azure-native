@@ -18,53 +18,25 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
         /// The configuration settings of the login flow of the custom Open ID Connect provider.
         /// </summary>
         public readonly Outputs.OpenIdConnectLoginResponse? Login;
         /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The configuration settings of the app registration for the custom Open ID Connect provider.
         /// </summary>
         public readonly Outputs.OpenIdConnectRegistrationResponse? Registration;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private CustomOpenIdConnectProviderResponse(
             bool? enabled,
 
-            string id,
-
-            string? kind,
-
             Outputs.OpenIdConnectLoginResponse? login,
 
-            string name,
-
-            Outputs.OpenIdConnectRegistrationResponse? registration,
-
-            string type)
+            Outputs.OpenIdConnectRegistrationResponse? registration)
         {
             Enabled = enabled;
-            Id = id;
-            Kind = kind;
             Login = login;
-            Name = name;
             Registration = registration;
-            Type = type;
         }
     }
 }

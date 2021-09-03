@@ -14,43 +14,14 @@ namespace Pulumi.AzureNative.Web.V20210201.Outputs
     public sealed class BlobStorageTokenStoreResponse
     {
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         /// </summary>
         public readonly string? SasUrlSettingName;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private BlobStorageTokenStoreResponse(
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string? sasUrlSettingName,
-
-            string type)
+        private BlobStorageTokenStoreResponse(string? sasUrlSettingName)
         {
-            Id = id;
-            Kind = kind;
-            Name = name;
             SasUrlSettingName = sasUrlSettingName;
-            Type = type;
         }
     }
 }

@@ -24,18 +24,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// </summary>
         public readonly Outputs.CookieExpirationResponse? CookieExpiration;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The configuration settings of the nonce used in the login flow.
         /// </summary>
         public readonly Outputs.NonceResponse? Nonce;
@@ -51,10 +39,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// The configuration settings of the token store.
         /// </summary>
         public readonly Outputs.TokenStoreResponse? TokenStore;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private LoginResponse(
@@ -62,32 +46,20 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
 
             Outputs.CookieExpirationResponse? cookieExpiration,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
             Outputs.NonceResponse? nonce,
 
             bool? preserveUrlFragmentsForLogins,
 
             Outputs.LoginRoutesResponse? routes,
 
-            Outputs.TokenStoreResponse? tokenStore,
-
-            string type)
+            Outputs.TokenStoreResponse? tokenStore)
         {
             AllowedExternalRedirectUrls = allowedExternalRedirectUrls;
             CookieExpiration = cookieExpiration;
-            Id = id;
-            Kind = kind;
-            Name = name;
             Nonce = nonce;
             PreserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
             Routes = routes;
             TokenStore = tokenStore;
-            Type = type;
         }
     }
 }

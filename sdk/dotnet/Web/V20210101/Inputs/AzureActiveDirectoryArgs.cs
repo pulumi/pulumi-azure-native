@@ -30,12 +30,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public Input<bool>? IsAutoProvisioned { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The configuration settings of the Azure Active Directory login flow.
         /// </summary>
         [Input("login")]

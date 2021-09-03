@@ -20,7 +20,7 @@ class GetQueueResult:
     """
     Description of queue Resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, message_count=None, name=None, requires_duplicate_detection=None, requires_session=None, size_in_bytes=None, status=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, max_message_size_in_kilobytes=None, max_size_in_megabytes=None, message_count=None, name=None, requires_duplicate_detection=None, requires_session=None, size_in_bytes=None, status=None, system_data=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
@@ -66,6 +66,9 @@ class GetQueueResult:
         if max_delivery_count and not isinstance(max_delivery_count, int):
             raise TypeError("Expected argument 'max_delivery_count' to be a int")
         pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+        if max_message_size_in_kilobytes and not isinstance(max_message_size_in_kilobytes, float):
+            raise TypeError("Expected argument 'max_message_size_in_kilobytes' to be a float")
+        pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
             raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
@@ -218,6 +221,14 @@ class GetQueueResult:
         return pulumi.get(self, "max_delivery_count")
 
     @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[float]:
+        """
+        Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
+
+    @property
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[int]:
         """
@@ -319,6 +330,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             id=self.id,
             lock_duration=self.lock_duration,
             max_delivery_count=self.max_delivery_count,
+            max_message_size_in_kilobytes=self.max_message_size_in_kilobytes,
             max_size_in_megabytes=self.max_size_in_megabytes,
             message_count=self.message_count,
             name=self.name,
@@ -369,6 +381,7 @@ def get_queue(namespace_name: Optional[str] = None,
         id=__ret__.id,
         lock_duration=__ret__.lock_duration,
         max_delivery_count=__ret__.max_delivery_count,
+        max_message_size_in_kilobytes=__ret__.max_message_size_in_kilobytes,
         max_size_in_megabytes=__ret__.max_size_in_megabytes,
         message_count=__ret__.message_count,
         name=__ret__.name,

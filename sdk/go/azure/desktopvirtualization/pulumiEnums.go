@@ -67,36 +67,6 @@ func (e CommandLineSetting) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of domain join done by the virtual machine.
-type DomainJoinType pulumi.String
-
-const (
-	// Using microsoft active directory.
-	DomainJoinTypeActiveDirectory = DomainJoinType("ActiveDirectory")
-	// Using microsoft azure active directory.
-	DomainJoinTypeAzureActiveDirectory = DomainJoinType("AzureActiveDirectory")
-)
-
-func (DomainJoinType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DomainJoinType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainJoinType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainJoinType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DomainJoinType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // HostPool type for desktop.
 type HostPoolType pulumi.String
 
@@ -126,38 +96,6 @@ func (e HostPoolType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e HostPoolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The type of image session hosts use in the hostpool.
-type ImageType pulumi.String
-
-const (
-	// Using default gallery images offered by Azure Marketplace.
-	ImageTypeGallery = ImageType("Gallery")
-	// Using a VHD stored in a storage blob.
-	ImageTypeStorageBlob = ImageType("StorageBlob")
-	// Using custom image or custom shared image.
-	ImageTypeCustomImage = ImageType("CustomImage")
-)
-
-func (ImageType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e ImageType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ImageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ImageType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ImageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -509,39 +447,5 @@ func (e StopHostsWhen) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e StopHostsWhen) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The disk type used by virtual machine in hostpool session host.
-type VirtualMachineDiskType pulumi.String
-
-const (
-	// Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
-	VirtualMachineDiskType_Standard_LRS = VirtualMachineDiskType("Standard_LRS")
-	// Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
-	VirtualMachineDiskType_Premium_LRS = VirtualMachineDiskType("Premium_LRS")
-	// Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
-	VirtualMachineDiskType_StandardSSD_LRS = VirtualMachineDiskType("StandardSSD_LRS")
-	// Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
-	VirtualMachineDiskType_UltraSSD_LRS = VirtualMachineDiskType("UltraSSD_LRS")
-)
-
-func (VirtualMachineDiskType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e VirtualMachineDiskType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VirtualMachineDiskType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e VirtualMachineDiskType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e VirtualMachineDiskType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

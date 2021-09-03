@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public Input<Pulumi.AzureNative.Web.V20201201.CookieExpirationConvention>? Convention { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The time after the request is made when the session cookie should expire.
         /// </summary>
         [Input("timeToExpiration")]

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeComputePropertiesArgs>? ComputeProperties { get; set; }
 
         /// <summary>
+        /// The name of virtual network to which Azure-SSIS integration runtime will join
+        /// </summary>
+        [Input("customerVirtualNetwork")]
+        public Input<Inputs.IntegrationRuntimeCustomerVirtualNetworkArgs>? CustomerVirtualNetwork { get; set; }
+
+        /// <summary>
         /// Integration runtime description.
         /// </summary>
         [Input("description")]

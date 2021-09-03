@@ -35,12 +35,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public Input<Inputs.FileSystemTokenStoreArgs>? FileSystem { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The number of hours after session token expiration that a session token can be used to
         /// call the token refresh API. The default is 72 hours.
         /// </summary>

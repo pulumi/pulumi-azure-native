@@ -18,18 +18,6 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly Outputs.ForwardProxyResponse? ForwardProxy;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, &lt;code&gt;true&lt;/code&gt;.
         /// </summary>
         public readonly bool? RequireHttps;
@@ -37,34 +25,18 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// The configuration settings of the paths HTTP requests.
         /// </summary>
         public readonly Outputs.HttpSettingsRoutesResponse? Routes;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private HttpSettingsResponse(
             Outputs.ForwardProxyResponse? forwardProxy,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
             bool? requireHttps,
 
-            Outputs.HttpSettingsRoutesResponse? routes,
-
-            string type)
+            Outputs.HttpSettingsRoutesResponse? routes)
         {
             ForwardProxy = forwardProxy;
-            Id = id;
-            Kind = kind;
-            Name = name;
             RequireHttps = requireHttps;
             Routes = routes;
-            Type = type;
         }
     }
 }

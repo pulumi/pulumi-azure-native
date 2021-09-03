@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
         [Input("disableWWWAuthenticate")]
         public Input<bool>? DisableWWWAuthenticate { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         [Input("loginParameters")]
         private InputList<string>? _loginParameters;
 

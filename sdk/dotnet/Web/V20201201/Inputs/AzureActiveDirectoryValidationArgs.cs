@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("jwtClaimChecks")]
         public Input<Inputs.JwtClaimChecksArgs>? JwtClaimChecks { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public AzureActiveDirectoryValidationArgs()
         {
         }

@@ -117,6 +117,12 @@ func NewReadWriteDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:kusto/v20200918:ReadWriteDatabase"),
 		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20210827:ReadWriteDatabase"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:kusto/v20210827:ReadWriteDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReadWriteDatabase

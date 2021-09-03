@@ -18,46 +18,18 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? Convention;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The time after the request is made when the session cookie should expire.
         /// </summary>
         public readonly string? TimeToExpiration;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private CookieExpirationResponse(
             string? convention,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string? timeToExpiration,
-
-            string type)
+            string? timeToExpiration)
         {
             Convention = convention;
-            Id = id;
-            Kind = kind;
-            Name = name;
             TimeToExpiration = timeToExpiration;
-            Type = type;
         }
     }
 }

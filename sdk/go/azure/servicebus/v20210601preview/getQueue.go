@@ -58,6 +58,8 @@ type LookupQueueResult struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The number of messages in the queue.

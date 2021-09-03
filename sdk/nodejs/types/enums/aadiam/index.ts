@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20170401 from "./v20170401";
+import * as v20170401preview from "./v20170401preview";
 
 export {
     v20170401,
+    v20170401preview,
 };
 
 export const Category = {

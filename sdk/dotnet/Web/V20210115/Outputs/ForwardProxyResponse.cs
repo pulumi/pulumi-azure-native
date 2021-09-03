@@ -25,22 +25,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
         /// The name of the header containing the scheme of the request.
         /// </summary>
         public readonly string? CustomProtoHeaderName;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private ForwardProxyResponse(
@@ -48,23 +32,11 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
 
             string? customHostHeaderName,
 
-            string? customProtoHeaderName,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+            string? customProtoHeaderName)
         {
             Convention = convention;
             CustomHostHeaderName = customHostHeaderName;
             CustomProtoHeaderName = customProtoHeaderName;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

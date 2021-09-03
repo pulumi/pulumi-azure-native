@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
             set => _identities = value;
         }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public AllowedPrincipalsArgs()
         {
         }
