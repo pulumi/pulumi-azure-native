@@ -25,6 +25,8 @@ from .get_event_grid_data_connection import *
 from .get_event_hub_connection import *
 from .get_event_hub_data_connection import *
 from .get_iot_hub_data_connection import *
+from .get_managed_private_endpoint import *
+from .get_private_endpoint_connection import *
 from .get_read_only_following_database import *
 from .get_read_write_database import *
 from .get_script import *
@@ -32,6 +34,8 @@ from .iot_hub_data_connection import *
 from .list_cluster_follower_databases import *
 from .list_cluster_language_extensions import *
 from .list_database_principals import *
+from .managed_private_endpoint import *
+from .private_endpoint_connection import *
 from .read_only_following_database import *
 from .read_write_database import *
 from .script import *
@@ -50,6 +54,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.kusto.v20200614 as v20200614
     import pulumi_azure_native.kusto.v20200918 as v20200918
     import pulumi_azure_native.kusto.v20210101 as v20210101
+    import pulumi_azure_native.kusto.v20210827 as v20210827
 else:
     v20170907privatepreview = _utilities.lazy_import('pulumi_azure_native.kusto.v20170907privatepreview')
     v20180907preview = _utilities.lazy_import('pulumi_azure_native.kusto.v20180907preview')
@@ -61,4 +66,5 @@ else:
     v20200614 = _utilities.lazy_import('pulumi_azure_native.kusto.v20200614')
     v20200918 = _utilities.lazy_import('pulumi_azure_native.kusto.v20200918')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.kusto.v20210101')
+    v20210827 = _utilities.lazy_import('pulumi_azure_native.kusto.v20210827')
 

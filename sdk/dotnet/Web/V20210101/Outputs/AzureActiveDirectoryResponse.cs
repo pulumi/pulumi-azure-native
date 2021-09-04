@@ -18,35 +18,19 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
         /// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
         /// read or write to this property.
         /// </summary>
         public readonly bool? IsAutoProvisioned;
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
         /// The configuration settings of the Azure Active Directory login flow.
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryLoginResponse? Login;
         /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The configuration settings of the Azure Active Directory app registration.
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryRegistrationResponse? Registration;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
         /// <summary>
         /// The configuration settings of the Azure Active Directory token validation flow.
         /// </summary>
@@ -56,30 +40,18 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         private AzureActiveDirectoryResponse(
             bool? enabled,
 
-            string id,
-
             bool? isAutoProvisioned,
-
-            string? kind,
 
             Outputs.AzureActiveDirectoryLoginResponse? login,
 
-            string name,
-
             Outputs.AzureActiveDirectoryRegistrationResponse? registration,
-
-            string type,
 
             Outputs.AzureActiveDirectoryValidationResponse? validation)
         {
             Enabled = enabled;
-            Id = id;
             IsAutoProvisioned = isAutoProvisioned;
-            Kind = kind;
             Login = login;
-            Name = name;
             Registration = registration;
-            Type = type;
             Validation = validation;
         }
     }

@@ -284,8 +284,6 @@ type AllowedPrincipals struct {
 	Groups []string `pulumi:"groups"`
 	// The list of the allowed identities.
 	Identities []string `pulumi:"identities"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 }
 
 // AllowedPrincipalsInput is an input type that accepts AllowedPrincipalsArgs and AllowedPrincipalsOutput values.
@@ -305,8 +303,6 @@ type AllowedPrincipalsArgs struct {
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// The list of the allowed identities.
 	Identities pulumi.StringArrayInput `pulumi:"identities"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
 
 func (AllowedPrincipalsArgs) ElementType() reflect.Type {
@@ -397,11 +393,6 @@ func (o AllowedPrincipalsOutput) Identities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AllowedPrincipals) []string { return v.Identities }).(pulumi.StringArrayOutput)
 }
 
-// Kind of resource.
-func (o AllowedPrincipalsOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AllowedPrincipals) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 type AllowedPrincipalsPtrOutput struct{ *pulumi.OutputState }
 
 func (AllowedPrincipalsPtrOutput) ElementType() reflect.Type {
@@ -440,30 +431,12 @@ func (o AllowedPrincipalsPtrOutput) Identities() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Kind of resource.
-func (o AllowedPrincipalsPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AllowedPrincipals) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the Azure Active Directory allowed principals.
 type AllowedPrincipalsResponse struct {
 	// The list of the allowed groups.
 	Groups []string `pulumi:"groups"`
-	// Resource Id.
-	Id string `pulumi:"id"`
 	// The list of the allowed identities.
 	Identities []string `pulumi:"identities"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // AllowedPrincipalsResponseInput is an input type that accepts AllowedPrincipalsResponseArgs and AllowedPrincipalsResponseOutput values.
@@ -481,16 +454,8 @@ type AllowedPrincipalsResponseInput interface {
 type AllowedPrincipalsResponseArgs struct {
 	// The list of the allowed groups.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
 	// The list of the allowed identities.
 	Identities pulumi.StringArrayInput `pulumi:"identities"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AllowedPrincipalsResponseArgs) ElementType() reflect.Type {
@@ -576,29 +541,9 @@ func (o AllowedPrincipalsResponseOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AllowedPrincipalsResponse) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// Resource Id.
-func (o AllowedPrincipalsResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AllowedPrincipalsResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
 // The list of the allowed identities.
 func (o AllowedPrincipalsResponseOutput) Identities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AllowedPrincipalsResponse) []string { return v.Identities }).(pulumi.StringArrayOutput)
-}
-
-// Kind of resource.
-func (o AllowedPrincipalsResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AllowedPrincipalsResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AllowedPrincipalsResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AllowedPrincipalsResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource type.
-func (o AllowedPrincipalsResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AllowedPrincipalsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AllowedPrincipalsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -629,16 +574,6 @@ func (o AllowedPrincipalsResponsePtrOutput) Groups() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Resource Id.
-func (o AllowedPrincipalsResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AllowedPrincipalsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
 // The list of the allowed identities.
 func (o AllowedPrincipalsResponsePtrOutput) Identities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AllowedPrincipalsResponse) []string {
@@ -647,36 +582,6 @@ func (o AllowedPrincipalsResponsePtrOutput) Identities() pulumi.StringArrayOutpu
 		}
 		return v.Identities
 	}).(pulumi.StringArrayOutput)
-}
-
-// Kind of resource.
-func (o AllowedPrincipalsResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AllowedPrincipalsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AllowedPrincipalsResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AllowedPrincipalsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o AllowedPrincipalsResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AllowedPrincipalsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Information about the formal API definition for the app.
@@ -1505,8 +1410,6 @@ type AppRegistration struct {
 	AppId *string `pulumi:"appId"`
 	// The app setting name that contains the app secret.
 	AppSecretSettingName *string `pulumi:"appSecretSettingName"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 }
 
 // AppRegistrationInput is an input type that accepts AppRegistrationArgs and AppRegistrationOutput values.
@@ -1526,8 +1429,6 @@ type AppRegistrationArgs struct {
 	AppId pulumi.StringPtrInput `pulumi:"appId"`
 	// The app setting name that contains the app secret.
 	AppSecretSettingName pulumi.StringPtrInput `pulumi:"appSecretSettingName"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
 
 func (AppRegistrationArgs) ElementType() reflect.Type {
@@ -1618,11 +1519,6 @@ func (o AppRegistrationOutput) AppSecretSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppRegistration) *string { return v.AppSecretSettingName }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource.
-func (o AppRegistrationOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppRegistration) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 type AppRegistrationPtrOutput struct{ *pulumi.OutputState }
 
 func (AppRegistrationPtrOutput) ElementType() reflect.Type {
@@ -1661,30 +1557,12 @@ func (o AppRegistrationPtrOutput) AppSecretSettingName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource.
-func (o AppRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppRegistration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the app registration for providers that have app ids and app secrets
 type AppRegistrationResponse struct {
 	// The App ID of the app used for login.
 	AppId *string `pulumi:"appId"`
 	// The app setting name that contains the app secret.
 	AppSecretSettingName *string `pulumi:"appSecretSettingName"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // AppRegistrationResponseInput is an input type that accepts AppRegistrationResponseArgs and AppRegistrationResponseOutput values.
@@ -1704,14 +1582,6 @@ type AppRegistrationResponseArgs struct {
 	AppId pulumi.StringPtrInput `pulumi:"appId"`
 	// The app setting name that contains the app secret.
 	AppSecretSettingName pulumi.StringPtrInput `pulumi:"appSecretSettingName"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AppRegistrationResponseArgs) ElementType() reflect.Type {
@@ -1802,26 +1672,6 @@ func (o AppRegistrationResponseOutput) AppSecretSettingName() pulumi.StringPtrOu
 	return o.ApplyT(func(v AppRegistrationResponse) *string { return v.AppSecretSettingName }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
-func (o AppRegistrationResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AppRegistrationResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o AppRegistrationResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppRegistrationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppRegistrationResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource type.
-func (o AppRegistrationResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type AppRegistrationResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (AppRegistrationResponsePtrOutput) ElementType() reflect.Type {
@@ -1860,52 +1710,10 @@ func (o AppRegistrationResponsePtrOutput) AppSecretSettingName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
-func (o AppRegistrationResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o AppRegistrationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o AppRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the Apple provider.
 type Apple struct {
 	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopes `pulumi:"login"`
 	// The configuration settings of the Apple registration.
@@ -1927,8 +1735,6 @@ type AppleInput interface {
 type AppleArgs struct {
 	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesPtrInput `pulumi:"login"`
 	// The configuration settings of the Apple registration.
@@ -2018,11 +1824,6 @@ func (o AppleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Apple) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o AppleOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Apple) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o AppleOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v Apple) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
@@ -2059,16 +1860,6 @@ func (o ApplePtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Kind of resource.
-func (o ApplePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Apple) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the login flow.
@@ -2401,18 +2192,10 @@ func (o AppleRegistrationResponsePtrOutput) ClientSecretSettingName() pulumi.Str
 type AppleResponse struct {
 	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The configuration settings of the Apple registration.
 	Registration *AppleRegistrationResponse `pulumi:"registration"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // AppleResponseInput is an input type that accepts AppleResponseArgs and AppleResponseOutput values.
@@ -2430,18 +2213,10 @@ type AppleResponseInput interface {
 type AppleResponseArgs struct {
 	// <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The configuration settings of the Apple registration.
 	Registration AppleRegistrationResponsePtrInput `pulumi:"registration"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AppleResponseArgs) ElementType() reflect.Type {
@@ -2527,34 +2302,14 @@ func (o AppleResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o AppleResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AppleResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o AppleResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppleResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o AppleResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v AppleResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o AppleResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppleResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the Apple registration.
 func (o AppleResponseOutput) Registration() AppleRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v AppleResponse) *AppleRegistrationResponse { return v.Registration }).(AppleRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o AppleResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AppleResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2585,26 +2340,6 @@ func (o AppleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o AppleResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o AppleResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o AppleResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *AppleResponse) *LoginScopesResponse {
@@ -2615,16 +2350,6 @@ func (o AppleResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	}).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o AppleResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the Apple registration.
 func (o AppleResponsePtrOutput) Registration() AppleRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *AppleResponse) *AppleRegistrationResponse {
@@ -2633,16 +2358,6 @@ func (o AppleResponsePtrOutput) Registration() AppleRegistrationResponsePtrOutpu
 		}
 		return v.Registration
 	}).(AppleRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o AppleResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Application logs configuration.
@@ -5759,8 +5474,6 @@ func (o AzureActiveDirectoryPtrOutput) Validation() AzureActiveDirectoryValidati
 type AzureActiveDirectoryLogin struct {
 	// <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
 	DisableWWWAuthenticate *bool `pulumi:"disableWWWAuthenticate"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// Login parameters to send to the OpenID Connect authorization endpoint when
 	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters []string `pulumi:"loginParameters"`
@@ -5781,8 +5494,6 @@ type AzureActiveDirectoryLoginInput interface {
 type AzureActiveDirectoryLoginArgs struct {
 	// <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
 	DisableWWWAuthenticate pulumi.BoolPtrInput `pulumi:"disableWWWAuthenticate"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Login parameters to send to the OpenID Connect authorization endpoint when
 	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters pulumi.StringArrayInput `pulumi:"loginParameters"`
@@ -5871,11 +5582,6 @@ func (o AzureActiveDirectoryLoginOutput) DisableWWWAuthenticate() pulumi.BoolPtr
 	return o.ApplyT(func(v AzureActiveDirectoryLogin) *bool { return v.DisableWWWAuthenticate }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o AzureActiveDirectoryLoginOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryLogin) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // Login parameters to send to the OpenID Connect authorization endpoint when
 // a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginOutput) LoginParameters() pulumi.StringArrayOutput {
@@ -5910,16 +5616,6 @@ func (o AzureActiveDirectoryLoginPtrOutput) DisableWWWAuthenticate() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o AzureActiveDirectoryLoginPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLogin) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // Login parameters to send to the OpenID Connect authorization endpoint when
 // a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginPtrOutput) LoginParameters() pulumi.StringArrayOutput {
@@ -5935,17 +5631,9 @@ func (o AzureActiveDirectoryLoginPtrOutput) LoginParameters() pulumi.StringArray
 type AzureActiveDirectoryLoginResponse struct {
 	// <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
 	DisableWWWAuthenticate *bool `pulumi:"disableWWWAuthenticate"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// Login parameters to send to the OpenID Connect authorization endpoint when
 	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters []string `pulumi:"loginParameters"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // AzureActiveDirectoryLoginResponseInput is an input type that accepts AzureActiveDirectoryLoginResponseArgs and AzureActiveDirectoryLoginResponseOutput values.
@@ -5963,17 +5651,9 @@ type AzureActiveDirectoryLoginResponseInput interface {
 type AzureActiveDirectoryLoginResponseArgs struct {
 	// <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
 	DisableWWWAuthenticate pulumi.BoolPtrInput `pulumi:"disableWWWAuthenticate"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Login parameters to send to the OpenID Connect authorization endpoint when
 	// a user logs in. Each parameter must be in the form "key=value".
 	LoginParameters pulumi.StringArrayInput `pulumi:"loginParameters"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureActiveDirectoryLoginResponseArgs) ElementType() reflect.Type {
@@ -6059,30 +5739,10 @@ func (o AzureActiveDirectoryLoginResponseOutput) DisableWWWAuthenticate() pulumi
 	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) *bool { return v.DisableWWWAuthenticate }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o AzureActiveDirectoryLoginResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o AzureActiveDirectoryLoginResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // Login parameters to send to the OpenID Connect authorization endpoint when
 // a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginResponseOutput) LoginParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) []string { return v.LoginParameters }).(pulumi.StringArrayOutput)
-}
-
-// Resource Name.
-func (o AzureActiveDirectoryLoginResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource type.
-func (o AzureActiveDirectoryLoginResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryLoginResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AzureActiveDirectoryLoginResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6113,26 +5773,6 @@ func (o AzureActiveDirectoryLoginResponsePtrOutput) DisableWWWAuthenticate() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o AzureActiveDirectoryLoginResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o AzureActiveDirectoryLoginResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // Login parameters to send to the OpenID Connect authorization endpoint when
 // a user logs in. Each parameter must be in the form "key=value".
 func (o AzureActiveDirectoryLoginResponsePtrOutput) LoginParameters() pulumi.StringArrayOutput {
@@ -6142,26 +5782,6 @@ func (o AzureActiveDirectoryLoginResponsePtrOutput) LoginParameters() pulumi.Str
 		}
 		return v.LoginParameters
 	}).(pulumi.StringArrayOutput)
-}
-
-// Resource Name.
-func (o AzureActiveDirectoryLoginResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o AzureActiveDirectoryLoginResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryLoginResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the Azure Active Directory app registration.
@@ -6182,8 +5802,6 @@ type AzureActiveDirectoryRegistration struct {
 	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 	// This URI is a case-sensitive identifier for the token issuer.
@@ -6220,8 +5838,6 @@ type AzureActiveDirectoryRegistrationArgs struct {
 	ClientSecretCertificateThumbprint pulumi.StringPtrInput `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 	// This URI is a case-sensitive identifier for the token issuer.
@@ -6340,11 +5956,6 @@ func (o AzureActiveDirectoryRegistrationOutput) ClientSecretSettingName() pulumi
 	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource.
-func (o AzureActiveDirectoryRegistrationOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryRegistration) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 // When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 // This URI is a case-sensitive identifier for the token issuer.
@@ -6427,16 +6038,6 @@ func (o AzureActiveDirectoryRegistrationPtrOutput) ClientSecretSettingName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource.
-func (o AzureActiveDirectoryRegistrationPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 // When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 // This URI is a case-sensitive identifier for the token issuer.
@@ -6468,19 +6069,11 @@ type AzureActiveDirectoryRegistrationResponse struct {
 	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName *string `pulumi:"clientSecretSettingName"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 	// This URI is a case-sensitive identifier for the token issuer.
 	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 	OpenIdIssuer *string `pulumi:"openIdIssuer"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // AzureActiveDirectoryRegistrationResponseInput is an input type that accepts AzureActiveDirectoryRegistrationResponseArgs and AzureActiveDirectoryRegistrationResponseOutput values.
@@ -6512,19 +6105,11 @@ type AzureActiveDirectoryRegistrationResponseArgs struct {
 	ClientSecretCertificateThumbprint pulumi.StringPtrInput `pulumi:"clientSecretCertificateThumbprint"`
 	// The app setting name that contains the client secret of the relying party application.
 	ClientSecretSettingName pulumi.StringPtrInput `pulumi:"clientSecretSettingName"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 	// This URI is a case-sensitive identifier for the token issuer.
 	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 	OpenIdIssuer pulumi.StringPtrInput `pulumi:"openIdIssuer"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureActiveDirectoryRegistrationResponseArgs) ElementType() reflect.Type {
@@ -6638,32 +6223,12 @@ func (o AzureActiveDirectoryRegistrationResponseOutput) ClientSecretSettingName(
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.ClientSecretSettingName }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
-func (o AzureActiveDirectoryRegistrationResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o AzureActiveDirectoryRegistrationResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AzureActiveDirectoryRegistrationResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 // When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 // This URI is a case-sensitive identifier for the token issuer.
 // More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
 func (o AzureActiveDirectoryRegistrationResponseOutput) OpenIdIssuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) *string { return v.OpenIdIssuer }).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o AzureActiveDirectoryRegistrationResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AzureActiveDirectoryRegistrationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6740,36 +6305,6 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) ClientSecretSettingNa
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
-func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 // When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
 // This URI is a case-sensitive identifier for the token issuer.
@@ -6780,16 +6315,6 @@ func (o AzureActiveDirectoryRegistrationResponsePtrOutput) OpenIdIssuer() pulumi
 			return nil
 		}
 		return v.OpenIdIssuer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o AzureActiveDirectoryRegistrationResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryRegistrationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7019,8 +6544,6 @@ type AzureActiveDirectoryValidation struct {
 	DefaultAuthorizationPolicy *DefaultAuthorizationPolicy `pulumi:"defaultAuthorizationPolicy"`
 	// The configuration settings of the checks that should be made while validating the JWT Claims.
 	JwtClaimChecks *JwtClaimChecks `pulumi:"jwtClaimChecks"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 }
 
 // AzureActiveDirectoryValidationInput is an input type that accepts AzureActiveDirectoryValidationArgs and AzureActiveDirectoryValidationOutput values.
@@ -7042,8 +6565,6 @@ type AzureActiveDirectoryValidationArgs struct {
 	DefaultAuthorizationPolicy DefaultAuthorizationPolicyPtrInput `pulumi:"defaultAuthorizationPolicy"`
 	// The configuration settings of the checks that should be made while validating the JWT Claims.
 	JwtClaimChecks JwtClaimChecksPtrInput `pulumi:"jwtClaimChecks"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 }
 
 func (AzureActiveDirectoryValidationArgs) ElementType() reflect.Type {
@@ -7141,11 +6662,6 @@ func (o AzureActiveDirectoryValidationOutput) JwtClaimChecks() JwtClaimChecksPtr
 	return o.ApplyT(func(v AzureActiveDirectoryValidation) *JwtClaimChecks { return v.JwtClaimChecks }).(JwtClaimChecksPtrOutput)
 }
 
-// Kind of resource.
-func (o AzureActiveDirectoryValidationOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryValidation) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 type AzureActiveDirectoryValidationPtrOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryValidationPtrOutput) ElementType() reflect.Type {
@@ -7194,32 +6710,14 @@ func (o AzureActiveDirectoryValidationPtrOutput) JwtClaimChecks() JwtClaimChecks
 	}).(JwtClaimChecksPtrOutput)
 }
 
-// Kind of resource.
-func (o AzureActiveDirectoryValidationPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the Azure Active Directory token validation flow.
 type AzureActiveDirectoryValidationResponse struct {
 	// The list of audiences that can make successful authentication/authorization requests.
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
 	// The configuration settings of the default authorization policy.
 	DefaultAuthorizationPolicy *DefaultAuthorizationPolicyResponse `pulumi:"defaultAuthorizationPolicy"`
-	// Resource Id.
-	Id string `pulumi:"id"`
 	// The configuration settings of the checks that should be made while validating the JWT Claims.
 	JwtClaimChecks *JwtClaimChecksResponse `pulumi:"jwtClaimChecks"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // AzureActiveDirectoryValidationResponseInput is an input type that accepts AzureActiveDirectoryValidationResponseArgs and AzureActiveDirectoryValidationResponseOutput values.
@@ -7239,16 +6737,8 @@ type AzureActiveDirectoryValidationResponseArgs struct {
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
 	// The configuration settings of the default authorization policy.
 	DefaultAuthorizationPolicy DefaultAuthorizationPolicyResponsePtrInput `pulumi:"defaultAuthorizationPolicy"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
 	// The configuration settings of the checks that should be made while validating the JWT Claims.
 	JwtClaimChecks JwtClaimChecksResponsePtrInput `pulumi:"jwtClaimChecks"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureActiveDirectoryValidationResponseArgs) ElementType() reflect.Type {
@@ -7341,29 +6831,9 @@ func (o AzureActiveDirectoryValidationResponseOutput) DefaultAuthorizationPolicy
 	}).(DefaultAuthorizationPolicyResponsePtrOutput)
 }
 
-// Resource Id.
-func (o AzureActiveDirectoryValidationResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the checks that should be made while validating the JWT Claims.
 func (o AzureActiveDirectoryValidationResponseOutput) JwtClaimChecks() JwtClaimChecksResponsePtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) *JwtClaimChecksResponse { return v.JwtClaimChecks }).(JwtClaimChecksResponsePtrOutput)
-}
-
-// Kind of resource.
-func (o AzureActiveDirectoryValidationResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AzureActiveDirectoryValidationResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource type.
-func (o AzureActiveDirectoryValidationResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryValidationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AzureActiveDirectoryValidationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -7404,16 +6874,6 @@ func (o AzureActiveDirectoryValidationResponsePtrOutput) DefaultAuthorizationPol
 	}).(DefaultAuthorizationPolicyResponsePtrOutput)
 }
 
-// Resource Id.
-func (o AzureActiveDirectoryValidationResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the checks that should be made while validating the JWT Claims.
 func (o AzureActiveDirectoryValidationResponsePtrOutput) JwtClaimChecks() JwtClaimChecksResponsePtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) *JwtClaimChecksResponse {
@@ -7422,36 +6882,6 @@ func (o AzureActiveDirectoryValidationResponsePtrOutput) JwtClaimChecks() JwtCla
 		}
 		return v.JwtClaimChecks
 	}).(JwtClaimChecksResponsePtrOutput)
-}
-
-// Kind of resource.
-func (o AzureActiveDirectoryValidationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AzureActiveDirectoryValidationResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o AzureActiveDirectoryValidationResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryValidationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Application logs azure blob storage configuration.
@@ -8180,8 +7610,6 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) SasUrl() pulumi.StringP
 type AzureStaticWebApps struct {
 	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the Azure Static Web Apps registration.
 	Registration *AzureStaticWebAppsRegistration `pulumi:"registration"`
 }
@@ -8201,8 +7629,6 @@ type AzureStaticWebAppsInput interface {
 type AzureStaticWebAppsArgs struct {
 	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the Azure Static Web Apps registration.
 	Registration AzureStaticWebAppsRegistrationPtrInput `pulumi:"registration"`
 }
@@ -8290,11 +7716,6 @@ func (o AzureStaticWebAppsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebApps) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o AzureStaticWebAppsOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStaticWebApps) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the Azure Static Web Apps registration.
 func (o AzureStaticWebAppsOutput) Registration() AzureStaticWebAppsRegistrationPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebApps) *AzureStaticWebAppsRegistration { return v.Registration }).(AzureStaticWebAppsRegistrationPtrOutput)
@@ -8326,16 +7747,6 @@ func (o AzureStaticWebAppsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Kind of resource.
-func (o AzureStaticWebAppsPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStaticWebApps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the Azure Static Web Apps registration.
@@ -8620,16 +8031,8 @@ func (o AzureStaticWebAppsRegistrationResponsePtrOutput) ClientId() pulumi.Strin
 type AzureStaticWebAppsResponse struct {
 	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The configuration settings of the Azure Static Web Apps registration.
 	Registration *AzureStaticWebAppsRegistrationResponse `pulumi:"registration"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // AzureStaticWebAppsResponseInput is an input type that accepts AzureStaticWebAppsResponseArgs and AzureStaticWebAppsResponseOutput values.
@@ -8647,16 +8050,8 @@ type AzureStaticWebAppsResponseInput interface {
 type AzureStaticWebAppsResponseArgs struct {
 	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The configuration settings of the Azure Static Web Apps registration.
 	Registration AzureStaticWebAppsRegistrationResponsePtrInput `pulumi:"registration"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AzureStaticWebAppsResponseArgs) ElementType() reflect.Type {
@@ -8742,29 +8137,9 @@ func (o AzureStaticWebAppsResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureStaticWebAppsResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o AzureStaticWebAppsResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureStaticWebAppsResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o AzureStaticWebAppsResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStaticWebAppsResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AzureStaticWebAppsResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureStaticWebAppsResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the Azure Static Web Apps registration.
 func (o AzureStaticWebAppsResponseOutput) Registration() AzureStaticWebAppsRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v AzureStaticWebAppsResponse) *AzureStaticWebAppsRegistrationResponse { return v.Registration }).(AzureStaticWebAppsRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o AzureStaticWebAppsResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureStaticWebAppsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AzureStaticWebAppsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8795,36 +8170,6 @@ func (o AzureStaticWebAppsResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o AzureStaticWebAppsResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o AzureStaticWebAppsResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AzureStaticWebAppsResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the Azure Static Web Apps registration.
 func (o AzureStaticWebAppsResponsePtrOutput) Registration() AzureStaticWebAppsRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *AzureStaticWebAppsRegistrationResponse {
@@ -8833,16 +8178,6 @@ func (o AzureStaticWebAppsResponsePtrOutput) Registration() AzureStaticWebAppsRe
 		}
 		return v.Registration
 	}).(AzureStaticWebAppsRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o AzureStaticWebAppsResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureStaticWebAppsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Azure Files or Blob Storage access information value for dictionary storage.
@@ -10119,8 +9454,6 @@ func (o BackupScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 
 // The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStore struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName *string `pulumi:"sasUrlSettingName"`
 }
@@ -10138,8 +9471,6 @@ type BlobStorageTokenStoreInput interface {
 
 // The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName pulumi.StringPtrInput `pulumi:"sasUrlSettingName"`
 }
@@ -10222,11 +9553,6 @@ func (o BlobStorageTokenStoreOutput) ToBlobStorageTokenStorePtrOutputWithContext
 	}).(BlobStorageTokenStorePtrOutput)
 }
 
-// Kind of resource.
-func (o BlobStorageTokenStoreOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobStorageTokenStore) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStoreOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageTokenStore) *string { return v.SasUrlSettingName }).(pulumi.StringPtrOutput)
@@ -10250,16 +9576,6 @@ func (o BlobStorageTokenStorePtrOutput) Elem() BlobStorageTokenStoreOutput {
 	return o.ApplyT(func(v *BlobStorageTokenStore) BlobStorageTokenStore { return *v }).(BlobStorageTokenStoreOutput)
 }
 
-// Kind of resource.
-func (o BlobStorageTokenStorePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStore) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStorePtrOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobStorageTokenStore) *string {
@@ -10272,16 +9588,8 @@ func (o BlobStorageTokenStorePtrOutput) SasUrlSettingName() pulumi.StringPtrOutp
 
 // The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreResponse struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName *string `pulumi:"sasUrlSettingName"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // BlobStorageTokenStoreResponseInput is an input type that accepts BlobStorageTokenStoreResponseArgs and BlobStorageTokenStoreResponseOutput values.
@@ -10297,16 +9605,8 @@ type BlobStorageTokenStoreResponseInput interface {
 
 // The configuration settings of the storage of the tokens if blob storage is used.
 type BlobStorageTokenStoreResponseArgs struct {
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 	SasUrlSettingName pulumi.StringPtrInput `pulumi:"sasUrlSettingName"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (BlobStorageTokenStoreResponseArgs) ElementType() reflect.Type {
@@ -10387,29 +9687,9 @@ func (o BlobStorageTokenStoreResponseOutput) ToBlobStorageTokenStoreResponsePtrO
 	}).(BlobStorageTokenStoreResponsePtrOutput)
 }
 
-// Resource Id.
-func (o BlobStorageTokenStoreResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobStorageTokenStoreResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o BlobStorageTokenStoreResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BlobStorageTokenStoreResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o BlobStorageTokenStoreResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobStorageTokenStoreResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStoreResponseOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobStorageTokenStoreResponse) *string { return v.SasUrlSettingName }).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o BlobStorageTokenStoreResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobStorageTokenStoreResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type BlobStorageTokenStoreResponsePtrOutput struct{ *pulumi.OutputState }
@@ -10430,36 +9710,6 @@ func (o BlobStorageTokenStoreResponsePtrOutput) Elem() BlobStorageTokenStoreResp
 	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) BlobStorageTokenStoreResponse { return *v }).(BlobStorageTokenStoreResponseOutput)
 }
 
-// Resource Id.
-func (o BlobStorageTokenStoreResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o BlobStorageTokenStoreResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o BlobStorageTokenStoreResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The name of the app setting containing the SAS URL of the blob storage containing the tokens.
 func (o BlobStorageTokenStoreResponsePtrOutput) SasUrlSettingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) *string {
@@ -10467,16 +9717,6 @@ func (o BlobStorageTokenStoreResponsePtrOutput) SasUrlSettingName() pulumi.Strin
 			return nil
 		}
 		return v.SasUrlSettingName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource type.
-func (o BlobStorageTokenStoreResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BlobStorageTokenStoreResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12620,8 +11860,6 @@ func (o CorsSettingsResponsePtrOutput) SupportCredentials() pulumi.BoolPtrOutput
 type CustomOpenIdConnectProvider struct {
 	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow of the custom Open ID Connect provider.
 	Login *OpenIdConnectLogin `pulumi:"login"`
 	// The configuration settings of the app registration for the custom Open ID Connect provider.
@@ -12643,8 +11881,6 @@ type CustomOpenIdConnectProviderInput interface {
 type CustomOpenIdConnectProviderArgs struct {
 	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow of the custom Open ID Connect provider.
 	Login OpenIdConnectLoginPtrInput `pulumi:"login"`
 	// The configuration settings of the app registration for the custom Open ID Connect provider.
@@ -12708,11 +11944,6 @@ func (o CustomOpenIdConnectProviderOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProvider) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o CustomOpenIdConnectProviderOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomOpenIdConnectProvider) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow of the custom Open ID Connect provider.
 func (o CustomOpenIdConnectProviderOutput) Login() OpenIdConnectLoginPtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProvider) *OpenIdConnectLogin { return v.Login }).(OpenIdConnectLoginPtrOutput)
@@ -12747,18 +11978,10 @@ func (o CustomOpenIdConnectProviderMapOutput) MapIndex(k pulumi.StringInput) Cus
 type CustomOpenIdConnectProviderResponse struct {
 	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow of the custom Open ID Connect provider.
 	Login *OpenIdConnectLoginResponse `pulumi:"login"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The configuration settings of the app registration for the custom Open ID Connect provider.
 	Registration *OpenIdConnectRegistrationResponse `pulumi:"registration"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // CustomOpenIdConnectProviderResponseInput is an input type that accepts CustomOpenIdConnectProviderResponseArgs and CustomOpenIdConnectProviderResponseOutput values.
@@ -12776,18 +11999,10 @@ type CustomOpenIdConnectProviderResponseInput interface {
 type CustomOpenIdConnectProviderResponseArgs struct {
 	// <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow of the custom Open ID Connect provider.
 	Login OpenIdConnectLoginResponsePtrInput `pulumi:"login"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The configuration settings of the app registration for the custom Open ID Connect provider.
 	Registration OpenIdConnectRegistrationResponsePtrInput `pulumi:"registration"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (CustomOpenIdConnectProviderResponseArgs) ElementType() reflect.Type {
@@ -12847,34 +12062,14 @@ func (o CustomOpenIdConnectProviderResponseOutput) Enabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o CustomOpenIdConnectProviderResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o CustomOpenIdConnectProviderResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow of the custom Open ID Connect provider.
 func (o CustomOpenIdConnectProviderResponseOutput) Login() OpenIdConnectLoginResponsePtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *OpenIdConnectLoginResponse { return v.Login }).(OpenIdConnectLoginResponsePtrOutput)
 }
 
-// Resource Name.
-func (o CustomOpenIdConnectProviderResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the app registration for the custom Open ID Connect provider.
 func (o CustomOpenIdConnectProviderResponseOutput) Registration() OpenIdConnectRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) *OpenIdConnectRegistrationResponse { return v.Registration }).(OpenIdConnectRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o CustomOpenIdConnectProviderResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomOpenIdConnectProviderResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type CustomOpenIdConnectProviderResponseMapOutput struct{ *pulumi.OutputState }
@@ -16486,8 +15681,6 @@ func (o FrontEndConfigurationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 type GitHub struct {
 	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopes `pulumi:"login"`
 	// The configuration settings of the app registration for the GitHub provider.
@@ -16509,8 +15702,6 @@ type GitHubInput interface {
 type GitHubArgs struct {
 	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesPtrInput `pulumi:"login"`
 	// The configuration settings of the app registration for the GitHub provider.
@@ -16600,11 +15791,6 @@ func (o GitHubOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GitHub) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o GitHubOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitHub) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o GitHubOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v GitHub) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
@@ -16641,16 +15827,6 @@ func (o GitHubPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Kind of resource.
-func (o GitHubPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHub) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the login flow.
@@ -17753,18 +16929,10 @@ func (o GitHubActionContainerConfigurationResponsePtrOutput) Username() pulumi.S
 type GitHubResponse struct {
 	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The configuration settings of the app registration for the GitHub provider.
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // GitHubResponseInput is an input type that accepts GitHubResponseArgs and GitHubResponseOutput values.
@@ -17782,18 +16950,10 @@ type GitHubResponseInput interface {
 type GitHubResponseArgs struct {
 	// <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The configuration settings of the app registration for the GitHub provider.
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GitHubResponseArgs) ElementType() reflect.Type {
@@ -17879,34 +17039,14 @@ func (o GitHubResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GitHubResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o GitHubResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GitHubResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o GitHubResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitHubResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o GitHubResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v GitHubResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o GitHubResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GitHubResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the app registration for the GitHub provider.
 func (o GitHubResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v GitHubResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o GitHubResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GitHubResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GitHubResponsePtrOutput struct{ *pulumi.OutputState }
@@ -17937,26 +17077,6 @@ func (o GitHubResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o GitHubResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o GitHubResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o GitHubResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *GitHubResponse) *LoginScopesResponse {
@@ -17967,16 +17087,6 @@ func (o GitHubResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	}).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o GitHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the app registration for the GitHub provider.
 func (o GitHubResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *GitHubResponse) *ClientRegistrationResponse {
@@ -17985,16 +17095,6 @@ func (o GitHubResponsePtrOutput) Registration() ClientRegistrationResponsePtrOut
 		}
 		return v.Registration
 	}).(ClientRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o GitHubResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
@@ -18399,8 +17499,6 @@ func (o GlobalValidationResponsePtrOutput) UnauthenticatedClientAction() pulumi.
 type Google struct {
 	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopes `pulumi:"login"`
 	// The configuration settings of the app registration for the Google provider.
@@ -18424,8 +17522,6 @@ type GoogleInput interface {
 type GoogleArgs struct {
 	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesPtrInput `pulumi:"login"`
 	// The configuration settings of the app registration for the Google provider.
@@ -18517,11 +17613,6 @@ func (o GoogleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Google) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o GoogleOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Google) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o GoogleOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v Google) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
@@ -18565,16 +17656,6 @@ func (o GooglePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o GooglePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Google) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o GooglePtrOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v *Google) *LoginScopes {
@@ -18609,18 +17690,10 @@ func (o GooglePtrOutput) Validation() AllowedAudiencesValidationPtrOutput {
 type GoogleResponse struct {
 	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The configuration settings of the app registration for the Google provider.
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
-	// Resource type.
-	Type string `pulumi:"type"`
 	// The configuration settings of the Azure Active Directory token validation flow.
 	Validation *AllowedAudiencesValidationResponse `pulumi:"validation"`
 }
@@ -18640,18 +17713,10 @@ type GoogleResponseInput interface {
 type GoogleResponseArgs struct {
 	// <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The configuration settings of the app registration for the Google provider.
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 	// The configuration settings of the Azure Active Directory token validation flow.
 	Validation AllowedAudiencesValidationResponsePtrInput `pulumi:"validation"`
 }
@@ -18739,34 +17804,14 @@ func (o GoogleResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o GoogleResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GoogleResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o GoogleResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GoogleResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o GoogleResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o GoogleResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GoogleResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the app registration for the Google provider.
 func (o GoogleResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v GoogleResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o GoogleResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GoogleResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The configuration settings of the Azure Active Directory token validation flow.
@@ -18802,26 +17847,6 @@ func (o GoogleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o GoogleResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GoogleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o GoogleResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GoogleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o GoogleResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *GoogleResponse) *LoginScopesResponse {
@@ -18832,16 +17857,6 @@ func (o GoogleResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	}).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o GoogleResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GoogleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the app registration for the Google provider.
 func (o GoogleResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *GoogleResponse) *ClientRegistrationResponse {
@@ -18850,16 +17865,6 @@ func (o GoogleResponsePtrOutput) Registration() ClientRegistrationResponsePtrOut
 		}
 		return v.Registration
 	}).(ClientRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o GoogleResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GoogleResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the Azure Active Directory token validation flow.
@@ -22452,8 +21457,6 @@ func (o KubeEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 type LegacyMicrosoftAccount struct {
 	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopes `pulumi:"login"`
 	// The configuration settings of the app registration for the legacy Microsoft Account provider.
@@ -22477,8 +21480,6 @@ type LegacyMicrosoftAccountInput interface {
 type LegacyMicrosoftAccountArgs struct {
 	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesPtrInput `pulumi:"login"`
 	// The configuration settings of the app registration for the legacy Microsoft Account provider.
@@ -22570,11 +21571,6 @@ func (o LegacyMicrosoftAccountOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccount) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o LegacyMicrosoftAccountOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccount) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccount) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
@@ -22618,16 +21614,6 @@ func (o LegacyMicrosoftAccountPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o LegacyMicrosoftAccountPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountPtrOutput) Login() LoginScopesPtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccount) *LoginScopes {
@@ -22662,18 +21648,10 @@ func (o LegacyMicrosoftAccountPtrOutput) Validation() AllowedAudiencesValidation
 type LegacyMicrosoftAccountResponse struct {
 	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login *LoginScopesResponse `pulumi:"login"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The configuration settings of the app registration for the legacy Microsoft Account provider.
 	Registration *ClientRegistrationResponse `pulumi:"registration"`
-	// Resource type.
-	Type string `pulumi:"type"`
 	// The configuration settings of the legacy Microsoft Account provider token validation flow.
 	Validation *AllowedAudiencesValidationResponse `pulumi:"validation"`
 }
@@ -22693,18 +21671,10 @@ type LegacyMicrosoftAccountResponseInput interface {
 type LegacyMicrosoftAccountResponseArgs struct {
 	// <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the login flow.
 	Login LoginScopesResponsePtrInput `pulumi:"login"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The configuration settings of the app registration for the legacy Microsoft Account provider.
 	Registration ClientRegistrationResponsePtrInput `pulumi:"registration"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 	// The configuration settings of the legacy Microsoft Account provider token validation flow.
 	Validation AllowedAudiencesValidationResponsePtrInput `pulumi:"validation"`
 }
@@ -22792,34 +21762,14 @@ func (o LegacyMicrosoftAccountResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o LegacyMicrosoftAccountResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o LegacyMicrosoftAccountResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountResponseOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o LegacyMicrosoftAccountResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the app registration for the legacy Microsoft Account provider.
 func (o LegacyMicrosoftAccountResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o LegacyMicrosoftAccountResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The configuration settings of the legacy Microsoft Account provider token validation flow.
@@ -22855,26 +21805,6 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Enabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o LegacyMicrosoftAccountResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o LegacyMicrosoftAccountResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the login flow.
 func (o LegacyMicrosoftAccountResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *LoginScopesResponse {
@@ -22885,16 +21815,6 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Login() LoginScopesResponsePtrO
 	}).(LoginScopesResponsePtrOutput)
 }
 
-// Resource Name.
-func (o LegacyMicrosoftAccountResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the app registration for the legacy Microsoft Account provider.
 func (o LegacyMicrosoftAccountResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *ClientRegistrationResponse {
@@ -22903,16 +21823,6 @@ func (o LegacyMicrosoftAccountResponsePtrOutput) Registration() ClientRegistrati
 		}
 		return v.Registration
 	}).(ClientRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o LegacyMicrosoftAccountResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the legacy Microsoft Account provider token validation flow.
@@ -35568,8 +34478,6 @@ func (o TokenStoreResponsePtrOutput) TokenRefreshExtensionHours() pulumi.Float64
 type Twitter struct {
 	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
 	// The configuration settings of the app registration for the Twitter provider.
 	Registration *TwitterRegistration `pulumi:"registration"`
 }
@@ -35589,8 +34497,6 @@ type TwitterInput interface {
 type TwitterArgs struct {
 	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The configuration settings of the app registration for the Twitter provider.
 	Registration TwitterRegistrationPtrInput `pulumi:"registration"`
 }
@@ -35678,11 +34584,6 @@ func (o TwitterOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Twitter) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
-func (o TwitterOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Twitter) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the app registration for the Twitter provider.
 func (o TwitterOutput) Registration() TwitterRegistrationPtrOutput {
 	return o.ApplyT(func(v Twitter) *TwitterRegistration { return v.Registration }).(TwitterRegistrationPtrOutput)
@@ -35714,16 +34615,6 @@ func (o TwitterPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Kind of resource.
-func (o TwitterPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Twitter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration settings of the app registration for the Twitter provider.
@@ -36070,16 +34961,8 @@ func (o TwitterRegistrationResponsePtrOutput) ConsumerSecretSettingName() pulumi
 type TwitterResponse struct {
 	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
 	// The configuration settings of the app registration for the Twitter provider.
 	Registration *TwitterRegistrationResponse `pulumi:"registration"`
-	// Resource type.
-	Type string `pulumi:"type"`
 }
 
 // TwitterResponseInput is an input type that accepts TwitterResponseArgs and TwitterResponseOutput values.
@@ -36097,16 +34980,8 @@ type TwitterResponseInput interface {
 type TwitterResponseArgs struct {
 	// <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The configuration settings of the app registration for the Twitter provider.
 	Registration TwitterRegistrationResponsePtrInput `pulumi:"registration"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TwitterResponseArgs) ElementType() reflect.Type {
@@ -36192,29 +35067,9 @@ func (o TwitterResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TwitterResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o TwitterResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v TwitterResponse) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Kind of resource.
-func (o TwitterResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TwitterResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o TwitterResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TwitterResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The configuration settings of the app registration for the Twitter provider.
 func (o TwitterResponseOutput) Registration() TwitterRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v TwitterResponse) *TwitterRegistrationResponse { return v.Registration }).(TwitterRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o TwitterResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TwitterResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type TwitterResponsePtrOutput struct{ *pulumi.OutputState }
@@ -36245,36 +35100,6 @@ func (o TwitterResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource Id.
-func (o TwitterResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TwitterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Kind of resource.
-func (o TwitterResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TwitterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o TwitterResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TwitterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The configuration settings of the app registration for the Twitter provider.
 func (o TwitterResponsePtrOutput) Registration() TwitterRegistrationResponsePtrOutput {
 	return o.ApplyT(func(v *TwitterResponse) *TwitterRegistrationResponse {
@@ -36283,16 +35108,6 @@ func (o TwitterResponsePtrOutput) Registration() TwitterRegistrationResponsePtrO
 		}
 		return v.Registration
 	}).(TwitterRegistrationResponsePtrOutput)
-}
-
-// Resource type.
-func (o TwitterResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TwitterResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // User Assigned identity.

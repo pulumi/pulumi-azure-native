@@ -22,25 +22,9 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The configuration settings of the endpoints used for the custom Open ID Connect provider.
         /// </summary>
         public readonly Outputs.OpenIdConnectConfigResponse? OpenIdConnectConfiguration;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private OpenIdConnectRegistrationResponse(
@@ -48,23 +32,11 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
 
             string? clientId,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
-            Outputs.OpenIdConnectConfigResponse? openIdConnectConfiguration,
-
-            string type)
+            Outputs.OpenIdConnectConfigResponse? openIdConnectConfiguration)
         {
             ClientCredential = clientCredential;
             ClientId = clientId;
-            Id = id;
-            Kind = kind;
-            Name = name;
             OpenIdConnectConfiguration = openIdConnectConfiguration;
-            Type = type;
         }
     }
 }

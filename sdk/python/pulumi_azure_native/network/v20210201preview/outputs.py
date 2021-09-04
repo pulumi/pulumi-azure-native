@@ -24,6 +24,7 @@ __all__ = [
     'EffectiveSecurityAdminRuleResponse',
     'EffectiveVirtualNetworkResponse',
     'GroupMembersItemResponse',
+    'HubResponse',
     'NetworkManagerDeploymentStatusResponse',
     'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
@@ -44,7 +45,7 @@ class ActiveConnectivityConfigurationResponse(dict):
                  delete_existing_peering: Optional[str] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
-                 hub_id: Optional[str] = None,
+                 hubs: Optional[Sequence['outputs.HubResponse']] = None,
                  id: Optional[str] = None,
                  is_global: Optional[str] = None,
                  region: Optional[str] = None):
@@ -58,7 +59,7 @@ class ActiveConnectivityConfigurationResponse(dict):
         :param str delete_existing_peering: Flag if need to remove current existing peerings.
         :param str description: A description of the connectivity configuration.
         :param str display_name: A friendly name for the resource.
-        :param str hub_id: The hub vnet Id.
+        :param Sequence['HubResponse'] hubs: List of hubItems
         :param str id: Resource ID.
         :param str is_global: Flag if global mesh is supported.
         :param str region: Deployment region.
@@ -77,8 +78,8 @@ class ActiveConnectivityConfigurationResponse(dict):
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if hub_id is not None:
-            pulumi.set(__self__, "hub_id", hub_id)
+        if hubs is not None:
+            pulumi.set(__self__, "hubs", hubs)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if is_global is not None:
@@ -151,12 +152,12 @@ class ActiveConnectivityConfigurationResponse(dict):
         return pulumi.get(self, "display_name")
 
     @property
-    @pulumi.getter(name="hubId")
-    def hub_id(self) -> Optional[str]:
+    @pulumi.getter
+    def hubs(self) -> Optional[Sequence['outputs.HubResponse']]:
         """
-        The hub vnet Id.
+        List of hubItems
         """
-        return pulumi.get(self, "hub_id")
+        return pulumi.get(self, "hubs")
 
     @property
     @pulumi.getter
@@ -1427,7 +1428,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
                  delete_existing_peering: Optional[str] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
-                 hub_id: Optional[str] = None,
+                 hubs: Optional[Sequence['outputs.HubResponse']] = None,
                  id: Optional[str] = None,
                  is_global: Optional[str] = None):
         """
@@ -1439,7 +1440,7 @@ class EffectiveConnectivityConfigurationResponse(dict):
         :param str delete_existing_peering: Flag if need to remove current existing peerings.
         :param str description: A description of the connectivity configuration.
         :param str display_name: A friendly name for the resource.
-        :param str hub_id: The hub vnet Id.
+        :param Sequence['HubResponse'] hubs: List of hubItems
         :param str id: Resource ID.
         :param str is_global: Flag if global mesh is supported.
         """
@@ -1455,8 +1456,8 @@ class EffectiveConnectivityConfigurationResponse(dict):
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if hub_id is not None:
-            pulumi.set(__self__, "hub_id", hub_id)
+        if hubs is not None:
+            pulumi.set(__self__, "hubs", hubs)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if is_global is not None:
@@ -1519,12 +1520,12 @@ class EffectiveConnectivityConfigurationResponse(dict):
         return pulumi.get(self, "display_name")
 
     @property
-    @pulumi.getter(name="hubId")
-    def hub_id(self) -> Optional[str]:
+    @pulumi.getter
+    def hubs(self) -> Optional[Sequence['outputs.HubResponse']]:
         """
-        The hub vnet Id.
+        List of hubItems
         """
-        return pulumi.get(self, "hub_id")
+        return pulumi.get(self, "hubs")
 
     @property
     @pulumi.getter
@@ -2075,10 +2076,8 @@ class GroupMembersItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "vnetId":
-            suggest = "vnet_id"
+        if key == "resourceId":
+            suggest = "resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GroupMembersItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2092,33 +2091,75 @@ class GroupMembersItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 subnet_id: Optional[str] = None,
-                 vnet_id: Optional[str] = None):
+                 resource_id: Optional[str] = None):
         """
         GroupMembers Item.
-        :param str subnet_id: Subnet Id.
-        :param str vnet_id: Vnet Id.
+        :param str resource_id: Resource Id.
         """
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if vnet_id is not None:
-            pulumi.set(__self__, "vnet_id", vnet_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
         """
-        Subnet Id.
+        Resource Id.
         """
-        return pulumi.get(self, "subnet_id")
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class HubResponse(dict):
+    """
+    Hub Item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None,
+                 resource_type: Optional[str] = None):
+        """
+        Hub Item.
+        :param str resource_id: Resource Id.
+        :param str resource_type: Resource Type.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
 
     @property
-    @pulumi.getter(name="vnetId")
-    def vnet_id(self) -> Optional[str]:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
         """
-        Vnet Id.
+        Resource Id.
         """
-        return pulumi.get(self, "vnet_id")
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        """
+        Resource Type.
+        """
+        return pulumi.get(self, "resource_type")
 
 
 @pulumi.output_type

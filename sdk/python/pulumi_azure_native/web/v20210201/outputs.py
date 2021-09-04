@@ -164,54 +164,17 @@ class AllowedPrincipalsResponse(dict):
     The configuration settings of the Azure Active Directory allowed principals.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  groups: Optional[Sequence[str]] = None,
-                 identities: Optional[Sequence[str]] = None,
-                 kind: Optional[str] = None):
+                 identities: Optional[Sequence[str]] = None):
         """
         The configuration settings of the Azure Active Directory allowed principals.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param Sequence[str] groups: The list of the allowed groups.
         :param Sequence[str] identities: The list of the allowed identities.
-        :param str kind: Kind of resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if identities is not None:
             pulumi.set(__self__, "identities", identities)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -228,14 +191,6 @@ class AllowedPrincipalsResponse(dict):
         The list of the allowed identities.
         """
         return pulumi.get(self, "identities")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type
@@ -347,54 +302,17 @@ class AppRegistrationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  app_id: Optional[str] = None,
-                 app_secret_setting_name: Optional[str] = None,
-                 kind: Optional[str] = None):
+                 app_secret_setting_name: Optional[str] = None):
         """
         The configuration settings of the app registration for providers that have app ids and app secrets
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param str app_id: The App ID of the app used for login.
         :param str app_secret_setting_name: The app setting name that contains the app secret.
-        :param str kind: Kind of resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
         if app_secret_setting_name is not None:
             pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="appId")
@@ -411,14 +329,6 @@ class AppRegistrationResponse(dict):
         The app setting name that contains the app secret.
         """
         return pulumi.get(self, "app_secret_setting_name")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type
@@ -481,58 +391,21 @@ class AppleResponse(dict):
     The configuration settings of the Apple provider.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  enabled: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  login: Optional['outputs.LoginScopesResponse'] = None,
                  registration: Optional['outputs.AppleRegistrationResponse'] = None):
         """
         The configuration settings of the Apple provider.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool enabled: <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
-        :param str kind: Kind of resource.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'AppleRegistrationResponse' registration: The configuration settings of the Apple registration.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if login is not None:
             pulumi.set(__self__, "login", login)
         if registration is not None:
             pulumi.set(__self__, "registration", registration)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -541,14 +414,6 @@ class AppleResponse(dict):
         <code>false</code> if the Apple provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -1166,55 +1031,18 @@ class AzureActiveDirectoryLoginResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  disable_www_authenticate: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  login_parameters: Optional[Sequence[str]] = None):
         """
         The configuration settings of the Azure Active Directory login flow.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool disable_www_authenticate: <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
-        :param str kind: Kind of resource.
         :param Sequence[str] login_parameters: Login parameters to send to the OpenID Connect authorization endpoint when
                a user logs in. Each parameter must be in the form "key=value".
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if disable_www_authenticate is not None:
             pulumi.set(__self__, "disable_www_authenticate", disable_www_authenticate)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if login_parameters is not None:
             pulumi.set(__self__, "login_parameters", login_parameters)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="disableWWWAuthenticate")
@@ -1223,14 +1051,6 @@ class AzureActiveDirectoryLoginResponse(dict):
         <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "disable_www_authenticate")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="loginParameters")
@@ -1275,21 +1095,14 @@ class AzureActiveDirectoryRegistrationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  client_id: Optional[str] = None,
                  client_secret_certificate_issuer: Optional[str] = None,
                  client_secret_certificate_subject_alternative_name: Optional[str] = None,
                  client_secret_certificate_thumbprint: Optional[str] = None,
                  client_secret_setting_name: Optional[str] = None,
-                 kind: Optional[str] = None,
                  open_id_issuer: Optional[str] = None):
         """
         The configuration settings of the Azure Active Directory app registration.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param str client_id: The Client ID of this relying party application, known as the client_id.
                This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
                other 3rd party OpenID Connect providers.
@@ -1301,15 +1114,11 @@ class AzureActiveDirectoryRegistrationResponse(dict):
         :param str client_secret_certificate_thumbprint: An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
                a replacement for the Client Secret. It is also optional.
         :param str client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
-        :param str kind: Kind of resource.
         :param str open_id_issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
                When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret_certificate_issuer is not None:
@@ -1320,34 +1129,8 @@ class AzureActiveDirectoryRegistrationResponse(dict):
             pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
         if client_secret_setting_name is not None:
             pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if open_id_issuer is not None:
             pulumi.set(__self__, "open_id_issuer", open_id_issuer)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="clientId")
@@ -1394,14 +1177,6 @@ class AzureActiveDirectoryRegistrationResponse(dict):
         The app setting name that contains the client secret of the relying party application.
         """
         return pulumi.get(self, "client_secret_setting_name")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="openIdIssuer")
@@ -1534,58 +1309,21 @@ class AzureActiveDirectoryValidationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  allowed_audiences: Optional[Sequence[str]] = None,
                  default_authorization_policy: Optional['outputs.DefaultAuthorizationPolicyResponse'] = None,
-                 jwt_claim_checks: Optional['outputs.JwtClaimChecksResponse'] = None,
-                 kind: Optional[str] = None):
+                 jwt_claim_checks: Optional['outputs.JwtClaimChecksResponse'] = None):
         """
         The configuration settings of the Azure Active Directory token validation flow.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param Sequence[str] allowed_audiences: The list of audiences that can make successful authentication/authorization requests.
         :param 'DefaultAuthorizationPolicyResponse' default_authorization_policy: The configuration settings of the default authorization policy.
         :param 'JwtClaimChecksResponse' jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
-        :param str kind: Kind of resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
         if default_authorization_policy is not None:
             pulumi.set(__self__, "default_authorization_policy", default_authorization_policy)
         if jwt_claim_checks is not None:
             pulumi.set(__self__, "jwt_claim_checks", jwt_claim_checks)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="allowedAudiences")
@@ -1610,14 +1348,6 @@ class AzureActiveDirectoryValidationResponse(dict):
         The configuration settings of the checks that should be made while validating the JWT Claims.
         """
         return pulumi.get(self, "jwt_claim_checks")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type
@@ -1806,54 +1536,17 @@ class AzureStaticWebAppsResponse(dict):
     The configuration settings of the Azure Static Web Apps provider.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  enabled: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  registration: Optional['outputs.AzureStaticWebAppsRegistrationResponse'] = None):
         """
         The configuration settings of the Azure Static Web Apps provider.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool enabled: <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
-        :param str kind: Kind of resource.
         :param 'AzureStaticWebAppsRegistrationResponse' registration: The configuration settings of the Azure Static Web Apps registration.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if registration is not None:
             pulumi.set(__self__, "registration", registration)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -1862,14 +1555,6 @@ class AzureStaticWebAppsResponse(dict):
         <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -2371,58 +2056,13 @@ class BlobStorageTokenStoreResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
-                 kind: Optional[str] = None,
                  sas_url_setting_name: Optional[str] = None):
         """
         The configuration settings of the storage of the tokens if blob storage is used.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
-        :param str kind: Kind of resource.
         :param str sas_url_setting_name: The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if sas_url_setting_name is not None:
             pulumi.set(__self__, "sas_url_setting_name", sas_url_setting_name)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="sasUrlSettingName")
@@ -2749,58 +2389,21 @@ class CustomOpenIdConnectProviderResponse(dict):
     The configuration settings of the custom Open ID Connect provider.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  enabled: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  login: Optional['outputs.OpenIdConnectLoginResponse'] = None,
                  registration: Optional['outputs.OpenIdConnectRegistrationResponse'] = None):
         """
         The configuration settings of the custom Open ID Connect provider.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool enabled: <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
-        :param str kind: Kind of resource.
         :param 'OpenIdConnectLoginResponse' login: The configuration settings of the login flow of the custom Open ID Connect provider.
         :param 'OpenIdConnectRegistrationResponse' registration: The configuration settings of the app registration for the custom Open ID Connect provider.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if login is not None:
             pulumi.set(__self__, "login", login)
         if registration is not None:
             pulumi.set(__self__, "registration", registration)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -2809,14 +2412,6 @@ class CustomOpenIdConnectProviderResponse(dict):
         <code>false</code> if the custom Open ID provider provider should not be enabled; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -3688,58 +3283,21 @@ class GitHubResponse(dict):
     The configuration settings of the GitHub provider.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  enabled: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  login: Optional['outputs.LoginScopesResponse'] = None,
                  registration: Optional['outputs.ClientRegistrationResponse'] = None):
         """
         The configuration settings of the GitHub provider.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool enabled: <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
-        :param str kind: Kind of resource.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the GitHub provider.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if login is not None:
             pulumi.set(__self__, "login", login)
         if registration is not None:
             pulumi.set(__self__, "registration", registration)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -3748,14 +3306,6 @@ class GitHubResponse(dict):
         <code>false</code> if the GitHub provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -3866,32 +3416,19 @@ class GoogleResponse(dict):
     The configuration settings of the Google provider.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  enabled: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  login: Optional['outputs.LoginScopesResponse'] = None,
                  registration: Optional['outputs.ClientRegistrationResponse'] = None,
                  validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
         """
         The configuration settings of the Google provider.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool enabled: <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
-        :param str kind: Kind of resource.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the Google provider.
         :param 'AllowedAudiencesValidationResponse' validation: The configuration settings of the Azure Active Directory token validation flow.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if login is not None:
             pulumi.set(__self__, "login", login)
         if registration is not None:
@@ -3901,43 +3438,11 @@ class GoogleResponse(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
         <code>false</code> if the Google provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -4864,32 +4369,19 @@ class LegacyMicrosoftAccountResponse(dict):
     The configuration settings of the legacy Microsoft Account provider.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  enabled: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  login: Optional['outputs.LoginScopesResponse'] = None,
                  registration: Optional['outputs.ClientRegistrationResponse'] = None,
                  validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
         """
         The configuration settings of the legacy Microsoft Account provider.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool enabled: <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
-        :param str kind: Kind of resource.
         :param 'LoginScopesResponse' login: The configuration settings of the login flow.
         :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the legacy Microsoft Account provider.
         :param 'AllowedAudiencesValidationResponse' validation: The configuration settings of the legacy Microsoft Account provider token validation flow.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if login is not None:
             pulumi.set(__self__, "login", login)
         if registration is not None:
@@ -4899,43 +4391,11 @@ class LegacyMicrosoftAccountResponse(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
         <code>false</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -8514,54 +7974,17 @@ class TwitterResponse(dict):
     The configuration settings of the Twitter provider.
     """
     def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
                  enabled: Optional[bool] = None,
-                 kind: Optional[str] = None,
                  registration: Optional['outputs.TwitterRegistrationResponse'] = None):
         """
         The configuration settings of the Twitter provider.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
         :param bool enabled: <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
-        :param str kind: Kind of resource.
         :param 'TwitterRegistrationResponse' registration: The configuration settings of the app registration for the Twitter provider.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if registration is not None:
             pulumi.set(__self__, "registration", registration)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -8570,14 +7993,6 @@ class TwitterResponse(dict):
         <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

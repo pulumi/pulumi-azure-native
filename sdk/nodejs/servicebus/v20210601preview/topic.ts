@@ -72,6 +72,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
     /**
+     * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+     */
+    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number | undefined>;
+    /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number | undefined>;
@@ -135,6 +139,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             inputs["enableExpress"] = args ? args.enableExpress : undefined;
             inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            inputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
@@ -161,6 +166,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["enableBatchedOperations"] = undefined /*out*/;
             inputs["enableExpress"] = undefined /*out*/;
             inputs["enablePartitioning"] = undefined /*out*/;
+            inputs["maxMessageSizeInKilobytes"] = undefined /*out*/;
             inputs["maxSizeInMegabytes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["requiresDuplicateDetection"] = undefined /*out*/;
@@ -209,6 +215,10 @@ export interface TopicArgs {
      * Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
      */
     enablePartitioning?: pulumi.Input<boolean>;
+    /**
+     * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */

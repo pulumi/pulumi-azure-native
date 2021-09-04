@@ -1223,16 +1223,6 @@ export const MatchProcessingBehavior = {
  */
 export type MatchProcessingBehavior = (typeof MatchProcessingBehavior)[keyof typeof MatchProcessingBehavior];
 
-export const MemberType = {
-    VirtualNetwork: "VirtualNetwork",
-    Subnet: "Subnet",
-} as const;
-
-/**
- * Group member type.
- */
-export type MemberType = (typeof MemberType)[keyof typeof MemberType];
-
 export const MonitorProtocol = {
     HTTP: "HTTP",
     HTTPS: "HTTPS",

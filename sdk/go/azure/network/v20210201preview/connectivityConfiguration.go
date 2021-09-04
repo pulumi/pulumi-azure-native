@@ -27,8 +27,8 @@ type ConnectivityConfiguration struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The hub vnet Id.
-	HubId pulumi.StringPtrOutput `pulumi:"hubId"`
+	// List of hubItems
+	Hubs HubResponseArrayOutput `pulumi:"hubs"`
 	// Flag if global mesh is supported.
 	IsGlobal pulumi.StringPtrOutput `pulumi:"isGlobal"`
 	// Resource name.
@@ -113,8 +113,8 @@ type connectivityConfigurationArgs struct {
 	Description *string `pulumi:"description"`
 	// A friendly name for the resource.
 	DisplayName *string `pulumi:"displayName"`
-	// The hub vnet Id.
-	HubId *string `pulumi:"hubId"`
+	// List of hubItems
+	Hubs []Hub `pulumi:"hubs"`
 	// Flag if global mesh is supported.
 	IsGlobal *string `pulumi:"isGlobal"`
 	// The name of the network manager.
@@ -137,8 +137,8 @@ type ConnectivityConfigurationArgs struct {
 	Description pulumi.StringPtrInput
 	// A friendly name for the resource.
 	DisplayName pulumi.StringPtrInput
-	// The hub vnet Id.
-	HubId pulumi.StringPtrInput
+	// List of hubItems
+	Hubs HubArrayInput
 	// Flag if global mesh is supported.
 	IsGlobal pulumi.StringPtrInput
 	// The name of the network manager.

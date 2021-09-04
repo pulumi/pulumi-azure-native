@@ -3070,10 +3070,10 @@ func (o EnvironmentVariableSetupResponseOutput) VariableValue() pulumi.StringOut
 type FollowerDatabaseDefinitionResponse struct {
 	// Resource name of the attached database configuration in the follower cluster.
 	AttachedDatabaseConfigurationName string `pulumi:"attachedDatabaseConfigurationName"`
-	// Resource id of the cluster that follows a database owned by this cluster.
-	ClusterResourceId string `pulumi:"clusterResourceId"`
 	// The database name owned by this cluster that was followed. * in case following all databases.
 	DatabaseName string `pulumi:"databaseName"`
+	// Resource id of the cluster that follows a database owned by this cluster.
+	KustoPoolResourceId string `pulumi:"kustoPoolResourceId"`
 }
 
 // FollowerDatabaseDefinitionResponseInput is an input type that accepts FollowerDatabaseDefinitionResponseArgs and FollowerDatabaseDefinitionResponseOutput values.
@@ -3091,10 +3091,10 @@ type FollowerDatabaseDefinitionResponseInput interface {
 type FollowerDatabaseDefinitionResponseArgs struct {
 	// Resource name of the attached database configuration in the follower cluster.
 	AttachedDatabaseConfigurationName pulumi.StringInput `pulumi:"attachedDatabaseConfigurationName"`
-	// Resource id of the cluster that follows a database owned by this cluster.
-	ClusterResourceId pulumi.StringInput `pulumi:"clusterResourceId"`
 	// The database name owned by this cluster that was followed. * in case following all databases.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Resource id of the cluster that follows a database owned by this cluster.
+	KustoPoolResourceId pulumi.StringInput `pulumi:"kustoPoolResourceId"`
 }
 
 func (FollowerDatabaseDefinitionResponseArgs) ElementType() reflect.Type {
@@ -3154,14 +3154,14 @@ func (o FollowerDatabaseDefinitionResponseOutput) AttachedDatabaseConfigurationN
 	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.AttachedDatabaseConfigurationName }).(pulumi.StringOutput)
 }
 
-// Resource id of the cluster that follows a database owned by this cluster.
-func (o FollowerDatabaseDefinitionResponseOutput) ClusterResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.ClusterResourceId }).(pulumi.StringOutput)
-}
-
 // The database name owned by this cluster that was followed. * in case following all databases.
 func (o FollowerDatabaseDefinitionResponseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Resource id of the cluster that follows a database owned by this cluster.
+func (o FollowerDatabaseDefinitionResponseOutput) KustoPoolResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v FollowerDatabaseDefinitionResponse) string { return v.KustoPoolResourceId }).(pulumi.StringOutput)
 }
 
 type FollowerDatabaseDefinitionResponseArrayOutput struct{ *pulumi.OutputState }

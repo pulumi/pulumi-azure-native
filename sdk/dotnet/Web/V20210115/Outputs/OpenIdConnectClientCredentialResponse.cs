@@ -18,46 +18,18 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
         /// The method that should be used to authenticate the user.
         /// </summary>
         public readonly string? Method;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private OpenIdConnectClientCredentialResponse(
             string? clientSecretSettingName,
 
-            string id,
-
-            string? kind,
-
-            string? method,
-
-            string name,
-
-            string type)
+            string? method)
         {
             ClientSecretSettingName = clientSecretSettingName;
-            Id = id;
-            Kind = kind;
             Method = method;
-            Name = name;
-            Type = type;
         }
     }
 }

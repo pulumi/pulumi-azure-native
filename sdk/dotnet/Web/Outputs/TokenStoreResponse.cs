@@ -27,26 +27,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly Outputs.FileSystemTokenStoreResponse? FileSystem;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The number of hours after session token expiration that a session token can be used to
         /// call the token refresh API. The default is 72 hours.
         /// </summary>
         public readonly double? TokenRefreshExtensionHours;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private TokenStoreResponse(
@@ -56,24 +40,12 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             Outputs.FileSystemTokenStoreResponse? fileSystem,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
-            double? tokenRefreshExtensionHours,
-
-            string type)
+            double? tokenRefreshExtensionHours)
         {
             AzureBlobStorage = azureBlobStorage;
             Enabled = enabled;
             FileSystem = fileSystem;
-            Id = id;
-            Kind = kind;
-            Name = name;
             TokenRefreshExtensionHours = tokenRefreshExtensionHours;
-            Type = type;
         }
     }
 }

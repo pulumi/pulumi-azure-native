@@ -13,41 +13,15 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
     [OutputType]
     public sealed class AllowedAudiencesValidationResponse
     {
+        /// <summary>
+        /// The configuration settings of the allowed list of audiences from which to validate the JWT token.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private AllowedAudiencesValidationResponse(
-            ImmutableArray<string> allowedAudiences,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+        private AllowedAudiencesValidationResponse(ImmutableArray<string> allowedAudiences)
         {
             AllowedAudiences = allowedAudiences;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

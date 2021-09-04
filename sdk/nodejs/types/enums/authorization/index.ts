@@ -158,13 +158,7 @@ export const PrincipalType = {
     User: "User",
     Group: "Group",
     ServicePrincipal: "ServicePrincipal",
-    Unknown: "Unknown",
-    DirectoryRoleTemplate: "DirectoryRoleTemplate",
     ForeignGroup: "ForeignGroup",
-    Application: "Application",
-    MSI: "MSI",
-    DirectoryObjectOrGroup: "DirectoryObjectOrGroup",
-    Everyone: "Everyone",
 } as const;
 
 /**

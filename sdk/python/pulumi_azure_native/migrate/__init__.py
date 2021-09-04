@@ -42,6 +42,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.migrate.v20180901preview as v20180901preview
     import pulumi_azure_native.migrate.v20191001 as v20191001
     import pulumi_azure_native.migrate.v20191001preview as v20191001preview
+    import pulumi_azure_native.migrate.v20200501 as v20200501
     import pulumi_azure_native.migrate.v20210101 as v20210101
 else:
     v20171111preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20171111preview')
@@ -49,5 +50,6 @@ else:
     v20180901preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20180901preview')
     v20191001 = _utilities.lazy_import('pulumi_azure_native.migrate.v20191001')
     v20191001preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20191001preview')
+    v20200501 = _utilities.lazy_import('pulumi_azure_native.migrate.v20200501')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.migrate.v20210101')
 

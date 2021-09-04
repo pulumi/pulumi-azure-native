@@ -3746,6 +3746,276 @@ func (o IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput) SasToken
 	}).(SecureStringResponsePtrOutput)
 }
 
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetwork struct {
+	// The ID of subnet to which Azure-SSIS integration runtime will join.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// IntegrationRuntimeCustomerVirtualNetworkInput is an input type that accepts IntegrationRuntimeCustomerVirtualNetworkArgs and IntegrationRuntimeCustomerVirtualNetworkOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeCustomerVirtualNetworkInput` via:
+//
+//          IntegrationRuntimeCustomerVirtualNetworkArgs{...}
+type IntegrationRuntimeCustomerVirtualNetworkInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeCustomerVirtualNetworkOutput() IntegrationRuntimeCustomerVirtualNetworkOutput
+	ToIntegrationRuntimeCustomerVirtualNetworkOutputWithContext(context.Context) IntegrationRuntimeCustomerVirtualNetworkOutput
+}
+
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetworkArgs struct {
+	// The ID of subnet to which Azure-SSIS integration runtime will join.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (IntegrationRuntimeCustomerVirtualNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeCustomerVirtualNetwork)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkArgs) ToIntegrationRuntimeCustomerVirtualNetworkOutput() IntegrationRuntimeCustomerVirtualNetworkOutput {
+	return i.ToIntegrationRuntimeCustomerVirtualNetworkOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkArgs) ToIntegrationRuntimeCustomerVirtualNetworkOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomerVirtualNetworkOutput)
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkArgs) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutput() IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return i.ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkArgs) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomerVirtualNetworkOutput).ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeCustomerVirtualNetworkPtrInput is an input type that accepts IntegrationRuntimeCustomerVirtualNetworkArgs, IntegrationRuntimeCustomerVirtualNetworkPtr and IntegrationRuntimeCustomerVirtualNetworkPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeCustomerVirtualNetworkPtrInput` via:
+//
+//          IntegrationRuntimeCustomerVirtualNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeCustomerVirtualNetworkPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeCustomerVirtualNetworkPtrOutput() IntegrationRuntimeCustomerVirtualNetworkPtrOutput
+	ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(context.Context) IntegrationRuntimeCustomerVirtualNetworkPtrOutput
+}
+
+type integrationRuntimeCustomerVirtualNetworkPtrType IntegrationRuntimeCustomerVirtualNetworkArgs
+
+func IntegrationRuntimeCustomerVirtualNetworkPtr(v *IntegrationRuntimeCustomerVirtualNetworkArgs) IntegrationRuntimeCustomerVirtualNetworkPtrInput {
+	return (*integrationRuntimeCustomerVirtualNetworkPtrType)(v)
+}
+
+func (*integrationRuntimeCustomerVirtualNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeCustomerVirtualNetwork)(nil)).Elem()
+}
+
+func (i *integrationRuntimeCustomerVirtualNetworkPtrType) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutput() IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return i.ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeCustomerVirtualNetworkPtrType) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomerVirtualNetworkPtrOutput)
+}
+
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetworkOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeCustomerVirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeCustomerVirtualNetwork)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkOutput) ToIntegrationRuntimeCustomerVirtualNetworkOutput() IntegrationRuntimeCustomerVirtualNetworkOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkOutput) ToIntegrationRuntimeCustomerVirtualNetworkOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkOutput) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutput() IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return o.ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkOutput) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeCustomerVirtualNetwork) *IntegrationRuntimeCustomerVirtualNetwork {
+		return &v
+	}).(IntegrationRuntimeCustomerVirtualNetworkPtrOutput)
+}
+
+// The ID of subnet to which Azure-SSIS integration runtime will join.
+func (o IntegrationRuntimeCustomerVirtualNetworkOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeCustomerVirtualNetwork) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeCustomerVirtualNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeCustomerVirtualNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeCustomerVirtualNetwork)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkPtrOutput) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutput() IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkPtrOutput) ToIntegrationRuntimeCustomerVirtualNetworkPtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkPtrOutput) Elem() IntegrationRuntimeCustomerVirtualNetworkOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeCustomerVirtualNetwork) IntegrationRuntimeCustomerVirtualNetwork { return *v }).(IntegrationRuntimeCustomerVirtualNetworkOutput)
+}
+
+// The ID of subnet to which Azure-SSIS integration runtime will join.
+func (o IntegrationRuntimeCustomerVirtualNetworkPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeCustomerVirtualNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetworkResponse struct {
+	// The ID of subnet to which Azure-SSIS integration runtime will join.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// IntegrationRuntimeCustomerVirtualNetworkResponseInput is an input type that accepts IntegrationRuntimeCustomerVirtualNetworkResponseArgs and IntegrationRuntimeCustomerVirtualNetworkResponseOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeCustomerVirtualNetworkResponseInput` via:
+//
+//          IntegrationRuntimeCustomerVirtualNetworkResponseArgs{...}
+type IntegrationRuntimeCustomerVirtualNetworkResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeCustomerVirtualNetworkResponseOutput() IntegrationRuntimeCustomerVirtualNetworkResponseOutput
+	ToIntegrationRuntimeCustomerVirtualNetworkResponseOutputWithContext(context.Context) IntegrationRuntimeCustomerVirtualNetworkResponseOutput
+}
+
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetworkResponseArgs struct {
+	// The ID of subnet to which Azure-SSIS integration runtime will join.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (IntegrationRuntimeCustomerVirtualNetworkResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeCustomerVirtualNetworkResponse)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkResponseArgs) ToIntegrationRuntimeCustomerVirtualNetworkResponseOutput() IntegrationRuntimeCustomerVirtualNetworkResponseOutput {
+	return i.ToIntegrationRuntimeCustomerVirtualNetworkResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkResponseArgs) ToIntegrationRuntimeCustomerVirtualNetworkResponseOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomerVirtualNetworkResponseOutput)
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkResponseArgs) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput() IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return i.ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeCustomerVirtualNetworkResponseArgs) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomerVirtualNetworkResponseOutput).ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeCustomerVirtualNetworkResponsePtrInput is an input type that accepts IntegrationRuntimeCustomerVirtualNetworkResponseArgs, IntegrationRuntimeCustomerVirtualNetworkResponsePtr and IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeCustomerVirtualNetworkResponsePtrInput` via:
+//
+//          IntegrationRuntimeCustomerVirtualNetworkResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationRuntimeCustomerVirtualNetworkResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput() IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput
+	ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(context.Context) IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput
+}
+
+type integrationRuntimeCustomerVirtualNetworkResponsePtrType IntegrationRuntimeCustomerVirtualNetworkResponseArgs
+
+func IntegrationRuntimeCustomerVirtualNetworkResponsePtr(v *IntegrationRuntimeCustomerVirtualNetworkResponseArgs) IntegrationRuntimeCustomerVirtualNetworkResponsePtrInput {
+	return (*integrationRuntimeCustomerVirtualNetworkResponsePtrType)(v)
+}
+
+func (*integrationRuntimeCustomerVirtualNetworkResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeCustomerVirtualNetworkResponse)(nil)).Elem()
+}
+
+func (i *integrationRuntimeCustomerVirtualNetworkResponsePtrType) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput() IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return i.ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeCustomerVirtualNetworkResponsePtrType) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput)
+}
+
+// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+type IntegrationRuntimeCustomerVirtualNetworkResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeCustomerVirtualNetworkResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeCustomerVirtualNetworkResponse)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkResponseOutput) ToIntegrationRuntimeCustomerVirtualNetworkResponseOutput() IntegrationRuntimeCustomerVirtualNetworkResponseOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkResponseOutput) ToIntegrationRuntimeCustomerVirtualNetworkResponseOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkResponseOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkResponseOutput) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput() IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return o.ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkResponseOutput) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeCustomerVirtualNetworkResponse) *IntegrationRuntimeCustomerVirtualNetworkResponse {
+		return &v
+	}).(IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput)
+}
+
+// The ID of subnet to which Azure-SSIS integration runtime will join.
+func (o IntegrationRuntimeCustomerVirtualNetworkResponseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeCustomerVirtualNetworkResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeCustomerVirtualNetworkResponse)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput() IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput) ToIntegrationRuntimeCustomerVirtualNetworkResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput) Elem() IntegrationRuntimeCustomerVirtualNetworkResponseOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeCustomerVirtualNetworkResponse) IntegrationRuntimeCustomerVirtualNetworkResponse {
+		return *v
+	}).(IntegrationRuntimeCustomerVirtualNetworkResponseOutput)
+}
+
+// The ID of subnet to which Azure-SSIS integration runtime will join.
+func (o IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeCustomerVirtualNetworkResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Data flow properties for managed integration runtime.
 type IntegrationRuntimeDataFlowProperties struct {
 	// Compute type of the cluster which will execute data flow job.
@@ -7340,6 +7610,8 @@ func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedM
 type ManagedIntegrationRuntime struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties *IntegrationRuntimeComputeProperties `pulumi:"computeProperties"`
+	// The name of virtual network to which Azure-SSIS integration runtime will join
+	CustomerVirtualNetwork *IntegrationRuntimeCustomerVirtualNetwork `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
@@ -7364,6 +7636,8 @@ type ManagedIntegrationRuntimeInput interface {
 type ManagedIntegrationRuntimeArgs struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties IntegrationRuntimeComputePropertiesPtrInput `pulumi:"computeProperties"`
+	// The name of virtual network to which Azure-SSIS integration runtime will join
+	CustomerVirtualNetwork IntegrationRuntimeCustomerVirtualNetworkPtrInput `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
@@ -7403,6 +7677,13 @@ func (o ManagedIntegrationRuntimeOutput) ToManagedIntegrationRuntimeOutputWithCo
 // The compute resource for managed integration runtime.
 func (o ManagedIntegrationRuntimeOutput) ComputeProperties() IntegrationRuntimeComputePropertiesPtrOutput {
 	return o.ApplyT(func(v ManagedIntegrationRuntime) *IntegrationRuntimeComputeProperties { return v.ComputeProperties }).(IntegrationRuntimeComputePropertiesPtrOutput)
+}
+
+// The name of virtual network to which Azure-SSIS integration runtime will join
+func (o ManagedIntegrationRuntimeOutput) CustomerVirtualNetwork() IntegrationRuntimeCustomerVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntime) *IntegrationRuntimeCustomerVirtualNetwork {
+		return v.CustomerVirtualNetwork
+	}).(IntegrationRuntimeCustomerVirtualNetworkPtrOutput)
 }
 
 // Integration runtime description.
@@ -7772,6 +8053,8 @@ func (o ManagedIntegrationRuntimeOperationResultResponseOutput) Type() pulumi.St
 type ManagedIntegrationRuntimeResponse struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties *IntegrationRuntimeComputePropertiesResponse `pulumi:"computeProperties"`
+	// The name of virtual network to which Azure-SSIS integration runtime will join
+	CustomerVirtualNetwork *IntegrationRuntimeCustomerVirtualNetworkResponse `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
@@ -7798,6 +8081,8 @@ type ManagedIntegrationRuntimeResponseInput interface {
 type ManagedIntegrationRuntimeResponseArgs struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties IntegrationRuntimeComputePropertiesResponsePtrInput `pulumi:"computeProperties"`
+	// The name of virtual network to which Azure-SSIS integration runtime will join
+	CustomerVirtualNetwork IntegrationRuntimeCustomerVirtualNetworkResponsePtrInput `pulumi:"customerVirtualNetwork"`
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// SSIS properties for managed integration runtime.
@@ -7841,6 +8126,13 @@ func (o ManagedIntegrationRuntimeResponseOutput) ComputeProperties() Integration
 	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) *IntegrationRuntimeComputePropertiesResponse {
 		return v.ComputeProperties
 	}).(IntegrationRuntimeComputePropertiesResponsePtrOutput)
+}
+
+// The name of virtual network to which Azure-SSIS integration runtime will join
+func (o ManagedIntegrationRuntimeResponseOutput) CustomerVirtualNetwork() IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput {
+	return o.ApplyT(func(v ManagedIntegrationRuntimeResponse) *IntegrationRuntimeCustomerVirtualNetworkResponse {
+		return v.CustomerVirtualNetwork
+	}).(IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput)
 }
 
 // Integration runtime description.
@@ -13495,6 +13787,10 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeCustomerVirtualNetworkOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeCustomerVirtualNetworkPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeCustomerVirtualNetworkResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeCustomerVirtualNetworkResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeDataFlowPropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeDataFlowPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeDataFlowPropertiesResponseOutput{})

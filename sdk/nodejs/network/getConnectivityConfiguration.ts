@@ -68,9 +68,9 @@ export interface GetConnectivityConfigurationResult {
      */
     readonly etag: string;
     /**
-     * The hub vnet Id.
+     * List of hubItems
      */
-    readonly hubId?: string;
+    readonly hubs?: outputs.network.HubResponse[];
     /**
      * Resource ID.
      */

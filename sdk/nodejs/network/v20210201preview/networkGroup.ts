@@ -150,7 +150,7 @@ export interface NetworkGroupArgs {
     /**
      * Group member type.
      */
-    memberType?: pulumi.Input<string | enums.network.v20210201preview.MemberType>;
+    memberType?: pulumi.Input<string>;
     /**
      * The name of the network group to get.
      */

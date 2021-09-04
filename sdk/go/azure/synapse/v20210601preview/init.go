@@ -21,16 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:synapse/v20210601preview:AttachedDatabaseConfiguration":
-		r = &AttachedDatabaseConfiguration{}
 	case "azure-native:synapse/v20210601preview:BigDataPool":
 		r = &BigDataPool{}
-	case "azure-native:synapse/v20210601preview:DataConnection":
-		r = &DataConnection{}
-	case "azure-native:synapse/v20210601preview:Database":
-		r = &Database{}
-	case "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment":
-		r = &DatabasePrincipalAssignment{}
 	case "azure-native:synapse/v20210601preview:EventGridDataConnection":
 		r = &EventGridDataConnection{}
 	case "azure-native:synapse/v20210601preview:EventHubDataConnection":
@@ -43,6 +35,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IpFirewallRule{}
 	case "azure-native:synapse/v20210601preview:Key":
 		r = &Key{}
+	case "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration":
+		r = &KustoPoolAttachedDatabaseConfiguration{}
+	case "azure-native:synapse/v20210601preview:KustoPoolDataConnection":
+		r = &KustoPoolDataConnection{}
+	case "azure-native:synapse/v20210601preview:KustoPoolDatabase":
+		r = &KustoPoolDatabase{}
+	case "azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment":
+		r = &KustoPoolDatabasePrincipalAssignment{}
 	case "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment":
 		r = &KustoPoolPrincipalAssignment{}
 	case "azure-native:synapse/v20210601preview:PrivateEndpointConnection":

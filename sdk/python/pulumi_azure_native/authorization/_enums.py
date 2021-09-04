@@ -103,13 +103,7 @@ class PrincipalType(str, Enum):
     USER = "User"
     GROUP = "Group"
     SERVICE_PRINCIPAL = "ServicePrincipal"
-    UNKNOWN = "Unknown"
-    DIRECTORY_ROLE_TEMPLATE = "DirectoryRoleTemplate"
     FOREIGN_GROUP = "ForeignGroup"
-    APPLICATION = "Application"
-    MSI = "MSI"
-    DIRECTORY_OBJECT_OR_GROUP = "DirectoryObjectOrGroup"
-    EVERYONE = "Everyone"
 
 
 class ResourceIdentityType(str, Enum):

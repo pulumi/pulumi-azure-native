@@ -60,9 +60,9 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The hub vnet Id.
+     * List of hubItems
      */
-    public readonly hubId!: pulumi.Output<string | undefined>;
+    public readonly hubs!: pulumi.Output<outputs.network.v20210201preview.HubResponse[] | undefined>;
     /**
      * Flag if global mesh is supported.
      */
@@ -110,7 +110,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
             inputs["deleteExistingPeering"] = args ? args.deleteExistingPeering : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hubId"] = args ? args.hubId : undefined;
+            inputs["hubs"] = args ? args.hubs : undefined;
             inputs["isGlobal"] = args ? args.isGlobal : undefined;
             inputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -126,7 +126,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
             inputs["description"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["hubId"] = undefined /*out*/;
+            inputs["hubs"] = undefined /*out*/;
             inputs["isGlobal"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -171,9 +171,9 @@ export interface ConnectivityConfigurationArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The hub vnet Id.
+     * List of hubItems
      */
-    hubId?: pulumi.Input<string>;
+    hubs?: pulumi.Input<pulumi.Input<inputs.network.v20210201preview.HubArgs>[]>;
     /**
      * Flag if global mesh is supported.
      */

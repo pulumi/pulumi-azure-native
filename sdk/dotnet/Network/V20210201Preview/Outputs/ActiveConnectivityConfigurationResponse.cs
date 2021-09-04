@@ -42,9 +42,9 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Outputs
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The hub vnet Id.
+        /// List of hubItems
         /// </summary>
-        public readonly string? HubId;
+        public readonly ImmutableArray<Outputs.HubResponse> Hubs;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Outputs
 
             string? displayName,
 
-            string? hubId,
+            ImmutableArray<Outputs.HubResponse> hubs,
 
             string? id,
 
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview.Outputs
             DeleteExistingPeering = deleteExistingPeering;
             Description = description;
             DisplayName = displayName;
-            HubId = hubId;
+            Hubs = hubs;
             Id = id;
             IsGlobal = isGlobal;
             ProvisioningState = provisioningState;

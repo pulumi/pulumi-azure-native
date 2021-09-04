@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
     public sealed class LoginRoutesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The endpoint at which a logout request should be made.
         /// </summary>
         [Input("logoutEndpoint")]

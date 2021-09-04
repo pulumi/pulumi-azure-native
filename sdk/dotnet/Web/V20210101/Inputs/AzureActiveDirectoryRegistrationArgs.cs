@@ -25,6 +25,20 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
+        /// An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
+        /// a replacement for the Client Secret Certificate Thumbprint. It is also optional.
+        /// </summary>
+        [Input("clientSecretCertificateIssuer")]
+        public Input<string>? ClientSecretCertificateIssuer { get; set; }
+
+        /// <summary>
+        /// An alternative to the client secret thumbprint, that is the subject alternative name of a certificate used for signing purposes. This property acts as
+        /// a replacement for the Client Secret Certificate Thumbprint. It is also optional.
+        /// </summary>
+        [Input("clientSecretCertificateSubjectAlternativeName")]
+        public Input<string>? ClientSecretCertificateSubjectAlternativeName { get; set; }
+
+        /// <summary>
         /// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
         /// a replacement for the Client Secret. It is also optional.
         /// </summary>
@@ -36,12 +50,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }
-
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.

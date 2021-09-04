@@ -136,7 +136,7 @@ export class DiskPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagepool/v20210401preview:DiskPool" }, { type: "azure-native:storagepool:DiskPool" }, { type: "azure-nextgen:storagepool:DiskPool" }, { type: "azure-native:storagepool/v20200315preview:DiskPool" }, { type: "azure-nextgen:storagepool/v20200315preview:DiskPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:storagepool/v20210401preview:DiskPool" }, { type: "azure-native:storagepool:DiskPool" }, { type: "azure-nextgen:storagepool:DiskPool" }, { type: "azure-native:storagepool/v20200315preview:DiskPool" }, { type: "azure-nextgen:storagepool/v20200315preview:DiskPool" }, { type: "azure-native:storagepool/v20210801:DiskPool" }, { type: "azure-nextgen:storagepool/v20210801:DiskPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskPool.__pulumiType, name, inputs, opts);
     }

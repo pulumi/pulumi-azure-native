@@ -52,12 +52,6 @@ namespace Pulumi.AzureNative.Web.V20210201.Inputs
         public Input<string>? ClientSecretSettingName { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
         /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
         /// This URI is a case-sensitive identifier for the token issuer.

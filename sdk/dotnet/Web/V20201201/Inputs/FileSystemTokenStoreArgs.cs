@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         [Input("directory")]
         public Input<string>? Directory { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public FileSystemTokenStoreArgs()
         {
         }

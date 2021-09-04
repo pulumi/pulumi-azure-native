@@ -17,40 +17,11 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// The directory in which the tokens will be stored.
         /// </summary>
         public readonly string? Directory;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private FileSystemTokenStoreResponse(
-            string? directory,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+        private FileSystemTokenStoreResponse(string? directory)
         {
             Directory = directory;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

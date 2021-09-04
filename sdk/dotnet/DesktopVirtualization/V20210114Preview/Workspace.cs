@@ -144,8 +144,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210114Preview
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210309preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210401preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210513preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210513preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:Workspace"},
                     new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210712:Workspace"},
                 },

@@ -21,6 +21,16 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
+        /// An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as
+        /// a replacement for the Client Secret Certificate Thumbprint. It is also optional.
+        /// </summary>
+        public readonly string? ClientSecretCertificateIssuer;
+        /// <summary>
+        /// An alternative to the client secret thumbprint, that is the subject alternative name of a certificate used for signing purposes. This property acts as
+        /// a replacement for the Client Secret Certificate Thumbprint. It is also optional.
+        /// </summary>
+        public readonly string? ClientSecretCertificateSubjectAlternativeName;
+        /// <summary>
         /// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
         /// a replacement for the Client Secret. It is also optional.
         /// </summary>
@@ -30,55 +40,33 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
         /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
         /// This URI is a case-sensitive identifier for the token issuer.
         /// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         /// </summary>
         public readonly string? OpenIdIssuer;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private AzureActiveDirectoryRegistrationResponse(
             string? clientId,
 
+            string? clientSecretCertificateIssuer,
+
+            string? clientSecretCertificateSubjectAlternativeName,
+
             string? clientSecretCertificateThumbprint,
 
             string? clientSecretSettingName,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string? openIdIssuer,
-
-            string type)
+            string? openIdIssuer)
         {
             ClientId = clientId;
+            ClientSecretCertificateIssuer = clientSecretCertificateIssuer;
+            ClientSecretCertificateSubjectAlternativeName = clientSecretCertificateSubjectAlternativeName;
             ClientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
             ClientSecretSettingName = clientSecretSettingName;
-            Id = id;
-            Kind = kind;
-            Name = name;
             OpenIdIssuer = openIdIssuer;
-            Type = type;
         }
     }
 }

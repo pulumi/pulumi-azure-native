@@ -43,29 +43,13 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
         /// </summary>
         public readonly Outputs.GoogleResponse? Google;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
         /// The configuration settings of the legacy Microsoft Account provider.
         /// </summary>
         public readonly Outputs.LegacyMicrosoftAccountResponse? LegacyMicrosoftAccount;
         /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The configuration settings of the Twitter provider.
         /// </summary>
         public readonly Outputs.TwitterResponse? Twitter;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private IdentityProvidersResponse(
@@ -83,17 +67,9 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
 
             Outputs.GoogleResponse? google,
 
-            string id,
-
-            string? kind,
-
             Outputs.LegacyMicrosoftAccountResponse? legacyMicrosoftAccount,
 
-            string name,
-
-            Outputs.TwitterResponse? twitter,
-
-            string type)
+            Outputs.TwitterResponse? twitter)
         {
             Apple = apple;
             AzureActiveDirectory = azureActiveDirectory;
@@ -102,12 +78,8 @@ namespace Pulumi.AzureNative.Web.V20210115.Outputs
             Facebook = facebook;
             GitHub = gitHub;
             Google = google;
-            Id = id;
-            Kind = kind;
             LegacyMicrosoftAccount = legacyMicrosoftAccount;
-            Name = name;
             Twitter = twitter;
-            Type = type;
         }
     }
 }

@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         [Input("customProtoHeaderName")]
         public Input<string>? CustomProtoHeaderName { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public ForwardProxyArgs()
         {
         }

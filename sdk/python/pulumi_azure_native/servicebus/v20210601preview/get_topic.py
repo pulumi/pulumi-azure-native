@@ -20,7 +20,7 @@ class GetTopicResult:
     """
     Description of topic resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, id=None, max_size_in_megabytes=None, name=None, requires_duplicate_detection=None, size_in_bytes=None, status=None, subscription_count=None, support_ordering=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, id=None, max_message_size_in_kilobytes=None, max_size_in_megabytes=None, name=None, requires_duplicate_detection=None, size_in_bytes=None, status=None, subscription_count=None, support_ordering=None, system_data=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
@@ -51,6 +51,9 @@ class GetTopicResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if max_message_size_in_kilobytes and not isinstance(max_message_size_in_kilobytes, float):
+            raise TypeError("Expected argument 'max_message_size_in_kilobytes' to be a float")
+        pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
             raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
@@ -163,6 +166,14 @@ class GetTopicResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[float]:
+        """
+        Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
+
+    @property
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[int]:
         """
@@ -259,6 +270,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             enable_express=self.enable_express,
             enable_partitioning=self.enable_partitioning,
             id=self.id,
+            max_message_size_in_kilobytes=self.max_message_size_in_kilobytes,
             max_size_in_megabytes=self.max_size_in_megabytes,
             name=self.name,
             requires_duplicate_detection=self.requires_duplicate_detection,
@@ -304,6 +316,7 @@ def get_topic(namespace_name: Optional[str] = None,
         enable_express=__ret__.enable_express,
         enable_partitioning=__ret__.enable_partitioning,
         id=__ret__.id,
+        max_message_size_in_kilobytes=__ret__.max_message_size_in_kilobytes,
         max_size_in_megabytes=__ret__.max_size_in_megabytes,
         name=__ret__.name,
         requires_duplicate_detection=__ret__.requires_duplicate_detection,

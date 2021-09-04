@@ -18,46 +18,18 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The configuration settings of the checks that should be made while validating the JWT Claims.
         /// </summary>
         public readonly Outputs.JwtClaimChecksResponse? JwtClaimChecks;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private AzureActiveDirectoryValidationResponse(
             ImmutableArray<string> allowedAudiences,
 
-            string id,
-
-            Outputs.JwtClaimChecksResponse? jwtClaimChecks,
-
-            string? kind,
-
-            string name,
-
-            string type)
+            Outputs.JwtClaimChecksResponse? jwtClaimChecks)
         {
             AllowedAudiences = allowedAudiences;
-            Id = id;
             JwtClaimChecks = jwtClaimChecks;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

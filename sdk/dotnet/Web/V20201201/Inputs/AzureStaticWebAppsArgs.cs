@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The configuration settings of the Azure Static Web Apps registration.
         /// </summary>
         [Input("registration")]

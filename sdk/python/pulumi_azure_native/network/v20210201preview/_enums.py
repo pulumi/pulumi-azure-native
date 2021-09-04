@@ -13,7 +13,6 @@ __all__ = [
     'DeleteExistingPeering',
     'GroupConnectivity',
     'IsGlobal',
-    'MemberType',
     'SecurityConfigurationRuleAccess',
     'SecurityConfigurationRuleDirection',
     'SecurityConfigurationRuleProtocol',
@@ -86,14 +85,6 @@ class IsGlobal(str, Enum):
     """
     FALSE = "False"
     TRUE = "True"
-
-
-class MemberType(str, Enum):
-    """
-    Group member type.
-    """
-    VIRTUAL_NETWORK = "VirtualNetwork"
-    SUBNET = "Subnet"
 
 
 class SecurityConfigurationRuleAccess(str, Enum):

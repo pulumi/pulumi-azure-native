@@ -14,25 +14,9 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
     public sealed class NonceResponse
     {
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The time after the request is made when the nonce should expire.
         /// </summary>
         public readonly string? NonceExpirationInterval;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
         /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the nonce should not be validated while completing the login flow; otherwise, &lt;code&gt;true&lt;/code&gt;.
         /// </summary>
@@ -40,23 +24,11 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
 
         [OutputConstructor]
         private NonceResponse(
-            string id,
-
-            string? kind,
-
-            string name,
-
             string? nonceExpirationInterval,
-
-            string type,
 
             bool? validateNonce)
         {
-            Id = id;
-            Kind = kind;
-            Name = name;
             NonceExpirationInterval = nonceExpirationInterval;
-            Type = type;
             ValidateNonce = validateNonce;
         }
     }

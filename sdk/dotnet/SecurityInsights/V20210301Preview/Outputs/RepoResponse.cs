@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
         /// <summary>
         /// The url to access the repository.
         /// </summary>
-        public readonly string? RepoUrl;
+        public readonly string? Url;
 
         [OutputConstructor]
         private RepoResponse(
@@ -32,11 +32,11 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 
             string? fullName,
 
-            string? repoUrl)
+            string? url)
         {
             Branches = branches;
             FullName = fullName;
-            RepoUrl = repoUrl;
+            Url = url;
         }
     }
 }

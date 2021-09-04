@@ -5,14 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./attachedDatabaseConfiguration";
 export * from "./bigDataPool";
 export * from "./dataConnection";
 export * from "./database";
 export * from "./databasePrincipalAssignment";
 export * from "./eventGridDataConnection";
 export * from "./eventHubDataConnection";
-export * from "./getAttachedDatabaseConfiguration";
 export * from "./getBigDataPool";
 export * from "./getDataConnection";
 export * from "./getDatabase";
@@ -26,6 +24,7 @@ export * from "./getIntegrationRuntimeStatus";
 export * from "./getIotHubDataConnection";
 export * from "./getIpFirewallRule";
 export * from "./getKey";
+export * from "./getKustoPoolAttachedDatabaseConfiguration";
 export * from "./getKustoPoolPrincipalAssignment";
 export * from "./getPrivateEndpointConnection";
 export * from "./getPrivateLinkHub";
@@ -47,6 +46,7 @@ export * from "./iotHubDataConnection";
 export * from "./ipFirewallRule";
 export * from "./key";
 export * from "./kustoPool";
+export * from "./kustoPoolAttachedDatabaseConfiguration";
 export * from "./kustoPoolPrincipalAssignment";
 export * from "./listIntegrationRuntimeAuthKey";
 export * from "./listKustoPoolFollowerDatabases";
@@ -91,7 +91,6 @@ export {
 };
 
 // Import resources to register:
-import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
 import { BigDataPool } from "./bigDataPool";
 import { DataConnection } from "./dataConnection";
 import { Database } from "./database";
@@ -102,6 +101,7 @@ import { IntegrationRuntime } from "./integrationRuntime";
 import { IotHubDataConnection } from "./iotHubDataConnection";
 import { IpFirewallRule } from "./ipFirewallRule";
 import { Key } from "./key";
+import { KustoPoolAttachedDatabaseConfiguration } from "./kustoPoolAttachedDatabaseConfiguration";
 import { KustoPoolPrincipalAssignment } from "./kustoPoolPrincipalAssignment";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { PrivateLinkHub } from "./privateLinkHub";
@@ -123,8 +123,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:synapse:AttachedDatabaseConfiguration":
-                return new AttachedDatabaseConfiguration(name, <any>undefined, { urn })
             case "azure-native:synapse:BigDataPool":
                 return new BigDataPool(name, <any>undefined, { urn })
             case "azure-native:synapse:DataConnection":
@@ -145,6 +143,8 @@ const _module = {
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration":
+                return new KustoPoolAttachedDatabaseConfiguration(name, <any>undefined, { urn })
             case "azure-native:synapse:KustoPoolPrincipalAssignment":
                 return new KustoPoolPrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse:PrivateEndpointConnection":

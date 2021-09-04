@@ -1006,8 +1006,6 @@ class SqlFilterResponse(dict):
         :param bool requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param str sql_expression: The SQL expression. e.g. MyProperty='ABC'
         """
-        if compatibility_level is None:
-            compatibility_level = 20
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if requires_preprocessing is None:

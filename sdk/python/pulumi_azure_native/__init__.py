@@ -425,6 +425,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "aadiam/v20170401preview",
+  "fqn": "pulumi_azure_native.aadiam.v20170401preview",
+  "classes": {
+   "azure-native:aadiam/v20170401preview:DiagnosticSetting": "DiagnosticSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "aadiam/v20200301preview",
   "fqn": "pulumi_azure_native.aadiam.v20200301preview",
   "classes": {
@@ -5060,6 +5068,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbformysql/v20210501",
+  "fqn": "pulumi_azure_native.dbformysql.v20210501",
+  "classes": {
+   "azure-native:dbformysql/v20210501:Database": "Database",
+   "azure-native:dbformysql/v20210501:FirewallRule": "FirewallRule",
+   "azure-native:dbformysql/v20210501:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "dbformysql/v20210501preview",
   "fqn": "pulumi_azure_native.dbformysql.v20210501preview",
   "classes": {
@@ -5305,7 +5323,6 @@ _utilities.register(
    "azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
    "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
    "azure-native:desktopvirtualization:ScalingPlan": "ScalingPlan",
-   "azure-native:desktopvirtualization:SessionHostConfiguration": "SessionHostConfiguration",
    "azure-native:desktopvirtualization:Workspace": "Workspace"
   }
  },
@@ -5443,22 +5460,6 @@ _utilities.register(
    "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
    "azure-native:desktopvirtualization/v20210401preview:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization/v20210401preview:Workspace": "Workspace"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "desktopvirtualization/v20210513preview",
-  "fqn": "pulumi_azure_native.desktopvirtualization.v20210513preview",
-  "classes": {
-   "azure-native:desktopvirtualization/v20210513preview:Application": "Application",
-   "azure-native:desktopvirtualization/v20210513preview:ApplicationGroup": "ApplicationGroup",
-   "azure-native:desktopvirtualization/v20210513preview:HostPool": "HostPool",
-   "azure-native:desktopvirtualization/v20210513preview:MSIXPackage": "MSIXPackage",
-   "azure-native:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
-   "azure-native:desktopvirtualization/v20210513preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
-   "azure-native:desktopvirtualization/v20210513preview:ScalingPlan": "ScalingPlan",
-   "azure-native:desktopvirtualization/v20210513preview:SessionHostConfiguration": "SessionHostConfiguration",
-   "azure-native:desktopvirtualization/v20210513preview:Workspace": "Workspace"
   }
  },
  {
@@ -7647,6 +7648,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20210701preview",
+  "fqn": "pulumi_azure_native.insights.v20210701preview",
+  "classes": {
+   "azure-native:insights/v20210701preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:insights/v20210701preview:PrivateLinkScope": "PrivateLinkScope",
+   "azure-native:insights/v20210701preview:PrivateLinkScopedResource": "PrivateLinkScopedResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "intune",
   "fqn": "pulumi_azure_native.intune",
   "classes": {
@@ -7929,6 +7940,8 @@ _utilities.register(
    "azure-native:kusto:EventHubConnection": "EventHubConnection",
    "azure-native:kusto:EventHubDataConnection": "EventHubDataConnection",
    "azure-native:kusto:IotHubDataConnection": "IotHubDataConnection",
+   "azure-native:kusto:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:kusto:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:kusto:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
    "azure-native:kusto:ReadWriteDatabase": "ReadWriteDatabase",
    "azure-native:kusto:Script": "Script"
@@ -8084,6 +8097,27 @@ _utilities.register(
    "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
    "azure-native:kusto/v20210101:ReadWriteDatabase": "ReadWriteDatabase",
    "azure-native:kusto/v20210101:Script": "Script"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kusto/v20210827",
+  "fqn": "pulumi_azure_native.kusto.v20210827",
+  "classes": {
+   "azure-native:kusto/v20210827:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
+   "azure-native:kusto/v20210827:Cluster": "Cluster",
+   "azure-native:kusto/v20210827:ClusterPrincipalAssignment": "ClusterPrincipalAssignment",
+   "azure-native:kusto/v20210827:DataConnection": "DataConnection",
+   "azure-native:kusto/v20210827:Database": "Database",
+   "azure-native:kusto/v20210827:DatabasePrincipalAssignment": "DatabasePrincipalAssignment",
+   "azure-native:kusto/v20210827:EventGridDataConnection": "EventGridDataConnection",
+   "azure-native:kusto/v20210827:EventHubDataConnection": "EventHubDataConnection",
+   "azure-native:kusto/v20210827:IotHubDataConnection": "IotHubDataConnection",
+   "azure-native:kusto/v20210827:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:kusto/v20210827:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
+   "azure-native:kusto/v20210827:ReadWriteDatabase": "ReadWriteDatabase",
+   "azure-native:kusto/v20210827:Script": "Script"
   }
  },
  {
@@ -9191,6 +9225,15 @@ _utilities.register(
   "classes": {
    "azure-native:migrate/v20191001preview:MoveCollection": "MoveCollection",
    "azure-native:migrate/v20191001preview:MoveResource": "MoveResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "migrate/v20200501",
+  "fqn": "pulumi_azure_native.migrate.v20200501",
+  "classes": {
+   "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject": "MigrateProjectsControllerMigrateProject",
+   "azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection": "PrivateEndpointConnectionControllerPrivateEndpointConnection"
   }
  },
  {
@@ -14683,6 +14726,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "storagepool/v20210801",
+  "fqn": "pulumi_azure_native.storagepool.v20210801",
+  "classes": {
+   "azure-native:storagepool/v20210801:DiskPool": "DiskPool",
+   "azure-native:storagepool/v20210801:IscsiTarget": "IscsiTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storagesync",
   "fqn": "pulumi_azure_native.storagesync",
   "classes": {
@@ -14950,7 +15002,6 @@ _utilities.register(
   "mod": "synapse",
   "fqn": "pulumi_azure_native.synapse",
   "classes": {
-   "azure-native:synapse:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
    "azure-native:synapse:BigDataPool": "BigDataPool",
    "azure-native:synapse:DataConnection": "DataConnection",
    "azure-native:synapse:Database": "Database",
@@ -14961,6 +15012,7 @@ _utilities.register(
    "azure-native:synapse:IotHubDataConnection": "IotHubDataConnection",
    "azure-native:synapse:IpFirewallRule": "IpFirewallRule",
    "azure-native:synapse:Key": "Key",
+   "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration": "KustoPoolAttachedDatabaseConfiguration",
    "azure-native:synapse:KustoPoolPrincipalAssignment": "KustoPoolPrincipalAssignment",
    "azure-native:synapse:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:synapse:PrivateLinkHub": "PrivateLinkHub",
@@ -15146,17 +15198,17 @@ _utilities.register(
   "mod": "synapse/v20210601preview",
   "fqn": "pulumi_azure_native.synapse.v20210601preview",
   "classes": {
-   "azure-native:synapse/v20210601preview:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
    "azure-native:synapse/v20210601preview:BigDataPool": "BigDataPool",
-   "azure-native:synapse/v20210601preview:DataConnection": "DataConnection",
-   "azure-native:synapse/v20210601preview:Database": "Database",
-   "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment": "DatabasePrincipalAssignment",
    "azure-native:synapse/v20210601preview:EventGridDataConnection": "EventGridDataConnection",
    "azure-native:synapse/v20210601preview:EventHubDataConnection": "EventHubDataConnection",
    "azure-native:synapse/v20210601preview:IntegrationRuntime": "IntegrationRuntime",
    "azure-native:synapse/v20210601preview:IotHubDataConnection": "IotHubDataConnection",
    "azure-native:synapse/v20210601preview:IpFirewallRule": "IpFirewallRule",
    "azure-native:synapse/v20210601preview:Key": "Key",
+   "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration": "KustoPoolAttachedDatabaseConfiguration",
+   "azure-native:synapse/v20210601preview:KustoPoolDataConnection": "KustoPoolDataConnection",
+   "azure-native:synapse/v20210601preview:KustoPoolDatabase": "KustoPoolDatabase",
+   "azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment": "KustoPoolDatabasePrincipalAssignment",
    "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment": "KustoPoolPrincipalAssignment",
    "azure-native:synapse/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:synapse/v20210601preview:PrivateLinkHub": "PrivateLinkHub",

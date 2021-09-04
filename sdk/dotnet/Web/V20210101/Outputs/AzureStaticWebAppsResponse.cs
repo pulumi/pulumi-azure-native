@@ -18,46 +18,18 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The configuration settings of the Azure Static Web Apps registration.
         /// </summary>
         public readonly Outputs.AzureStaticWebAppsRegistrationResponse? Registration;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private AzureStaticWebAppsResponse(
             bool? enabled,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
-            Outputs.AzureStaticWebAppsRegistrationResponse? registration,
-
-            string type)
+            Outputs.AzureStaticWebAppsRegistrationResponse? registration)
         {
             Enabled = enabled;
-            Id = id;
-            Kind = kind;
-            Name = name;
             Registration = registration;
-            Type = type;
         }
     }
 }

@@ -65,12 +65,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public Input<Inputs.GoogleArgs>? Google { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The configuration settings of the legacy Microsoft Account provider.
         /// </summary>
         [Input("legacyMicrosoftAccount")]

@@ -71,43 +71,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     }
 
     /// <summary>
-    /// The type of domain join done by the virtual machine.
-    /// </summary>
-    [EnumType]
-    public readonly struct DomainJoinType : IEquatable<DomainJoinType>
-    {
-        private readonly string _value;
-
-        private DomainJoinType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Using microsoft active directory.
-        /// </summary>
-        public static DomainJoinType ActiveDirectory { get; } = new DomainJoinType("ActiveDirectory");
-        /// <summary>
-        /// Using microsoft azure active directory.
-        /// </summary>
-        public static DomainJoinType AzureActiveDirectory { get; } = new DomainJoinType("AzureActiveDirectory");
-
-        public static bool operator ==(DomainJoinType left, DomainJoinType right) => left.Equals(right);
-        public static bool operator !=(DomainJoinType left, DomainJoinType right) => !left.Equals(right);
-
-        public static explicit operator string(DomainJoinType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DomainJoinType other && Equals(other);
-        public bool Equals(DomainJoinType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// HostPool type for desktop.
     /// </summary>
     [EnumType]
@@ -141,47 +104,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HostPoolType other && Equals(other);
         public bool Equals(HostPoolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of image session hosts use in the hostpool.
-    /// </summary>
-    [EnumType]
-    public readonly struct ImageType : IEquatable<ImageType>
-    {
-        private readonly string _value;
-
-        private ImageType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Using default gallery images offered by Azure Marketplace.
-        /// </summary>
-        public static ImageType Gallery { get; } = new ImageType("Gallery");
-        /// <summary>
-        /// Using a VHD stored in a storage blob.
-        /// </summary>
-        public static ImageType StorageBlob { get; } = new ImageType("StorageBlob");
-        /// <summary>
-        /// Using custom image or custom shared image.
-        /// </summary>
-        public static ImageType CustomImage { get; } = new ImageType("CustomImage");
-
-        public static bool operator ==(ImageType left, ImageType right) => left.Equals(right);
-        public static bool operator !=(ImageType left, ImageType right) => !left.Equals(right);
-
-        public static explicit operator string(ImageType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ImageType other && Equals(other);
-        public bool Equals(ImageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -579,51 +501,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StopHostsWhen other && Equals(other);
         public bool Equals(StopHostsWhen other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The disk type used by virtual machine in hostpool session host.
-    /// </summary>
-    [EnumType]
-    public readonly struct VirtualMachineDiskType : IEquatable<VirtualMachineDiskType>
-    {
-        private readonly string _value;
-
-        private VirtualMachineDiskType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
-        /// </summary>
-        public static VirtualMachineDiskType Standard_LRS { get; } = new VirtualMachineDiskType("Standard_LRS");
-        /// <summary>
-        /// Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
-        /// </summary>
-        public static VirtualMachineDiskType Premium_LRS { get; } = new VirtualMachineDiskType("Premium_LRS");
-        /// <summary>
-        /// Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test.
-        /// </summary>
-        public static VirtualMachineDiskType StandardSSD_LRS { get; } = new VirtualMachineDiskType("StandardSSD_LRS");
-        /// <summary>
-        /// Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.
-        /// </summary>
-        public static VirtualMachineDiskType UltraSSD_LRS { get; } = new VirtualMachineDiskType("UltraSSD_LRS");
-
-        public static bool operator ==(VirtualMachineDiskType left, VirtualMachineDiskType right) => left.Equals(right);
-        public static bool operator !=(VirtualMachineDiskType left, VirtualMachineDiskType right) => !left.Equals(right);
-
-        public static explicit operator string(VirtualMachineDiskType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VirtualMachineDiskType other && Equals(other);
-        public bool Equals(VirtualMachineDiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -3229,37 +3229,6 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Group member type.
-    /// </summary>
-    [EnumType]
-    public readonly struct MemberType : IEquatable<MemberType>
-    {
-        private readonly string _value;
-
-        private MemberType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MemberType VirtualNetwork { get; } = new MemberType("VirtualNetwork");
-        public static MemberType Subnet { get; } = new MemberType("Subnet");
-
-        public static bool operator ==(MemberType left, MemberType right) => left.Equals(right);
-        public static bool operator !=(MemberType left, MemberType right) => !left.Equals(right);
-
-        public static explicit operator string(MemberType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MemberType other && Equals(other);
-        public bool Equals(MemberType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
     /// </summary>
     [EnumType]

@@ -2831,6 +2831,7 @@ class ComputeInstancePropertiesArgs:
     def __init__(__self__, *,
                  application_sharing_policy: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]] = None,
                  compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
+                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
                  schedules: Optional[pulumi.Input['ComputeSchedulesArgs']] = None,
                  setup_scripts: Optional[pulumi.Input['SetupScriptsArgs']] = None,
@@ -2841,6 +2842,7 @@ class ComputeInstancePropertiesArgs:
         Compute Instance properties
         :param pulumi.Input[Union[str, 'ApplicationSharingPolicy']] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param pulumi.Input[bool] enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
         :param pulumi.Input['ComputeSchedulesArgs'] schedules: The list of schedules to be applied on the compute instance.
         :param pulumi.Input['SetupScriptsArgs'] setup_scripts: Details of customized scripts to execute for setting up the cluster.
@@ -2856,6 +2858,10 @@ class ComputeInstancePropertiesArgs:
             compute_instance_authorization_type = 'personal'
         if compute_instance_authorization_type is not None:
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if enable_node_public_ip is None:
+            enable_node_public_ip = True
+        if enable_node_public_ip is not None:
+            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
         if schedules is not None:
@@ -2892,6 +2898,18 @@ class ComputeInstancePropertiesArgs:
     @compute_instance_authorization_type.setter
     def compute_instance_authorization_type(self, value: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]):
         pulumi.set(self, "compute_instance_authorization_type", value)
+
+    @property
+    @pulumi.getter(name="enableNodePublicIp")
+    def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        """
+        return pulumi.get(self, "enable_node_public_ip")
+
+    @enable_node_public_ip.setter
+    def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_node_public_ip", value)
 
     @property
     @pulumi.getter(name="personalComputeInstanceSettings")

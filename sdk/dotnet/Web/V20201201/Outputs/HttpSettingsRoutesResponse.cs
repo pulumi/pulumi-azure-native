@@ -17,40 +17,11 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// The prefix that should precede all the authentication/authorization paths.
         /// </summary>
         public readonly string? ApiPrefix;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
-        private HttpSettingsRoutesResponse(
-            string? apiPrefix,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+        private HttpSettingsRoutesResponse(string? apiPrefix)
         {
             ApiPrefix = apiPrefix;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

@@ -36,12 +36,6 @@ namespace Pulumi.AzureNative.Web.V20210101.Inputs
         public Input<Inputs.CookieExpirationArgs>? CookieExpiration { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The configuration settings of the nonce used in the login flow.
         /// </summary>
         [Input("nonce")]

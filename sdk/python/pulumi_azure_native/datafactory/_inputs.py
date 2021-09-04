@@ -280,6 +280,7 @@ __all__ = [
     'InformixTableDatasetArgs',
     'IntegrationRuntimeComputePropertiesArgs',
     'IntegrationRuntimeCustomSetupScriptPropertiesArgs',
+    'IntegrationRuntimeCustomerVirtualNetworkArgs',
     'IntegrationRuntimeDataFlowPropertiesArgs',
     'IntegrationRuntimeDataProxyPropertiesArgs',
     'IntegrationRuntimeReferenceArgs',
@@ -41330,6 +41331,30 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
 
 
 @pulumi.input_type
+class IntegrationRuntimeCustomerVirtualNetworkArgs:
+    def __init__(__self__, *,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+        :param pulumi.Input[str] subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
                  cleanup: Optional[pulumi.Input[bool]] = None,
@@ -43946,6 +43971,7 @@ class ManagedIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
+                 customer_virtual_network: Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network: Optional[pulumi.Input['ManagedVirtualNetworkReferenceArgs']] = None,
                  ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
@@ -43954,6 +43980,7 @@ class ManagedIntegrationRuntimeArgs:
         :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
+        :param pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs'] customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input['ManagedVirtualNetworkReferenceArgs'] managed_virtual_network: Managed Virtual Network reference.
         :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
@@ -43961,6 +43988,8 @@ class ManagedIntegrationRuntimeArgs:
         pulumi.set(__self__, "type", 'Managed')
         if compute_properties is not None:
             pulumi.set(__self__, "compute_properties", compute_properties)
+        if customer_virtual_network is not None:
+            pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if managed_virtual_network is not None:
@@ -43992,6 +44021,18 @@ class ManagedIntegrationRuntimeArgs:
     @compute_properties.setter
     def compute_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]):
         pulumi.set(self, "compute_properties", value)
+
+    @property
+    @pulumi.getter(name="customerVirtualNetwork")
+    def customer_virtual_network(self) -> Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']]:
+        """
+        The name of virtual network to which Azure-SSIS integration runtime will join
+        """
+        return pulumi.get(self, "customer_virtual_network")
+
+    @customer_virtual_network.setter
+    def customer_virtual_network(self, value: Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']]):
+        pulumi.set(self, "customer_virtual_network", value)
 
     @property
     @pulumi.getter

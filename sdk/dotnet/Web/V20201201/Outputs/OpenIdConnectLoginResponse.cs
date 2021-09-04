@@ -14,18 +14,6 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
     public sealed class OpenIdConnectLoginResponse
     {
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The name of the claim that contains the users name.
         /// </summary>
         public readonly string? NameClaimType;
@@ -33,31 +21,15 @@ namespace Pulumi.AzureNative.Web.V20201201.Outputs
         /// A list of the scopes that should be requested while authenticating.
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private OpenIdConnectLoginResponse(
-            string id,
-
-            string? kind,
-
-            string name,
-
             string? nameClaimType,
 
-            ImmutableArray<string> scopes,
-
-            string type)
+            ImmutableArray<string> scopes)
         {
-            Id = id;
-            Kind = kind;
-            Name = name;
             NameClaimType = nameClaimType;
             Scopes = scopes;
-            Type = type;
         }
     }
 }

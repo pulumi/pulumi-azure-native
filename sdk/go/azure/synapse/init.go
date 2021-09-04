@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:synapse:AttachedDatabaseConfiguration":
-		r = &AttachedDatabaseConfiguration{}
 	case "azure-native:synapse:BigDataPool":
 		r = &BigDataPool{}
 	case "azure-native:synapse:DataConnection":
@@ -43,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IpFirewallRule{}
 	case "azure-native:synapse:Key":
 		r = &Key{}
+	case "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration":
+		r = &KustoPoolAttachedDatabaseConfiguration{}
 	case "azure-native:synapse:KustoPoolPrincipalAssignment":
 		r = &KustoPoolPrincipalAssignment{}
 	case "azure-native:synapse:PrivateEndpointConnection":

@@ -82,6 +82,7 @@ var deprecatedProviderVersions = map[string][]string{
 
 // A manually-maintained list of API versions to ignore while calculating the top-level resources.
 var ignoredProviderVersions = map[string][]string{
+	"Migrate":    {"v20200501"}, // Conflict in property types with the previous version.
 	"StorSimple": {"v20161001"},
 }
 
@@ -108,6 +109,7 @@ var cutoffProviderVersions = map[string]string{
 	"databoxedge":             "v20201201",
 	"datamigration":           "v20180715preview",
 	"dataprotection":          "v20210101",
+	"dbformysql":              "v20171201",
 	"dbforpostgresql":         "v20171201",
 	"desktopvirtualization":   "v20210201preview",
 	"devices":                 "v20200831",
@@ -119,6 +121,7 @@ var cutoffProviderVersions = map[string]string{
 	"insights":                "v20201020",
 	"iotsecurity":             "v20210201preview",
 	"kubernetesconfiguration": "v20210301",
+	"kusto":                   "v20210101",
 	"machinelearningservices": "v20210101",
 	"management":              "v20200501",
 	"maps":                    "v20200201preview",

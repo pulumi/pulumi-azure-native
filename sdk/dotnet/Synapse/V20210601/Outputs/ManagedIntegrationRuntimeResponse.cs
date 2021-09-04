@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeComputePropertiesResponse? ComputeProperties;
         /// <summary>
+        /// The name of virtual network to which Azure-SSIS integration runtime will join
+        /// </summary>
+        public readonly Outputs.IntegrationRuntimeCustomerVirtualNetworkResponse? CustomerVirtualNetwork;
+        /// <summary>
         /// Integration runtime description.
         /// </summary>
         public readonly string? Description;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
         private ManagedIntegrationRuntimeResponse(
             Outputs.IntegrationRuntimeComputePropertiesResponse? computeProperties,
 
+            Outputs.IntegrationRuntimeCustomerVirtualNetworkResponse? customerVirtualNetwork,
+
             string? description,
 
             Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
@@ -48,6 +54,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
             string type)
         {
             ComputeProperties = computeProperties;
+            CustomerVirtualNetwork = customerVirtualNetwork;
             Description = description;
             SsisProperties = ssisProperties;
             State = state;

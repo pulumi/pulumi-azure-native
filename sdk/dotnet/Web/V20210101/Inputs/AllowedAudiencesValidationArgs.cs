@@ -10,21 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210101.Inputs
 {
 
+    /// <summary>
+    /// The configuration settings of the Allowed Audiences validation flow.
+    /// </summary>
     public sealed class AllowedAudiencesValidationArgs : Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// The configuration settings of the allowed list of audiences from which to validate the JWT token.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
             set => _allowedAudiences = value;
         }
-
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
 
         public AllowedAudiencesValidationArgs()
         {

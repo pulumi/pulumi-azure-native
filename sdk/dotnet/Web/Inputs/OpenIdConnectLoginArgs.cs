@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Web.Inputs
     public sealed class OpenIdConnectLoginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The name of the claim that contains the users name.
         /// </summary>
         [Input("nameClaimType")]

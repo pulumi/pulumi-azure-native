@@ -12698,7 +12698,7 @@ type RepoResponse struct {
 	// The name of the repository.
 	FullName *string `pulumi:"fullName"`
 	// The url to access the repository.
-	RepoUrl *string `pulumi:"repoUrl"`
+	Url *string `pulumi:"url"`
 }
 
 // RepoResponseInput is an input type that accepts RepoResponseArgs and RepoResponseOutput values.
@@ -12719,7 +12719,7 @@ type RepoResponseArgs struct {
 	// The name of the repository.
 	FullName pulumi.StringPtrInput `pulumi:"fullName"`
 	// The url to access the repository.
-	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
+	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (RepoResponseArgs) ElementType() reflect.Type {
@@ -12785,8 +12785,8 @@ func (o RepoResponseOutput) FullName() pulumi.StringPtrOutput {
 }
 
 // The url to access the repository.
-func (o RepoResponseOutput) RepoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepoResponse) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
+func (o RepoResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepoResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 type RepoResponseArrayOutput struct{ *pulumi.OutputState }

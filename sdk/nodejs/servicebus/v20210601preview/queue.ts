@@ -92,6 +92,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
     /**
+     * Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+     */
+    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number | undefined>;
+    /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number | undefined>;
@@ -160,6 +164,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["forwardTo"] = args ? args.forwardTo : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
+            inputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["queueName"] = args ? args.queueName : undefined;
@@ -191,6 +196,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["forwardTo"] = undefined /*out*/;
             inputs["lockDuration"] = undefined /*out*/;
             inputs["maxDeliveryCount"] = undefined /*out*/;
+            inputs["maxMessageSizeInKilobytes"] = undefined /*out*/;
             inputs["maxSizeInMegabytes"] = undefined /*out*/;
             inputs["messageCount"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -259,6 +265,10 @@ export interface QueueArgs {
      * The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
      */
     maxDeliveryCount?: pulumi.Input<number>;
+    /**
+     * Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */

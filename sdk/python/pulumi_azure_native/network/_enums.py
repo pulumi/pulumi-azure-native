@@ -105,7 +105,6 @@ __all__ = [
     'ManagedRuleExclusionSelectorMatchOperator',
     'ManagedRuleSetActionType',
     'MatchProcessingBehavior',
-    'MemberType',
     'MonitorProtocol',
     'NatGatewaySkuName',
     'NetworkInterfaceMigrationPhase',
@@ -1102,14 +1101,6 @@ class MatchProcessingBehavior(str, Enum):
     """
     CONTINUE_ = "Continue"
     STOP = "Stop"
-
-
-class MemberType(str, Enum):
-    """
-    Group member type.
-    """
-    VIRTUAL_NETWORK = "VirtualNetwork"
-    SUBNET = "Subnet"
 
 
 class MonitorProtocol(str, Enum):

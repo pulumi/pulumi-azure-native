@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.Web.V20210115.Inputs
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
         /// The configuration settings of the endpoints used for the custom Open ID Connect provider.
         /// </summary>
         [Input("openIdConnectConfiguration")]

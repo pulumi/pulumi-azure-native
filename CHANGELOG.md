@@ -3,7 +3,27 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `kusto.ManagedPrivateEndpoint`
+- `kusto.PrivateEndpointConnection`
+
+#### New functions:
+
+- `kusto.getManagedPrivateEndpoint`
+- `kusto.getPrivateEndpointConnection`
+
+#### Breaking Changes published by Microsoft:
+
+- Kusto-related resources and functions in the `synapse` are renamed
+  (e.g. `synapse.AttachedDatabaseConfiguration` to `synapse.KustoPoolAttachedDatabaseConfiguration`)
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15816))
+- `v20210513preview` version removed from `desktopvirtualization`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15811))
+- Hub and NetworkGroup resources restructured in `network`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15840))
+- App Service Auth shape restructured for `web` resources
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15283))
 
 ---
 

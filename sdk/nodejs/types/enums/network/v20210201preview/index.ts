@@ -83,16 +83,6 @@ export const IsGlobal = {
  */
 export type IsGlobal = (typeof IsGlobal)[keyof typeof IsGlobal];
 
-export const MemberType = {
-    VirtualNetwork: "VirtualNetwork",
-    Subnet: "Subnet",
-} as const;
-
-/**
- * Group member type.
- */
-export type MemberType = (typeof MemberType)[keyof typeof MemberType];
-
 export const SecurityConfigurationRuleAccess = {
     Allow: "Allow",
     Deny: "Deny",

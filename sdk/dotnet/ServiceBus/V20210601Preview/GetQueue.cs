@@ -109,6 +109,10 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// </summary>
         public readonly int? MaxDeliveryCount;
         /// <summary>
+        /// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        /// </summary>
+        public readonly double? MaxMessageSizeInKilobytes;
+        /// <summary>
         /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
         /// </summary>
         public readonly int? MaxSizeInMegabytes;
@@ -181,6 +185,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
 
             int? maxDeliveryCount,
 
+            double? maxMessageSizeInKilobytes,
+
             int? maxSizeInMegabytes,
 
             double messageCount,
@@ -216,6 +222,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
             Id = id;
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
+            MaxMessageSizeInKilobytes = maxMessageSizeInKilobytes;
             MaxSizeInMegabytes = maxSizeInMegabytes;
             MessageCount = messageCount;
             Name = name;

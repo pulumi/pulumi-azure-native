@@ -18,46 +18,18 @@ namespace Pulumi.AzureNative.Web.V20210201.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The list of the allowed identities.
         /// </summary>
         public readonly ImmutableArray<string> Identities;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private AllowedPrincipalsResponse(
             ImmutableArray<string> groups,
 
-            string id,
-
-            ImmutableArray<string> identities,
-
-            string? kind,
-
-            string name,
-
-            string type)
+            ImmutableArray<string> identities)
         {
             Groups = groups;
-            Id = id;
             Identities = identities;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

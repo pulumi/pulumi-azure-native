@@ -23,26 +23,10 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
         /// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         /// </summary>
         public readonly string? RuntimeVersion;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private AuthPlatformResponse(
@@ -50,23 +34,11 @@ namespace Pulumi.AzureNative.Web.V20210101.Outputs
 
             bool? enabled,
 
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string? runtimeVersion,
-
-            string type)
+            string? runtimeVersion)
         {
             ConfigFilePath = configFilePath;
             Enabled = enabled;
-            Id = id;
-            Kind = kind;
-            Name = name;
             RuntimeVersion = runtimeVersion;
-            Type = type;
         }
     }
 }

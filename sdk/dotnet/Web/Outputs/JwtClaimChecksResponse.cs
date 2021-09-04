@@ -21,43 +21,15 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// The list of the allowed groups.
         /// </summary>
         public readonly ImmutableArray<string> AllowedGroups;
-        /// <summary>
-        /// Resource Id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        public readonly string? Kind;
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public readonly string Type;
 
         [OutputConstructor]
         private JwtClaimChecksResponse(
             ImmutableArray<string> allowedClientApplications,
 
-            ImmutableArray<string> allowedGroups,
-
-            string id,
-
-            string? kind,
-
-            string name,
-
-            string type)
+            ImmutableArray<string> allowedGroups)
         {
             AllowedClientApplications = allowedClientApplications;
             AllowedGroups = allowedGroups;
-            Id = id;
-            Kind = kind;
-            Name = name;
-            Type = type;
         }
     }
 }

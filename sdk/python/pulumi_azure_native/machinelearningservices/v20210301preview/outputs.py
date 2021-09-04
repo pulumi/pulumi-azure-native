@@ -3617,6 +3617,8 @@ class ComputeInstanceResponseProperties(dict):
             suggest = "application_sharing_policy"
         elif key == "computeInstanceAuthorizationType":
             suggest = "compute_instance_authorization_type"
+        elif key == "enableNodePublicIp":
+            suggest = "enable_node_public_ip"
         elif key == "personalComputeInstanceSettings":
             suggest = "personal_compute_instance_settings"
         elif key == "setupScripts":
@@ -3646,6 +3648,7 @@ class ComputeInstanceResponseProperties(dict):
                  state: str,
                  application_sharing_policy: Optional[str] = None,
                  compute_instance_authorization_type: Optional[str] = None,
+                 enable_node_public_ip: Optional[bool] = None,
                  personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
                  schedules: Optional['outputs.ComputeSchedulesResponse'] = None,
                  setup_scripts: Optional['outputs.SetupScriptsResponse'] = None,
@@ -3662,6 +3665,7 @@ class ComputeInstanceResponseProperties(dict):
         :param str state: The current state of this ComputeInstance.
         :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param bool enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
         :param 'PersonalComputeInstanceSettingsResponse' personal_compute_instance_settings: Settings for a personal compute instance.
         :param 'ComputeSchedulesResponse' schedules: The list of schedules to be applied on the compute instance.
         :param 'SetupScriptsResponse' setup_scripts: Details of customized scripts to execute for setting up the cluster.
@@ -3683,6 +3687,10 @@ class ComputeInstanceResponseProperties(dict):
             compute_instance_authorization_type = 'personal'
         if compute_instance_authorization_type is not None:
             pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if enable_node_public_ip is None:
+            enable_node_public_ip = True
+        if enable_node_public_ip is not None:
+            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
         if schedules is not None:
@@ -3759,6 +3767,14 @@ class ComputeInstanceResponseProperties(dict):
         The Compute Instance Authorization type. Available values are personal (default).
         """
         return pulumi.get(self, "compute_instance_authorization_type")
+
+    @property
+    @pulumi.getter(name="enableNodePublicIp")
+    def enable_node_public_ip(self) -> Optional[bool]:
+        """
+        Enable or disable node public IP address provisioning. Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        """
+        return pulumi.get(self, "enable_node_public_ip")
 
     @property
     @pulumi.getter(name="personalComputeInstanceSettings")

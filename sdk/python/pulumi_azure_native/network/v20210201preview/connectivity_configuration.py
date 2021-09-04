@@ -24,7 +24,7 @@ class ConnectivityConfigurationArgs:
                  delete_existing_peering: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 hub_id: Optional[pulumi.Input[str]] = None,
+                 hubs: Optional[pulumi.Input[Sequence[pulumi.Input['HubArgs']]]] = None,
                  is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None):
         """
         The set of arguments for constructing a ConnectivityConfiguration resource.
@@ -36,7 +36,7 @@ class ConnectivityConfigurationArgs:
         :param pulumi.Input[Union[str, 'DeleteExistingPeering']] delete_existing_peering: Flag if need to remove current existing peerings.
         :param pulumi.Input[str] description: A description of the connectivity configuration.
         :param pulumi.Input[str] display_name: A friendly name for the resource.
-        :param pulumi.Input[str] hub_id: The hub vnet Id.
+        :param pulumi.Input[Sequence[pulumi.Input['HubArgs']]] hubs: List of hubItems
         :param pulumi.Input[Union[str, 'IsGlobal']] is_global: Flag if global mesh is supported.
         """
         pulumi.set(__self__, "connectivity_topology", connectivity_topology)
@@ -52,8 +52,8 @@ class ConnectivityConfigurationArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if hub_id is not None:
-            pulumi.set(__self__, "hub_id", hub_id)
+        if hubs is not None:
+            pulumi.set(__self__, "hubs", hubs)
         if is_global is not None:
             pulumi.set(__self__, "is_global", is_global)
 
@@ -154,16 +154,16 @@ class ConnectivityConfigurationArgs:
         pulumi.set(self, "display_name", value)
 
     @property
-    @pulumi.getter(name="hubId")
-    def hub_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubArgs']]]]:
         """
-        The hub vnet Id.
+        List of hubItems
         """
-        return pulumi.get(self, "hub_id")
+        return pulumi.get(self, "hubs")
 
-    @hub_id.setter
-    def hub_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "hub_id", value)
+    @hubs.setter
+    def hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubArgs']]]]):
+        pulumi.set(self, "hubs", value)
 
     @property
     @pulumi.getter(name="isGlobal")
@@ -189,7 +189,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
                  delete_existing_peering: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 hub_id: Optional[pulumi.Input[str]] = None,
+                 hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubArgs']]]]] = None,
                  is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -205,7 +205,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'DeleteExistingPeering']] delete_existing_peering: Flag if need to remove current existing peerings.
         :param pulumi.Input[str] description: A description of the connectivity configuration.
         :param pulumi.Input[str] display_name: A friendly name for the resource.
-        :param pulumi.Input[str] hub_id: The hub vnet Id.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubArgs']]]] hubs: List of hubItems
         :param pulumi.Input[Union[str, 'IsGlobal']] is_global: Flag if global mesh is supported.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -240,7 +240,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
                  delete_existing_peering: Optional[pulumi.Input[Union[str, 'DeleteExistingPeering']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 hub_id: Optional[pulumi.Input[str]] = None,
+                 hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubArgs']]]]] = None,
                  is_global: Optional[pulumi.Input[Union[str, 'IsGlobal']]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -264,7 +264,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
             __props__.__dict__["delete_existing_peering"] = delete_existing_peering
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["hub_id"] = hub_id
+            __props__.__dict__["hubs"] = hubs
             __props__.__dict__["is_global"] = is_global
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
@@ -307,7 +307,7 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
-        __props__.__dict__["hub_id"] = None
+        __props__.__dict__["hubs"] = None
         __props__.__dict__["is_global"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -364,12 +364,12 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
-    @pulumi.getter(name="hubId")
-    def hub_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def hubs(self) -> pulumi.Output[Optional[Sequence['outputs.HubResponse']]]:
         """
-        The hub vnet Id.
+        List of hubItems
         """
-        return pulumi.get(self, "hub_id")
+        return pulumi.get(self, "hubs")
 
     @property
     @pulumi.getter(name="isGlobal")

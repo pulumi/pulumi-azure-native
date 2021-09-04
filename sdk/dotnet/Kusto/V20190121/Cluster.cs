@@ -121,6 +121,8 @@ namespace Pulumi.AzureNative.Kusto.V20190121
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:Cluster"},
                     new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:Cluster"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20210827:Cluster"},
+                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210827:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.Web.Inputs
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }
 
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
         public AppleRegistrationArgs()
         {
         }
