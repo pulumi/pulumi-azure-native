@@ -20,6 +20,9 @@ __all__ = [
     'AmazonRdsForOraclePartitionSettingsResponse',
     'AmazonRdsForOracleSourceResponse',
     'AmazonRdsForOracleTableDatasetResponse',
+    'AmazonRdsForSqlServerLinkedServiceResponse',
+    'AmazonRdsForSqlServerSourceResponse',
+    'AmazonRdsForSqlServerTableDatasetResponse',
     'AmazonRedshiftLinkedServiceResponse',
     'AmazonRedshiftSourceResponse',
     'AmazonRedshiftTableDatasetResponse',
@@ -1713,6 +1716,505 @@ class AmazonRdsForOracleTableDatasetResponse(dict):
     def table(self) -> Optional[Any]:
         """
         The table name of the AmazonRdsForOracle database. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+
+@pulumi.output_type
+class AmazonRdsForSqlServerLinkedServiceResponse(dict):
+    """
+    Amazon RDS for SQL Server linked service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "alwaysEncryptedSettings":
+            suggest = "always_encrypted_settings"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonRdsForSqlServerLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonRdsForSqlServerLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonRdsForSqlServerLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_string: Any,
+                 type: str,
+                 always_encrypted_settings: Optional['outputs.SqlAlwaysEncryptedPropertiesResponse'] = None,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 password: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
+        """
+        Amazon RDS for SQL Server linked service.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param str type: Type of linked service.
+               Expected value is 'AmazonRdsForSqlServer'.
+        :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The on-premises Windows authentication password.
+        :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "type", 'AmazonRdsForSqlServer')
+        if always_encrypted_settings is not None:
+            pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Any:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'AmazonRdsForSqlServer'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="alwaysEncryptedSettings")
+    def always_encrypted_settings(self) -> Optional['outputs.SqlAlwaysEncryptedPropertiesResponse']:
+        """
+        Sql always encrypted properties.
+        """
+        return pulumi.get(self, "always_encrypted_settings")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[Any]:
+        """
+        The on-premises Windows authentication password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class AmazonRdsForSqlServerSourceResponse(dict):
+    """
+    A copy activity Amazon RDS for SQL Server source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalColumns":
+            suggest = "additional_columns"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "partitionOption":
+            suggest = "partition_option"
+        elif key == "partitionSettings":
+            suggest = "partition_settings"
+        elif key == "produceAdditionalTypes":
+            suggest = "produce_additional_types"
+        elif key == "queryTimeout":
+            suggest = "query_timeout"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+        elif key == "sqlReaderQuery":
+            suggest = "sql_reader_query"
+        elif key == "sqlReaderStoredProcedureName":
+            suggest = "sql_reader_stored_procedure_name"
+        elif key == "storedProcedureParameters":
+            suggest = "stored_procedure_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonRdsForSqlServerSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonRdsForSqlServerSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonRdsForSqlServerSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 additional_columns: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 partition_option: Optional[Any] = None,
+                 partition_settings: Optional['outputs.SqlPartitionSettingsResponse'] = None,
+                 produce_additional_types: Optional[Any] = None,
+                 query_timeout: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 sql_reader_query: Optional[Any] = None,
+                 sql_reader_stored_procedure_name: Optional[Any] = None,
+                 stored_procedure_parameters: Optional[Mapping[str, 'outputs.StoredProcedureParameterResponse']] = None):
+        """
+        A copy activity Amazon RDS for SQL Server source.
+        :param str type: Copy source type.
+               Expected value is 'AmazonRdsForSqlServerSource'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
+        :param Any produce_additional_types: Which additional types to produce.
+        :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any sql_reader_query: SQL reader query. Type: string (or Expression with resultType string).
+        :param Any sql_reader_stored_procedure_name: Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        """
+        pulumi.set(__self__, "type", 'AmazonRdsForSqlServerSource')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if partition_option is not None:
+            pulumi.set(__self__, "partition_option", partition_option)
+        if partition_settings is not None:
+            pulumi.set(__self__, "partition_settings", partition_settings)
+        if produce_additional_types is not None:
+            pulumi.set(__self__, "produce_additional_types", produce_additional_types)
+        if query_timeout is not None:
+            pulumi.set(__self__, "query_timeout", query_timeout)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if sql_reader_query is not None:
+            pulumi.set(__self__, "sql_reader_query", sql_reader_query)
+        if sql_reader_stored_procedure_name is not None:
+            pulumi.set(__self__, "sql_reader_stored_procedure_name", sql_reader_stored_procedure_name)
+        if stored_procedure_parameters is not None:
+            pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy source type.
+        Expected value is 'AmazonRdsForSqlServerSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="partitionOption")
+    def partition_option(self) -> Optional[Any]:
+        """
+        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        """
+        return pulumi.get(self, "partition_option")
+
+    @property
+    @pulumi.getter(name="partitionSettings")
+    def partition_settings(self) -> Optional['outputs.SqlPartitionSettingsResponse']:
+        """
+        The settings that will be leveraged for Sql source partitioning.
+        """
+        return pulumi.get(self, "partition_settings")
+
+    @property
+    @pulumi.getter(name="produceAdditionalTypes")
+    def produce_additional_types(self) -> Optional[Any]:
+        """
+        Which additional types to produce.
+        """
+        return pulumi.get(self, "produce_additional_types")
+
+    @property
+    @pulumi.getter(name="queryTimeout")
+    def query_timeout(self) -> Optional[Any]:
+        """
+        Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "query_timeout")
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @property
+    @pulumi.getter(name="sqlReaderQuery")
+    def sql_reader_query(self) -> Optional[Any]:
+        """
+        SQL reader query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_reader_query")
+
+    @property
+    @pulumi.getter(name="sqlReaderStoredProcedureName")
+    def sql_reader_stored_procedure_name(self) -> Optional[Any]:
+        """
+        Name of the stored procedure for a SQL Database source. This cannot be used at the same time as SqlReaderQuery. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "sql_reader_stored_procedure_name")
+
+    @property
+    @pulumi.getter(name="storedProcedureParameters")
+    def stored_procedure_parameters(self) -> Optional[Mapping[str, 'outputs.StoredProcedureParameterResponse']]:
+        """
+        Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        """
+        return pulumi.get(self, "stored_procedure_parameters")
+
+
+@pulumi.output_type
+class AmazonRdsForSqlServerTableDatasetResponse(dict):
+    """
+    The Amazon RDS for SQL Server dataset.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmazonRdsForSqlServerTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmazonRdsForSqlServerTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmazonRdsForSqlServerTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None,
+                 table: Optional[Any] = None):
+        """
+        The Amazon RDS for SQL Server dataset.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str type: Type of dataset.
+               Expected value is 'AmazonRdsForSqlServerTable'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table: The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'AmazonRdsForSqlServerTable')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        Expected value is 'AmazonRdsForSqlServerTable'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[Any]:
+        """
+        The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table")
 
@@ -18791,7 +19293,7 @@ class CopyActivityResponse(dict):
         Copy activity.
         :param str name: Activity name.
         :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -41372,7 +41874,7 @@ class LookupActivityResponse(dict):
         Lookup activity.
         :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param str name: Activity name.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
                Expected value is 'Lookup'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.

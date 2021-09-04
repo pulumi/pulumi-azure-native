@@ -35,6 +35,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ContainerRegistry",
     "namespace": "Microsoft.ContainerRegistry",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -2791,6 +2792,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ContainerService",
     "namespace": "Microsoft.ContainerService",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -2908,6 +2910,7 @@
           "Norway East",
           "Norway West",
           "West US 3",
+          "Sweden Central",
           "Australia Central 2"
         ],
         "properties": null,
@@ -3276,6 +3279,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Sql",
     "namespace": "Microsoft.Sql",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -13591,6 +13595,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Media",
     "namespace": "Microsoft.Media",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -14876,6 +14881,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Automation",
     "namespace": "Microsoft.Automation",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -15586,6 +15592,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Network",
     "namespace": "Microsoft.Network",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -24157,6 +24164,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Compute",
     "namespace": "Microsoft.Compute",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -28469,6 +28477,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/microsoft.insights",
     "namespace": "microsoft.insights",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -30275,6 +30284,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Web",
     "namespace": "Microsoft.Web",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -34730,6 +34740,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.OperationalInsights",
     "namespace": "Microsoft.OperationalInsights",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -35469,6 +35480,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Cache",
     "namespace": "Microsoft.Cache",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -36588,6 +36600,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AlertsManagement",
     "namespace": "Microsoft.AlertsManagement",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -36773,6 +36786,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ApiManagement",
     "namespace": "Microsoft.ApiManagement",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -37229,6 +37243,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Cdn",
     "namespace": "Microsoft.Cdn",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -38635,6 +38650,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CognitiveServices",
     "namespace": "Microsoft.CognitiveServices",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -39225,6 +39241,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ContainerInstance",
     "namespace": "Microsoft.ContainerInstance",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -39761,6 +39778,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DBforMySQL",
     "namespace": "Microsoft.DBforMySQL",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -41857,6 +41875,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Devices",
     "namespace": "Microsoft.Devices",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -42271,6 +42290,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataLakeAnalytics",
     "namespace": "Microsoft.DataLakeAnalytics",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -42466,6 +42486,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Databricks",
     "namespace": "Microsoft.Databricks",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -42808,6 +42829,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataLakeStore",
     "namespace": "Microsoft.DataLakeStore",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -42991,6 +43013,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DBforPostgreSQL",
     "namespace": "Microsoft.DBforPostgreSQL",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -45023,6 +45046,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DevTestLab",
     "namespace": "Microsoft.DevTestLab",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -45376,6 +45400,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DocumentDB",
     "namespace": "Microsoft.DocumentDB",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -46016,6 +46041,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DomainRegistration",
     "namespace": "Microsoft.DomainRegistration",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -46337,6 +46363,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.EventGrid",
     "namespace": "Microsoft.EventGrid",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -47398,6 +47425,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.EventHub",
     "namespace": "Microsoft.EventHub",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -47829,6 +47857,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Management",
     "namespace": "Microsoft.Management",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -48043,6 +48072,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.KeyVault",
     "namespace": "Microsoft.KeyVault",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -48819,6 +48849,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Logic",
     "namespace": "Microsoft.Logic",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -49157,6 +49188,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ManagedIdentity",
     "namespace": "Microsoft.ManagedIdentity",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -49324,6 +49356,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Storage",
     "namespace": "Microsoft.Storage",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -50698,6 +50731,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.NotificationHubs",
     "namespace": "Microsoft.NotificationHubs",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -50982,6 +51016,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.RecoveryServices",
     "namespace": "Microsoft.RecoveryServices",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -51914,6 +51949,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.OperationsManagement",
     "namespace": "Microsoft.OperationsManagement",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -52087,6 +52123,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Relay",
     "namespace": "Microsoft.Relay",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -52287,6 +52324,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ResourceHealth",
     "namespace": "Microsoft.ResourceHealth",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -52427,6 +52465,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Scheduler",
     "namespace": "Microsoft.Scheduler",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -52571,6 +52610,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Search",
     "namespace": "Microsoft.Search",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -52749,6 +52789,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Security",
     "namespace": "Microsoft.Security",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -54542,6 +54583,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ServiceBus",
     "namespace": "Microsoft.ServiceBus",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -55061,6 +55103,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ServiceFabric",
     "namespace": "Microsoft.ServiceFabric",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -56034,6 +56077,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CertificateRegistration",
     "namespace": "Microsoft.CertificateRegistration",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -56196,6 +56240,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.SignalRService",
     "namespace": "Microsoft.SignalRService",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -56560,6 +56605,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.StorageCache",
     "namespace": "Microsoft.StorageCache",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -56765,6 +56811,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MixedReality",
     "namespace": "Microsoft.MixedReality",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -56914,6 +56961,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataMigration",
     "namespace": "Microsoft.DataMigration",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -57446,6 +57494,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.PowerBIDedicated",
     "namespace": "Microsoft.PowerBIDedicated",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -57790,6 +57839,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MachineLearningServices",
     "namespace": "Microsoft.MachineLearningServices",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -59095,6 +59145,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CustomProviders",
     "namespace": "Microsoft.CustomProviders",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -59208,6 +59259,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AppPlatform",
     "namespace": "Microsoft.AppPlatform",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -59483,6 +59535,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Kubernetes",
     "namespace": "Microsoft.Kubernetes",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -59614,6 +59667,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DBforMariaDB",
     "namespace": "Microsoft.DBforMariaDB",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -61120,6 +61174,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Maintenance",
     "namespace": "Microsoft.Maintenance",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -61374,6 +61429,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.SecurityInsights",
     "namespace": "Microsoft.SecurityInsights",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -61480,6 +61536,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01-preview",
           "2020-01-01",
           "2019-01-01-preview"
         ],
@@ -61953,6 +62010,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.VSOnline",
     "namespace": "Microsoft.VSOnline",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -62030,6 +62088,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.TimeSeriesInsights",
     "namespace": "Microsoft.TimeSeriesInsights",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -62218,6 +62277,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ChangeAnalysis",
     "namespace": "Microsoft.ChangeAnalysis",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -62274,6 +62334,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ManagedServices",
     "namespace": "Microsoft.ManagedServices",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -62389,6 +62450,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Synapse",
     "namespace": "Microsoft.Synapse",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -63104,6 +63166,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DesktopVirtualization",
     "namespace": "Microsoft.DesktopVirtualization",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -63547,6 +63610,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ServiceFabricMesh",
     "namespace": "Microsoft.ServiceFabricMesh",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -64038,6 +64102,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Blueprint",
     "namespace": "Microsoft.Blueprint",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -64186,6 +64251,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HealthcareApis",
     "namespace": "Microsoft.HealthcareApis",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -64663,6 +64729,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.IoTCentral",
     "namespace": "Microsoft.IoTCentral",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -64772,6 +64839,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AVS",
     "namespace": "Microsoft.AVS",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -65410,6 +65478,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.GuestConfiguration",
     "namespace": "Microsoft.GuestConfiguration",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -65498,6 +65567,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataProtection",
     "namespace": "Microsoft.DataProtection",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -65855,6 +65925,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.D365CustomerInsights",
     "namespace": "Microsoft.D365CustomerInsights",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -65904,6 +65975,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AppConfiguration",
     "namespace": "Microsoft.AppConfiguration",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -66244,6 +66316,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureActiveDirectory",
     "namespace": "Microsoft.AzureActiveDirectory",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -66374,6 +66447,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Diagnostics",
     "namespace": "Microsoft.Diagnostics",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -66429,6 +66503,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MarketplaceNotifications",
     "namespace": "Microsoft.MarketplaceNotifications",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -66474,6 +66549,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HDInsight",
     "namespace": "Microsoft.HDInsight",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -67354,6 +67430,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.StreamAnalytics",
     "namespace": "Microsoft.StreamAnalytics",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -67665,6 +67742,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Advisor",
     "namespace": "Microsoft.Advisor",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -67767,6 +67845,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.PolicyInsights",
     "namespace": "Microsoft.PolicyInsights",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -67920,6 +67999,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Maps",
     "namespace": "Microsoft.Maps",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -68041,6 +68121,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.BotService",
     "namespace": "Microsoft.BotService",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -68280,6 +68361,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Kusto",
     "namespace": "Microsoft.Kusto",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -68940,6 +69022,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/84codes.CloudAMQP",
     "namespace": "84codes.CloudAMQP",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69015,6 +69098,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Crypteron.DataSecurity",
     "namespace": "Crypteron.DataSecurity",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69087,6 +69171,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Dynatrace.Observability",
     "namespace": "Dynatrace.Observability",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69164,6 +69249,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AAD",
     "namespace": "Microsoft.AAD",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69422,6 +69508,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/microsoft.aadiam",
     "namespace": "microsoft.aadiam",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69606,6 +69693,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Addons",
     "namespace": "Microsoft.Addons",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69671,6 +69759,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ADHybridHealthService",
     "namespace": "Microsoft.ADHybridHealthService",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -69835,6 +69924,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AgFoodPlatform",
     "namespace": "Microsoft.AgFoodPlatform",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -69892,6 +69982,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AISupercomputer",
     "namespace": "Microsoft.AISupercomputer",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -70182,6 +70273,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AnalysisServices",
     "namespace": "Microsoft.AnalysisServices",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -70402,6 +70494,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AnyBuild",
     "namespace": "Microsoft.AnyBuild",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -70476,6 +70569,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AppAssessment",
     "namespace": "Microsoft.AppAssessment",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -70548,6 +70642,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Attestation",
     "namespace": "Microsoft.Attestation",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -70686,6 +70781,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Authorization",
     "namespace": "Microsoft.Authorization",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -71368,6 +71464,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Automanage",
     "namespace": "Microsoft.Automanage",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -71554,6 +71651,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AutonomousDevelopmentPlatform",
     "namespace": "Microsoft.AutonomousDevelopmentPlatform",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -71628,6 +71726,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AutonomousSystems",
     "namespace": "Microsoft.AutonomousSystems",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -71714,6 +71813,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureArcData",
     "namespace": "Microsoft.AzureArcData",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -71908,6 +72008,7 @@
     "authorizations": [],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureCIS",
     "namespace": "Microsoft.AzureCIS",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -71950,6 +72051,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureData",
     "namespace": "Microsoft.AzureData",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -72077,6 +72179,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzurePercept",
     "namespace": "Microsoft.AzurePercept",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -72147,6 +72250,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureSphere",
     "namespace": "Microsoft.AzureSphere",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -72293,6 +72397,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureStack",
     "namespace": "Microsoft.AzureStack",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -72414,6 +72519,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AzureStackHCI",
     "namespace": "Microsoft.AzureStackHCI",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -72526,12 +72632,50 @@
   },
   {
     "authorization": {
+      "applicationId": "ba4bc2bd-843f-4d61-9d33-199178eae34e",
+      "managedByAuthorization": {
+        "managedByResourceRoleDefinitionId": "9e3af657-a8ff-583c-a75c-2fe7c4bcb635"
+      },
+      "managedByRoleDefinitionId": "9e3af657-a8ff-583c-a75c-2fe7c4bcb635",
+      "roleDefinitionId": "1da601d6-871c-4f4b-b117-55f6904119f7"
+    },
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.BackupSolutions",
+    "namespace": "Microsoft.BackupSolutions",
+    "providerAuthorizationConsentState": null,
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-08-21-preview",
+          "2019-07-01",
+          "2018-09-01-preview",
+          "2018-06-01",
+          "2018-03-01",
+          "2018-02-01",
+          "2017-12-01",
+          "2017-09-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "operations"
+      }
+    ]
+  },
+  {
+    "authorization": {
       "applicationId": "cc5476ec-3074-44d1-8461-711f5d9b0e39",
       "managedByRoleDefinitionId": "9e3af657-a8ff-583c-a75c-2fe7c4bcb635",
       "roleDefinitionId": "4a10987e-dbcf-4c3d-8e3d-7ddcd9c771c2"
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.BareMetalInfrastructure",
     "namespace": "Microsoft.BareMetalInfrastructure",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -72632,6 +72776,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Batch",
     "namespace": "Microsoft.Batch",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -73232,6 +73377,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Billing",
     "namespace": "Microsoft.Billing",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -74906,6 +75052,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Bing",
     "namespace": "Microsoft.Bing",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -75033,6 +75180,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Blockchain",
     "namespace": "Microsoft.Blockchain",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -75195,6 +75343,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.BlockchainTokens",
     "namespace": "Microsoft.BlockchainTokens",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -75228,6 +75377,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Capacity",
     "namespace": "Microsoft.Capacity",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -75858,6 +76008,7 @@
     "authorizations": [],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Cascade",
     "namespace": "Microsoft.Cascade",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -75936,6 +76087,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Chaos",
     "namespace": "Microsoft.Chaos",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -75970,6 +76122,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ClassicCompute",
     "namespace": "Microsoft.ClassicCompute",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -76648,6 +76801,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ClassicInfrastructureMigrate",
     "namespace": "Microsoft.ClassicInfrastructureMigrate",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -76710,6 +76864,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ClassicNetwork",
     "namespace": "Microsoft.ClassicNetwork",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -77070,6 +77225,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ClassicStorage",
     "namespace": "Microsoft.ClassicStorage",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -77607,6 +77763,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ClassicSubscription",
     "namespace": "Microsoft.ClassicSubscription",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -77629,6 +77786,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CloudTest",
     "namespace": "Microsoft.CloudTest",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -77979,6 +78137,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CodeSigning",
     "namespace": "Microsoft.CodeSigning",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78006,7 +78165,8 @@
         "locationMappings": null,
         "locations": [
           "Central US EUAP",
-          "West Central US"
+          "West Central US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "Locations/OperationStatuses"
@@ -78052,6 +78212,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Codespaces",
     "namespace": "Microsoft.Codespaces",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78120,6 +78281,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Commerce",
     "namespace": "Microsoft.Commerce",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -78177,6 +78339,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Communication",
     "namespace": "Microsoft.Communication",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78299,6 +78462,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ConfidentialLedger",
     "namespace": "Microsoft.ConfidentialLedger",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78379,6 +78543,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Confluent",
     "namespace": "Microsoft.Confluent",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78527,6 +78692,7 @@
     "authorizations": [],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ConnectedCache",
     "namespace": "Microsoft.ConnectedCache",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78556,6 +78722,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ConnectedVehicle",
     "namespace": "Microsoft.ConnectedVehicle",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78654,6 +78821,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ConnectedVMwarevSphere",
     "namespace": "Microsoft.ConnectedVMwarevSphere",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -78775,6 +78943,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Consumption",
     "namespace": "Microsoft.Consumption",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -79292,6 +79461,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CostManagement",
     "namespace": "Microsoft.CostManagement",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -79892,6 +80062,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CostManagementExports",
     "namespace": "Microsoft.CostManagementExports",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -79925,6 +80096,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CustomerLockbox",
     "namespace": "Microsoft.CustomerLockbox",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -80007,6 +80179,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Dashboard",
     "namespace": "Microsoft.Dashboard",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -80077,6 +80250,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataBox",
     "namespace": "Microsoft.DataBox",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -80350,6 +80524,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataBoxEdge",
     "namespace": "Microsoft.DataBoxEdge",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -80474,6 +80649,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataCatalog",
     "namespace": "Microsoft.DataCatalog",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -80576,6 +80752,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataCollaboration",
     "namespace": "Microsoft.DataCollaboration",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -80708,6 +80885,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Datadog",
     "namespace": "Microsoft.Datadog",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -80960,6 +81138,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataFactory",
     "namespace": "Microsoft.DataFactory",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -81311,6 +81490,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DataShare",
     "namespace": "Microsoft.DataShare",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -81783,6 +81963,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DelegatedNetwork",
     "namespace": "Microsoft.DelegatedNetwork",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -81847,6 +82028,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DeploymentManager",
     "namespace": "Microsoft.DeploymentManager",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -82215,6 +82397,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DeviceUpdate",
     "namespace": "Microsoft.DeviceUpdate",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -82331,6 +82514,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DevOps",
     "namespace": "Microsoft.DevOps",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -82388,6 +82572,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DigitalTwins",
     "namespace": "Microsoft.DigitalTwins",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -82559,6 +82744,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.EdgeOrder",
     "namespace": "Microsoft.EdgeOrder",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -82736,6 +82922,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Elastic",
     "namespace": "Microsoft.Elastic",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -82869,6 +83056,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.EnterpriseKnowledgeGraph",
     "namespace": "Microsoft.EnterpriseKnowledgeGraph",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -82976,6 +83164,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Experimentation",
     "namespace": "Microsoft.Experimentation",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83037,6 +83226,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ExtendedLocation",
     "namespace": "Microsoft.ExtendedLocation",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83198,6 +83388,7 @@
     "authorizations": [],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Falcon",
     "namespace": "Microsoft.Falcon",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83221,6 +83412,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Features",
     "namespace": "Microsoft.Features",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -83342,6 +83534,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Fidalgo",
     "namespace": "Microsoft.Fidalgo",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83406,6 +83599,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.FluidRelay",
     "namespace": "Microsoft.FluidRelay",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83435,6 +83629,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HanaOnAzure",
     "namespace": "Microsoft.HanaOnAzure",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83600,6 +83795,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HardwareSecurityModules",
     "namespace": "Microsoft.HardwareSecurityModules",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83664,6 +83860,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HealthBot",
     "namespace": "Microsoft.HealthBot",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -83766,6 +83963,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HybridCompute",
     "namespace": "Microsoft.HybridCompute",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -84207,6 +84405,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HybridData",
     "namespace": "Microsoft.HybridData",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -84259,6 +84458,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.HybridNetwork",
     "namespace": "Microsoft.HybridNetwork",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -84320,6 +84520,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ImportExport",
     "namespace": "Microsoft.ImportExport",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -84526,6 +84727,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.IndustryDataLifecycle",
     "namespace": "Microsoft.IndustryDataLifecycle",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -84592,6 +84794,38 @@
         ],
         "properties": null,
         "resourceType": "custodianCollaboratives/invitations/termsOfUseDocuments"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-01-12-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "custodianCollaboratives/dataModels"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-01-12-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Central US",
+          "East US 2"
+        ],
+        "properties": null,
+        "resourceType": "custodianCollaboratives/dataModels/mergePipelines"
       },
       {
         "aliases": null,
@@ -84809,6 +85043,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.IntelligentITDigitalTwin",
     "namespace": "Microsoft.IntelligentITDigitalTwin",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -84836,6 +85071,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.IoTSecurity",
     "namespace": "Microsoft.IoTSecurity",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -84910,6 +85146,22 @@
         ],
         "properties": null,
         "resourceType": "locations/deviceGroups/devices"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US",
+          "West Europe"
+        ],
+        "properties": null,
+        "resourceType": "locations/deviceGroups/vulnerabilities"
       },
       {
         "aliases": null,
@@ -85134,6 +85386,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.KubernetesConfiguration",
     "namespace": "Microsoft.KubernetesConfiguration",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -85238,6 +85491,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.LabServices",
     "namespace": "Microsoft.LabServices",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -85417,6 +85671,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Logz",
     "namespace": "Microsoft.Logz",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -85575,6 +85830,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MachineLearning",
     "namespace": "Microsoft.MachineLearning",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -85729,6 +85985,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Marketplace",
     "namespace": "Microsoft.Marketplace",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -86187,6 +86444,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MarketplaceApps",
     "namespace": "Microsoft.MarketplaceApps",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -86270,6 +86528,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MarketplaceOrdering",
     "namespace": "Microsoft.MarketplaceOrdering",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -86336,6 +86595,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Migrate",
     "namespace": "Microsoft.Migrate",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -86597,6 +86857,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.MobileNetwork",
     "namespace": "Microsoft.MobileNetwork",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -86656,6 +86917,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.NetApp",
     "namespace": "Microsoft.NetApp",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -86739,6 +87001,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.NetworkFunction",
     "namespace": "Microsoft.NetworkFunction",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -86767,6 +87030,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ObjectStore",
     "namespace": "Microsoft.ObjectStore",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -86796,6 +87060,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.OffAzure",
     "namespace": "Microsoft.OffAzure",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -87083,6 +87348,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.OpenLogisticsPlatform",
     "namespace": "Microsoft.OpenLogisticsPlatform",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -87186,6 +87452,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Peering",
     "namespace": "Microsoft.Peering",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -87444,6 +87711,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Portal",
     "namespace": "Microsoft.Portal",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -87737,6 +88005,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.PowerBI",
     "namespace": "Microsoft.PowerBI",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -87862,6 +88131,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.PowerPlatform",
     "namespace": "Microsoft.PowerPlatform",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -87891,6 +88161,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ProjectBabylon",
     "namespace": "Microsoft.ProjectBabylon",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -87932,6 +88203,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ProviderHub",
     "namespace": "Microsoft.ProviderHub",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -88078,6 +88350,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Purview",
     "namespace": "Microsoft.Purview",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -88232,6 +88505,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Quantum",
     "namespace": "Microsoft.Quantum",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -88359,6 +88633,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.RecommendationsService",
     "namespace": "Microsoft.RecommendationsService",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -88489,6 +88764,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.RedHatOpenShift",
     "namespace": "Microsoft.RedHatOpenShift",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -88672,6 +88948,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ResourceConnector",
     "namespace": "Microsoft.ResourceConnector",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -88710,6 +88987,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ResourceGraph",
     "namespace": "Microsoft.ResourceGraph",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -88842,6 +89120,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Resources",
     "namespace": "Microsoft.Resources",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -90143,6 +90422,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.SaaS",
     "namespace": "Microsoft.SaaS",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -90248,6 +90528,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Scom",
     "namespace": "Microsoft.Scom",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -90305,6 +90586,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ScVmm",
     "namespace": "Microsoft.ScVmm",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -90363,6 +90645,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.SecurityDetonation",
     "namespace": "Microsoft.SecurityDetonation",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -90422,6 +90705,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.SerialConsole",
     "namespace": "Microsoft.SerialConsole",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -90538,6 +90822,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ServiceLinker",
     "namespace": "Microsoft.ServiceLinker",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -90594,6 +90879,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ServicesHub",
     "namespace": "Microsoft.ServicesHub",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -90688,6 +90974,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Singularity",
     "namespace": "Microsoft.Singularity",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -91260,6 +91547,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.SoftwarePlan",
     "namespace": "Microsoft.SoftwarePlan",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -91307,6 +91595,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Solutions",
     "namespace": "Microsoft.Solutions",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -91586,6 +91875,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.SqlVirtualMachine",
     "namespace": "Microsoft.SqlVirtualMachine",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -92111,6 +92401,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.StoragePool",
     "namespace": "Microsoft.StoragePool",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -92286,6 +92577,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.StorageSync",
     "namespace": "Microsoft.StorageSync",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -92967,6 +93259,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.StorSimple",
     "namespace": "Microsoft.StorSimple",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -93036,6 +93329,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Subscription",
     "namespace": "Microsoft.Subscription",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -93292,6 +93586,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/microsoft.support",
     "namespace": "microsoft.support",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationFree",
     "registrationState": "Registered",
     "resourceTypes": [
@@ -93518,6 +93813,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.TestBase",
     "namespace": "Microsoft.TestBase",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -93779,6 +94075,7 @@
     "authorizations": [],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.VideoIndexer",
     "namespace": "Microsoft.VideoIndexer",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -93882,6 +94179,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.VirtualMachineImages",
     "namespace": "Microsoft.VirtualMachineImages",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94034,6 +94332,7 @@
     },
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/microsoft.visualstudio",
     "namespace": "microsoft.visualstudio",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94227,6 +94526,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.VMware",
     "namespace": "Microsoft.VMware",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94310,6 +94610,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.VMwareCloudSimple",
     "namespace": "Microsoft.VMwareCloudSimple",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94550,6 +94851,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.WindowsESU",
     "namespace": "Microsoft.WindowsESU",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94600,6 +94902,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.WindowsIoT",
     "namespace": "Microsoft.WindowsIoT",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94649,6 +94952,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.WorkloadBuilder",
     "namespace": "Microsoft.WorkloadBuilder",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94709,6 +95013,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.WorkloadMonitor",
     "namespace": "Microsoft.WorkloadMonitor",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94753,6 +95058,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/NGINX.NGINXPLUS",
     "namespace": "NGINX.NGINXPLUS",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94803,6 +95109,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Paraleap.CloudMonix",
     "namespace": "Paraleap.CloudMonix",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94865,6 +95172,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Pokitdok.Platform",
     "namespace": "Pokitdok.Platform",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94927,6 +95235,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/RavenHq.Db",
     "namespace": "RavenHq.Db",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -94991,6 +95300,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Raygun.CrashReporting",
     "namespace": "Raygun.CrashReporting",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -95053,6 +95363,7 @@
   {
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Sendgrid.Email",
     "namespace": "Sendgrid.Email",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
@@ -95159,6 +95470,7 @@
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Wandisco.Fusion",
     "namespace": "Wandisco.Fusion",
+    "providerAuthorizationConsentState": null,
     "registrationPolicy": "RegistrationRequired",
     "registrationState": "NotRegistered",
     "resourceTypes": [
