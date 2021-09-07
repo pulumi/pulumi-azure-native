@@ -85,6 +85,13 @@ func main() {
 			// Remove the version again.
 			docsPkgSpec.Version = ""
 			err = emitDocsSchema(docsPkgSpec, outdir)
+		case "go":
+			outdir := path.Join(".", "sdk", language)
+			pkgSpec.Version = version
+			// Work around the SDK size exceeding 512 MB by removing comments from versioned modules.
+			// Roll this back when we have a better fix for the SDK size.
+			specNoComments := removeAllComments(*pkgSpec)
+			err = emitPackage(specNoComments, language, outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
 			pkgSpec.Version = version
@@ -94,6 +101,71 @@ func main() {
 			panic(err)
 		}
 	}
+}
+
+func removeAllComments(pkgSpec schema.PackageSpec) *schema.PackageSpec {
+	isVersioned := func(tok string) bool { return strings.Contains(tok, "/v") }
+	types := map[string]schema.ComplexTypeSpec{}
+	for n, t := range pkgSpec.Types {
+		props := map[string]schema.PropertySpec{}
+		for pn, p := range t.Properties {
+			p.Description = ""
+			props[pn] = p
+		}
+		if isVersioned(n) {
+			t.Description = ""
+			t.Properties = props
+		}
+		types[n] = t
+	}
+	pkgSpec.Types = types
+	functions := map[string]schema.FunctionSpec{}
+	for n, f := range pkgSpec.Functions {
+		if !isVersioned(n) {
+			functions[n] = f
+			continue
+		}
+		if f.Inputs != nil {
+			inputs := map[string]schema.PropertySpec{}
+			for pn, p := range f.Inputs.Properties {
+				p.Description = ""
+				inputs[pn] = p
+			}
+			f.Inputs.Properties = inputs
+		}
+		if f.Outputs != nil {
+			outputs := map[string]schema.PropertySpec{}
+			for pn, p := range f.Outputs.Properties {
+				p.Description = ""
+				outputs[pn] = p
+			}
+			f.Outputs.Properties = outputs
+		}
+		f.Description = ""
+		functions[n] = f
+	}
+	pkgSpec.Functions = functions
+	resources := map[string]schema.ResourceSpec{}
+	for n, r := range pkgSpec.Resources {
+		inputProperties := map[string]schema.PropertySpec{}
+		for pn, p := range r.InputProperties {
+			p.Description = ""
+			inputProperties[pn] = p
+		}
+		properties := map[string]schema.PropertySpec{}
+		for pn, p := range r.Properties {
+			p.Description = ""
+			properties[pn] = p
+		}
+		if isVersioned(n) {
+			r.Description = ""
+			r.InputProperties = inputProperties
+			r.Properties = properties
+		}
+		resources[n] = r
+	}
+	pkgSpec.Resources = resources
+	return &pkgSpec
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
