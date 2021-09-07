@@ -68633,15 +68633,19 @@ class SparkSourceArgs:
 class SqlAlwaysEncryptedPropertiesArgs:
     def __init__(__self__, *,
                  always_encrypted_akv_auth_type: pulumi.Input[Union[str, 'SqlAlwaysEncryptedAkvAuthType']],
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None):
         """
         Sql always encrypted properties.
         :param pulumi.Input[Union[str, 'SqlAlwaysEncryptedAkvAuthType']] always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Azure Key Vault.
         """
         pulumi.set(__self__, "always_encrypted_akv_auth_type", always_encrypted_akv_auth_type)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
@@ -68658,6 +68662,18 @@ class SqlAlwaysEncryptedPropertiesArgs:
     @always_encrypted_akv_auth_type.setter
     def always_encrypted_akv_auth_type(self, value: pulumi.Input[Union[str, 'SqlAlwaysEncryptedAkvAuthType']]):
         pulumi.set(self, "always_encrypted_akv_auth_type", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter(name="servicePrincipalId")

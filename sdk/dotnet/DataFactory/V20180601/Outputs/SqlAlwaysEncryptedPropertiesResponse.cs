@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string AlwaysEncryptedAkvAuthType;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ServicePrincipalId;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private SqlAlwaysEncryptedPropertiesResponse(
             string alwaysEncryptedAkvAuthType,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             object? servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey)
         {
             AlwaysEncryptedAkvAuthType = alwaysEncryptedAkvAuthType;
+            Credential = credential;
             ServicePrincipalId = servicePrincipalId;
             ServicePrincipalKey = servicePrincipalKey;
         }

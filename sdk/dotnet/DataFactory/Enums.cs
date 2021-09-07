@@ -1562,6 +1562,7 @@ namespace Pulumi.AzureNative.DataFactory
 
         public static SqlAlwaysEncryptedAkvAuthType ServicePrincipal { get; } = new SqlAlwaysEncryptedAkvAuthType("ServicePrincipal");
         public static SqlAlwaysEncryptedAkvAuthType ManagedIdentity { get; } = new SqlAlwaysEncryptedAkvAuthType("ManagedIdentity");
+        public static SqlAlwaysEncryptedAkvAuthType UserAssignedManagedIdentity { get; } = new SqlAlwaysEncryptedAkvAuthType("UserAssignedManagedIdentity");
 
         public static bool operator ==(SqlAlwaysEncryptedAkvAuthType left, SqlAlwaysEncryptedAkvAuthType right) => left.Equals(right);
         public static bool operator !=(SqlAlwaysEncryptedAkvAuthType left, SqlAlwaysEncryptedAkvAuthType right) => !left.Equals(right);

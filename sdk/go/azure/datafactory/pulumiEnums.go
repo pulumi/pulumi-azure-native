@@ -1461,8 +1461,9 @@ func (e SparkThriftTransportProtocol) ToStringPtrOutputWithContext(ctx context.C
 type SqlAlwaysEncryptedAkvAuthType pulumi.String
 
 const (
-	SqlAlwaysEncryptedAkvAuthTypeServicePrincipal = SqlAlwaysEncryptedAkvAuthType("ServicePrincipal")
-	SqlAlwaysEncryptedAkvAuthTypeManagedIdentity  = SqlAlwaysEncryptedAkvAuthType("ManagedIdentity")
+	SqlAlwaysEncryptedAkvAuthTypeServicePrincipal            = SqlAlwaysEncryptedAkvAuthType("ServicePrincipal")
+	SqlAlwaysEncryptedAkvAuthTypeManagedIdentity             = SqlAlwaysEncryptedAkvAuthType("ManagedIdentity")
+	SqlAlwaysEncryptedAkvAuthTypeUserAssignedManagedIdentity = SqlAlwaysEncryptedAkvAuthType("UserAssignedManagedIdentity")
 )
 
 func (SqlAlwaysEncryptedAkvAuthType) ElementType() reflect.Type {

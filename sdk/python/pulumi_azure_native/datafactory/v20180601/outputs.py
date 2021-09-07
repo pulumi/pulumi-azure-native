@@ -66210,15 +66210,19 @@ class SqlAlwaysEncryptedPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  always_encrypted_akv_auth_type: str,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None):
         """
         Sql always encrypted properties.
         :param str always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure Key Vault.
         """
         pulumi.set(__self__, "always_encrypted_akv_auth_type", always_encrypted_akv_auth_type)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
@@ -66231,6 +66235,14 @@ class SqlAlwaysEncryptedPropertiesResponse(dict):
         Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "always_encrypted_akv_auth_type")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter(name="servicePrincipalId")

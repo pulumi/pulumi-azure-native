@@ -509,6 +509,7 @@ class SqlAlwaysEncryptedAkvAuthType(str, Enum):
     """
     SERVICE_PRINCIPAL = "ServicePrincipal"
     MANAGED_IDENTITY = "ManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
 class SsisLogLocationType(str, Enum):

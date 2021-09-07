@@ -545,6 +545,7 @@ export type SparkThriftTransportProtocol = (typeof SparkThriftTransportProtocol)
 export const SqlAlwaysEncryptedAkvAuthType = {
     ServicePrincipal: "ServicePrincipal",
     ManagedIdentity: "ManagedIdentity",
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
 } as const;
 
 /**

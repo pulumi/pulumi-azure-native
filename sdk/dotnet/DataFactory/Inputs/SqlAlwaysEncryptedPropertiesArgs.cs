@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataFactory.SqlAlwaysEncryptedAkvAuthType> AlwaysEncryptedAkvAuthType { get; set; } = null!;
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("servicePrincipalId")]
