@@ -626,97 +626,6 @@ func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicati
 	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
 }
 
-// The plan object in an ARM, represents a marketplace plan
-type ArmPlan struct {
-	// The name
-	Name *string `pulumi:"name"`
-	// The product
-	Product *string `pulumi:"product"`
-	// The promotion code
-	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher
-	Publisher *string `pulumi:"publisher"`
-	// Version of product
-	Version *string `pulumi:"version"`
-}
-
-// ArmPlanInput is an input type that accepts ArmPlanArgs and ArmPlanOutput values.
-// You can construct a concrete instance of `ArmPlanInput` via:
-//
-//          ArmPlanArgs{...}
-type ArmPlanInput interface {
-	pulumi.Input
-
-	ToArmPlanOutput() ArmPlanOutput
-	ToArmPlanOutputWithContext(context.Context) ArmPlanOutput
-}
-
-// The plan object in an ARM, represents a marketplace plan
-type ArmPlanArgs struct {
-	// The name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The product
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The promotion code
-	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// Version of product
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ArmPlanArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmPlan)(nil)).Elem()
-}
-
-func (i ArmPlanArgs) ToArmPlanOutput() ArmPlanOutput {
-	return i.ToArmPlanOutputWithContext(context.Background())
-}
-
-func (i ArmPlanArgs) ToArmPlanOutputWithContext(ctx context.Context) ArmPlanOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanOutput)
-}
-
-// The plan object in an ARM, represents a marketplace plan
-type ArmPlanOutput struct{ *pulumi.OutputState }
-
-func (ArmPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmPlan)(nil)).Elem()
-}
-
-func (o ArmPlanOutput) ToArmPlanOutput() ArmPlanOutput {
-	return o
-}
-
-func (o ArmPlanOutput) ToArmPlanOutputWithContext(ctx context.Context) ArmPlanOutput {
-	return o
-}
-
-// The name
-func (o ArmPlanOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The product
-func (o ArmPlanOutput) Product() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *string { return v.Product }).(pulumi.StringPtrOutput)
-}
-
-// The promotion code
-func (o ArmPlanOutput) PromotionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
-}
-
-// The publisher
-func (o ArmPlanOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
-}
-
-// Version of product
-func (o ArmPlanOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
 // AutoHealActions - Describes the actions which can be
 //             taken by the auto-heal module when a rule is triggered.
 type AutoHealActions struct {
@@ -14530,7 +14439,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationLogsConfigResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationLogsConfigResponsePtrOutput{})
-	pulumi.RegisterOutputType(ArmPlanOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsResponseOutput{})
