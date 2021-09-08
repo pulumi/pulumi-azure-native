@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'Accessibility',
-    'Availability',
 ]
 
 
@@ -18,11 +17,3 @@ class Accessibility(str, Enum):
     PUBLIC = "Public"
     PRIVATE_TENANT_ON_LEVEL = "PrivateTenantOnLevel"
     PRIVATE_SUBSCRIPTION_ON_LEVEL = "PrivateSubscriptionOnLevel"
-
-
-class Availability(str, Enum):
-    """
-    Indicates private store availability
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
