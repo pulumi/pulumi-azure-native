@@ -17899,7 +17899,6 @@
         "types/enums/notificationhubs/v20170401/index.ts",
         "types/enums/operationalinsights/index.ts",
         "types/enums/operationalinsights/v20151101preview/index.ts",
-        "types/enums/operationalinsights/v20190801preview/index.ts",
         "types/enums/operationalinsights/v20200301preview/index.ts",
         "types/enums/operationalinsights/v20200801/index.ts",
         "types/enums/operationalinsights/v20201001/index.ts",
